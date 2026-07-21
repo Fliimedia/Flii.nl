@@ -169,6 +169,10 @@
   animation: rb-glow 4s ease-in-out infinite;
 }
 
+
+/* ── SMOOTH SCROLL ── */
+html { scroll-behavior: auto; } /* we handle this ourselves */
+
 /* ── RESET ── */
 *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 html { scroll-behavior: smooth; }
@@ -816,48 +820,50 @@ img { display: block; max-width: 100%; }
 
 
 
-/* ── STICKY BAR ── */
+/* ── STICKY BAR — transparent fade ── */
 .sticky-bar {
   position: fixed;
   bottom: 0; left: 0; right: 0;
-  background: rgba(15,14,12,.92);
-  backdrop-filter: blur(16px);
-  -webkit-backdrop-filter: blur(16px);
-  padding: var(--sp-2) var(--sp-2) calc(var(--sp-2) + env(safe-area-inset-bottom));
-  display: flex; align-items: center; justify-content: space-between;
-  z-index: 999;
-  transform: translateY(0);
-  transition: transform 400ms ease;
+  height: 80px;
+  background: linear-gradient(to top, rgba(255,255,255,.85) 0%, rgba(255,255,255,0) 100%);
+  pointer-events: none;
+  z-index: 990;
 }
 
-.sticky-bar-left { display: flex; flex-direction: column; gap: 1px; }
-.sticky-bar-ignite {
-  font-family: var(--ff-disp);
-  font-size: 14px; font-weight: 800;
-  color: #fff;
-  letter-spacing: -.3px; line-height: 1.1;
-}
-.sticky-bar-sub {
-  font-family: var(--ff-body);
-  font-size: 10px; font-weight: 400;
-  color: rgba(255,255,255,.5);
-  letter-spacing: .01em;
-}
-.sticky-bar.hidden { transform: translateY(100%); }
 
-.sticky-bar-cta {
-  font-size: 12px !important;
-  padding: 9px 16px !important;
-  white-space: nowrap;
-}
-.sticky-bar-close {
-  position: absolute; top: 50%; right: 130px;
+
+
+
+
+
+/* ── FLOATING ICON SIDEBAR ── */
+.float-sidebar {
+  position: fixed;
+  right: -64px;
+  top: 50%;
   transform: translateY(-50%);
-  width: 20px; height: 20px;
-  color: rgba(255,255,255,.3);
-  cursor: pointer; font-size: 18px; line-height: 1;
-  display: flex; align-items: center; justify-content: center;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  z-index: 995;
+  transition: right 0.4s cubic-bezier(0.23, 1, 0.32, 1);
 }
+.float-sidebar.visible { right: 12px; }
+.float-icon {
+  width: 44px; height: 44px;
+  border-radius: 50%;
+  background: rgba(255,255,255,.92);
+  backdrop-filter: blur(8px);
+  border: 1.5px solid #E8294A;
+  animation: rb-glow 4s ease-in-out infinite;
+  display: flex; align-items: center; justify-content: center;
+  cursor: pointer;
+  color: var(--c-ink);
+  transition: transform 0.2s ease, background 0.2s ease;
+  text-decoration: none;
+}
+.float-icon:hover { transform: scale(1.1); background: #fff; }
+.float-icon svg { width: 20px; height: 20px; }
 
 /* ── FOOTER ── */
 .footer {
@@ -1096,7 +1102,7 @@ img { display: block; max-width: 100%; }
 
   <!-- Eyebrow — very top -->
   <div class="hero-eyebrow">
-    <span class="hero-eyebrow-name">Flii Media</span>
+    <span class="hero-eyebrow-name">Flii</span>
     <span class="hero-eyebrow-dot"></span>
     <span class="hero-eyebrow-sub">marketing &amp; performance media</span>
   </div>
@@ -1617,15 +1623,28 @@ img { display: block; max-width: 100%; }
 
 
 
-<!-- STICKY BAR -->
-<div class="sticky-bar" id="sticky-bar">
-  <div class="sticky-bar-left">
-    <span class="sticky-bar-ignite">Let's Ignite ambitions</span>
-    <span class="sticky-bar-sub">Klaar om te starten?</span>
+<!-- FLOATING SIDEBAR -->
+<div class="float-sidebar" id="float-sidebar">
+  <a href="mailto:info@flii.nl" class="float-icon" title="E-mail">
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round">
+      <rect x="2" y="4" width="20" height="16" rx="2"/>
+      <path d="M2 8l10 6 10-6"/>
+    </svg>
+  </a>
+  <a href="tel:+31640881169" class="float-icon" title="Bel ons">
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+      <path d="M6 2h4l2 5-2.5 2c1.2 2.5 3.5 4.8 6 6l2-2.5 5 2V18a2 2 0 01-2 2C9 20 4 15 4 8a2 2 0 012-2z"/>
+    </svg>
+  </a>
+  <div class="float-icon" title="Chat" onclick="window.chatbase && window.chatbase('open')">
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round">
+      <path d="M21 15a2 2 0 01-2 2H7l-4 4V5a2 2 0 012-2h14a2 2 0 012 2z"/>
+    </svg>
   </div>
-  <span class="sticky-bar-close" onclick="document.getElementById('sticky-bar').classList.add('hidden')">×</span>
-  <a href="#contact" class="sticky-bar-cta rb-btn-dark">Plan een gesprek →</a>
 </div>
+
+<!-- STICKY BAR — transparent brand fade -->
+<div class="sticky-bar" id="sticky-bar"></div>
 
 <script>
 // Signature: nav wordmark reveal on load
@@ -1701,7 +1720,7 @@ document.addEventListener('click', function(e) {
     { src: dmSrc, alt: 'Digital Movements', angle: 240 },
   ];
 
-  var outerR = 100, innerR = 55;
+  var outerR = 120, innerR = 70;
 
   function makeNode(data) {
     var el = document.createElement('div');
@@ -1813,6 +1832,71 @@ document.addEventListener('click', function(e) {
   word.addEventListener('mouseleave', function() { active = false; });
 })();
 </script>
+
+
+// ── SMOOTH SCROLL WITH EASING ───────────────────────────────────────
+(function() {
+  var target = window.scrollY;
+  var current = window.scrollY;
+  var ease = 0.09; // lower = slower, smoother (flii.nl style)
+  var running = false;
+
+  function lerp(a, b, t) { return a + (b - a) * t; }
+
+  function tick() {
+    current = lerp(current, target, ease);
+    var delta = Math.abs(target - current);
+    if (delta < 0.5) {
+      current = target;
+      window.scrollTo(0, current);
+      running = false;
+      return;
+    }
+    window.scrollTo(0, current);
+    requestAnimationFrame(tick);
+  }
+
+  window.addEventListener('wheel', function(e) {
+    e.preventDefault();
+    target = Math.max(0, Math.min(target + e.deltaY * 1.2, document.body.scrollHeight - window.innerHeight));
+    if (!running) { running = true; requestAnimationFrame(tick); }
+  }, { passive: false });
+
+  // anchor link clicks — smooth scroll
+  document.querySelectorAll('a[href^="#"]').forEach(function(a) {
+    a.addEventListener('click', function(e) {
+      var id = this.getAttribute('href').slice(1);
+      var el = document.getElementById(id);
+      if (el) {
+        e.preventDefault();
+        target = Math.min(el.getBoundingClientRect().top + window.scrollY - 80, document.body.scrollHeight - window.innerHeight);
+        if (!running) { running = true; requestAnimationFrame(tick); }
+      }
+    });
+  });
+})();
+
+
+
+// ── FLOATING SIDEBAR — show after services section ──────────────────
+(function() {
+  var sidebar = document.getElementById('float-sidebar');
+  var trigger = document.getElementById('diensten');
+  if (!sidebar || !trigger) return;
+
+  function check() {
+    var triggerY = trigger.getBoundingClientRect().top + window.scrollY;
+    var showAt = triggerY + trigger.offsetHeight;
+    if (window.scrollY > showAt * 0.7) {
+      sidebar.classList.add('visible');
+    } else {
+      sidebar.classList.remove('visible');
+    }
+  }
+  window.addEventListener('scroll', check, { passive: true });
+  // Also check during smooth scroll RAF
+  (function loop() { check(); requestAnimationFrame(loop); })();
+})();
 
 <script>
 window.chatbaseConfig={chatbotId:"xDWiHhLymvD2NuZKQ-bO_"};
