@@ -550,6 +550,30 @@ img { display: block; max-width: 100%; }
 .faq-answer p { margin-bottom: 10px; }
 .faq-answer p:last-child { margin-bottom: 0; }
 
+
+/* Service name link */
+.service-name-link {
+  color: inherit; text-decoration: none;
+  display: flex; align-items: center; gap: 6px;
+  transition: color .15s;
+}
+.service-name-link:hover { color: var(--c-red); }
+.svc-link-arr {
+  font-size: 14px; opacity: 0;
+  transition: opacity .15s, transform .15s;
+}
+.service-name-link:hover .svc-link-arr { opacity: 1; transform: translateX(2px); }
+/* Chip links */
+.service-tag-link {
+  color: inherit; text-decoration: none;
+  transition: background .15s, color .15s, border-color .15s;
+}
+.service-tag-link:hover {
+  background: rgba(232,41,74,.18);
+  color: var(--c-red);
+  border-color: rgba(232,41,74,.3);
+}
+
 /* ── CLIENTS ── */
 .clients-ticker {
   overflow: hidden;
@@ -1705,42 +1729,42 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
       <div class="service">
         <div class="service-header">
           <div class="service-num">1</div>
-          <div class="service-name">Funnel marketing</div>
+          <a href="diensten/funnel-marketing.html" class="service-name service-name-link">Funnel marketing <span class="svc-link-arr">→</span></a>
         </div>
         <p class="service-desc">Meer awareness, leads, conversie of omzet nodig? Let's talk.</p>
-        <div class="service-tags"><span class="service-tag">Media</span> <span class="service-tag">Campagne</span> <span class="service-tag">Content</span> <span class="service-tag">Platform</span></div>
+        <div class="service-tags"><a href="diensten/media-beheer.html" class="service-tag service-tag-link">Media</a> <a href="diensten/funnel-marketing.html" class="service-tag service-tag-link">Campagne</a> <a href="diensten/content-creatie.html" class="service-tag service-tag-link">Content</a> <a href="diensten/web-development.html" class="service-tag service-tag-link">Platform</a></div>
       </div>
       <div class="service">
         <div class="service-header">
           <div class="service-num">2</div>
-          <div class="service-name">Media beheer</div>
+          <a href="diensten/media-beheer.html" class="service-name service-name-link">Media beheer <span class="svc-link-arr">→</span></a>
         </div>
         <p class="service-desc">Planning, inkoop, platform management & adverteren op 20+ media kanalen.</p>
-        <div class="service-tags"><span class="service-tag">Zoekmachines</span> <span class="service-tag">Social Media</span> <span class="service-tag">Programmatic</span> <span class="service-tag">Influencers</span></div>
+        <div class="service-tags"><a href="diensten/media-beheer.html" class="service-tag service-tag-link">Zoekmachines</a> <a href="diensten/media-beheer.html" class="service-tag service-tag-link">Social Media</a> <a href="diensten/media-beheer.html" class="service-tag service-tag-link">Programmatic</a> <a href="diensten/media-beheer.html" class="service-tag service-tag-link">Influencers</a></div>
       </div>
       <div class="service">
         <div class="service-header">
           <div class="service-num">3</div>
-          <div class="service-name">Content creatie</div>
+          <a href="diensten/content-creatie.html" class="service-name service-name-link">Content creatie <span class="svc-link-arr">→</span></a>
         </div>
         <p class="service-desc">Voor creatief concept, ontwikkeling en data-gedreven verbetering van content.</p>
-        <div class="service-tags"><span class="service-tag">Video</span> <span class="service-tag">Social content</span> <span class="service-tag">Fotografie</span> <span class="service-tag">Editorial</span></div>
+        <div class="service-tags"><a href="diensten/content-creatie.html" class="service-tag service-tag-link">Video</a> <a href="diensten/content-creatie.html" class="service-tag service-tag-link">Social content</a> <a href="diensten/content-creatie.html" class="service-tag service-tag-link">Fotografie</a> <a href="diensten/content-creatie.html" class="service-tag service-tag-link">Editorial</a></div>
       </div>
       <div class="service">
         <div class="service-header">
           <div class="service-num">4</div>
-          <div class="service-name">Web development</div>
+          <a href="diensten/web-development.html" class="service-name service-name-link">Web development <span class="svc-link-arr">→</span></a>
         </div>
         <p class="service-desc">Van website tot platform: wij bieden no-code, custom code en integratie oplossingen op maat.</p>
-        <div class="service-tags"><span class="service-tag">Design</span> <span class="service-tag">Development</span> <span class="service-tag">No-code</span> <span class="service-tag">Custom code</span></div>
+        <div class="service-tags"><a href="diensten/web-development.html" class="service-tag service-tag-link">Design</a> <a href="diensten/web-development.html" class="service-tag service-tag-link">Development</a> <a href="diensten/web-development.html" class="service-tag service-tag-link">No-code</a> <a href="diensten/web-development.html" class="service-tag service-tag-link">Custom code</a></div>
       </div>
       <div class="service">
         <div class="service-header">
           <div class="service-num">5</div>
-          <div class="service-name">Data & analyse</div>
+          <a href="diensten/data-analyse.html" class="service-name service-name-link">Data & analyse <span class="svc-link-arr">→</span></a>
         </div>
         <p class="service-desc">Van meting tot marktonderzoek, van testing tot trend spotting. We zorgen voor inzichten waar geen speld meer tussen past.</p>
-        <div class="service-tags"><span class="service-tag">Research</span> <span class="service-tag">Tracking</span> <span class="service-tag">Attributie</span> <span class="service-tag">Analyse & optimalisatie</span> <span class="service-tag">Dashboards</span></div>
+        <div class="service-tags"><a href="diensten/data-analyse.html" class="service-tag service-tag-link">Research</a> <a href="diensten/data-analyse.html" class="service-tag service-tag-link">Tracking</a> <a href="diensten/data-analyse.html" class="service-tag service-tag-link">Attributie</a> <a href="diensten/data-analyse.html" class="service-tag service-tag-link">Analyse & optimalisatie</a> <a href="diensten/data-analyse.html" class="service-tag service-tag-link">Dashboards</a></div>
       </div>
       <div class="services-footer-btn-wrap">
       <button class="services-contact-btn rb-btn" onclick="highlightSidebar()">
