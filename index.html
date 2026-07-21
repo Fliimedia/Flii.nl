@@ -1043,6 +1043,28 @@ img { display: block; max-width: 100%; }
   z-index: 1;
 }
 
+
+.services-footer-btn-wrap {
+  padding: var(--sp-3) var(--sp-3) var(--sp-3);
+  border-top: 1px solid rgba(255,255,255,.07);
+  display: flex;
+  justify-content: flex-start;
+}
+.services-contact-btn {
+  font-size: 13px;
+  padding: 10px 20px;
+}
+/* Sidebar highlight animation */
+@keyframes sidebar-pulse {
+  0%   { box-shadow: 0 0 0 0 rgba(232,41,74,.7), 0 2px 12px rgba(0,0,0,.08); }
+  50%  { box-shadow: 0 0 0 6px rgba(232,41,74,0), 0 4px 24px rgba(232,41,74,.3); }
+  100% { box-shadow: 0 0 0 0 rgba(232,41,74,0), 0 2px 12px rgba(0,0,0,.08); }
+}
+.float-sidebar.highlight {
+  animation: sidebar-pulse 0.5s ease-out 3;
+  border-color: #E8294A;
+}
+
 /* ── FOOTER ── */
 .footer {
   padding: var(--sp-5) var(--sp-2) 0;
@@ -1437,7 +1459,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
   <div class="services-card">
       <div class="service">
         <div class="service-header">
-          <div class="service-num">01</div>
+          <div class="service-num">1</div>
           <div class="service-name">Marketing</div>
         </div>
         <p class="service-desc">Meer awareness, leads, conversie of omzet nodig? Let's talk.</p>
@@ -1445,7 +1467,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
       </div>
       <div class="service">
         <div class="service-header">
-          <div class="service-num">02</div>
+          <div class="service-num">2</div>
           <div class="service-name">Media</div>
         </div>
         <p class="service-desc">Planning, inkoop, platform management & adverteren op 20+ media kanalen.</p>
@@ -1453,7 +1475,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
       </div>
       <div class="service">
         <div class="service-header">
-          <div class="service-num">03</div>
+          <div class="service-num">3</div>
           <div class="service-name">Content</div>
         </div>
         <p class="service-desc">Voor creatief concept, ontwikkeling en data-gedreven verbetering van content.</p>
@@ -1461,7 +1483,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
       </div>
       <div class="service">
         <div class="service-header">
-          <div class="service-num">04</div>
+          <div class="service-num">4</div>
           <div class="service-name">Web</div>
         </div>
         <p class="service-desc">Van website tot platform: wij bieden no-code, custom code en integratie oplossingen op maat.</p>
@@ -1469,13 +1491,17 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
       </div>
       <div class="service">
         <div class="service-header">
-          <div class="service-num">05</div>
+          <div class="service-num">5</div>
           <div class="service-name">Data</div>
         </div>
         <p class="service-desc">Van meting tot marktonderzoek, van testing tot trend spotting. We zorgen voor inzichten waar geen speld meer tussen past.</p>
         <div class="service-tags"><span class="service-tag">Research</span> <span class="service-tag">Tracking</span> <span class="service-tag">Attributie</span> <span class="service-tag">Analyse & optimalisatie</span> <span class="service-tag">Dashboards</span></div>
       </div>
-      <p class="services-footer">Meer dan 30 diensten — <a href="mailto:info@flii.nl" style="color:var(--c-red)">neem contact op</a> voor maatwerk.</p>
+      <div class="services-footer-btn-wrap">
+      <button class="services-contact-btn rb-btn" onclick="highlightSidebar()">
+        Neem contact op →
+      </button>
+    </div>
     </div>
   </section>
 
@@ -1616,7 +1642,26 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 
   <div class="team-network">
     <div class="team-network-icon">
-      <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAHgAAAB4CAYAAAA5ZDbSAAARz0lEQVR42u2de5RXZbnHP8+79/5dBobrAF4Bk0SzOh4hzZZ4zRUpINKC02lpx2Vl5iXTzqmWqcNotuqkWWZ6yFOetHWqQQsHxPQYYnhJQ9FK8YbIXe7DXH63vd/3OX/sPSOMgAIT85thf9b68eM3M8za7/t9n+d9nue9ACkpKSkpKSkpKSkpKSkpKSkpKSkpKSkpKSkpKSkpKSkpKSkpKSkpKSkpKSl9Ca3HaD0m7YmUlF5luYoAhA96kwpz/FO2/1pf58BwV7PjdlrLZ8W3U7b/Wipw36KEo3IgNfhAE1iQA8M1V73AqpgDZZ48IAUWwYmgqch9UODFiwkq84KL2+7nYBG023JXwSG47o7Qqzm3rroHU0XGvYlzzp3pB15TcyNDpAHXTZ1Yg5LvzmcVQaWhewdNn7dg+RdstmQvUNHVubw3T+czYJ9Enh4L4Hn8HtH5ALyE7pO49RgRtHkeg8sPeD9on58/rBrz66qc3zosQxcTlNaaOUbIZYpuksyg2PG9Hn2+eow04PRh+lXKZh4QZWrdeZxGexI/aGrBuw+wVBUj4wlzm91nACp5c782ktnDwEuSNnqAN24cwbhxBB2fk+/JXol7N7lKxTyggsvUuslyOm3VJm7VU5+4ZJ1DbWmuWVSca5r+3khGFdFdCyOApyDGgJe8TJdX59elc6B77yV2x8DSv5MpzjXzS01mgTZR0yF8dSb+VU6nxTRRF4p/0TYb3TlsKq0KIuxgLQIYI1gRsHHYMwA4EhgDDAVygAPKwHrgdWC5CAUj4BRU8ZKf0Z2J+9zP8I892P+tqB7U1mIn1l1AS8czpgLv45y8mx/xJBHWOYYAZwLnHjvafOyokd5hHzjE1BxSZxCJG2wdrFzveHONbX1tlVv52mr3FNAEPOYZ2hOhTSL0Ds9Qmit3omZ8NrITZRqbq1ncXiPwdhYksmMeKwCeQW0s7BdHDZcvTD45c9R5pwR89EiPusECWVFMlwFiMZSV9ZuV516z/P5PIQ89XXlhzWadBdzjGQrW7SgyQDjPm1gu2xf7f4Z11S5urxJ4ZwFiUu3COc4bPki+e/GU7NFfmpJh5OGeYnBUVGyIuI6gTHdotXoGTIASiGIxy96ycsfvy/xiXuWZ5na9xjMscA6S+V730KtUBV5vFleV/qrccs5JwS33Xl9T99lJWTuwRghLGK1g1MWLC0biYKozyIo/i4I4i9gKRiOoqzP6qQlZd+ZxweGvr9LPLl9nqa/niT89jnYMC63HzFzYe6Jl6cXiDjKGe6+5IDfpxi/kHBmIihikMzLe465wLkJtiaC/2EKL8b75X8rtv6v8fMwYvWzZG5R3ZsmpBXd3iizoAGVwaJh9+9dqJn7jiznrKhgbYoyJQ+u9GudaQTJD8YZNwWZPMtmM6tknbXS+yrj7/+hG1dcz9/HHe1+O25sElnqQYdMJnn+Ze2+7Mn/OZRfkoqhFfZKcd6+dmFaQ7CjMkbchwy/ADJyAGzhRlFo59cMvOq3Y4274sR3kGR5KoutU4H+Ea14kuJde4rqrZmQvue6SfBS2qW9kb622Q18DroQcfBkydCpEzUCEeAHUniwaVeSMsX9xr64wJ/3tTbvSGJYkIvcKa+4to9EYg3PKhJM/6n/zxovzzpXUM+yjuAioA5NH8h8EDZMuMaAW0QIMPV/IjzU/vFz0Q6P97znHGBOnaiYVuJtcsyp6+OHkavPy3e9fks/1GyjqQkT2OUTUTpFVw3d3jQsxmaFEmY/JwYeqq78wPxy4VoH6+l4yr/VU+ZFjkdldvj49/kO7FDM8z2CtY/pF52Qaf35dP2eLaqS7hqYYiFqRQ69CDrsaolaQZOZSC34tuuZHuNU/VA3667nfaC3Pfzo8XZVnRTCA3S43NszeRbte6pl1Y79HRtUeNFQVJ4I/oEa+fNl5WRDUdWfwoIDJoFubkLppkB0Jti0WHgU1EG7EKRLUiPvK1Ez+kWfDLxjDM12rXCLVV9XarwJ3VH+Kc83lgpwMFHknKlUFX2BrtmRvkBlsnD4dz/ewwPgzx/knH3+Mp7aoxnTrxOJAslBcga5sQEbdBNnDQCMwOWhdjG59GGOyUHDmtH/2Of4ob/KzS+2hxrDmuuswDQ04bWRYOeddrzBYIOr0jrHoeUWfyE92t+/vCth+FbijYepoNoblQNkk21hd3CNGkUKLH1vChtmIxt306bNPCrLkxLqKel63TywOTA7dthB9/SJk6DTIjYTSanTLfWByiGkljJz0H2z0k+OCg55das8E7lnYENerW3xcVmStQZsBZ975zQpknaN5+z5IK1l0lo28uoHy0KI7as86+khjbQlP/mFPbUBL8dwrGXAF5LD/QEZchHt7FnbNLILawP7fotB86utts1T5ShKoVu2CQ4/MwR1B1i6FnRF3mBhUHcPGjvI+MnqEQOUfHfU7kFxH1Rm8fkjtCZA5CDPiInTLI1B5U44Z5cvhw+W4les1ECHs3AjQuJvnS4Osd5tTsqA/aswhpi5XI9jKvua971PkTmsO0Q2/QvJHQ2UNuHaIjAwbZDjiIG/UyvXRUCO8bWOnqzLjnYj6gLbgPZw+ho0YIj6B4Moq3n6bVOLgS7c+gpbeBFeGcCMWj2xWqRskA4AhwNtU8SJENQvcwdCB/QUEpSe2pEoAhddABJEMLon1B/STLNC/2juvqgVOTCJfk0sE7pGgUON0CU3y4mQXSRz9V72BVHWpMlGzeVubguvJc4Hb7cETFFVKkcab9yQVeB8NmK3NbbHl9HRfqiaRXwgtbRSAluQpNRV47wVes3qDKxBqVWyTMQbaS7Buq9sCbK72NcOqdtFJ5616Y61b29KieF5sRT36PAFu7SbH8rXudWCrairwnrjA7a85UucQYNurK9ySV1ZayIp7Px3qXPLS+H1X7ta5+N269zdwVAFfWPJaxKZmfc7Ex2i8Du2r8Zomv0qEFWZjRN5VKDCewRbL+vhjz0fTTxgfyHvp4BT8vNB5PkHAFfVdQnkBkI2XBTwfKCrW7r6QIqBYNY8ujhzwhHTJfjsKONqIx/T4APsBL7BqvEsSsJWH/JOiKPJrJrOoy9GUP8z/c7TlazN0SBDEh89kFxbmZ+G5v0X88g8VyhXl0x8PmHpagLNJlqPgZYV1b1vumldhxTrHh44wXDw5S21/wUY7F1kV/Ay6bq3KY0uiV4BFumPpi/a5nGAcW+Rc3ujStgPPRasijY14IjhtJFNukhvEaZM4c1Qy4QngIocILHvyr9G8Bc9FmLy4nbldp+DlhCeXWK74UZGxozzOOjHgzjllvv+rEiYjWAsmgJVrHZ+/qUB7QZl+RoZXVzi+fHORUlnZ1UYC52KLn7MolGVr3K+NodW52D13uGVRc5aI92SlyVytj+GLxGeae/LMsPSUuB3uq9Dkn2pwtwAm65kr5JzoyS5rpvF+LMcnzv54sGDuD/oF6pJjLNsHP4nb/Vx9gakTAmZMz0JZ2bTa8a8N7fz0qjwfHO0jAXzjhwUG1grf/moNFBU8+Pw17XxyvM/np2UJWxTPvMuluy3bVE6/onX9X5e5E1VZJXFm7rZvU6nJm2pEG5xK0YNvB1PsH7u2uc9bsAiq8xlQbpJbDfprEX3wjZL7uJwTPVmfnJzfwXgcRoSnHn4m/E3jo6Hx+otzdsfw1gtgy1alWFZO+SefaJOjtFmpG2EYc6jHS285yIAtKCs3OCaeEGDblfZmxSqcMc7npeV2pxltYr36k/vK8tdl7ifGsDLZruO2bxNAboqdE/R3J4rwsIV7K03e3TqXQ0VQ7QGDMvvbcgH0YY4oO/MnFfmYYCZlJ2v9h2dQUY13R+zq31tl5rX/XVyzcrn1gjw7uGp1kMvGEXFLu+L3F4Ig9lGeF58FFj9+9028I8fzIJ8FLwNLXrWMPsh7lwTWQlAr9pnFkXfb/eXnPjCYn1r7juW+q42NeHI6pexkWw/2DDUypKzeE5UH/fFCN14oU80WXCqBKLdmJ7sJ2Snh89oYH9jeTUDiVDFGeGvZGnfVpTcXtVwG46POxb7aRlAz0HDqcR7fvqvIiuWWtoLS2qoUy1AqQ3uLsq1dqUTQVlSKBaWtAnfdW2bpSsf0TwZoQTuPvjgHQR63/m3nXX5rYduWbXrpW81sS1zzTt2tzMAqiDbi5abwSnZSdK7ncWkQRZsBmHmA7ejYwyOYHTssr794cqZh1rf6OVSJkmMrJAe/b/7fMguXhAzsJxgDzy61HFJnGDncUA6VZ5dGjDrIY/ggoVRR+uWF73wpz9gjPGwlDtGtgyCLa25V+dz1BX3omfBCY7jXufe/g0PrMTSg0oOlzJ4JskBoxOxFrij1IDMVFeHWr0zNXHnLlTWaD8BG8T5pEZCssGmDo6Vdyebg67cVmfSJgDNPDCgVlatvLzJtQsCJH/VxIYwdaRCfzg0FzoGfQzduUbnwxoKb/+fwSs9wu42jZrunbZ3diJneQ3mx30OjStm73Q/aAMwU8Axfu3NOZevaTXr93dfUyOABojaKB6wtKnWDhbohAlnolxdGjjAcfJiBUBk2UDh8hHDUMT60OlwUi2uSgw5+VvS15ZFc+J1C+9Mv2696hl/sjbj72Na+X4velcjJNQziGRoeeCK84uL/LGgYdd7Og0nm5KgCWoktMgzjv2sU+8v2ImhZqZSTjpDOdEg3bHGcf0Nh29Mv2xmJuGZvxE1r0ftY95/2GTzP4477FoZ3/fbRUEx/cU4705bOV9fPspPvJ1G+kkV//NuS/OUV2+B7zLcOH6r7moa+KDCAzp4NUYQEAXf85o+VNldUz5i9m+dUwQ/QLRvUPLAoXD5yIP8TRtW9JbavCwzgPIOGIUtfX2Vf3bhJ8fzYTe/xL9K4mPHKCseba90zK7exdebMHWvNvRGfvoGthBSLlVioyL0zp+LeWRq0brvPyTJhcp9WnBYpNLcqxQobAO/ll3t/x/R+geM7OdygAdQcXCeY/kI25J2NrDnIZYUB/QRvgICNP9fWxJ+9xI8FDugvfPAwYfggOXTTNrX03ktq+o7AGi8Bnr9qvR5d//MiAjusGfsePPZ8yJYWx9F/DnFOeXRxyJqNjgXPR/EKUhJoGYNpL8K2Np3glDPuu48F9MKLV6qqkrUvz56kRd+adkpw0ynHB6a1bScLxRrXqMMIoiTRyW/3uUsUjRG0pgb53cKwtOjF6HwR7k92bdhU4P343MagzjHkw6PNkqdmDRhZO0IcUXyN0k6TKumaZO2i9Q7IE73ygvVPubx1wcZmPUvjyhm90ZJ7u4uuOWSYyfbL4cqbnWg3bJ1WBa9dzcFDxQ0fJIM3NmvGGEq91Rh6r8CxLbW8tc61bWrWEcOPMK5zG7rs0++EvOjrT0Xemk26Cag41x33gaQueo9z+OTGu4vPPN7//rFHegOdRQJ/77UVIIxUMcKiF8J1L77h/k2ER7vePJsKvP8Dre9N+Ij3zS+em7WBwdubQofGUTStBfRHjWVZusJeYgyz9mR5MHXR3a4uqop/+DAz/p7r+jH6GA+K+zBsHVAr7gOHGDPx39vGXnsthgZo6M1urnfr2+mHBuez4ghxVFSJkqRmT16RQkUVqzafQZyj9oaG3l2m7O0WrC7edxyt2uDuu/GXpeO/NCVjoggKJd3liYZdueeMD/mcSGjJ3PybMqr8wRhocL17Guv1c3DyngUurclymmc48cQP+cNr+4la994nElUh8NFla528tsr+3TpeLld4ELiHXl7F6gsCd+KZeMFgyABpeurO2sljx8Q38rzX3dHWgj9Q3K13l8zVPyl+WQw/k2Qxoi/QV/57WXPtdfFmSM9LLM7Gpcj383I2LlEaE98A75Sgrwz8vrJcqDfcEK8OhhV8z6AMFpttf28fFcSRsxbK+M5hkwHiUoGrTOCOg17N7frIzF+Uzp5yqp9x4e5PC6rGm9+3tcE9D5VXAwu1yk/sH7BzcJc2fQ4YT+cB0t0G0AKUgEbghb4QWPV1gTtvUHu/OVLHOdXkaI32tdHeF9mbnRh9au5NSUlJSUlJSUlJSUlJSUlJSUlJSUlJSUlJSUlJSUlJSUlJSUlJSUlJSUk5gPh/2odiClC16REAAAAASUVORK5CYII=" alt="Netwerk" style="width:52px;height:52px;object-fit:contain">
+      <svg viewBox="0 0 64 64" width="40" height="40" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <!-- Central node -->
+        <circle cx="32" cy="32" r="5" fill="#E8294A"/>
+        <!-- Outer nodes -->
+        <circle cx="32" cy="10" r="4" fill="#0F0E0C" stroke="#E8294A" stroke-width="1.5"/>
+        <circle cx="54" cy="44" r="4" fill="#0F0E0C" stroke="#E8294A" stroke-width="1.5"/>
+        <circle cx="10" cy="44" r="4" fill="#0F0E0C" stroke="#E8294A" stroke-width="1.5"/>
+        <!-- Connection lines -->
+        <line x1="32" y1="27" x2="32" y2="14" stroke="#E8294A" stroke-width="1" stroke-opacity=".4"/>
+        <line x1="36" y1="35" x2="50" y2="41" stroke="#E8294A" stroke-width="1" stroke-opacity=".4"/>
+        <line x1="28" y1="35" x2="14" y2="41" stroke="#E8294A" stroke-width="1" stroke-opacity=".4"/>
+        <!-- Secondary nodes -->
+        <circle cx="48" cy="14" r="3" fill="#0F0E0C" stroke="#ccc" stroke-width="1"/>
+        <circle cx="16" cy="14" r="3" fill="#0F0E0C" stroke="#ccc" stroke-width="1"/>
+        <circle cx="32" cy="52" r="3" fill="#0F0E0C" stroke="#ccc" stroke-width="1"/>
+        <!-- Secondary connections -->
+        <line x1="35" y1="29" x2="46" y2="16" stroke="#999" stroke-width=".75" stroke-opacity=".3"/>
+        <line x1="29" y1="29" x2="18" y2="16" stroke="#999" stroke-width=".75" stroke-opacity=".3"/>
+        <line x1="32" y1="37" x2="32" y2="49" stroke="#999" stroke-width=".75" stroke-opacity=".3"/>
+      </svg>
     </div>
     <div class="team-network-name">Netwerk</div>
     <div class="team-network-sub">Maak kennis met ons netwerk van ervaren specialisten.</div>
@@ -1631,7 +1676,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
   <div class="faq-list">
 
     <div class="faq-item open">
-      <div class="faq-question">
+      <div class="faq-question" onclick="toggleFaq(this)" style="cursor:pointer">
         <span class="faq-q-text">Wat doet een mediabureau voor mijn bedrijf?</span>
         <span class="faq-toggle"><svg viewBox="0 0 12 12"><path d="M6 1v10M1 6h10"/></svg></span>
       </div>
@@ -1639,7 +1684,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
     </div>
 
     <div class="faq-item">
-      <div class="faq-question">
+      <div class="faq-question" onclick="toggleFaq(this)" style="cursor:pointer">
         <span class="faq-q-text">Met welke platformen werken jullie?</span>
         <span class="faq-toggle"><svg viewBox="0 0 12 12"><path d="M6 1v10M1 6h10"/></svg></span>
       </div>
@@ -1647,7 +1692,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
     </div>
 
     <div class="faq-item">
-      <div class="faq-question">
+      <div class="faq-question" onclick="toggleFaq(this)" style="cursor:pointer">
         <span class="faq-q-text">Hoe meten jullie resultaten?</span>
         <span class="faq-toggle"><svg viewBox="0 0 12 12"><path d="M6 1v10M1 6h10"/></svg></span>
       </div>
@@ -1655,7 +1700,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
     </div>
 
     <div class="faq-item">
-      <div class="faq-question">
+      <div class="faq-question" onclick="toggleFaq(this)" style="cursor:pointer">
         <span class="faq-q-text">Wat kost jullie diensten?</span>
         <span class="faq-toggle"><svg viewBox="0 0 12 12"><path d="M6 1v10M1 6h10"/></svg></span>
       </div>
@@ -1663,7 +1708,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
     </div>
 
     <div class="faq-item">
-      <div class="faq-question">
+      <div class="faq-question" onclick="toggleFaq(this)" style="cursor:pointer">
         <span class="faq-q-text">Hoe verloopt een samenwerking?</span>
         <span class="faq-toggle"><svg viewBox="0 0 12 12"><path d="M6 1v10M1 6h10"/></svg></span>
       </div>
@@ -1897,23 +1942,38 @@ document.querySelectorAll('.faq-question').forEach(function(q) {
 
 <script>
 // ── FAQ accordion ─────────────────────────────────────────────────────
-(function() {
-  function initFaq() {
-    document.querySelectorAll('.faq-question').forEach(function(q) {
-      q.addEventListener('click', function() {
-        var item = this.closest('.faq-item');
-        var wasOpen = item.classList.contains('open');
-        document.querySelectorAll('.faq-item').forEach(function(i) { i.classList.remove('open'); });
-        if (!wasOpen) item.classList.add('open');
-      });
-    });
+
+// ── SIDEBAR HIGHLIGHT ────────────────────────────────────────────────
+window.highlightSidebar = function() {
+  var sb = document.getElementById('float-sidebar');
+  if (!sb) return;
+  // Make visible if not already
+  sb.classList.add('visible');
+  // Trigger highlight
+  sb.classList.remove('highlight');
+  void sb.offsetWidth; // force reflow
+  sb.classList.add('highlight');
+  // Remove after animation
+  setTimeout(function() { sb.classList.remove('highlight'); }, 1700);
+  // Also show a mini tooltip on the sidebar
+  var tip = document.getElementById('sidebar-tip');
+  if (!tip) {
+    tip = document.createElement('div');
+    tip.id = 'sidebar-tip';
+    tip.style.cssText = 'position:fixed;right:64px;top:50%;transform:translateY(-50%);background:#0F0E0C;color:#fff;font-size:11px;font-weight:600;padding:6px 10px;border-radius:8px;white-space:nowrap;z-index:1000;opacity:0;transition:opacity .2s;pointer-events:none';
+    tip.textContent = 'Neem contact op →';
+    document.body.appendChild(tip);
   }
-  if (document.readyState === 'loading') {
-    document.addEventListener('DOMContentLoaded', initFaq);
-  } else {
-    initFaq();
-  }
-})();
+  tip.style.opacity = '1';
+  setTimeout(function() { tip.style.opacity = '0'; }, 1500);
+};
+
+window.toggleFaq = function(el) {
+  var item = el.closest('.faq-item');
+  var wasOpen = item.classList.contains('open');
+  document.querySelectorAll('.faq-item').forEach(function(i) { i.classList.remove('open'); });
+  if (!wasOpen) item.classList.add('open');
+};
 
 // ── Footer contact close on outside click ─────────────────────────────
 document.addEventListener('click', function(e) {
