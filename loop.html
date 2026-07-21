@@ -3,476 +3,535 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
-<title>Flii Loop — AI marketing automation</title>
+<title>Flii Loop</title>
 <meta name="description" content="Flii Loop: een plan voor het opstarten en blijvend verbeteren van jouw apps, platformen of media.">
 <link rel="canonical" href="https://flii.nl/loop">
-<link rel="icon" type="image/png" href="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAEAAAABACAYAAA...">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,400;12..96,500;12..96,600;12..96,700;12..96,800&family=DM+Sans:ital,opsz,wght@0,9..40,400;0,9..40,500;0,9..40,600;1,9..40,400&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
 <style>
-:root {
-  --mag: #E8294A;
-  --ink: #0F0E0C;
-  --muted: #4A4840;
-  --subtle: #9B9790;
-  --rule: #E8E6E1;
-  --bg: #fff;
-  --dark: #0F0E0C;
-  --sp: 8px;
-  --r: 16px;
-  --ff-disp: 'Bricolage Grotesque','Inter',system-ui,sans-serif;
-  --ff-body: 'DM Sans',system-ui,sans-serif;
-  --ff-mono: 'JetBrains Mono',monospace;
-  --ease: 0.2s ease;
-}
-* { box-sizing: border-box; margin: 0; padding: 0; -webkit-font-smoothing: antialiased; }
-body { font-family: var(--ff-body); background: var(--bg); color: var(--ink); }
+:root{--mag:#E7255A;--paper:#F3F1EB;--ink:#0F0E0C;--muted:#4A4840;--subtle:#9B9790;--rule:#E8E6E1;--bg:#fff;--dark:#0C0207;
+  --ff-disp:'Bricolage Grotesque','Inter',system-ui,sans-serif;
+  --ff-body:'DM Sans',system-ui,sans-serif;
+  --ff-mono:'JetBrains Mono',monospace;}
+*{box-sizing:border-box;margin:0;padding:0;-webkit-font-smoothing:antialiased;}
+body{font-family:var(--ff-body);background:var(--bg);color:var(--ink);}
 
-/* ── NAV ── */
-.nav { display: flex; align-items: center; justify-content: space-between;
-  padding: 0 16px; height: 60px; border-bottom: 1px solid var(--rule);
-  position: sticky; top: 0; background: rgba(255,255,255,.92); backdrop-filter: blur(12px); z-index: 100; }
-.nav-logo { display: flex; align-items: center; gap: 8px; text-decoration: none; }
-.nav-logo img { width: 32px; height: 32px; object-fit: contain; }
-.nav-logo-text { font-family: var(--ff-disp); font-size: 16px; font-weight: 800; color: var(--ink); letter-spacing: -.3px; }
-.nav-back { font-size: 13px; color: var(--muted); text-decoration: none; font-weight: 500; }
-.nav-back:hover { color: var(--ink); }
+/* NAV */
+.nav{display:flex;align-items:center;justify-content:space-between;padding:0 20px;height:56px;
+  border-bottom:1px solid var(--rule);position:sticky;top:0;
+  background:rgba(255,255,255,.92);backdrop-filter:blur(12px);z-index:100;}
+.nav-brand{display:flex;align-items:center;gap:8px;text-decoration:none;font-family:var(--ff-disp);font-size:16px;font-weight:800;color:var(--ink);}
+.nav-brand img{width:28px;height:28px;object-fit:contain;}
+.nav-back{font-size:13px;color:var(--muted);text-decoration:none;font-weight:500;}
+.nav-back:hover{color:var(--ink);}
 
-/* ── HERO ── */
-.hero { padding: 48px 24px 40px; max-width: 600px; margin: 0 auto; }
-.eyebrow { font-family: var(--ff-mono); font-size: 11px; font-weight: 600;
-  letter-spacing: .14em; text-transform: uppercase; color: var(--mag); margin-bottom: 12px; }
-.hero h1 { font-family: var(--ff-disp); font-size: clamp(32px,9vw,52px);
-  font-weight: 800; letter-spacing: -1.5px; line-height: 1.05; margin-bottom: 16px; }
-.hero-lede { font-size: 16px; color: var(--muted); line-height: 1.6; max-width: 480px; }
+/* HERO */
+.hero{padding:48px 24px 40px;max-width:560px;margin:0 auto;}
+.eyebrow{font-family:var(--ff-mono);font-size:10px;font-weight:600;letter-spacing:.16em;
+  text-transform:uppercase;color:var(--mag);margin-bottom:12px;}
+.hero h1{font-family:var(--ff-disp);font-size:clamp(30px,9vw,52px);font-weight:800;
+  letter-spacing:-1.5px;line-height:1.05;margin-bottom:16px;}
+.hero-lede{font-size:15px;color:var(--muted);line-height:1.6;}
 
-/* ── LOOP DIAGRAM ── */
-.loop-section { background: var(--dark); padding: 48px 24px; }
-.loop-inner { max-width: 600px; margin: 0 auto; }
-.loop-eyebrow { font-family: var(--ff-mono); font-size: 11px; font-weight: 600;
-  letter-spacing: .14em; text-transform: uppercase; color: rgba(255,255,255,.4); margin-bottom: 8px; }
-.loop-h2 { font-family: var(--ff-disp); font-size: clamp(24px,7vw,38px);
-  font-weight: 800; letter-spacing: -1px; color: #fff; margin-bottom: 8px; }
-.loop-sub { font-size: 14px; color: rgba(255,255,255,.5); line-height: 1.6; margin-bottom: 40px; }
+/* LOOP RING SECTION */
+.loop-section{background:var(--dark);padding:56px 24px 64px;}
+.loop-inner{max-width:560px;margin:0 auto;}
+.loop-eyebrow{font-family:var(--ff-mono);font-size:10px;font-weight:600;letter-spacing:.16em;
+  text-transform:uppercase;color:rgba(243,241,235,.4);margin-bottom:8px;}
+.loop-h2{font-family:var(--ff-disp);font-size:clamp(24px,7vw,38px);font-weight:800;
+  letter-spacing:-1px;color:var(--paper);margin-bottom:8px;}
+.loop-sub{font-size:14px;color:rgba(243,241,235,.45);line-height:1.6;margin-bottom:40px;}
 
-/* SVG diagram */
-.loop-diagram-wrap { display: flex; flex-direction: column; align-items: center; gap: 24px; }
-.loop-svg { width: 100%; max-width: 340px; }
-.loop-ring { fill: none; stroke: rgba(255,255,255,.15); stroke-width: 1.5; }
-.loop-arrow { fill: rgba(255,255,255,.35); }
-.loop-dot { fill: var(--mag); }
-.loop-node { fill: #1a1917; stroke: rgba(255,255,255,.3); stroke-width: 1.5; }
-.loop-node-acc { stroke: var(--mag); }
-.loop-hit { fill: transparent; cursor: pointer; }
-.loop-node-g.on .loop-node { stroke: var(--mag); fill: rgba(232,41,74,.15); }
-.loop-node-n { font-family: var(--ff-mono); font-size: 11px; font-weight: 700;
-  fill: rgba(255,255,255,.8); pointer-events: none; }
-.loop-label { font-family: var(--ff-disp); font-size: 13px; font-weight: 700;
-  fill: rgba(255,255,255,.85); pointer-events: none; }
+/* LOOP RING — from flii.app exactly */
+.loop-ring-stage{position:relative;width:min(440px,calc(100vw - 48px));margin:0 auto 8px;aspect-ratio:1;perspective:1200px;}
+.loop-ring-tilt{position:absolute;inset:70px;transform-origin:center center;transform-style:preserve-3d;
+  transition:transform .7s cubic-bezier(.2,.7,.2,1),opacity .7s;will-change:transform;}
+.loop-ring-stage.open .loop-ring-tilt.tilted{transform:rotateX(34deg) scale(.97);opacity:.9;}
+.loop-ring-svg{width:100%;height:100%;display:block;overflow:visible;transition:opacity .35s;}
+.loop-ring-spin{position:absolute;inset:0;width:100%;height:100%;transform-origin:50% 50%;
+  transform-style:preserve-3d;animation:lrBreathe 6.5s ease-in-out infinite;}
+@keyframes lrBreathe{0%,100%{transform:scale(1);}50%{transform:scale(1.03);}}
+.lr-orb-rot{transform-box:view-box;transform-origin:50px 50px;animation:lrOrbRot 26s linear infinite;}
+.lr-orb-rot2{transform-box:view-box;transform-origin:50px 50px;animation:lrOrbRot 34s linear infinite reverse;}
+@keyframes lrOrbRot{to{transform:rotate(360deg);}}
+.lr-flash{opacity:0;}
+.lr-flash.on{animation:lrFlash .6s ease-out forwards;}
+@keyframes lrFlash{0%{opacity:0;}25%{opacity:.85;}100%{opacity:0;}}
 
-@keyframes loop-spin { to { transform-origin: 200px 200px; transform: rotate(360deg); } }
-.loop-spin { animation: loop-spin 8s linear infinite; }
+.loop-ring-core{position:absolute;inset:70px;display:flex;align-items:center;justify-content:center;
+  text-align:center;padding:13%;pointer-events:none;z-index:3;}
+.loop-core-default,.loop-core-content{display:flex;flex-direction:column;gap:9px;align-items:center;}
+.loop-core-content{animation:coreIn .5s ease both;}
+@keyframes coreIn{from{opacity:0;transform:translateY(8px) scale(.96);}to{opacity:1;transform:none;}}
+.loop-core-k{font-size:9.5px;letter-spacing:.16em;text-transform:uppercase;color:var(--mag);font-weight:700;}
+.loop-core-b{font-size:13px;line-height:1.42;color:var(--paper);margin:0;max-width:22ch;font-weight:500;}
+.loop-core-mark{font-size:9.5px;letter-spacing:.18em;text-transform:uppercase;color:rgba(243,241,235,.5);}
+.loop-core-hint{font-family:var(--ff-disp);font-size:15px;font-weight:600;color:rgba(243,241,235,.9);}
 
-.loop-tip { background: rgba(255,255,255,.06); border: 1px solid rgba(255,255,255,.1);
-  border-radius: 12px; padding: 16px 20px; min-height: 80px; width: 100%; max-width: 340px; }
-.loop-tip-h { display: block; font-family: var(--ff-disp); font-size: 15px; font-weight: 700;
-  color: #fff; margin-bottom: 4px; }
-.loop-tip-s { font-family: var(--ff-mono); font-size: 11px; color: var(--mag); letter-spacing: .06em; }
-.loop-tip-d { font-size: 13px; color: rgba(255,255,255,.55); line-height: 1.5; }
+.loop-step-label{position:absolute;display:flex;align-items:center;gap:7px;background:none;border:none;
+  cursor:pointer;font-family:var(--ff-mono);font-size:10.5px;letter-spacing:.11em;text-transform:uppercase;
+  color:rgba(243,241,235,.6);white-space:nowrap;padding:6px;transition:color .15s;
+  text-shadow:0 1px 8px rgba(0,0,0,.45);z-index:4;}
+.loop-step-label:hover,.loop-step-label:focus-visible{color:var(--paper);outline:none;}
+.loop-step-label.on{color:#fff;}
+.loop-step-dot{width:7px;height:7px;border-radius:50%;background:rgba(243,241,235,.38);
+  transition:background .15s,box-shadow .15s;flex:none;}
+.loop-step-label:hover .loop-step-dot{background:var(--paper);}
+.loop-step-label.on .loop-step-dot{background:var(--mag);box-shadow:0 0 0 4px rgba(231,37,90,.25);}
+.lbl-top{top:-2px;left:50%;transform:translate(-50%,0);flex-direction:column;}
+.lbl-bottom{bottom:-2px;left:50%;transform:translate(-50%,0);flex-direction:column-reverse;}
+.lbl-left{left:-2px;top:50%;transform:translate(0,-50%);}
+.lbl-right{right:-2px;top:50%;transform:translate(0,-50%);flex-direction:row-reverse;}
 
-/* Loop steps list */
-.loop-steps { display: flex; flex-direction: column; gap: 0; margin-top: 32px; }
-.loop-step { display: flex; gap: 16px; padding: 16px 0; border-top: 1px solid rgba(255,255,255,.07); }
-.loop-step-num { font-family: var(--ff-mono); font-size: 12px; color: var(--mag); font-weight: 700; min-width: 20px; }
-.loop-step-body {}
-.loop-step-k { font-family: var(--ff-disp); font-size: 15px; font-weight: 700; color: #fff; margin-bottom: 4px; }
-.loop-step-d { font-size: 13px; color: rgba(255,255,255,.5); line-height: 1.5; }
+/* LOOP LENS (top filter buttons) */
+.loop-lens{display:flex;gap:8px;justify-content:center;margin-bottom:20px;}
+.loop-lens-btn{display:flex;align-items:center;gap:6px;padding:7px 14px;border-radius:100px;
+  border:1px solid rgba(243,241,235,.15);background:transparent;color:rgba(243,241,235,.5);
+  font-family:var(--ff-mono);font-size:10px;letter-spacing:.08em;text-transform:uppercase;
+  cursor:pointer;transition:border-color .15s,color .15s,background .15s;}
+.loop-lens-btn:hover{border-color:rgba(243,241,235,.4);color:var(--paper);}
+.loop-lens-btn.on{border-color:var(--mag);color:var(--paper);background:rgba(231,37,90,.12);}
+.loop-lens-ic{display:flex;align-items:center;width:14px;height:14px;}
+.loop-lens-ic svg{width:14px;height:14px;fill:none;stroke:currentColor;stroke-width:1.6;stroke-linecap:round;stroke-linejoin:round;}
 
-/* ── CALCULATOR ── */
-.calc-section { padding: 48px 24px; max-width: 600px; margin: 0 auto; }
-.calc-h2 { font-family: var(--ff-disp); font-size: clamp(22px,6vw,32px);
-  font-weight: 800; letter-spacing: -.8px; margin-bottom: 8px; }
-.calc-intro { font-size: 13px; color: var(--muted); line-height: 1.6; margin-bottom: 32px; }
+/* CALCULATOR */
+.calc-section{padding:48px 24px;max-width:560px;margin:0 auto;}
+.calc-section .eyebrow{margin-bottom:8px;}
+.calc-h2{font-family:var(--ff-disp);font-size:clamp(22px,6vw,32px);font-weight:800;letter-spacing:-.8px;margin-bottom:8px;}
+.calc-lede{font-size:13px;color:var(--muted);line-height:1.6;margin-bottom:28px;}
 
-/* Steps */
-.calc-steps { display: flex; gap: 4px; margin-bottom: 28px; }
-.calc-step-dot { flex: 1; height: 3px; border-radius: 2px; background: var(--rule); transition: background .2s; }
-.calc-step-dot.active { background: var(--mag); }
+.calc-steps-nav{display:flex;gap:0;margin-bottom:28px;border-radius:10px;overflow:hidden;border:1px solid var(--rule);}
+.calc-dot{flex:1;padding:10px 4px;background:#fff;border:none;cursor:pointer;
+  font-family:var(--ff-mono);font-size:10px;letter-spacing:.06em;text-transform:uppercase;
+  color:var(--subtle);border-right:1px solid var(--rule);transition:background .15s,color .15s;}
+.calc-dot:last-child{border-right:none;}
+.calc-dot.on{background:var(--mag);color:#fff;}
+.calc-dot.done{background:#F9F0F2;color:var(--mag);}
+.calc-dot-n{display:block;font-size:13px;font-weight:700;margin-bottom:2px;}
+.calc-dot-l{display:block;font-size:9px;}
 
-.step-label { font-family: var(--ff-mono); font-size: 10px; font-weight: 600;
-  letter-spacing: .1em; text-transform: uppercase; color: var(--subtle); margin-bottom: 12px; }
+.calc-slide-head{margin-bottom:20px;}
+.calc-slide-title{font-family:var(--ff-disp);font-size:18px;font-weight:700;margin-bottom:4px;}
+.calc-slide-help{font-size:13px;color:var(--muted);}
 
-/* Scope toggles */
-.scope-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 8px; margin-bottom: 20px; }
-.scope-card { border: 1.5px solid var(--rule); border-radius: 12px; padding: 14px;
-  cursor: pointer; transition: border-color .15s, background .15s; background: #fff; text-align: left; }
-.scope-card.on { border-color: var(--mag); background: rgba(232,41,74,.04); }
-.scope-card-name { font-family: var(--ff-disp); font-size: 15px; font-weight: 700; color: var(--ink); }
-.scope-card-desc { font-size: 11px; color: var(--muted); line-height: 1.4; margin-top: 4px; }
+/* Scope cards */
+.type-cards{display:grid;grid-template-columns:1fr 1fr;gap:8px;margin-bottom:16px;}
+.scope-card{position:relative;border:1.5px solid var(--rule);border-radius:12px;padding:14px;
+  cursor:pointer;background:#fff;text-align:left;transition:border-color .15s,background .15s;}
+.scope-card.on{border-color:var(--mag);background:rgba(231,37,90,.04);}
+.scope-check{position:absolute;top:10px;right:10px;width:18px;height:18px;border-radius:5px;
+  border:1.5px solid var(--rule);display:flex;align-items:center;justify-content:center;
+  font-size:11px;font-weight:700;color:transparent;transition:all .15s;}
+.scope-card.on .scope-check{border-color:var(--mag);background:var(--mag);color:#fff;}
+.scope-badge{display:inline-block;font-family:var(--ff-mono);font-size:8px;letter-spacing:.08em;
+  text-transform:uppercase;color:var(--mag);background:rgba(231,37,90,.1);border-radius:4px;
+  padding:2px 5px;margin-bottom:6px;}
+.scope-card-t{font-family:var(--ff-disp);font-size:15px;font-weight:700;color:var(--ink);display:block;}
+.scope-card-d{font-size:11px;color:var(--muted);margin-top:4px;line-height:1.4;}
 
-/* Phase toggles */
-.phase-list { display: flex; flex-direction: column; gap: 8px; margin-bottom: 20px; }
-.phase-row { display: flex; align-items: flex-start; gap: 12px; padding: 14px;
-  border: 1.5px solid var(--rule); border-radius: 12px; cursor: pointer;
-  transition: border-color .15s, background .15s; background: #fff; }
-.phase-row.on { border-color: var(--mag); background: rgba(232,41,74,.04); }
-.phase-check { width: 18px; height: 18px; border-radius: 5px; border: 1.5px solid var(--rule);
-  display: flex; align-items: center; justify-content: center; flex-shrink: 0; margin-top: 1px;
-  transition: border-color .15s, background .15s; }
-.phase-row.on .phase-check { border-color: var(--mag); background: var(--mag); }
-.phase-check-mark { display: none; }
-.phase-row.on .phase-check-mark { display: block; }
-.phase-name { font-family: var(--ff-disp); font-size: 14px; font-weight: 700; color: var(--ink); }
-.phase-desc { font-size: 12px; color: var(--muted); margin-top: 2px; line-height: 1.4; }
+/* Phase cards */
+.phase-list{display:flex;flex-direction:column;gap:8px;margin-bottom:20px;}
+.phase-row{display:flex;align-items:flex-start;gap:12px;padding:14px;
+  border:1.5px solid var(--rule);border-radius:12px;cursor:pointer;
+  background:#fff;transition:border-color .15s,background .15s;}
+.phase-row.on{border-color:var(--mag);background:rgba(231,37,90,.04);}
+.phase-chk{width:18px;height:18px;border-radius:5px;border:1.5px solid var(--rule);flex-shrink:0;
+  display:flex;align-items:center;justify-content:center;margin-top:2px;
+  transition:border-color .15s,background .15s;}
+.phase-row.on .phase-chk{border-color:var(--mag);background:var(--mag);}
+.phase-chk svg{display:none;}
+.phase-row.on .phase-chk svg{display:block;}
+.phase-name{font-family:var(--ff-disp);font-size:14px;font-weight:700;}
+.phase-desc{font-size:12px;color:var(--muted);margin-top:3px;line-height:1.4;}
+.save-note{font-size:11px;color:var(--mag);margin-top:4px;font-weight:600;}
 
-/* Channel categories */
-.cat-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 8px; margin-bottom: 20px; }
-.cat-btn { border: 1.5px solid var(--rule); border-radius: 10px; padding: 10px 12px;
-  cursor: pointer; font-family: var(--ff-body); font-size: 13px; font-weight: 600;
-  color: var(--ink); background: #fff; text-align: left;
-  transition: border-color .15s, background .15s; }
-.cat-btn.on { border-color: var(--mag); background: rgba(232,41,74,.05); color: var(--mag); }
-.cat-price { font-size: 10px; font-family: var(--ff-mono); color: var(--subtle); display: block; margin-top: 2px; }
+/* Channel grid */
+.cat-grid{display:grid;grid-template-columns:1fr 1fr;gap:6px;margin-bottom:20px;}
+.cat-btn{border:1.5px solid var(--rule);border-radius:10px;padding:10px 12px;
+  cursor:pointer;font-family:var(--ff-body);font-size:13px;font-weight:600;
+  color:var(--ink);background:#fff;text-align:left;transition:border-color .15s,background .15s;}
+.cat-btn.on{border-color:var(--mag);background:rgba(231,37,90,.05);color:var(--mag);}
+.cat-price{font-size:10px;font-family:var(--ff-mono);color:var(--subtle);display:block;margin-top:2px;}
 
 /* Result */
-.result-card { background: var(--dark); border-radius: 16px; padding: 24px; margin-bottom: 16px; }
-.result-row { display: flex; justify-content: space-between; align-items: baseline;
-  padding: 10px 0; border-bottom: 1px solid rgba(255,255,255,.07); }
-.result-row:last-child { border-bottom: none; }
-.result-label { font-size: 13px; color: rgba(255,255,255,.6); }
-.result-amount { font-family: var(--ff-mono); font-size: 14px; font-weight: 700; color: #fff; }
-.result-total { display: flex; flex-direction: column; gap: 4px; padding-top: 16px; }
-.result-total-line { display: flex; justify-content: space-between; }
-.result-total-label { font-size: 12px; color: rgba(255,255,255,.4); }
-.result-total-amt { font-family: var(--ff-mono); font-size: 13px; color: rgba(255,255,255,.7); }
-.result-big { font-family: var(--ff-disp); font-size: 28px; font-weight: 800; color: #fff; }
-.result-note { font-size: 12px; color: var(--subtle); margin-bottom: 24px; line-height: 1.6; }
-.result-empty { text-align: center; padding: 32px; color: rgba(255,255,255,.35); font-size: 14px; }
-.saving-badge { display: inline-flex; align-items: center; gap: 6px;
-  background: rgba(232,41,74,.15); border: 1px solid rgba(232,41,74,.3);
-  border-radius: 100px; padding: 4px 12px; font-size: 12px; font-weight: 600; color: var(--mag); margin-bottom: 12px; }
+.result-card{background:var(--dark);border-radius:16px;padding:24px;margin-bottom:12px;}
+.result-empty{text-align:center;padding:32px;color:rgba(255,255,255,.3);font-size:14px;}
+.saving-badge{display:inline-flex;align-items:center;gap:6px;
+  background:rgba(231,37,90,.15);border:1px solid rgba(231,37,90,.3);
+  border-radius:100px;padding:4px 12px;font-size:12px;font-weight:600;color:var(--mag);margin-bottom:12px;}
+.result-totals{display:flex;flex-direction:column;gap:12px;}
+.result-line{display:flex;justify-content:space-between;align-items:baseline;}
+.result-label{font-size:12px;color:rgba(255,255,255,.45);}
+.result-big{font-family:var(--ff-disp);font-size:30px;font-weight:800;color:#fff;letter-spacing:-.5px;}
+.result-note{font-size:12px;color:var(--subtle);margin-bottom:20px;line-height:1.6;}
 
-/* Nav buttons */
-.calc-nav { display: flex; gap: 8px; margin-top: 24px; }
-.btn { display: inline-flex; align-items: center; justify-content: center; gap: 6px;
-  border: none; border-radius: 100px; padding: 11px 22px;
-  font-family: var(--ff-body); font-size: 13px; font-weight: 700; cursor: pointer;
-  transition: background .15s, opacity .15s; }
-.btn-primary { background: var(--mag); color: #fff; }
-.btn-primary:hover { background: #C2173A; }
-.btn-secondary { background: var(--rule); color: var(--ink); }
-.btn-secondary:hover { background: #ddd; }
-.btn:disabled { opacity: .35; cursor: default; }
-.btn-ghost { background: none; border: 1px solid var(--rule); color: var(--muted); }
-.btn-cta { background: var(--mag); color: #fff; width: 100%; justify-content: center;
-  padding: 14px 24px; font-size: 15px; border-radius: 14px; border: none; cursor: pointer; }
-.btn-cta:hover { background: #C2173A; }
+/* Buttons */
+.calc-nav{display:flex;gap:8px;margin-top:24px;}
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:6px;border:none;
+  border-radius:100px;padding:11px 22px;font-family:var(--ff-body);font-size:13px;font-weight:700;
+  cursor:pointer;transition:background .15s,opacity .15s;}
+.btn-primary{background:var(--mag);color:#fff;}
+.btn-primary:hover{background:#C2173A;}
+.btn-secondary{background:var(--rule);color:var(--ink);}
+.btn-secondary:hover{background:#ddd;}
+.btn:disabled{opacity:.35;cursor:default;}
+.btn-cta{background:var(--mag);color:#fff;width:100%;justify-content:center;
+  padding:14px 24px;font-size:15px;border-radius:14px;border:none;cursor:pointer;margin-top:4px;}
+.btn-cta:hover{background:#C2173A;}
 
-/* Line items */
-.line-items { display: flex; flex-direction: column; gap: 0; margin-bottom: 12px; }
-.line-item { display: flex; justify-content: space-between; padding: 8px 0;
-  border-bottom: 1px solid rgba(255,255,255,.06); font-size: 13px; }
-.line-item-label { color: rgba(255,255,255,.65); }
-.line-item-amounts { display: flex; gap: 12px; font-family: var(--ff-mono); font-size: 12px; }
-.li-once { color: rgba(255,255,255,.8); }
-.li-mo { color: rgba(255,255,255,.5); }
-.li-free { color: var(--mag); font-size: 10px; }
-
-/* Section divider */
-.section-div { border: none; border-top: 1px solid var(--rule); margin: 32px 0; }
-
-/* Footer */
-.page-footer { padding: 24px; text-align: center; font-size: 12px; color: var(--subtle);
-  border-top: 1px solid var(--rule); }
-.page-footer a { color: var(--ink); font-weight: 600; text-decoration: none; }
+.section-div{border:none;border-top:1px solid var(--rule);margin:32px 0;}
+.page-footer{padding:24px;text-align:center;font-size:12px;color:var(--subtle);border-top:1px solid var(--rule);}
+.page-footer a{color:var(--ink);font-weight:600;text-decoration:none;}
 </style>
 </head>
 <body>
-
-<!-- NAV -->
 <nav class="nav">
-  <a href="index.html" class="nav-logo">
+  <a href="index.html" class="nav-brand">
     <img src="data:image/png;base64,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" alt="Flii">
-    <span class="nav-logo-text">Flii Loop</span>
+    Flii Loop
   </a>
-  <a href="index.html" class="nav-back">← Terug naar Flii Media</a>
+  <a href="index.html" class="nav-back">← Terug</a>
 </nav>
 
-<!-- HERO -->
 <section class="hero">
   <div class="eyebrow">Flii Loop</div>
   <h1>Verbeter op basis van marktvraag.</h1>
   <p class="hero-lede">Een plan voor het opstarten en blijvend verbeteren van jouw apps, platformen of media. Synchroon aan de wensen van je doelgroep, elke maand beter.</p>
 </section>
 
-<!-- LOOP DIAGRAM -->
 <section class="loop-section">
   <div class="loop-inner">
     <div class="loop-eyebrow">Flii Loop</div>
     <h2 class="loop-h2">Altijd lerend.</h2>
     <p class="loop-sub">Vier stappen. Continu herhaald. Elke iteratie beter dan de vorige.</p>
 
-    <div class="loop-diagram-wrap">
-      <svg class="loop-svg" viewBox="-100 -10 600 420" role="img" aria-label="Flii Loop" id="loop-svg">
-        <circle cx="200" cy="200" r="140" class="loop-ring"/>
-        <!-- Arrows on ring -->
-        <path class="loop-arrow" d="M-5,-4 L4,0 L-5,4" transform="translate(200,60) rotate(0)"/>
-        <path class="loop-arrow" d="M-5,-4 L4,0 L-5,4" transform="translate(340,200) rotate(90)"/>
-        <path class="loop-arrow" d="M-5,-4 L4,0 L-5,4" transform="translate(200,340) rotate(180)"/>
-        <path class="loop-arrow" d="M-5,-4 L4,0 L-5,4" transform="translate(60,200) rotate(270)"/>
-        <!-- Animated dot -->
-        <g class="loop-spin"><circle cx="200" cy="60" r="5.5" class="loop-dot"/></g>
-        <!-- Nodes -->
-        <g class="loop-node-g" tabindex="0" onmouseenter="loopHover(0)" onmouseleave="loopHover(-1)" onfocus="loopHover(0)" onblur="loopHover(-1)">
-          <circle cx="200" cy="60" r="26" class="loop-hit"/>
-          <circle cx="200" cy="60" r="11" class="loop-node"/>
-          <text x="200" y="60" class="loop-node-n" text-anchor="middle" dominant-baseline="central">1</text>
-          <text x="200" y="28" class="loop-label" text-anchor="middle" dominant-baseline="central">Livegang</text>
-        </g>
-        <g class="loop-node-g" tabindex="0" onmouseenter="loopHover(1)" onmouseleave="loopHover(-1)" onfocus="loopHover(1)" onblur="loopHover(-1)">
-          <circle cx="340" cy="200" r="26" class="loop-hit"/>
-          <circle cx="340" cy="200" r="11" class="loop-node"/>
-          <text x="340" y="200" class="loop-node-n" text-anchor="middle" dominant-baseline="central">2</text>
-          <text x="372" y="200" class="loop-label" text-anchor="start" dominant-baseline="central">Measure</text>
-        </g>
-        <g class="loop-node-g" tabindex="0" onmouseenter="loopHover(2)" onmouseleave="loopHover(-1)" onfocus="loopHover(2)" onblur="loopHover(-1)">
-          <circle cx="200" cy="340" r="26" class="loop-hit"/>
-          <circle cx="200" cy="340" r="11" class="loop-node"/>
-          <text x="200" y="340" class="loop-node-n" text-anchor="middle" dominant-baseline="central">3</text>
-          <text x="200" y="380" class="loop-label" text-anchor="middle" dominant-baseline="central">Analyse</text>
-        </g>
-        <g class="loop-node-g" tabindex="0" onmouseenter="loopHover(3)" onmouseleave="loopHover(-1)" onfocus="loopHover(3)" onblur="loopHover(-1)">
-          <circle cx="60" cy="200" r="26" class="loop-hit"/>
-          <circle cx="60" cy="200" r="11" class="loop-node loop-node-acc"/>
-          <text x="60" y="200" class="loop-node-n" text-anchor="middle" dominant-baseline="central">4</text>
-          <text x="28" y="200" class="loop-label" text-anchor="end" dominant-baseline="central">Improve</text>
-        </g>
-        <!-- Center label -->
-        <text x="200" y="192" text-anchor="middle" style="font-family:var(--ff-disp);font-size:16px;font-weight:800;fill:white">Flii</text>
-        <text x="200" y="212" text-anchor="middle" style="font-family:var(--ff-mono);font-size:10px;fill:rgba(255,255,255,.4);letter-spacing:.08em">LOOP</text>
-      </svg>
-
-      <div class="loop-tip" id="loop-tip">
-        <span class="loop-tip-h">Flii Loop</span>
-        <span class="loop-tip-s">Altijd lerend</span>
-      </div>
+    <!-- Lens filter -->
+    <div class="loop-lens" id="loop-lens">
+      <button class="loop-lens-btn" data-lens="platform" onclick="setLens('platform')">
+        <span class="loop-lens-ic"><svg viewBox="0 0 24 24"><path d="M12 3 3 8l9 5 9-5-9-5Z"/><path d="M3 12l9 5 9-5"/><path d="M3 16l9 5 9-5"/></svg></span>
+        <span class="loop-lens-l">Platform</span>
+      </button>
+      <button class="loop-lens-btn" data-lens="app" onclick="setLens('app')">
+        <span class="loop-lens-ic"><svg viewBox="0 0 24 24"><rect x="7" y="3" width="10" height="18" rx="2.5"/><path d="M11 18h2"/></svg></span>
+        <span class="loop-lens-l">App</span>
+      </button>
+      <button class="loop-lens-btn" data-lens="media" onclick="setLens('media')">
+        <span class="loop-lens-ic"><svg viewBox="0 0 24 24"><path d="M4 10v4h3l6 4V6L7 10H4Z"/><path d="M17 9.5a4 4 0 0 1 0 5"/></svg></span>
+        <span class="loop-lens-l">Media</span>
+      </button>
     </div>
 
-    <div class="loop-steps">
-      <div class="loop-step"><div class="loop-step-num">1</div><div class="loop-step-body"><div class="loop-step-k">Livegang</div><div class="loop-step-d">De nieuwe app, campagne of platform bereikt de markt.</div></div></div>
-      <div class="loop-step"><div class="loop-step-num">2</div><div class="loop-step-body"><div class="loop-step-k">Measure</div><div class="loop-step-d">De reactie van gebruikers wordt in kaart gebracht.</div></div></div>
-      <div class="loop-step"><div class="loop-step-num">3</div><div class="loop-step-body"><div class="loop-step-k">Analyse</div><div class="loop-step-d">Data wordt omgezet naar inzichten, kansen en problemen.</div></div></div>
-      <div class="loop-step"><div class="loop-step-num">4</div><div class="loop-step-body"><div class="loop-step-k">Improve</div><div class="loop-step-d">We verbeteren, fixen of zetten een test op.</div></div></div>
+    <!-- Ring -->
+    <div class="loop-ring-stage" id="loop-ring-stage">
+      <div class="loop-ring-tilt" id="loop-ring-tilt">
+        <div class="loop-ring-spin">
+          <svg class="loop-ring-svg" viewBox="0 0 100 100" aria-hidden="true">
+            <defs>
+              <linearGradient id="lrGrad" x1="0" y1="0" x2="1" y2="1">
+                <stop offset="0%" stop-color="#B14BFF"/>
+                <stop offset="28%" stop-color="#E7255A"/>
+                <stop offset="50%" stop-color="#FF5E9A"/>
+                <stop offset="64%" stop-color="#FFD2E4"/>
+                <stop offset="80%" stop-color="#FF3D8E"/>
+                <stop offset="100%" stop-color="#C04BFF"/>
+              </linearGradient>
+              <filter id="lrFire" x="-60%" y="-60%" width="220%" height="220%">
+                <feTurbulence type="fractalNoise" baseFrequency="0.018 0.034" numOctaves="2" seed="4" result="n">
+                  <animate attributeName="baseFrequency" dur="7s" values="0.018 0.034;0.026 0.046;0.016 0.03;0.018 0.034" repeatCount="indefinite"/>
+                </feTurbulence>
+                <feDisplacementMap in="SourceGraphic" in2="n" scale="8" xChannelSelector="R" yChannelSelector="G">
+                  <animate attributeName="scale" dur="5.5s" values="8;11;9;8" repeatCount="indefinite"/>
+                </feDisplacementMap>
+                <feGaussianBlur stdDeviation="0.5"/>
+              </filter>
+              <filter id="lrGlow" x="-60%" y="-60%" width="220%" height="220%"><feGaussianBlur stdDeviation="2.6"/></filter>
+              <radialGradient id="lrBody" cx="50%" cy="48%" r="52%">
+                <stop offset="0%" stop-color="#0C0207"/>
+                <stop offset="58%" stop-color="#160410"/>
+                <stop offset="84%" stop-color="#360A22"/>
+                <stop offset="96%" stop-color="#8A1A48"/>
+                <stop offset="100%" stop-color="#0C0207"/>
+              </radialGradient>
+              <filter id="lrRimSoft" x="-70%" y="-70%" width="240%" height="240%"><feGaussianBlur stdDeviation="3.4"/></filter>
+              <filter id="lrWisp" x="-10%" y="-10%" width="120%" height="120%">
+                <feTurbulence type="fractalNoise" baseFrequency="0.85 0.02" numOctaves="2" seed="7" result="n">
+                  <animate attributeName="baseFrequency" dur="16s" values="0.85 0.02;0.8 0.03;0.85 0.02" repeatCount="indefinite"/>
+                </feTurbulence>
+                <feColorMatrix in="n" type="matrix" values="0 0 0 0 1  0 0 0 0 0.36  0 0 0 0 0.62  0 0 0 0.7 0"/>
+              </filter>
+              <radialGradient id="lrWispFade" cx="50%" cy="50%" r="50%">
+                <stop offset="0%" stop-color="#fff" stop-opacity="0"/>
+                <stop offset="58%" stop-color="#fff" stop-opacity="0"/>
+                <stop offset="90%" stop-color="#fff" stop-opacity="0.55"/>
+                <stop offset="100%" stop-color="#fff" stop-opacity="0"/>
+              </radialGradient>
+              <mask id="lrWispMask"><circle cx="50" cy="50" r="39" fill="url(#lrWispFade)"/></mask>
+              <filter id="lrBubble" x="-30%" y="-30%" width="160%" height="160%">
+                <feTurbulence type="fractalNoise" baseFrequency="0.008 0.011" numOctaves="2" seed="3" result="n">
+                  <animate attributeName="baseFrequency" dur="13s" values="0.008 0.011;0.012 0.008;0.007 0.013;0.008 0.011" repeatCount="indefinite"/>
+                </feTurbulence>
+                <feDisplacementMap in="SourceGraphic" in2="n" scale="7" xChannelSelector="R" yChannelSelector="G">
+                  <animate attributeName="scale" dur="9s" values="5;10;6;5" repeatCount="indefinite"/>
+                </feDisplacementMap>
+              </filter>
+            </defs>
+            <g filter="url(#lrBubble)">
+              <circle cx="50" cy="50" r="39" fill="url(#lrBody)"/>
+              <g class="lr-orb-rot2">
+                <circle cx="48.7" cy="50" r="38.3" fill="none" stroke="#B14BFF" stroke-width="1.1" filter="url(#lrRimSoft)" opacity="0.6"/>
+                <circle cx="51.3" cy="50" r="38.3" fill="none" stroke="#FF5E9A" stroke-width="1.1" filter="url(#lrRimSoft)" opacity="0.6"/>
+                <circle cx="50" cy="50" r="38.6" fill="none" stroke="url(#lrGrad)" stroke-width="2.6" filter="url(#lrRimSoft)" opacity="0.85"/>
+                <circle cx="50" cy="50" r="38.7" fill="none" stroke="url(#lrGrad)" stroke-width="0.9" filter="url(#lrGlow)"/>
+                <circle cx="50" cy="50" r="38.8" fill="none" stroke="#FFEAF3" stroke-width="0.4" opacity="0.8"/>
+              </g>
+            </g>
+            <g class="lr-orb-rot">
+              <g mask="url(#lrWispMask)"><rect x="8" y="8" width="84" height="84" filter="url(#lrWisp)" opacity="0.55"/></g>
+            </g>
+            <circle id="lr-flash-el" class="lr-flash" cx="50" cy="50" r="38.6" fill="none" stroke="url(#lrGrad)" stroke-width="3" filter="url(#lrRimSoft)"/>
+          </svg>
+        </div>
+      </div>
+
+      <!-- Core text -->
+      <div class="loop-ring-core" id="loop-core">
+        <div class="loop-core-default">
+          <div class="loop-core-mark">Flii Loop</div>
+          <div class="loop-core-hint">Altijd lerend</div>
+        </div>
+      </div>
+
+      <!-- Step labels — 4 positions -->
+      <button class="loop-step-label lbl-top" data-idx="0" onclick="selectStep(0)">
+        <span class="loop-step-dot"></span><span class="loop-step-k">Livegang</span>
+      </button>
+      <button class="loop-step-label lbl-right" data-idx="1" onclick="selectStep(1)">
+        <span class="loop-step-dot"></span><span class="loop-step-k">Measure</span>
+      </button>
+      <button class="loop-step-label lbl-bottom" data-idx="2" onclick="selectStep(2)">
+        <span class="loop-step-dot"></span><span class="loop-step-k">Analyse</span>
+      </button>
+      <button class="loop-step-label lbl-left" data-idx="3" onclick="selectStep(3)">
+        <span class="loop-step-dot"></span><span class="loop-step-k">Improve</span>
+      </button>
     </div>
   </div>
 </section>
 
-<!-- PRICE CALCULATOR -->
+<!-- CALCULATOR -->
 <section class="calc-section" id="calculator">
   <div class="eyebrow">Prijs indicator</div>
   <h2 class="calc-h2">Bereken Loop.</h2>
-  <p class="calc-intro">Klik snel door de stappen en zie meteen wat Loop kost. Een indicatie op basis van vanaf-tarieven, exclusief btw en mediabudget.</p>
-
-  <div class="calc-steps" id="calc-steps-dots"></div>
-
+  <p class="calc-lede">Klik door de stappen en zie meteen een indicatie. Exclusief btw en mediabudget.</p>
+  <div class="calc-steps-nav" id="calc-nav"></div>
   <div id="calc-body"></div>
 </section>
 
-<!-- FOOTER -->
 <footer class="page-footer">
-  <p>Een product van <a href="index.html">Flii Media</a> · <a href="mailto:info@flii.nl">info@flii.nl</a></p>
-  <p style="margin-top:8px">© 2026 Flii Media · Amstelveen</p>
+  <p>Een product van <a href="index.html">Flii Media</a> &middot; <a href="mailto:info@flii.nl">info@flii.nl</a></p>
+  <p style="margin-top:8px">&copy; 2026 Flii Media</p>
 </footer>
 
 <script>
-// ── LOOP DIAGRAM HOVER ─────────────────────────────────────────────
-const LOOP_ITEMS = [
+// ── LOOP RING ─────────────────────────────────────────────────────────
+var LOOP_ITEMS = [
   { k: "Livegang", body: "De nieuwe app, campagne of platform bereikt de markt." },
   { k: "Measure",  body: "De reactie van gebruikers wordt in kaart gebracht." },
   { k: "Analyse",  body: "Data wordt omgezet naar inzichten, kansen en problemen." },
-  { k: "Improve",  body: "We verbeteren, fixen of zetten een test op." },
+  { k: "Improve",  body: "We verbeteren, fixen of zetten een test op." }
 ];
-function loopHover(i) {
-  var tip = document.getElementById('loop-tip');
-  var nodes = document.querySelectorAll('.loop-node-g');
-  nodes.forEach(function(n,j) { n.classList.toggle('on', j === i); });
-  if (i < 0) {
-    tip.innerHTML = '<span class="loop-tip-h">Flii Loop</span><span class="loop-tip-s">Altijd lerend</span>';
+var LOOP_VARIANTS = {
+  platform: ["Wij bouwen je platform met backend en zetten het live.","Wij meten gebruik, funnels en waar het proces stokt.","Wij zien welke stappen werken en welke afhaken.","Wij automatiseren meer en schalen het platform op."],
+  app: ["Wij bouwen en lanceren je app bij de eerste gebruikers.","Wij meten hoe mensen de app echt gebruiken.","Wij zien welke flows werken en wat gemist wordt.","Wij verbeteren flows en maken de app sneller."],
+  media: ["Wij zetten je campagne live over de gekozen kanalen.","Wij meten bereik, kliks en conversies per kanaal.","Wij zien welke creatives en boodschappen werken.","Wij schalen de winnaars en scherpen de targeting aan."]
+};
+var activeStep = null;
+var activeLens = "generic";
+var spinning = false;
+
+function setLens(k) {
+  activeLens = (activeLens === k) ? "generic" : k;
+  document.querySelectorAll(".loop-lens-btn").forEach(function(b) {
+    b.classList.toggle("on", b.dataset.lens === activeLens);
+  });
+  renderCore();
+}
+
+function selectStep(i) {
+  var wasActive = activeStep === i;
+  activeStep = wasActive ? null : i;
+  document.querySelectorAll(".loop-step-label").forEach(function(b) {
+    b.classList.toggle("on", parseInt(b.dataset.idx) === activeStep);
+  });
+  var stage = document.getElementById("loop-ring-stage");
+  var tilt = document.getElementById("loop-ring-tilt");
+  stage.classList.toggle("open", activeStep !== null);
+  tilt.classList.toggle("tilted", activeStep !== null);
+  if (activeStep !== null && !wasActive) triggerFlash();
+  renderCore();
+}
+
+function triggerFlash() {
+  var el = document.getElementById("lr-flash-el");
+  if (!el) return;
+  el.classList.remove("on");
+  void el.offsetWidth;
+  el.classList.add("on");
+  setTimeout(function() { el.classList.remove("on"); }, 650);
+}
+
+function renderCore() {
+  var core = document.getElementById("loop-core");
+  if (activeStep === null) {
+    core.innerHTML = '<div class="loop-core-default"><div class="loop-core-mark">Flii Loop</div><div class="loop-core-hint">Altijd lerend</div></div>';
   } else {
-    tip.innerHTML = '<span class="loop-tip-h">' + LOOP_ITEMS[i].k + '</span><span class="loop-tip-d">' + LOOP_ITEMS[i].body + '</span>';
+    var item = LOOP_ITEMS[activeStep];
+    var body = (activeLens !== "generic" && LOOP_VARIANTS[activeLens]) ? LOOP_VARIANTS[activeLens][activeStep] : item.body;
+    core.innerHTML = '<div class="loop-core-content"><div class="loop-core-k">' + item.k + '</div><p class="loop-core-b">' + body + '</p></div>';
   }
 }
 
-// ── PRICE CALCULATOR ───────────────────────────────────────────────
-var state = {
-  step: 0,
-  types: { campagne: false, app: true, platform: false, ai: false },
-  phases: { plan: true, build: true, run: true },
-  cats: { search: false, social: false, display: false, videotv: false, audio: false, email: false, messaging: false, ooh: false, print: false, pr: false },
-  appKind: "webapp",
-  opts: {},
-};
-
+// ── PRICE CALCULATOR ──────────────────────────────────────────────────
 var PRICING = {
   scopes: {
     campagne: { plan: 1500, build: 0, run: 0 },
     app:      { plan: 2500, build: 5000, run: 750 },
     platform: { plan: 4500, build: 18000, run: 2500 },
-    ai:       { plan: 2500, build: 6500, run: 850 },
+    ai:       { plan: 2500, build: 6500, run: 850 }
   }
 };
-var SCOPE_LABELS = { campagne: "Campagne", app: "App", platform: "Platform", ai: "AI" };
-var SCOPE_DESC = {
-  campagne: "Een advertentiecampagne, opgezet en gestuurd op resultaat.",
-  app: "Een werkende app of PWA, van één functie tot meerdere modules.",
-  platform: "Een volwaardig, schaalbaar platform met backend en AI.",
-  ai: "Een AI-oplossing of automatisering, van integratie tot een eigen model.",
-};
-var PHASE_LABELS = { plan: "Loop Start", build: "Loop Build", run: "Loop Run" };
-var PHASE_DESC = {
-  plan: "Research en plan van aanpak, met de optie om dit zelf uit te voeren.",
-  build: "Creatie: de app, het platform of de campagne wordt gebouwd.",
-  run: "Beheer & verbeter: hosting, optimalisatie en doorontwikkeling.",
-};
-var CAT_LABELS = { search:"Search",social:"Social",display:"Display",videotv:"Video & TV",audio:"Audio",email:"E-mail & CRM",messaging:"Messaging",ooh:"Out-of-home",print:"Print",pr:"PR & influencer" };
-var CAT_PRICE  = { search:850,social:750,display:700,videotv:950,audio:0,email:850,messaging:0,ooh:850,print:650,pr:0 };
+var SCOPE_LABELS  = { campagne:"Campagne", app:"App", platform:"Platform", ai:"AI" };
+var SCOPE_DESC    = { campagne:"Een advertentiecampagne, gericht op resultaat.", app:"Een werkende app of PWA.", platform:"Een schaalbaar platform met backend en AI.", ai:"Een AI-oplossing in je bestaande processen." };
+var PHASE_LABELS  = { plan:"Loop Start", build:"Loop Build", run:"Loop Run" };
+var PHASE_DESC    = { plan:"Research en plan, met de optie om dit zelf uit te voeren.", build:"Creatie: de app, het platform of de campagne wordt gebouwd.", run:"Beheer & verbeter: hosting, optimalisatie en doorontwikkeling." };
+var CAT_LABELS    = { search:"Search",social:"Social",display:"Display",videotv:"Video & TV",email:"E-mail & CRM",ooh:"Out-of-home",print:"Print" };
+var CAT_PRICE     = { search:850, social:750, display:700, videotv:950, email:850, ooh:850, print:650 };
+var STEP_LABELS   = { type:"Type", pakketten:"Pakketten", result:"Indicatie" };
 
-function eur(n) { return "€ " + (n||0).toLocaleString("nl-NL"); }
+var cState = {
+  step: 0,
+  types: { campagne: false, app: true, platform: false, ai: false },
+  phases: { plan: true, build: true, run: true },
+  cats: {}
+};
+var STEPS = ["type","pakketten","result"];
+
+function eur(n) { return "\u20AC\u00A0" + (n||0).toLocaleString("nl-NL"); }
 
 function compute() {
   var once = 0, mo = 0, saving = 0;
-  var allLoop = state.phases.plan && state.phases.build && state.phases.run;
   ["campagne","app","platform","ai"].forEach(function(sk) {
-    if (!state.types[sk]) return;
+    if (!cState.types[sk]) return;
     var sc = PRICING.scopes[sk];
-    var planFee = state.phases.build ? 0 : (state.phases.plan ? sc.plan : 0);
-    once += planFee + (state.phases.build ? sc.build : 0);
-    mo += state.phases.run ? sc.run : 0;
-    if (state.phases.plan && state.phases.build) saving += sc.plan;
+    var planFee = cState.phases.build ? 0 : (cState.phases.plan ? sc.plan : 0);
+    once += planFee + (cState.phases.build ? sc.build : 0);
+    mo   += cState.phases.run ? sc.run : 0;
+    if (cState.phases.plan && cState.phases.build) saving += sc.plan;
   });
-  if (state.types.campagne) {
-    Object.keys(state.cats).forEach(function(k) {
-      if (!state.cats[k]) return;
+  if (cState.types.campagne) {
+    Object.keys(cState.cats).forEach(function(k) {
+      if (!cState.cats[k]) return;
       var p = CAT_PRICE[k] || 0;
-      if (state.phases.build) once += p;
+      if (cState.phases.build) once += p;
     });
   }
-  return { once: once, mo: mo, saving: saving, allLoop: allLoop };
+  return { once:once, mo:mo, saving:saving };
 }
 
-var STEPS = ["type","pakketten","result"];
+function renderCalc() {
+  // Nav dots
+  var nav = document.getElementById("calc-nav");
+  nav.innerHTML = STEPS.map(function(s, i) {
+    var cls = "calc-dot" + (i === cState.step ? " on" : "") + (i < cState.step ? " done" : "");
+    return '<button class="' + cls + '" onclick="goStep(' + i + ')"><span class="calc-dot-n">' + (i+1) + '</span><span class="calc-dot-l">' + STEP_LABELS[s] + '</span></button>';
+  }).join("");
 
-function renderDots() {
-  var d = document.getElementById('calc-steps-dots');
-  d.innerHTML = STEPS.map(function(_,i) {
-    return '<div class="calc-step-dot' + (i <= state.step ? ' active' : '') + '"></div>';
-  }).join('');
-}
+  var body = document.getElementById("calc-body");
+  var cur = STEPS[cState.step];
+  var html = "";
 
-function renderStep() {
-  var body = document.getElementById('calc-body');
-  renderDots();
-  if (state.step === 0) renderType(body);
-  else if (state.step === 1) renderPhases(body);
-  else renderResult(body);
-}
-
-function renderType(body) {
-  var html = '<div class="step-label">Stap 1 van 3 · Wat heb je nodig?</div>';
-  html += '<div class="scope-grid">';
-  ["campagne","app","platform","ai"].forEach(function(k) {
-    html += '<button class="scope-card' + (state.types[k]?' on':'') + '" onclick="toggleType('' + k + '')">';
-    html += '<div class="scope-card-name">' + SCOPE_LABELS[k] + '</div>';
-    html += '<div class="scope-card-desc">' + SCOPE_DESC[k] + '</div></button>';
-  });
-  html += '</div>';
-  if (state.types.campagne) {
-    html += '<div class="step-label" style="margin-top:16px">Kanalen (optioneel)</div>';
-    html += '<div class="cat-grid">';
-    Object.keys(CAT_LABELS).forEach(function(k) {
-      var p = CAT_PRICE[k];
-      html += '<button class="cat-btn' + (state.cats[k]?' on':'') + '" onclick="toggleCat('' + k + '')">';
-      html += CAT_LABELS[k];
-      if (p) html += '<span class="cat-price">v.a. ' + eur(p) + ' eenmalig</span>';
-      html += '</button>';
+  if (cur === "type") {
+    html += '<div class="calc-slide-head"><div class="calc-slide-title">Wat wil je bouwen?</div><div class="calc-slide-help">Je kunt types combineren.</div></div>';
+    html += '<div class="type-cards">';
+    ["campagne","app","platform","ai"].forEach(function(k) {
+      var on = cState.types[k];
+      html += '<button class="scope-card' + (on?" on":"") + '" onclick="toggleType(\'' + k + '\')">';
+      if (k === "app") html += '<span class="scope-badge">Meest gekozen</span>';
+      html += '<span class="scope-check">' + (on?"&#10003;":"") + '</span>';
+      html += '<span class="scope-card-t">' + SCOPE_LABELS[k] + '</span>';
+      html += '<div class="scope-card-d">' + SCOPE_DESC[k] + '</div></button>';
     });
     html += '</div>';
+    if (cState.types.campagne) {
+      html += '<div class="calc-slide-head" style="margin-top:20px"><div class="calc-slide-title">Mediakanalen</div></div>';
+      html += '<div class="cat-grid">';
+      Object.keys(CAT_LABELS).forEach(function(k) {
+        var on = !!cState.cats[k];
+        var p = CAT_PRICE[k];
+        html += '<button class="cat-btn' + (on?" on":"") + '" onclick="toggleCat(\'' + k + '\')">';
+        html += CAT_LABELS[k];
+        if (p) html += '<span class="cat-price">v.a. ' + eur(p) + '</span>';
+        html += '</button>';
+      });
+      html += '</div>';
+    }
+    html += navBtns(false, true);
   }
-  html += nav(false, true);
-  body.innerHTML = html;
-}
-
-function renderPhases(body) {
-  var html = '<div class="step-label">Stap 2 van 3 · Pakketten</div>';
-  html += '<div class="phase-list">';
-  ["plan","build","run"].forEach(function(k) {
-    var on = state.phases[k];
-    html += '<div class="phase-row' + (on?' on':'') + '" onclick="togglePhase('' + k + '')">';
-    html += '<div class="phase-check"><svg class="phase-check-mark" viewBox="0 0 12 12" width="10" height="10"><path d="M2 6l3 3 5-5" stroke="#fff" stroke-width="1.8" fill="none" stroke-linecap="round"/></svg></div>';
-    html += '<div><div class="phase-name">' + PHASE_LABELS[k] + '</div>';
-    html += '<div class="phase-desc">' + PHASE_DESC[k] + '</div></div></div>';
-  });
-  html += '</div>';
-  html += nav(true, true);
-  body.innerHTML = html;
-}
-
-function renderResult(body) {
-  var r = compute();
-  var html = '<div class="step-label">Stap 3 van 3 · Indicatie</div>';
-  if (r.once === 0 && r.mo === 0) {
-    html += '<div class="result-card"><div class="result-empty">Geen diensten geselecteerd. Ga terug en kies minimaal één type en fase.</div></div>';
-  } else {
-    if (r.saving > 0) {
-      html += '<div class="saving-badge">🎉 Je bespaart ' + eur(r.saving) + ' door plan + build te combineren</div>';
-    }
-    html += '<div class="result-card"><div class="result-total">';
-    if (r.once > 0) {
-      html += '<div class="result-total-line"><span class="result-total-label">Eenmalig</span><span class="result-big">' + eur(r.once) + '</span></div>';
-    }
-    if (r.mo > 0) {
-      html += '<div class="result-total-line" style="margin-top:8px"><span class="result-total-label">Per maand</span><span class="result-big">' + eur(r.mo) + '</span></div>';
-    }
-    html += '</div></div>';
-    html += '<p class="result-note">Richtprijs, exclusief btw. Mediabudget niet inbegrepen. Definitieve prijs afhankelijk van scope.</p>';
+  else if (cur === "pakketten") {
+    html += '<div class="calc-slide-head"><div class="calc-slide-title">Kies je Loop-fases.</div><div class="calc-slide-help">Loop Start is gratis bij Loop Build.</div></div>';
+    html += '<div class="phase-list">';
+    ["plan","build","run"].forEach(function(k) {
+      var on = cState.phases[k];
+      html += '<div class="phase-row' + (on?" on":"") + '" onclick="togglePhase(\'' + k + '\')">';
+      html += '<div class="phase-chk"><svg width="10" height="10" viewBox="0 0 12 12"><path d="M2 6l3 3 5-5" stroke="#fff" stroke-width="1.8" fill="none" stroke-linecap="round"/></svg></div>';
+      html += '<div><div class="phase-name">' + PHASE_LABELS[k] + '</div>';
+      html += '<div class="phase-desc">' + PHASE_DESC[k] + '</div>';
+      if (k === "plan") html += '<div class="save-note">Vervalt bij combinatie met Loop Build</div>';
+      html += '</div></div>';
+    });
+    html += '</div>';
+    html += navBtns(true, true);
   }
-  html += '<button class="btn-cta" onclick="window.open('https://calendly.com/flii-media','_blank')">Plan een gesprek →</button>';
-  html += nav(true, false);
+  else {
+    var r = compute();
+    html += '<div class="calc-slide-head"><div class="calc-slide-title">Jouw indicatie.</div></div>';
+    if (r.once === 0 && r.mo === 0) {
+      html += '<div class="result-card"><div class="result-empty">Selecteer minimaal &eacute;&eacute;n type en &eacute;&eacute;n fase.</div></div>';
+    } else {
+      if (r.saving > 0) html += '<div class="saving-badge">Je bespaart ' + eur(r.saving) + ' door plan + build te combineren</div>';
+      html += '<div class="result-card"><div class="result-totals">';
+      if (r.once > 0) html += '<div class="result-line"><span class="result-label">Eenmalig</span><span class="result-big">' + eur(r.once) + '</span></div>';
+      if (r.mo > 0)   html += '<div class="result-line"><span class="result-label">Per maand</span><span class="result-big">' + eur(r.mo) + '</span></div>';
+      html += '</div></div>';
+      html += '<p class="result-note">Richtprijs, exclusief btw. Mediabudget niet inbegrepen. Definitieve prijs afhankelijk van scope.</p>';
+    }
+    html += '<button class="btn-cta" onclick="window.open(\'https://calendly.com/flii-media\',\'_blank\')">Plan een gesprek \u2192</button>';
+    html += navBtns(true, false);
+  }
+
   body.innerHTML = html;
 }
 
-function nav(showBack, showNext) {
-  var html = '<div class="calc-nav">';
-  if (showBack) html += '<button class="btn btn-secondary" onclick="go(-1)">← Terug</button>';
-  if (showNext) html += '<button class="btn btn-primary" onclick="go(1)">Volgende →</button>';
-  html += '</div>';
-  return html;
+function navBtns(back, next) {
+  var h = '<div class="calc-nav">';
+  if (back) h += '<button class="btn btn-secondary" onclick="goStep(' + (cState.step-1) + ')">\u2190 Terug</button>';
+  if (next) h += '<button class="btn btn-primary" onclick="goStep(' + (cState.step+1) + ')">Volgende \u2192</button>';
+  h += '</div>';
+  return h;
 }
 
-function go(d) {
-  state.step = Math.max(0, Math.min(STEPS.length - 1, state.step + d));
-  renderStep();
-  document.getElementById('calculator').scrollIntoView({ behavior: 'smooth', block: 'start' });
+function goStep(i) {
+  cState.step = Math.max(0, Math.min(STEPS.length-1, i));
+  renderCalc();
+  document.getElementById("calculator").scrollIntoView({ behavior:"smooth", block:"start" });
 }
-
-function toggleType(k) {
-  state.types[k] = !state.types[k];
-  renderStep();
-}
-
-function toggleCat(k) {
-  state.cats[k] = !state.cats[k];
-  renderStep();
-}
-
-function togglePhase(k) {
-  state.phases[k] = !state.phases[k];
-  renderStep();
-}
+function toggleType(k) { cState.types[k] = !cState.types[k]; renderCalc(); }
+function togglePhase(k) { cState.phases[k] = !cState.phases[k]; renderCalc(); }
+function toggleCat(k) { cState.cats[k] = !cState.cats[k]; renderCalc(); }
 
 // Init
-renderStep();
+renderCalc();
 </script>
 </body>
 </html>
