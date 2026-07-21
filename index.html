@@ -886,29 +886,32 @@ img { display: block; max-width: 100%; }
 /* ── FLOATING ICON SIDEBAR ── */
 .float-sidebar {
   position: fixed;
-  right: -64px;
+  right: -56px;
   top: 50%;
   transform: translateY(-50%);
   display: flex;
   flex-direction: column;
-  gap: 10px;
+  gap: 0;
   z-index: 995;
+  border-radius: 12px;
+  overflow: hidden;
+  border: 0.5px solid rgba(232,41,74,.25);
+  box-shadow: 0 2px 12px rgba(0,0,0,.08);
   transition: right 0.4s cubic-bezier(0.23, 1, 0.32, 1);
 }
 .float-sidebar.visible { right: 12px; }
 .float-icon {
-  width: 44px; height: 44px;
-  border-radius: 50%;
-  background: rgba(255,255,255,.92);
-  backdrop-filter: blur(8px);
-  border: 1.5px solid #E8294A;
-  animation: rb-glow 4s ease-in-out infinite;
   display: flex; align-items: center; justify-content: center;
-  cursor: pointer;
-  color: var(--c-ink);
-  transition: transform 0.2s ease, background 0.2s ease;
+  width: 44px; height: 44px;
+  background: #0F0E0C;
+  color: rgba(255,255,255,0.85);
+  border-bottom: 0.5px solid rgba(255,255,255,.1);
   text-decoration: none;
+  transition: background .15s, color .15s;
 }
+.float-icon:hover { background: #1a1917; color: #fff; }
+.float-icon:last-child { border-bottom: none; }
+.float-icon svg { width: 18px; height: 18px; }
 .float-icon:hover { transform: scale(1.1); background: #fff; }
 .float-icon svg { width: 20px; height: 20px; }
 
@@ -1186,7 +1189,7 @@ img { display: block; max-width: 100%; }
   position: relative;
   display: block;
   border-radius: var(--r);
-  overflow: hidden;
+  overflow: visible;
   text-decoration: none;
   background: #111;
   aspect-ratio: 4/3;
@@ -1196,6 +1199,8 @@ img { display: block; max-width: 100%; }
   height: 100%;
   object-fit: cover;
   display: block;
+  border-radius: var(--r);
+  clip-path: inset(0 round var(--r));
   border-radius: var(--r);
   clip-path: inset(0 round var(--r));
   transition: transform 0.4s ease, opacity 0.4s ease;
@@ -1465,6 +1470,44 @@ img { display: block; max-width: 100%; }
 .service-name-link:hover .svc-link-arr { opacity:1;transform:translateX(2px); }
 .service-tag-link { color:inherit;text-decoration:none;transition:background .15s,color .15s,border-color .15s; }
 .service-tag-link:hover { background:rgba(232,41,74,.18);color:var(--c-red);border-color:rgba(232,41,74,.3); }
+
+/* ── CTA DIAMOND SHINE ── */
+@property --cta-a { syntax: '<angle>'; inherits: false; initial-value: 0deg; }
+.cta-card-wrap {
+  position: relative;
+  border-radius: var(--r);
+  border: 1.5px solid rgba(232,41,74,.35);
+  overflow: hidden;
+}
+.cta-card-wrap::before {
+  content: ''; position: absolute; inset: -2px; border-radius: inherit; z-index: -1;
+  background: conic-gradient(from var(--cta-a,0deg),
+    transparent 0deg, transparent 60deg,
+    rgba(255,255,255,0.08) 70deg,
+    rgba(255,255,255,0.95) 80deg,
+    rgba(255,255,255,0.08) 90deg,
+    transparent 100deg, transparent 360deg);
+  animation: ctaDiamond 3s linear infinite;
+}
+@keyframes ctaDiamond { to { --cta-a: 360deg; } }
+
+/* ── FOOTER NAV COLUMNS ── */
+.footer-nav {
+  display: flex; gap: 32px; flex-wrap: wrap;
+  margin: 20px 0 0;
+}
+.footer-nav-col {
+  display: flex; flex-direction: column; gap: 6px; min-width: 120px;
+}
+.footer-nav-head {
+  font-size: 10px; font-weight: 700; letter-spacing: .1em;
+  text-transform: uppercase; color: var(--c-ink);
+  margin-bottom: 4px;
+}
+.footer-nav-link {
+  font-size: 12px; color: var(--c-muted);
+}
+.footer-nav-link:hover { color: var(--c-ink); }
 </style>
 <!-- Default consent vóór GTM -->
 
@@ -2028,6 +2071,33 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
     info@flii.nl<br>
     Openingstijden
   </p>
+<div class="footer-nav">
+  <div class="footer-nav-col">
+    <span class="footer-nav-head">Diensten</span>
+    <a href="diensten/funnel-marketing.html" class="footer-link footer-nav-link">Funnel marketing</a>
+    <a href="diensten/media-beheer.html" class="footer-link footer-nav-link">Media beheer</a>
+    <a href="diensten/content-creatie.html" class="footer-link footer-nav-link">Content creatie</a>
+    <a href="diensten/web-development.html" class="footer-link footer-nav-link">Web development</a>
+    <a href="diensten/data-analyse.html" class="footer-link footer-nav-link">Data & analyse</a>
+  </div>
+  <div class="footer-nav-col">
+    <span class="footer-nav-head">Kennisbank</span>
+    <a href="kennisbank.html" class="footer-link footer-nav-link">Marketingstrategie</a>
+    <a href="kennisbank.html" class="footer-link footer-nav-link">Merk (Brand)</a>
+    <a href="kennisbank.html" class="footer-link footer-nav-link">Content</a>
+    <a href="kennisbank.html" class="footer-link footer-nav-link">Media</a>
+    <a href="kennisbank.html" class="footer-link footer-nav-link">Digitale Marketing</a>
+    <a href="kennisbank.html" class="footer-link footer-nav-link">Data & AI</a>
+  </div>
+  <div class="footer-nav-col">
+    <span class="footer-nav-head">Pagina's</span>
+    <a href="index.html" class="footer-link footer-nav-link">Home</a>
+    <a href="loop.html" class="footer-link footer-nav-link">Flii Loop</a>
+    <a href="kennisbank.html" class="footer-link footer-nav-link">Kennisbank</a>
+    <a href="index.html#cases" class="footer-link footer-nav-link">Cases</a>
+    <a href="index.html#contact" class="footer-link footer-nav-link">Contact</a>
+  </div>
+</div>
   <div class="footer-wordmark-wrap">
     <div class="footer-wordmark">FLII.<span>MEDIA</span></div>
     <div class="footer-bottom">
@@ -2037,7 +2107,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
         <a href="#" class="footer-link">Voorwaarden</a>
         <a href="#" class="footer-link">Privacy</a>
       </div>
-      <a href="#contact" class="footer-contact-link" id="footer-contact-link">Contact<svg width="11" height="11" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" style="opacity:0;transition:opacity .15s" class="contact-arr"><path d="M3 8h10M9 4l4 4-4 4"/></svg></a>
+      <a href="#contact" class="footer-link" id="footer-contact-link">Contact</a>
       </div>
     </div>
     <p class="footer-copy">© 2026 Flii Media</p>
@@ -2079,15 +2149,7 @@ window.addEventListener('load', function() {
 });
 
 // FAQ handled by native <details>
-// Footer contact arrow
-(function(){
-  var cl = document.getElementById('footer-contact-link');
-  if(!cl) return;
-  var arr = cl.querySelector('.contact-arr');
-  if(!arr) return;
-  cl.addEventListener('mouseenter', function(){ arr.style.opacity='1'; });
-  cl.addEventListener('mouseleave', function(){ arr.style.opacity='0'; });
-})();
+
 
 // Logo upgrade
 (function() {
