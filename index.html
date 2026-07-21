@@ -547,6 +547,8 @@ img { display: block; max-width: 100%; }
   font-size: var(--t-sm); color: var(--c-muted);
   line-height: 1.7; padding-bottom: var(--sp-2);
 }
+.faq-answer p { margin-bottom: 10px; }
+.faq-answer p:last-child { margin-bottom: 0; }
 
 /* ── CLIENTS ── */
 .clients-ticker {
@@ -716,7 +718,7 @@ img { display: block; max-width: 100%; }
 }
 .orbit-ring {
   position: absolute; border-radius: 50%;
-  border: 1px solid rgba(255,255,255,.12);
+  border: none; /* REMOVED */(255,255,255,.12);
   top: 50%; left: 50%;
   transform: translate(-50%,-50%);
   pointer-events: none;
@@ -728,7 +730,14 @@ img { display: block; max-width: 100%; }
   transform: translate(-50%,-50%);
   width: 10px; height: 10px; border-radius: 50%;
   background: var(--c-red);
-  box-shadow: 0 0 8px rgba(232,41,74,.6);
+  box-shadow: 0 0 8px rgba(232,41,74,.5);
+  cursor: pointer;
+  animation: dotPulse 3s ease-in-out infinite;
+  z-index: 4;
+}
+@keyframes dotPulse {
+  0%, 100% { opacity: 0.25; box-shadow: 0 0 4px rgba(232,41,74,.3); }
+  50% { opacity: 1; box-shadow: 0 0 14px rgba(232,41,74,.7); }
 }
 .orbit-label {
   position: absolute;
@@ -996,24 +1005,27 @@ img { display: block; max-width: 100%; }
   border-radius: 12px;
   overflow: hidden;
   border: 0.5px solid rgba(232,41,74,.5);
-  animation: rb-glow 4s ease-in-out infinite;
+  animation: rb-glow 6s ease-in-out infinite;
+  border: 0.5px solid rgba(232,41,74,.25);
   box-shadow: 0 2px 12px rgba(0,0,0,.08);
   transition: right 0.4s cubic-bezier(0.23, 1, 0.32, 1);
 }
 .float-sidebar.visible { right: 12px; }
 .float-icon {
-  width: 44px; height: 44px;
-  border-radius: 0;
-  background: rgba(255,255,255,.95);
-  backdrop-filter: blur(12px);
-  border: none;
-  border-bottom: 0.5px solid rgba(232,41,74,.12);
   display: flex; align-items: center; justify-content: center;
-  cursor: pointer;
-  color: var(--c-ink);
-  transition: background 0.15s ease;
+  width: 44px; height: 44px;
+  background: #0F0E0C;
+  color: rgba(255,255,255,0.85);
+  border-bottom: 0.5px solid rgba(255,255,255,.1);
   text-decoration: none;
+  transition: background .15s, color .15s;
 }
+.float-icon:hover {
+  background: #1a1917;
+  color: #fff;
+}
+.float-icon:last-child { border-bottom: none; }
+.float-icon svg { width: 18px; height: 18px; }
 .float-icon:last-child { border-bottom: none; }
 .float-icon:hover { background: #FFF0F3; }
 .float-icon svg { width: 18px; height: 18px; }
@@ -1047,26 +1059,25 @@ img { display: block; max-width: 100%; }
 .cta-card-wrap {
   position: relative;
   border-radius: var(--r);
-  border: 1px solid rgba(232,41,74,.35);
+  border: 1.5px solid rgba(232,41,74,.35);
   overflow: hidden;
 }
 .cta-card-wrap::before {
-  content: '';
-  position: absolute;
-  inset: -80%;
-  background: conic-gradient(
-    from 0deg,
-    transparent 0deg,
-    transparent 150deg,
-    rgba(255,150,180,.12) 165deg,
-    rgba(255,255,255,.6)  180deg,
-    rgba(255,100,150,.15) 195deg,
-    transparent 210deg,
-    transparent 360deg
-  );
-  animation: border-travel 4s linear infinite;
-  pointer-events: none;
-  z-index: 0;
+  content:''; position:absolute; inset:-2px; border-radius:inherit; z-index:-1;
+  background: conic-gradient(from var(--cta-a,0deg),
+    transparent 0deg, transparent 60deg,
+    rgba(255,255,255,0.08) 70deg,
+    rgba(255,255,255,0.95) 80deg,
+    rgba(255,255,255,0.08) 90deg,
+    transparent 100deg, transparent 360deg);
+  animation: ctaDiamond 3s linear infinite;
+}
+@keyframes ctaDiamond {
+  0%   { --cta-a: 0deg; }
+  100% { --cta-a: 360deg; }
+}
+@property --cta-a {
+  syntax: '<angle>'; inherits: false; initial-value: 0deg;
 }
 .cta-card-wrap > .cta-card {
   position: relative;
@@ -1103,7 +1114,21 @@ img { display: block; max-width: 100%; }
   text-decoration: none;
   border-bottom: 1.5px solid transparent;
   padding-bottom: 1px;
-  transition: border-color 0.2s ease;
+  transition: border-color .15s, color .15s;
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+}
+.footer-contact-link::after {
+  content: '';
+  display: inline-block;
+  width: 0; height: 0;
+  opacity: 0;
+  transition: opacity .15s, width .15s;
+}
+.footer-contact-link:hover {
+  color: var(--c-red);
+  border-bottom-color: var(--c-red);
 }
 .footer-contact-link:hover,
 .footer-contact-link:focus {
@@ -1120,7 +1145,7 @@ img { display: block; max-width: 100%; }
   padding: var(--sp-2) var(--sp-3);
   border-radius: 14px;
   background: rgba(255,255,255,.05);
-  border: 1px solid rgba(232,41,74,.3);
+  border: 1.5px solid rgba(232,41,74,.3);
   text-decoration: none;
   transition: background 0.2s ease, border-color 0.2s ease;
   animation: rb-glow 4s ease-in-out infinite;
@@ -1154,7 +1179,7 @@ img { display: block; max-width: 100%; }
   align-items: center;
   gap: 8px;
   padding: 8px 14px;
-  margin-top: 12px;
+  margin-top: 6px;
   border-radius: 100px;
   border: 1px solid rgba(0,0,0,.09);
   background: #fff;
@@ -1195,6 +1220,8 @@ img { display: block; max-width: 100%; }
   height: 100%;
   object-fit: cover;
   display: block;
+  border-radius: var(--r);
+  clip-path: inset(0 round var(--r));
   transition: transform 0.4s ease, opacity 0.4s ease;
 }
 .case-photo-card:hover .case-photo {
@@ -1208,7 +1235,10 @@ img { display: block; max-width: 100%; }
   right: 0;
   display: flex;
   justify-content: center;
-  padding: 0 0 16px;
+  align-items: center;
+  padding: 0;
+  transform: translateY(50%);
+  z-index: 2;
 }
 .case-badge {
   display: inline-flex;
@@ -1434,6 +1464,33 @@ img { display: block; max-width: 100%; }
 .office-visit-btn:hover {
   background: #fff;
   border-bottom-color: var(--c-ink);
+}
+
+/* ── ORBIT RIPPLE ── */
+.orbit-ripple {
+  position: absolute;
+  top: 50%; left: 50%;
+  border-radius: 50%;
+  background: transparent;
+  border: 1.5px solid rgba(232,41,74,0.7);
+  transform: translate(-50%,-50%) scale(0);
+  pointer-events: none;
+  z-index: 3;
+  animation: orbitRipple 1.6s cubic-bezier(.2,.6,.4,1) forwards;
+}
+@keyframes orbitRipple {
+  0%   { transform: translate(-50%,-50%) scale(0); opacity: 0.8; }
+  60%  { opacity: 0.35; }
+  100% { transform: translate(-50%,-50%) scale(1); opacity: 0; }
+}
+.orbit-label.floating {
+  animation: orbitFloat 0.45s cubic-bezier(.25,.46,.45,.94) forwards;
+}
+@keyframes orbitFloat {
+  0%   { transform: translate(-50%,-50%) scale(1); }
+  35%  { transform: translate(-50%,-58%) scale(1.06); }
+  70%  { transform: translate(-50%,-45%) scale(0.97); }
+  100% { transform: translate(-50%,-50%) scale(1); }
 }
 </style>
 <!-- Default consent vóór GTM -->
@@ -1709,9 +1766,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
       </div>
       <p class="review-quote">"Resultaat geleverd. Persoonlijke aanpak, kwaliteit van werk, korte lijntjes. Het zijn experts in hun veld."</p>
       <div class="review-byline">
-        <div class="review-avatar">
-          <svg viewBox="0 0 36 36" style="width:36px;height:36px"><rect width="36" height="36" fill="#1a1917"/><ellipse cx="18" cy="13" rx="7" ry="8" fill="rgba(255,255,255,.3)"/><ellipse cx="18" cy="30" rx="12" ry="7" fill="rgba(255,255,255,.25)"/></svg>
-        </div>
+        <div class="review-avatar" style="width:36px;height:36px;border-radius:50%;background:#2D6A4F;display:flex;align-items:center;justify-content:center;font-family:var(--ff-disp);font-size:12px;font-weight:700;color:#fff;flex-shrink:0">JP</div>
         <div><div class="review-name">J. Pecník</div><div class="review-role">CEO @ BikeFair</div></div>
       </div>
     </div>
@@ -1726,9 +1781,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
       </div>
       <p class="review-quote">"Enig leerden over de kwaliteit, talenten en samenkomst. Bedankt!"</p>
       <div class="review-byline">
-        <div class="review-avatar">
-          <svg viewBox="0 0 36 36" style="width:36px;height:36px"><rect width="36" height="36" fill="#e8294a"/><ellipse cx="18" cy="13" rx="7" ry="8" fill="rgba(255,255,255,.3)"/><ellipse cx="18" cy="30" rx="12" ry="7" fill="rgba(255,255,255,.25)"/></svg>
-        </div>
+        <div class="review-avatar" style="width:36px;height:36px;border-radius:50%;background:#1D4E89;display:flex;align-items:center;justify-content:center;font-family:var(--ff-disp);font-size:12px;font-weight:700;color:#fff;flex-shrink:0">MS</div>
         <div><div class="review-name">M. van Soest</div><div class="review-role">CEO @ Smart Boundary</div></div>
       </div>
     </div>
@@ -1743,9 +1796,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
       </div>
       <p class="review-quote">"Creatieve denkers die zich goed kunnen verplaatsen in je bedrijf. En waar je van op aan kan."</p>
       <div class="review-byline">
-        <div class="review-avatar">
-          <svg viewBox="0 0 36 36" style="width:36px;height:36px"><rect width="36" height="36" fill="#1f5a8a"/><ellipse cx="18" cy="13" rx="7" ry="8" fill="rgba(255,255,255,.3)"/><ellipse cx="18" cy="30" rx="12" ry="7" fill="rgba(255,255,255,.25)"/></svg>
-        </div>
+        <div class="review-avatar" style="width:36px;height:36px;border-radius:50%;background:#7B2D8B;display:flex;align-items:center;justify-content:center;font-family:var(--ff-disp);font-size:12px;font-weight:700;color:#fff;flex-shrink:0">TM</div>
         <div><div class="review-name">Tim Muller</div><div class="review-role">Head of Marketing @ Social Innovations</div></div>
       </div>
     </div>
@@ -1760,9 +1811,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
       </div>
       <p class="review-quote">"Niets minder dan indrukwekkend. Ik kan hun diensten ten zeerste aanbevelen."</p>
       <div class="review-byline">
-        <div class="review-avatar">
-          <svg viewBox="0 0 36 36" style="width:36px;height:36px"><rect width="36" height="36" fill="#3d6b2c"/><ellipse cx="18" cy="13" rx="7" ry="8" fill="rgba(255,255,255,.3)"/><ellipse cx="18" cy="30" rx="12" ry="7" fill="rgba(255,255,255,.25)"/></svg>
-        </div>
+        <div class="review-avatar" style="width:36px;height:36px;border-radius:50%;background:#8B4513;display:flex;align-items:center;justify-content:center;font-family:var(--ff-disp);font-size:12px;font-weight:700;color:#fff;flex-shrink:0">HH</div>
         <div><div class="review-name">H. Hasnaouil</div><div class="review-role">Eigenaar @ Zeewind</div></div>
       </div>
     </div>
@@ -1867,35 +1916,35 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
         <span class="faq-q-text">Wat doet een mediabureau voor mijn bedrijf?</span>
         <span class="faq-toggle"><svg viewBox="0 0 12 12" stroke="currentColor" stroke-width="1.5" fill="none"><path d="M6 1v10M1 6h10"/></svg></span>
       </summary>
-      <div class="faq-answer">Van merkstrategie tot campagne-inkoop en platform. We zorgen voor inzichten en executie die de hele klantreis leiden.</div>
+      <div class="faq-answer"><p>We ontwikkelen campagnes, content en digitale platformen.</p></div>
     </details>
-    <details class="faq-item" >
+    <details class="faq-item">
       <summary class="faq-question">
         <span class="faq-q-text">Met welke platformen werken jullie?</span>
         <span class="faq-toggle"><svg viewBox="0 0 12 12" stroke="currentColor" stroke-width="1.5" fill="none"><path d="M6 1v10M1 6h10"/></svg></span>
       </summary>
-      <div class="faq-answer">Zoekmachines, sociale media, programmatic en affiliates. Webflow, Wordpress, Shopify en maatwerk API-koppelingen.</div>
+      <div class="faq-answer"><p>We werken met zoekmachines, sociale media, affiliate en resellers. Buitenreclame en op de radio. Communicatie via betaald adverteren, PR of gewoon jouw eigen platform.</p><p>Daarbij werken we met een stack van 50+ tools die specifieke taken uitvoeren in webdesign, video editing, creative design, social management, data verzameling, analytics en media beheer.</p><p>Development gebeurt op maat, of met template builders als Webflow, Wordpress en Shopify. Ook ontwikkelen we oplossingen op maat, zoals API-koppelingen, databases &amp; webplatformen.</p></div>
     </details>
-    <details class="faq-item" >
+    <details class="faq-item">
       <summary class="faq-question">
-        <span class="faq-q-text">Hoe meten jullie resultaten?</span>
+        <span class="faq-q-text">Hoe meten jullie resultaat?</span>
         <span class="faq-toggle"><svg viewBox="0 0 12 12" stroke="currentColor" stroke-width="1.5" fill="none"><path d="M6 1v10M1 6h10"/></svg></span>
       </summary>
-      <div class="faq-answer">Alle kanalen gebundeld in één client dashboard voor altijd een compleet beeld van de klantreis.</div>
+      <div class="faq-answer"><p>We bundelen alle gegevens van interne en externe systemen voor een compleet beeld. Van digitale/web systemen tot handmatig ingevulde formulieren. Cijfers worden altijd op een centrale plek georganiseerd en zijn real-time inzichtelijk via jouw dashboard.</p></div>
     </details>
-    <details class="faq-item" >
+    <details class="faq-item">
       <summary class="faq-question">
-        <span class="faq-q-text">Wat kost jullie diensten?</span>
+        <span class="faq-q-text">Wat kosten jullie diensten?</span>
         <span class="faq-toggle"><svg viewBox="0 0 12 12" stroke="currentColor" stroke-width="1.5" fill="none"><path d="M6 1v10M1 6h10"/></svg></span>
       </summary>
-      <div class="faq-answer">We werken op projectbasis en retainer. Neem contact op voor een vrijblijvend voorstel op maat.</div>
+      <div class="faq-answer"><p>Bekijk een prijslijst via het menu.</p></div>
     </details>
-    <details class="faq-item" >
+    <details class="faq-item">
       <summary class="faq-question">
         <span class="faq-q-text">Hoe verloopt een samenwerking?</span>
         <span class="faq-toggle"><svg viewBox="0 0 12 12" stroke="currentColor" stroke-width="1.5" fill="none"><path d="M6 1v10M1 6h10"/></svg></span>
       </summary>
-      <div class="faq-answer">Kennismaking, plan van aanpak met KPI's, uitvoering met vaste contactpersoon, evaluatie.</div>
+      <div class="faq-answer"><p>We starten altijd met een kennismaking. Soms heb je onze diensten niet nodig en verwijzen we je door naar een specialist.</p><p>Toon je interesse? Dan stellen we een voorstel op. Je vindt hierin het plan van aanpak, rolverdeling, deadlines, deliverables en KPI's.</p><p>Geef je akkoord? Dan gaan wij van start.</p><p>Als er materiaal opgeleverd moet worden, krijg je vooraf een feedbackronde. Bij elk traject heb je een vast contactpersoon en houden we proactief contact via updates, rapportages en besprekingen.</p><p>Projecten sluiten we af met een evaluatie. Hierin krijg je een overzicht van resultaten, inzichten en verbeterpunten.</p></div>
     </details>
   </div>
 </section>
@@ -1934,9 +1983,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 
     <a href="#" class="article">
       <div class="article-img">
-        <div class="article-img-placeholder" style="background:#dbd8d0">
-          <svg width="40" height="40" viewBox="0 0 40 40" fill="none"><rect x="6" y="10" width="28" height="20" rx="2" fill="rgba(0,0,0,.12)"/><path d="M10 24l5-6 4 4 4-5 6 7" stroke="rgba(0,0,0,.25)" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
-        </div>
+        <img src="https://images.unsplash.com/photo-1611162617213-7d7a39e9b1d7?w=640&q=75&auto=format&fit=crop" alt="" style="width:100%;height:200px;object-fit:cover;display:block;border-radius:var(--r) var(--r) 0 0" loading="lazy">
       </div>
       <div class="article-body"><div class="article-date">June 5, 2026</div>
       <div class="article-title">Hoe ziet een moderne mediacampagne eruit in 2026?</div></div>
@@ -1944,9 +1991,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 
     <a href="#" class="article">
       <div class="article-img">
-        <div class="article-img-placeholder" style="background:#cac8c2">
-          <svg width="40" height="40" viewBox="0 0 40 40" fill="none"><rect x="6" y="10" width="28" height="20" rx="2" fill="rgba(0,0,0,.12)"/><path d="M10 24l5-6 4 4 4-5 6 7" stroke="rgba(0,0,0,.25)" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
-        </div>
+        <img src="https://images.unsplash.com/photo-1460925895917-afdab827c52f?w=640&q=75&auto=format&fit=crop" alt="" style="width:100%;height:200px;object-fit:cover;display:block;border-radius:var(--r) var(--r) 0 0" loading="lazy">
       </div>
       <div class="article-body"><div class="article-date">May 10, 2026</div>
       <div class="article-title">AI architectuur: voor ieder bedrijf een must?</div></div>
@@ -1954,9 +1999,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 
     <a href="#" class="article">
       <div class="article-img">
-        <div class="article-img-placeholder" style="background:#d4d1ca">
-          <svg width="40" height="40" viewBox="0 0 40 40" fill="none"><rect x="6" y="10" width="28" height="20" rx="2" fill="rgba(0,0,0,.12)"/><path d="M10 24l5-6 4 4 4-5 6 7" stroke="rgba(0,0,0,.25)" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
-        </div>
+        <img src="https://images.unsplash.com/photo-1518186285589-2f7649de83e0?w=640&q=75&auto=format&fit=crop" alt="" style="width:100%;height:200px;object-fit:cover;display:block;border-radius:var(--r) var(--r) 0 0" loading="lazy">
       </div>
       <div class="article-body"><div class="article-date">September 2, 2025</div>
       <div class="article-title">Connected TV: de toekomst van televisie reclame</div></div>
@@ -2018,7 +2061,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
         <a href="#" class="footer-link">Voorwaarden</a>
         <a href="#" class="footer-link">Privacy</a>
       </div>
-      <a href="#contact" class="footer-contact-link" id="footer-contact-link">Contact</a>
+      <a href="#contact" class="footer-contact-link" id="footer-contact-link">Contact<svg width="11" height="11" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" style="opacity:0;transition:opacity .15s" class="contact-arr"><path d="M3 8h10M9 4l4 4-4 4"/></svg></a>
       </div>
     </div>
     <p class="footer-copy">© 2026 Flii Media</p>
@@ -2037,7 +2080,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
   </a>
   <a href="tel:+31640881169" class="float-icon" title="Bel ons">
     <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
-      <path d="M6 2h4l2 5-2.5 2c1.2 2.5 3.5 4.8 6 6l2-2.5 5 2V18a2 2 0 01-2 2C9 20 4 15 4 8a2 2 0 012-2z"/>
+      <path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07A19.5 19.5 0 014.72 11.5a19.79 19.79 0 01-3.07-8.67A2 2 0 013.62 1h3a2 2 0 012 1.72c.127.96.361 1.903.7 2.81a2 2 0 01-.45 2.11L7.91 8.59a16 16 0 006.29 6.29l.96-.96a2 2 0 012.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0122 16.92z"/>
     </svg>
   </a>
   <div class="float-icon" title="Chat" onclick="window.chatbase && window.chatbase('open')">
@@ -2059,15 +2102,16 @@ window.addEventListener('load', function() {
   }, 400);
 });
 
-// FAQ accordion
-document.querySelectorAll('.faq-question').forEach(function(q) {
-  q.addEventListener('click', function() {
-    var item = this.closest('.faq-item');
-    var wasOpen = item.classList.contains('open');
-    document.querySelectorAll('.faq-item').forEach(function(i) { i.classList.remove('open'); });
-    if (!wasOpen) item.classList.add('open');
-  });
-});
+// FAQ handled by native <details>
+// Footer contact arrow
+(function(){
+  var cl = document.getElementById('footer-contact-link');
+  if(!cl) return;
+  var arr = cl.querySelector('.contact-arr');
+  if(!arr) return;
+  cl.addEventListener('mouseenter', function(){ arr.style.opacity='1'; });
+  cl.addEventListener('mouseleave', function(){ arr.style.opacity='0'; });
+})();
 
 // Logo upgrade
 (function() {
@@ -2198,6 +2242,72 @@ document.addEventListener('click', function(e) {
   }
   requestAnimationFrame(tick);
 })();
+
+// Orbit ripple on dot click
+(function() {
+  var scene = document.getElementById('orbit-scene');
+  if (!scene) return;
+  
+  var center = scene.querySelector('.orbit-center');
+  if (!center) return;
+
+  function getLabels() {
+    return Array.from(scene.querySelectorAll('.orbit-label'));
+  }
+
+  function rippleDistances(labels, w, h2) {
+    var cx = w / 2, cy = h2 / 2;
+    return labels.map(function(el) {
+      var r = el.getBoundingClientRect();
+      var sr = scene.getBoundingClientRect();
+      var lx = (r.left + r.right) / 2 - sr.left;
+      var ly = (r.top + r.bottom) / 2 - sr.top;
+      return Math.sqrt(Math.pow(lx - cx, 2) + Math.pow(ly - cy, 2));
+    });
+  }
+
+  function fireRipple() {
+    var sw = scene.offsetWidth, sh = scene.offsetHeight;
+    var maxR = Math.max(sw, sh) * 0.7;
+    var labels = getLabels();
+    var dists = rippleDistances(labels, sw, sh);
+
+    // Three ripples, each 180ms apart
+    [1, 0.65, 0.38].forEach(function(strength, ri) {
+      var delay = ri * 200;
+
+      setTimeout(function() {
+        var rEl = document.createElement('div');
+        rEl.className = 'orbit-ripple';
+        var size = maxR * 2;
+        rEl.style.width  = size + 'px';
+        rEl.style.height = size + 'px';
+        rEl.style.borderColor = 'rgba(232,41,74,' + (0.7 * strength) + ')';
+        rEl.style.animationDuration = (1.4 + ri * 0.15) + 's';
+        scene.appendChild(rEl);
+        setTimeout(function() { rEl.remove(); }, 2200);
+
+        // Float each label when ripple reaches it
+        labels.forEach(function(lbl, i) {
+          var travelTime = (dists[i] / (maxR)) * (1400 + ri * 150);
+          setTimeout(function() {
+            lbl.classList.remove('floating');
+            void lbl.offsetWidth; // reflow
+            lbl.classList.add('floating');
+            // Scale by ripple strength
+            var amp = 8 * strength;
+            lbl.style.setProperty('--float-amp', amp + 'px');
+            setTimeout(function() { lbl.classList.remove('floating'); }, 500);
+          }, travelTime);
+        });
+      }, delay);
+    });
+  }
+
+  center.addEventListener('click', fireRipple);
+  center.addEventListener('touchstart', function(e) { e.preventDefault(); fireRipple(); }, {passive:false});
+})();
+
 
 
 // ── NAV MENU ──────────────────────────────────────────────────────────
