@@ -518,6 +518,15 @@ img { display: block; max-width: 100%; }
   transition: transform 0.2s, opacity 0.2s;
 }
 
+/* LoopMark mini ring */
+.loopmark{display:inline-flex;align-items:center;flex:none;}
+.loopmark-svg{width:36px;height:36px;display:block;overflow:visible;}
+@keyframes lmSpin{to{transform-origin:50px 50px;transform:rotate(360deg);}}
+.lm-rot{transform-box:view-box;transform-origin:50px 50px;animation:lmSpin 18s linear infinite;}
+.lm-rot2{transform-box:view-box;transform-origin:50px 50px;animation:lmSpin 28s linear infinite reverse;}
+
+.nav-loop-ring-mark .loopmark-svg { width:44px; height:44px; }
+
 /* ── CLIENTS ── */
 .clients-ticker {
   overflow: hidden;
@@ -1099,33 +1108,7 @@ img { display: block; max-width: 100%; }
   background: rgba(255,255,255,.09);
   border-color: #E8294A;
 }
-.nav-loop-ring {
-  width: 48px; height: 48px;
-  border-radius: 50%;
-  border: 1.5px solid #E8294A;
-  display: flex; align-items: center; justify-content: center;
-  flex-shrink: 0;
-  position: relative;
-}
-.nav-loop-inner {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  line-height: 1;
-  gap: 1px;
-}
-.nav-loop-label {
-  font-family: var(--ff-mono);
-  font-size: 7px; font-weight: 700;
-  color: rgba(255,255,255,.5);
-  letter-spacing: .1em;
-}
-.nav-loop-title {
-  font-family: var(--ff-disp);
-  font-size: 13px; font-weight: 800;
-  color: #fff;
-  letter-spacing: -.3px;
-}
+/* nav-loop-ring replaced by loopmark SVG */
 .nav-loop-text {
   display: flex;
   flex-direction: column;
@@ -1142,6 +1125,32 @@ img { display: block; max-width: 100%; }
   color: rgba(255,255,255,.45);
   font-family: var(--ff-body);
 }
+
+
+/* ── GOOGLE REVIEW BANNER ── */
+.google-review-banner {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 8px 14px;
+  margin-top: 12px;
+  border-radius: 100px;
+  border: 1px solid rgba(0,0,0,.09);
+  background: #fff;
+  text-decoration: none;
+  color: var(--c-ink);
+  font-size: 12px;
+  font-weight: 500;
+  transition: border-color .15s, box-shadow .15s;
+  box-shadow: 0 1px 4px rgba(0,0,0,.06);
+}
+.google-review-banner:hover {
+  border-color: rgba(0,0,0,.18);
+  box-shadow: 0 2px 8px rgba(0,0,0,.1);
+}
+.grb-stars { color: #FBBC04; font-size: 13px; letter-spacing: -1px; }
+.grb-text { color: var(--c-ink); }
+.grb-text strong { font-weight: 700; }
 
 /* ── FOOTER ── */
 .footer {
@@ -1396,12 +1405,37 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 
   <!-- Flii Loop card -->
   <a href="loop.html" class="nav-loop-card" onclick="closeMenu()">
-    <div class="nav-loop-ring">
-      <span class="nav-loop-inner">
-        <span class="nav-loop-label">FLII</span>
-        <span class="nav-loop-title">Loop</span>
+    <span class="loopmark nav-loop-ring-mark" aria-hidden="true">
+        <svg class="loopmark-svg" viewBox="0 0 100 100">
+          <defs>
+            <linearGradient id="navLmGrad" x1="0" y1="0" x2="1" y2="1">
+              <stop offset="0%" stop-color="#B14BFF"/>
+              <stop offset="28%" stop-color="#E7255A"/>
+              <stop offset="50%" stop-color="#FF5E9A"/>
+              <stop offset="64%" stop-color="#FFD2E4"/>
+              <stop offset="80%" stop-color="#FF3D8E"/>
+              <stop offset="100%" stop-color="#C04BFF"/>
+            </linearGradient>
+            <filter id="navLmFire" x="-60%" y="-60%" width="220%" height="220%">
+              <feTurbulence type="fractalNoise" baseFrequency="0.022 0.04" numOctaves="2" seed="4" result="n">
+                <animate attributeName="baseFrequency" dur="6s" values="0.022 0.04;0.03 0.052;0.02 0.034;0.022 0.04" repeatCount="indefinite"/>
+              </feTurbulence>
+              <feDisplacementMap in="SourceGraphic" in2="n" scale="9" xChannelSelector="R" yChannelSelector="G">
+                <animate attributeName="scale" dur="5s" values="8;12.5;9;8" repeatCount="indefinite"/>
+              </feDisplacementMap>
+              <feGaussianBlur stdDeviation="0.5"/>
+            </filter>
+            <filter id="navLmGlow" x="-60%" y="-60%" width="220%" height="220%"><feGaussianBlur stdDeviation="2.4"/></filter>
+          </defs>
+          <g class="lm-rot">
+            <circle cx="50" cy="50" r="35" fill="none" stroke="url(#navLmGrad)" stroke-width="7" filter="url(#navLmGlow)" opacity="0.5"/>
+            <circle cx="50" cy="50" r="35" fill="none" stroke="url(#navLmGrad)" stroke-width="5" filter="url(#navLmFire)"/>
+          </g>
+          <g class="lm-rot2">
+            <circle cx="50" cy="50" r="32" fill="none" stroke="url(#navLmGrad)" stroke-width="3" filter="url(#navLmFire)" opacity="0.85"/>
+          </g>
+        </svg>
       </span>
-    </div>
     <div class="nav-loop-text">
       <span class="nav-loop-name">Flii Loop</span>
       <span class="nav-loop-desc">Eén loop die blijft leren →</span>
@@ -1912,6 +1946,12 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
       </svg>
     </a>
   </div>
+      <!-- Google Review Banner -->
+      <a href="https://share.google/ApvHmyLk1sR2IH0cw" target="_blank" rel="noopener" class="google-review-banner">
+        <span class="grb-stars">★★★★★</span>
+        <span class="grb-text"><strong>5.0</strong> op Google &middot; 14 reviews</span>
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="opacity:.45"><path d="M7 17L17 7M7 7h10v10"/></svg>
+      </a>
 
   <p class="footer-info">
     Handweg 159, Amstelveen<br>
