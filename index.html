@@ -895,9 +895,9 @@ img { display: block; max-width: 100%; }
   z-index: 995;
   border-radius: 12px;
   overflow: hidden;
-  border: 1.5px solid #E8294A;
+  border: 0.5px solid rgba(232,41,74,.5);
   animation: rb-glow 4s ease-in-out infinite;
-  box-shadow: 0 4px 20px rgba(0,0,0,.12);
+  box-shadow: 0 2px 12px rgba(0,0,0,.08);
   transition: right 0.4s cubic-bezier(0.23, 1, 0.32, 1);
 }
 .float-sidebar.visible { right: 12px; }
@@ -907,7 +907,7 @@ img { display: block; max-width: 100%; }
   background: rgba(255,255,255,.95);
   backdrop-filter: blur(12px);
   border: none;
-  border-bottom: 1px solid rgba(232,41,74,.15);
+  border-bottom: 0.5px solid rgba(232,41,74,.12);
   display: flex; align-items: center; justify-content: center;
   cursor: pointer;
   color: var(--c-ink);
@@ -938,29 +938,39 @@ img { display: block; max-width: 100%; }
 .case-results li::before { content: "→ "; color: var(--c-red); }
 
 
+
 /* ── CTA TRAVELLING GLOW ── */
-@property --angle {
-  syntax: "<angle>";
-  initial-value: 0deg;
-  inherits: false;
-}
-@keyframes cta-shine {
-  to { --angle: 360deg; }
+@keyframes border-travel {
+  0%   { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
 }
 .cta-card-wrap {
   position: relative;
   border-radius: var(--r);
-  padding: 1px;
-  background: conic-gradient(from var(--angle),
-    transparent 0%,
-    transparent 60%,
-    #FF6B9D 75%,
-    #ffffff 80%,
-    #E8294A 85%,
-    transparent 90%,
-    transparent 100%
+  border: 1px solid rgba(232,41,74,.35);
+  overflow: hidden;
+}
+.cta-card-wrap::before {
+  content: '';
+  position: absolute;
+  inset: -80%;
+  background: conic-gradient(
+    from 0deg,
+    transparent 0deg,
+    transparent 150deg,
+    rgba(255,150,180,.12) 165deg,
+    rgba(255,255,255,.6)  180deg,
+    rgba(255,100,150,.15) 195deg,
+    transparent 210deg,
+    transparent 360deg
   );
-  animation: cta-shine 3s linear infinite;
+  animation: border-travel 4s linear infinite;
+  pointer-events: none;
+  z-index: 0;
+}
+.cta-card-wrap > .cta-card {
+  position: relative;
+  z-index: 1;
 }
 
 /* ── FOOTER ── */
@@ -1341,35 +1351,31 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
           <div class="service-num">01</div>
           <div class="service-name">Marketing</div>
         </div>
-        <p class="service-desc">Zonder een sterke strategie blijf je als merk ad hoc werken, zonder richting of duidelijk doel. Wij helpen je koers te bepalen, zodat je marketinginspanningen écht iets opleveren. Je krijgt duidelijke richting en focus, wat zorgt voor meer impact en duurzame groei.</p>
-        <p class="service-sub">Marketing strategie · Campagne strategie · Performance marketing · Media strategie · Media planning · Media management</p>
-        <div class="service-tags"><span class="service-tag">Strategie</span> <span class="service-tag">Campagnes</span> <span class="service-tag">Performance</span> <span class="service-tag">Media</span></div>
+        <p class="service-desc">Meer awareness, leads, conversie of omzet nodig? Let's talk.</p>
+        <div class="service-tags"><span class="service-tag">Media</span> <span class="service-tag">Campagne</span> <span class="service-tag">Content</span> <span class="service-tag">Platform</span></div>
       </div>
       <div class="service">
         <div class="service-header">
           <div class="service-num">02</div>
           <div class="service-name">Media</div>
         </div>
-        <p class="service-desc">De juiste mediamix bepaalt voor een groot deel het succes van je campagne. Welk kanaal werkt het beste voor jouw doelgroep? Wij zorgen voor slimme media-inzet op basis van data, ervaring en creativiteit — online én offline. Je profiteert van een groot bereik binnen een efficiënt budget.</p>
-        <p class="service-sub">Media strategie · Media planning · Media management · Online advertising · Programmatic · Social media · Influencers · Zoekmachine marketing</p>
-        <div class="service-tags"><span class="service-tag">Social</span> <span class="service-tag">SEA / SEO</span> <span class="service-tag">Programmatic</span> <span class="service-tag">Influencers</span></div>
+        <p class="service-desc">Planning, inkoop, platform management & adverteren op 20+ media kanalen.</p>
+        <div class="service-tags"><span class="service-tag">Zoekmachines</span> <span class="service-tag">Social Media</span> <span class="service-tag">Programmatic</span> <span class="service-tag">Influencers</span></div>
       </div>
       <div class="service">
         <div class="service-header">
           <div class="service-num">03</div>
           <div class="service-name">Content</div>
         </div>
-        <p class="service-desc">Goede ideeën verdienen vlekkeloze uitvoering. Wij zorgen voor professionele productie van je content — van concept en script tot shoot en edit. Of het nu gaat om video, social, editorial of fotografie: elk stuk klopt in vorm, stijl en timing en is direct inzetbaar op elk kanaal.</p>
-        <p class="service-sub">Video marketing · Social content · Content creatie · Editorial · Fotografie · Copywriting</p>
-        <div class="service-tags"><span class="service-tag">Video</span> <span class="service-tag">Social</span> <span class="service-tag">Editorial</span> <span class="service-tag">Foto</span></div>
+        <p class="service-desc">Voor creatief concept, ontwikkeling en data-gedreven verbetering van content.</p>
+        <div class="service-tags"><span class="service-tag">Video</span> <span class="service-tag">Social content</span> <span class="service-tag">Fotografie</span> <span class="service-tag">Editorial</span></div>
       </div>
       <div class="service">
         <div class="service-header">
           <div class="service-num">04</div>
           <div class="service-name">Web</div>
         </div>
-        <p class="service-desc">Je website is vaak het eerste contact met je merk. Wij ontwerpen en bouwen websites en platformen die er goed uitzien, technisch presteren en meegroeien met je ambities — van no-code oplossingen tot custom codebases op maat. Meetbaar resultaat en vindbaar op SEO.</p>
-        <p class="service-sub">Web design · Web development · No-code (Webflow, Shopify) · Custom code (React/Node) · Websites & platformen · Integraties</p>
+        <p class="service-desc">Van website tot platform: wij bieden no-code, custom code en integratie oplossingen op maat.</p>
         <div class="service-tags"><span class="service-tag">Design</span> <span class="service-tag">Development</span> <span class="service-tag">No-code</span> <span class="service-tag">Custom code</span></div>
       </div>
       <div class="service">
@@ -1377,9 +1383,8 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
           <div class="service-num">05</div>
           <div class="service-name">Data</div>
         </div>
-        <p class="service-desc">Zonder goede tracking weet je eigenlijk niet wat werkt. Wij zorgen dat je precies ziet wat bezoekers doen, waar ze afhaken en wat converteert. Van tracking en dashboards tot A/B testing en attributie: geen giswerk meer, maar harde data als basis voor jouw beslissingen.</p>
-        <p class="service-sub">Tracking & meetbaarheid · Dashboards · Analyse & optimalisatie · Attributie · Research · A/B testing</p>
-        <div class="service-tags"><span class="service-tag">Tracking</span> <span class="service-tag">Analytics</span> <span class="service-tag">Attributie</span> <span class="service-tag">A/B testing</span></div>
+        <p class="service-desc">Van meting tot marktonderzoek, van testing tot trend spotting. We zorgen voor inzichten waar geen speld meer tussen past.</p>
+        <div class="service-tags"><span class="service-tag">Research</span> <span class="service-tag">Tracking</span> <span class="service-tag">Attributie</span> <span class="service-tag">Analyse & optimalisatie</span> <span class="service-tag">Dashboards</span></div>
       </div>
       <p class="services-footer">Meer dan 30 diensten — <a href="mailto:info@flii.nl" style="color:var(--c-red)">neem contact op</a> voor maatwerk.</p>
     </div>
@@ -1677,7 +1682,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 <!-- CTA -->
 <section class="section" id="contact">
   <div class="cta-card-wrap">
-  <div class="cta-card" style="background:#0F0E0C;border:none;animation:none">
+  <div class="cta-card" style="background:#0F0E0C">
     <h2 class="cta-h">Let's ignite<br>ambitions</h2>
     <a href="mailto:info@flii.nl" class="btn-cta">
       Contact
