@@ -4,17 +4,16 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
 <title>Kennisbank Marketing & Media — Flii Media</title>
-<meta name="description" content="De kennisbank van Flii Media: 104 begrippen uit marketing en media, helder uitgelegd met praktijkvoorbeelden.">
+<meta name="description" content="104 marketing en media begrippen helder uitgelegd met praktijkvoorbeelden. De kennisbank van Flii Media.">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,400;12..96,500;12..96,600;12..96,700;12..96,800&family=DM+Sans:ital,opsz,wght@0,9..40,400;0,9..40,500;0,9..40,600;1,9..40,400&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
 <style>
 :root{--mag:#E8294A;--ink:#0F0E0C;--mid:#4A4840;--subtle:#9B9790;--rule:#E8E6E1;--bg:#F3F1EB;--white:#fff;
   --ff-disp:'Bricolage Grotesque','Inter',system-ui,sans-serif;
-  --ff-body:'DM Sans',system-ui,sans-serif;
-  --ff-mono:'JetBrains Mono',monospace;}
+  --ff-body:'DM Sans',system-ui,sans-serif;--ff-mono:'JetBrains Mono',monospace;}
 *{box-sizing:border-box;margin:0;padding:0;-webkit-font-smoothing:antialiased;}
-body{font-family:var(--ff-body);background:var(--bg);color:var(--ink);min-height:100vh;}
+body{font-family:var(--ff-body);background:var(--bg);color:var(--ink);}
 a{color:inherit;text-decoration:none;}
 .nav{display:flex;align-items:center;justify-content:space-between;padding:0 20px;height:56px;
   border-bottom:1px solid var(--rule);position:sticky;top:0;
@@ -23,34 +22,64 @@ a{color:inherit;text-decoration:none;}
 .nav-brand img{height:26px;width:auto;}
 .nav-back{font-size:13px;color:var(--mid);font-weight:500;}
 .nav-back:hover{color:var(--ink);}
-.page-footer{padding:32px 24px;text-align:center;font-size:12px;color:var(--subtle);
+/* Hero */
+.kb-hero{padding:40px 20px 28px;border-bottom:1px solid var(--rule);background:var(--white);}
+.eyebrow{font-family:var(--ff-mono);font-size:10px;font-weight:600;letter-spacing:.16em;
+  text-transform:uppercase;color:var(--mag);margin-bottom:10px;display:block;}
+.kb-hero h1{font-family:var(--ff-disp);font-size:clamp(24px,7vw,36px);font-weight:800;
+  letter-spacing:-1px;line-height:1.05;margin-bottom:6px;}
+.kb-hero p{font-size:14px;color:var(--mid);line-height:1.5;}
+/* Category groups */
+.kb-body{padding:0 0 64px;}
+.kb-cat-group{border-bottom:1px solid var(--rule);}
+.kb-cat-label{
+  display:flex;align-items:center;gap:8px;
+  padding:14px 20px 10px;
+  font-family:var(--ff-disp);font-size:13px;font-weight:700;color:var(--ink);
+  background:var(--white);
+  border-bottom:1px solid var(--rule);
+  position:sticky;top:56px;z-index:5;
+}
+.kb-cat-num{font-family:var(--ff-mono);font-size:10px;color:var(--subtle);min-width:20px;}
+/* Topic rows */
+.kb-row{
+  display:flex;align-items:baseline;gap:0;
+  padding:0 20px;
+  border-bottom:1px solid rgba(232,230,225,.5);
+  text-decoration:none;
+  color:var(--ink);
+  transition:background .1s;
+  min-height:44px;
+}
+.kb-row:last-child{border-bottom:none;}
+.kb-row:hover{background:rgba(232,41,74,.04);}
+.kb-row:active{background:rgba(232,41,74,.08);}
+.kb-row-left{
+  display:flex;flex-direction:column;justify-content:center;
+  flex:1;min-width:0;
+  padding:10px 12px 10px 0;
+}
+.kb-term{
+  font-size:14px;font-weight:600;color:var(--ink);
+  white-space:nowrap;overflow:hidden;text-overflow:ellipsis;
+}
+.kb-def{
+  font-size:11px;color:var(--subtle);line-height:1.4;margin-top:2px;
+  white-space:nowrap;overflow:hidden;text-overflow:ellipsis;
+}
+.kb-row-arrow{
+  display:flex;align-items:center;
+  flex-shrink:0;
+  color:var(--rule);
+  font-size:16px;
+  padding-left:8px;
+  transition:color .1s,transform .1s;
+}
+.kb-row:hover .kb-row-arrow{color:var(--mag);transform:translateX(2px);}
+/* Footer */
+.page-footer{padding:28px 24px;text-align:center;font-size:12px;color:var(--subtle);
   border-top:1px solid var(--rule);background:var(--white);}
 .page-footer a{color:var(--ink);font-weight:600;}
-
-.kb-hero{padding:48px 24px 40px;max-width:640px;margin:0 auto;}
-.kb-eyebrow{font-family:var(--ff-mono);font-size:10px;font-weight:600;letter-spacing:.16em;
-  text-transform:uppercase;color:var(--mag);margin-bottom:12px;display:block;}
-.kb-hero h1{font-family:var(--ff-disp);font-size:clamp(28px,8vw,44px);font-weight:800;
-  letter-spacing:-1.2px;line-height:1.05;margin-bottom:12px;}
-.kb-hero p{font-size:15px;color:var(--mid);line-height:1.6;}
-.kb-grid{max-width:640px;margin:0 auto;padding:0 20px 64px;display:flex;flex-direction:column;gap:8px;}
-.kb-cat{background:var(--white);border:1px solid var(--rule);border-radius:14px;overflow:hidden;}
-.kb-cat-head{display:flex;align-items:center;gap:12px;padding:16px 20px;cursor:pointer;
-  font-family:var(--ff-disp);font-size:16px;font-weight:700;color:var(--ink);}
-.kb-cat-head:hover .kb-cat-name{color:var(--mag);}
-.kb-cat-icon{font-size:18px;flex:none;}
-.kb-cat-name{flex:1;}
-.kb-cat-count{font-family:var(--ff-mono);font-size:10px;color:var(--subtle);letter-spacing:.06em;}
-.kb-cat-caret{color:var(--subtle);transition:transform .2s;font-size:14px;}
-.kb-cat.open .kb-cat-caret{transform:rotate(90deg);}
-.kb-topics{display:none;border-top:1px solid var(--rule);}
-.kb-cat.open .kb-topics{display:block;}
-.kb-topic-link{display:flex;align-items:center;justify-content:space-between;
-  padding:11px 20px 11px 48px;font-size:14px;color:var(--mid);border-bottom:1px solid rgba(232,230,225,.6);}
-.kb-topic-link:last-child{border-bottom:none;}
-.kb-topic-link:hover{color:var(--mag);background:rgba(232,41,74,.03);}
-.kb-topic-link .arr{font-size:12px;color:var(--rule);}
-.kb-topic-link:hover .arr{color:var(--mag);}
 </style>
 </head>
 <body>
@@ -58,257 +87,782 @@ a{color:inherit;text-decoration:none;}
   <a href="index.html" class="nav-brand"><img src="data:image/png;base64,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" alt="Flii"> Kennisbank</a>
   <a href="index.html" class="nav-back">← Flii Media</a>
 </nav>
-<section style="padding:48px 24px 32px;max-width:640px;margin:0 auto;">
-  <span class="kb-eyebrow">Kennisbank</span>
-  <h1 style="font-family:var(--ff-disp);font-size:clamp(28px,8vw,44px);font-weight:800;letter-spacing:-1.2px;line-height:1.05;margin-bottom:12px;">Marketing & Media</h1>
-  <p style="font-size:15px;color:var(--mid);line-height:1.6;">13 onderwerpen, 104 begrippen. Van strategie tot wetgeving — helder uitgelegd met praktijkvoorbeelden.</p>
-</section>
-<div class="kb-grid">
-  <div class="kb-cat" id="cat-0">
-    <div class="kb-cat-head" onclick="toggleCat('cat-0')">
-      <span class="kb-cat-icon">📊</span>
-      <span class="kb-cat-name">Marketingstrategie</span>
-      <span class="kb-cat-count">8 begrippen</span>
-      <span class="kb-cat-caret">›</span>
-    </div>
-    <div class="kb-topics">
-      <a href="kennisbank/marktanalyse.html" class="kb-topic-link"><span>Marktanalyse</span><span class="arr">›</span></a>
-      <a href="kennisbank/concurrentieanalyse.html" class="kb-topic-link"><span>Concurrentieanalyse</span><span class="arr">›</span></a>
-      <a href="kennisbank/positionering.html" class="kb-topic-link"><span>Positionering</span><span class="arr">›</span></a>
-      <a href="kennisbank/segmentatie.html" class="kb-topic-link"><span>Segmentatie</span><span class="arr">›</span></a>
-      <a href="kennisbank/targeting.html" class="kb-topic-link"><span>Targeting</span><span class="arr">›</span></a>
-      <a href="kennisbank/waardepropositie.html" class="kb-topic-link"><span>Waardepropositie</span><span class="arr">›</span></a>
-      <a href="kennisbank/merkstrategie.html" class="kb-topic-link"><span>Merkstrategie</span><span class="arr">›</span></a>
-      <a href="kennisbank/go-to-market.html" class="kb-topic-link"><span>Go-to-market</span><span class="arr">›</span></a>
-    </div>
+<div class="kb-hero">
+  <span class="eyebrow">Kennisbank</span>
+  <h1>Marketing & Media</h1>
+  <p>13 onderwerpen · 104 begrippen — helder uitgelegd met praktijkvoorbeelden.</p>
+</div>
+<div class="kb-body">
+  <div class="kb-cat-group">
+    <div class="kb-cat-label"><span class="kb-cat-num">01</span>Marketingstrategie</div>
+    <a href="kennisbank/marktanalyse.html" class="kb-row">
+      <div class="kb-row-left">
+        <span class="kb-term">Marktanalyse</span>
+        <span class="kb-def">Data verzamelen over marktomvang, groei en trends.</span>
+      </div>
+      <span class="kb-row-arrow">›</span>
+    </a>
+    <a href="kennisbank/concurrentieanalyse.html" class="kb-row">
+      <div class="kb-row-left">
+        <span class="kb-term">Concurrentieanalyse</span>
+        <span class="kb-def">Sterke en zwakke punten van concurrenten evalueren.</span>
+      </div>
+      <span class="kb-row-arrow">›</span>
+    </a>
+    <a href="kennisbank/positionering.html" class="kb-row">
+      <div class="kb-row-left">
+        <span class="kb-term">Positionering</span>
+        <span class="kb-def">Merkplek in het hoofd van de consument.</span>
+      </div>
+      <span class="kb-row-arrow">›</span>
+    </a>
+    <a href="kennisbank/segmentatie.html" class="kb-row">
+      <div class="kb-row-left">
+        <span class="kb-term">Segmentatie</span>
+        <span class="kb-def">Markt opdelen in homogene doelgroepen.</span>
+      </div>
+      <span class="kb-row-arrow">›</span>
+    </a>
+    <a href="kennisbank/targeting.html" class="kb-row">
+      <div class="kb-row-left">
+        <span class="kb-term">Targeting</span>
+        <span class="kb-def">Selecteren welke segmenten je actief benadert.</span>
+      </div>
+      <span class="kb-row-arrow">›</span>
+    </a>
+    <a href="kennisbank/waardepropositie.html" class="kb-row">
+      <div class="kb-row-left">
+        <span class="kb-term">Waardepropositie</span>
+        <span class="kb-def">Waarom klanten voor jouw aanbod kiezen.</span>
+      </div>
+      <span class="kb-row-arrow">›</span>
+    </a>
+    <a href="kennisbank/merkstrategie.html" class="kb-row">
+      <div class="kb-row-left">
+        <span class="kb-term">Merkstrategie</span>
+        <span class="kb-def">Langetermijnplan voor merkopbouw en -beheer.</span>
+      </div>
+      <span class="kb-row-arrow">›</span>
+    </a>
+    <a href="kennisbank/go-to-market.html" class="kb-row">
+      <div class="kb-row-left">
+        <span class="kb-term">Go-to-market</span>
+        <span class="kb-def">Strategie voor succesvolle productlancering op de markt.</span>
+      </div>
+      <span class="kb-row-arrow">›</span>
+    </a>
   </div>
-  <div class="kb-cat" id="cat-1">
-    <div class="kb-cat-head" onclick="toggleCat('cat-1')">
-      <span class="kb-cat-icon">🎯</span>
-      <span class="kb-cat-name">Merk (Brand)</span>
-      <span class="kb-cat-count">7 begrippen</span>
-      <span class="kb-cat-caret">›</span>
-    </div>
-    <div class="kb-topics">
-      <a href="kennisbank/brand-identity.html" class="kb-topic-link"><span>Brand Identity</span><span class="arr">›</span></a>
-      <a href="kennisbank/brand-positioning.html" class="kb-topic-link"><span>Brand Positioning</span><span class="arr">›</span></a>
-      <a href="kennisbank/brand-architecture.html" class="kb-topic-link"><span>Brand Architecture</span><span class="arr">›</span></a>
-      <a href="kennisbank/employer-branding.html" class="kb-topic-link"><span>Employer Branding</span><span class="arr">›</span></a>
-      <a href="kennisbank/personal-branding.html" class="kb-topic-link"><span>Personal Branding</span><span class="arr">›</span></a>
-      <a href="kennisbank/brand-experience.html" class="kb-topic-link"><span>Brand Experience</span><span class="arr">›</span></a>
-      <a href="kennisbank/reputatiemanagement.html" class="kb-topic-link"><span>Reputatiemanagement</span><span class="arr">›</span></a>
-    </div>
+  <div class="kb-cat-group">
+    <div class="kb-cat-label"><span class="kb-cat-num">02</span>Merk (Brand)</div>
+    <a href="kennisbank/brand-identity.html" class="kb-row">
+      <div class="kb-row-left">
+        <span class="kb-term">Brand Identity</span>
+        <span class="kb-def">Visuele en verbale elementen die een merk onderscheiden.</span>
+      </div>
+      <span class="kb-row-arrow">›</span>
+    </a>
+    <a href="kennisbank/brand-positioning.html" class="kb-row">
+      <div class="kb-row-left">
+        <span class="kb-term">Brand Positioning</span>
+        <span class="kb-def">Mentale merkruimte ten opzichte van concurrenten.</span>
+      </div>
+      <span class="kb-row-arrow">›</span>
+    </a>
+    <a href="kennisbank/brand-architecture.html" class="kb-row">
+      <div class="kb-row-left">
+        <span class="kb-term">Brand Architecture</span>
+        <span class="kb-def">Ordening van merken en submerken in een portfolio.</span>
+      </div>
+      <span class="kb-row-arrow">›</span>
+    </a>
+    <a href="kennisbank/employer-branding.html" class="kb-row">
+      <div class="kb-row-left">
+        <span class="kb-term">Employer Branding</span>
+        <span class="kb-def">Organisatie positioneren als aantrekkelijke werkgever.</span>
+      </div>
+      <span class="kb-row-arrow">›</span>
+    </a>
+    <a href="kennisbank/personal-branding.html" class="kb-row">
+      <div class="kb-row-left">
+        <span class="kb-term">Personal Branding</span>
+        <span class="kb-def">Publieke perceptie van een individu als professional beheren.</span>
+      </div>
+      <span class="kb-row-arrow">›</span>
+    </a>
+    <a href="kennisbank/brand-experience.html" class="kb-row">
+      <div class="kb-row-left">
+        <span class="kb-term">Brand Experience</span>
+        <span class="kb-def">Totale indruk bij alle interacties met een merk.</span>
+      </div>
+      <span class="kb-row-arrow">›</span>
+    </a>
+    <a href="kennisbank/reputatiemanagement.html" class="kb-row">
+      <div class="kb-row-left">
+        <span class="kb-term">Reputatiemanagement</span>
+        <span class="kb-def">Publiek imago bewaken, beschermen en versterken.</span>
+      </div>
+      <span class="kb-row-arrow">›</span>
+    </a>
   </div>
-  <div class="kb-cat" id="cat-2">
-    <div class="kb-cat-head" onclick="toggleCat('cat-2')">
-      <span class="kb-cat-icon">📣</span>
-      <span class="kb-cat-name">Marketingcommunicatie</span>
-      <span class="kb-cat-count">8 begrippen</span>
-      <span class="kb-cat-caret">›</span>
-    </div>
-    <div class="kb-topics">
-      <a href="kennisbank/campagnes.html" class="kb-topic-link"><span>Campagnes</span><span class="arr">›</span></a>
-      <a href="kennisbank/corporate-communicatie.html" class="kb-topic-link"><span>Corporate Communicatie</span><span class="arr">›</span></a>
-      <a href="kennisbank/interne-communicatie.html" class="kb-topic-link"><span>Interne Communicatie</span><span class="arr">›</span></a>
-      <a href="kennisbank/public-relations.html" class="kb-topic-link"><span>Public Relations</span><span class="arr">›</span></a>
-      <a href="kennisbank/sponsoring.html" class="kb-topic-link"><span>Sponsoring</span><span class="arr">›</span></a>
-      <a href="kennisbank/evenementen.html" class="kb-topic-link"><span>Evenementen</span><span class="arr">›</span></a>
-      <a href="kennisbank/influencer-marketing.html" class="kb-topic-link"><span>Influencer Marketing</span><span class="arr">›</span></a>
-      <a href="kennisbank/community-management.html" class="kb-topic-link"><span>Community Management</span><span class="arr">›</span></a>
-    </div>
+  <div class="kb-cat-group">
+    <div class="kb-cat-label"><span class="kb-cat-num">03</span>Marketingcommunicatie</div>
+    <a href="kennisbank/campagnes.html" class="kb-row">
+      <div class="kb-row-left">
+        <span class="kb-term">Campagnes</span>
+        <span class="kb-def">Gecoördineerde marketingactiviteiten met gezamenlijk doel.</span>
+      </div>
+      <span class="kb-row-arrow">›</span>
+    </a>
+    <a href="kennisbank/corporate-communicatie.html" class="kb-row">
+      <div class="kb-row-left">
+        <span class="kb-term">Corporate Communicatie</span>
+        <span class="kb-def">Communicatie naar stakeholders voor reputatieopbouw.</span>
+      </div>
+      <span class="kb-row-arrow">›</span>
+    </a>
+    <a href="kennisbank/interne-communicatie.html" class="kb-row">
+      <div class="kb-row-left">
+        <span class="kb-term">Interne Communicatie</span>
+        <span class="kb-def">Medewerkers informeren, betrekken en verbinden.</span>
+      </div>
+      <span class="kb-row-arrow">›</span>
+    </a>
+    <a href="kennisbank/public-relations.html" class="kb-row">
+      <div class="kb-row-left">
+        <span class="kb-term">Public Relations</span>
+        <span class="kb-def">Vertrouwen opbouwen via onafhankelijke media en stakeholders.</span>
+      </div>
+      <span class="kb-row-arrow">›</span>
+    </a>
+    <a href="kennisbank/sponsoring.html" class="kb-row">
+      <div class="kb-row-left">
+        <span class="kb-term">Sponsoring</span>
+        <span class="kb-def">Financiële steun ruilen voor merkzichtbaarheid.</span>
+      </div>
+      <span class="kb-row-arrow">›</span>
+    </a>
+    <a href="kennisbank/evenementen.html" class="kb-row">
+      <div class="kb-row-left">
+        <span class="kb-term">Evenementen</span>
+        <span class="kb-def">Marketing via fysieke, virtuele of hybride gelegenheden.</span>
+      </div>
+      <span class="kb-row-arrow">›</span>
+    </a>
+    <a href="kennisbank/influencer-marketing.html" class="kb-row">
+      <div class="kb-row-left">
+        <span class="kb-term">Influencer Marketing</span>
+        <span class="kb-def">Samenwerken met personen met een betrokken aanhang.</span>
+      </div>
+      <span class="kb-row-arrow">›</span>
+    </a>
+    <a href="kennisbank/community-management.html" class="kb-row">
+      <div class="kb-row-left">
+        <span class="kb-term">Community Management</span>
+        <span class="kb-def">Gemeenschap van klanten en fans opbouwen en modereren.</span>
+      </div>
+      <span class="kb-row-arrow">›</span>
+    </a>
   </div>
-  <div class="kb-cat" id="cat-3">
-    <div class="kb-cat-head" onclick="toggleCat('cat-3')">
-      <span class="kb-cat-icon">✍️</span>
-      <span class="kb-cat-name">Content</span>
-      <span class="kb-cat-count">8 begrippen</span>
-      <span class="kb-cat-caret">›</span>
-    </div>
-    <div class="kb-topics">
-      <a href="kennisbank/contentstrategie.html" class="kb-topic-link"><span>Contentstrategie</span><span class="arr">›</span></a>
-      <a href="kennisbank/copywriting.html" class="kb-topic-link"><span>Copywriting</span><span class="arr">›</span></a>
-      <a href="kennisbank/storytelling.html" class="kb-topic-link"><span>Storytelling</span><span class="arr">›</span></a>
-      <a href="kennisbank/video.html" class="kb-topic-link"><span>Video</span><span class="arr">›</span></a>
-      <a href="kennisbank/audio-podcasts.html" class="kb-topic-link"><span>Audio & Podcasts</span><span class="arr">›</span></a>
-      <a href="kennisbank/fotografie.html" class="kb-topic-link"><span>Fotografie</span><span class="arr">›</span></a>
-      <a href="kennisbank/visual-design.html" class="kb-topic-link"><span>Visual Design</span><span class="arr">›</span></a>
-      <a href="kennisbank/content-operations.html" class="kb-topic-link"><span>Content Operations</span><span class="arr">›</span></a>
-    </div>
+  <div class="kb-cat-group">
+    <div class="kb-cat-label"><span class="kb-cat-num">04</span>Content</div>
+    <a href="kennisbank/contentstrategie.html" class="kb-row">
+      <div class="kb-row-left">
+        <span class="kb-term">Contentstrategie</span>
+        <span class="kb-def">Plan voor contentcreatie, distributie en meting.</span>
+      </div>
+      <span class="kb-row-arrow">›</span>
+    </a>
+    <a href="kennisbank/copywriting.html" class="kb-row">
+      <div class="kb-row-left">
+        <span class="kb-term">Copywriting</span>
+        <span class="kb-def">Overtuigende teksten schrijven die aanzetten tot actie.</span>
+      </div>
+      <span class="kb-row-arrow">›</span>
+    </a>
+    <a href="kennisbank/storytelling.html" class="kb-row">
+      <div class="kb-row-left">
+        <span class="kb-term">Storytelling</span>
+        <span class="kb-def">Merkboodschappen via verhalen memorabel communiceren.</span>
+      </div>
+      <span class="kb-row-arrow">›</span>
+    </a>
+    <a href="kennisbank/video.html" class="kb-row">
+      <div class="kb-row-left">
+        <span class="kb-term">Video</span>
+        <span class="kb-def">Bewegend beeld voor branding, educatie of conversie.</span>
+      </div>
+      <span class="kb-row-arrow">›</span>
+    </a>
+    <a href="kennisbank/audio-podcasts.html" class="kb-row">
+      <div class="kb-row-left">
+        <span class="kb-term">Audio & Podcasts</span>
+        <span class="kb-def">Audio als marketingmedium, van jingles tot podcasts.</span>
+      </div>
+      <span class="kb-row-arrow">›</span>
+    </a>
+    <a href="kennisbank/fotografie.html" class="kb-row">
+      <div class="kb-row-left">
+        <span class="kb-term">Fotografie</span>
+        <span class="kb-def">Stilstaand beeld voor merkidentiteit en productpresentatie.</span>
+      </div>
+      <span class="kb-row-arrow">›</span>
+    </a>
+    <a href="kennisbank/visual-design.html" class="kb-row">
+      <div class="kb-row-left">
+        <span class="kb-term">Visual Design</span>
+        <span class="kb-def">Communicatiemiddelen visueel vormgeven voor merkconformiteit.</span>
+      </div>
+      <span class="kb-row-arrow">›</span>
+    </a>
+    <a href="kennisbank/content-operations.html" class="kb-row">
+      <div class="kb-row-left">
+        <span class="kb-term">Content Operations</span>
+        <span class="kb-def">Processen en systemen voor schaalbare contentproductie.</span>
+      </div>
+      <span class="kb-row-arrow">›</span>
+    </a>
   </div>
-  <div class="kb-cat" id="cat-4">
-    <div class="kb-cat-head" onclick="toggleCat('cat-4')">
-      <span class="kb-cat-icon">📺</span>
-      <span class="kb-cat-name">Media</span>
-      <span class="kb-cat-count">7 begrippen</span>
-      <span class="kb-cat-caret">›</span>
-    </div>
-    <div class="kb-topics">
-      <a href="kennisbank/owned-media.html" class="kb-topic-link"><span>Owned Media</span><span class="arr">›</span></a>
-      <a href="kennisbank/earned-media.html" class="kb-topic-link"><span>Earned Media</span><span class="arr">›</span></a>
-      <a href="kennisbank/paid-media.html" class="kb-topic-link"><span>Paid Media</span><span class="arr">›</span></a>
-      <a href="kennisbank/traditionele-media.html" class="kb-topic-link"><span>Traditionele Media</span><span class="arr">›</span></a>
-      <a href="kennisbank/digitale-media.html" class="kb-topic-link"><span>Digitale Media</span><span class="arr">›</span></a>
-      <a href="kennisbank/retail-media.html" class="kb-topic-link"><span>Retail Media</span><span class="arr">›</span></a>
-      <a href="kennisbank/programmatic-advertising.html" class="kb-topic-link"><span>Programmatic Advertising</span><span class="arr">›</span></a>
-    </div>
+  <div class="kb-cat-group">
+    <div class="kb-cat-label"><span class="kb-cat-num">05</span>Media</div>
+    <a href="kennisbank/owned-media.html" class="kb-row">
+      <div class="kb-row-left">
+        <span class="kb-term">Owned Media</span>
+        <span class="kb-def">Marketingkanalen die de organisatie volledig controleert.</span>
+      </div>
+      <span class="kb-row-arrow">›</span>
+    </a>
+    <a href="kennisbank/earned-media.html" class="kb-row">
+      <div class="kb-row-left">
+        <span class="kb-term">Earned Media</span>
+        <span class="kb-def">Gratis publiciteit gegenereerd door derden.</span>
+      </div>
+      <span class="kb-row-arrow">›</span>
+    </a>
+    <a href="kennisbank/paid-media.html" class="kb-row">
+      <div class="kb-row-left">
+        <span class="kb-term">Paid Media</span>
+        <span class="kb-def">Betaalde advertentiekanalen voor merkbereik.</span>
+      </div>
+      <span class="kb-row-arrow">›</span>
+    </a>
+    <a href="kennisbank/traditionele-media.html" class="kb-row">
+      <div class="kb-row-left">
+        <span class="kb-term">Traditionele Media</span>
+        <span class="kb-def">TV, radio, kranten en out-of-home advertising.</span>
+      </div>
+      <span class="kb-row-arrow">›</span>
+    </a>
+    <a href="kennisbank/digitale-media.html" class="kb-row">
+      <div class="kb-row-left">
+        <span class="kb-term">Digitale Media</span>
+        <span class="kb-def">Online kanalen voor doelgroepbereik via internet.</span>
+      </div>
+      <span class="kb-row-arrow">›</span>
+    </a>
+    <a href="kennisbank/retail-media.html" class="kb-row">
+      <div class="kb-row-left">
+        <span class="kb-term">Retail Media</span>
+        <span class="kb-def">Advertentieruimte op platforms van retailers.</span>
+      </div>
+      <span class="kb-row-arrow">›</span>
+    </a>
+    <a href="kennisbank/programmatic-advertising.html" class="kb-row">
+      <div class="kb-row-left">
+        <span class="kb-term">Programmatic Advertising</span>
+        <span class="kb-def">Geautomatiseerd inkopen van digitale advertentieruimte.</span>
+      </div>
+      <span class="kb-row-arrow">›</span>
+    </a>
   </div>
-  <div class="kb-cat" id="cat-5">
-    <div class="kb-cat-head" onclick="toggleCat('cat-5')">
-      <span class="kb-cat-icon">🔍</span>
-      <span class="kb-cat-name">Digitale Marketing</span>
-      <span class="kb-cat-count">9 begrippen</span>
-      <span class="kb-cat-caret">›</span>
-    </div>
-    <div class="kb-topics">
-      <a href="kennisbank/seo.html" class="kb-topic-link"><span>SEO</span><span class="arr">›</span></a>
-      <a href="kennisbank/sea.html" class="kb-topic-link"><span>SEA</span><span class="arr">›</span></a>
-      <a href="kennisbank/social-media-marketing.html" class="kb-topic-link"><span>Social Media Marketing</span><span class="arr">›</span></a>
-      <a href="kennisbank/e-mailmarketing.html" class="kb-topic-link"><span>E-mailmarketing</span><span class="arr">›</span></a>
-      <a href="kennisbank/affiliate-marketing.html" class="kb-topic-link"><span>Affiliate Marketing</span><span class="arr">›</span></a>
-      <a href="kennisbank/display-advertising.html" class="kb-topic-link"><span>Display Advertising</span><span class="arr">›</span></a>
-      <a href="kennisbank/video-advertising.html" class="kb-topic-link"><span>Video Advertising</span><span class="arr">›</span></a>
-      <a href="kennisbank/mobile-marketing.html" class="kb-topic-link"><span>Mobile Marketing</span><span class="arr">›</span></a>
-      <a href="kennisbank/marketing-automation.html" class="kb-topic-link"><span>Marketing Automation</span><span class="arr">›</span></a>
-    </div>
+  <div class="kb-cat-group">
+    <div class="kb-cat-label"><span class="kb-cat-num">06</span>Digitale Marketing</div>
+    <a href="kennisbank/seo.html" class="kb-row">
+      <div class="kb-row-left">
+        <span class="kb-term">SEO</span>
+        <span class="kb-def">Organisch hoger scoren in zoekmachineresultaten.</span>
+      </div>
+      <span class="kb-row-arrow">›</span>
+    </a>
+    <a href="kennisbank/sea.html" class="kb-row">
+      <div class="kb-row-left">
+        <span class="kb-term">SEA</span>
+        <span class="kb-def">Betaald adverteren in zoekmachineresultaten.</span>
+      </div>
+      <span class="kb-row-arrow">›</span>
+    </a>
+    <a href="kennisbank/social-media-marketing.html" class="kb-row">
+      <div class="kb-row-left">
+        <span class="kb-term">Social Media Marketing</span>
+        <span class="kb-def">Merk promoten via sociale mediaplatforms.</span>
+      </div>
+      <span class="kb-row-arrow">›</span>
+    </a>
+    <a href="kennisbank/e-mailmarketing.html" class="kb-row">
+      <div class="kb-row-left">
+        <span class="kb-term">E-mailmarketing</span>
+        <span class="kb-def">E-mail als direct marketingkanaal voor conversie.</span>
+      </div>
+      <span class="kb-row-arrow">›</span>
+    </a>
+    <a href="kennisbank/affiliate-marketing.html" class="kb-row">
+      <div class="kb-row-left">
+        <span class="kb-term">Affiliate Marketing</span>
+        <span class="kb-def">Partners betalen per gerealiseerde conversie.</span>
+      </div>
+      <span class="kb-row-arrow">›</span>
+    </a>
+    <a href="kennisbank/display-advertising.html" class="kb-row">
+      <div class="kb-row-left">
+        <span class="kb-term">Display Advertising</span>
+        <span class="kb-def">Visuele online advertenties buiten de zoekmachine.</span>
+      </div>
+      <span class="kb-row-arrow">›</span>
+    </a>
+    <a href="kennisbank/video-advertising.html" class="kb-row">
+      <div class="kb-row-left">
+        <span class="kb-term">Video Advertising</span>
+        <span class="kb-def">Videoadvertenties voor bereik en conversie online.</span>
+      </div>
+      <span class="kb-row-arrow">›</span>
+    </a>
+    <a href="kennisbank/mobile-marketing.html" class="kb-row">
+      <div class="kb-row-left">
+        <span class="kb-term">Mobile Marketing</span>
+        <span class="kb-def">Marketing specifiek gericht op mobiele apparaten.</span>
+      </div>
+      <span class="kb-row-arrow">›</span>
+    </a>
+    <a href="kennisbank/marketing-automation.html" class="kb-row">
+      <div class="kb-row-left">
+        <span class="kb-term">Marketing Automation</span>
+        <span class="kb-def">Software die repetitieve marketingtaken automatiseert.</span>
+      </div>
+      <span class="kb-row-arrow">›</span>
+    </a>
   </div>
-  <div class="kb-cat" id="cat-6">
-    <div class="kb-cat-head" onclick="toggleCat('cat-6')">
-      <span class="kb-cat-icon">👥</span>
-      <span class="kb-cat-name">Klant & Groei</span>
-      <span class="kb-cat-count">8 begrippen</span>
-      <span class="kb-cat-caret">›</span>
-    </div>
-    <div class="kb-topics">
-      <a href="kennisbank/customer-experience-cx.html" class="kb-topic-link"><span>Customer Experience (CX)</span><span class="arr">›</span></a>
-      <a href="kennisbank/customer-journey.html" class="kb-topic-link"><span>Customer Journey</span><span class="arr">›</span></a>
-      <a href="kennisbank/crm.html" class="kb-topic-link"><span>CRM</span><span class="arr">›</span></a>
-      <a href="kennisbank/loyalty.html" class="kb-topic-link"><span>Loyalty</span><span class="arr">›</span></a>
-      <a href="kennisbank/customer-success.html" class="kb-topic-link"><span>Customer Success</span><span class="arr">›</span></a>
-      <a href="kennisbank/lead-generation.html" class="kb-topic-link"><span>Lead Generation</span><span class="arr">›</span></a>
-      <a href="kennisbank/conversieoptimalisatie-cro.html" class="kb-topic-link"><span>Conversieoptimalisatie (CRO)</span><span class="arr">›</span></a>
-      <a href="kennisbank/growth-marketing.html" class="kb-topic-link"><span>Growth Marketing</span><span class="arr">›</span></a>
-    </div>
+  <div class="kb-cat-group">
+    <div class="kb-cat-label"><span class="kb-cat-num">07</span>Klant & Groei</div>
+    <a href="kennisbank/customer-experience-cx.html" class="kb-row">
+      <div class="kb-row-left">
+        <span class="kb-term">Customer Experience (CX)</span>
+        <span class="kb-def">Totale perceptie bij alle merkinteracties.</span>
+      </div>
+      <span class="kb-row-arrow">›</span>
+    </a>
+    <a href="kennisbank/customer-journey.html" class="kb-row">
+      <div class="kb-row-left">
+        <span class="kb-term">Customer Journey</span>
+        <span class="kb-def">Alle stappen van bewustwording tot ambassadeurschap.</span>
+      </div>
+      <span class="kb-row-arrow">›</span>
+    </a>
+    <a href="kennisbank/crm.html" class="kb-row">
+      <div class="kb-row-left">
+        <span class="kb-term">CRM</span>
+        <span class="kb-def">Strategie en technologie voor klantrelatiebeheer.</span>
+      </div>
+      <span class="kb-row-arrow">›</span>
+    </a>
+    <a href="kennisbank/loyalty.html" class="kb-row">
+      <div class="kb-row-left">
+        <span class="kb-term">Loyalty</span>
+        <span class="kb-def">Herhaalaankopen stimuleren via beloningsprogramma's.</span>
+      </div>
+      <span class="kb-row-arrow">›</span>
+    </a>
+    <a href="kennisbank/customer-success.html" class="kb-row">
+      <div class="kb-row-left">
+        <span class="kb-term">Customer Success</span>
+        <span class="kb-def">Proactief klanten helpen maximale waarde te halen.</span>
+      </div>
+      <span class="kb-row-arrow">›</span>
+    </a>
+    <a href="kennisbank/lead-generation.html" class="kb-row">
+      <div class="kb-row-left">
+        <span class="kb-term">Lead Generation</span>
+        <span class="kb-def">Potentiële klanten identificeren en aantrekken.</span>
+      </div>
+      <span class="kb-row-arrow">›</span>
+    </a>
+    <a href="kennisbank/conversieoptimalisatie-cro.html" class="kb-row">
+      <div class="kb-row-left">
+        <span class="kb-term">Conversieoptimalisatie (CRO)</span>
+        <span class="kb-def">Percentage bezoekers dat een actie uitvoert verhogen.</span>
+      </div>
+      <span class="kb-row-arrow">›</span>
+    </a>
+    <a href="kennisbank/growth-marketing.html" class="kb-row">
+      <div class="kb-row-left">
+        <span class="kb-term">Growth Marketing</span>
+        <span class="kb-def">Data-gedreven groei door de hele klantreis optimaliseren.</span>
+      </div>
+      <span class="kb-row-arrow">›</span>
+    </a>
   </div>
-  <div class="kb-cat" id="cat-7">
-    <div class="kb-cat-head" onclick="toggleCat('cat-7')">
-      <span class="kb-cat-icon">🛒</span>
-      <span class="kb-cat-name">Verkoop & Commerce</span>
-      <span class="kb-cat-count">8 begrippen</span>
-      <span class="kb-cat-caret">›</span>
-    </div>
-    <div class="kb-topics">
-      <a href="kennisbank/sales-enablement.html" class="kb-topic-link"><span>Sales Enablement</span><span class="arr">›</span></a>
-      <a href="kennisbank/b2b-marketing.html" class="kb-topic-link"><span>B2B Marketing</span><span class="arr">›</span></a>
-      <a href="kennisbank/b2c-marketing.html" class="kb-topic-link"><span>B2C Marketing</span><span class="arr">›</span></a>
-      <a href="kennisbank/e-commerce.html" class="kb-topic-link"><span>E-commerce</span><span class="arr">›</span></a>
-      <a href="kennisbank/marketplace-marketing.html" class="kb-topic-link"><span>Marketplace Marketing</span><span class="arr">›</span></a>
-      <a href="kennisbank/trade-marketing.html" class="kb-topic-link"><span>Trade Marketing</span><span class="arr">›</span></a>
-      <a href="kennisbank/retail-marketing.html" class="kb-topic-link"><span>Retail Marketing</span><span class="arr">›</span></a>
-      <a href="kennisbank/pricing.html" class="kb-topic-link"><span>Pricing</span><span class="arr">›</span></a>
-    </div>
+  <div class="kb-cat-group">
+    <div class="kb-cat-label"><span class="kb-cat-num">08</span>Verkoop & Commerce</div>
+    <a href="kennisbank/sales-enablement.html" class="kb-row">
+      <div class="kb-row-left">
+        <span class="kb-term">Sales Enablement</span>
+        <span class="kb-def">Verkoopteams voorzien van tools en content.</span>
+      </div>
+      <span class="kb-row-arrow">›</span>
+    </a>
+    <a href="kennisbank/b2b-marketing.html" class="kb-row">
+      <div class="kb-row-left">
+        <span class="kb-term">B2B Marketing</span>
+        <span class="kb-def">Marketing gericht op zakelijke kopers.</span>
+      </div>
+      <span class="kb-row-arrow">›</span>
+    </a>
+    <a href="kennisbank/b2c-marketing.html" class="kb-row">
+      <div class="kb-row-left">
+        <span class="kb-term">B2C Marketing</span>
+        <span class="kb-def">Marketing gericht op individuele consumenten.</span>
+      </div>
+      <span class="kb-row-arrow">›</span>
+    </a>
+    <a href="kennisbank/e-commerce.html" class="kb-row">
+      <div class="kb-row-left">
+        <span class="kb-term">E-commerce</span>
+        <span class="kb-def">Online verkopen via websites, apps en marktplaatsen.</span>
+      </div>
+      <span class="kb-row-arrow">›</span>
+    </a>
+    <a href="kennisbank/marketplace-marketing.html" class="kb-row">
+      <div class="kb-row-left">
+        <span class="kb-term">Marketplace Marketing</span>
+        <span class="kb-def">Zichtbaarheid en conversie op digitale marktplaatsen vergroten.</span>
+      </div>
+      <span class="kb-row-arrow">›</span>
+    </a>
+    <a href="kennisbank/trade-marketing.html" class="kb-row">
+      <div class="kb-row-left">
+        <span class="kb-term">Trade Marketing</span>
+        <span class="kb-def">Producten optimaal plaatsen via tussenhandelskanalen.</span>
+      </div>
+      <span class="kb-row-arrow">›</span>
+    </a>
+    <a href="kennisbank/retail-marketing.html" class="kb-row">
+      <div class="kb-row-left">
+        <span class="kb-term">Retail Marketing</span>
+        <span class="kb-def">Shoppers aantrekken en winkelervaring maximaliseren.</span>
+      </div>
+      <span class="kb-row-arrow">›</span>
+    </a>
+    <a href="kennisbank/pricing.html" class="kb-row">
+      <div class="kb-row-left">
+        <span class="kb-term">Pricing</span>
+        <span class="kb-def">Prijs bepalen op basis van waarde en strategie.</span>
+      </div>
+      <span class="kb-row-arrow">›</span>
+    </a>
   </div>
-  <div class="kb-cat" id="cat-8">
-    <div class="kb-cat-head" onclick="toggleCat('cat-8')">
-      <span class="kb-cat-icon">🧠</span>
-      <span class="kb-cat-name">Onderzoek, Data & AI</span>
-      <span class="kb-cat-count">10 begrippen</span>
-      <span class="kb-cat-caret">›</span>
-    </div>
-    <div class="kb-topics">
-      <a href="kennisbank/marktonderzoek.html" class="kb-topic-link"><span>Marktonderzoek</span><span class="arr">›</span></a>
-      <a href="kennisbank/klantonderzoek.html" class="kb-topic-link"><span>Klantonderzoek</span><span class="arr">›</span></a>
-      <a href="kennisbank/marketing-analytics.html" class="kb-topic-link"><span>Marketing Analytics</span><span class="arr">›</span></a>
-      <a href="kennisbank/business-intelligence.html" class="kb-topic-link"><span>Business Intelligence</span><span class="arr">›</span></a>
-      <a href="kennisbank/web-analytics.html" class="kb-topic-link"><span>Web Analytics</span><span class="arr">›</span></a>
-      <a href="kennisbank/attribution.html" class="kb-topic-link"><span>Attribution</span><span class="arr">›</span></a>
-      <a href="kennisbank/data-science.html" class="kb-topic-link"><span>Data Science</span><span class="arr">›</span></a>
-      <a href="kennisbank/artificial-intelligence.html" class="kb-topic-link"><span>Artificial Intelligence</span><span class="arr">›</span></a>
-      <a href="kennisbank/predictive-analytics.html" class="kb-topic-link"><span>Predictive Analytics</span><span class="arr">›</span></a>
-      <a href="kennisbank/experimentation-a-b-testing.html" class="kb-topic-link"><span>Experimentation (A/B Testing)</span><span class="arr">›</span></a>
-    </div>
+  <div class="kb-cat-group">
+    <div class="kb-cat-label"><span class="kb-cat-num">09</span>Onderzoek, Data & AI</div>
+    <a href="kennisbank/marktonderzoek.html" class="kb-row">
+      <div class="kb-row-left">
+        <span class="kb-term">Marktonderzoek</span>
+        <span class="kb-def">Systematisch informatie over markten verzamelen en analyseren.</span>
+      </div>
+      <span class="kb-row-arrow">›</span>
+    </a>
+    <a href="kennisbank/klantonderzoek.html" class="kb-row">
+      <div class="kb-row-left">
+        <span class="kb-term">Klantonderzoek</span>
+        <span class="kb-def">Gedrag en motivaties van klanten begrijpen.</span>
+      </div>
+      <span class="kb-row-arrow">›</span>
+    </a>
+    <a href="kennisbank/marketing-analytics.html" class="kb-row">
+      <div class="kb-row-left">
+        <span class="kb-term">Marketing Analytics</span>
+        <span class="kb-def">Marketingdata meten en analyseren voor besluitvorming.</span>
+      </div>
+      <span class="kb-row-arrow">›</span>
+    </a>
+    <a href="kennisbank/business-intelligence.html" class="kb-row">
+      <div class="kb-row-left">
+        <span class="kb-term">Business Intelligence</span>
+        <span class="kb-def">Bedrijfsinformatie presenteren ter ondersteuning van beslissingen.</span>
+      </div>
+      <span class="kb-row-arrow">›</span>
+    </a>
+    <a href="kennisbank/web-analytics.html" class="kb-row">
+      <div class="kb-row-left">
+        <span class="kb-term">Web Analytics</span>
+        <span class="kb-def">Websitegedrag meten en analyseren.</span>
+      </div>
+      <span class="kb-row-arrow">›</span>
+    </a>
+    <a href="kennisbank/attribution.html" class="kb-row">
+      <div class="kb-row-left">
+        <span class="kb-term">Attribution</span>
+        <span class="kb-def">Conversiecredit toewijzen aan marketingtouchpoints.</span>
+      </div>
+      <span class="kb-row-arrow">›</span>
+    </a>
+    <a href="kennisbank/data-science.html" class="kb-row">
+      <div class="kb-row-left">
+        <span class="kb-term">Data Science</span>
+        <span class="kb-def">Inzichten en voorspellingsmodellen uit grote datasets ontwikkelen.</span>
+      </div>
+      <span class="kb-row-arrow">›</span>
+    </a>
+    <a href="kennisbank/artificial-intelligence.html" class="kb-row">
+      <div class="kb-row-left">
+        <span class="kb-term">Artificial Intelligence</span>
+        <span class="kb-def">Computersystemen die menselijke intelligentie nabootsen.</span>
+      </div>
+      <span class="kb-row-arrow">›</span>
+    </a>
+    <a href="kennisbank/predictive-analytics.html" class="kb-row">
+      <div class="kb-row-left">
+        <span class="kb-term">Predictive Analytics</span>
+        <span class="kb-def">Toekomstig gedrag voorspellen via statistische modellen.</span>
+      </div>
+      <span class="kb-row-arrow">›</span>
+    </a>
+    <a href="kennisbank/experimentation-a-b-testing.html" class="kb-row">
+      <div class="kb-row-left">
+        <span class="kb-term">Experimentation (A/B Testing)</span>
+        <span class="kb-def">Varianten testen om de beste optie te identificeren.</span>
+      </div>
+      <span class="kb-row-arrow">›</span>
+    </a>
   </div>
-  <div class="kb-cat" id="cat-9">
-    <div class="kb-cat-head" onclick="toggleCat('cat-9')">
-      <span class="kb-cat-icon">🎨</span>
-      <span class="kb-cat-name">Creatie & Design</span>
-      <span class="kb-cat-count">7 begrippen</span>
-      <span class="kb-cat-caret">›</span>
-    </div>
-    <div class="kb-topics">
-      <a href="kennisbank/grafisch-ontwerp.html" class="kb-topic-link"><span>Grafisch Ontwerp</span><span class="arr">›</span></a>
-      <a href="kennisbank/ux-design.html" class="kb-topic-link"><span>UX Design</span><span class="arr">›</span></a>
-      <a href="kennisbank/ui-design.html" class="kb-topic-link"><span>UI Design</span><span class="arr">›</span></a>
-      <a href="kennisbank/motion-design.html" class="kb-topic-link"><span>Motion Design</span><span class="arr">›</span></a>
-      <a href="kennisbank/packaging.html" class="kb-topic-link"><span>Packaging</span><span class="arr">›</span></a>
-      <a href="kennisbank/illustratie.html" class="kb-topic-link"><span>Illustratie</span><span class="arr">›</span></a>
-      <a href="kennisbank/creative-direction.html" class="kb-topic-link"><span>Creative Direction</span><span class="arr">›</span></a>
-    </div>
+  <div class="kb-cat-group">
+    <div class="kb-cat-label"><span class="kb-cat-num">10</span>Creatie & Design</div>
+    <a href="kennisbank/grafisch-ontwerp.html" class="kb-row">
+      <div class="kb-row-left">
+        <span class="kb-term">Grafisch Ontwerp</span>
+        <span class="kb-def">Boodschappen visueel communiceren via beeld en typografie.</span>
+      </div>
+      <span class="kb-row-arrow">›</span>
+    </a>
+    <a href="kennisbank/ux-design.html" class="kb-row">
+      <div class="kb-row-left">
+        <span class="kb-term">UX Design</span>
+        <span class="kb-def">Producten ontwerpen vanuit de gebruikerservaring.</span>
+      </div>
+      <span class="kb-row-arrow">›</span>
+    </a>
+    <a href="kennisbank/ui-design.html" class="kb-row">
+      <div class="kb-row-left">
+        <span class="kb-term">UI Design</span>
+        <span class="kb-def">Interfacecomponenten visueel en interactief vormgeven.</span>
+      </div>
+      <span class="kb-row-arrow">›</span>
+    </a>
+    <a href="kennisbank/motion-design.html" class="kb-row">
+      <div class="kb-row-left">
+        <span class="kb-term">Motion Design</span>
+        <span class="kb-def">Grafische elementen animeren voor dynamische communicatie.</span>
+      </div>
+      <span class="kb-row-arrow">›</span>
+    </a>
+    <a href="kennisbank/packaging.html" class="kb-row">
+      <div class="kb-row-left">
+        <span class="kb-term">Packaging</span>
+        <span class="kb-def">Verpakkingen ontwerpen voor merk en aankoopbeslissing.</span>
+      </div>
+      <span class="kb-row-arrow">›</span>
+    </a>
+    <a href="kennisbank/illustratie.html" class="kb-row">
+      <div class="kb-row-left">
+        <span class="kb-term">Illustratie</span>
+        <span class="kb-def">Visuele beelden die bijdragen aan merkidentiteit.</span>
+      </div>
+      <span class="kb-row-arrow">›</span>
+    </a>
+    <a href="kennisbank/creative-direction.html" class="kb-row">
+      <div class="kb-row-left">
+        <span class="kb-term">Creative Direction</span>
+        <span class="kb-def">Artistieke leiding over creatieve output van een merk.</span>
+      </div>
+      <span class="kb-row-arrow">›</span>
+    </a>
   </div>
-  <div class="kb-cat" id="cat-10">
-    <div class="kb-cat-head" onclick="toggleCat('cat-10')">
-      <span class="kb-cat-icon">⚙️</span>
-      <span class="kb-cat-name">Technologie</span>
-      <span class="kb-cat-count">9 begrippen</span>
-      <span class="kb-cat-caret">›</span>
-    </div>
-    <div class="kb-topics">
-      <a href="kennisbank/websites.html" class="kb-topic-link"><span>Websites</span><span class="arr">›</span></a>
-      <a href="kennisbank/apps.html" class="kb-topic-link"><span>Apps</span><span class="arr">›</span></a>
-      <a href="kennisbank/cms.html" class="kb-topic-link"><span>CMS</span><span class="arr">›</span></a>
-      <a href="kennisbank/cdp.html" class="kb-topic-link"><span>CDP</span><span class="arr">›</span></a>
-      <a href="kennisbank/crm-systemen.html" class="kb-topic-link"><span>CRM-systemen</span><span class="arr">›</span></a>
-      <a href="kennisbank/marketing-stack.html" class="kb-topic-link"><span>Marketing Stack</span><span class="arr">›</span></a>
-      <a href="kennisbank/api-s.html" class="kb-topic-link"><span>API's</span><span class="arr">›</span></a>
-      <a href="kennisbank/privacy-consent.html" class="kb-topic-link"><span>Privacy & Consent</span><span class="arr">›</span></a>
-      <a href="kennisbank/martech.html" class="kb-topic-link"><span>MarTech</span><span class="arr">›</span></a>
-    </div>
+  <div class="kb-cat-group">
+    <div class="kb-cat-label"><span class="kb-cat-num">11</span>Technologie</div>
+    <a href="kennisbank/websites.html" class="kb-row">
+      <div class="kb-row-left">
+        <span class="kb-term">Websites</span>
+        <span class="kb-def">Digitale thuisbasis van een organisatie via een browser.</span>
+      </div>
+      <span class="kb-row-arrow">›</span>
+    </a>
+    <a href="kennisbank/apps.html" class="kb-row">
+      <div class="kb-row-left">
+        <span class="kb-term">Apps</span>
+        <span class="kb-def">Softwaretoepassingen voor mobiele apparaten of desktop.</span>
+      </div>
+      <span class="kb-row-arrow">›</span>
+    </a>
+    <a href="kennisbank/cms.html" class="kb-row">
+      <div class="kb-row-left">
+        <span class="kb-term">CMS</span>
+        <span class="kb-def">Software voor contentbeheer zonder code.</span>
+      </div>
+      <span class="kb-row-arrow">›</span>
+    </a>
+    <a href="kennisbank/cdp.html" class="kb-row">
+      <div class="kb-row-left">
+        <span class="kb-term">CDP</span>
+        <span class="kb-def">First-party klantdata verbinden voor real-time personalisatie.</span>
+      </div>
+      <span class="kb-row-arrow">›</span>
+    </a>
+    <a href="kennisbank/crm-systemen.html" class="kb-row">
+      <div class="kb-row-left">
+        <span class="kb-term">CRM-systemen</span>
+        <span class="kb-def">Softwareplatformen voor klantrelatie- en salesbeheer.</span>
+      </div>
+      <span class="kb-row-arrow">›</span>
+    </a>
+    <a href="kennisbank/marketing-stack.html" class="kb-row">
+      <div class="kb-row-left">
+        <span class="kb-term">Marketing Stack</span>
+        <span class="kb-def">Technologische tools voor marketing planning en uitvoering.</span>
+      </div>
+      <span class="kb-row-arrow">›</span>
+    </a>
+    <a href="kennisbank/api-s.html" class="kb-row">
+      <div class="kb-row-left">
+        <span class="kb-term">API's</span>
+        <span class="kb-def">Specificaties voor communicatie tussen softwarecomponenten.</span>
+      </div>
+      <span class="kb-row-arrow">›</span>
+    </a>
+    <a href="kennisbank/privacy-consent.html" class="kb-row">
+      <div class="kb-row-left">
+        <span class="kb-term">Privacy & Consent</span>
+        <span class="kb-def">Persoonsdata verwerken conform wetgeving en toestemming.</span>
+      </div>
+      <span class="kb-row-arrow">›</span>
+    </a>
+    <a href="kennisbank/martech.html" class="kb-row">
+      <div class="kb-row-left">
+        <span class="kb-term">MarTech</span>
+        <span class="kb-def">Ecosysteem van tools ter ondersteuning van marketing.</span>
+      </div>
+      <span class="kb-row-arrow">›</span>
+    </a>
   </div>
-  <div class="kb-cat" id="cat-11">
-    <div class="kb-cat-head" onclick="toggleCat('cat-11')">
-      <span class="kb-cat-icon">🏗️</span>
-      <span class="kb-cat-name">Organisatie & Operations</span>
-      <span class="kb-cat-count">8 begrippen</span>
-      <span class="kb-cat-caret">›</span>
-    </div>
-    <div class="kb-topics">
-      <a href="kennisbank/marketing-management.html" class="kb-topic-link"><span>Marketing Management</span><span class="arr">›</span></a>
-      <a href="kennisbank/budgettering.html" class="kb-topic-link"><span>Budgettering</span><span class="arr">›</span></a>
-      <a href="kennisbank/projectmanagement.html" class="kb-topic-link"><span>Projectmanagement</span><span class="arr">›</span></a>
-      <a href="kennisbank/agile-marketing.html" class="kb-topic-link"><span>Agile Marketing</span><span class="arr">›</span></a>
-      <a href="kennisbank/governance.html" class="kb-topic-link"><span>Governance</span><span class="arr">›</span></a>
-      <a href="kennisbank/processen.html" class="kb-topic-link"><span>Processen</span><span class="arr">›</span></a>
-      <a href="kennisbank/leveranciersmanagement.html" class="kb-topic-link"><span>Leveranciersmanagement</span><span class="arr">›</span></a>
-      <a href="kennisbank/kpi-management.html" class="kb-topic-link"><span>KPI-management</span><span class="arr">›</span></a>
-    </div>
+  <div class="kb-cat-group">
+    <div class="kb-cat-label"><span class="kb-cat-num">12</span>Organisatie & Operations</div>
+    <a href="kennisbank/marketing-management.html" class="kb-row">
+      <div class="kb-row-left">
+        <span class="kb-term">Marketing Management</span>
+        <span class="kb-def">Planning en controle van alle marketingactiviteiten.</span>
+      </div>
+      <span class="kb-row-arrow">›</span>
+    </a>
+    <a href="kennisbank/budgettering.html" class="kb-row">
+      <div class="kb-row-left">
+        <span class="kb-term">Budgettering</span>
+        <span class="kb-def">Financiële middelen voor marketing plannen en bewaken.</span>
+      </div>
+      <span class="kb-row-arrow">›</span>
+    </a>
+    <a href="kennisbank/projectmanagement.html" class="kb-row">
+      <div class="kb-row-left">
+        <span class="kb-term">Projectmanagement</span>
+        <span class="kb-def">Marketingprojecten plannen en controleren op resultaat.</span>
+      </div>
+      <span class="kb-row-arrow">›</span>
+    </a>
+    <a href="kennisbank/agile-marketing.html" class="kb-row">
+      <div class="kb-row-left">
+        <span class="kb-term">Agile Marketing</span>
+        <span class="kb-def">Iteratieve marketingaanpak met snelle experimenten.</span>
+      </div>
+      <span class="kb-row-arrow">›</span>
+    </a>
+    <a href="kennisbank/governance.html" class="kb-row">
+      <div class="kb-row-left">
+        <span class="kb-term">Governance</span>
+        <span class="kb-def">Structuren voor beheer en verantwoording van marketing.</span>
+      </div>
+      <span class="kb-row-arrow">›</span>
+    </a>
+    <a href="kennisbank/processen.html" class="kb-row">
+      <div class="kb-row-left">
+        <span class="kb-term">Processen</span>
+        <span class="kb-def">Gestandaardiseerde workflows voor efficiënte uitvoering.</span>
+      </div>
+      <span class="kb-row-arrow">›</span>
+    </a>
+    <a href="kennisbank/leveranciersmanagement.html" class="kb-row">
+      <div class="kb-row-left">
+        <span class="kb-term">Leveranciersmanagement</span>
+        <span class="kb-def">Externe marketingleveransiers selecteren en evalueren.</span>
+      </div>
+      <span class="kb-row-arrow">›</span>
+    </a>
+    <a href="kennisbank/kpi-management.html" class="kb-row">
+      <div class="kb-row-left">
+        <span class="kb-term">KPI-management</span>
+        <span class="kb-def">Prestatie-indicatoren definiëren, bewaken en rapporteren.</span>
+      </div>
+      <span class="kb-row-arrow">›</span>
+    </a>
   </div>
-  <div class="kb-cat" id="cat-12">
-    <div class="kb-cat-head" onclick="toggleCat('cat-12')">
-      <span class="kb-cat-icon">⚖️</span>
-      <span class="kb-cat-name">Wetgeving & Ethiek</span>
-      <span class="kb-cat-count">7 begrippen</span>
-      <span class="kb-cat-caret">›</span>
-    </div>
-    <div class="kb-topics">
-      <a href="kennisbank/avg-gdpr.html" class="kb-topic-link"><span>AVG/GDPR</span><span class="arr">›</span></a>
-      <a href="kennisbank/reclamewetgeving.html" class="kb-topic-link"><span>Reclamewetgeving</span><span class="arr">›</span></a>
-      <a href="kennisbank/copyright.html" class="kb-topic-link"><span>Copyright</span><span class="arr">›</span></a>
-      <a href="kennisbank/ai-governance.html" class="kb-topic-link"><span>AI Governance</span><span class="arr">›</span></a>
-      <a href="kennisbank/accessibility.html" class="kb-topic-link"><span>Accessibility</span><span class="arr">›</span></a>
-      <a href="kennisbank/duurzaamheid-esg.html" class="kb-topic-link"><span>Duurzaamheid (ESG)</span><span class="arr">›</span></a>
-      <a href="kennisbank/marketing-ethics.html" class="kb-topic-link"><span>Marketing Ethics</span><span class="arr">›</span></a>
-    </div>
+  <div class="kb-cat-group">
+    <div class="kb-cat-label"><span class="kb-cat-num">13</span>Wetgeving & Ethiek</div>
+    <a href="kennisbank/avg-gdpr.html" class="kb-row">
+      <div class="kb-row-left">
+        <span class="kb-term">AVG/GDPR</span>
+        <span class="kb-def">Europese wetgeving voor bescherming van persoonsdata.</span>
+      </div>
+      <span class="kb-row-arrow">›</span>
+    </a>
+    <a href="kennisbank/reclamewetgeving.html" class="kb-row">
+      <div class="kb-row-left">
+        <span class="kb-term">Reclamewetgeving</span>
+        <span class="kb-def">Regels voor eerlijke en niet-misleidende reclame.</span>
+      </div>
+      <span class="kb-row-arrow">›</span>
+    </a>
+    <a href="kennisbank/copyright.html" class="kb-row">
+      <div class="kb-row-left">
+        <span class="kb-term">Copyright</span>
+        <span class="kb-def">Exclusief recht van makers op hun creatieve werken.</span>
+      </div>
+      <span class="kb-row-arrow">›</span>
+    </a>
+    <a href="kennisbank/ai-governance.html" class="kb-row">
+      <div class="kb-row-left">
+        <span class="kb-term">AI Governance</span>
+        <span class="kb-def">Beleid voor verantwoord gebruik van AI-systemen.</span>
+      </div>
+      <span class="kb-row-arrow">›</span>
+    </a>
+    <a href="kennisbank/accessibility.html" class="kb-row">
+      <div class="kb-row-left">
+        <span class="kb-term">Accessibility</span>
+        <span class="kb-def">Digitale producten bruikbaar voor mensen met beperkingen.</span>
+      </div>
+      <span class="kb-row-arrow">›</span>
+    </a>
+    <a href="kennisbank/duurzaamheid-esg.html" class="kb-row">
+      <div class="kb-row-left">
+        <span class="kb-term">Duurzaamheid (ESG)</span>
+        <span class="kb-def">Maatschappelijke en ecologische verantwoordelijkheid communiceren.</span>
+      </div>
+      <span class="kb-row-arrow">›</span>
+    </a>
+    <a href="kennisbank/marketing-ethics.html" class="kb-row">
+      <div class="kb-row-left">
+        <span class="kb-term">Marketing Ethics</span>
+        <span class="kb-def">Morele principes voor eerlijke en verantwoorde marketing.</span>
+      </div>
+      <span class="kb-row-arrow">›</span>
+    </a>
   </div>
 </div>
 <footer class="page-footer">
   <p>Kennisbank van <a href="index.html">Flii Media</a> &middot; <a href="mailto:info@flii.nl">info@flii.nl</a></p>
 </footer>
-<script>
-function toggleCat(id){
-  var el = document.getElementById(id);
-  el.classList.toggle('open');
-}
-// Open first category by default
-document.getElementById('cat-0').classList.add('open');
-</script>
 </body>
 </html>
