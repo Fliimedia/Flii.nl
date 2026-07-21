@@ -870,6 +870,25 @@ img { display: block; max-width: 100%; }
 .float-icon:hover { transform: scale(1.1); background: #fff; }
 .float-icon svg { width: 20px; height: 20px; }
 
+
+/* ── CASE CARDS ── */
+.case-card-link { text-decoration: none; color: inherit; display: block; }
+.case-card-link:hover .article-title { color: var(--c-red); }
+.case-intro {
+  font-size: var(--t-sm); color: var(--c-muted);
+  line-height: 1.5; margin: var(--sp-1) 0;
+}
+.case-results {
+  list-style: none; padding: 0; margin: var(--sp-1) 0 0;
+}
+.case-results li {
+  font-family: var(--ff-mono); font-size: 10px;
+  color: var(--c-muted); letter-spacing: .02em;
+  padding: 3px 0;
+  border-top: 1px solid var(--c-rule);
+}
+.case-results li::before { content: "→ "; color: var(--c-red); }
+
 /* ── FOOTER ── */
 .footer {
   padding: var(--sp-5) var(--sp-2) 0;
@@ -1085,8 +1104,33 @@ img { display: block; max-width: 100%; }
 }
 .office-visit-btn:hover { background: #fff; }
 </style>
+<!-- Default consent vóór GTM -->
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){ dataLayer.push(arguments); }
+  gtag('consent', 'default', {
+    ad_storage: 'denied',
+    ad_user_data: 'denied',
+    ad_personalization: 'denied',
+    analytics_storage: 'granted',
+    security_storage: 'granted'
+  });
+</script>
+<!-- Google Tag Manager -->
+<script>
+  (function(w,d,s,l,i){
+    w[l]=w[l]||[];
+    w[l].push({'gtm.start':new Date().getTime(),event:'gtm.js'});
+    var f=d.getElementsByTagName(s)[0],j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';
+    j.async=true;j.src='https://www.googletagmanager.com/gtm.js?id='+i+dl;
+    f.parentNode.insertBefore(j,f);
+  })(window,document,'script','dataLayer','GTM-NTFZJ9D');
+</script>
 </head>
 <body>
+<!-- Google Tag Manager (noscript) -->
+<noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-NTFZJ9D"
+height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 
 <!-- NAV -->
 <nav class="nav">
@@ -1202,72 +1246,59 @@ img { display: block; max-width: 100%; }
 <div class="section-label">Diensten</div>
 <section class="section" id="diensten">
   <div class="services-card">
-    <div class="service">
-      <div class="service-header">
-        <span class="service-num">1</span>
-        <span class="service-name">Marketing</span>
-      </div>
-      <div class="service-tags">
-        <span class="service-tag">Marketing</span><span class="service-tag">Media</span>
-        <span class="service-tag">Campagne</span><span class="service-tag">Content</span>
-        <span class="service-tag">Platform</span>
-      </div>
-      <p class="service-desc">Meer leads, awareness, conversie of omzet nodig? Let's talk.</p>
-    </div>
 
-    <div class="service">
-      <div class="service-header">
-        <span class="service-num">2</span>
-        <span class="service-name">Media</span>
+      <div class="service">
+        <div class="service-num">01</div>
+        <div class="service-body">
+          <div class="service-name">Marketing</div>
+          <div class="service-desc">Strategie, campagnes en performance</div>
+          <div class="service-sub">Marketing strategie · Campagne strategie · Performance marketing · Media strategie · Media planning · Media management</div>
+          <div class="service-tags"><span class="service-tag">Strategie</span> <span class="service-tag">Campagnes</span> <span class="service-tag">Performance</span></div>
+        </div>
       </div>
-      <div class="service-tags">
-        <span class="service-tag">Zoekmachines</span><span class="service-tag">Social Media</span>
-        <span class="service-tag">Influencers</span><span class="service-tag">Programmatic</span>
-      </div>
-      <p class="service-desc">Planning, inkoop, platform management &amp; adverteren op 20+ media kanalen.</p>
-    </div>
 
-    <div class="service">
-      <div class="service-header">
-        <span class="service-num">3</span>
-        <span class="service-name">Content</span>
+      <div class="service">
+        <div class="service-num">02</div>
+        <div class="service-body">
+          <div class="service-name">Media</div>
+          <div class="service-desc">Inkoop, planning en programmatic</div>
+          <div class="service-sub">Online advertising · Programmatic · Social media · Influencers · Zoekmachine marketing</div>
+          <div class="service-tags"><span class="service-tag">Inkoop</span> <span class="service-tag">Social</span> <span class="service-tag">SEA / SEO</span></div>
+        </div>
       </div>
-      <div class="service-tags">
-        <span class="service-tag">Video</span><span class="service-tag">Social content</span>
-        <span class="service-tag">Fotografie</span><span class="service-tag">Editorial</span>
-      </div>
-      <p class="service-desc">Voor creatief concept, ontwikkeling en de creatieve verbetering van content.</p>
-    </div>
 
-    <div class="service">
-      <div class="service-header">
-        <span class="service-num">4</span>
-        <span class="service-name">Web</span>
+      <div class="service">
+        <div class="service-num">03</div>
+        <div class="service-body">
+          <div class="service-name">Content</div>
+          <div class="service-desc">Creatie, video en editorial</div>
+          <div class="service-sub">Content creatie · Video marketing · Social content · Editorial · Fotografie</div>
+          <div class="service-tags"><span class="service-tag">Video</span> <span class="service-tag">Social</span> <span class="service-tag">Tekst</span></div>
+        </div>
       </div>
-      <div class="service-tags">
-        <span class="service-tag">Design</span><span class="service-tag">Development</span>
-        <span class="service-tag">No-code</span><span class="service-tag">Custom code</span>
-      </div>
-      <p class="service-desc">Van website tot platform. We bieden no-code, custom code en integratie-oplossingen op maat.</p>
-    </div>
 
-    <div class="service">
-      <div class="service-header">
-        <span class="service-num">5</span>
-        <span class="service-name">Data</span>
+      <div class="service">
+        <div class="service-num">04</div>
+        <div class="service-body">
+          <div class="service-name">Web</div>
+          <div class="service-desc">Design, development en platformen</div>
+          <div class="service-sub">Web design · Web development · Websites & platforms · No-code · Custom code · Integraties</div>
+          <div class="service-tags"><span class="service-tag">Design</span> <span class="service-tag">Development</span> <span class="service-tag">No-code</span></div>
+        </div>
       </div>
-      <div class="service-tags">
-        <span class="service-tag">Research</span><span class="service-tag">Tracking</span>
-        <span class="service-tag">Attribution</span><span class="service-tag">Dashboards</span>
-      </div>
-      <p class="service-desc">Van meting tot raakvlakonderzoek, van website kwaliteit tot inzichten die passen.</p>
-    </div>
-  </div>
 
-  <div class="services-footer">
-    <a href="#contact" class="btn-outline-dark">Meer informatie</a>
-  </div>
-</section>
+      <div class="service">
+        <div class="service-num">05</div>
+        <div class="service-body">
+          <div class="service-name">Data</div>
+          <div class="service-desc">Meten, analyseren en optimaliseren</div>
+          <div class="service-sub">Tracking · Dashboards · Analyse & optimalisatie · Attributie · Research · A/B testing</div>
+          <div class="service-tags"><span class="service-tag">Tracking</span> <span class="service-tag">Analytics</span> <span class="service-tag">Optimalisatie</span></div>
+        </div>
+      </div>
+      <p class="services-footer">Meer dan 30 diensten beschikbaar — <a href="mailto:info@flii.nl" style="color:var(--c-red)">neem contact op</a> voor maatwerk.</p>
+    </div>
+  </section>
 
 <!-- REVIEWS -->
 <div class="section-label">Reviews</div>
@@ -1469,53 +1500,53 @@ img { display: block; max-width: 100%; }
 <section class="section">
   <div class="articles-list">
 
-    <a href="#" class="article">
+    <a href="https://flii.nl/cases/bikefair" target="_blank" class="article">
       <div class="article-img">
-        <div class="article-img-placeholder" style="background:var(--c-card-bg);display:flex;align-items:center;justify-content:center">
-          <svg width="48" height="48" viewBox="0 0 48 48" fill="none">
-            <rect x="8" y="16" width="32" height="16" rx="3" fill="rgba(255,255,255,.1)"/>
-            <circle cx="24" cy="24" r="5" fill="rgba(232,41,74,.6)"/>
-            <path d="M8 24h6M34 24h6" stroke="rgba(255,255,255,.2)" stroke-width="1.5" stroke-linecap="round"/>
-          </svg>
-        </div>
+        <img src="https://cdn.prod.website-files.com/688fb21882303e399ad11240/6890a0c70325bcd1dc6ba142_BF_9.png" alt="BikeFair" style="width:100%;height:200px;object-fit:cover;display:block;border-radius:var(--r) var(--r) 0 0">
       </div>
       <div class="article-body">
-        <div class="article-date">BikeFair</div>
-        <div class="article-title">Performance marketing voor de fietsbranche</div>
+        <div class="article-date" style="color:#24cd74;font-weight:600;letter-spacing:.01em">Marketing strategie voor een digitale marktplaats</div>
+        <div class="article-title">BikeFair</div>
+        <p style="font-size:13px;color:var(--c-muted);line-height:1.5;margin:6px 0">BikeFair is een snelgroeiende online marktplaats voor tweedehands fietsen. Flii hielp het platform doorgroeien van nichefavoriet naar breed bekend merk in Nederland.</p>
+        <ul style="list-style:none;padding:0;margin:8px 0 0;font-family:var(--ff-mono);font-size:10px;color:var(--c-muted)">
+          <li>+28% omzetgroei in 3 maanden</li>
+<li>800.000+ Nederlanders bereikt</li>
+<li>750% groei organisch verkeer</li>
+        </ul>
       </div>
     </a>
 
-    <a href="#" class="article">
+    <a href="https://flii.nl/cases/theaterthuis" target="_blank" class="article">
       <div class="article-img">
-        <div class="article-img-placeholder" style="background:var(--c-card-bg);display:flex;align-items:center;justify-content:center">
-          <svg width="48" height="48" viewBox="0 0 48 48" fill="none">
-            <path d="M10 34l8-12 6 7 6-9 8 14" stroke="rgba(232,41,74,.5)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-            <circle cx="38" cy="14" r="3" fill="rgba(232,41,74,.6)"/>
-          </svg>
-        </div>
+        <img src="https://cdn.prod.website-files.com/688fb21882303e399ad11240/68922c00abc12e6e0c9e2d07_tt_presenteerders.jpg" alt="TheaterThuis" style="width:100%;height:200px;object-fit:cover;display:block;border-radius:var(--r) var(--r) 0 0">
       </div>
       <div class="article-body">
-        <div class="article-date">Social Innovations</div>
-        <div class="article-title">Data-gedreven campagnes voor maatschappelijke impact</div>
+        <div class="article-date" style="color:#903103;font-weight:600;letter-spacing:.01em">Digital brand launch voor streamingdienst</div>
+        <div class="article-title">TheaterThuis</div>
+        <p style="font-size:13px;color:var(--c-muted);line-height:1.5;margin:6px 0">Digitale streamingdienst voor theater, cabaret en musicals. Flii zorgde voor een vliegende start met content en performance.</p>
+        <ul style="list-style:none;padding:0;margin:8px 0 0;font-family:var(--ff-mono);font-size:10px;color:var(--c-muted)">
+          <li>1M+ organische videoviews</li>
+<li>62% nieuwe gebruikers via campagnes</li>
+<li>23% lagere churn</li>
+        </ul>
       </div>
     </a>
 
-    <a href="#" class="article">
+    <a href="https://flii.nl/cases/digitale-strategie-voor-zzpers" target="_blank" class="article">
       <div class="article-img">
-        <div class="article-img-placeholder" style="background:var(--c-card-bg);display:flex;align-items:center;justify-content:center">
-          <svg width="48" height="48" viewBox="0 0 48 48" fill="none">
-            <rect x="10" y="26" width="6" height="12" rx="2" fill="rgba(232,41,74,.3)"/>
-            <rect x="20" y="18" width="6" height="20" rx="2" fill="rgba(232,41,74,.5)"/>
-            <rect x="30" y="10" width="6" height="28" rx="2" fill="rgba(232,41,74,.7)"/>
-          </svg>
-        </div>
+        <img src="https://cdn.prod.website-files.com/688fb21882303e399ad11240/6890ca987f0f0129df53d6a6_zo-4.jpg" alt="Zelfstandig Ondernemers" style="width:100%;height:200px;object-fit:cover;display:block;border-radius:var(--r) var(--r) 0 0">
       </div>
       <div class="article-body">
-        <div class="article-date">Zeewind</div>
-        <div class="article-title">Merkstrategie en content voor lokale groei</div>
+        <div class="article-date" style="color:#0f3a80;font-weight:600;letter-spacing:.01em">Digitale strategie voor content & performance</div>
+        <div class="article-title">Zelfstandig Ondernemers</div>
+        <p style="font-size:13px;color:var(--c-muted);line-height:1.5;margin:6px 0">Snelgroeiende start-up voor zelfstandige ondernemers. Flii bouwde zichtbaarheid en vertrouwen op in een kritische doelgroep.</p>
+        <ul style="list-style:none;padding:0;margin:8px 0 0;font-family:var(--ff-mono);font-size:10px;color:var(--c-muted)">
+          <li>48% nieuwe klanten via performance</li>
+<li>1,2M+ videoviews</li>
+<li>+50.000 organische bezoekers/jaar</li>
+        </ul>
       </div>
     </a>
-
   </div>
 </section>
 
