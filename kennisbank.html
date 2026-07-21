@@ -1,0 +1,314 @@
+<!DOCTYPE html>
+<html lang="nl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Kennisbank Marketing & Media — Flii Media</title>
+<meta name="description" content="De kennisbank van Flii Media: 104 begrippen uit marketing en media, helder uitgelegd met praktijkvoorbeelden.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,400;12..96,500;12..96,600;12..96,700;12..96,800&family=DM+Sans:ital,opsz,wght@0,9..40,400;0,9..40,500;0,9..40,600;1,9..40,400&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+:root{--mag:#E8294A;--ink:#0F0E0C;--mid:#4A4840;--subtle:#9B9790;--rule:#E8E6E1;--bg:#F3F1EB;--white:#fff;
+  --ff-disp:'Bricolage Grotesque','Inter',system-ui,sans-serif;
+  --ff-body:'DM Sans',system-ui,sans-serif;
+  --ff-mono:'JetBrains Mono',monospace;}
+*{box-sizing:border-box;margin:0;padding:0;-webkit-font-smoothing:antialiased;}
+body{font-family:var(--ff-body);background:var(--bg);color:var(--ink);min-height:100vh;}
+a{color:inherit;text-decoration:none;}
+.nav{display:flex;align-items:center;justify-content:space-between;padding:0 20px;height:56px;
+  border-bottom:1px solid var(--rule);position:sticky;top:0;
+  background:rgba(243,241,235,.93);backdrop-filter:blur(12px);z-index:100;}
+.nav-brand{display:flex;align-items:center;gap:8px;font-family:var(--ff-disp);font-size:15px;font-weight:800;color:var(--ink);}
+.nav-brand img{height:26px;width:auto;}
+.nav-back{font-size:13px;color:var(--mid);font-weight:500;}
+.nav-back:hover{color:var(--ink);}
+.page-footer{padding:32px 24px;text-align:center;font-size:12px;color:var(--subtle);
+  border-top:1px solid var(--rule);background:var(--white);}
+.page-footer a{color:var(--ink);font-weight:600;}
+
+.kb-hero{padding:48px 24px 40px;max-width:640px;margin:0 auto;}
+.kb-eyebrow{font-family:var(--ff-mono);font-size:10px;font-weight:600;letter-spacing:.16em;
+  text-transform:uppercase;color:var(--mag);margin-bottom:12px;display:block;}
+.kb-hero h1{font-family:var(--ff-disp);font-size:clamp(28px,8vw,44px);font-weight:800;
+  letter-spacing:-1.2px;line-height:1.05;margin-bottom:12px;}
+.kb-hero p{font-size:15px;color:var(--mid);line-height:1.6;}
+.kb-grid{max-width:640px;margin:0 auto;padding:0 20px 64px;display:flex;flex-direction:column;gap:8px;}
+.kb-cat{background:var(--white);border:1px solid var(--rule);border-radius:14px;overflow:hidden;}
+.kb-cat-head{display:flex;align-items:center;gap:12px;padding:16px 20px;cursor:pointer;
+  font-family:var(--ff-disp);font-size:16px;font-weight:700;color:var(--ink);}
+.kb-cat-head:hover .kb-cat-name{color:var(--mag);}
+.kb-cat-icon{font-size:18px;flex:none;}
+.kb-cat-name{flex:1;}
+.kb-cat-count{font-family:var(--ff-mono);font-size:10px;color:var(--subtle);letter-spacing:.06em;}
+.kb-cat-caret{color:var(--subtle);transition:transform .2s;font-size:14px;}
+.kb-cat.open .kb-cat-caret{transform:rotate(90deg);}
+.kb-topics{display:none;border-top:1px solid var(--rule);}
+.kb-cat.open .kb-topics{display:block;}
+.kb-topic-link{display:flex;align-items:center;justify-content:space-between;
+  padding:11px 20px 11px 48px;font-size:14px;color:var(--mid);border-bottom:1px solid rgba(232,230,225,.6);}
+.kb-topic-link:last-child{border-bottom:none;}
+.kb-topic-link:hover{color:var(--mag);background:rgba(232,41,74,.03);}
+.kb-topic-link .arr{font-size:12px;color:var(--rule);}
+.kb-topic-link:hover .arr{color:var(--mag);}
+</style>
+</head>
+<body>
+<nav class="nav">
+  <a href="index.html" class="nav-brand"><img src="data:image/png;base64,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" alt="Flii"> Kennisbank</a>
+  <a href="index.html" class="nav-back">← Flii Media</a>
+</nav>
+<section style="padding:48px 24px 32px;max-width:640px;margin:0 auto;">
+  <span class="kb-eyebrow">Kennisbank</span>
+  <h1 style="font-family:var(--ff-disp);font-size:clamp(28px,8vw,44px);font-weight:800;letter-spacing:-1.2px;line-height:1.05;margin-bottom:12px;">Marketing & Media</h1>
+  <p style="font-size:15px;color:var(--mid);line-height:1.6;">13 onderwerpen, 104 begrippen. Van strategie tot wetgeving — helder uitgelegd met praktijkvoorbeelden.</p>
+</section>
+<div class="kb-grid">
+  <div class="kb-cat" id="cat-0">
+    <div class="kb-cat-head" onclick="toggleCat('cat-0')">
+      <span class="kb-cat-icon">📊</span>
+      <span class="kb-cat-name">Marketingstrategie</span>
+      <span class="kb-cat-count">8 begrippen</span>
+      <span class="kb-cat-caret">›</span>
+    </div>
+    <div class="kb-topics">
+      <a href="kennisbank/marktanalyse.html" class="kb-topic-link"><span>Marktanalyse</span><span class="arr">›</span></a>
+      <a href="kennisbank/concurrentieanalyse.html" class="kb-topic-link"><span>Concurrentieanalyse</span><span class="arr">›</span></a>
+      <a href="kennisbank/positionering.html" class="kb-topic-link"><span>Positionering</span><span class="arr">›</span></a>
+      <a href="kennisbank/segmentatie.html" class="kb-topic-link"><span>Segmentatie</span><span class="arr">›</span></a>
+      <a href="kennisbank/targeting.html" class="kb-topic-link"><span>Targeting</span><span class="arr">›</span></a>
+      <a href="kennisbank/waardepropositie.html" class="kb-topic-link"><span>Waardepropositie</span><span class="arr">›</span></a>
+      <a href="kennisbank/merkstrategie.html" class="kb-topic-link"><span>Merkstrategie</span><span class="arr">›</span></a>
+      <a href="kennisbank/go-to-market.html" class="kb-topic-link"><span>Go-to-market</span><span class="arr">›</span></a>
+    </div>
+  </div>
+  <div class="kb-cat" id="cat-1">
+    <div class="kb-cat-head" onclick="toggleCat('cat-1')">
+      <span class="kb-cat-icon">🎯</span>
+      <span class="kb-cat-name">Merk (Brand)</span>
+      <span class="kb-cat-count">7 begrippen</span>
+      <span class="kb-cat-caret">›</span>
+    </div>
+    <div class="kb-topics">
+      <a href="kennisbank/brand-identity.html" class="kb-topic-link"><span>Brand Identity</span><span class="arr">›</span></a>
+      <a href="kennisbank/brand-positioning.html" class="kb-topic-link"><span>Brand Positioning</span><span class="arr">›</span></a>
+      <a href="kennisbank/brand-architecture.html" class="kb-topic-link"><span>Brand Architecture</span><span class="arr">›</span></a>
+      <a href="kennisbank/employer-branding.html" class="kb-topic-link"><span>Employer Branding</span><span class="arr">›</span></a>
+      <a href="kennisbank/personal-branding.html" class="kb-topic-link"><span>Personal Branding</span><span class="arr">›</span></a>
+      <a href="kennisbank/brand-experience.html" class="kb-topic-link"><span>Brand Experience</span><span class="arr">›</span></a>
+      <a href="kennisbank/reputatiemanagement.html" class="kb-topic-link"><span>Reputatiemanagement</span><span class="arr">›</span></a>
+    </div>
+  </div>
+  <div class="kb-cat" id="cat-2">
+    <div class="kb-cat-head" onclick="toggleCat('cat-2')">
+      <span class="kb-cat-icon">📣</span>
+      <span class="kb-cat-name">Marketingcommunicatie</span>
+      <span class="kb-cat-count">8 begrippen</span>
+      <span class="kb-cat-caret">›</span>
+    </div>
+    <div class="kb-topics">
+      <a href="kennisbank/campagnes.html" class="kb-topic-link"><span>Campagnes</span><span class="arr">›</span></a>
+      <a href="kennisbank/corporate-communicatie.html" class="kb-topic-link"><span>Corporate Communicatie</span><span class="arr">›</span></a>
+      <a href="kennisbank/interne-communicatie.html" class="kb-topic-link"><span>Interne Communicatie</span><span class="arr">›</span></a>
+      <a href="kennisbank/public-relations.html" class="kb-topic-link"><span>Public Relations</span><span class="arr">›</span></a>
+      <a href="kennisbank/sponsoring.html" class="kb-topic-link"><span>Sponsoring</span><span class="arr">›</span></a>
+      <a href="kennisbank/evenementen.html" class="kb-topic-link"><span>Evenementen</span><span class="arr">›</span></a>
+      <a href="kennisbank/influencer-marketing.html" class="kb-topic-link"><span>Influencer Marketing</span><span class="arr">›</span></a>
+      <a href="kennisbank/community-management.html" class="kb-topic-link"><span>Community Management</span><span class="arr">›</span></a>
+    </div>
+  </div>
+  <div class="kb-cat" id="cat-3">
+    <div class="kb-cat-head" onclick="toggleCat('cat-3')">
+      <span class="kb-cat-icon">✍️</span>
+      <span class="kb-cat-name">Content</span>
+      <span class="kb-cat-count">8 begrippen</span>
+      <span class="kb-cat-caret">›</span>
+    </div>
+    <div class="kb-topics">
+      <a href="kennisbank/contentstrategie.html" class="kb-topic-link"><span>Contentstrategie</span><span class="arr">›</span></a>
+      <a href="kennisbank/copywriting.html" class="kb-topic-link"><span>Copywriting</span><span class="arr">›</span></a>
+      <a href="kennisbank/storytelling.html" class="kb-topic-link"><span>Storytelling</span><span class="arr">›</span></a>
+      <a href="kennisbank/video.html" class="kb-topic-link"><span>Video</span><span class="arr">›</span></a>
+      <a href="kennisbank/audio-podcasts.html" class="kb-topic-link"><span>Audio & Podcasts</span><span class="arr">›</span></a>
+      <a href="kennisbank/fotografie.html" class="kb-topic-link"><span>Fotografie</span><span class="arr">›</span></a>
+      <a href="kennisbank/visual-design.html" class="kb-topic-link"><span>Visual Design</span><span class="arr">›</span></a>
+      <a href="kennisbank/content-operations.html" class="kb-topic-link"><span>Content Operations</span><span class="arr">›</span></a>
+    </div>
+  </div>
+  <div class="kb-cat" id="cat-4">
+    <div class="kb-cat-head" onclick="toggleCat('cat-4')">
+      <span class="kb-cat-icon">📺</span>
+      <span class="kb-cat-name">Media</span>
+      <span class="kb-cat-count">7 begrippen</span>
+      <span class="kb-cat-caret">›</span>
+    </div>
+    <div class="kb-topics">
+      <a href="kennisbank/owned-media.html" class="kb-topic-link"><span>Owned Media</span><span class="arr">›</span></a>
+      <a href="kennisbank/earned-media.html" class="kb-topic-link"><span>Earned Media</span><span class="arr">›</span></a>
+      <a href="kennisbank/paid-media.html" class="kb-topic-link"><span>Paid Media</span><span class="arr">›</span></a>
+      <a href="kennisbank/traditionele-media.html" class="kb-topic-link"><span>Traditionele Media</span><span class="arr">›</span></a>
+      <a href="kennisbank/digitale-media.html" class="kb-topic-link"><span>Digitale Media</span><span class="arr">›</span></a>
+      <a href="kennisbank/retail-media.html" class="kb-topic-link"><span>Retail Media</span><span class="arr">›</span></a>
+      <a href="kennisbank/programmatic-advertising.html" class="kb-topic-link"><span>Programmatic Advertising</span><span class="arr">›</span></a>
+    </div>
+  </div>
+  <div class="kb-cat" id="cat-5">
+    <div class="kb-cat-head" onclick="toggleCat('cat-5')">
+      <span class="kb-cat-icon">🔍</span>
+      <span class="kb-cat-name">Digitale Marketing</span>
+      <span class="kb-cat-count">9 begrippen</span>
+      <span class="kb-cat-caret">›</span>
+    </div>
+    <div class="kb-topics">
+      <a href="kennisbank/seo.html" class="kb-topic-link"><span>SEO</span><span class="arr">›</span></a>
+      <a href="kennisbank/sea.html" class="kb-topic-link"><span>SEA</span><span class="arr">›</span></a>
+      <a href="kennisbank/social-media-marketing.html" class="kb-topic-link"><span>Social Media Marketing</span><span class="arr">›</span></a>
+      <a href="kennisbank/e-mailmarketing.html" class="kb-topic-link"><span>E-mailmarketing</span><span class="arr">›</span></a>
+      <a href="kennisbank/affiliate-marketing.html" class="kb-topic-link"><span>Affiliate Marketing</span><span class="arr">›</span></a>
+      <a href="kennisbank/display-advertising.html" class="kb-topic-link"><span>Display Advertising</span><span class="arr">›</span></a>
+      <a href="kennisbank/video-advertising.html" class="kb-topic-link"><span>Video Advertising</span><span class="arr">›</span></a>
+      <a href="kennisbank/mobile-marketing.html" class="kb-topic-link"><span>Mobile Marketing</span><span class="arr">›</span></a>
+      <a href="kennisbank/marketing-automation.html" class="kb-topic-link"><span>Marketing Automation</span><span class="arr">›</span></a>
+    </div>
+  </div>
+  <div class="kb-cat" id="cat-6">
+    <div class="kb-cat-head" onclick="toggleCat('cat-6')">
+      <span class="kb-cat-icon">👥</span>
+      <span class="kb-cat-name">Klant & Groei</span>
+      <span class="kb-cat-count">8 begrippen</span>
+      <span class="kb-cat-caret">›</span>
+    </div>
+    <div class="kb-topics">
+      <a href="kennisbank/customer-experience-cx.html" class="kb-topic-link"><span>Customer Experience (CX)</span><span class="arr">›</span></a>
+      <a href="kennisbank/customer-journey.html" class="kb-topic-link"><span>Customer Journey</span><span class="arr">›</span></a>
+      <a href="kennisbank/crm.html" class="kb-topic-link"><span>CRM</span><span class="arr">›</span></a>
+      <a href="kennisbank/loyalty.html" class="kb-topic-link"><span>Loyalty</span><span class="arr">›</span></a>
+      <a href="kennisbank/customer-success.html" class="kb-topic-link"><span>Customer Success</span><span class="arr">›</span></a>
+      <a href="kennisbank/lead-generation.html" class="kb-topic-link"><span>Lead Generation</span><span class="arr">›</span></a>
+      <a href="kennisbank/conversieoptimalisatie-cro.html" class="kb-topic-link"><span>Conversieoptimalisatie (CRO)</span><span class="arr">›</span></a>
+      <a href="kennisbank/growth-marketing.html" class="kb-topic-link"><span>Growth Marketing</span><span class="arr">›</span></a>
+    </div>
+  </div>
+  <div class="kb-cat" id="cat-7">
+    <div class="kb-cat-head" onclick="toggleCat('cat-7')">
+      <span class="kb-cat-icon">🛒</span>
+      <span class="kb-cat-name">Verkoop & Commerce</span>
+      <span class="kb-cat-count">8 begrippen</span>
+      <span class="kb-cat-caret">›</span>
+    </div>
+    <div class="kb-topics">
+      <a href="kennisbank/sales-enablement.html" class="kb-topic-link"><span>Sales Enablement</span><span class="arr">›</span></a>
+      <a href="kennisbank/b2b-marketing.html" class="kb-topic-link"><span>B2B Marketing</span><span class="arr">›</span></a>
+      <a href="kennisbank/b2c-marketing.html" class="kb-topic-link"><span>B2C Marketing</span><span class="arr">›</span></a>
+      <a href="kennisbank/e-commerce.html" class="kb-topic-link"><span>E-commerce</span><span class="arr">›</span></a>
+      <a href="kennisbank/marketplace-marketing.html" class="kb-topic-link"><span>Marketplace Marketing</span><span class="arr">›</span></a>
+      <a href="kennisbank/trade-marketing.html" class="kb-topic-link"><span>Trade Marketing</span><span class="arr">›</span></a>
+      <a href="kennisbank/retail-marketing.html" class="kb-topic-link"><span>Retail Marketing</span><span class="arr">›</span></a>
+      <a href="kennisbank/pricing.html" class="kb-topic-link"><span>Pricing</span><span class="arr">›</span></a>
+    </div>
+  </div>
+  <div class="kb-cat" id="cat-8">
+    <div class="kb-cat-head" onclick="toggleCat('cat-8')">
+      <span class="kb-cat-icon">🧠</span>
+      <span class="kb-cat-name">Onderzoek, Data & AI</span>
+      <span class="kb-cat-count">10 begrippen</span>
+      <span class="kb-cat-caret">›</span>
+    </div>
+    <div class="kb-topics">
+      <a href="kennisbank/marktonderzoek.html" class="kb-topic-link"><span>Marktonderzoek</span><span class="arr">›</span></a>
+      <a href="kennisbank/klantonderzoek.html" class="kb-topic-link"><span>Klantonderzoek</span><span class="arr">›</span></a>
+      <a href="kennisbank/marketing-analytics.html" class="kb-topic-link"><span>Marketing Analytics</span><span class="arr">›</span></a>
+      <a href="kennisbank/business-intelligence.html" class="kb-topic-link"><span>Business Intelligence</span><span class="arr">›</span></a>
+      <a href="kennisbank/web-analytics.html" class="kb-topic-link"><span>Web Analytics</span><span class="arr">›</span></a>
+      <a href="kennisbank/attribution.html" class="kb-topic-link"><span>Attribution</span><span class="arr">›</span></a>
+      <a href="kennisbank/data-science.html" class="kb-topic-link"><span>Data Science</span><span class="arr">›</span></a>
+      <a href="kennisbank/artificial-intelligence.html" class="kb-topic-link"><span>Artificial Intelligence</span><span class="arr">›</span></a>
+      <a href="kennisbank/predictive-analytics.html" class="kb-topic-link"><span>Predictive Analytics</span><span class="arr">›</span></a>
+      <a href="kennisbank/experimentation-a-b-testing.html" class="kb-topic-link"><span>Experimentation (A/B Testing)</span><span class="arr">›</span></a>
+    </div>
+  </div>
+  <div class="kb-cat" id="cat-9">
+    <div class="kb-cat-head" onclick="toggleCat('cat-9')">
+      <span class="kb-cat-icon">🎨</span>
+      <span class="kb-cat-name">Creatie & Design</span>
+      <span class="kb-cat-count">7 begrippen</span>
+      <span class="kb-cat-caret">›</span>
+    </div>
+    <div class="kb-topics">
+      <a href="kennisbank/grafisch-ontwerp.html" class="kb-topic-link"><span>Grafisch Ontwerp</span><span class="arr">›</span></a>
+      <a href="kennisbank/ux-design.html" class="kb-topic-link"><span>UX Design</span><span class="arr">›</span></a>
+      <a href="kennisbank/ui-design.html" class="kb-topic-link"><span>UI Design</span><span class="arr">›</span></a>
+      <a href="kennisbank/motion-design.html" class="kb-topic-link"><span>Motion Design</span><span class="arr">›</span></a>
+      <a href="kennisbank/packaging.html" class="kb-topic-link"><span>Packaging</span><span class="arr">›</span></a>
+      <a href="kennisbank/illustratie.html" class="kb-topic-link"><span>Illustratie</span><span class="arr">›</span></a>
+      <a href="kennisbank/creative-direction.html" class="kb-topic-link"><span>Creative Direction</span><span class="arr">›</span></a>
+    </div>
+  </div>
+  <div class="kb-cat" id="cat-10">
+    <div class="kb-cat-head" onclick="toggleCat('cat-10')">
+      <span class="kb-cat-icon">⚙️</span>
+      <span class="kb-cat-name">Technologie</span>
+      <span class="kb-cat-count">9 begrippen</span>
+      <span class="kb-cat-caret">›</span>
+    </div>
+    <div class="kb-topics">
+      <a href="kennisbank/websites.html" class="kb-topic-link"><span>Websites</span><span class="arr">›</span></a>
+      <a href="kennisbank/apps.html" class="kb-topic-link"><span>Apps</span><span class="arr">›</span></a>
+      <a href="kennisbank/cms.html" class="kb-topic-link"><span>CMS</span><span class="arr">›</span></a>
+      <a href="kennisbank/cdp.html" class="kb-topic-link"><span>CDP</span><span class="arr">›</span></a>
+      <a href="kennisbank/crm-systemen.html" class="kb-topic-link"><span>CRM-systemen</span><span class="arr">›</span></a>
+      <a href="kennisbank/marketing-stack.html" class="kb-topic-link"><span>Marketing Stack</span><span class="arr">›</span></a>
+      <a href="kennisbank/api-s.html" class="kb-topic-link"><span>API's</span><span class="arr">›</span></a>
+      <a href="kennisbank/privacy-consent.html" class="kb-topic-link"><span>Privacy & Consent</span><span class="arr">›</span></a>
+      <a href="kennisbank/martech.html" class="kb-topic-link"><span>MarTech</span><span class="arr">›</span></a>
+    </div>
+  </div>
+  <div class="kb-cat" id="cat-11">
+    <div class="kb-cat-head" onclick="toggleCat('cat-11')">
+      <span class="kb-cat-icon">🏗️</span>
+      <span class="kb-cat-name">Organisatie & Operations</span>
+      <span class="kb-cat-count">8 begrippen</span>
+      <span class="kb-cat-caret">›</span>
+    </div>
+    <div class="kb-topics">
+      <a href="kennisbank/marketing-management.html" class="kb-topic-link"><span>Marketing Management</span><span class="arr">›</span></a>
+      <a href="kennisbank/budgettering.html" class="kb-topic-link"><span>Budgettering</span><span class="arr">›</span></a>
+      <a href="kennisbank/projectmanagement.html" class="kb-topic-link"><span>Projectmanagement</span><span class="arr">›</span></a>
+      <a href="kennisbank/agile-marketing.html" class="kb-topic-link"><span>Agile Marketing</span><span class="arr">›</span></a>
+      <a href="kennisbank/governance.html" class="kb-topic-link"><span>Governance</span><span class="arr">›</span></a>
+      <a href="kennisbank/processen.html" class="kb-topic-link"><span>Processen</span><span class="arr">›</span></a>
+      <a href="kennisbank/leveranciersmanagement.html" class="kb-topic-link"><span>Leveranciersmanagement</span><span class="arr">›</span></a>
+      <a href="kennisbank/kpi-management.html" class="kb-topic-link"><span>KPI-management</span><span class="arr">›</span></a>
+    </div>
+  </div>
+  <div class="kb-cat" id="cat-12">
+    <div class="kb-cat-head" onclick="toggleCat('cat-12')">
+      <span class="kb-cat-icon">⚖️</span>
+      <span class="kb-cat-name">Wetgeving & Ethiek</span>
+      <span class="kb-cat-count">7 begrippen</span>
+      <span class="kb-cat-caret">›</span>
+    </div>
+    <div class="kb-topics">
+      <a href="kennisbank/avg-gdpr.html" class="kb-topic-link"><span>AVG/GDPR</span><span class="arr">›</span></a>
+      <a href="kennisbank/reclamewetgeving.html" class="kb-topic-link"><span>Reclamewetgeving</span><span class="arr">›</span></a>
+      <a href="kennisbank/copyright.html" class="kb-topic-link"><span>Copyright</span><span class="arr">›</span></a>
+      <a href="kennisbank/ai-governance.html" class="kb-topic-link"><span>AI Governance</span><span class="arr">›</span></a>
+      <a href="kennisbank/accessibility.html" class="kb-topic-link"><span>Accessibility</span><span class="arr">›</span></a>
+      <a href="kennisbank/duurzaamheid-esg.html" class="kb-topic-link"><span>Duurzaamheid (ESG)</span><span class="arr">›</span></a>
+      <a href="kennisbank/marketing-ethics.html" class="kb-topic-link"><span>Marketing Ethics</span><span class="arr">›</span></a>
+    </div>
+  </div>
+</div>
+<footer class="page-footer">
+  <p>Kennisbank van <a href="index.html">Flii Media</a> &middot; <a href="mailto:info@flii.nl">info@flii.nl</a></p>
+</footer>
+<script>
+function toggleCat(id){
+  var el = document.getElementById(id);
+  el.classList.toggle('open');
+}
+// Open first category by default
+document.getElementById('cat-0').classList.add('open');
+</script>
+</body>
+</html>
