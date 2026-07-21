@@ -515,7 +515,7 @@ body{font-family:var(--ff-body);background:var(--paper);color:var(--ink);}
       </div>
       <div class="calc-steps" id="calc-nav"></div>
       <div id="calc-body"></div>
-      <div class="calc-nav" id="calc-nav-bar">
+      <div class="calc-nav" id="calc-nav-bar" style="display:none">
         <button class="btn btn-ghost" id="calc-btn-back" onclick="go(-1)" disabled>← Terug</button>
         <div class="calc-running" id="calc-running"></div>
         <button class="btn btn-primary" id="calc-btn-next" onclick="go(1)">Volgende →</button>
@@ -1013,6 +1013,7 @@ function navBtns(back, next) {
   return h;
 }
 
+function go(d) { goStep(S.step + d); }
 function goStep(i) {
   S.step = Math.max(0, Math.min(STEPS.length-1, i));
   renderCalc();
@@ -1258,6 +1259,7 @@ function navBtns(back, next) {
   return h;
 }
 
+function go(d) { goStep(S.step + d); }
 function goStep(i) {
   S.step = Math.max(0, Math.min(STEPS.length-1, i));
   renderCalc();
