@@ -995,6 +995,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 <!-- NAV MENU DRAWER -->
 <div class="nav-menu" id="nav-menu" role="dialog" aria-modal="true">
   <canvas id="matrix-canvas"></canvas>
+<canvas id="home-ripple-canvas"></canvas>
   <div class="nav-spotlight" id="nav-spotlight"></div>
   <button class="nav-menu-close" id="nav-menu-close" aria-label="Sluiten">×</button>
   <div class="nav-menu-inner" id="nav-menu-inner">
@@ -1048,7 +1049,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
   </div>
 </div>
 
-<!!-- PAGE TITLE -->
+<!-- PAGE TITLE -->
 <!-- HERO -->
 <div class="hero-outer">
 
@@ -1981,7 +1982,7 @@ window.chatbaseConfig={chatbotId:"xDWiHhLymvD2NuZKQ-bO_",hideBubble:true};
     drops = Array(cols).fill(0).map(function() { return (Math.random() * -40) | 0; });
     if (ctx) ctx.clearRect(0, 0, canvas.width, canvas.height);
     running = true;
-    canvas.style.opacity = '0.35';
+    canvas.style.opacity = '0.18';
     drawMatrix();
   }
 
@@ -1989,6 +1990,7 @@ window.chatbaseConfig={chatbotId:"xDWiHhLymvD2NuZKQ-bO_",hideBubble:true};
     running = false;
     cancelAnimationFrame(animId);
     if (canvas) canvas.style.opacity = '0';
+    /* canvas stops on menu close */
     if (spotlight) spotlight.style.opacity = '0';
     mx = my = -999; swayX = swayY = swayVX = swayVY = 0;
     clearTimeout(moveTimeout); spotActive = false;
@@ -2012,12 +2014,14 @@ window.chatbaseConfig={chatbotId:"xDWiHhLymvD2NuZKQ-bO_",hideBubble:true};
     if (!spotActive) {
       spotActive = true;
       if (spotlight) spotlight.style.opacity = '1';
+      if (canvas) canvas.style.opacity = '0.42';  // brighter when spotlight active
     }
     updateSpotlight(cx, cy);
     if (speed > 28) { swayVX += dx * 0.11; swayVY += dy * 0.11; }
     clearTimeout(moveTimeout);
     moveTimeout = setTimeout(function() {
       if (spotlight) spotlight.style.opacity = '0';
+      if (canvas) canvas.style.opacity = '0.18';  // back to base
       spotActive = false;
     }, 1600);
   }
@@ -2045,6 +2049,105 @@ window.chatbaseConfig={chatbotId:"xDWiHhLymvD2NuZKQ-bO_",hideBubble:true};
     animSway();
     window.addEventListener('resize', function() { if (running) startMatrix(); });
   });
+})();
+
+</script>
+<script>
+
+// ── HOME MATRIX RIPPLE ────────────────────────────────────────────────
+(function() {
+  var hCanvas = document.getElementById('home-ripple-canvas');
+  if (!hCanvas) return;
+  var hCtx = hCanvas.getContext('2d');
+  var animId, isHeld = false;
+  var cx = 0, cy = 0;
+  var radius = 0;
+  var CHARS = '01アイウエオカキクケコサシスセソタチツテトナニヌネノ<>/\\|{}[]';
+  var cols = [], drops = [];
+  var COLW = 16;
+
+  function resize() {
+    hCanvas.width  = window.innerWidth;
+    hCanvas.height = window.innerHeight;
+    var numCols = Math.ceil(hCanvas.width / COLW);
+    cols = Array(numCols).fill(0).map(function(_,i){ return i * COLW; });
+    drops = cols.map(function(){ return Math.random() * -30 | 0; });
+  }
+
+  function drawRipple() {
+    hCtx.clearRect(0, 0, hCanvas.width, hCanvas.height);
+    
+    // Create circular clipping mask from click point
+    hCtx.save();
+    hCtx.beginPath();
+    hCtx.arc(cx, cy, radius, 0, Math.PI * 2);
+    hCtx.clip();
+    
+    // Draw matrix chars inside the circle (light grey on white)
+    for (var i = 0; i < cols.length; i++) {
+      var x = cols[i];
+      var y = drops[i] * COLW;
+      var ch = CHARS[Math.random() * CHARS.length | 0];
+      var alpha = 0.06 + Math.random() * 0.1;
+      hCtx.font = '12px monospace';
+      hCtx.fillStyle = 'rgba(80,80,80,' + alpha + ')';
+      hCtx.fillText(ch, x, y);
+      
+      if (y > hCanvas.height && Math.random() > 0.97) drops[i] = 0;
+      drops[i] += 0.5;
+    }
+    hCtx.restore();
+    
+    // Ripple ring edge (subtle)
+    hCtx.beginPath();
+    hCtx.arc(cx, cy, radius, 0, Math.PI * 2);
+    hCtx.strokeStyle = 'rgba(160,160,160,0.12)';
+    hCtx.lineWidth = 2;
+    hCtx.stroke();
+    
+    // Grow radius while held
+    if (isHeld && radius < Math.max(hCanvas.width, hCanvas.height) * 0.8) {
+      radius += 6;
+    }
+    
+    animId = requestAnimationFrame(drawRipple);
+  }
+
+  function start(e) {
+    var x = e.touches ? e.touches[0].clientX : e.clientX;
+    var y = e.touches ? e.touches[0].clientY : e.clientY;
+    cx = x; cy = y; radius = 0; isHeld = true;
+    resize();
+    cancelAnimationFrame(animId);
+    hCanvas.style.opacity = '1';
+    drawRipple();
+  }
+
+  function stop() {
+    isHeld = false;
+    // Fade canvas out
+    hCanvas.style.transition = 'opacity 0.5s ease';
+    hCanvas.style.opacity = '0';
+    setTimeout(function() {
+      cancelAnimationFrame(animId);
+      hCtx.clearRect(0, 0, hCanvas.width, hCanvas.height);
+    }, 500);
+  }
+
+  document.addEventListener('mousedown', function(e) {
+    // Only on white background areas (not on buttons, links, etc.)
+    if (e.target.closest('a, button, details, summary, input, .nav, .float-sidebar, #float-sidebar, .sticky-bar, .nav-menu')) return;
+    start(e);
+  });
+  document.addEventListener('mouseup', stop);
+  document.addEventListener('touchstart', function(e) {
+    if (e.target.closest('a, button, details, summary, input, .nav, .float-sidebar, #float-sidebar, .sticky-bar, .nav-menu')) return;
+    start(e);
+  }, { passive: true });
+  document.addEventListener('touchend', stop);
+
+  resize();
+  window.addEventListener('resize', resize);
 })();
 
 </script>
