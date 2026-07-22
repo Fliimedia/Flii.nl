@@ -4248,57 +4248,56 @@ iframe[src*="chatbase"] { display: none !important; }
   position: fixed; inset: 0; z-index: 9999;
   opacity: 0; pointer-events: none;
   transition: opacity 0.45s ease;
+  /* Composite context: video + fade + text all rendered together */
+  isolation: isolate;
 }
 #slogan-overlay.s-glass  { opacity: 1; pointer-events: all; }
 #slogan-overlay.s-full   { opacity: 1; pointer-events: all; }
 #slogan-overlay.s-out    { opacity: 0; pointer-events: none; transition: opacity 1.4s ease; }
 
-/* Video: full screen, z-index 0 */
+/* 1. Video: fills entire overlay */
 #slogan-video {
   position: absolute; inset: 0;
   width: 100%; height: 100%;
-  object-fit: cover; z-index: 0;
+  object-fit: cover;
+  z-index: 0;
 }
 
-/* Composite layer: fade + cut-out text together so blend punches through the black */
-#slogan-composite {
-  position: absolute; inset: 0; z-index: 1;
-  isolation: isolate;  /* new stacking context — blend operates within this */
-}
-
-/* Black left-side fade, INSIDE the composite layer */
+/* 2. Black left fade: solid black on left half, fades to transparent at center */
 #slogan-fade {
   position: absolute; inset: 0;
+  z-index: 1;
   background: linear-gradient(
     to right,
     #000 0%,
-    #000 38%,
-    rgba(0,0,0,0.65) 52%,
-    rgba(0,0,0,0) 68%
+    #000 50%,
+    rgba(0,0,0,0.5) 62%,
+    rgba(0,0,0,0) 75%
   );
-  z-index: 0;
-  transition: opacity 0.6s ease;
+  transition: opacity 0.7s ease;
 }
 #slogan-overlay.s-full #slogan-fade { opacity: 0; }
 #slogan-overlay.s-out  #slogan-fade { opacity: 0; }
 
-/* Text container, INSIDE composite, on top of the fade */
+/* 3. Text: destination-out cuts through the fade, revealing video beneath */
 #slogan-text {
-  position: absolute; inset: 0; z-index: 1;
+  position: absolute; inset: 0;
+  z-index: 2;
   display: flex; flex-direction: column;
   align-items: flex-start; justify-content: center;
   padding: 0 28px; pointer-events: none;
-  transition: opacity 0.6s ease;
+  transition: opacity 0.7s ease;
 }
 #slogan-overlay.s-full #slogan-text { opacity: 0; }
 #slogan-overlay.s-out  #slogan-text { opacity: 0; }
 
-/* Cut-out letters: destination-out composites against #slogan-fade inside isolation */
 .s-word {
   font-family: 'Bricolage Grotesque', system-ui, sans-serif;
   font-size: clamp(52px, 14vw, 90px);
   font-weight: 900; letter-spacing: -2.5px; line-height: 0.88;
   display: block;
+  /* destination-out erases pixels in the stacking context (the fade)
+     where the letters are — revealing the video on z-index:0 beneath */
   color: #fff;
   mix-blend-mode: destination-out;
 }
@@ -5709,14 +5708,14 @@ document.addEventListener('click', function(e) {
 <div id="slogan-overlay">
   <video id="slogan-video" muted loop playsinline preload="none"
     src="https://fliimedia.github.io/Flii.nl/assets/eklipse-montage.mp4"></video>
-  <div id="slogan-composite">
-    <div id="slogan-fade"></div>
-    <div id="slogan-text">
-      <span class="s-word">Let's</span>
-      <span class="s-word s-word-ignite">ignite</span>
-      <span class="s-word">ambitions</span>
-    </div>
+  <div id="slogan-fade"></div>
+  <div id="slogan-text">
+    <span class="s-word">Let's</span>
+    <span class="s-word s-word-ignite">ignite</span>
+    <span class="s-word">ambitions</span>
   </div>
+</div>
+
 </div>
 
 <script>
