@@ -4551,7 +4551,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
   </a>
 </div>
     <div class="services-footer-btn-wrap">
-      <button class="services-contact-btn rb-btn" onclick="highlightSidebar()" style="display:none"></button>
+      <button class="services-contact-btn rb-btn" onclick="toggleContactPopup()">Neem contact op</button>
     </div>
     </div>
   </section>
@@ -4560,36 +4560,26 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 <section class="ai-launch-section">
   <span class="ai-launch-eyebrow">SaaS &amp; Digitale producten</span>
   <h2 class="ai-launch-title">Product launch<br>plan &amp; <em>uitvoer.</em></h2>
-  <p class="ai-launch-desc">Van research en positionering tot branding, creatie en performance marketing. Wij lanceren jouw SaaS of digitaal product — van idee tot eerste klant.</p>
   <div class="ai-usp-mini">
-    <div class="ai-usp-mini-item">
-      <span class="ai-usp-mini-icon">
+    <div class="ai-usp-mini-item"><span class="ai-usp-mini-icon">
         <svg width="14" height="14" viewBox="0 0 20 20" fill="none" stroke="rgba(255,255,255,.7)" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round">
           <circle cx="10" cy="10" r="8"/><path d="M10 6v4l3 2"/>
         </svg>
-      </span>
-      <span class="ai-usp-mini-text"><strong>Research eerst.</strong> Markt, doelgroep en positionering als fundament.</span>
-    </div>
-    <div class="ai-usp-mini-item">
-      <span class="ai-usp-mini-icon">
+      </span><span class="ai-usp-mini-text"><strong>Research eerst.</strong></span></div>
+    <div class="ai-usp-mini-item"><span class="ai-usp-mini-icon">
         <svg width="14" height="14" viewBox="0 0 20 20" fill="none" stroke="rgba(255,255,255,.7)" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round">
           <rect x="3" y="3" width="14" height="14" rx="2"/><path d="M7 7h6M7 10h4M7 13h3"/>
         </svg>
-      </span>
-      <span class="ai-usp-mini-text"><strong>Plan op maat</strong> — branding, creatie en performance in samenhang.</span>
-    </div>
-    <div class="ai-usp-mini-item">
-      <span class="ai-usp-mini-icon">
+      </span><span class="ai-usp-mini-text"><strong>Plan op maat</strong></span></div>
+    <div class="ai-usp-mini-item"><span class="ai-usp-mini-icon">
         <svg width="14" height="14" viewBox="0 0 20 20" fill="none" stroke="rgba(255,255,255,.7)" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round">
           <path d="M3 17l4-4 4 4 6-12"/>
         </svg>
-      </span>
-      <span class="ai-usp-mini-text"><strong>Uitvoer en lancering</strong> in één doorlopende samenwerking.</span>
-    </div>
+      </span><span class="ai-usp-mini-text"><strong>Uitvoer en lancering</strong></span></div>
   </div>
   <div>
     <a href="diensten/ai-launchplan.html" class="ai-launch-btn">Bekijk het plan →</a>
-    <a href="https://calendly.com/flii-media" target="_blank" class="ai-launch-btn-ghost">Plan een gesprek</a>
+    <button class="ai-launch-btn-ghost" onclick="toggleContactPopup()">Plan een gesprek</button>
   </div>
 </section>
 
@@ -5669,7 +5659,8 @@ document.addEventListener('click', function(e) {
   var ov      = document.getElementById('slogan-overlay');
   var vid     = document.getElementById('slogan-video');
   var canvas  = document.getElementById('slogan-canvas');
-  var trigger = document.querySelector('.cta-h');
+  var triggerCta  = document.querySelector('.cta-h');
+  var triggerHero = document.querySelector('.hero-headline');
   if (!ov || !trigger || !canvas) return;
 
   var ctx = canvas.getContext('2d');
@@ -5752,13 +5743,14 @@ document.addEventListener('click', function(e) {
     }, 1500);
   }
 
-  trigger.addEventListener('mousedown', start);
-  trigger.style.cursor = 'default';
-  trigger.style.userSelect = 'none';
+  [triggerCta, triggerHero].filter(Boolean).forEach(function(t) {
+    t.addEventListener('mousedown', start);
+    t.style.userSelect = 'none';
+  });
   window.addEventListener('mouseup', end);
-  trigger.addEventListener('touchstart', function(e) {
-    e.preventDefault(); start();
-  }, { passive: false });
+  [triggerCta, triggerHero].filter(Boolean).forEach(function(t) {
+    t.addEventListener('touchstart', function(e) { e.preventDefault(); start(); }, { passive: false });
+  });
   window.addEventListener('touchend', end);
   window.addEventListener('touchcancel', end);
 })();
