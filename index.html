@@ -1684,14 +1684,7 @@ details.faq-item[open] .faq-answer {
 @keyframes lmSpin { to { transform-origin:50px 50px; transform:rotate(360deg); } }
 
 /* ── 3D WATER RIPPLE ── */
-#water-ripple-canvas {
-  position: absolute;
-  top: 0; left: 0;
-  width: 320px;
-  height: 320px;
-  pointer-events: none;
-  z-index: 3;
-}
+#water-ripple-canvas{position:absolute;top:0;left:0;width:320px;height:320px;pointer-events:none;z-index:3;}
 @keyframes waterFloat {
   0%   { transform: translate(-50%,-50%) translateY(0) scale(1); }
   30%  { transform: translate(-50%,-50%) translateY(-2.5px) scale(1.015); }
@@ -1718,35 +1711,17 @@ details.faq-item[open] .faq-answer {
 }
 
 /* Bento grid: two tiles side by side on mobile */
-.footer-bento {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 10px;
-  margin-bottom: 10px;
-}
+.footer-bento{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin-bottom:10px;padding-bottom:80px;}
 
 /* Tile: brand info */
-.footer-tile {
-  background: #F9F8F6;
-  border-radius: 12px;
-  padding: 14px 14px 12px;
-}
-.footer-tile-brand {
-  grid-column: 1 / -1;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  gap: 8px;
-}
+.footer-tile{background:#F9F8F6;border-radius:12px;padding:14px 14px 12px;display:flex;flex-direction:column;align-items:center;text-align:center;}
+.footer-tile-brand{grid-column:1/-1;display:flex;flex-direction:column;align-items:center;gap:8px;}
 .footer-brand-top {
   display: flex;
   align-items: center;
   justify-content: space-between;
 }
-.footer-social-row {
-  display: flex;
-  gap: 6px;
-}
+.footer-social-row{display:flex;flex-direction:row;align-items:center;gap:6px;flex-wrap:wrap;justify-content:center;}
 .social-icon {
   display: flex; align-items: center; justify-content: center;
   width: 28px; height: 28px;
@@ -1766,22 +1741,11 @@ details.faq-item[open] .faq-answer {
   white-space: nowrap;
 }
 .grb-stars { color: #F4B400; font-size: 9px; }
-.footer-address {
-  font-size: 10px; color: #9B9790; line-height: 1.6;
-}
+.footer-address{font-size:10px;color:#9B9790;line-height:1.6;text-align:center;}
 
 /* Tile: nav links */
-.footer-tile-nav {
-  display: flex;
-  flex-direction: column;
-  gap: 6px;
-}
-.footer-nav-head {
-  font-family: var(--ff-mono);
-  font-size: 8px; font-weight: 700;
-  letter-spacing: .1em; text-transform: uppercase;
-  color: #0F0E0C; margin-bottom: 2px;
-}
+.footer-tile-nav{display:flex;flex-direction:column;align-items:center;gap:5px;text-align:center;}
+.footer-nav-head{font-family:var(--ff-mono);font-size:8px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:#0F0E0C;margin-bottom:2px;text-align:center;}
 .footer-nav-link {
   font-size: 11px; color: #4A4840;
   text-decoration: none; line-height: 1.4;
@@ -1812,13 +1776,7 @@ details.faq-item[open] .faq-answer {
   background-clip: text;
   animation: rainbowShift 4s linear infinite;
 }
-.footer-legal {
-  display: flex;
-  gap: 10px;
-  flex-wrap: wrap;
-  align-items: center;
-  justify-content: center;
-}
+.footer-legal{display:flex;gap:10px;flex-wrap:wrap;align-items:center;justify-content:center;}
 .footer-link, .footer-contact-btn {
   font-family: var(--ff-body);
   font-size: 10px; color: #9B9790;
@@ -1868,56 +1826,14 @@ details.faq-item[open] .faq-answer {
 .case-photo-card { margin-bottom: 48px !important; }
 
 /* Footer bottom tile */
-.footer-tile-bottom {
-  grid-column: 1 / -1;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  gap: 8px;
-  padding: 12px 14px;
-}
-.footer-legal {
-  display: flex;
-  gap: 10px;
-  flex-wrap: wrap;
-  align-items: center;
-  justify-content: center;
-}
+.footer-tile-bottom{grid-column:1/-1;display:flex;flex-direction:column;align-items:center;gap:8px;padding:10px 14px;}
+.footer-legal{display:flex;gap:10px;flex-wrap:wrap;align-items:center;justify-content:center;}
 /* Add bottom padding to clear sticky bar */
-.footer-bento {
-  padding-bottom: 80px;
-}
+.footer-bento{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin-bottom:10px;padding-bottom:80px;}
 
-.footer-brand-row {
-  display: flex;
-  flex-direction: column;
-  align-items: flex-start;
-  width: 100%;
-}
-.footer-social-row {
-  display: flex;
-  flex-direction: row;
-  align-items: center;
-  gap: 6px;
-  flex-wrap: wrap;
-}
-.footer-address {
-  font-size: 10px; color: #9B9790;
-  line-height: 1.6; text-align: center;
-}
-/* Bottom tile: centered */
-.footer-tile-bottom {
-  grid-column: 1 / -1;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  gap: 8px;
-  padding: 10px 14px;
-}
-.footer-legal {
-  display: flex; gap: 10px; flex-wrap: wrap;
-  align-items: center; justify-content: center;
-}
+.cases-grid{gap:96px!important;}
+.case-photo-card{margin-bottom:48px!important;}
+.service-tag-link.active .service-tag{background:#E8294A!important;color:#fff!important;border-color:#E8294A!important;}
 </style>
 <!-- Default consent vóór GTM -->
 
@@ -2456,27 +2372,14 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 <!-- FOOTER -->
 <footer class="footer">
   <div class="footer-bento">
-
-    <!-- Tile 1: brand info -->
     <div class="footer-tile footer-tile-brand">
-      <div class="footer-brand-row">
-        <div class="footer-social-row">
-          <a href="https://nl.linkedin.com/company/flii-media" class="social-icon" aria-label="LinkedIn">
-            <svg viewBox="0 0 24 24" fill="none"><path d="M16 8a6 6 0 016 6v7h-4v-7a2 2 0 00-2-2 2 2 0 00-2 2v7h-4v-7a6 6 0 016-6zM2 9h4v12H2z" fill="#4A4840"/><circle cx="4" cy="4" r="2" fill="#4A4840"/></svg>
-          </a>
-          <a href="https://share.google/ApvHmyLk1sR2IH0cw" target="_blank" class="social-icon" aria-label="Google">
-            <svg viewBox="0 0 24 24"><path d="M21.8 12.2c0-.7-.1-1.4-.2-2H12v3.8h5.5c-.2 1.2-.9 2.2-2 2.9v2.4h3.2c1.9-1.7 3-4.3 3-7.1z" fill="#4285F4"/><path d="M12 22c2.7 0 5-.9 6.7-2.4l-3.2-2.4c-.9.6-2 1-3.5 1-2.7 0-4.9-1.8-5.7-4.2H3v2.5C4.7 19.9 8.1 22 12 22z" fill="#34A853"/><path d="M6.3 13.9c-.2-.6-.3-1.2-.3-1.9s.1-1.3.3-1.9V7.6H3C2.3 9 2 10.5 2 12s.3 3 1 4.4l3.3-2.5z" fill="#FBBC04"/><path d="M12 5.8c1.5 0 2.9.5 3.9 1.5l2.9-2.9C17 2.8 14.7 2 12 2 8.1 2 4.7 4.1 3 7.6l3.3 2.5C7.1 7.6 9.3 5.8 12 5.8z" fill="#EA4335"/></svg>
-          </a>
-          <a href="https://share.google/ApvHmyLk1sR2IH0cw" target="_blank" rel="noopener" class="google-review-banner">
-            <span class="grb-stars">★★★★★</span>
-            <span class="grb-text"><strong>5.0</strong> op Google · 14 reviews</span>
-          </a>
-        </div>
+      <div class="footer-social-row">
+        <a href="https://nl.linkedin.com/company/flii-media" class="social-icon" aria-label="LinkedIn"><svg viewBox="0 0 24 24" fill="none"><path d="M16 8a6 6 0 016 6v7h-4v-7a2 2 0 00-2-2 2 2 0 00-2 2v7h-4v-7a6 6 0 016-6zM2 9h4v12H2z" fill="#4A4840"/><circle cx="4" cy="4" r="2" fill="#4A4840"/></svg></a>
+        <a href="https://share.google/ApvHmyLk1sR2IH0cw" target="_blank" class="social-icon" aria-label="Google"><svg viewBox="0 0 24 24"><path d="M21.8 12.2c0-.7-.1-1.4-.2-2H12v3.8h5.5c-.2 1.2-.9 2.2-2 2.9v2.4h3.2c1.9-1.7 3-4.3 3-7.1z" fill="#4285F4"/><path d="M12 22c2.7 0 5-.9 6.7-2.4l-3.2-2.4c-.9.6-2 1-3.5 1-2.7 0-4.9-1.8-5.7-4.2H3v2.5C4.7 19.9 8.1 22 12 22z" fill="#34A853"/><path d="M6.3 13.9c-.2-.6-.3-1.2-.3-1.9s.1-1.3.3-1.9V7.6H3C2.3 9 2 10.5 2 12s.3 3 1 4.4l3.3-2.5z" fill="#FBBC04"/><path d="M12 5.8c1.5 0 2.9.5 3.9 1.5l2.9-2.9C17 2.8 14.7 2 12 2 8.1 2 4.7 4.1 3 7.6l3.3 2.5C7.1 7.6 9.3 5.8 12 5.8z" fill="#EA4335"/></svg></a>
+        <a href="https://share.google/ApvHmyLk1sR2IH0cw" target="_blank" rel="noopener" class="google-review-banner"><span class="grb-stars">&#9733;&#9733;&#9733;&#9733;&#9733;</span><span class="grb-text"><strong>5.0</strong> op Google &middot; 14 reviews</span></a>
       </div>
-      <p class="footer-address">Handweg 159, Amstelveen · info@flii.nl · Openingstijden</p>
+      <p class="footer-address">Handweg 159, Amstelveen &middot; info@flii.nl &middot; Openingstijden</p>
     </div>
-
-    <!-- Tile 2: Diensten -->
     <div class="footer-tile footer-tile-nav">
       <span class="footer-nav-head">Diensten</span>
       <a href="diensten/funnel-marketing.html" class="footer-nav-link">Funnel marketing</a>
@@ -2485,13 +2388,11 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
       <a href="diensten/web-development.html" class="footer-nav-link">Web development</a>
       <a href="diensten/data-analyse.html" class="footer-nav-link">Data &amp; analyse</a>
     </div>
-
-    <!-- Tile 3: Kennisbank + Pagina's -->
     <div class="footer-tile footer-tile-nav">
       <span class="footer-nav-head">Kennisbank</span>
       <a href="kennisbank.html" class="footer-nav-link">Marketing</a>
       <a href="kennisbank.html" class="footer-nav-link">Merk</a>
-      <a href="kennisbank.html" class="footer-nav-link">Content · Media</a>
+      <a href="kennisbank.html" class="footer-nav-link">Content &middot; Media</a>
       <a href="kennisbank.html" class="footer-nav-link">Digitale Marketing</a>
       <a href="kennisbank.html" class="footer-nav-link">Data &amp; AI</a>
       <span class="footer-nav-head" style="margin-top:8px">Pagina's</span>
@@ -2499,8 +2400,6 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
       <a href="loop.html" class="footer-nav-link">Flii Loop</a>
       <a href="kennisbank.html" class="footer-nav-link">Kennisbank</a>
     </div>
-
-    <!-- Tile 4: Logo + legal links (full width, centered) -->
     <div class="footer-tile footer-tile-bottom">
       <div class="footer-wordmark">FLII.<span>MEDIA</span></div>
       <div class="footer-legal">
@@ -2508,33 +2407,20 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
         <a href="#" class="footer-link">Cookies</a>
         <a href="#" class="footer-link">Voorwaarden</a>
         <a href="#" class="footer-link">Privacy</a>
-        <button class="footer-contact-btn" id="footer-contact-btn" onclick="toggleContactPopup()">
-          Contact<svg class="footer-contact-arr" width="9" height="9" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 8h10M9 4l4 4-4 4"/></svg>
-        </button>
+        <button class="footer-contact-btn" id="footer-contact-btn" onclick="toggleContactPopup()">Contact</button>
       </div>
     </div>
-
   </div>
-
-  <!-- Contact popup -->
   <div class="contact-popup" id="contact-popup">
     <div class="contact-popup-inner">
       <p class="contact-popup-label">Direct contact</p>
-      <a href="tel:+31640881169" class="contact-popup-item">
-        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07A19.5 19.5 0 014.72 11.5a19.79 19.79 0 01-3.07-8.67A2 2 0 013.62 1h3a2 2 0 012 1.72c.127.96.361 1.903.7 2.81a2 2 0 01-.45 2.11L7.91 8.59a16 16 0 006.29 6.29l.96-.96a2 2 0 012.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0122 16.92z"/></svg>
-        +31 6 40 88 11 69
-      </a>
-      <a href="mailto:info@flii.nl" class="contact-popup-item">
-        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="M2 8l10 6 10-6"/></svg>
-        info@flii.nl
-      </a>
-      <a href="https://calendly.com/flii-media" target="_blank" class="contact-popup-item">
-        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"><rect x="3" y="4" width="18" height="18" rx="2"/><path d="M16 2v4M8 2v4M3 10h18"/></svg>
-        Plan een gesprek
-      </a>
+      <a href="tel:+31640881169" class="contact-popup-item">+31 6 40 88 11 69</a>
+      <a href="mailto:info@flii.nl" class="contact-popup-item">info@flii.nl</a>
+      <a href="https://calendly.com/flii-media" target="_blank" class="contact-popup-item">Plan een gesprek</a>
     </div>
   </div>
 </footer>
+
 
 
 
@@ -2727,40 +2613,50 @@ document.addEventListener('click', function(e) {
   // Draw one 3D water ripple ring at radius r, with given alpha
   function drawRippleRing(r, alpha, strength) {
     if (r <= 0 || alpha <= 0) return;
+    // Perspective foreshortening — outer rings more elliptical
+    var perspective = 0.38 + 0.12 * (r / (W * 0.52));
+    var ry = r * perspective; // vertical radius (foreshortened)
+    var rx = r;
 
-    // Top-down view = perfect circles, no perspective distortion
-    var a = Math.max(0, Math.min(1, alpha));
-    var s = strength;
-
-    // ── Dark shadow ring just outside crest (depth beneath wave) ──
+    // ── Outer shadow (dark beneath the water crest) ──
+    var gOuter = ctx.createRadialGradient(CX, CY, r * 0.88, CX, CY, r * 1.08);
+    gOuter.addColorStop(0, 'rgba(0,0,0,0)');
+    gOuter.addColorStop(0.4, 'rgba(0,0,0,' + (alpha * 0.35 * strength) + ')');
+    gOuter.addColorStop(1, 'rgba(0,0,0,0)');
+    ctx.save();
+    ctx.scale(1, perspective);
     ctx.beginPath();
-    ctx.arc(CX, CY, r * 1.06, 0, Math.PI * 2);
-    ctx.lineWidth = r * 0.055 * s;
-    ctx.strokeStyle = 'rgba(0,0,0,' + (a * 0.22 * s) + ')';
-    ctx.stroke();
+    ctx.arc(CX, CY / perspective, r * 1.04, 0, Math.PI * 2);
+    ctx.fillStyle = gOuter;
+    ctx.fill();
+    ctx.restore();
 
-    // ── Primary bright crest (catches the light from above) ──
-    // Use a conic-gradient-style varying brightness along the stroke
-    var segments = 48;
-    var step = (Math.PI * 2) / segments;
-    for (var i = 0; i < segments; i++) {
-      var angle = i * step;
-      var nextAngle = angle + step;
-      // Brightness varies by angle to simulate directional overhead light
-      var bright = 0.45 + 0.55 * Math.pow(Math.cos(angle - Math.PI * 0.7), 2);
-      ctx.beginPath();
-      ctx.arc(CX, CY, r, angle, nextAngle);
-      ctx.lineWidth = Math.max(0.8, 2.8 * s * a);
-      ctx.strokeStyle = 'rgba(255,255,255,' + (bright * a * s) + ')';
-      ctx.stroke();
-    }
-
-    // ── Inner glow (caustic refraction inside the ring) ──
+    // ── Bright highlight ring (water surface catches light) ──
+    ctx.save();
+    ctx.scale(1, perspective);
     ctx.beginPath();
-    ctx.arc(CX, CY, r * 0.91, 0, Math.PI * 2);
-    ctx.lineWidth = r * 0.045 * s;
-    ctx.strokeStyle = 'rgba(255,255,255,' + (a * 0.07 * s) + ')';
+    ctx.arc(CX, CY / perspective, r, 0, Math.PI * 2);
+    ctx.lineWidth = Math.max(0.5, 2.5 * strength * alpha);
+    // Gradient along the stroke for caustic shimmer
+    var grad = ctx.createLinearGradient(CX - r, CY / perspective, CX + r, CY / perspective);
+    grad.addColorStop(0,   'rgba(255,255,255,' + (alpha * 0.15 * strength) + ')');
+    grad.addColorStop(0.25,'rgba(255,255,255,' + (alpha * 0.6  * strength) + ')');
+    grad.addColorStop(0.5, 'rgba(255,255,255,' + (alpha * 0.9  * strength) + ')');
+    grad.addColorStop(0.75,'rgba(255,255,255,' + (alpha * 0.6  * strength) + ')');
+    grad.addColorStop(1,   'rgba(255,255,255,' + (alpha * 0.15 * strength) + ')');
+    ctx.strokeStyle = grad;
     ctx.stroke();
+    ctx.restore();
+
+    // ── Inner glow (caustic bloom just inside crest) ──
+    ctx.save();
+    ctx.scale(1, perspective);
+    ctx.beginPath();
+    ctx.arc(CX, CY / perspective, r * 0.92, 0, Math.PI * 2);
+    ctx.lineWidth = r * 0.06 * strength;
+    ctx.strokeStyle = 'rgba(255,255,255,' + (alpha * 0.08 * strength) + ')';
+    ctx.stroke();
+    ctx.restore();
   }
 
   function drawFrame() {
@@ -2795,19 +2691,19 @@ document.addEventListener('click', function(e) {
 
   function fireRipple() {
     resize();
-    // maxR: expand to full scene diagonal so ripple reaches all bubbles
-    var maxR = Math.sqrt(CX * CX + CY * CY) * 1.15;
+    var maxR = Math.min(W, H) * 0.54;
+    var now = Date.now();
 
-    // ONE ripple at a time, staggered by 2s each, slowing down
+    // 3 ripples with different speeds and strengths (like real water)
     [
-      { delay: 0,    strength: 1.0,  dur: 4500 },
-      { delay: 2000, strength: 0.55, dur: 5000 },
-      { delay: 4200, strength: 0.25, dur: 5500 },
+      { delay: 0,    strength: 1.0,  dur: 2800 },
+      { delay: 420,  strength: 0.65, dur: 3100 },
+      { delay: 900,  strength: 0.35, dur: 3400 },
     ].forEach(function(cfg) {
       setTimeout(function() {
         ripples.push({
           born: Date.now(),
-          maxR: maxR,
+          maxR: maxR * (1 + Math.random() * 0.08), // slight size variation
           strength: cfg.strength,
           dur: cfg.dur,
         });
@@ -2818,25 +2714,371 @@ document.addEventListener('click', function(e) {
       }, cfg.delay);
     });
 
-    // Float labels sequentially with each ripple
+    // Float labels when ripple reaches them
     var labels = getLabels();
-    [0, 2000, 4200].forEach(function(delay, ri) {
+    labels.forEach(function(el) {
+      var rect = el.getBoundingClientRect();
+      var sr = scene.getBoundingClientRect();
+      var lx = (rect.left + rect.right) / 2 - sr.left;
+      var ly = (rect.top + rect.bottom) / 2 - sr.top;
+      var dist = Math.sqrt(Math.pow(lx - CX, 2) + Math.pow(ly - CY, 2));
+      var travelTime = (dist / maxR) * 2600;
       setTimeout(function() {
-        labels.forEach(function(el) {
-          var rect = el.getBoundingClientRect();
-          var sr = scene.getBoundingClientRect();
-          var lx = (rect.left + rect.right) / 2 - sr.left;
-          var ly = (rect.top + rect.bottom) / 2 - sr.top;
-          var dist = Math.sqrt(Math.pow(lx - CX, 2) + Math.pow(ly - CY, 2));
-          var travelTime = (dist / maxR) * 4000;
-          setTimeout(function() {
-            el.classList.remove('floating');
-            void el.offsetWidth;
-            el.classList.add('floating');
-            setTimeout(function() { el.classList.remove('floating'); }, 1400);
-          }, travelTime);
-        });
-      }, delay);
+        el.classList.remove('floating');
+        void el.offsetWidth;
+        el.classList.add('floating');
+        setTimeout(function() { el.classList.remove('floating'); }, 1200);
+      }, travelTime);
     });
   }
 
+  resize();
+  center.addEventListener('click', fireRipple);
+  center.addEventListener('touchstart', function(e) {
+    e.preventDefault(); fireRipple();
+  }, { passive: false });
+  window.addEventListener('resize', resize);
+})();
+
+
+
+// ── NAV MENU ──────────────────────────────────────────────────────────
+function openMenu() {
+  document.getElementById('nav-menu').classList.add('open');
+  document.body.style.overflow = 'hidden';
+  if (typeof matrixStart === 'function') matrixStart();
+}
+function closeMenu() {
+  document.getElementById('nav-menu').classList.remove('open');
+  document.body.style.overflow = '';
+  if (typeof matrixStop === 'function') matrixStop();
+}
+document.querySelector('.nav-burger').addEventListener('click', openMenu);
+document.getElementById('nav-menu-close').addEventListener('click', closeMenu);
+document.getElementById('nav-menu').addEventListener('click', function(e) {
+  if (e.target === this) closeMenu();
+});
+document.addEventListener('keydown', function(e) {
+  if (e.key === 'Escape') closeMenu();
+});
+
+// ── Ignite spark effect ───────────────────────────────────────────────
+
+</script>
+<script>
+
+
+// ── SMOOTH SCROLL WITH EASING ───────────────────────────────────────
+(function() {
+  var target = window.scrollY;
+  var current = window.scrollY;
+  var ease = 0.09; // lower = slower, smoother (flii.nl style)
+  var running = false;
+
+  function lerp(a, b, t) { return a + (b - a) * t; }
+
+  function tick() {
+    current = lerp(current, target, ease);
+    var delta = Math.abs(target - current);
+    if (delta < 0.5) {
+      current = target;
+      window.scrollTo(0, current);
+      running = false;
+      return;
+    }
+    window.scrollTo(0, current);
+    requestAnimationFrame(tick);
+  }
+
+  window.addEventListener('wheel', function(e) {
+    e.preventDefault();
+    target = Math.max(0, Math.min(target + e.deltaY * 1.2, document.body.scrollHeight - window.innerHeight));
+    if (!running) { running = true; requestAnimationFrame(tick); }
+  }, { passive: false });
+
+  // anchor link clicks — smooth scroll
+  document.querySelectorAll('a[href^="#"]').forEach(function(a) {
+    a.addEventListener('click', function(e) {
+      var id = this.getAttribute('href').slice(1);
+      var el = document.getElementById(id);
+      if (el) {
+        e.preventDefault();
+        target = Math.min(el.getBoundingClientRect().top + window.scrollY - 80, document.body.scrollHeight - window.innerHeight);
+        if (!running) { running = true; requestAnimationFrame(tick); }
+      }
+    });
+  });
+})();
+
+
+
+// ── FLOATING SIDEBAR — show after services section ──────────────────
+(function() {
+  var sidebar = document.getElementById('float-sidebar');
+  var trigger = document.getElementById('diensten');
+  if (!sidebar || !trigger) return;
+
+  function check() {
+    var triggerY = trigger.getBoundingClientRect().top + window.scrollY;
+    var showAt = triggerY + trigger.offsetHeight;
+    if (window.scrollY > showAt * 0.7) {
+      sidebar.classList.add('visible');
+    } else {
+      sidebar.classList.remove('visible');
+    }
+  }
+  window.addEventListener('scroll', check, { passive: true });
+  // Also check during smooth scroll RAF
+  (function loop() { check(); requestAnimationFrame(loop); })();
+})();
+
+</script>
+<script>
+window.chatbaseConfig={chatbotId:"xDWiHhLymvD2NuZKQ-bO_",hideBubble:true};
+(function(){if(!window.chatbase||window.chatbase("getState")!=="initialized"){window.chatbase=(...arguments)=>{if(!window.chatbase.q){window.chatbase.q=[]}window.chatbase.q.push(arguments)};window.chatbase=new Proxy(window.chatbase,{get(target,prop){if(prop==="q"){return target.q}return(...args)=>target(prop,...args)}})}const onLoad=function(){const script=document.createElement("script");script.src="https://www.chatbase.co/embed.min.js";script.id="xDWiHhLymvD2NuZKQ-bO_";script.domain="www.chatbase.co";document.body.appendChild(script)};if(document.readyState==="complete"){onLoad()}else{window.addEventListener("load",onLoad)}})();
+</script>
+
+<script>
+
+// ── MATRIX RAIN + SPOTLIGHT + SWAY MENU ─────────────────────────────
+(function() {
+  var canvas, ctx, cols, drops, animId;
+  var menuEl   = document.getElementById('nav-menu');
+  var spotlight = document.getElementById('nav-spotlight');
+  var innerEl  = document.getElementById('nav-menu-inner');
+  var mx = -999, my = -999;
+  var swayX = 0, swayY = 0, swayVX = 0, swayVY = 0;
+  var spotActive = false, moveTimeout;
+  var running = false;
+  var CHARS = 'ﾊﾐﾋｰｳｼﾅﾓﾆｻﾜﾂｵﾘｱﾎﾃﾏｹﾒｴｶｷﾑﾕﾗｾﾈｦｲｸｺｿﾁﾄﾉﾌﾔﾖﾙﾚﾛﾝ0123456789ABCDEF<>{}[]/?@#$%^&*';
+
+  function initCanvas() {
+    canvas = document.getElementById('matrix-canvas');
+    if (!canvas) return;
+    ctx = canvas.getContext('2d');
+    canvas.width  = menuEl ? menuEl.offsetWidth  : window.innerWidth;
+    canvas.height = menuEl ? menuEl.offsetHeight : window.innerHeight;
+    cols  = Math.floor(canvas.width / 14);
+    drops = Array(cols).fill(0).map(function() { return (Math.random() * -40) | 0; });
+  }
+
+  function drawMatrix() {
+    if (!ctx || !running) return;
+    ctx.fillStyle = 'rgba(0,0,0,0.06)';
+    ctx.fillRect(0, 0, canvas.width, canvas.height);
+    for (var i = 0; i < cols; i++) {
+      var ch = CHARS[(Math.random() * CHARS.length) | 0];
+      var x  = i * 14;
+      var y  = drops[i] * 14;
+      var br = 0.35 + Math.random() * 0.65;
+      ctx.font = (9 + (Math.random() * 4 | 0)) + 'px monospace';
+      ctx.fillStyle = 'rgba(0,255,70,' + br + ')';
+      ctx.fillText(ch, x, y);
+      if (Math.random() > 0.97) {
+        ctx.fillStyle = 'rgba(200,255,210,0.95)';
+        ctx.fillText(ch, x, y);
+      }
+      if (y > canvas.height && Math.random() > 0.975) drops[i] = 0;
+      drops[i]++;
+    }
+    animId = requestAnimationFrame(drawMatrix);
+  }
+
+  function startMatrix() {
+    if (!canvas) initCanvas();
+    if (!canvas) return;
+    canvas.width  = menuEl.offsetWidth;
+    canvas.height = menuEl.offsetHeight;
+    cols  = Math.floor(canvas.width / 14);
+    drops = Array(cols).fill(0).map(function() { return (Math.random() * -40) | 0; });
+    if (ctx) ctx.clearRect(0, 0, canvas.width, canvas.height);
+    running = true;
+    canvas.style.opacity = '0.12'; /* subtle matrix always visible */
+    drawMatrix();
+  }
+
+  function stopMatrix() {
+    running = false;
+    cancelAnimationFrame(animId);
+    if (canvas) canvas.style.opacity = '0';
+    /* canvas stops on menu close */
+    /* spotlight stays dark always */
+    updateSpotlight(-9999, -9999); /* hide cursor hole when idle */
+    mx = my = -999; swayX = swayY = swayVX = swayVY = 0;
+    clearTimeout(moveTimeout); spotActive = false;
+  }
+
+  function updateSpotlight(x, y) {
+    if (!spotlight) return;
+    spotlight.style.background =
+      'radial-gradient(circle 140px at ' + x + 'px ' + y + 'px, ' +
+      'transparent 0%, transparent 30%, rgba(0,0,0,0.70) 65%, rgba(0,0,0,0.95) 100%)';
+  }
+
+  function onMenuMove(e) {
+    if (!menuEl) return;
+    var rect = menuEl.getBoundingClientRect();
+    var cx = (e.touches ? e.touches[0].clientX : e.clientX) - rect.left;
+    var cy = (e.touches ? e.touches[0].clientY : e.clientY) - rect.top;
+    var dx = cx - mx, dy = cy - my;
+    var speed = Math.sqrt(dx*dx + dy*dy);
+    mx = cx; my = cy;
+    if (!spotActive) {
+      spotActive = true;
+      if (spotlight) spotlight.style.opacity = '1';
+      if (canvas) canvas.style.opacity = '0.42';  // brighter when spotlight active
+    }
+    updateSpotlight(cx, cy);
+    if (speed > 28) { swayVX += dx * 0.11; swayVY += dy * 0.11; }
+    clearTimeout(moveTimeout);
+    moveTimeout = setTimeout(function() {
+      /* spotlight stays dark always */
+    updateSpotlight(-9999, -9999); /* hide cursor hole when idle */
+      if (canvas) canvas.style.opacity = '0.12'; /* subtle matrix always visible */  // back to base
+      spotActive = false;
+    }, 1600);
+  }
+
+  function animSway() {
+    swayVX *= 0.76; swayVY *= 0.76;
+    swayX  += swayVX; swayY  += swayVY;
+    swayX  *= 0.87;   swayY  *= 0.87;
+    swayX = Math.max(-22, Math.min(22, swayX));
+    swayY = Math.max(-14, Math.min(14, swayY));
+    if (innerEl) innerEl.style.transform = 'translate(' + swayX.toFixed(1) + 'px,' + swayY.toFixed(1) + 'px)';
+    requestAnimationFrame(animSway);
+  }
+
+  // Expose to openMenu / closeMenu
+  window.matrixStart = startMatrix;
+  window.matrixStop  = stopMatrix;
+
+  document.addEventListener('DOMContentLoaded', function() {
+    initCanvas();
+    if (menuEl) {
+      menuEl.addEventListener('mousemove', onMenuMove);
+      menuEl.addEventListener('touchmove', onMenuMove, { passive: true });
+  menuEl.addEventListener('touchstart', onMenuMove, { passive: true });
+    }
+    animSway();
+    window.addEventListener('resize', function() { if (running) startMatrix(); });
+  });
+})();
+
+</script>
+
+
+<script>
+
+// ── CONTACT POPUP ────────────────────────────────────────────────────
+function toggleContactPopup() {
+  var popup = document.getElementById('contact-popup');
+  if (!popup) return;
+  popup.classList.toggle('open');
+}
+// Close popup on outside click
+document.addEventListener('click', function(e) {
+  var popup = document.getElementById('contact-popup');
+  if (!popup || !popup.classList.contains('open')) return;
+  var btn1 = document.getElementById('footer-contact-btn');
+  var btn2 = document.querySelector('.btn-cta');
+  if (btn1 && btn1.contains(e.target)) return;
+  if (btn2 && btn2.contains(e.target)) return;
+  popup.classList.remove('open');
+});
+
+</script>
+<script>
+(function() {
+  var sidebar = document.getElementById('float-sidebar');
+  if (!sidebar) return;
+  function check() {
+    var nearBottom = window.scrollY + window.innerHeight > document.body.scrollHeight - 120;
+    sidebar.classList.toggle('visible', window.scrollY > window.innerHeight * 0.6 && !nearBottom);
+  }
+  check();
+  window.addEventListener('scroll', check, { passive: true });
+})();
+</script>
+<script>
+
+// ── ROCKET CHARGE + LAUNCH per letter ─────────────────────────────
+(function() {
+  var igniteWord = document.getElementById('ignite-word');
+  if (!igniteWord) return;
+  var letters = Array.from(igniteWord.querySelectorAll('.ignite-letter'));
+  var chargeTimers = {};
+  var chargeStart = {};
+  var MAX_CHARGE = 2000; // ms until max charge
+  var charging = {};
+
+  function getChargeLevel(letter) {
+    var elapsed = Date.now() - (chargeStart[letter] || Date.now());
+    return Math.min(elapsed / MAX_CHARGE, 1);
+  }
+
+  function updateCharge(letter, el) {
+    if (!charging[letter]) return;
+    var level = getChargeLevel(letter);
+    // Scale down (compress like a spring), tint red
+    var scale = 1 - level * 0.35;
+    var glow = Math.round(level * 180);
+    el.style.transform = 'translateY(' + (level * 6) + 'px) scale(' + scale + ')';
+    el.style.color = 'rgb(' + Math.round(15 + level * 217) + ',' + Math.round(14 - level * 14 + 1) + ',' + Math.round(12 - level * 12 + 1) + ')';
+    el.style.textShadow = level > 0.3 ? '0 0 ' + Math.round(level*20) + 'px rgba(232,41,74,' + (level*0.8) + ')' : '';
+    chargeTimers[letter] = requestAnimationFrame(function() { updateCharge(letter, el); });
+  }
+
+  function launch(el, level) {
+    el.style.transform = '';
+    el.style.color = '';
+    el.style.textShadow = '';
+    if (level < 0.05) return; // tiny charge = no launch
+    el.classList.remove('launched');
+    void el.offsetWidth;
+    el.classList.add('launched');
+    setTimeout(function() { el.classList.remove('launched'); }, 750);
+  }
+
+  function startCharge(el) {
+    var key = el.textContent;
+    charging[key] = true;
+    chargeStart[key] = Date.now();
+    updateCharge(key, el);
+  }
+
+  function endCharge(el) {
+    var key = el.textContent;
+    var level = getChargeLevel(key);
+    charging[key] = false;
+    cancelAnimationFrame(chargeTimers[key]);
+    launch(el, level);
+  }
+
+  letters.forEach(function(el) {
+    el.addEventListener('mousedown', function(e) { e.preventDefault(); startCharge(el); });
+    el.addEventListener('touchstart', function(e) { e.preventDefault(); startCharge(el); }, {passive:false});
+    el.addEventListener('mouseup', function() { endCharge(el); });
+    el.addEventListener('mouseleave', function() { if (charging[el.textContent]) endCharge(el); });
+    el.addEventListener('touchend', function() { endCharge(el); });
+  });
+
+  // Also: click the whole word = launch all letters in sequence
+  igniteWord.addEventListener('click', function(e) {
+    if (e.target !== igniteWord) return; // individual letters handle their own
+    letters.forEach(function(el, i) {
+      setTimeout(function() {
+        el.classList.remove('launched');
+        void el.offsetWidth;
+        el.classList.add('launched');
+        setTimeout(function() { el.classList.remove('launched'); }, 750);
+      }, i * 60);
+    });
+  });
+})();
+
+
+(function(){document.addEventListener('click',function(e){var l=e.target.closest('.service-tag-link');if(!l)return;e.preventDefault();var p=l.closest('.service-tags');if(p)p.querySelectorAll('.service-tag-link').forEach(function(x){x.classList.remove('active');});l.classList.toggle('active');});})();
+</script>
+</body>
+</html>
