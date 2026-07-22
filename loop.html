@@ -146,10 +146,9 @@ body{font-family:var(--ff-body);background:var(--paper);color:var(--ink);}
 @media (prefers-reduced-motion:reduce){.fnl-build{animation:none;opacity:0;}}
 
 /* ── CALCULATOR (exact flii.app CSS) ── */
-.calc-section{padding:64px 0;background:var(--mist);}
+.calc-section{padding:64px 0;background:transparent;}
 .calc-wrap{max-width:760px;margin:0 auto;padding:0 24px;}
-.calc-card{background:var(--card);border:1px solid var(--line);border-radius:22px;overflow:hidden;
-  box-shadow:0 14px 34px -18px rgba(231,37,90,.2);}
+.calc-card{padding:0;}
 .calc-head{padding:28px 28px 0;}
 .calc-head .eyebrow{margin-bottom:6px;}
 .calc-head h2{font-family:var(--ff-disp);font-size:clamp(20px,5vw,28px);font-weight:800;
@@ -169,14 +168,13 @@ body{font-family:var(--ff-body);background:var(--paper);color:var(--ink);}
 .calc-dot.done .calc-dot-n{border-color:var(--ink);background:var(--ink);color:var(--paper);}
 .calc-slide{padding:26px 28px;min-height:286px;animation:slideIn .34s ease both;}
 @keyframes slideIn{from{opacity:0;transform:translateX(12px);}to{opacity:1;transform:none;}}
-.calc-slide-head{margin-bottom:20px;}
+.calc-slide-head{margin-top:32px;margin-bottom:20px;}
 .calc-slide-title{font-family:var(--ff-disp);font-weight:600;font-size:19px;color:var(--ink);
   letter-spacing:-.01em;margin-bottom:5px;}
 .calc-slide-help{font-size:12.5px;letter-spacing:.02em;color:var(--soft);line-height:1.5;}
 /* scope cards */
 .scope-cards{display:grid;grid-template-columns:repeat(2,1fr);gap:10px;}
-.scope-card{position:relative;border:1.5px solid var(--line);border-radius:14px;padding:16px;
-  cursor:pointer;background:var(--card);text-align:left;transition:border-color .15s,background .15s,box-shadow .15s;}
+.scope-card{position:relative;border:1.5px solid var(--line);border-radius:14px;padding:16px;cursor:pointer;background:var(--card);transition:border-color .15s,background .15s;display:block;width:100%;text-align:left;}
 .scope-card:hover{border-color:var(--soft);}
 .scope-card.on{border-color:var(--mag);background:rgba(231,37,90,.03);
   box-shadow:0 0 0 3px rgba(231,37,90,.1);}
@@ -295,6 +293,43 @@ body{font-family:var(--ff-body);background:var(--paper);color:var(--ink);}
   .rcp-head{grid-template-columns:1fr;}
   .rcp-row,.rcp-tot{grid-template-columns:1fr auto;}
   .rcp-v:last-child{display:block;}
+}
+
+/* Funnel phase cards */
+.fnl-desc {
+  margin-top: 20px;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 10px;
+}
+.fnl-phase-card {
+  background: var(--card);
+  border: 1.5px solid var(--line);
+  border-radius: 12px;
+  padding: 14px 14px 12px;
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  cursor: pointer;
+  transition: border-color .2s, background .2s;
+}
+.fnl-phase-card.active {
+  border-color: var(--mag);
+  background: rgba(232,41,74,.04);
+}
+.fnl-phase-k {
+  font-family: var(--ff-disp);
+  font-size: 13px; font-weight: 700; color: var(--ink);
+  letter-spacing: -.1px;
+}
+.fnl-phase-goal {
+  font-size: 11px; color: var(--soft); line-height: 1.4;
+  margin: 0;
+}
+.fnl-phase-example {
+  font-size: 11px; color: var(--soft); line-height: 1.4;
+  border-top: 1px solid var(--line);
+  margin-top: 6px; padding-top: 6px;
 }
 </style>
 </head>
@@ -490,7 +525,7 @@ body{font-family:var(--ff-body);background:var(--paper);color:var(--ink);}
         <path class="fnl-build" id="fnl-bot" pathLength="1" d=""/>
       </svg>
       <div class="fnl-desc" id="fnl-desc">
-        <span class="fnl-desc-hint">Tik op een fase voor beschrijving</span>
+        
       </div>
     </div>
   </div>
@@ -1317,13 +1352,18 @@ renderCalc();
 
   function renderDesc() {
     var el=document.getElementById("fnl-desc");
-    if (active===null) {
-      el.innerHTML='<span class="fnl-desc-hint">Tik op een fase voor beschrijving</span>';
-    } else {
-      var s=stages[active];
-      el.innerHTML='<span class="fnl-desc-k">'+s.k+'</span><span class="fnl-desc-g"><strong>Doel:</strong> '+s.goal+'</span><span class="fnl-desc-ex"><strong>Voorbeeld:</strong> '+s.example+'</span>';
-    }
+    // Always show all phases as cards
+    el.innerHTML = stages.map(function(s, i) {
+      var isActive = (active === i);
+      return '<div class="fnl-phase-card' + (isActive ? ' active' : '') + '">' +
+        '<span class="fnl-phase-k">' + s.k + '</span>' +
+        '<p class="fnl-phase-goal">' + s.goal + '</p>' +
+        '<div class="fnl-phase-example"><strong>Voorbeeld:</strong> ' + s.example + '</div>' +
+        '</div>';
+    }).join('');
   }
+  renderDesc(); // init: show all phase cards
+
 })();
 
 </script>
