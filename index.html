@@ -5676,8 +5676,7 @@ document.addEventListener('click', function(e) {
   var offscreen = document.createElement('canvas');
   var octx = offscreen.getContext('2d');
   var raf = null;
-  var holdTimer = null, sloganTimer = null, active = false;
-  var showText = true;
+  var holdTimer = null, active = false;
 
   function resize() {
     canvas.width  = offscreen.width  = window.innerWidth;
@@ -5693,7 +5692,7 @@ document.addEventListener('click', function(e) {
     ctx.clearRect(0, 0, W, H);
     ctx.drawImage(vid, 0, 0, W, H);
 
-    // 2. Build offscreen: gradient sized to cover text, fade to bottom-right
+    // 2. Offscreen: gradient right-top → left-bottom
     offscreen.width = W; offscreen.height = H;
     octx.clearRect(0, 0, W, H);
 
@@ -5703,45 +5702,27 @@ document.addEventListener('click', function(e) {
     var textY    = 32;
     var lines    = ["Let's", "ignite", "ambitions"];
 
-    // Measure widest line to know text block width
-    octx.font = '900 ' + fontSize + 'px "Bricolage Grotesque", system-ui, sans-serif';
-    var maxW = 0;
-    lines.forEach(function(l) {
-      var m = octx.measureText(l).width;
-      if (m > maxW) maxW = m;
-    });
-    var textBlockW = maxW + textX + 40;   // right edge of text + padding
-    var textBlockH = lines.length * lineH + textY + 40; // bottom of text + padding
-
-    // Gradient: solid black from top-left, fades toward bottom-right
-    // Start point: top-left corner (0,0)
-    // End point: just past the text block edge, into video area
-    var grad = octx.createLinearGradient(
-      0,          0,             // top-left — solid black
-      W * 0.82,   H * 0.82      // bottom-right — transparent
-    );
-    grad.addColorStop(0,    'rgba(0,0,0,1)');
-    grad.addColorStop(0.38, 'rgba(0,0,0,0.96)');
-    grad.addColorStop(0.58, 'rgba(0,0,0,0.6)');
-    grad.addColorStop(0.75, 'rgba(0,0,0,0.2)');
-    grad.addColorStop(1,    'rgba(0,0,0,0)');
+    // Gradient: right-top (transparent) → left-bottom (solid black)
+    var grad = octx.createLinearGradient(W, 0, 0, H);
+    grad.addColorStop(0,    'rgba(0,0,0,0)');
+    grad.addColorStop(0.35, 'rgba(0,0,0,0.25)');
+    grad.addColorStop(0.6,  'rgba(0,0,0,0.85)');
+    grad.addColorStop(1,    'rgba(0,0,0,1)');
     octx.fillStyle = grad;
     octx.fillRect(0, 0, W, H);
 
-    // 3. Cut text out of the gradient (reveals video through letter shapes)
-    if (showText) {
-      octx.save();
-      octx.globalCompositeOperation = 'destination-out';
-      octx.font = '900 ' + fontSize + 'px "Bricolage Grotesque", system-ui, sans-serif';
-      octx.textBaseline = 'top';
-      octx.globalAlpha = 0.85;
-      lines.forEach(function(line, i) {
-        octx.fillText(line, textX, textY + i * lineH);
-      });
-      octx.restore();
-    }
+    // 3. Cut text out of gradient — always visible for full duration
+    octx.save();
+    octx.globalCompositeOperation = 'destination-out';
+    octx.font = '900 ' + fontSize + 'px "Bricolage Grotesque", system-ui, sans-serif';
+    octx.textBaseline = 'top';
+    octx.globalAlpha = 0.85;
+    lines.forEach(function(line, i) {
+      octx.fillText(line, textX, textY + i * lineH);
+    });
+    octx.restore();
 
-    // 4. Composite gradient-with-holes onto video
+    // 4. Composite onto video
     ctx.drawImage(offscreen, 0, 0);
 
     raf = requestAnimationFrame(drawFrame);
@@ -5751,25 +5732,17 @@ document.addEventListener('click', function(e) {
     if (active) return;
     holdTimer = setTimeout(function() {
       active = true;
-      showText = true;
       vid.currentTime = 0;
       vid.play().catch(function(){});
       ov.className = 's-glass';
       drawFrame();
-
-      sloganTimer = setTimeout(function() {
-        showText = false;
-        ov.className = 's-full';
-      }, 2000);
     }, 180);
   }
 
   function end() {
     clearTimeout(holdTimer);
-    clearTimeout(sloganTimer);
     if (!active) return;
     active = false;
-    showText = false;
     ov.className = 's-out';
     if (raf) { cancelAnimationFrame(raf); raf = null; }
     setTimeout(function() {
