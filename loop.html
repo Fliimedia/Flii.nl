@@ -352,18 +352,10 @@ body{font-family:var(--ff-body);background:var(--paper);color:var(--ink);}
   margin-top: 6px; padding-top: 6px;
 }
 
-/* Funnel phase pills */
-.fnl-pills {
-  display: flex; flex-wrap: wrap; gap: 6px; margin-top: 16px;
-}
-.fnl-pill {
-  font-family: var(--ff-disp); font-size: 12px; font-weight: 700;
-  color: var(--mag); background: rgba(231,37,90,.08);
-  border: 1px solid rgba(231,37,90,.2);
-  border-radius: 100px; padding: 5px 12px;
-  cursor: pointer; transition: background .15s, border-color .15s;
-}
-.fnl-pill:hover { background: rgba(231,37,90,.15); border-color: rgba(231,37,90,.4); }
+
+
+
+
 /* Phase card — single active */
 .fnl-desc { margin-top: 20px; }
 .fnl-phase-card {
@@ -410,6 +402,35 @@ body{font-family:var(--ff-body);background:var(--paper);color:var(--ink);}
   border-radius: 8px; border: 1px solid rgba(231,37,90,.15); margin-top: 4px; }
 .rcp-l { font-size: 13px; color: var(--ink); }
 .rcp-v { font-size: 12px; color: var(--mid); min-width: 60px; text-align: right; }
+
+/* ── Funnel description card ──────────────────────────────────────── */
+#fnl-desc { margin-top: 20px; display: flex; justify-content: center; }
+.fnl-desc-card {
+  width: 100%; max-width: 340px;
+  background: var(--card);
+  border: 1.5px solid var(--mag);
+  border-radius: 16px;
+  padding: 20px 20px 16px;
+  display: flex; flex-direction: column; gap: 8px;
+  text-align: center;
+}
+.fnl-desc-hint {
+  border-color: var(--line);
+  align-items: center; justify-content: center;
+  min-height: 80px;
+}
+.fnl-desc-hint-text {
+  font-size: 13px; color: var(--soft); font-style: italic;
+}
+.fnl-phase-k {
+  font-family: var(--ff-disp); font-size: 16px; font-weight: 800;
+  color: var(--ink); letter-spacing: -.3px;
+}
+.fnl-phase-goal { font-size: 13px; color: var(--mid); line-height: 1.55; margin: 0; }
+.fnl-phase-example {
+  font-size: 11px; color: var(--soft); line-height: 1.5;
+  border-top: 1px solid var(--line); padding-top: 8px; margin-top: 2px;
+}
 </style>
 </head>
 <body>
@@ -1325,12 +1346,22 @@ renderCalc();
   });
 
   function renderDesc() {
-    var el=document.getElementById("fnl-desc");
+    var el = document.getElementById("fnl-desc");
     if (window.active === null) {
-      el.innerHTML = '<div class="fnl-pills">' + stages.map(function(s, i) {
-        return '<button class="fnl-pill" onclick="window.setFunnelPhase(' + i + ')">'+s.k+'</button>';
-      }).join('') + '</div>';
+      el.innerHTML =
+        '<div class="fnl-desc-card fnl-desc-hint">' +
+        '<span class="fnl-desc-hint-text">Klik een fase voor beschrijving</span>' +
+        '</div>';
     } else {
+      var st = stages[window.active];
+      el.innerHTML =
+        '<div class="fnl-desc-card">' +
+        '<span class="fnl-phase-k">' + st.k + '</span>' +
+        '<p class="fnl-phase-goal">' + st.goal + '</p>' +
+        '<div class="fnl-phase-example"><strong>Voorbeeld:</strong> ' + st.example + '</div>' +
+        '</div>';
+    }
+  } else {
       var s = stages[window.active];
       el.innerHTML =
         '<div class="fnl-phase-card active">' +
