@@ -5698,9 +5698,9 @@ document.addEventListener('click', function(e) {
 
     var fontSize = Math.min(264, Math.max(156, W * 0.42));
     var lineH    = fontSize * 0.86;
+    var lines    = ["Let's", "ignite", "ambitions"];
     var textX    = 24;
     var textY    = H - (lines.length * lineH) - 48;
-    var lines    = ["Let's", "ignite", "ambitions"];
 
     // Gradient: left-bottom (solid black) → right-top (transparent) — full diagonal
     var grad = octx.createLinearGradient(0, H, W, 0);
