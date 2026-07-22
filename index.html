@@ -5178,38 +5178,38 @@ document.addEventListener('click', function(e) {
   function drawRippleRing(r, alpha, strength) {
     if (r <= 0 || alpha <= 0) return;
 
-    // ── Outer dark trough (shadow just outside the crest) ──
+    // ── Outer dark trough ──
     var gOuter = ctx.createRadialGradient(CX, CY, r * 0.82, CX, CY, r * 1.12);
     gOuter.addColorStop(0,   'rgba(0,0,0,0)');
-    gOuter.addColorStop(0.45,'rgba(0,0,0,' + (alpha * 0.28 * strength) + ')');
+    gOuter.addColorStop(0.45,'rgba(0,0,0,' + (alpha * 0.18 * strength) + ')');
     gOuter.addColorStop(1,   'rgba(0,0,0,0)');
     ctx.beginPath();
     ctx.arc(CX, CY, r * 1.12, 0, Math.PI * 2);
     ctx.fillStyle = gOuter;
     ctx.fill();
 
-    // ── Inner light (water lens effect beneath crest) ──
+    // ── Inner water-teal lens ──
     var gInner = ctx.createRadialGradient(CX, CY, r * 0.72, CX, CY, r * 0.92);
-    gInner.addColorStop(0,   'rgba(255,255,255,0)');
-    gInner.addColorStop(0.5, 'rgba(255,255,255,' + (alpha * 0.06 * strength) + ')');
-    gInner.addColorStop(1,   'rgba(255,255,255,0)');
+    gInner.addColorStop(0,   'rgba(180,210,220,0)');
+    gInner.addColorStop(0.5, 'rgba(180,210,220,' + (alpha * 0.04 * strength) + ')');
+    gInner.addColorStop(1,   'rgba(180,210,220,0)');
     ctx.beginPath();
     ctx.arc(CX, CY, r * 0.92, 0, Math.PI * 2);
     ctx.fillStyle = gInner;
     ctx.fill();
 
-    // ── Bright crest ring ──
+    // ── Crest ring — softer, slight blue-white ──
     ctx.beginPath();
     ctx.arc(CX, CY, r, 0, Math.PI * 2);
-    ctx.lineWidth = Math.max(0.8, 2.8 * strength * alpha);
-    ctx.strokeStyle = 'rgba(255,255,255,' + (alpha * 0.75 * strength) + ')';
+    ctx.lineWidth = Math.max(0.5, 1.8 * strength * alpha);
+    ctx.strokeStyle = 'rgba(220,235,240,' + (alpha * 0.48 * strength) + ')';
     ctx.stroke();
 
-    // ── Soft glow around crest ──
+    // ── Wide soft glow ──
     ctx.beginPath();
     ctx.arc(CX, CY, r, 0, Math.PI * 2);
-    ctx.lineWidth = Math.max(2, 8 * strength * alpha);
-    ctx.strokeStyle = 'rgba(255,255,255,' + (alpha * 0.12 * strength) + ')';
+    ctx.lineWidth = Math.max(3, 12 * strength * alpha);
+    ctx.strokeStyle = 'rgba(200,220,230,' + (alpha * 0.07 * strength) + ')';
     ctx.stroke();
   }
 
