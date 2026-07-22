@@ -1795,7 +1795,7 @@ details.faq-item[open] .faq-answer {
   align-items: center;
   justify-content: space-between;
   border-top: 1px solid #E8E6E1;
-  padding: 10px 0 14px;
+  padding: 10px 0 84px;
   gap: 8px;
   flex-wrap: wrap;
 }
@@ -1864,6 +1864,24 @@ details.faq-item[open] .faq-answer {
 /* Force cases spacing */
 .cases-grid { gap: 96px !important; }
 .case-photo-card { margin-bottom: 48px !important; }
+
+/* Footer bottom tile */
+.footer-tile-bottom {
+  grid-column: 1 / -1;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 8px;
+  padding: 10px 14px;
+}
+.footer-legal {
+  display: flex; gap: 10px; flex-wrap: wrap; align-items: center;
+}
+/* Add bottom padding to clear sticky bar */
+.footer-bento {
+  padding-bottom: 80px;
+}
 </style>
 <!-- Default consent vóór GTM -->
 
@@ -2447,21 +2465,22 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
       <a href="kennisbank.html" class="footer-nav-link">Kennisbank</a>
     </div>
 
-  </div>
 
-  <!-- Bottom strip -->
-  <div class="footer-strip">
+  <!-- Bottom tile: wordmark + legal — full width bento tile -->
+  <div class="footer-tile footer-tile-bottom">
     <div class="footer-wordmark">FLII.<span>MEDIA</span></div>
     <div class="footer-legal">
       <a href="#" class="footer-link">Voorkeuren</a>
       <a href="#" class="footer-link">Cookies</a>
       <a href="#" class="footer-link">Voorwaarden</a>
       <a href="#" class="footer-link">Privacy</a>
+      <button class="footer-contact-btn" id="footer-contact-btn" onclick="toggleContactPopup()">
+        Contact<svg class="footer-contact-arr" width="9" height="9" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 8h10M9 4l4 4-4 4"/></svg>
+      </button>
     </div>
-    <button class="footer-contact-btn" id="footer-contact-btn" onclick="toggleContactPopup()">
-      Contact<svg class="footer-contact-arr" width="9" height="9" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 8h10M9 4l4 4-4 4"/></svg>
-    </button>
   </div>
+
+  </div><!-- end footer-bento -->
 
   <!-- Contact popup -->
   <div class="contact-popup" id="contact-popup">
