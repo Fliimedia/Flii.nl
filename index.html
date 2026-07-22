@@ -4248,62 +4248,14 @@ iframe[src*="chatbase"] { display: none !important; }
   position: fixed; inset: 0; z-index: 9999;
   opacity: 0; pointer-events: none;
   transition: opacity 0.45s ease;
-  /* Composite context: video + fade + text all rendered together */
-  isolation: isolate;
 }
-#slogan-overlay.s-glass  { opacity: 1; pointer-events: all; }
-#slogan-overlay.s-full   { opacity: 1; pointer-events: all; }
-#slogan-overlay.s-out    { opacity: 0; pointer-events: none; transition: opacity 1.4s ease; }
-
-/* 1. Video: fills entire overlay */
-#slogan-video {
+#slogan-overlay.s-glass { opacity: 1; pointer-events: all; }
+#slogan-overlay.s-full  { opacity: 1; pointer-events: all; }
+#slogan-overlay.s-out   { opacity: 0; pointer-events: none; transition: opacity 1.4s ease; }
+#slogan-canvas {
   position: absolute; inset: 0;
   width: 100%; height: 100%;
-  object-fit: cover;
-  z-index: 0;
-}
-
-/* 2. Black left fade: solid black on left half, fades to transparent at center */
-#slogan-fade {
-  position: absolute; inset: 0;
-  z-index: 1;
-  background: linear-gradient(
-    to right,
-    #000 0%,
-    #000 50%,
-    rgba(0,0,0,0.5) 62%,
-    rgba(0,0,0,0) 75%
-  );
-  transition: opacity 0.7s ease;
-}
-#slogan-overlay.s-full #slogan-fade { opacity: 0; }
-#slogan-overlay.s-out  #slogan-fade { opacity: 0; }
-
-/* 3. Text: destination-out cuts through the fade, revealing video beneath */
-#slogan-text {
-  position: absolute; inset: 0;
-  z-index: 2;
-  display: flex; flex-direction: column;
-  align-items: flex-start; justify-content: center;
-  padding: 0 28px; pointer-events: none;
-  transition: opacity 0.7s ease;
-}
-#slogan-overlay.s-full #slogan-text { opacity: 0; }
-#slogan-overlay.s-out  #slogan-text { opacity: 0; }
-
-.s-word {
-  font-family: 'Bricolage Grotesque', system-ui, sans-serif;
-  font-size: clamp(52px, 14vw, 90px);
-  font-weight: 900; letter-spacing: -2.5px; line-height: 0.88;
   display: block;
-  /* destination-out erases pixels in the stacking context (the fade)
-     where the letters are — revealing the video on z-index:0 beneath */
-  color: #fff;
-  mix-blend-mode: destination-out;
-}
-.s-word-ignite {
-  color: #fff;
-  mix-blend-mode: destination-out;
 }
 </style>
 <!-- Default consent vóór GTM -->
@@ -5706,14 +5658,10 @@ document.addEventListener('click', function(e) {
 (function(){document.addEventListener('click',function(e){var l=e.target.closest('.service-tag-link');if(!l)return;e.preventDefault();var p=l.closest('.service-tags');if(p)p.querySelectorAll('.service-tag-link').forEach(function(x){x.classList.remove('active');});l.classList.toggle('active');});})();
 </script>
 <div id="slogan-overlay">
+  <canvas id="slogan-canvas"></canvas>
   <video id="slogan-video" muted loop playsinline preload="none"
-    src="https://fliimedia.github.io/Flii.nl/assets/eklipse-montage.mp4"></video>
-  <div id="slogan-fade"></div>
-  <div id="slogan-text">
-    <span class="s-word">Let's</span>
-    <span class="s-word s-word-ignite">ignite</span>
-    <span class="s-word">ambitions</span>
-  </div>
+    src="https://fliimedia.github.io/Flii.nl/assets/eklipse-montage.mp4"
+    style="position:absolute;width:1px;height:1px;opacity:0;pointer-events:none"></video>
 </div>
 
 </div>
@@ -5722,40 +5670,99 @@ document.addEventListener('click', function(e) {
 (function() {
   var ov      = document.getElementById('slogan-overlay');
   var vid     = document.getElementById('slogan-video');
+  var canvas  = document.getElementById('slogan-canvas');
   var trigger = document.querySelector('.cta-h');
-  if (!ov || !trigger) return;
+  if (!ov || !trigger || !canvas) return;
 
-  var holdTimer   = null;
-  var sloganTimer = null;
-  var active      = false;
+  var ctx = canvas.getContext('2d');
+  var raf = null;
+  var holdTimer = null, sloganTimer = null, active = false;
+  var phase = ''; // 'glass' or 'full'
+
+  function resize() {
+    canvas.width  = window.innerWidth;
+    canvas.height = window.innerHeight;
+  }
+  resize();
+  window.addEventListener('resize', resize);
+
+  function drawFrame() {
+    var W = canvas.width, H = canvas.height;
+    ctx.clearRect(0, 0, W, H);
+
+    if (phase === 'full') {
+      // Full video, no overlay
+      ctx.drawImage(vid, 0, 0, W, H);
+      raf = requestAnimationFrame(drawFrame);
+      return;
+    }
+
+    // Draw video full screen
+    ctx.drawImage(vid, 0, 0, W, H);
+
+    // --- Draw black gradient: right-bottom to left-top, covers left ~50% ---
+    // Diagonal gradient from bottom-left (solid black) to top-right (transparent)
+    var grad = ctx.createLinearGradient(W * 0.65, H, 0, 0);
+    grad.addColorStop(0,   'rgba(0,0,0,0)');
+    grad.addColorStop(0.3, 'rgba(0,0,0,0.45)');
+    grad.addColorStop(0.65,'rgba(0,0,0,0.92)');
+    grad.addColorStop(1,   'rgba(0,0,0,1)');
+    ctx.fillStyle = grad;
+    ctx.fillRect(0, 0, W, H);
+
+    // --- Cut-out text using destination-out on canvas ---
+    ctx.save();
+    ctx.globalCompositeOperation = 'destination-out';
+    var fontSize = Math.min(90, Math.max(52, W * 0.14));
+    ctx.font = '900 ' + fontSize + 'px "Bricolage Grotesque", system-ui, sans-serif';
+    ctx.textBaseline = 'top';
+
+    var lines = ["Let's", "ignite", "ambitions"];
+    var lineH = fontSize * 0.88;
+    var totalH = lines.length * lineH;
+    var startY = (H - totalH) / 2;
+    var x = 28;
+
+    lines.forEach(function(line, i) {
+      // Semi-transparent alpha so video shows through softly, not 100% cut
+      ctx.globalAlpha = 0.72;
+      ctx.fillText(line, x, startY + i * lineH);
+    });
+
+    ctx.restore();
+
+    raf = requestAnimationFrame(drawFrame);
+  }
 
   function start() {
     if (active) return;
     holdTimer = setTimeout(function() {
       active = true;
-      // Immediately: black overlay + video plays + glass slogan visible
+      phase = 'glass';
       vid.currentTime = 0;
       vid.play().catch(function(){});
       ov.className = 's-glass';
+      drawFrame();
 
-      // After 2s: slogan fades out, full video
       sloganTimer = setTimeout(function() {
+        phase = 'full';
         ov.className = 's-full';
       }, 2000);
-
     }, 180);
   }
 
   function end() {
     clearTimeout(holdTimer);
     clearTimeout(sloganTimer);
-    holdTimer = null;
     if (!active) return;
     active = false;
+    phase = '';
     ov.className = 's-out';
+    if (raf) { cancelAnimationFrame(raf); raf = null; }
     setTimeout(function() {
       ov.className = '';
       vid.pause();
+      ctx.clearRect(0, 0, canvas.width, canvas.height);
     }, 1500);
   }
 
