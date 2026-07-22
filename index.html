@@ -810,19 +810,27 @@ img { display: block; max-width: 100%; }
 
 /* ── CTA ── */
 .cta-card {
-  background: #fff;
-  border-radius: var(--r);
+  position: relative;
+  z-index: 2;
+  background: transparent;
   padding: var(--sp-6) var(--sp-3) var(--sp-5);
   padding-top: calc(var(--sp-6) + var(--sp-4));
-  text-align: center;
+  text-align: left;
+  max-width: 65%;
 }
 .cta-h {
   font-family: var(--ff-disp);
   font-size: clamp(28px, 8vw, 38px);
-  font-weight: 800;
-  letter-spacing: -1px; line-height: 1.05;
-  color: #fff; margin-bottom: var(--sp-4);
-  text-align: center;
+  font-weight: 900;
+  letter-spacing: -1.5px;
+  color: transparent;
+  background: linear-gradient(135deg, #fff 30%, rgba(255,255,255,.55) 100%);
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+  line-height: 1.0;
+  margin-bottom: var(--sp-3);
+  text-align: left;
 }
 
 .btn-cta {
@@ -1414,9 +1422,11 @@ details.faq-item[open] .faq-answer {
 
 
 .cta-card-wrap {
-  position: relative; border-radius: var(--r);
-  border: 1.5px solid #E8294A;
+  position: relative;
+  border-radius: var(--r);
+  border: 1.5px solid rgba(232,41,74,.4);
   overflow: hidden;
+  min-height: 220px;
 }
 
  }
@@ -1426,20 +1436,11 @@ details.faq-item[open] .faq-answer {
 
 /* Remove overflow:hidden from wrapper - use inner card for bg clip */
 .cta-card-wrap {
-  position: relative; border-radius: var(--r);
-  border: 1.5px solid transparent;
-  background:
-    linear-gradient(#0F0E0C, #0F0E0C) padding-box,
-    conic-gradient(from var(--cta-a,0deg),
-      #E8294A 0deg,
-      #E8294A 300deg,
-      #FF6090 315deg,
-      #fff    322deg,
-      #FF6090 329deg,
-      #E8294A 345deg,
-      #E8294A 360deg
-    ) border-box;
-  animation: ctaRun 3s linear infinite;
+  position: relative;
+  border-radius: var(--r);
+  border: 1.5px solid rgba(232,41,74,.4);
+  overflow: hidden;
+  min-height: 220px;
 }
 
 @keyframes ctaRun { to { --cta-a: 360deg; } }
@@ -2063,6 +2064,149 @@ details.faq-item[open] .faq-answer {
 #chatbase-bubble-button, .chatbase-bubble-button,
 [data-chatbase="bubble"], chatbase-bubble-button,
 iframe[src*="chatbase"] { display: none !important; }
+
+/* ══ CTA VIDEO BACKGROUND ══ */
+.cta-card-wrap {
+  position: relative;
+  border-radius: var(--r);
+  border: 1.5px solid rgba(232,41,74,.4);
+  overflow: hidden;
+  min-height: 220px;
+}
+.cta-bg-video {
+  position: absolute;
+  top: 0; left: 0;
+  width: 100%; height: 100%;
+  object-fit: cover;
+  z-index: 0;
+  opacity: 1;
+}
+/* Gradient overlay: left half black, right half fades in video */
+.cta-video-overlay {
+  position: absolute;
+  inset: 0; z-index: 1;
+  background: linear-gradient(
+    to right,
+    #0F0E0C 0%,
+    #0F0E0C 40%,
+    rgba(15,14,12,0.75) 55%,
+    rgba(15,14,12,0.1) 75%,
+    rgba(15,14,12,0) 100%
+  );
+}
+.cta-card-wrap.video-active .cta-bg-video {
+  position: absolute;
+  top: 0; left: 0;
+  width: 100%; height: 100%;
+  object-fit: cover;
+  z-index: 0;
+  opacity: 1;
+}
+.cta-card-wrap.video-active .cta-video-overlay {
+  position: absolute;
+  inset: 0; z-index: 1;
+  background: linear-gradient(
+    to right,
+    #0F0E0C 0%,
+    #0F0E0C 40%,
+    rgba(15,14,12,0.75) 55%,
+    rgba(15,14,12,0.1) 75%,
+    rgba(15,14,12,0) 100%
+  );
+}
+
+/* The card content sits above the video */
+.cta-card {
+  position: relative;
+  z-index: 2;
+  background: transparent;
+  padding: var(--sp-6) var(--sp-3) var(--sp-5);
+  padding-top: calc(var(--sp-6) + var(--sp-4));
+  text-align: left;
+  max-width: 65%;
+}
+
+/* ══ FULL-SCREEN BLACKOUT EFFECT ══ */
+#cta-blackout {
+  position: fixed;
+  inset: 0; z-index: 9999;
+  background: #000;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.4s ease;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+#cta-blackout.active {
+  opacity: 1;
+  pointer-events: all;
+}
+#cta-blackout-text {
+  font-family: 'Bricolage Grotesque', system-ui, sans-serif;
+  font-size: clamp(32px, 9vw, 56px);
+  font-weight: 900;
+  letter-spacing: -2px;
+  color: #fff;
+  text-align: center;
+  line-height: 1.05;
+  opacity: 0;
+  transform: scale(0.95);
+  transition: opacity 0.5s 0.2s ease, transform 0.5s 0.2s ease;
+}
+#cta-blackout.active #cta-blackout-text {
+  opacity: 1;
+  transform: scale(1);
+}
+
+/* ── HERO IGNITE HOLD EFFECT ── */
+#hero-blackout {
+  position: fixed;
+  inset: 0;
+  background: #000;
+  z-index: 9999;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.4s ease;
+}
+#hero-blackout.active {
+  opacity: 1;
+  pointer-events: all;
+}
+#hero-blackout-slogan {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: center;
+  padding: 0 28px;
+}
+.bo-word {
+  font-family: var(--ff-disp);
+  font-size: clamp(44px, 13vw, 80px);
+  font-weight: 900;
+  letter-spacing: -2px;
+  line-height: 0.9;
+  color: #fff;
+  display: block;
+  opacity: 0;
+  transform: translateY(8px);
+  transition: opacity 0.3s ease, transform 0.3s ease;
+}
+#hero-blackout.active .bo-word {
+  opacity: 1;
+  transform: translateY(0);
+}
+#hero-blackout.active .bo-word:nth-child(1) { transition-delay: 0.1s; }
+#hero-blackout.active .bo-word:nth-child(2) { transition-delay: 0.18s; }
+#hero-blackout.active .bo-word:nth-child(3) { transition-delay: 0.26s; }
+.bo-word--ignite {
+  background: linear-gradient(90deg, #E8294A, #FF6090);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
 </style>
 <!-- Default consent vóór GTM -->
 
@@ -2716,8 +2860,14 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 
 <!-- CTA -->
 <section class="section" id="contact">
-  <div class="cta-card-wrap">
-  <div class="cta-card" style="background:#0F0E0C">
+  <div class="cta-card-wrap" id="cta-card-wrap">
+  <video class="cta-bg-video" id="cta-bg-video"
+    src="https://fliimedia.github.io/Flii.nl/assets/eklipse-montage.mp4"
+    autoplay muted loop playsinline
+    preload="auto">
+  </video>
+  <div class="cta-video-overlay" id="cta-video-overlay"></div>
+  <div class="cta-card">
     <h2 class="cta-h">Let's ignite<br>ambitions</h2>
     <button class="btn-cta" onclick="toggleContactPopup()">
       Contact
@@ -3437,6 +3587,126 @@ document.addEventListener('click', function(e) {
 
 
 (function(){document.addEventListener('click',function(e){var l=e.target.closest('.service-tag-link');if(!l)return;e.preventDefault();var p=l.closest('.service-tags');if(p)p.querySelectorAll('.service-tag-link').forEach(function(x){x.classList.remove('active');});l.classList.toggle('active');});})();
+
+
+// ── CTA: hold-to-blackout + video background ─────────────────────
+(function() {
+  var wrap = document.getElementById('cta-card-wrap');
+  var video = document.getElementById('cta-bg-video');
+  var blackout = document.getElementById('cta-blackout');
+  var ctaH = document.querySelector('.cta-h');
+  if (!wrap || !ctaH) return;
+
+  var holdTimer = null;
+  var holdDur = 600; // ms to start fade
+
+  function startHold() {
+    // Start loading video
+    if (video) {
+      video.load();
+      video.play().catch(function(){});
+    }
+
+    // Fade in video background on card
+    wrap.classList.add('video-active');
+
+    // After hold duration, blackout the screen
+    holdTimer = setTimeout(function() {
+      if (blackout) blackout.classList.add('active');
+    }, holdDur);
+  }
+
+  function endHold() {
+    clearTimeout(holdTimer);
+    wrap.classList.remove('video-active');
+    if (video) { video.pause(); video.currentTime = 0; }
+    if (blackout) blackout.classList.remove('active');
+  }
+
+  // Touch
+  ctaH.addEventListener('touchstart', function(e) {
+    e.preventDefault(); startHold();
+  }, { passive: false });
+  ctaH.addEventListener('touchend', endHold);
+  ctaH.addEventListener('touchcancel', endHold);
+
+  // Mouse
+  ctaH.addEventListener('mousedown', function(e) { e.preventDefault(); startHold(); });
+  ctaH.addEventListener('mouseup', endHold);
+  ctaH.addEventListener('mouseleave', endHold);
+
+  // Blackout dismiss
+  if (blackout) {
+    blackout.addEventListener('mousedown', endHold);
+    blackout.addEventListener('touchstart', function(e) {
+      e.preventDefault(); endHold();
+    }, { passive: false });
+  }
+
+  // Cursor: show pointer on hover
+  ctaH.style.cursor = 'pointer';
+  ctaH.style.userSelect = 'none';
+  ctaH.style.webkitUserSelect = 'none';
+})();
 </script>
+
+<!-- CTA BLACKOUT OVERLAY -->
+<div id="cta-blackout" onmouseup="endBlackout()" ontouchend="endBlackout()">
+  <div id="cta-blackout-text">Let's ignite<br>ambitions</div>
+</div>
+<script>
+
+// ── HERO HOLD: hold slogan → fade to black ────────────────────────
+(function() {
+  var overlay = document.getElementById('hero-blackout');
+  if (!overlay) return;
+  var headline = document.querySelector('.hero-headline');
+  if (!headline) return;
+
+  var holdTimer = null;
+  var isActive = false;
+  var HOLD_DELAY = 300; // ms before blackout starts
+
+  function startHold() {
+    if (holdTimer) return;
+    holdTimer = setTimeout(function() {
+      isActive = true;
+      overlay.classList.add('active');
+    }, HOLD_DELAY);
+  }
+
+  function endHold() {
+    clearTimeout(holdTimer);
+    holdTimer = null;
+    if (isActive) {
+      isActive = false;
+      overlay.classList.remove('active');
+    }
+  }
+
+  // Mouse
+  headline.addEventListener('mousedown', startHold);
+  window.addEventListener('mouseup', endHold);
+
+  // Touch
+  headline.addEventListener('touchstart', function(e) {
+    e.preventDefault();
+    startHold();
+  }, { passive: false });
+  window.addEventListener('touchend', endHold);
+  window.addEventListener('touchcancel', endHold);
+
+  // Click on overlay to dismiss
+  overlay.addEventListener('click', endHold);
+})();
+
+</script>
+<div id="hero-blackout">
+  <div id="hero-blackout-slogan">
+    <span class="bo-word">Let's</span>
+    <span class="bo-word bo-word--ignite">ignite</span>
+    <span class="bo-word">ambitions</span>
+  </div>
+</div>
 </body>
 </html>
