@@ -2169,10 +2169,7 @@ iframe[src*="chatbase"] { display: none !important; }
   pointer-events: none;
   transition: opacity 0.4s ease;
 }
-#hero-blackout.active {
-  opacity: 1;
-  pointer-events: all;
-}
+
 #hero-blackout-slogan {
   position: absolute;
   inset: 0;
@@ -2194,13 +2191,10 @@ iframe[src*="chatbase"] { display: none !important; }
   transform: translateY(8px);
   transition: opacity 0.3s ease, transform 0.3s ease;
 }
-#hero-blackout.active .bo-word {
-  opacity: 1;
-  transform: translateY(0);
-}
-#hero-blackout.active .bo-word:nth-child(1) { transition-delay: 0.1s; }
-#hero-blackout.active .bo-word:nth-child(2) { transition-delay: 0.18s; }
-#hero-blackout.active .bo-word:nth-child(3) { transition-delay: 0.26s; }
+
+
+
+
 .bo-word--ignite {
   background: linear-gradient(90deg, #E8294A, #FF6090);
   -webkit-background-clip: text;
@@ -3670,33 +3664,93 @@ document.addEventListener('click', function(e) {
 </div>
 <script>
 
-// ── HERO HOLD: hold slogan → fade to black ────────────────────────
+// ── HERO HOLD: hold slogan → fade to black → video → semi-transparent slogan ──
 (function() {
   var overlay = document.getElementById('hero-blackout');
   if (!overlay) return;
   var headline = document.querySelector('.hero-headline');
   if (!headline) return;
+  var boOverlay = document.getElementById('bo-overlay');
+  var boVideo   = document.getElementById('bo-video');
+  var boWords   = overlay.querySelectorAll('.bo-word');
 
   var holdTimer = null;
+  var revealTimer = null;
   var isActive = false;
-  var HOLD_DELAY = 300; // ms before blackout starts
 
   function startHold() {
     if (holdTimer) return;
     holdTimer = setTimeout(function() {
       isActive = true;
-      overlay.classList.add('active');
-    }, HOLD_DELAY);
+
+      // Step 1: show overlay (solid black), start playing video
+      overlay.style.opacity = '1';
+      overlay.style.pointerEvents = 'all';
+      boOverlay.style.opacity = '1';
+      boVideo.currentTime = 0;
+      boVideo.play();
+
+      // Step 2 (300ms): words appear
+      boWords.forEach(function(w) {
+        w.style.opacity = '0';
+        w.style.transform = 'translateY(10px)';
+        w.style.color = '#fff';
+      });
+      setTimeout(function() {
+        boWords.forEach(function(w, i) {
+          setTimeout(function() {
+            w.style.opacity = '1';
+            w.style.transform = 'translateY(0)';
+          }, i * 80);
+        });
+      }, 300);
+
+      // Step 3 (900ms): black overlay fades out, video becomes visible, words go semi-transparent
+      revealTimer = setTimeout(function() {
+        boOverlay.style.opacity = '0';  // fade out black → video shows
+        boWords.forEach(function(w) {
+          w.style.color = 'rgba(255,255,255,0.28)';  // semi-transparent text
+        });
+      }, 900);
+
+    }, 280);
   }
 
   function endHold() {
     clearTimeout(holdTimer);
+    clearTimeout(revealTimer);
     holdTimer = null;
-    if (isActive) {
-      isActive = false;
-      overlay.classList.remove('active');
-    }
+    if (!isActive) return;
+    isActive = false;
+
+    // Reverse: words back to solid, overlay back to black, then whole thing fades out
+    boOverlay.style.opacity = '1';  // black back
+    boWords.forEach(function(w) {
+      w.style.color = '#fff';
+    });
+    setTimeout(function() {
+      overlay.style.opacity = '0';
+      overlay.style.pointerEvents = 'none';
+      setTimeout(function() {
+        boVideo.pause();
+        boWords.forEach(function(w) {
+          w.style.opacity = '0';
+          w.style.transform = 'translateY(10px)';
+        });
+      }, 400);
+    }, 200);
   }
+
+  // Set transition on overlay
+  overlay.style.transition = 'opacity 0.4s ease';
+  overlay.style.opacity = '0';
+  overlay.style.pointerEvents = 'none';
+  boOverlay.style.transition = 'opacity 0.8s ease';
+  boWords.forEach(function(w) {
+    w.style.transition = 'opacity 0.35s ease, transform 0.35s ease, color 0.6s ease';
+    w.style.opacity = '0';
+    w.style.transform = 'translateY(10px)';
+  });
 
   // Mouse
   headline.addEventListener('mousedown', startHold);
@@ -3710,12 +3764,17 @@ document.addEventListener('click', function(e) {
   window.addEventListener('touchend', endHold);
   window.addEventListener('touchcancel', endHold);
 
-  // Click on overlay to dismiss
+  // Click overlay to dismiss
   overlay.addEventListener('click', endHold);
 })();
 
 </script>
 <div id="hero-blackout">
+  <video id="bo-video" muted loop playsinline
+    src="https://fliimedia.github.io/Flii.nl/assets/eklipse-montage.mp4"
+    style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover;z-index:0;opacity:1">
+  </video>
+  <div id="bo-overlay" style="position:absolute;inset:0;z-index:1;background:#000;transition:opacity 0.8s ease;opacity:1"></div>
   <div id="hero-blackout-slogan">
     <span class="bo-word">Let's</span>
     <span class="bo-word bo-word--ignite">ignite</span>
