@@ -2161,38 +2161,34 @@ iframe[src*="chatbase"] { display: none !important; }
 
 /* ── HERO BLACKOUT HOLD EFFECT ── */
 #hero-blackout {
-  position: fixed; inset: 0;
-  z-index: 9999;
-  pointer-events: none;
-  /* starts invisible */
-  opacity: 0;
+  position: fixed; inset: 0; z-index: 9999;
+  opacity: 0; pointer-events: none;
   transition: opacity 0.45s ease;
-  background: #000;
 }
+/* Step 1+2: black + slogan visible */
 #hero-blackout.phase-black {
-  opacity: 1;
-  pointer-events: all;
-  background: #000;
+  opacity: 1; pointer-events: all; background: #000;
 }
+/* Step 3: slogan semi-transparent → video reveals (overlay fades) */
 #hero-blackout.phase-video {
-  opacity: 1;
-  pointer-events: all;
-  /* reveal video by making overlay semi-transparent */
-  background: rgba(0,0,0,0.45);
-  transition: opacity 0.45s ease, background 0.9s ease;
+  opacity: 1; pointer-events: all; background: rgba(0,0,0,0);
+  transition: opacity 0.45s ease, background 0.7s ease;
+}
+/* Release: CTA video plays, blackout fades out */
+#hero-blackout.phase-release {
+  opacity: 0; pointer-events: none;
+  transition: opacity 1.2s ease;
 }
 #bo-video {
   position: absolute; inset: 0;
   width: 100%; height: 100%;
-  object-fit: cover;
-  z-index: 0;
+  object-fit: cover; z-index: 0;
 }
 #hero-blackout-slogan {
   position: absolute; inset: 0;
   display: flex; flex-direction: column;
   align-items: flex-start; justify-content: center;
-  padding: 0 28px;
-  z-index: 1;
+  padding: 0 28px; z-index: 1;
 }
 .bo-word {
   font-family: var(--ff-disp);
@@ -2202,20 +2198,23 @@ iframe[src*="chatbase"] { display: none !important; }
   opacity: 0; transform: translateY(10px);
   transition: opacity 0.3s ease, transform 0.3s ease, color 0.7s ease;
 }
-#hero-blackout.phase-black .bo-word,
-#hero-blackout.phase-video .bo-word {
+#hero-blackout.phase-black .bo-word {
   opacity: 1; transform: translateY(0);
 }
 #hero-blackout.phase-black .bo-word:nth-child(1) { transition-delay: 0s, 0s, 0s; }
 #hero-blackout.phase-black .bo-word:nth-child(2) { transition-delay: 0.08s, 0.08s, 0s; }
 #hero-blackout.phase-black .bo-word:nth-child(3) { transition-delay: 0.16s, 0.16s, 0s; }
-/* In video phase: words go semi-transparent */
-#hero-blackout.phase-video .bo-word { color: rgba(255,255,255,0.28); }
+/* Slogan goes semi-transparent when video reveals */
+#hero-blackout.phase-video .bo-word {
+  opacity: 0.28; transform: translateY(0); color: #fff;
+  transition: opacity 0.7s ease, transform 0s, color 0s;
+}
 .bo-word--ignite {
   background: linear-gradient(90deg,#E8294A,#FF6090);
   -webkit-background-clip: text; -webkit-text-fill-color: transparent;
   background-clip: text;
 }
+
 #hero-blackout.phase-video .bo-word--ignite {
   opacity: 0.35;
 }
@@ -3687,29 +3686,30 @@ document.addEventListener('click', function(e) {
 </div>
 <script>
 (function() {
-  var bo = document.getElementById('hero-blackout');
-  var vid = document.getElementById('bo-video');
+  var bo      = document.getElementById('hero-blackout');
+  var vid     = document.getElementById('bo-video');       // fullscreen video in overlay
+  var ctaVid  = document.getElementById('cta-bg-video');   // CTA section video
   var headline = document.querySelector('.hero-headline');
   if (!bo || !headline) return;
 
-  var holdTimer = null;
+  var holdTimer  = null;
   var videoTimer = null;
-  var active = false;
+  var active     = false;
 
   function startHold() {
     if (holdTimer || active) return;
     holdTimer = setTimeout(function() {
       active = true;
 
-      // Phase 1: solid black overlay + words appear
+      // ── PHASE 1+2: screen goes black, slogan appears ──────────────
       bo.className = 'phase-black';
       vid.currentTime = 0;
       vid.play().catch(function(){});
 
-      // Phase 2 (after 900ms): background transitions to semi-transparent → video visible
+      // ── PHASE 3 (800ms): slogan semi-transparent, video reveals ───
       videoTimer = setTimeout(function() {
-        bo.className = 'phase-video';
-      }, 900);
+        bo.className = 'phase-video';   // overlay bg → transparent, slogan → 0.28 opacity
+      }, 800);
 
     }, 260);
   }
@@ -3722,15 +3722,18 @@ document.addEventListener('click', function(e) {
     if (!active) return;
     active = false;
 
-    // Back to black first (instant class swap keeps text visible briefly)
-    bo.className = 'phase-black';
+    // ── RELEASE: fade out overlay → CTA video takes over ──────────
+    bo.className = 'phase-release';   // 1.2s fade out
+
+    // Hand off: scroll to CTA and let ctaVid play (it's already autoplaying)
+    // The fullscreen overlay disappears, revealing the page behind it
+    // CTA video is already playing in the background → no extra action needed
+
     setTimeout(function() {
-      // Then fade out completely
       bo.className = '';
-      setTimeout(function() {
-        vid.pause();
-      }, 450);
-    }, 150);
+      vid.pause();
+      vid.currentTime = 0;
+    }, 1300);
   }
 
   headline.addEventListener('mousedown', startHold);
