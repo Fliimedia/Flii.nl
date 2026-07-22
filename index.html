@@ -1226,10 +1226,9 @@ img { display: block; max-width: 100%; }
   position: absolute;
   inset: 0;
   z-index: 2;
-  background: radial-gradient(circle 120px at 50% 50%, transparent 0%, rgba(0,0,0,0.96) 100%);
+  background: rgba(0,0,0,0.82);
   pointer-events: none;
-  opacity: 0;
-  transition: opacity 0.4s ease;
+  transition: background 0.3s ease;
 }
 /* Content above canvas */
 .nav-menu-inner {
@@ -1549,29 +1548,30 @@ details.faq-item[open] .faq-answer {
 
 /* ══ FOOTER ══════════════════════════════════════════════════════════ */
 .footer {
-  padding: 32px 20px 20px;
+  padding: 40px 28px 24px;
   border-top: 1px solid #E8E6E1;
   background: #fff;
+  text-align: center;
 }
 
 /* Row 1: social + GRB + address stacked on left, nav cols on right */
 .footer-top {
   display: flex;
   flex-direction: column;
+  align-items: center;
   gap: 28px;
   margin-bottom: 28px;
 }
 .footer-left {
   display: flex;
   flex-direction: column;
+  align-items: center;
   gap: 10px;
-  flex-shrink: 0;
-  min-width: 0;
-  max-width: 160px;
 }
 .footer-social-row {
   display: flex;
   gap: 8px;
+  justify-content: center;
 }
 .social-icon {
   display: flex; align-items: center; justify-content: center;
@@ -1600,12 +1600,14 @@ details.faq-item[open] .faq-answer {
 .footer-nav {
   display: flex;
   flex-direction: row;
-  gap: 24px;
+  justify-content: center;
+  gap: 32px;
   flex-wrap: wrap;
 }
 .footer-nav-col {
   display: flex;
   flex-direction: column;
+  align-items: center;
   gap: 5px;
 }
 .footer-nav-head {
@@ -1628,11 +1630,11 @@ details.faq-item[open] .faq-answer {
 .footer-bottom-bar {
   display: flex;
   align-items: center;
-  justify-content: space-between;
+  justify-content: center;
   flex-wrap: wrap;
+  gap: 8px 16px;
   border-top: 1px solid #E8E6E1;
-  padding-top: 14px;
-  gap: 8px 12px;
+  padding-top: 16px;
 }
 .footer-wordmark {
   font-family: var(--ff-disp);
@@ -1650,9 +1652,10 @@ details.faq-item[open] .faq-answer {
 }
 .footer-links {
   display: flex;
-  gap: 10px;
+  gap: 12px;
   flex-wrap: wrap;
-  align-items: baseline;
+  align-items: center;
+  justify-content: center;
 }
 .footer-link, .footer-contact-btn {
   font-family: var(--ff-body);
@@ -1673,7 +1676,10 @@ details.faq-item[open] .faq-answer {
   opacity: 1; transform: translateX(2px);
 }
 .footer-copy {
-  font-size: 11px; color: #9B9790; margin-top: 10px;
+  font-size: 11px;
+  color: #9B9790;
+  margin-top: 12px;
+  text-align: center;
 }
 
 /* Contact popup — fixed bottom-right, hidden by default */
@@ -1710,6 +1716,18 @@ details.faq-item[open] .faq-answer {
 }
 .contact-popup-item:last-child { border-bottom: none; }
 .contact-popup-item:hover { color: #E8294A; }
+
+/* Footer override — centered with padding */
+.footer { padding: 40px 28px 24px !important; }
+.footer-top { align-items: center !important; }
+.footer-left { align-items: center !important; }
+.footer-nav { justify-content: center !important; }
+.footer-nav-col { align-items: center !important; }
+.footer-bottom-bar { justify-content: center !important; }
+.footer-links { justify-content: center !important; }
+.footer-copy { text-align: center !important; }
+.footer-social-row { justify-content: center !important; }
+.google-review-banner { align-self: center; }
 </style>
 <!-- Default consent vóór GTM -->
 
@@ -2725,7 +2743,7 @@ window.chatbaseConfig={chatbotId:"xDWiHhLymvD2NuZKQ-bO_",hideBubble:true};
     drops = Array(cols).fill(0).map(function() { return (Math.random() * -40) | 0; });
     if (ctx) ctx.clearRect(0, 0, canvas.width, canvas.height);
     running = true;
-    canvas.style.opacity = '0';  /* reveal only on mouse/touch move */
+    canvas.style.opacity = '0.12'; /* subtle matrix always visible */
     drawMatrix();
   }
 
@@ -2734,7 +2752,8 @@ window.chatbaseConfig={chatbotId:"xDWiHhLymvD2NuZKQ-bO_",hideBubble:true};
     cancelAnimationFrame(animId);
     if (canvas) canvas.style.opacity = '0';
     /* canvas stops on menu close */
-    if (spotlight) spotlight.style.opacity = '0';
+    /* spotlight stays dark always */
+    updateSpotlight(-9999, -9999); /* hide cursor hole when idle */
     mx = my = -999; swayX = swayY = swayVX = swayVY = 0;
     clearTimeout(moveTimeout); spotActive = false;
   }
@@ -2763,8 +2782,9 @@ window.chatbaseConfig={chatbotId:"xDWiHhLymvD2NuZKQ-bO_",hideBubble:true};
     if (speed > 28) { swayVX += dx * 0.11; swayVY += dy * 0.11; }
     clearTimeout(moveTimeout);
     moveTimeout = setTimeout(function() {
-      if (spotlight) spotlight.style.opacity = '0';
-      if (canvas) canvas.style.opacity = '0';  /* reveal only on mouse/touch move */  // back to base
+      /* spotlight stays dark always */
+    updateSpotlight(-9999, -9999); /* hide cursor hole when idle */
+      if (canvas) canvas.style.opacity = '0.12'; /* subtle matrix always visible */  // back to base
       spotActive = false;
     }, 1600);
   }
