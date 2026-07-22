@@ -792,18 +792,26 @@ img { display: block; max-width: 100%; }
 .articles-list { display: flex; flex-direction: column; gap: var(--sp-2); }
 .article {
   background: var(--c-surface);
-  border-radius: 8px;
+  border-radius: 10px;
   overflow: hidden;
   cursor: pointer;
-  transition: opacity var(--ease), box-shadow var(--ease);
-  box-shadow: var(--card-shadow);
+  border: 1px solid var(--c-rule);
+  transition: box-shadow var(--ease);
+  box-shadow: 0 1px 4px rgba(0,0,0,.06);
+  text-decoration: none; color: inherit;
 }
+.article:hover { box-shadow: 0 4px 16px rgba(0,0,0,.10); }
 .article:hover { box-shadow: 0 4px 20px rgba(0,0,0,.1); }
 .article:hover { opacity: .85; }
 .article-img {
-  width: 100%; aspect-ratio: 16/9;
+  width: 100%; height: 200px;
   overflow: hidden; background: var(--c-rule);
-  display: flex; align-items: center; justify-content: center;
+  display: block;
+}
+.article-img img {
+  width: 100%; height: 100%;
+  object-fit: cover; display: block;
+  border-radius: 0;
 }
 .article-img-placeholder {
   width: 100%; height: 100%;
@@ -1177,12 +1185,10 @@ img { display: block; max-width: 100%; }
   padding-bottom: var(--sp-4);
 }
 .case-photo-card {
-  position: relative;
-  display: block;
-  border-radius: var(--r);
-  overflow: visible;
+  position: relative; display: block;
+  border-radius: var(--r); overflow: visible;
   text-decoration: none;
-  background: #111;
+  background: linear-gradient(135deg, #2a2a2a, #1a1a1a);
   aspect-ratio: 4/3;
 }
 .case-photo {
@@ -1213,14 +1219,15 @@ img { display: block; max-width: 100%; }
   z-index: 2;
 }
 .case-badge {
-  display: flex; flex-direction: column; align-items: flex-start;
+  display: flex; flex-direction: column; align-items: center;
+  text-align: center;
   background: #fff;
   border: 1px solid rgba(0,0,0,.10);
   border-radius: 10px;
-  padding: 7px 12px;
+  padding: 7px 14px;
   box-shadow: 0 2px 8px rgba(0,0,0,.14);
   max-width: calc(100% - 32px);
-  gap: 1px;
+  gap: 2px;
 }
 .case-badge-client {
   font-family: var(--ff-disp); font-size: 12px; font-weight: 700;
@@ -1235,17 +1242,18 @@ img { display: block; max-width: 100%; }
 
 /* Loop card inside dark menu */
 .nav-loop-card {
-  display: flex;
-  align-items: center;
-  gap: 12px;
-  margin-top: 28px;
-  padding: 12px 16px;
+  display: flex; align-items: center; gap: 12px;
+  margin-top: 28px; padding: 12px 16px;
   background: rgba(255,255,255,.04);
-  border: 1px solid rgba(255,255,255,.08);
+  border: 1.5px solid rgba(255,255,255,.25);
   border-radius: 12px;
   text-decoration: none;
   transition: background .2s, border-color .2s;
   max-width: 280px;
+}
+.nav-loop-card:hover {
+  background: rgba(232,41,74,.08);
+  border-color: rgba(232,41,74,.5);
 }
 .nav-loop-card:hover {
   background: rgba(232,41,74,.08);
@@ -1431,11 +1439,14 @@ img { display: block; max-width: 100%; }
 
 /* ── HOME RIPPLE ── */
 #home-ripple-canvas {
-  position: absolute; inset: 0;
-  width: 100%; height: 100%;
+  position: fixed; inset: 0;
+  width: 100vw; height: 100vh;
   pointer-events: none; z-index: 0;
   opacity: 0; transition: opacity 0.4s ease;
 }
+/* Ensure content is above canvas */
+.hero-outer > *:not(#home-ripple-canvas),
+.nav, .float-sidebar, .sticky-bar { position: relative; z-index: 1; }
 .hero-outer > *:not(#home-ripple-canvas) { position: relative; z-index: 1; }
 
 .faq-answer p { margin-bottom: 10px; }
@@ -1614,6 +1625,16 @@ details.faq-item[open] .faq-answer { display: block; }
 }
 .contact-popup-item:last-child { border-bottom: none; }
 .contact-popup-item:hover { color: var(--c-red); }
+
+/* Nav loop card text in dark menu */
+.nav-loop-name {
+  font-family: var(--ff-disp); font-size: 14px; font-weight: 700;
+  color: #fff; letter-spacing: -.2px;
+}
+.nav-loop-desc {
+  font-size: 12px; color: rgba(255,255,255,.45);
+  font-family: var(--ff-body);
+}
 </style>
 <!-- Default consent vóór GTM -->
 
@@ -1717,7 +1738,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 <!-- PAGE TITLE -->
 <!-- HERO -->
 <div class="hero-outer" style="position:relative">
-  <canvas id="home-ripple-canvas" style="position:absolute;inset:0;pointer-events:none;z-index:0;opacity:0;transition:opacity 0.3s"></canvas>
+  <canvas id="home-ripple-canvas"></canvas></canvas>
 
   <!-- Eyebrow — very top -->
   <div class="hero-eyebrow">
@@ -1907,7 +1928,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
       <p class="review-quote">"Erg tevreden over de kwaliteit, resultaten en betrokkenheid. Bedankt!"</p>
       <div class="review-byline">
         <div class="review-avatar" style="width:36px;height:36px;border-radius:50%;background:#1D4E89;display:flex;align-items:center;justify-content:center;font-family:var(--ff-disp);font-size:12px;font-weight:700;color:#fff;flex-shrink:0">MS</div>
-        <div><div class="review-name">M. van Soest</div><div class="review-role">CEO @ Smart Boundary</div></div>
+        <div><div class="review-name">M. van Soest</div><div class="review-role">CEO @ Soest Machinery</div></div>
       </div>
     </div>
 
@@ -1937,7 +1958,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
       <p class="review-quote">"Niets minder dan indrukwekkend. Ik kan hun diensten ten zeerste aanbevelen."</p>
       <div class="review-byline">
         <div class="review-avatar" style="width:36px;height:36px;border-radius:50%;background:#8B4513;display:flex;align-items:center;justify-content:center;font-family:var(--ff-disp);font-size:12px;font-weight:700;color:#fff;flex-shrink:0">HH</div>
-        <div><div class="review-name">H. Hasnaouil</div><div class="review-role">Eigenaar @ Zeewind</div></div>
+        <div><div class="review-name">H. Hasnaoui</div><div class="review-role">Eigenaar @ Zeewind</div></div>
       </div>
     </div>
 
@@ -2108,7 +2129,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 
     <a href="#" class="article">
       <div class="article-img">
-        <img src="https://images.unsplash.com/photo-1504711434969-e33886168f5c?w=640&q=75&auto=format&fit=crop" alt="" style="width:100%;height:200px;object-fit:cover;display:block;border-radius:var(--r) var(--r) 0 0" loading="lazy">
+        <img src="https://images.unsplash.com/photo-1504711434969-e33886168f5c?w=640&q=75&auto=format&fit=crop" alt="" style="width:100%;height:100%;object-fit:cover;display:block;" loading="lazy">
       </div>
       <div class="article-body"><div class="article-date">June 5, 2026</div>
       <div class="article-title">Hoe ziet een moderne mediacampagne eruit in 2026?</div></div>
@@ -2116,7 +2137,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 
     <a href="#" class="article">
       <div class="article-img">
-        <img src="https://images.unsplash.com/photo-1460925895917-afdab827c52f?w=640&q=75&auto=format&fit=crop" alt="" style="width:100%;height:200px;object-fit:cover;display:block;border-radius:var(--r) var(--r) 0 0" loading="lazy">
+        <img src="https://images.unsplash.com/photo-1460925895917-afdab827c52f?w=640&q=75&auto=format&fit=crop" alt="" style="width:100%;height:100%;object-fit:cover;display:block;" loading="lazy">
       </div>
       <div class="article-body"><div class="article-date">May 10, 2026</div>
       <div class="article-title">AI architectuur: voor ieder bedrijf een must?</div></div>
@@ -2124,7 +2145,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 
     <a href="#" class="article">
       <div class="article-img">
-        <img src="https://images.unsplash.com/photo-1593784991095-a205069470b6?w=640&q=75&auto=format&fit=crop" alt="" style="width:100%;height:200px;object-fit:cover;display:block;border-radius:var(--r) var(--r) 0 0" loading="lazy">
+        <img src="https://images.unsplash.com/photo-1593784991095-a205069470b6?w=640&q=75&auto=format&fit=crop" alt="" style="width:100%;height:100%;object-fit:cover;display:block;" loading="lazy">
       </div>
       <div class="article-body"><div class="article-date">September 2, 2025</div>
       <div class="article-title">Connected TV: de toekomst van televisie reclame</div></div>
@@ -2691,7 +2712,7 @@ window.chatbaseConfig={chatbotId:"xDWiHhLymvD2NuZKQ-bO_",hideBubble:true};
     drops = Array(cols).fill(0).map(function() { return (Math.random() * -40) | 0; });
     if (ctx) ctx.clearRect(0, 0, canvas.width, canvas.height);
     running = true;
-    canvas.style.opacity = '0'; setTimeout(function(){ canvas.style.opacity='0.18'; }, 80);
+    canvas.style.opacity = '0';  /* reveal only on mouse/touch move */
     drawMatrix();
   }
 
@@ -2730,7 +2751,7 @@ window.chatbaseConfig={chatbotId:"xDWiHhLymvD2NuZKQ-bO_",hideBubble:true};
     clearTimeout(moveTimeout);
     moveTimeout = setTimeout(function() {
       if (spotlight) spotlight.style.opacity = '0';
-      if (canvas) canvas.style.opacity = '0'; setTimeout(function(){ canvas.style.opacity='0.18'; }, 80);  // back to base
+      if (canvas) canvas.style.opacity = '0';  /* reveal only on mouse/touch move */  // back to base
       spotActive = false;
     }, 1600);
   }
@@ -2881,8 +2902,8 @@ window.chatbaseConfig={chatbotId:"xDWiHhLymvD2NuZKQ-bO_",hideBubble:true};
   var holdRadius = 0;
 
   function resize() {
-    W = heroOuter.offsetWidth;
-    H = heroOuter.offsetHeight;
+    W = window.innerWidth;
+    H = window.innerHeight;
     canvas.width  = W;
     canvas.height = H;
     cols  = Math.floor(W / 16);
@@ -2987,13 +3008,18 @@ window.chatbaseConfig={chatbotId:"xDWiHhLymvD2NuZKQ-bO_",hideBubble:true};
   }
 
   function getHeroCoords(e) {
-    var rect = heroOuter.getBoundingClientRect();
-    var cx = (e.touches ? e.touches[0].clientX : e.clientX) - rect.left;
-    var cy = (e.touches ? e.touches[0].clientY : e.clientY) - rect.top;
+    var cx = e.touches ? e.touches[0].clientX : e.clientX;
+    var cy = e.touches ? e.touches[0].clientY : e.clientY;
     return { x: cx, y: cy };
   }
 
-  heroOuter.addEventListener('mousedown', function(e) {
+  document.addEventListener('mousedown', function(e) {
+    // Skip if clicking UI elements
+    var skip = ['.nav','.nav-menu','.float-sidebar','.sticky-bar','.contact-popup',
+                '.footer','button','a','input','.cta-card-wrap'];
+    for (var i=0;i<skip.length;i++) {
+      if (e.target.closest && e.target.closest(skip[i])) return;
+    }
     var c = getHeroCoords(e);
     clickX = c.x; clickY = c.y;
     holding = true;
@@ -3001,7 +3027,7 @@ window.chatbaseConfig={chatbotId:"xDWiHhLymvD2NuZKQ-bO_",hideBubble:true};
     addRipple(c.x, c.y);
   });
 
-  heroOuter.addEventListener('mousemove', function(e) {
+  document.addEventListener('mousemove', function(e) {
     if (holding) {
       var c = getHeroCoords(e);
       clickX = c.x; clickY = c.y;
@@ -3016,7 +3042,7 @@ window.chatbaseConfig={chatbotId:"xDWiHhLymvD2NuZKQ-bO_",hideBubble:true};
     }, 1400);
   });
 
-  heroOuter.addEventListener('touchstart', function(e) {
+  document.addEventListener('touchstart', function(e) {
     var c = getHeroCoords(e);
     clickX = c.x; clickY = c.y;
     holding = true;
@@ -3024,7 +3050,7 @@ window.chatbaseConfig={chatbotId:"xDWiHhLymvD2NuZKQ-bO_",hideBubble:true};
     addRipple(c.x, c.y);
   }, { passive: true });
 
-  heroOuter.addEventListener('touchmove', function(e) {
+  document.addEventListener('touchmove', function(e) {
     if (holding) {
       var c = getHeroCoords(e);
       clickX = c.x; clickY = c.y;
