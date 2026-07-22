@@ -5677,7 +5677,7 @@ document.addEventListener('click', function(e) {
   var ctx = canvas.getContext('2d');
   var raf = null;
   var holdTimer = null, sloganTimer = null, active = false;
-  var phase = ''; // 'glass' or 'full'
+  var showText = true;
 
   function resize() {
     canvas.width  = window.innerWidth;
@@ -5690,43 +5690,41 @@ document.addEventListener('click', function(e) {
     var W = canvas.width, H = canvas.height;
     ctx.clearRect(0, 0, W, H);
 
-    if (phase === 'full') {
-      // Full video, no overlay
-      ctx.drawImage(vid, 0, 0, W, H);
-      raf = requestAnimationFrame(drawFrame);
-      return;
-    }
-
-    // Draw video full screen
+    // 1. Draw video full screen
     ctx.drawImage(vid, 0, 0, W, H);
 
-    // --- Gradient: right-top → left-bottom ---
+    // 2. Diagonal gradient: right-top (transparent) → left-bottom (solid black)
+    //    Covers full screen, solid black in bottom-left half
     var grad = ctx.createLinearGradient(W, 0, 0, H);
     grad.addColorStop(0,    'rgba(0,0,0,0)');
-    grad.addColorStop(0.25, 'rgba(0,0,0,0.35)');
-    grad.addColorStop(0.6,  'rgba(0,0,0,0.88)');
+    grad.addColorStop(0.35, 'rgba(0,0,0,0.25)');
+    grad.addColorStop(0.6,  'rgba(0,0,0,0.82)');
     grad.addColorStop(1,    'rgba(0,0,0,1)');
     ctx.fillStyle = grad;
     ctx.fillRect(0, 0, W, H);
 
-    // --- Cut-out text: 2.5x larger, top-left ---
-    ctx.save();
-    ctx.globalCompositeOperation = 'destination-out';
-    var fontSize = Math.min(220, Math.max(130, W * 0.34));
-    ctx.font = '900 ' + fontSize + 'px "Bricolage Grotesque", system-ui, sans-serif';
-    ctx.textBaseline = 'top';
+    // 3. Cut-out text — only during 'glass' phase
+    if (showText) {
+      ctx.save();
+      ctx.globalCompositeOperation = 'destination-out';
 
-    var lines = ["Let's", "ignite", "ambitions"];
-    var lineH = fontSize * 0.86;
-    var x = 24;
-    var startY = 24;
+      // Font: 2.5x larger than before (was W*0.14, now W*0.35), aligned top-left
+      var fontSize = Math.min(220, Math.max(130, W * 0.35));
+      ctx.font = '900 ' + fontSize + 'px "Bricolage Grotesque", system-ui, sans-serif';
+      ctx.textBaseline = 'top';
+      ctx.globalAlpha = 0.78;
 
-    lines.forEach(function(line, i) {
-      ctx.globalAlpha = 0.72;
-      ctx.fillText(line, x, startY + i * lineH);
-    });
+      var lines = ["Let's", "ignite", "ambitions"];
+      var lineH = fontSize * 0.86;
+      var x = 24;
+      var y = 32; // top-aligned
 
-    ctx.restore();
+      lines.forEach(function(line, i) {
+        ctx.fillText(line, x, y + i * lineH);
+      });
+
+      ctx.restore();
+    }
 
     raf = requestAnimationFrame(drawFrame);
   }
@@ -5735,14 +5733,15 @@ document.addEventListener('click', function(e) {
     if (active) return;
     holdTimer = setTimeout(function() {
       active = true;
-      phase = 'glass';
+      showText = true;
       vid.currentTime = 0;
       vid.play().catch(function(){});
       ov.className = 's-glass';
       drawFrame();
 
+      // After 2s: slogan disappears, video + fade remain
       sloganTimer = setTimeout(function() {
-        phase = 'full';
+        showText = false;
         ov.className = 's-full';
       }, 2000);
     }, 180);
@@ -5753,7 +5752,7 @@ document.addEventListener('click', function(e) {
     clearTimeout(sloganTimer);
     if (!active) return;
     active = false;
-    phase = '';
+    showText = false;
     ov.className = 's-out';
     if (raf) { cancelAnimationFrame(raf); raf = null; }
     setTimeout(function() {
