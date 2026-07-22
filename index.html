@@ -1964,6 +1964,75 @@ details.faq-item[open] .faq-answer {
 .case-card-xs-desc {
   font-size: 10px; color: var(--c-muted); line-height: 1.35;
 }
+
+/* ── AI LAUNCH SECTION ── */
+.ai-launch-section {
+  background: #0C0C0A;
+  margin: 0;
+  padding: 40px 24px 44px;
+  position: relative; overflow: hidden;
+}
+.ai-launch-section::before {
+  content: '';
+  position: absolute; top: -60px; right: -40px;
+  width: 220px; height: 220px; border-radius: 50%;
+  background: radial-gradient(circle, rgba(232,41,74,.22) 0%, transparent 70%);
+  pointer-events: none;
+}
+.ai-launch-eyebrow {
+  font-family: var(--ff-mono); font-size: 9px; font-weight: 700;
+  letter-spacing: .14em; text-transform: uppercase;
+  color: rgba(232,41,74,.8); margin-bottom: 12px; display: block;
+}
+.ai-launch-title {
+  font-family: var(--ff-disp); font-size: clamp(22px,6vw,32px);
+  font-weight: 900; letter-spacing: -1px; color: #fff;
+  line-height: 1.08; margin-bottom: 12px;
+}
+.ai-launch-title em {
+  font-style: normal;
+  background: linear-gradient(90deg, #E8294A, #FF608A, #E8294A);
+  background-size: 200% auto;
+  -webkit-background-clip: text; -webkit-text-fill-color: transparent;
+  background-clip: text;
+  animation: aiGrad 3s linear infinite;
+}
+@keyframes aiGrad { to { background-position: 200% center; } }
+.ai-launch-desc {
+  font-size: 13px; color: rgba(255,255,255,.5);
+  line-height: 1.65; margin-bottom: 20px;
+}
+.ai-usp-mini {
+  display: flex; flex-direction: column; gap: 10px; margin-bottom: 24px;
+}
+.ai-usp-mini-item {
+  display: flex; align-items: center; gap: 10px;
+}
+.ai-usp-mini-icon {
+  font-size: 14px; width: 28px; text-align: center; flex-shrink: 0;
+}
+.ai-usp-mini-text {
+  font-size: 12px; color: rgba(255,255,255,.55); line-height: 1.4;
+}
+.ai-usp-mini-text strong { color: rgba(255,255,255,.85); font-weight: 600; }
+.ai-launch-btn {
+  display: inline-flex; align-items: center; gap: 6px;
+  background: #E8294A; color: #fff;
+  border-radius: 100px; padding: 12px 22px;
+  font-size: 13px; font-weight: 700; font-family: var(--ff-body);
+  text-decoration: none; transition: opacity .15s;
+}
+.ai-launch-btn:hover { opacity: .88; }
+.ai-launch-btn-ghost {
+  display: inline-flex; align-items: center;
+  color: rgba(255,255,255,.45);
+  border: 1px solid rgba(255,255,255,.15);
+  border-radius: 100px; padding: 11px 18px;
+  font-size: 12px; font-weight: 600; font-family: var(--ff-body);
+  text-decoration: none; margin-left: 10px;
+  transition: border-color .15s, color .15s;
+}
+.ai-launch-btn-ghost:hover { border-color: rgba(255,255,255,.4); color: #fff; }
 </style>
 <!-- Default consent vóór GTM -->
 
@@ -2264,6 +2333,31 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
     </div>
     </div>
   </section>
+
+<!-- AI LAUNCH PLAN -->
+<section class="ai-launch-section">
+  <span class="ai-launch-eyebrow">Nieuw · AI Go-to-Market</span>
+  <h2 class="ai-launch-title">Launchplan voor<br>jouw <em>AI-product.</em></h2>
+  <p class="ai-launch-desc">Van positionering en boodschap tot platform, performance en meting. Wij bouwen het volledige go-to-market plan — en voeren het uit.</p>
+  <div class="ai-usp-mini">
+    <div class="ai-usp-mini-item">
+      <span class="ai-usp-mini-icon">🎯</span>
+      <span class="ai-usp-mini-text"><strong>Positie eerst.</strong> Doelgroep, boodschap en kanaalstrategie op maat.</span>
+    </div>
+    <div class="ai-usp-mini-item">
+      <span class="ai-usp-mini-icon">⚡</span>
+      <span class="ai-usp-mini-text"><strong>Van plan naar live</strong> in één doorlopende samenwerking.</span>
+    </div>
+    <div class="ai-usp-mini-item">
+      <span class="ai-usp-mini-icon">📊</span>
+      <span class="ai-usp-mini-text"><strong>Meting & analyse</strong> — je weet altijd wat je geld doet.</span>
+    </div>
+  </div>
+  <div>
+    <a href="diensten/ai-launchplan.html" class="ai-launch-btn">Bekijk het plan →</a>
+    <a href="https://calendly.com/flii-media" target="_blank" class="ai-launch-btn-ghost">Plan een gesprek</a>
+  </div>
+</section>
 
 <!-- REVIEWS -->
 <div class="section-label">Reviews</div>
