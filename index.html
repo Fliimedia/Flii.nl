@@ -1882,6 +1882,88 @@ details.faq-item[open] .faq-answer {
   0%,100% { box-shadow: 0 2px 16px rgba(232,41,74,.15); }
   40% { box-shadow: 0 0 0 4px rgba(232,41,74,.35), 0 2px 16px rgba(232,41,74,.3); }
 }
+
+/* ── SECONDARY & MINOR CASE CARDS ── */
+.cases-secondary {
+  margin-top: 48px;
+}
+.cases-secondary-label {
+  font-family: var(--ff-mono); font-size: 10px; font-weight: 700;
+  letter-spacing: .14em; text-transform: uppercase;
+  color: var(--c-subtle); margin-bottom: 20px;
+  display: flex; align-items: center; gap: 10px;
+}
+.cases-secondary-label::before,
+.cases-secondary-label::after {
+  content: ''; flex: 1; height: 1px; background: var(--c-rule);
+}
+.cases-grid-secondary {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 12px;
+  margin-bottom: 32px;
+}
+.case-card-sm {
+  display: flex; flex-direction: column;
+  background: #fff;
+  border: 1px solid var(--c-rule);
+  border-radius: 12px;
+  overflow: hidden;
+  text-decoration: none;
+  color: inherit;
+  transition: box-shadow .2s;
+}
+.case-card-sm:hover { box-shadow: 0 4px 16px rgba(0,0,0,.10); }
+.case-card-sm-img {
+  width: 100%; aspect-ratio: 4/3;
+  object-fit: cover; display: block;
+  background: var(--c-rule);
+}
+.case-card-sm-body {
+  padding: 12px 12px 14px;
+  flex: 1; display: flex; flex-direction: column; gap: 4px;
+}
+.case-card-sm-tag {
+  font-family: var(--ff-mono); font-size: 8px; font-weight: 700;
+  letter-spacing: .1em; text-transform: uppercase;
+  color: var(--c-red); margin-bottom: 2px;
+}
+.case-card-sm-title {
+  font-family: var(--ff-disp); font-size: 13px; font-weight: 800;
+  letter-spacing: -.2px; color: var(--c-ink); line-height: 1.2;
+}
+.case-card-sm-desc {
+  font-size: 11px; color: var(--c-muted); line-height: 1.4; margin-top: 2px;
+}
+/* Minor cases row */
+.cases-grid-minor {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  gap: 10px;
+}
+.case-card-xs {
+  display: flex; flex-direction: column;
+  background: #F9F8F6;
+  border: 1px solid var(--c-rule);
+  border-radius: 10px;
+  padding: 12px 12px 14px;
+  text-decoration: none;
+  color: inherit;
+  gap: 4px;
+  transition: background .15s;
+}
+.case-card-xs:hover { background: #F3F1EB; }
+.case-card-xs-tag {
+  font-family: var(--ff-mono); font-size: 7px; font-weight: 700;
+  letter-spacing: .1em; text-transform: uppercase; color: var(--c-red);
+}
+.case-card-xs-title {
+  font-family: var(--ff-disp); font-size: 12px; font-weight: 800;
+  color: var(--c-ink); letter-spacing: -.1px; line-height: 1.2;
+}
+.case-card-xs-desc {
+  font-size: 10px; color: var(--c-muted); line-height: 1.35;
+}
 </style>
 <!-- Default consent vóór GTM -->
 
@@ -2405,6 +2487,73 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
         <span class="case-badge"><span class="case-badge-client">Zelfstandig Ondernemers</span><span class="case-badge-sep">·</span><span class="case-badge-desc">Digitale strategie voor zelfstandigondernemers.nl</span></span>
       </div>
     </a>
+  </div>
+
+  <!-- Secondary cases -->
+  <div class="cases-secondary">
+    <p class="cases-secondary-label">Meer projecten</p>
+    <!-- Semi-prominent: 2 columns -->
+    <div class="cases-grid-secondary">
+      <a href="cases/soest-machinery.html" class="case-card-sm">
+        <img src="https://images.unsplash.com/photo-1581091226825-a6a2a5aee158?w=480&q=70&auto=format&fit=crop" alt="Soest Machinery" class="case-card-sm-img" loading="lazy">
+        <div class="case-card-sm-body">
+          <span class="case-card-sm-tag">B2B SEO & Webmigratie</span>
+          <span class="case-card-sm-title">Soest Machinery</span>
+          <span class="case-card-sm-desc">SEO-strategie voor industriële machinebouwer bij domeinmigratie</span>
+        </div>
+      </a>
+      <a href="cases/stichting-de-buurt.html" class="case-card-sm">
+        <img src="https://images.unsplash.com/photo-1511632765486-a01980e01a18?w=480&q=70&auto=format&fit=crop" alt="Stichting De Buurt" class="case-card-sm-img" loading="lazy">
+        <div class="case-card-sm-body">
+          <span class="case-card-sm-tag">Leadgeneratie</span>
+          <span class="case-card-sm-title">Stichting De Buurt</span>
+          <span class="case-card-sm-desc">1.000+ nieuwe buurtmakers via Google Grants & Meta Ads</span>
+        </div>
+      </a>
+      <a href="cases/de-nieuwe-yogaschool.html" class="case-card-sm">
+        <img src="https://images.unsplash.com/photo-1588286840104-8957b019727f?w=480&q=70&auto=format&fit=crop" alt="De Nieuwe Yogaschool" class="case-card-sm-img" loading="lazy">
+        <div class="case-card-sm-body">
+          <span class="case-card-sm-tag">SEO & Analytics</span>
+          <span class="case-card-sm-title">De Nieuwe Yogaschool</span>
+          <span class="case-card-sm-desc">SEO-herstel, e-commerce tracking & AI Search strategie</span>
+        </div>
+      </a>
+      <a href="cases/digitaal-ondernemersplein.html" class="case-card-sm">
+        <img src="https://images.unsplash.com/photo-1504868584819-f8e8b4b6d7e3?w=480&q=70&auto=format&fit=crop" alt="Digitaal Ondernemersplein" class="case-card-sm-img" loading="lazy">
+        <div class="case-card-sm-body">
+          <span class="case-card-sm-tag">Social & Overheid</span>
+          <span class="case-card-sm-title">Digitaal Ondernemersplein</span>
+          <span class="case-card-sm-desc">Social media & AI-workflows voor KVK-samenwerking</span>
+        </div>
+      </a>
+      <a href="cases/padel2025.html" class="case-card-sm">
+        <img src="https://images.unsplash.com/photo-1554068865-24cecd4e34b8?w=480&q=70&auto=format&fit=crop" alt="Padel2025" class="case-card-sm-img" loading="lazy">
+        <div class="case-card-sm-body">
+          <span class="case-card-sm-tag">Community & Social</span>
+          <span class="case-card-sm-title">Padel2025</span>
+          <span class="case-card-sm-desc">10M+ views · 15.000 volgers in 6 maanden</span>
+        </div>
+      </a>
+    </div>
+
+    <!-- Minor cases: 3 columns -->
+    <div class="cases-grid-minor">
+      <a href="cases/ronreizen.html" class="case-card-xs">
+        <span class="case-card-xs-tag">Video & Advertising</span>
+        <span class="case-card-xs-title">RonReizen</span>
+        <span class="case-card-xs-desc">Video-first campagne voor reisorganisatie</span>
+      </a>
+      <a href="cases/relax.html" class="case-card-xs">
+        <span class="case-card-xs-tag">Shopping & E-commerce</span>
+        <span class="case-card-xs-title">Relax</span>
+        <span class="case-card-xs-desc">Shopping, Social & e-commerce campagnes voor yogakledingmerk</span>
+      </a>
+      <a href="cases/zelfstandigen-bouw.html" class="case-card-xs">
+        <span class="case-card-xs-tag">Leadgeneratie</span>
+        <span class="case-card-xs-title">Zelfstandigen Bouw</span>
+        <span class="case-card-xs-desc">Content, SEO & advertising voor de bouwsector</span>
+      </a>
+    </div>
   </div>
 </section>
 
