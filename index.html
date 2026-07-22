@@ -5154,7 +5154,7 @@ document.addEventListener('click', function(e) {
   requestAnimationFrame(tick);
 })();
 
-// 3D Water ripple on orbit canvas
+// Bird's-eye water ripple on orbit canvas
 (function() {
   var scene = document.getElementById('orbit-scene');
   if (!scene) return;
@@ -5165,8 +5165,7 @@ document.addEventListener('click', function(e) {
   if (!center) return;
 
   var W, H, CX, CY;
-  var ripples = [];  // {r, maxR, born, strength}
-  var animId;
+  var ripples = [];
   var running = false;
 
   function resize() {
@@ -5175,53 +5174,43 @@ document.addEventListener('click', function(e) {
     CX = W / 2; CY = H / 2;
   }
 
-  // Draw one 3D water ripple ring at radius r, with given alpha
+  // Bird's-eye: perfect circles, no perspective
   function drawRippleRing(r, alpha, strength) {
     if (r <= 0 || alpha <= 0) return;
-    // Perspective foreshortening — outer rings more elliptical
-    var perspective = 0.38 + 0.12 * (r / (W * 0.52));
-    var ry = r * perspective; // vertical radius (foreshortened)
-    var rx = r;
 
-    // ── Outer shadow (dark beneath the water crest) ──
-    var gOuter = ctx.createRadialGradient(CX, CY, r * 0.88, CX, CY, r * 1.08);
-    gOuter.addColorStop(0, 'rgba(0,0,0,0)');
-    gOuter.addColorStop(0.4, 'rgba(0,0,0,' + (alpha * 0.35 * strength) + ')');
-    gOuter.addColorStop(1, 'rgba(0,0,0,0)');
-    ctx.save();
-    ctx.scale(1, perspective);
+    // ── Outer dark trough (shadow just outside the crest) ──
+    var gOuter = ctx.createRadialGradient(CX, CY, r * 0.82, CX, CY, r * 1.12);
+    gOuter.addColorStop(0,   'rgba(0,0,0,0)');
+    gOuter.addColorStop(0.45,'rgba(0,0,0,' + (alpha * 0.28 * strength) + ')');
+    gOuter.addColorStop(1,   'rgba(0,0,0,0)');
     ctx.beginPath();
-    ctx.arc(CX, CY / perspective, r * 1.04, 0, Math.PI * 2);
+    ctx.arc(CX, CY, r * 1.12, 0, Math.PI * 2);
     ctx.fillStyle = gOuter;
     ctx.fill();
-    ctx.restore();
 
-    // ── Bright highlight ring (water surface catches light) ──
-    ctx.save();
-    ctx.scale(1, perspective);
+    // ── Inner light (water lens effect beneath crest) ──
+    var gInner = ctx.createRadialGradient(CX, CY, r * 0.72, CX, CY, r * 0.92);
+    gInner.addColorStop(0,   'rgba(255,255,255,0)');
+    gInner.addColorStop(0.5, 'rgba(255,255,255,' + (alpha * 0.06 * strength) + ')');
+    gInner.addColorStop(1,   'rgba(255,255,255,0)');
     ctx.beginPath();
-    ctx.arc(CX, CY / perspective, r, 0, Math.PI * 2);
-    ctx.lineWidth = Math.max(0.5, 2.5 * strength * alpha);
-    // Gradient along the stroke for caustic shimmer
-    var grad = ctx.createLinearGradient(CX - r, CY / perspective, CX + r, CY / perspective);
-    grad.addColorStop(0,   'rgba(255,255,255,' + (alpha * 0.15 * strength) + ')');
-    grad.addColorStop(0.25,'rgba(255,255,255,' + (alpha * 0.6  * strength) + ')');
-    grad.addColorStop(0.5, 'rgba(255,255,255,' + (alpha * 0.9  * strength) + ')');
-    grad.addColorStop(0.75,'rgba(255,255,255,' + (alpha * 0.6  * strength) + ')');
-    grad.addColorStop(1,   'rgba(255,255,255,' + (alpha * 0.15 * strength) + ')');
-    ctx.strokeStyle = grad;
-    ctx.stroke();
-    ctx.restore();
+    ctx.arc(CX, CY, r * 0.92, 0, Math.PI * 2);
+    ctx.fillStyle = gInner;
+    ctx.fill();
 
-    // ── Inner glow (caustic bloom just inside crest) ──
-    ctx.save();
-    ctx.scale(1, perspective);
+    // ── Bright crest ring ──
     ctx.beginPath();
-    ctx.arc(CX, CY / perspective, r * 0.92, 0, Math.PI * 2);
-    ctx.lineWidth = r * 0.06 * strength;
-    ctx.strokeStyle = 'rgba(255,255,255,' + (alpha * 0.08 * strength) + ')';
+    ctx.arc(CX, CY, r, 0, Math.PI * 2);
+    ctx.lineWidth = Math.max(0.8, 2.8 * strength * alpha);
+    ctx.strokeStyle = 'rgba(255,255,255,' + (alpha * 0.75 * strength) + ')';
     ctx.stroke();
-    ctx.restore();
+
+    // ── Soft glow around crest ──
+    ctx.beginPath();
+    ctx.arc(CX, CY, r, 0, Math.PI * 2);
+    ctx.lineWidth = Math.max(2, 8 * strength * alpha);
+    ctx.strokeStyle = 'rgba(255,255,255,' + (alpha * 0.12 * strength) + ')';
+    ctx.stroke();
   }
 
   function drawFrame() {
@@ -5232,21 +5221,18 @@ document.addEventListener('click', function(e) {
 
     ripples.forEach(function(rp) {
       var elapsed = now - rp.born;
-      var dur = rp.dur;
-      if (elapsed > dur) return;
-      var t = elapsed / dur;
-      // Ease: fast start, slow finish
+      if (elapsed > rp.dur) return;
+      var t = elapsed / rp.dur;
       var progress = 1 - Math.pow(1 - t, 2.2);
       var r = progress * rp.maxR;
-      // Alpha: hold then fade
-      var alpha = t < 0.2 ? t / 0.2 : 1 - (t - 0.2) / 0.8;
+      var alpha = t < 0.15 ? t / 0.15 : 1 - (t - 0.15) / 0.85;
       drawRippleRing(r, Math.max(0, alpha), rp.strength);
       alive.push(rp);
     });
 
     ripples = alive;
     if (ripples.length > 0) {
-      animId = requestAnimationFrame(drawFrame);
+      requestAnimationFrame(drawFrame);
     } else {
       running = false;
     }
@@ -5257,25 +5243,20 @@ document.addEventListener('click', function(e) {
   function fireRipple() {
     resize();
     var maxR = Math.min(W, H) * 0.54;
-    var now = Date.now();
 
-    // 3 ripples with different speeds and strengths (like real water)
     [
       { delay: 0,    strength: 1.0,  dur: 2800 },
-      { delay: 420,  strength: 0.65, dur: 3100 },
-      { delay: 900,  strength: 0.35, dur: 3400 },
+      { delay: 380,  strength: 0.62, dur: 3100 },
+      { delay: 820,  strength: 0.32, dur: 3500 },
     ].forEach(function(cfg) {
       setTimeout(function() {
         ripples.push({
           born: Date.now(),
-          maxR: maxR * (1 + Math.random() * 0.08), // slight size variation
+          maxR: maxR * (1 + Math.random() * 0.06),
           strength: cfg.strength,
           dur: cfg.dur,
         });
-        if (!running) {
-          running = true;
-          animId = requestAnimationFrame(drawFrame);
-        }
+        if (!running) { running = true; requestAnimationFrame(drawFrame); }
       }, cfg.delay);
     });
 
@@ -5287,13 +5268,12 @@ document.addEventListener('click', function(e) {
       var lx = (rect.left + rect.right) / 2 - sr.left;
       var ly = (rect.top + rect.bottom) / 2 - sr.top;
       var dist = Math.sqrt(Math.pow(lx - CX, 2) + Math.pow(ly - CY, 2));
-      var travelTime = (dist / maxR) * 2600;
       setTimeout(function() {
         el.classList.remove('floating');
         void el.offsetWidth;
         el.classList.add('floating');
         setTimeout(function() { el.classList.remove('floating'); }, 1200);
-      }, travelTime);
+      }, (dist / maxR) * 2600);
     });
   }
 
