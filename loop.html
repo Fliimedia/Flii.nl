@@ -154,7 +154,14 @@ body{font-family:var(--ff-body);background:var(--paper);color:var(--ink);}
 .calc-head h2{font-family:var(--ff-disp);font-size:clamp(20px,5vw,28px);font-weight:800;
   letter-spacing:-.8px;margin-bottom:6px;}
 .calc-head p{font-size:13px;color:var(--mid);line-height:1.5;margin-bottom:20px;}
-.calc-steps{display:flex;gap:4px;padding:0 28px;border-bottom:1px solid var(--line);overflow-x:auto;}
+.calc-steps {
+  display: flex; gap: 4px; padding: 12px 24px;
+  border-bottom: 1px solid var(--line);
+  overflow-x: hidden;
+  -webkit-overflow-scrolling: touch;
+  scrollbar-width: none;
+}
+.calc-steps::-webkit-scrollbar { display: none; }
 .calc-dot{display:flex;align-items:center;gap:8px;background:none;border:none;cursor:pointer;
   font:inherit;color:var(--soft);padding:12px 10px;border-radius:0;white-space:nowrap;
   transition:color .15s;border-bottom:2px solid transparent;margin-bottom:-1px;}
@@ -166,7 +173,7 @@ body{font-family:var(--ff-body);background:var(--paper);color:var(--ink);}
 .calc-dot.on{color:var(--ink);border-bottom-color:var(--mag);}
 .calc-dot.on .calc-dot-n{border-color:var(--mag);background:var(--mag);color:#fff;}
 .calc-dot.done .calc-dot-n{border-color:var(--ink);background:var(--ink);color:var(--paper);}
-.calc-slide{padding:26px 28px;min-height:286px;animation:slideIn .34s ease both;}
+.calc-slide{padding:24px 24px 0;min-height:250px;animation:slideIn .28s ease both;}
 @keyframes slideIn{from{opacity:0;transform:translateX(12px);}to{opacity:1;transform:none;}}
 .calc-slide-head{margin-top:32px;margin-bottom:20px;}
 .calc-slide-title{font-family:var(--ff-disp);font-weight:600;font-size:19px;color:var(--ink);
@@ -174,7 +181,13 @@ body{font-family:var(--ff-body);background:var(--paper);color:var(--ink);}
 .calc-slide-help{font-size:12.5px;letter-spacing:.02em;color:var(--soft);line-height:1.5;}
 /* scope cards */
 .scope-cards{display:grid;grid-template-columns:repeat(2,1fr);gap:10px;}
-.scope-card{position:relative;border:1.5px solid var(--line);border-radius:14px;padding:16px;cursor:pointer;background:var(--card);transition:border-color .15s,background .15s;display:block;width:100%;text-align:left;}
+.scope-card {
+  position: relative; border: 1.5px solid var(--line); border-radius: 14px;
+  padding: 18px 16px 16px; cursor: pointer; background: var(--card);
+  transition: border-color .15s, background .15s;
+  display: block; width: 100%; text-align: left;
+}
+.scope-card.on { border-color: var(--mag); background: rgba(231,37,90,.04); }
 .scope-card:hover{border-color:var(--soft);}
 .scope-card.on{border-color:var(--mag);background:rgba(231,37,90,.03);
   box-shadow:0 0 0 3px rgba(231,37,90,.1);}
@@ -210,9 +223,15 @@ body{font-family:var(--ff-body);background:var(--paper);color:var(--ink);}
 .refine-group{display:flex;flex-direction:column;gap:8px;}
 .refine-h{font-size:10px;letter-spacing:.11em;text-transform:uppercase;color:var(--soft);}
 /* toggles */
-.toggle{display:flex;align-items:center;gap:12px;width:100%;padding:12px 14px;
-  border:1.5px solid var(--line);border-radius:10px;background:var(--card);cursor:pointer;
-  margin-bottom:6px;text-align:left;transition:border-color .15s,background .15s;}
+.toggle {
+  display: flex; align-items: center; gap: 12px; width: 100%;
+  padding: 12px 14px; border: 1.5px solid var(--line); border-radius: 10px;
+  background: var(--card); cursor: pointer; margin-bottom: 6px;
+  text-align: left; transition: border-color .15s, background .15s;
+  font: inherit;
+}
+.toggle.on { border-color: var(--mag); background: rgba(231,37,90,.04); }
+.toggle:hover:not(.on) { border-color: rgba(231,37,90,.3); }
 .toggle.on{border-color:var(--mag);background:rgba(231,37,90,.03);}
 .toggle-sm{padding:9px 12px;}
 .toggle-main{flex:1;}
@@ -227,8 +246,7 @@ body{font-family:var(--ff-body);background:var(--paper);color:var(--ink);}
 .cfg-toggles{display:flex;flex-direction:column;gap:8px;margin-bottom:4px;}
 .combo-note{font-size:12px;color:var(--mag);margin-top:4px;font-style:italic;}
 /* receipt */
-.cfg-out-card{background:var(--card);border:1px solid var(--line);border-radius:16px;padding:22px;
-  box-shadow:0 14px 34px -18px rgba(231,37,90,.25);}
+.cfg-out-card{background:transparent;padding:22px 24px;}
 .cfg-out-h{font-size:11px;letter-spacing:.1em;text-transform:uppercase;color:var(--soft);
   padding-bottom:14px;border-bottom:1px solid var(--line);margin-bottom:10px;}
 .rcp{display:flex;flex-direction:column;margin:2px 0 6px;text-align:left;}
@@ -266,8 +284,10 @@ body{font-family:var(--ff-body);background:var(--paper);color:var(--ink);}
   font-family:var(--ff-body);font-size:14px;font-weight:700;cursor:pointer;text-decoration:none;
   transition:background .15s;}
 .cfg-cta:hover{background:#C2173A;}
-.calc-nav{display:flex;align-items:center;justify-content:space-between;gap:12px;
-  padding:14px 28px;border-top:1px solid var(--line);background:var(--card);}
+.calc-nav {
+  display: flex; align-items: center; justify-content: space-between; gap: 12px;
+  padding: 16px 0 8px;
+}
 .calc-running{font-size:12.5px;color:var(--mid);text-align:center;flex:1;font-weight:600;}
 .btn{display:inline-flex;align-items:center;justify-content:center;gap:6px;border:none;
   border-radius:100px;padding:10px 20px;font-family:var(--ff-body);font-size:13px;font-weight:700;
@@ -287,7 +307,7 @@ body{font-family:var(--ff-body);background:var(--paper);color:var(--ink);}
   .scope-cards{grid-template-columns:1fr;}
   .calc-dot-l{display:none;}
   .calc-dot-n{width:26px;height:26px;}
-  .calc-slide{padding:20px;}
+  .calc-slide{padding:24px 24px 0;min-height:250px;animation:slideIn .28s ease both;}
   .calc-running{display:none;}
   .rcp-head span+span,.rcp-v{display:none;}
   .rcp-head{grid-template-columns:1fr;}
@@ -331,6 +351,65 @@ body{font-family:var(--ff-body);background:var(--paper);color:var(--ink);}
   border-top: 1px solid var(--line);
   margin-top: 6px; padding-top: 6px;
 }
+
+/* Funnel phase pills */
+.fnl-pills {
+  display: flex; flex-wrap: wrap; gap: 6px; margin-top: 16px;
+}
+.fnl-pill {
+  font-family: var(--ff-disp); font-size: 12px; font-weight: 700;
+  color: var(--mag); background: rgba(231,37,90,.08);
+  border: 1px solid rgba(231,37,90,.2);
+  border-radius: 100px; padding: 5px 12px;
+  cursor: pointer; transition: background .15s, border-color .15s;
+}
+.fnl-pill:hover { background: rgba(231,37,90,.15); border-color: rgba(231,37,90,.4); }
+/* Phase card — single active */
+.fnl-desc { margin-top: 20px; }
+.fnl-phase-card {
+  background: var(--card);
+  border: 1.5px solid var(--mag);
+  border-radius: 14px;
+  padding: 18px 18px 14px;
+  display: flex; flex-direction: column; gap: 6px;
+}
+.fnl-phase-k {
+  font-family: var(--ff-disp); font-size: 15px; font-weight: 800;
+  color: var(--ink); letter-spacing: -.2px;
+}
+.fnl-phase-goal { font-size: 13px; color: var(--mid); line-height: 1.5; margin: 0; }
+.fnl-phase-example {
+  font-size: 12px; color: var(--soft); line-height: 1.5;
+  border-top: 1px solid var(--line); padding-top: 8px; margin-top: 4px;
+}
+
+/* btn-cta: main call-to-action in result step */
+.btn-cta {
+  display: flex; align-items: center; justify-content: center;
+  width: 100%; margin: 20px 0 8px;
+  background: var(--mag); color: #fff;
+  border: none; border-radius: 100px;
+  padding: 14px 24px; font-family: var(--ff-body);
+  font-size: 15px; font-weight: 700;
+  cursor: pointer; transition: opacity .15s;
+  text-decoration: none;
+}
+.btn-cta:hover { opacity: .88; }
+.btn-secondary{background:none;border:1.5px solid var(--line);color:var(--mid);border-radius:100px;padding:10px 20px;font:inherit;font-size:13px;font-weight:600;cursor:pointer;transition:border-color .15s,color .15s;}
+.btn-secondary:hover{border-color:var(--ink);color:var(--ink);}
+.calc-running-bar {
+  padding: 10px 0 0; text-align: right;
+}
+.calc-running { font-size: 13px; color: var(--mid); font-weight: 600; }
+.rcp-head { display: grid; grid-template-columns: 1fr auto auto; gap: 8px;
+  padding: 8px 10px; font-size: 10px; color: var(--soft); letter-spacing: .08em;
+  border-bottom: 1px solid var(--line); }
+.rcp-row { display: grid; grid-template-columns: 1fr auto auto; gap: 8px;
+  padding: 9px 10px; border-bottom: 1px solid var(--line); align-items: center; }
+.rcp-tot { font-weight: 700; background: rgba(231,37,90,.04);
+  border-radius: 8px; border: 1px solid rgba(231,37,90,.15); margin-top: 4px; }
+.rcp-l { font-size: 13px; color: var(--ink); }
+.rcp-v { font-size: 12px; color: var(--mid); min-width: 60px; text-align: right; }
 </style>
 </head>
 <body>
@@ -1331,7 +1410,7 @@ renderCalc();
   document.getElementById("fnl-top").setAttribute("d", makePath(topPts));
   document.getElementById("fnl-bot").setAttribute("d", makePath(botPts));
 
-  var active = null;
+  window.active = null;
   var segsEl = document.getElementById("fnl-segs");
   stages.forEach(function(st, i) {
     var x0=i*segW, x1=(i+1)*segW, cx=(x0+x1)/2;
@@ -1343,8 +1422,8 @@ renderCalc();
     g.setAttribute("aria-label",st.k);
     g.innerHTML='<path class="fnl-slice" d="'+d+'"/><text class="fnl-letter" x="'+cx+'" y="'+CY+'" text-anchor="middle" dominant-baseline="central">'+st.k.charAt(0)+'</text>';
     g.addEventListener("click", function() {
-      active = (active===i)?null:i;
-      document.querySelectorAll(".fnl-seg").forEach(function(s,j){s.classList.toggle("on",j===active);});
+      window.active = (window.active===i)?null:i;
+      document.querySelectorAll(".fnl-seg").forEach(function(s,j){s.classList.toggle("on",j===window.active);});
       renderDesc();
     });
     segsEl.appendChild(g);
@@ -1352,17 +1431,39 @@ renderCalc();
 
   function renderDesc() {
     var el=document.getElementById("fnl-desc");
-    // Always show all phases as cards
-    el.innerHTML = stages.map(function(s, i) {
-      var isActive = (active === i);
-      return '<div class="fnl-phase-card' + (isActive ? ' active' : '') + '">' +
+    if (window.active === null) {
+      el.innerHTML = '<div class="fnl-pills">' + stages.map(function(s, i) {
+        return '<button class="fnl-pill" onclick="window.setFunnelPhase(' + i + ')">'+s.k+'</button>';
+      }).join('') + '</div>';
+    } else {
+      var s = stages[window.active];
+      el.innerHTML =
+        '<div class="fnl-phase-card active">' +
         '<span class="fnl-phase-k">' + s.k + '</span>' +
         '<p class="fnl-phase-goal">' + s.goal + '</p>' +
         '<div class="fnl-phase-example"><strong>Voorbeeld:</strong> ' + s.example + '</div>' +
+        '<button class="fnl-pill" style="margin-top:10px;opacity:.55;font-size:11px" onclick="window.clearFunnelPhase()">← Alle fases</button>' +
         '</div>';
-    }).join('');
+    }
   }
   renderDesc(); // init: show all phase cards
+  window.renderDesc = renderDesc;
+
+  // Global helpers for onclick
+  window.setFunnelPhase = function(i) {
+    window.active = i;
+    document.querySelectorAll('.fnl-seg').forEach(function(sg, j) {
+      sg.classList.toggle('on', j === i);
+    });
+    renderDesc();
+  };
+  window.clearFunnelPhase = function() {
+    window.active = null;
+    document.querySelectorAll('.fnl-seg').forEach(function(sg) {
+      sg.classList.remove('on');
+    });
+    renderDesc();
+  };
 
 })();
 
