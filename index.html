@@ -1834,6 +1834,48 @@ details.faq-item[open] .faq-answer {
 .cases-grid{gap:96px!important;}
 .case-photo-card{margin-bottom:48px!important;}
 .service-tag-link.active .service-tag{background:#E8294A!important;color:#fff!important;border-color:#E8294A!important;}
+
+/* ── Flii Loop service card ── */
+.flii-loop-svc-card {
+  margin: var(--sp-3) var(--sp-3) var(--sp-3);
+  border-radius: var(--r);
+  background: #0F0E0C;
+  overflow: hidden;
+}
+.flii-loop-svc-link {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  padding: 16px 18px;
+  text-decoration: none;
+  color: #fff;
+  transition: background .2s;
+}
+.flii-loop-svc-link:hover {
+  background: rgba(255,255,255,.04);
+}
+.flii-loop-svc-link .loopmark-svg {
+  width: 40px; height: 40px;
+  flex-shrink: 0;
+}
+.flii-loop-svc-text {
+  flex: 1; display: flex; flex-direction: column; gap: 2px;
+}
+.flii-loop-svc-name {
+  font-family: var(--ff-disp);
+  font-size: 15px; font-weight: 800; letter-spacing: -.2px;
+  color: #fff;
+}
+.flii-loop-svc-desc {
+  font-size: 11px; color: rgba(255,255,255,.5); line-height: 1.4;
+}
+.flii-loop-svc-arrow {
+  flex-shrink: 0; color: rgba(255,255,255,.4);
+  transition: transform .2s, color .2s;
+}
+.flii-loop-svc-link:hover .flii-loop-svc-arrow {
+  color: #fff; transform: translateX(3px);
+}
 </style>
 <!-- Default consent vóór GTM -->
 
@@ -2083,7 +2125,49 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
         <p class="service-desc">Van meting tot marktonderzoek, van testing tot trend spotting. We zorgen voor inzichten waar geen speld meer tussen past.</p>
         <div class="service-tags"><a href="diensten/data-analyse.html" class="service-tag service-tag-link">Research</a> <a href="diensten/data-analyse.html" class="service-tag service-tag-link">Tracking</a> <a href="diensten/data-analyse.html" class="service-tag service-tag-link">Attributie</a> <a href="diensten/data-analyse.html" class="service-tag service-tag-link">Analyse & optimalisatie</a> <a href="diensten/data-analyse.html" class="service-tag service-tag-link">Dashboards</a></div>
       </div>
-      <div class="services-footer-btn-wrap">
+  
+<!-- Flii Loop card -->
+<div class="flii-loop-svc-card">
+  <a href="loop.html" class="flii-loop-svc-link">
+    <span class="loopmark" aria-hidden="true">
+  <svg class="loopmark-svg" viewBox="0 0 100 100">
+    <defs>
+      <linearGradient id="svcLmGrad" x1="0" y1="0" x2="1" y2="1">
+        <stop offset="0%" stop-color="#B14BFF"/>
+        <stop offset="28%" stop-color="#E7255A"/>
+        <stop offset="50%" stop-color="#FF5E9A"/>
+        <stop offset="64%" stop-color="#FFD2E4"/>
+        <stop offset="80%" stop-color="#FF3D8E"/>
+        <stop offset="100%" stop-color="#C04BFF"/>
+      </linearGradient>
+      <filter id="svcLmFire" x="-60%" y="-60%" width="220%" height="220%">
+        <feTurbulence type="fractalNoise" baseFrequency="0.022 0.04" numOctaves="2" seed="4" result="n">
+          <animate attributeName="baseFrequency" dur="6s" values="0.022 0.04;0.03 0.052;0.02 0.034;0.022 0.04" repeatCount="indefinite"/>
+        </feTurbulence>
+        <feDisplacementMap in="SourceGraphic" in2="n" scale="9" xChannelSelector="R" yChannelSelector="G">
+          <animate attributeName="scale" dur="5s" values="8;12.5;9;8" repeatCount="indefinite"/>
+        </feDisplacementMap>
+        <feGaussianBlur stdDeviation="0.5"/>
+      </filter>
+      <filter id="svcLmGlow" x="-60%" y="-60%" width="220%" height="220%"><feGaussianBlur stdDeviation="2.4"/></filter>
+    </defs>
+    <g class="lm-rot">
+      <circle cx="50" cy="50" r="35" fill="none" stroke="url(#svcLmGrad)" stroke-width="7" filter="url(#svcLmGlow)" opacity="0.5"/>
+      <circle cx="50" cy="50" r="35" fill="none" stroke="url(#svcLmGrad)" stroke-width="5" filter="url(#svcLmFire)"/>
+    </g>
+    <g class="lm-rot2">
+      <circle cx="50" cy="50" r="32" fill="none" stroke="url(#svcLmGrad)" stroke-width="3" filter="url(#svcLmFire)" opacity="0.85"/>
+    </g>
+  </svg>
+</span>
+    <div class="flii-loop-svc-text">
+      <span class="flii-loop-svc-name">Flii Loop</span>
+      <span class="flii-loop-svc-desc">AI-gedreven marketing in één abonnement. Eén loop die blijft leren.</span>
+    </div>
+    <svg class="flii-loop-svc-arrow" width="16" height="16" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 8h10M9 4l4 4-4 4"/></svg>
+  </a>
+</div>
+    <div class="services-footer-btn-wrap">
       <button class="services-contact-btn rb-btn" onclick="highlightSidebar()">
         Neem contact op →
       </button>
@@ -2389,10 +2473,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
       <a href="kennisbank.html" class="footer-nav-link">Content &middot; Media</a>
       <a href="kennisbank.html" class="footer-nav-link">Digitale Marketing</a>
       <a href="kennisbank.html" class="footer-nav-link">Data &amp; AI</a>
-      <span class="footer-nav-head" style="margin-top:8px">Pagina's</span>
-      <a href="index.html" class="footer-nav-link">Home</a>
-      <a href="loop.html" class="footer-nav-link">Flii Loop</a>
-      <a href="kennisbank.html" class="footer-nav-link">Kennisbank</a>
+
     </div>
     <div class="footer-tile footer-tile-bottom">
       <div class="footer-wordmark">FLII.<span>MEDIA</span></div>
@@ -2414,6 +2495,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
     </div>
   </div>
 </footer>
+
 
 
 
