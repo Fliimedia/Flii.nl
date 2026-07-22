@@ -500,12 +500,7 @@ img { display: block; max-width: 100%; }
 }
 
 /* ── NETWORK CARD ── */
-.network-card {
-  background: var(--c-dark);
-  border-radius: var(--r);
-  padding: var(--sp-3);
-  margin-top: var(--sp-3);
-}
+.network-card { background:transparent; padding:var(--sp-2) 0 var(--sp-3); }
 .network-card-label {
   font-family: var(--ff-mono);
   font-size: var(--t-xs); font-weight: 500;
@@ -595,17 +590,12 @@ img { display: block; max-width: 100%; }
 .btn-outline-dark:hover { border-color: rgba(255,255,255,.4); color: #fff; }
 
 /* ── ORBIT NETWORK ── */
-.network-card { overflow: hidden; box-shadow: var(--card-shadow); }
+.network-card { background:transparent; padding:var(--sp-2) 0 var(--sp-3); }
 .orbit-wrap {
   display: flex; align-items: center; justify-content: center;
   padding: var(--sp-4) 0 var(--sp-3);
 }
-.orbit-scene {
-  position: relative;
-  width: 260px; height: 260px;
-  flex-shrink: 0;
-  overflow: visible;
-}
+.orbit-scene { position:relative; width:320px; height:320px; flex-shrink:0; overflow:visible; }
 .orbit-ring {
   position: absolute; border-radius: 50%;
   border: 1px solid rgba(255,255,255,.12);
@@ -613,8 +603,8 @@ img { display: block; max-width: 100%; }
   transform: translate(-50%,-50%);
   pointer-events: none;
 }
-.orbit-ring--outer { width: 240px; height: 240px; }
-.orbit-ring--inner { width: 140px; height: 140px; }
+.orbit-ring--outer { width:300px; height:300px; }
+.orbit-ring--inner { width:170px; height:170px; }
 .orbit-center {
   position: absolute; top: 50%; left: 50%;
   transform: translate(-50%,-50%);
@@ -636,19 +626,8 @@ img { display: block; max-width: 100%; }
   box-shadow: 0 2px 6px rgba(0,0,0,.25);
   overflow: hidden;
 }
-.orbit-label img {
-  max-width: 22px; max-height: 18px;
-  object-fit: contain;
-  filter: brightness(0) invert(1);
-  opacity: 0.88;
-}
-.orbit-label-text {
-  font-family: var(--ff-mono);
-  font-size: 7px; font-weight: 600;
-  letter-spacing: .04em; text-transform: uppercase;
-  color: rgba(255,255,255,.8);
-  text-align: center; white-space: nowrap;
-}
+.orbit-label img { max-width:28px; max-height:22px; object-fit:contain; filter:none; }
+.orbit-label-text { font-family:var(--ff-mono); font-size:8px; font-weight:700; color:var(--ink); text-align:center; margin-top:4px; white-space:nowrap; }
 
 .reviews-list { display: flex; flex-direction: column; gap: var(--sp-2); }
 .review {
@@ -2203,19 +2182,19 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 <div class="section-label">Cases</div>
 <section class="section">
   <div class="cases-grid">
-    <a href="https://flii.nl/cases/bikefair" target="_blank" class="case-photo-card">
+    <a href="cases/bikefair.html" target="_blank" class="case-photo-card">
       <img src="https://cdn.prod.website-files.com/688fb21882303e399ad11240/6890a0c70325bcd1dc6ba142_BF_9.png" alt="BikeFair" class="case-photo" loading="lazy">
       <div class="case-badge-row">
         <span class="case-badge"><span class="case-badge-client">BikeFair</span><span class="case-badge-sep">·</span><span class="case-badge-desc">Marketing strategie voor digitale marktplaats</span></span>
       </div>
     </a>
-    <a href="https://flii.nl/cases/theaterthuis" target="_blank" class="case-photo-card">
+    <a href="cases/theaterthuis.html" target="_blank" class="case-photo-card">
       <img src="https://cdn.prod.website-files.com/688fb21882303e399ad11240/68922c00abc12e6e0c9e2d07_tt_presenteerders.jpg" alt="TheaterThuis" class="case-photo" loading="lazy">
       <div class="case-badge-row">
         <span class="case-badge"><span class="case-badge-client">TheaterThuis</span><span class="case-badge-sep">·</span><span class="case-badge-desc">Digitale lancering streamingsdienst</span></span>
       </div>
     </a>
-    <a href="https://flii.nl/cases/digitale-strategie-voor-zzpers" target="_blank" class="case-photo-card">
+    <a href="cases/digitale-strategie-voor-zzpers.html" target="_blank" class="case-photo-card">
       <img src="https://cdn.prod.website-files.com/688fb21882303e399ad11240/6890ca987f0f0129df53d6a6_zo-4.jpg" alt="Zelfstandig Ondernemers" class="case-photo" loading="lazy">
       <div class="case-badge-row">
         <span class="case-badge"><span class="case-badge-client">Zelfstandig Ondernemers</span><span class="case-badge-sep">·</span><span class="case-badge-desc">Digitale strategie voor zelfstandigondernemers.nl</span></span>
@@ -2230,7 +2209,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
   <h2 class="section-h">Artikelen</h2>
   <div class="articles-list">
 
-    <a href="#" class="article">
+    <a href="insight/moderne-mediacampagnes-best-practices-2026.html" class="article">
       <div class="article-img">
         <img src="https://images.unsplash.com/photo-1504711434969-e33886168f5c?w=640&q=75&auto=format&fit=crop" alt="" style="width:100%;height:200px;object-fit:cover;display:block;flex-shrink:0;" loading="lazy">
       </div>
@@ -2238,7 +2217,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
       <div class="article-title">Hoe ziet een moderne mediacampagne eruit in 2026?</div></div>
     </a>
 
-    <a href="#" class="article">
+    <a href="insight/ai-architectuur-voor-ieder-bedrijf-nodig.html" class="article">
       <div class="article-img">
         <img src="https://images.unsplash.com/photo-1460925895917-afdab827c52f?w=640&q=75&auto=format&fit=crop" alt="" style="width:100%;height:200px;object-fit:cover;display:block;flex-shrink:0;" loading="lazy">
       </div>
@@ -2246,7 +2225,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
       <div class="article-title">AI architectuur: voor ieder bedrijf een must?</div></div>
     </a>
 
-    <a href="#" class="article">
+    <a href="insight/connected-tv-toekomst-televisie-reclame.html" class="article">
       <div class="article-img">
         <img src="https://images.unsplash.com/photo-1593784991095-a205069470b6?w=640&q=75&auto=format&fit=crop" alt="" style="width:100%;height:200px;object-fit:cover;display:block;flex-shrink:0;" loading="lazy">
       </div>
@@ -3129,6 +3108,17 @@ document.addEventListener('click', function(e) {
   popup.classList.remove('open');
 });
 
+</script>
+<script>
+(function() {
+  var sidebar = document.getElementById('float-sidebar');
+  if (!sidebar) return;
+  function check() {
+    sidebar.classList.toggle('visible', window.scrollY > window.innerHeight * 0.6);
+  }
+  check();
+  window.addEventListener('scroll', check, { passive: true });
+})();
 </script>
 </body>
 </html>
