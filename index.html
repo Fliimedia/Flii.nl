@@ -179,7 +179,7 @@
 
 /* ── RESET ── */
 *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
-html { overflow-x: hidden; scroll-behavior: auto; }
+html { scroll-behavior: auto; }
 body {
   font-family: var(--ff-body);
   font-size: var(--t-base);
@@ -846,16 +846,16 @@ img { display: block; max-width: 100%; }
 /* ── FLOATING ICON SIDEBAR ── */
 .float-sidebar {
   position: fixed;
-  right: -56px; top: 50%;
-  transform: translateY(-50%);
+  right: 12px; top: 50%;
+  transform: translateY(-50%) translateX(calc(100% + 20px));
   display: flex; flex-direction: column; gap: 0;
   z-index: 995; border-radius: 12px; overflow: hidden;
   border: 1.5px solid rgba(232,41,74,.7);
   background: #0F0E0C;
   box-shadow: 0 2px 16px rgba(232,41,74,.15);
-  transition: right 0.4s cubic-bezier(0.23, 1, 0.32, 1);
+  transition: transform 0.4s cubic-bezier(0.23, 1, 0.32, 1);
 }
-.float-sidebar.visible { right: 12px; }
+.float-sidebar.visible { transform: translateY(-50%) translateX(0); }
 .float-icon {
   display: flex; align-items: center; justify-content: center;
   width: 44px; height: 44px;
@@ -1876,6 +1876,12 @@ details.faq-item[open] .faq-answer {
 .flii-loop-svc-link:hover .flii-loop-svc-arrow {
   color: #fff; transform: translateX(3px);
 }
+
+.float-sidebar.highlight { animation: sidebarPulse 0.6s ease; }
+@keyframes sidebarPulse {
+  0%,100% { box-shadow: 0 2px 16px rgba(232,41,74,.15); }
+  40% { box-shadow: 0 0 0 4px rgba(232,41,74,.35), 0 2px 16px rgba(232,41,74,.3); }
+}
 </style>
 <!-- Default consent vóór GTM -->
 
@@ -2459,14 +2465,6 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
       <p class="footer-address">Handweg 159, Amstelveen &middot; info@flii.nl &middot; Openingstijden</p>
     </div>
     <div class="footer-tile footer-tile-nav">
-      <span class="footer-nav-head">Diensten</span>
-      <a href="diensten/funnel-marketing.html" class="footer-nav-link">Funnel marketing</a>
-      <a href="diensten/media-beheer.html" class="footer-nav-link">Media beheer</a>
-      <a href="diensten/content-creatie.html" class="footer-nav-link">Content creatie</a>
-      <a href="diensten/web-development.html" class="footer-nav-link">Web development</a>
-      <a href="diensten/data-analyse.html" class="footer-nav-link">Data &amp; analyse</a>
-    </div>
-    <div class="footer-tile footer-tile-nav">
       <span class="footer-nav-head">Kennisbank</span>
       <a href="kennisbank.html" class="footer-nav-link">Marketing</a>
       <a href="kennisbank.html" class="footer-nav-link">Merk</a>
@@ -2474,6 +2472,14 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
       <a href="kennisbank.html" class="footer-nav-link">Digitale Marketing</a>
       <a href="kennisbank.html" class="footer-nav-link">Data &amp; AI</a>
 
+    </div>
+    <div class="footer-tile footer-tile-nav">
+      <span class="footer-nav-head">Diensten</span>
+      <a href="diensten/funnel-marketing.html" class="footer-nav-link">Funnel marketing</a>
+      <a href="diensten/media-beheer.html" class="footer-nav-link">Media beheer</a>
+      <a href="diensten/content-creatie.html" class="footer-nav-link">Content creatie</a>
+      <a href="diensten/web-development.html" class="footer-nav-link">Web development</a>
+      <a href="diensten/data-analyse.html" class="footer-nav-link">Data &amp; analyse</a>
     </div>
     <div class="footer-tile footer-tile-bottom">
       <div class="footer-wordmark">FLII.<span>MEDIA</span></div>
@@ -2495,6 +2501,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
     </div>
   </div>
 </footer>
+
 
 
 
