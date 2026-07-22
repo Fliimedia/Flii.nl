@@ -607,6 +607,137 @@ img{max-width:100%;display:block;}
   </div>
 </section>
 
+<!-- PRIJS INDICATIE CALCULATOR -->
+<section style="padding:40px 24px 48px;background:#F9F8F6;border-top:1px solid #E8E6E1;" id="prijsindicatie">
+  <div style="max-width:480px;margin:0 auto">
+    <span style="font-family:JetBrains Mono,monospace;font-size:9px;font-weight:700;letter-spacing:.14em;text-transform:uppercase;color:#E8294A;display:block;margin-bottom:8px">Prijs indicatie</span>
+    <h2 style="font-family:Bricolage Grotesque,system-ui,sans-serif;font-size:22px;font-weight:900;letter-spacing:-.5px;color:#0F0E0C;margin-bottom:10px">Bereken je campagne.</h2>
+    <p style="font-size:13px;color:#4A4840;line-height:1.6;margin-bottom:28px">Kies je kanalen of vraag om een mediaplan. Ons team bouwt en onderhoudt je campagnes.</p>
+
+    <!-- STEP DOTS -->
+    <div id="ai-calc-dots" style="display:flex;gap:6px;margin-bottom:24px;padding-bottom:16px;border-bottom:1px solid #E8E6E1"></div>
+
+    <!-- BODY -->
+    <div id="ai-calc-body"></div>
+  </div>
+</section>
+
+<script>
+(function() {
+  var CHANNELS = [
+    { key:'search',   label:'Google Search',    price:'v.a. €850/mnd'  },
+    { key:'linkedin', label:'LinkedIn Ads',      price:'v.a. €950/mnd'  },
+    { key:'meta',     label:'Meta Ads',          price:'v.a. €750/mnd'  },
+    { key:'youtube',  label:'YouTube Ads',       price:'v.a. €850/mnd'  },
+    { key:'display',  label:'Programmatic Display', price:'v.a. €650/mnd' },
+    { key:'email',    label:'E-mail automation', price:'v.a. €550/mnd'  },
+  ];
+  var PACKAGES = [
+    { key:'plan',  label:'Loop Start',  desc:'Research en positionering.',           price:'v.a. €1.950' },
+    { key:'build', label:'Loop Build',  desc:'Campagnebouw en activatie.',           price:'v.a. €2.450' },
+    { key:'run',   label:'Loop Run',    desc:'Beheer en optimalisatie per maand.',   price:'v.a. €1.250/mnd' },
+  ];
+
+  var state = { step:0, channels:{}, package:null };
+
+  var STEPS = ['Kanalen','Pakket','Resultaat'];
+
+  function dots() {
+    return STEPS.map(function(s,i){
+      var on = i===state.step, done = i<state.step;
+      return '<button onclick="goStep('+i+')" style="display:flex;align-items:center;gap:6px;background:none;border:none;cursor:pointer;padding:4px 8px 4px 0;font:inherit">'
+        +'<span style="width:22px;height:22px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:10px;font-weight:800;'
+        +(on?'background:#E8294A;color:#fff':done?'background:#0F0E0C;color:#fff':'background:#E8E6E1;color:#9B9790')
+        +'">'+( done?'✓':(i+1) )+'</span>'
+        +'<span style="font-size:11px;font-weight:600;color:'+(on?'#0F0E0C':'#9B9790')+'">'+s+'</span>'
+        +'</button>';
+    }).join('<span style="flex:1;height:1px;background:#E8E6E1;margin:0 4px;align-self:center"></span>');
+  }
+
+  function renderStep() {
+    var d = document.getElementById('ai-calc-dots');
+    var b = document.getElementById('ai-calc-body');
+    if (!d||!b) return;
+    d.innerHTML = dots();
+
+    var html = '';
+    if (state.step===0) {
+      // Channel selection
+      html += '<div style="font-size:13px;font-weight:700;color:#0F0E0C;margin-bottom:14px">Welke kanalen wil je inzetten?</div>';
+      html += '<div style="display:flex;flex-direction:column;gap:8px">';
+      CHANNELS.forEach(function(c) {
+        var on = !!state.channels[c.key];
+        html += '<button onclick="toggleCh(''+c.key+'')" style="display:flex;align-items:center;justify-content:space-between;padding:12px 14px;border:1.5px solid '+(on?'#E8294A':'#E8E6E1')+';border-radius:10px;background:'+(on?'rgba(232,41,74,.04)':'#fff')+';cursor:pointer;text-align:left;width:100%;font:inherit;transition:border-color .15s">'
+          +'<span style="font-size:13px;font-weight:600;color:#0F0E0C">'+c.label+'</span>'
+          +'<span style="font-size:11px;color:'+(on?'#E8294A':'#9B9790')+'">'+c.price+'</span>'
+          +'</button>';
+      });
+      html += '</div>';
+      html += nav(false, true);
+    } else if (state.step===1) {
+      // Package
+      html += '<div style="font-size:13px;font-weight:700;color:#0F0E0C;margin-bottom:14px">Kies je Loop-pakket.</div>';
+      html += '<div style="display:flex;flex-direction:column;gap:8px">';
+      PACKAGES.forEach(function(p) {
+        var on = state.package===p.key;
+        html += '<button onclick="setPkg(''+p.key+'')" style="display:flex;align-items:flex-start;justify-content:space-between;padding:14px;border:1.5px solid '+(on?'#E8294A':'#E8E6E1')+';border-radius:10px;background:'+(on?'rgba(232,41,74,.04)':'#fff')+';cursor:pointer;text-align:left;width:100%;font:inherit">'
+          +'<span style="display:flex;flex-direction:column;gap:3px"><span style="font-size:13px;font-weight:700;color:#0F0E0C">'+p.label+'</span><span style="font-size:11px;color:#9B9790">'+p.desc+'</span></span>'
+          +'<span style="font-size:11px;font-weight:600;color:'+(on?'#E8294A':'#9B9790')+';white-space:nowrap;margin-left:8px">'+p.price+'</span>'
+          +'</button>';
+      });
+      html += '</div>';
+      html += nav(true, true);
+    } else {
+      // Result
+      var hasCh = Object.keys(state.channels).filter(function(k){return state.channels[k];}).length;
+      var hasPkg = !!state.package;
+      html += '<div style="background:#fff;border:1px solid #E8E6E1;border-radius:14px;padding:20px 18px;margin-bottom:16px">';
+      if (!hasCh && !hasPkg) {
+        html += '<p style="font-size:13px;color:#9B9790;margin:0">Geen selectie gemaakt — vraag een maatwerk mediaplan aan.</p>';
+      } else {
+        if (hasCh) {
+          html += '<div style="font-size:10px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:#9B9790;margin-bottom:10px">Kanalen</div>';
+          CHANNELS.forEach(function(c){
+            if (state.channels[c.key])
+              html += '<div style="display:flex;justify-content:space-between;padding:8px 0;border-bottom:1px solid #E8E6E1;font-size:13px"><span style="color:#0F0E0C">'+c.label+'</span><span style="color:#9B9790;font-size:11px">'+c.price+'</span></div>';
+          });
+        }
+        if (hasPkg) {
+          var pkg = PACKAGES.find(function(p){return p.key===state.package;});
+          if (pkg) {
+            html += '<div style="font-size:10px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:#9B9790;margin:14px 0 10px">Pakket</div>';
+            html += '<div style="display:flex;justify-content:space-between;padding:8px 0;font-size:13px"><span style="color:#0F0E0C">'+pkg.label+'</span><span style="color:#E8294A;font-weight:600">'+pkg.price+'</span></div>';
+          }
+        }
+        html += '<p style="font-size:11px;color:#9B9790;margin:12px 0 0;line-height:1.5">Indicatie excl. btw en mediabudget. Definitief voorstel op aanvraag.</p>';
+      }
+      html += '</div>';
+      html += '<a href="https://calendly.com/flii-media" target="_blank" style="display:flex;align-items:center;justify-content:center;width:100%;background:#E8294A;color:#fff;border-radius:100px;padding:14px 24px;font-size:14px;font-weight:700;font-family:inherit;text-decoration:none;cursor:pointer;margin-bottom:8px">Plan een gesprek →</a>';
+      html += nav(true, false);
+    }
+    b.innerHTML = html;
+  }
+
+  function nav(back, next) {
+    var h = '<div style="display:flex;gap:10px;margin-top:20px">';
+    if (back) h += '<button onclick="goStep('+(state.step-1)+')" style="flex:1;padding:11px;border:1.5px solid #E8E6E1;border-radius:100px;background:#fff;font:inherit;font-size:13px;font-weight:600;color:#9B9790;cursor:pointer">← Terug</button>';
+    if (next) h += '<button onclick="goStep('+(state.step+1)+')" style="flex:2;padding:11px;border:none;border-radius:100px;background:#E8294A;color:#fff;font:inherit;font-size:13px;font-weight:700;cursor:pointer">Volgende →</button>';
+    if (!next && state.step>0) h += '<button onclick="goStep(0)" style="flex:1;padding:11px;border:1.5px solid #E8E6E1;border-radius:100px;background:#fff;font:inherit;font-size:13px;font-weight:600;color:#9B9790;cursor:pointer">Opnieuw</button>';
+    return h + '</div>';
+  }
+
+  window.goStep = function(i) {
+    state.step = Math.max(0, Math.min(STEPS.length-1, i));
+    renderStep();
+    document.getElementById('prijsindicatie').scrollIntoView({behavior:'smooth',block:'start'});
+  };
+  window.toggleCh = function(k) { state.channels[k] = !state.channels[k]; renderStep(); };
+  window.setPkg = function(k) { state.package = state.package===k?null:k; renderStep(); };
+
+  renderStep();
+})();
+</script>
+
 <!-- FINAL CTA -->
 <section class="ai-final-cta">
   <h2>Klaar om te lanceren?</h2>
