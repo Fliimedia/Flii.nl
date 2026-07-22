@@ -5675,56 +5675,60 @@ document.addEventListener('click', function(e) {
   if (!ov || !trigger || !canvas) return;
 
   var ctx = canvas.getContext('2d');
+  var offscreen = document.createElement('canvas');
+  var octx = offscreen.getContext('2d');
   var raf = null;
   var holdTimer = null, sloganTimer = null, active = false;
   var showText = true;
 
   function resize() {
-    canvas.width  = window.innerWidth;
-    canvas.height = window.innerHeight;
+    canvas.width  = offscreen.width  = window.innerWidth;
+    canvas.height = offscreen.height = window.innerHeight;
   }
   resize();
   window.addEventListener('resize', resize);
 
   function drawFrame() {
     var W = canvas.width, H = canvas.height;
-    ctx.clearRect(0, 0, W, H);
 
-    // 1. Draw video full screen
+    // ── MAIN CANVAS ──────────────────────────────────────────────
+    // 1. Draw video fully opaque
+    ctx.clearRect(0, 0, W, H);
     ctx.drawImage(vid, 0, 0, W, H);
 
-    // 2. Diagonal gradient: right-top (transparent) → left-bottom (solid black)
-    //    Covers full screen, solid black in bottom-left half
-    var grad = ctx.createLinearGradient(W, 0, 0, H);
+    // ── OFFSCREEN: gradient with letter cut-outs ──────────────────
+    offscreen.width = W; offscreen.height = H;
+    octx.clearRect(0, 0, W, H);
+
+    // Draw gradient on offscreen
+    var grad = octx.createLinearGradient(W, 0, 0, H);
     grad.addColorStop(0,    'rgba(0,0,0,0)');
     grad.addColorStop(0.35, 'rgba(0,0,0,0.25)');
-    grad.addColorStop(0.6,  'rgba(0,0,0,0.82)');
+    grad.addColorStop(0.6,  'rgba(0,0,0,0.85)');
     grad.addColorStop(1,    'rgba(0,0,0,1)');
-    ctx.fillStyle = grad;
-    ctx.fillRect(0, 0, W, H);
+    octx.fillStyle = grad;
+    octx.fillRect(0, 0, W, H);
 
-    // 3. Cut-out text — only during 'glass' phase
+    // Cut letters OUT of the gradient (destination-out removes gradient pixels)
     if (showText) {
-      ctx.save();
-      ctx.globalCompositeOperation = 'destination-out';
-
-      // Font: 2.5x larger than before (was W*0.14, now W*0.35), aligned top-left
-      var fontSize = Math.min(220, Math.max(130, W * 0.35));
-      ctx.font = '900 ' + fontSize + 'px "Bricolage Grotesque", system-ui, sans-serif';
-      ctx.textBaseline = 'top';
-      ctx.globalAlpha = 0.78;
+      octx.save();
+      octx.globalCompositeOperation = 'destination-out';
+      var fontSize = Math.min(132, Math.max(78, W * 0.21));
+      octx.font = '900 ' + fontSize + 'px "Bricolage Grotesque", system-ui, sans-serif';
+      octx.textBaseline = 'top';
+      octx.globalAlpha = 0.82; // slightly soft edges
 
       var lines = ["Let's", "ignite", "ambitions"];
       var lineH = fontSize * 0.86;
-      var x = 24;
-      var y = 32; // top-aligned
-
+      var x = 24, y = 32;
       lines.forEach(function(line, i) {
-        ctx.fillText(line, x, y + i * lineH);
+        octx.fillText(line, x, y + i * lineH);
       });
-
-      ctx.restore();
+      octx.restore();
     }
+
+    // ── Composite offscreen (gradient with holes) onto video ──────
+    ctx.drawImage(offscreen, 0, 0);
 
     raf = requestAnimationFrame(drawFrame);
   }
@@ -5739,7 +5743,6 @@ document.addEventListener('click', function(e) {
       ov.className = 's-glass';
       drawFrame();
 
-      // After 2s: slogan disappears, video + fade remain
       sloganTimer = setTimeout(function() {
         showText = false;
         ov.className = 's-full';
