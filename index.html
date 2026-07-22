@@ -262,7 +262,8 @@ img { display: block; max-width: 100%; }
 .hero-eyebrow {
   display: flex;
   align-items: center;
-  gap: 10px;
+  gap: 8px;
+  width: 100%;
 }
 .hero-eyebrow-name {
   font-family: var(--ff-disp);
@@ -271,12 +272,7 @@ img { display: block; max-width: 100%; }
   letter-spacing: .02em;
   color: var(--c-ink);
 }
-.hero-eyebrow-dot {
-  width: 4px; height: 4px;
-  border-radius: 50%;
-  background: var(--c-red);
-  flex-shrink: 0;
-}
+
 .hero-eyebrow-sub {
   font-size: var(--t-sm);
   color: var(--c-subtle);
@@ -500,7 +496,7 @@ img { display: block; max-width: 100%; }
 }
 
 /* ── NETWORK CARD ── */
-.network-card { background:transparent; padding:var(--sp-2) 0 var(--sp-3); }
+.network-card { background: #0F0E0C; border-radius: 16px; padding: var(--sp-3); }
 .network-card-label {
   font-family: var(--ff-mono);
   font-size: var(--t-xs); font-weight: 500;
@@ -591,7 +587,7 @@ img { display: block; max-width: 100%; }
 .btn-outline-dark:hover { border-color: rgba(255,255,255,.4); color: #fff; }
 
 /* ── ORBIT NETWORK ── */
-.network-card { background:transparent; padding:var(--sp-2) 0 var(--sp-3); }
+.network-card { background: #0F0E0C; border-radius: 16px; padding: var(--sp-3); }
 .orbit-wrap {
   display: flex; align-items: center; justify-content: center;
   padding: var(--sp-4) 0 var(--sp-3);
@@ -599,7 +595,7 @@ img { display: block; max-width: 100%; }
 .orbit-scene { position:relative; width:320px; height:320px; flex-shrink:0; overflow:visible; }
 .orbit-ring {
   position: absolute; border-radius: 50%;
-  border: 1px solid rgba(255,255,255,.12);
+  border: 1px solid rgba(255,255,255,.10);
   top: 50%; left: 50%;
   transform: translate(-50%,-50%);
   pointer-events: none;
@@ -609,9 +605,16 @@ img { display: block; max-width: 100%; }
 .orbit-center {
   position: absolute; top: 50%; left: 50%;
   transform: translate(-50%,-50%);
-  width: 10px; height: 10px; border-radius: 50%;
-  background: var(--c-red);
-  box-shadow: 0 0 8px rgba(232,41,74,.6);
+  width: 8px; height: 8px; border-radius: 50%;
+  background: rgba(232,41,74,0.5);
+  box-shadow: 0 0 10px rgba(232,41,74,.25);
+  cursor: pointer;
+  animation: dotPulse 3.5s ease-in-out infinite;
+  z-index: 4;
+}
+@keyframes dotPulse {
+  0%,100% { opacity:0.3; transform:translate(-50%,-50%) scale(0.85); }
+  50% { opacity:0.8; transform:translate(-50%,-50%) scale(1.15); }
 }
 .orbit-label {
   position: absolute;
@@ -628,7 +631,7 @@ img { display: block; max-width: 100%; }
   overflow: hidden;
 }
 .orbit-label img { max-width:28px; max-height:22px; object-fit:contain; filter:none; }
-.orbit-label-text { font-family:var(--ff-mono); font-size:8px; font-weight:700; color:var(--ink); text-align:center; margin-top:4px; white-space:nowrap; }
+.orbit-label-text { font-family:var(--ff-mono); font-size:8px; font-weight:700; color:rgba(255,255,255,.7); text-align:center; margin-top:4px; white-space:nowrap; }
 
 .reviews-list { display: flex; flex-direction: column; gap: var(--sp-2); }
 .review {
@@ -1038,27 +1041,12 @@ img { display: block; max-width: 100%; }
 .office-visit-btn:hover { background: #fff; transform: scale(1.03); }
 
 /* ── ORBIT RIPPLE ── */
-.orbit-ripple {
-  position: absolute;
-  top: 50%; left: 50%;
-  border-radius: 50%;
-  background: transparent;
-  border: 1.5px solid rgba(232,41,74,0.7);
-  transform: translate(-50%,-50%) scale(0);
-  pointer-events: none;
-  z-index: 3;
-  animation: orbitRipple 1.6s cubic-bezier(.2,.6,.4,1) forwards;
-}
-@keyframes orbitRipple {
-  0%   { transform: translate(-50%,-50%) scale(0); opacity: 0.8; }
+
   60%  { opacity: 0.35; }
   100% { transform: translate(-50%,-50%) scale(1); opacity: 0; }
 }
-.orbit-label.floating {
-  animation: orbitFloat 0.45s cubic-bezier(.25,.46,.45,.94) forwards;
-}
-@keyframes orbitFloat {
-  0%   { transform: translate(-50%,-50%) scale(1); }
+
+
   35%  { transform: translate(-50%,-58%) scale(1.06); }
   70%  { transform: translate(-50%,-45%) scale(0.97); }
   100% { transform: translate(-50%,-50%) scale(1); }
@@ -1728,6 +1716,75 @@ details.faq-item[open] .faq-answer {
 .footer-copy { text-align: center !important; }
 .footer-social-row { justify-content: center !important; }
 .google-review-banner { align-self: center; }
+
+.hero-eyebrow-line {
+  flex: 1;
+  height: 1px;
+  background: var(--c-subtle);
+  opacity: 0.35;
+  min-width: 12px;
+}
+.hero-eyebrow-year {
+  font-size: var(--t-sm);
+  color: var(--c-subtle);
+  font-weight: 400;
+  white-space: nowrap;
+  flex-shrink: 0;
+}
+
+/* ── WATER RIPPLE ── */
+.orbit-ripple {
+  position: absolute;
+  top: 50%; left: 50%;
+  border-radius: 50%;
+  background: transparent;
+  border: 1.5px solid rgba(255,255,255,0.55);
+  transform: translate(-50%,-50%) scale(0);
+  pointer-events: none;
+  z-index: 3;
+  animation: waterRipple 1.8s cubic-bezier(.2,.5,.3,1) forwards;
+}
+.orbit-ripple.r2 { border-color: rgba(255,255,255,0.3); animation-delay: 0.18s; }
+.orbit-ripple.r3 { border-color: rgba(255,255,255,0.15); animation-delay: 0.36s; }
+@keyframes waterRipple {
+  0%   { transform: translate(-50%,-50%) scale(0.05); opacity: 0.9; }
+  40%  { opacity: 0.6; }
+  80%  { opacity: 0.15; }
+  100% { transform: translate(-50%,-50%) scale(1); opacity: 0; }
+}
+/* Float on wave */
+@keyframes waterFloat {
+  0%   { transform: translate(-50%,-50%) translateY(0px) scale(1); }
+  25%  { transform: translate(-50%,-50%) translateY(-5px) scale(1.04); }
+  60%  { transform: translate(-50%,-50%) translateY(2px) scale(0.98); }
+  100% { transform: translate(-50%,-50%) translateY(0px) scale(1); }
+}
+.orbit-label.floating {
+  animation: waterFloat 0.6s cubic-bezier(.25,.46,.45,.94) forwards;
+}
+
+/* ── ROCKET CHARGE ── */
+.ignite-letter {
+  display: inline-block;
+  transition: transform 0.1s ease, color 0.1s;
+  position: relative;
+  cursor: default;
+}
+.ignite-letter.charging {
+  animation: none;
+}
+.ignite-letter.launched {
+  animation: rocketLaunch 0.7s cubic-bezier(.2,.8,.3,1) forwards;
+}
+@keyframes rocketLaunch {
+  0%   { transform: translateY(0) scale(1); opacity: 1; }
+  40%  { transform: translateY(-120px) scale(1.1); opacity: 0.7; }
+  60%  { transform: translateY(-200px) scale(0.8); opacity: 0; }
+  61%  { transform: translateY(60px) scale(0.9); opacity: 0; }
+  80%  { transform: translateY(8px) scale(1.05); opacity: 1; }
+  90%  { transform: translateY(-3px) scale(1.02); opacity: 1; }
+  100% { transform: translateY(0) scale(1); opacity: 1; }
+}
 </style>
 <!-- Default consent vóór GTM -->
 
@@ -1835,14 +1892,15 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
   <!-- Eyebrow — very top -->
   <div class="hero-eyebrow">
     <span class="hero-eyebrow-name">Flii</span>
-    <span class="hero-eyebrow-dot"></span>
-    <span class="hero-eyebrow-sub">marketing &amp; performance media · sinds 2021</span>
+    <span class="hero-eyebrow-sub">marketing &amp; performance media</span>
+    <span class="hero-eyebrow-line"></span>
+    <span class="hero-eyebrow-year">sinds 2021</span>
   </div>
 
   <!-- Big headline -->
   <div class="hero-headline" aria-label="Let's ignite ambitions">
     <span class="hero-word hero-word--solid">Let's</span>
-    <span class="hero-word hero-word--ignite" id="ignite-word">ignite</span>
+    <span class="hero-word hero-word--ignite" id="ignite-word"><span class="ignite-letter">i</span><span class="ignite-letter">g</span><span class="ignite-letter">n</span><span class="ignite-letter">i</span><span class="ignite-letter">t</span><span class="ignite-letter">e</span></span>
     <span class="hero-word hero-word--solid">ambitions</span>
   </div>
 
@@ -2525,69 +2583,59 @@ document.addEventListener('click', function(e) {
   requestAnimationFrame(tick);
 })();
 
-// Orbit ripple on dot click
+// Orbit water ripple on dot click
 (function() {
   var scene = document.getElementById('orbit-scene');
   if (!scene) return;
-  
   var center = scene.querySelector('.orbit-center');
   if (!center) return;
 
-  function getLabels() {
-    return Array.from(scene.querySelectorAll('.orbit-label'));
-  }
+  function getLabels() { return Array.from(scene.querySelectorAll('.orbit-label')); }
 
-  function rippleDistances(labels, w, h2) {
-    var cx = w / 2, cy = h2 / 2;
-    return labels.map(function(el) {
+  function labelDists() {
+    var sw = scene.offsetWidth, sh = scene.offsetHeight;
+    var cx = sw / 2, cy = sh / 2;
+    return getLabels().map(function(el) {
       var r = el.getBoundingClientRect();
       var sr = scene.getBoundingClientRect();
       var lx = (r.left + r.right) / 2 - sr.left;
       var ly = (r.top + r.bottom) / 2 - sr.top;
-      return Math.sqrt(Math.pow(lx - cx, 2) + Math.pow(ly - cy, 2));
+      return { el: el, dist: Math.sqrt(Math.pow(lx-cx,2)+Math.pow(ly-cy,2)) };
     });
   }
 
   function fireRipple() {
     var sw = scene.offsetWidth, sh = scene.offsetHeight;
-    var maxR = Math.max(sw, sh) * 0.7;
-    var labels = getLabels();
-    var dists = rippleDistances(labels, sw, sh);
+    var maxR = Math.max(sw, sh) * 0.72;
+    var labels = labelDists();
 
-    // Three ripples, each 180ms apart
-    [1, 0.65, 0.38].forEach(function(strength, ri) {
-      var delay = ri * 200;
+    // Create 3 concentric water rings (staggered)
+    ['','r2','r3'].forEach(function(cls, ri) {
+      var rEl = document.createElement('div');
+      rEl.className = 'orbit-ripple' + (cls ? ' '+cls : '');
+      rEl.style.width = (maxR * 2) + 'px';
+      rEl.style.height = (maxR * 2) + 'px';
+      scene.appendChild(rEl);
+      setTimeout(function() { rEl.remove(); }, 2400);
+    });
 
+    // Float each label when the primary ripple wave reaches it
+    labels.forEach(function(item) {
+      var travelTime = (item.dist / maxR) * 1600;
       setTimeout(function() {
-        var rEl = document.createElement('div');
-        rEl.className = 'orbit-ripple';
-        var size = maxR * 2;
-        rEl.style.width  = size + 'px';
-        rEl.style.height = size + 'px';
-        rEl.style.borderColor = 'rgba(232,41,74,' + (0.7 * strength) + ')';
-        rEl.style.animationDuration = (1.4 + ri * 0.15) + 's';
-        scene.appendChild(rEl);
-        setTimeout(function() { rEl.remove(); }, 2200);
-
-        // Float each label when ripple reaches it
-        labels.forEach(function(lbl, i) {
-          var travelTime = (dists[i] / (maxR)) * (1400 + ri * 150);
-          setTimeout(function() {
-            lbl.classList.remove('floating');
-            void lbl.offsetWidth; // reflow
-            lbl.classList.add('floating');
-            // Scale by ripple strength
-            var amp = 8 * strength;
-            lbl.style.setProperty('--float-amp', amp + 'px');
-            setTimeout(function() { lbl.classList.remove('floating'); }, 500);
-          }, travelTime);
-        });
-      }, delay);
+        var el = item.el;
+        el.classList.remove('floating');
+        void el.offsetWidth; // reflow
+        el.classList.add('floating');
+        setTimeout(function() { el.classList.remove('floating'); }, 650);
+      }, travelTime);
     });
   }
 
   center.addEventListener('click', fireRipple);
-  center.addEventListener('touchstart', function(e) { e.preventDefault(); fireRipple(); }, {passive:false});
+  center.addEventListener('touchstart', function(e) {
+    e.preventDefault(); fireRipple();
+  }, { passive: false });
 })();
 
 
@@ -2849,6 +2897,84 @@ document.addEventListener('click', function(e) {
   check();
   window.addEventListener('scroll', check, { passive: true });
 })();
+</script>
+<script>
+
+// ── ROCKET CHARGE + LAUNCH per letter ─────────────────────────────
+(function() {
+  var igniteWord = document.getElementById('ignite-word');
+  if (!igniteWord) return;
+  var letters = Array.from(igniteWord.querySelectorAll('.ignite-letter'));
+  var chargeTimers = {};
+  var chargeStart = {};
+  var MAX_CHARGE = 2000; // ms until max charge
+  var charging = {};
+
+  function getChargeLevel(letter) {
+    var elapsed = Date.now() - (chargeStart[letter] || Date.now());
+    return Math.min(elapsed / MAX_CHARGE, 1);
+  }
+
+  function updateCharge(letter, el) {
+    if (!charging[letter]) return;
+    var level = getChargeLevel(letter);
+    // Scale down (compress like a spring), tint red
+    var scale = 1 - level * 0.35;
+    var glow = Math.round(level * 180);
+    el.style.transform = 'translateY(' + (level * 6) + 'px) scale(' + scale + ')';
+    el.style.color = 'rgb(' + Math.round(15 + level * 217) + ',' + Math.round(14 - level * 14 + 1) + ',' + Math.round(12 - level * 12 + 1) + ')';
+    el.style.textShadow = level > 0.3 ? '0 0 ' + Math.round(level*20) + 'px rgba(232,41,74,' + (level*0.8) + ')' : '';
+    chargeTimers[letter] = requestAnimationFrame(function() { updateCharge(letter, el); });
+  }
+
+  function launch(el, level) {
+    el.style.transform = '';
+    el.style.color = '';
+    el.style.textShadow = '';
+    if (level < 0.05) return; // tiny charge = no launch
+    el.classList.remove('launched');
+    void el.offsetWidth;
+    el.classList.add('launched');
+    setTimeout(function() { el.classList.remove('launched'); }, 750);
+  }
+
+  function startCharge(el) {
+    var key = el.textContent;
+    charging[key] = true;
+    chargeStart[key] = Date.now();
+    updateCharge(key, el);
+  }
+
+  function endCharge(el) {
+    var key = el.textContent;
+    var level = getChargeLevel(key);
+    charging[key] = false;
+    cancelAnimationFrame(chargeTimers[key]);
+    launch(el, level);
+  }
+
+  letters.forEach(function(el) {
+    el.addEventListener('mousedown', function(e) { e.preventDefault(); startCharge(el); });
+    el.addEventListener('touchstart', function(e) { e.preventDefault(); startCharge(el); }, {passive:false});
+    el.addEventListener('mouseup', function() { endCharge(el); });
+    el.addEventListener('mouseleave', function() { if (charging[el.textContent]) endCharge(el); });
+    el.addEventListener('touchend', function() { endCharge(el); });
+  });
+
+  // Also: click the whole word = launch all letters in sequence
+  igniteWord.addEventListener('click', function(e) {
+    if (e.target !== igniteWord) return; // individual letters handle their own
+    letters.forEach(function(el, i) {
+      setTimeout(function() {
+        el.classList.remove('launched');
+        void el.offsetWidth;
+        el.classList.add('launched');
+        setTimeout(function() { el.classList.remove('launched'); }, 750);
+      }, i * 60);
+    });
+  });
+})();
+
 </script>
 </body>
 </html>
