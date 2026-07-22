@@ -5702,12 +5702,12 @@ document.addEventListener('click', function(e) {
     var textY    = 32;
     var lines    = ["Let's", "ignite", "ambitions"];
 
-    // Gradient: right-top (transparent) → left-bottom (solid black)
-    var grad = octx.createLinearGradient(W, 0, 0, H);
-    grad.addColorStop(0,    'rgba(0,0,0,0)');
-    grad.addColorStop(0.35, 'rgba(0,0,0,0.25)');
-    grad.addColorStop(0.6,  'rgba(0,0,0,0.85)');
-    grad.addColorStop(1,    'rgba(0,0,0,1)');
+    // Gradient: left-bottom (solid black) → right-top (transparent) — full diagonal
+    var grad = octx.createLinearGradient(0, H, W, 0);
+    grad.addColorStop(0,    'rgba(0,0,0,1)');
+    grad.addColorStop(0.35, 'rgba(0,0,0,0.85)');
+    grad.addColorStop(0.65, 'rgba(0,0,0,0.25)');
+    grad.addColorStop(1,    'rgba(0,0,0,0)');
     octx.fillStyle = grad;
     octx.fillRect(0, 0, W, H);
 
