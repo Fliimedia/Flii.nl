@@ -701,10 +701,8 @@ function renderCore() {
 // ── DATA ────────────────────────────────────────────────────
 var PRICING = {
   scopes: {
-    campagne: { plan: 1500, build: 0,     run: 0    },
-    app:      { plan: 2500, build: 5000,  run: 750  },
-    platform: { plan: 4500, build: 18000, run: 2500 },
-    ai:       { plan: 2500, build: 6500,  run: 850  }
+    campagne: { plan: 1500, build: 0,    run: 0   },
+    ai:       { plan: 2500, build: 6500, run: 850  }
   }
 };
 
@@ -734,18 +732,12 @@ var DEL_PRICE = {
   persstrategie:{mo:500},influencerMgmt:{mo:450},affiliateSetup:{once:1200}
 };
 
-var APP_KINDS = ["webapp","pwa","nativeApp"];
-var APP_OPTS  = ["uxDesign","backendApi","appIntegraties","appStorePub"];
-var PLATFORM_OPTS = ["website","ecommerce","portaal","platformAi","platformIntegraties","cms"];
-var AI_OPTS   = ["chatbot","contentgen","automatisering","dataAnalyse","aiIntegratie","customModel"];
-var APP_KIND_PRICE = { webapp:0, pwa:0, nativeApp:1500 };
-var APP_OPT_PRICE  = { uxDesign:900, backendApi:1200, appIntegraties:900, appStorePub:500 };
-var APP_CAP = 10000;
+var AI_OPTS = ["chatbot","contentgen","automatisering","dataAnalyse","aiIntegratie","customModel"];
 
 // Labels
 var L = {
-  scopes:    { campagne:"Campagne", app:"App", platform:"Platform", ai:"AI" },
-  scopeDesc: { campagne:"Een advertentiecampagne, opgezet en gestuurd op resultaat.", app:"Een werkende app of PWA, van één functie tot meerdere modules.", platform:"Een volwaardig, schaalbaar platform met backend en AI.", ai:"Een AI-oplossing of automatisering, van integratie tot een eigen model." },
+  scopes: { campagne:"Campagne", ai:"AI" },
+  scopeDesc: { campagne:"Een advertentiecampagne, opgezet en gestuurd op resultaat.", ai:"Een AI-oplossing of automatisering, van integratie tot een eigen model." },
   phases:    { plan:"Loop Start", build:"Loop Build", run:"Loop Run" },
   phaseDesc: { plan:"Research en plan van aanpak.", build:"Creatie en activatie van je campagne.", run:"Beheer & optimalisatie van actieve campagnes." },
   phaseByType: {
@@ -784,11 +776,10 @@ var L = {
 // ── STATE ────────────────────────────────────────────────────
 var S = {
   step: 0,
-  types:  { campagne:true, app:false, platform:false, ai:false },
+  types:  { campagne:true, ai:false },
   phases: { plan:true, build:true, run:true },
   cats:   {}, subs: {}, dels: {},
   opts:   {},
-  appKind:"webapp",
   advice: false,
   openRows: {}
 };
@@ -798,31 +789,16 @@ function eur(n) { return "\u20AC\u00A0" + Math.round(n||0).toLocaleString("nl-NL
 
 // ── COMPUTE ──────────────────────────────────────────────────
 function compute() {
-  var selected = ["campagne","app","platform","ai"].filter(function(k){ return S.types[k]; });
+  var selected = ["campagne","ai"].filter(function(k){ return S.types[k]; });
   var once = 0, mo = 0, saving = 0;
-  var allLoop = S.phases.plan && S.phases.build && S.phases.run;
 
   selected.forEach(function(sk) {
     var sc = PRICING.scopes[sk];
     var planFee = S.phases.build ? 0 : (S.phases.plan ? sc.plan : 0);
     once += planFee + (S.phases.build ? sc.build : 0);
     mo   += S.phases.run ? sc.run : 0;
-    if (S.phases.plan && S.phases.build) saving += sc.plan;
+    if (S.phases.plan && S.phases.build && sc.build > 0) saving += sc.plan;
   });
-
-  // App options
-  if (S.types.app && S.phases.build) {
-    var room = APP_CAP - PRICING.scopes.app.build;
-    var kp = APP_KIND_PRICE[S.appKind] || 0;
-    once += Math.min(kp, Math.max(0, room));
-    room -= Math.min(kp, Math.max(0, room));
-    APP_OPTS.forEach(function(k) {
-      if (S.opts[k]) {
-        var add = Math.min(APP_OPT_PRICE[k]||0, Math.max(0,room));
-        once += add; room -= add;
-      }
-    });
-  }
 
   // Campaign channels
   if (S.types.campagne) {
@@ -845,7 +821,7 @@ function compute() {
 
 function lineItems() {
   var items = [];
-  var selected = ["campagne","app","platform","ai"].filter(function(k){ return S.types[k]; });
+  var selected = ["campagne","ai"].filter(function(k){ return S.types[k]; });
 
   selected.forEach(function(sk) {
     var sc = PRICING.scopes[sk];
@@ -854,50 +830,38 @@ function lineItems() {
     var moItem   = S.phases.run ? sc.run : 0;
     var sub = [];
 
-    if (sk === "app" && S.phases.build) {
-      var room = APP_CAP - sc.build;
-      var kp = APP_KIND_PRICE[S.appKind] || 0;
-      var add = Math.min(kp, Math.max(0,room));
-      room -= add; onceItem += add;
-      sub.push({ label: L.typeOpts[S.appKind]||S.appKind, once:add, free:kp===0 });
-      APP_OPTS.forEach(function(k) {
-        if (S.opts[k]) {
-          var a2 = Math.min(APP_OPT_PRICE[k]||0, Math.max(0,room));
-          room -= a2; onceItem += a2;
-          sub.push({ label:L.typeOpts[k]||k, once:a2 });
-        }
+    if (sk === "ai") {
+      AI_OPTS.forEach(function(k) {
+        if (S.opts[k]) sub.push({ label: L.typeOpts[k]||k, free: true });
       });
-    } else if (sk === "platform") {
-      PLATFORM_OPTS.forEach(function(k) { if (S.opts[k]) sub.push({ label:L.typeOpts[k]||k, free:true }); });
-    } else if (sk === "ai") {
-      AI_OPTS.forEach(function(k) { if (S.opts[k]) sub.push({ label:L.typeOpts[k]||k, free:true }); });
     }
 
-    if (onceItem > 0 || moItem > 0 || sub.length > 0) {
-      items.push({ label:L.scopes[sk], once:onceItem, mo:moItem, sub:sub });
+    if (sk === "campagne" && S.phases.build) {
+      CHANNEL_TREE.forEach(function(c) {
+        if (!S.cats[c.key]) return;
+        var ch_once = c.once;
+        var ch_mo   = c.mo;
+        c.dels.forEach(function(d) {
+          if (S.dels[d]) {
+            var dp = DEL_PRICE[d] || {};
+            ch_once += dp.once || 0;
+            ch_mo   += dp.mo   || 0;
+          }
+        });
+        sub.push({ label: L.cats[c.key], once: S.phases.build ? ch_once : 0, mo: S.phases.run ? ch_mo : 0 });
+      });
+    }
+
+    if (onceItem || moItem) {
+      items.push({ label: L.scopes[sk], once: onceItem, mo: moItem, sub: sub });
     }
   });
 
-  if (S.types.campagne) {
-    CHANNEL_TREE.forEach(function(c) {
-      if (!S.cats[c.key]) return;
-      var selDels = c.dels.filter(function(d){ return S.dels[d]; });
-      var sub = [];
-      c.subs.filter(function(x){ return S.subs[x]; }).forEach(function(x){ sub.push({ label:L.subs[x]||x, free:true }); });
-      selDels.forEach(function(d) {
-        var dp = DEL_PRICE[d]||{};
-        sub.push({ label:L.dels[d]||d, once:(dp.once||0)*(S.phases.build?1:0), mo:(dp.mo||0)*(S.phases.run?1:0) });
-      });
-      var totOnce = (c.once + selDels.reduce(function(a,d){ return a+((DEL_PRICE[d]&&DEL_PRICE[d].once)||0);},0)) * (S.phases.build?1:0);
-      var totMo   = (c.mo   + selDels.reduce(function(a,d){ return a+((DEL_PRICE[d]&&DEL_PRICE[d].mo  )||0);},0)) * (S.phases.run ?1:0);
-      items.push({ label:L.cats[c.key], once:totOnce, mo:totMo, req:c.once===0&&c.mo===0, sub:sub });
-    });
-  }
   return items;
 }
 
 function phaseDescFor(k) {
-  var selected = ["campagne","app","platform","ai"].filter(function(s){ return S.types[s]; });
+  var selected = ["campagne","ai"].filter(function(s){ return S.types[s]; });
   if (selected.length === 1) {
     var pd = L.phaseByType[selected[0]];
     return pd ? pd[k] : L.phaseDesc[k];
@@ -906,7 +870,7 @@ function phaseDescFor(k) {
 }
 
 function packagePrice(k) {
-  var selected = ["campagne","app","platform","ai"].filter(function(s){ return S.types[s]; });
+  var selected = ["campagne","ai"].filter(function(s){ return S.types[s]; });
   if (selected.length === 0) return "";
   var total = 0;
   selected.forEach(function(sk) { total += PRICING.scopes[sk][k] || 0; });
@@ -945,7 +909,7 @@ function renderCalc() {
 
   // ── STEP 2: DETAILS ────────────────────────────────────────
   else if (cur === "details") {
-    var selected = ["campagne","app","platform","ai"].filter(function(k){ return S.types[k]; });
+    var selected = ["campagne","ai"].filter(function(k){ return S.types[k]; });
     if (!selected.length) {
       html += '<p class="calc-note">'+L.stepHelp.type+'</p>';
     }
@@ -987,39 +951,6 @@ function renderCalc() {
           html += '</div>';
         }
         html += '</div>';
-      });
-      html += '</div></div>';
-    }
-
-    // App details
-    if (S.types.app) {
-      html += '<div class="detail-block"><div class="detail-block-q">Wat voor app wil je?</div><div class="refine-group opt-group">';
-      APP_KINDS.forEach(function(k) {
-        var on = S.appKind === k;
-        html += '<button class="toggle toggle-sm'+(on?" on":"") +'" onclick="setAppKind(\''+k+'\')">';
-        html += '<span class="toggle-main"><span class="toggle-t">'+(L.typeOpts[k]||k)+'</span></span>';
-        html += '<span class="toggle-p mono">'+(APP_KIND_PRICE[k]?L.from+" "+eur(APP_KIND_PRICE[k]):L.inclFree)+'</span>';
-        html += '<span class="tgt"><span class="tgt-dot"></span></span></button>';
-      });
-      html += '</div><div class="detail-block-q" style="margin-top:12px">Extra diensten</div><div class="refine-group opt-group">';
-      APP_OPTS.forEach(function(k) {
-        var on = !!S.opts[k];
-        html += '<button class="toggle toggle-sm'+(on?" on":"") +'" onclick="toggleOpt(\''+k+'\')">';
-        html += '<span class="toggle-main"><span class="toggle-t">'+(L.typeOpts[k]||k)+'</span></span>';
-        html += '<span class="toggle-p mono">'+L.from+" "+eur(APP_OPT_PRICE[k])+'</span>';
-        html += '<span class="tgt"><span class="tgt-dot"></span></span></button>';
-      });
-      html += '</div></div>';
-    }
-
-    // Platform details
-    if (S.types.platform) {
-      html += '<div class="detail-block"><div class="detail-block-q">Welke functionaliteit heeft het platform nodig?</div><div class="refine-group opt-group">';
-      PLATFORM_OPTS.forEach(function(k) {
-        var on = !!S.opts[k];
-        html += '<button class="toggle toggle-sm'+(on?" on":"") +'" onclick="toggleOpt(\''+k+'\')">';
-        html += '<span class="toggle-main"><span class="toggle-t">'+(L.typeOpts[k]||k)+'</span></span>';
-        html += '<span class="tgt"><span class="tgt-dot"></span></span></button>';
       });
       html += '</div></div>';
     }
@@ -1142,10 +1073,8 @@ function toggleRow(label){ S.openRows[label] = !S.openRows[label]; renderCalc();
 // ── DATA ────────────────────────────────────────────────────
 var PRICING = {
   scopes: {
-    campagne: { plan: 1500, build: 0,     run: 0    },
-    app:      { plan: 2500, build: 5000,  run: 750  },
-    platform: { plan: 4500, build: 18000, run: 2500 },
-    ai:       { plan: 2500, build: 6500,  run: 850  }
+    campagne: { plan: 1500, build: 0,    run: 0   },
+    ai:       { plan: 2500, build: 6500, run: 850  }
   }
 };
 
@@ -1175,18 +1104,12 @@ var DEL_PRICE = {
   persstrategie:{mo:500},influencerMgmt:{mo:450},affiliateSetup:{once:1200}
 };
 
-var APP_KINDS = ["webapp","pwa","nativeApp"];
-var APP_OPTS  = ["uxDesign","backendApi","appIntegraties","appStorePub"];
-var PLATFORM_OPTS = ["website","ecommerce","portaal","platformAi","platformIntegraties","cms"];
-var AI_OPTS   = ["chatbot","contentgen","automatisering","dataAnalyse","aiIntegratie","customModel"];
-var APP_KIND_PRICE = { webapp:0, pwa:0, nativeApp:1500 };
-var APP_OPT_PRICE  = { uxDesign:900, backendApi:1200, appIntegraties:900, appStorePub:500 };
-var APP_CAP = 10000;
+var AI_OPTS = ["chatbot","contentgen","automatisering","dataAnalyse","aiIntegratie","customModel"];
 
 // Labels
 var L = {
-  scopes:    { campagne:"Campagne", app:"App", platform:"Platform", ai:"AI" },
-  scopeDesc: { campagne:"Een advertentiecampagne, opgezet en gestuurd op resultaat.", app:"Een werkende app of PWA, van één functie tot meerdere modules.", platform:"Een volwaardig, schaalbaar platform met backend en AI.", ai:"Een AI-oplossing of automatisering, van integratie tot een eigen model." },
+  scopes: { campagne:"Campagne", ai:"AI" },
+  scopeDesc: { campagne:"Een advertentiecampagne, opgezet en gestuurd op resultaat.", ai:"Een AI-oplossing of automatisering, van integratie tot een eigen model." },
   phases:    { plan:"Loop Start", build:"Loop Build", run:"Loop Run" },
   phaseDesc: { plan:"Research en plan van aanpak.", build:"Creatie en activatie van je campagne.", run:"Beheer & optimalisatie van actieve campagnes." },
   phaseByType: {
@@ -1229,7 +1152,6 @@ var S = {
   phases: { plan:true, build:true, run:true },
   cats:   {}, subs: {}, dels: {},
   opts:   {},
-  appKind:"webapp",
   advice: false,
   openRows: {}
 };
@@ -1239,31 +1161,16 @@ function eur(n) { return "\u20AC\u00A0" + Math.round(n||0).toLocaleString("nl-NL
 
 // ── COMPUTE ──────────────────────────────────────────────────
 function compute() {
-  var selected = ["campagne","app","platform","ai"].filter(function(k){ return S.types[k]; });
+  var selected = ["campagne","ai"].filter(function(k){ return S.types[k]; });
   var once = 0, mo = 0, saving = 0;
-  var allLoop = S.phases.plan && S.phases.build && S.phases.run;
 
   selected.forEach(function(sk) {
     var sc = PRICING.scopes[sk];
     var planFee = S.phases.build ? 0 : (S.phases.plan ? sc.plan : 0);
     once += planFee + (S.phases.build ? sc.build : 0);
     mo   += S.phases.run ? sc.run : 0;
-    if (S.phases.plan && S.phases.build) saving += sc.plan;
+    if (S.phases.plan && S.phases.build && sc.build > 0) saving += sc.plan;
   });
-
-  // App options
-  if (S.types.app && S.phases.build) {
-    var room = APP_CAP - PRICING.scopes.app.build;
-    var kp = APP_KIND_PRICE[S.appKind] || 0;
-    once += Math.min(kp, Math.max(0, room));
-    room -= Math.min(kp, Math.max(0, room));
-    APP_OPTS.forEach(function(k) {
-      if (S.opts[k]) {
-        var add = Math.min(APP_OPT_PRICE[k]||0, Math.max(0,room));
-        once += add; room -= add;
-      }
-    });
-  }
 
   // Campaign channels
   if (S.types.campagne) {
@@ -1286,7 +1193,7 @@ function compute() {
 
 function lineItems() {
   var items = [];
-  var selected = ["campagne","app","platform","ai"].filter(function(k){ return S.types[k]; });
+  var selected = ["campagne","ai"].filter(function(k){ return S.types[k]; });
 
   selected.forEach(function(sk) {
     var sc = PRICING.scopes[sk];
@@ -1295,50 +1202,38 @@ function lineItems() {
     var moItem   = S.phases.run ? sc.run : 0;
     var sub = [];
 
-    if (sk === "app" && S.phases.build) {
-      var room = APP_CAP - sc.build;
-      var kp = APP_KIND_PRICE[S.appKind] || 0;
-      var add = Math.min(kp, Math.max(0,room));
-      room -= add; onceItem += add;
-      sub.push({ label: L.typeOpts[S.appKind]||S.appKind, once:add, free:kp===0 });
-      APP_OPTS.forEach(function(k) {
-        if (S.opts[k]) {
-          var a2 = Math.min(APP_OPT_PRICE[k]||0, Math.max(0,room));
-          room -= a2; onceItem += a2;
-          sub.push({ label:L.typeOpts[k]||k, once:a2 });
-        }
+    if (sk === "ai") {
+      AI_OPTS.forEach(function(k) {
+        if (S.opts[k]) sub.push({ label: L.typeOpts[k]||k, free: true });
       });
-    } else if (sk === "platform") {
-      PLATFORM_OPTS.forEach(function(k) { if (S.opts[k]) sub.push({ label:L.typeOpts[k]||k, free:true }); });
-    } else if (sk === "ai") {
-      AI_OPTS.forEach(function(k) { if (S.opts[k]) sub.push({ label:L.typeOpts[k]||k, free:true }); });
     }
 
-    if (onceItem > 0 || moItem > 0 || sub.length > 0) {
-      items.push({ label:L.scopes[sk], once:onceItem, mo:moItem, sub:sub });
+    if (sk === "campagne" && S.phases.build) {
+      CHANNEL_TREE.forEach(function(c) {
+        if (!S.cats[c.key]) return;
+        var ch_once = c.once;
+        var ch_mo   = c.mo;
+        c.dels.forEach(function(d) {
+          if (S.dels[d]) {
+            var dp = DEL_PRICE[d] || {};
+            ch_once += dp.once || 0;
+            ch_mo   += dp.mo   || 0;
+          }
+        });
+        sub.push({ label: L.cats[c.key], once: S.phases.build ? ch_once : 0, mo: S.phases.run ? ch_mo : 0 });
+      });
+    }
+
+    if (onceItem || moItem) {
+      items.push({ label: L.scopes[sk], once: onceItem, mo: moItem, sub: sub });
     }
   });
 
-  if (S.types.campagne) {
-    CHANNEL_TREE.forEach(function(c) {
-      if (!S.cats[c.key]) return;
-      var selDels = c.dels.filter(function(d){ return S.dels[d]; });
-      var sub = [];
-      c.subs.filter(function(x){ return S.subs[x]; }).forEach(function(x){ sub.push({ label:L.subs[x]||x, free:true }); });
-      selDels.forEach(function(d) {
-        var dp = DEL_PRICE[d]||{};
-        sub.push({ label:L.dels[d]||d, once:(dp.once||0)*(S.phases.build?1:0), mo:(dp.mo||0)*(S.phases.run?1:0) });
-      });
-      var totOnce = (c.once + selDels.reduce(function(a,d){ return a+((DEL_PRICE[d]&&DEL_PRICE[d].once)||0);},0)) * (S.phases.build?1:0);
-      var totMo   = (c.mo   + selDels.reduce(function(a,d){ return a+((DEL_PRICE[d]&&DEL_PRICE[d].mo  )||0);},0)) * (S.phases.run ?1:0);
-      items.push({ label:L.cats[c.key], once:totOnce, mo:totMo, req:c.once===0&&c.mo===0, sub:sub });
-    });
-  }
   return items;
 }
 
 function phaseDescFor(k) {
-  var selected = ["campagne","app","platform","ai"].filter(function(s){ return S.types[s]; });
+  var selected = ["campagne","ai"].filter(function(s){ return S.types[s]; });
   if (selected.length === 1) {
     var pd = L.phaseByType[selected[0]];
     return pd ? pd[k] : L.phaseDesc[k];
@@ -1347,7 +1242,7 @@ function phaseDescFor(k) {
 }
 
 function packagePrice(k) {
-  var selected = ["campagne","app","platform","ai"].filter(function(s){ return S.types[s]; });
+  var selected = ["campagne","ai"].filter(function(s){ return S.types[s]; });
   if (selected.length === 0) return "";
   var total = 0;
   selected.forEach(function(sk) { total += PRICING.scopes[sk][k] || 0; });
