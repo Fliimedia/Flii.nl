@@ -4246,19 +4246,18 @@ iframe[src*="chatbase"] { display: none !important; }
 /* ══ SLOGAN HOLD ════════════════════════════════════════════════════ */
 #slogan-overlay {
   position: fixed; inset: 0; z-index: 9999;
-  background: #000;
   opacity: 0; pointer-events: none;
   transition: opacity 0.45s ease;
+  /* Left half black, right half transparent → video shows on right */
+  background: linear-gradient(to right, #000 0%, #000 48%, rgba(0,0,0,0) 65%);
 }
 #slogan-overlay.s-glass {
   opacity: 1; pointer-events: all;
-  background: rgba(0,0,0,0.65);
-  transition: opacity 0.45s ease, background 0s;
 }
 #slogan-overlay.s-full {
   opacity: 1; pointer-events: all;
   background: rgba(0,0,0,0);
-  transition: background 0.8s ease;
+  transition: opacity 0.45s ease, background 0.9s ease;
 }
 #slogan-overlay.s-out {
   opacity: 0; pointer-events: none;
@@ -4270,7 +4269,9 @@ iframe[src*="chatbase"] { display: none !important; }
   object-fit: cover; z-index: 0;
 }
 #slogan-text {
-  position: absolute; inset: 0; z-index: 1;
+  position: absolute; z-index: 1;
+  left: 0; top: 0; bottom: 0;
+  width: 60%;
   display: flex; flex-direction: column;
   align-items: flex-start; justify-content: center;
   padding: 0 32px; pointer-events: none;
@@ -4281,17 +4282,18 @@ iframe[src*="chatbase"] { display: none !important; }
 #slogan-overlay.s-out   #slogan-text { opacity: 0; }
 .s-word {
   font-family: 'Bricolage Grotesque', system-ui, sans-serif;
-  font-size: clamp(48px, 13vw, 88px);
-  font-weight: 900; letter-spacing: -2.5px; line-height: 0.88;
+  font-size: clamp(44px, 12vw, 82px);
+  font-weight: 900; letter-spacing: -2px; line-height: 0.9;
   display: block;
-  color: rgba(255,255,255,0.15);
-  -webkit-text-stroke: 1.5px rgba(255,255,255,0.6);
-  text-shadow: 0 2px 32px rgba(255,255,255,0.08);
+  /* Fully transparent fill — only outline visible on black */
+  color: transparent;
+  -webkit-text-stroke: 1.5px rgba(255,255,255,0.85);
+  -webkit-text-fill-color: transparent;
 }
 .s-word-ignite {
-  color: rgba(232,41,74,0.15);
-  -webkit-text-stroke: 1.5px rgba(232,41,74,0.65);
-  text-shadow: 0 2px 32px rgba(232,41,74,0.12);
+  color: transparent;
+  -webkit-text-stroke: 1.5px rgba(232,41,74,0.9);
+  -webkit-text-fill-color: transparent;
 }
 </style>
 <!-- Default consent vóór GTM -->
