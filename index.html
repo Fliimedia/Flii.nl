@@ -5537,9 +5537,13 @@ window.chatbaseConfig={chatbotId:"xDWiHhLymvD2NuZKQ-bO_",hideBubble:true};
 
 // ── CONTACT POPUP ────────────────────────────────────────────────────
 function toggleContactPopup() {
-  var popup = document.getElementById('contact-popup');
-  if (!popup) return;
-  popup.classList.toggle('open');
+  var sidebar = document.getElementById('float-sidebar');
+  if (!sidebar) return;
+  sidebar.classList.add('visible');
+  sidebar.classList.remove('highlight');
+  void sidebar.offsetWidth; // reflow to restart animation
+  sidebar.classList.add('highlight');
+  setTimeout(function() { sidebar.classList.remove('highlight'); }, 950);
 }
 // Close popup on outside click
 document.addEventListener('click', function(e) {
