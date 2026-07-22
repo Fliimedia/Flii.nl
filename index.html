@@ -564,8 +564,9 @@ img { display: block; max-width: 100%; }
 }
 .service-tag {
   font-size: 11px; font-weight: 500;
-  color: rgba(255,255,255,.75);
-  background: rgba(255,255,255,.14);
+  color: rgba(255,255,255,.65);
+  background: rgba(255,255,255,.12);
+  border: 1px solid rgba(255,255,255,.15);
   padding: 3px 10px; border-radius: 100px;
   letter-spacing: .01em; white-space: nowrap;
 }
@@ -1323,16 +1324,10 @@ img { display: block; max-width: 100%; }
 }
 
 /* ── HOME RIPPLE ── */
-#home-ripple-canvas {
-  position: fixed; inset: 0;
-  width: 100%; height: 100%;
-  pointer-events: none; z-index: 0;
-  opacity: 0; transition: opacity 0.4s ease;
-}
+
 /* Ensure content is above canvas */
-.hero-outer > *:not(#home-ripple-canvas),
-.nav, .float-sidebar, .sticky-bar { position: relative; z-index: 1; }
-.hero-outer > *:not(#home-ripple-canvas) { position: relative; z-index: 1; }
+
+
 
 .faq-answer p { margin-bottom: 10px; }
 .faq-answer p:last-child { margin-bottom: 0; }
@@ -1562,9 +1557,8 @@ details.faq-item[open] .faq-answer {
 /* Row 1: social + GRB + address stacked on left, nav cols on right */
 .footer-top {
   display: flex;
-  justify-content: space-between;
-  align-items: flex-start;
-  gap: 24px;
+  flex-direction: column;
+  gap: 28px;
   margin-bottom: 28px;
 }
 .footer-left {
@@ -1605,10 +1599,9 @@ details.faq-item[open] .faq-answer {
 /* Nav columns — mobile: wrap, no overflow */
 .footer-nav {
   display: flex;
-  flex-direction: column;
-  gap: 16px;
-  min-width: 0;
-  overflow: hidden;
+  flex-direction: row;
+  gap: 24px;
+  flex-wrap: wrap;
 }
 .footer-nav-col {
   display: flex;
@@ -1819,8 +1812,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 
 <!-- PAGE TITLE -->
 <!-- HERO -->
-<div class="hero-outer" style="position:relative">
-  <canvas id="home-ripple-canvas"></canvas></canvas>
+<div class="hero-outer" style="position:relative"></canvas>
 
   <!-- Eyebrow — very top -->
   <div class="hero-eyebrow">
@@ -2804,291 +2796,8 @@ window.chatbaseConfig={chatbotId:"xDWiHhLymvD2NuZKQ-bO_",hideBubble:true};
 })();
 
 </script>
-<script>
 
-// ── HOME MATRIX RIPPLE ────────────────────────────────────────────────
-(function() {
-  var hCanvas = document.getElementById('home-ripple-canvas');
-  if (!hCanvas) return;
-  var hCtx = hCanvas.getContext('2d');
-  var animId, isHeld = false;
-  var cx = 0, cy = 0;
-  var radius = 0;
-  var CHARS = '01アイウエオカキクケコサシスセソタチツテトナニヌネノ<>/\\|{}[]';
-  var cols = [], drops = [];
-  var COLW = 16;
 
-  function resize() {
-    hCanvas.width  = window.innerWidth;
-    hCanvas.height = window.innerHeight;
-    var numCols = Math.ceil(hCanvas.width / COLW);
-    cols = Array(numCols).fill(0).map(function(_,i){ return i * COLW; });
-    drops = cols.map(function(){ return Math.random() * -30 | 0; });
-  }
-
-  function drawRipple() {
-    hCtx.clearRect(0, 0, hCanvas.width, hCanvas.height);
-    
-    // Create circular clipping mask from click point
-    hCtx.save();
-    hCtx.beginPath();
-    hCtx.arc(cx, cy, radius, 0, Math.PI * 2);
-    hCtx.clip();
-    
-    // Draw matrix chars inside the circle (light grey on white)
-    for (var i = 0; i < cols.length; i++) {
-      var x = cols[i];
-      var y = drops[i] * COLW;
-      var ch = CHARS[Math.random() * CHARS.length | 0];
-      var alpha = 0.06 + Math.random() * 0.1;
-      hCtx.font = '12px monospace';
-      hCtx.fillStyle = 'rgba(80,80,80,' + alpha + ')';
-      hCtx.fillText(ch, x, y);
-      
-      if (y > hCanvas.height && Math.random() > 0.97) drops[i] = 0;
-      drops[i] += 0.5;
-    }
-    hCtx.restore();
-    
-    // Ripple ring edge (subtle)
-    hCtx.beginPath();
-    hCtx.arc(cx, cy, radius, 0, Math.PI * 2);
-    hCtx.strokeStyle = 'rgba(160,160,160,0.12)';
-    hCtx.lineWidth = 2;
-    hCtx.stroke();
-    
-    // Grow radius while held
-    if (isHeld && radius < Math.max(hCanvas.width, hCanvas.height) * 0.8) {
-      radius += 6;
-    }
-    
-    animId = requestAnimationFrame(drawRipple);
-  }
-
-  function start(e) {
-    var x = e.touches ? e.touches[0].clientX : e.clientX;
-    var y = e.touches ? e.touches[0].clientY : e.clientY;
-    cx = x; cy = y; radius = 0; isHeld = true;
-    resize();
-    cancelAnimationFrame(animId);
-    hCanvas.style.opacity = '1';
-    drawRipple();
-  }
-
-  function stop() {
-    isHeld = false;
-    // Fade canvas out
-    hCanvas.style.transition = 'opacity 0.5s ease';
-    hCanvas.style.opacity = '0';
-    setTimeout(function() {
-      cancelAnimationFrame(animId);
-      hCtx.clearRect(0, 0, hCanvas.width, hCanvas.height);
-    }, 500);
-  }
-
-  document.addEventListener('mousedown', function(e) {
-    // Only on white background areas (not on buttons, links, etc.)
-    if (e.target.closest('a, button, details, summary, input, .nav, .float-sidebar, #float-sidebar, .sticky-bar, .nav-menu')) return;
-    start(e);
-  });
-  document.addEventListener('mouseup', stop);
-  document.addEventListener('touchstart', function(e) {
-    if (e.target.closest('a, button, details, summary, input, .nav, .float-sidebar, #float-sidebar, .sticky-bar, .nav-menu')) return;
-    start(e);
-  }, { passive: true });
-  document.addEventListener('touchend', stop);
-
-  resize();
-  window.addEventListener('resize', resize);
-})();
-
-</script>
-<script>
-
-// ── HOME RIPPLE — white matrix on click ──────────────────────────────
-(function() {
-  var canvas = document.getElementById('home-ripple-canvas');
-  if (!canvas) return;
-  
-  var heroOuter = canvas.parentElement;
-  if (!heroOuter) return;
-  
-  var ctx    = canvas.getContext('2d');
-  var W = 0, H = 0, cols = 0, drops = [];
-  var CHARS  = 'ﾊﾐﾋｰｳｼﾅﾓﾆｻﾜﾂｵﾘｱﾎﾃﾏｹﾒｴｶｷﾑﾕﾗｾﾈｦｲｸｺｿﾁﾄﾉﾌﾔﾖﾙﾚﾛﾝ0123456789ABCDEF<>{}[]';
-  var running = false, animId;
-  var holding = false;
-  var clickX  = -999, clickY = -999;
-  var ripples = []; // [{x,y,r,maxR,born}]
-  var holdRadius = 0;
-
-  function resize() {
-    W = window.innerWidth;
-    H = window.innerHeight;
-    canvas.width  = W;
-    canvas.height = H;
-    cols  = Math.floor(W / 16);
-    drops = Array(cols).fill(0).map(function() { return (Math.random() * -60) | 0; });
-  }
-
-  function drawFrame() {
-    if (!running) return;
-    ctx.clearRect(0, 0, W, H);
-
-    // Get current reveal mask: union of all ripples + hold circle
-    // For each column, draw if it's inside any ripple or hold area
-    for (var i = 0; i < cols; i++) {
-      var x = i * 16;
-      var y = drops[i] * 14;
-      var ch = CHARS[(Math.random() * CHARS.length) | 0];
-      
-      // Check if this position is inside any reveal area
-      var inArea = false;
-      var alpha = 0;
-      
-      // Check ripples
-      for (var ri = 0; ri < ripples.length; ri++) {
-        var rp = ripples[ri];
-        var dist = Math.sqrt(Math.pow(x - rp.x, 2) + Math.pow(y - rp.y, 2));
-        var rAge = (Date.now() - rp.born) / 1200;
-        var rCurrent = rp.maxR * rAge;
-        var ringW = rp.maxR * 0.25;
-        // Inside the ring wave
-        if (dist < rCurrent && dist > rCurrent - ringW) {
-          var edgeFade = 1 - Math.abs(dist - (rCurrent - ringW/2)) / (ringW/2);
-          alpha = Math.max(alpha, edgeFade * (1 - rAge) * 0.8);
-          inArea = true;
-        }
-      }
-      
-      // Check hold circle
-      if (holding) {
-        var holdDist = Math.sqrt(Math.pow(x - clickX, 2) + Math.pow(y - clickY, 2));
-        holdRadius = Math.min(holdRadius + 2, 120);
-        if (holdDist < holdRadius) {
-          var holdFade = 1 - holdDist / holdRadius;
-          alpha = Math.max(alpha, holdFade * 0.55);
-          inArea = true;
-        }
-      } else {
-        holdRadius = Math.max(0, holdRadius - 4);
-        if (holdRadius > 0) {
-          var holdDist2 = Math.sqrt(Math.pow(x - clickX, 2) + Math.pow(y - clickY, 2));
-          if (holdDist2 < holdRadius) {
-            var holdFade2 = 1 - holdDist2 / holdRadius;
-            alpha = Math.max(alpha, holdFade2 * 0.3);
-            inArea = true;
-          }
-        }
-      }
-      
-      if (inArea && alpha > 0.02) {
-        // Draw character in very light grey
-        var brightness = Math.floor(160 + (1 - alpha) * 70); // 160-230
-        ctx.fillStyle = 'rgba(' + brightness + ',' + brightness + ',' + brightness + ',' + (alpha) + ')';
-        ctx.font = (9 + (Math.random() * 3 | 0)) + 'px monospace';
-        ctx.fillText(ch, x, Math.max(0, y));
-      }
-      
-      // Advance drops
-      if (y > H && Math.random() > 0.97) drops[i] = 0;
-      drops[i]++;
-    }
-    
-    // Clean expired ripples
-    var now = Date.now();
-    ripples = ripples.filter(function(rp) { return now - rp.born < 1200; });
-    
-    animId = requestAnimationFrame(drawFrame);
-  }
-
-  function startRain() {
-    if (running) return;
-    running = true;
-    canvas.style.opacity = '1';
-    resize();
-    drawFrame();
-  }
-
-  function stopRain() {
-    running = false;
-    cancelAnimationFrame(animId);
-    canvas.style.opacity = '0';
-  }
-
-  function addRipple(x, y) {
-    var maxR = Math.max(W, H) * 0.7;
-    ripples.push({ x: x, y: y, r: 0, maxR: maxR, born: Date.now() });
-    // Also add 2 weaker follow-up ripples
-    setTimeout(function() {
-      ripples.push({ x: x, y: y, r: 0, maxR: maxR * 0.7, born: Date.now() });
-    }, 160);
-    setTimeout(function() {
-      ripples.push({ x: x, y: y, r: 0, maxR: maxR * 0.45, born: Date.now() });
-    }, 320);
-  }
-
-  function getHeroCoords(e) {
-    var cx = e.touches ? e.touches[0].clientX : e.clientX;
-    var cy = e.touches ? e.touches[0].clientY : e.clientY;
-    return { x: cx, y: cy };
-  }
-
-  document.addEventListener('mousedown', function(e) {
-    // Skip if clicking UI elements
-    var skip = ['.nav','.nav-menu','.float-sidebar','.sticky-bar','.contact-popup',
-                '.footer','button','a','input','.cta-card-wrap'];
-    for (var i=0;i<skip.length;i++) {
-      if (e.target.closest && e.target.closest(skip[i])) return;
-    }
-    var c = getHeroCoords(e);
-    clickX = c.x; clickY = c.y;
-    holding = true;
-    startRain();
-    addRipple(c.x, c.y);
-  });
-
-  document.addEventListener('mousemove', function(e) {
-    if (holding) {
-      var c = getHeroCoords(e);
-      clickX = c.x; clickY = c.y;
-    }
-  });
-
-  document.addEventListener('mouseup', function() {
-    holding = false;
-    // Let rain fade after last ripple expires
-    setTimeout(function() {
-      if (!holding && ripples.length === 0 && holdRadius <= 0) stopRain();
-    }, 1400);
-  });
-
-  document.addEventListener('touchstart', function(e) {
-    var c = getHeroCoords(e);
-    clickX = c.x; clickY = c.y;
-    holding = true;
-    startRain();
-    addRipple(c.x, c.y);
-  }, { passive: true });
-
-  document.addEventListener('touchmove', function(e) {
-    if (holding) {
-      var c = getHeroCoords(e);
-      clickX = c.x; clickY = c.y;
-    }
-  }, { passive: true });
-
-  document.addEventListener('touchend', function() {
-    holding = false;
-    setTimeout(function() {
-      if (!holding && ripples.length === 0 && holdRadius <= 0) stopRain();
-    }, 1400);
-  });
-
-  window.addEventListener('resize', function() { if (running) resize(); });
-})();
-
-</script>
 <script>
 
 // ── CONTACT POPUP ────────────────────────────────────────────────────
@@ -3114,7 +2823,8 @@ document.addEventListener('click', function(e) {
   var sidebar = document.getElementById('float-sidebar');
   if (!sidebar) return;
   function check() {
-    sidebar.classList.toggle('visible', window.scrollY > window.innerHeight * 0.6);
+    var nearBottom = window.scrollY + window.innerHeight > document.body.scrollHeight - 120;
+    sidebar.classList.toggle('visible', window.scrollY > window.innerHeight * 0.6 && !nearBottom);
   }
   check();
   window.addEventListener('scroll', check, { passive: true });
