@@ -5700,31 +5700,28 @@ document.addEventListener('click', function(e) {
     // Draw video full screen
     ctx.drawImage(vid, 0, 0, W, H);
 
-    // --- Draw black gradient: right-bottom to left-top, covers left ~50% ---
-    // Diagonal gradient from bottom-left (solid black) to top-right (transparent)
-    var grad = ctx.createLinearGradient(W * 0.65, H, 0, 0);
-    grad.addColorStop(0,   'rgba(0,0,0,0)');
-    grad.addColorStop(0.3, 'rgba(0,0,0,0.45)');
-    grad.addColorStop(0.65,'rgba(0,0,0,0.92)');
-    grad.addColorStop(1,   'rgba(0,0,0,1)');
+    // --- Gradient: right-top → left-bottom ---
+    var grad = ctx.createLinearGradient(W, 0, 0, H);
+    grad.addColorStop(0,    'rgba(0,0,0,0)');
+    grad.addColorStop(0.25, 'rgba(0,0,0,0.35)');
+    grad.addColorStop(0.6,  'rgba(0,0,0,0.88)');
+    grad.addColorStop(1,    'rgba(0,0,0,1)');
     ctx.fillStyle = grad;
     ctx.fillRect(0, 0, W, H);
 
-    // --- Cut-out text using destination-out on canvas ---
+    // --- Cut-out text: 2.5x larger, top-left ---
     ctx.save();
     ctx.globalCompositeOperation = 'destination-out';
-    var fontSize = Math.min(90, Math.max(52, W * 0.14));
+    var fontSize = Math.min(220, Math.max(130, W * 0.34));
     ctx.font = '900 ' + fontSize + 'px "Bricolage Grotesque", system-ui, sans-serif';
     ctx.textBaseline = 'top';
 
     var lines = ["Let's", "ignite", "ambitions"];
-    var lineH = fontSize * 0.88;
-    var totalH = lines.length * lineH;
-    var startY = (H - totalH) / 2;
-    var x = 28;
+    var lineH = fontSize * 0.86;
+    var x = 24;
+    var startY = 24;
 
     lines.forEach(function(line, i) {
-      // Semi-transparent alpha so video shows through softly, not 100% cut
       ctx.globalAlpha = 0.72;
       ctx.fillText(line, x, startY + i * lineH);
     });
