@@ -5691,43 +5691,59 @@ document.addEventListener('click', function(e) {
   function drawFrame() {
     var W = canvas.width, H = canvas.height;
 
-    // ── MAIN CANVAS ──────────────────────────────────────────────
-    // 1. Draw video fully opaque
+    // 1. Video full screen, fully opaque
     ctx.clearRect(0, 0, W, H);
     ctx.drawImage(vid, 0, 0, W, H);
 
-    // ── OFFSCREEN: gradient with letter cut-outs ──────────────────
+    // 2. Build offscreen: gradient sized to cover text, fade to bottom-right
     offscreen.width = W; offscreen.height = H;
     octx.clearRect(0, 0, W, H);
 
-    // Draw gradient on offscreen
-    var grad = octx.createLinearGradient(W, 0, 0, H);
-    grad.addColorStop(0,    'rgba(0,0,0,0)');
-    grad.addColorStop(0.35, 'rgba(0,0,0,0.25)');
-    grad.addColorStop(0.6,  'rgba(0,0,0,0.85)');
-    grad.addColorStop(1,    'rgba(0,0,0,1)');
+    var fontSize = Math.min(132, Math.max(78, W * 0.21));
+    var lineH    = fontSize * 0.86;
+    var textX    = 24;
+    var textY    = 32;
+    var lines    = ["Let's", "ignite", "ambitions"];
+
+    // Measure widest line to know text block width
+    octx.font = '900 ' + fontSize + 'px "Bricolage Grotesque", system-ui, sans-serif';
+    var maxW = 0;
+    lines.forEach(function(l) {
+      var m = octx.measureText(l).width;
+      if (m > maxW) maxW = m;
+    });
+    var textBlockW = maxW + textX + 40;   // right edge of text + padding
+    var textBlockH = lines.length * lineH + textY + 40; // bottom of text + padding
+
+    // Gradient: solid black from top-left, fades toward bottom-right
+    // Start point: top-left corner (0,0)
+    // End point: just past the text block edge, into video area
+    var grad = octx.createLinearGradient(
+      0,          0,             // top-left — solid black
+      W * 0.82,   H * 0.82      // bottom-right — transparent
+    );
+    grad.addColorStop(0,    'rgba(0,0,0,1)');
+    grad.addColorStop(0.38, 'rgba(0,0,0,0.96)');
+    grad.addColorStop(0.58, 'rgba(0,0,0,0.6)');
+    grad.addColorStop(0.75, 'rgba(0,0,0,0.2)');
+    grad.addColorStop(1,    'rgba(0,0,0,0)');
     octx.fillStyle = grad;
     octx.fillRect(0, 0, W, H);
 
-    // Cut letters OUT of the gradient (destination-out removes gradient pixels)
+    // 3. Cut text out of the gradient (reveals video through letter shapes)
     if (showText) {
       octx.save();
       octx.globalCompositeOperation = 'destination-out';
-      var fontSize = Math.min(132, Math.max(78, W * 0.21));
       octx.font = '900 ' + fontSize + 'px "Bricolage Grotesque", system-ui, sans-serif';
       octx.textBaseline = 'top';
-      octx.globalAlpha = 0.82; // slightly soft edges
-
-      var lines = ["Let's", "ignite", "ambitions"];
-      var lineH = fontSize * 0.86;
-      var x = 24, y = 32;
+      octx.globalAlpha = 0.85;
       lines.forEach(function(line, i) {
-        octx.fillText(line, x, y + i * lineH);
+        octx.fillText(line, textX, textY + i * lineH);
       });
       octx.restore();
     }
 
-    // ── Composite offscreen (gradient with holes) onto video ──────
+    // 4. Composite gradient-with-holes onto video
     ctx.drawImage(offscreen, 0, 0);
 
     raf = requestAnimationFrame(drawFrame);
