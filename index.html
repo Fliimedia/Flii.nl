@@ -784,14 +784,16 @@ img { display: block; max-width: 100%; }
 /* ── ARTICLES ── */
 
 .article {
-  background: var(--c-surface);
+  display: flex;
+  flex-direction: column;
+  text-decoration: none;
+  color: inherit;
+  background: #fff;
   border-radius: 10px;
   overflow: hidden;
-  cursor: pointer;
-  border: 1px solid var(--c-rule);
-  transition: box-shadow var(--ease);
+  border: 1px solid #E8E6E1;
   box-shadow: 0 1px 4px rgba(0,0,0,.06);
-  text-decoration: none; color: inherit;
+  transition: box-shadow .2s;
 }
 
 
@@ -1510,9 +1512,16 @@ details.faq-item[open] .faq-answer { display: block; }
 }
 
 /* ── ARTICLES ── */
-.articles-list { display: flex; flex-direction: column; gap: 16px; }
+.articles-list {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
 .article {
-  display: block; text-decoration: none; color: inherit;
+  display: flex;
+  flex-direction: column;
+  text-decoration: none;
+  color: inherit;
   background: #fff;
   border-radius: 10px;
   overflow: hidden;
@@ -1522,12 +1531,17 @@ details.faq-item[open] .faq-answer { display: block; }
 }
 .article:hover { box-shadow: 0 4px 16px rgba(0,0,0,.10); }
 .article-img {
-  width: 100%; height: 200px;
-  overflow: hidden; background: #E8E6E1;
+  width: 100%;
+  height: 200px;
+  overflow: hidden;
+  background: #E8E6E1;
+  flex-shrink: 0;
 }
 .article-img img {
-  width: 100%; height: 100%;
-  object-fit: cover; display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
 }
 .article-body { padding: 14px 16px 18px; }
 .article-date {
@@ -2107,7 +2121,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
       <div class="case-badge-row">
         <span class="case-badge"><span class="case-badge-client">Zelfstandig Ondernemers</span><span class="case-badge-sep">·</span><span class="case-badge-desc">Digitale strategie voor zzp'ers</span></span>
       </div>
-    </button>
+    </a>
   </div>
 </section>
 
@@ -2119,7 +2133,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 
     <a href="#" class="article">
       <div class="article-img">
-        <img src="https://images.unsplash.com/photo-1504711434969-e33886168f5c?w=640&q=75&auto=format&fit=crop" alt="" style="width:100%;height:100%;object-fit:cover;display:block;" loading="lazy">
+        <img src="https://images.unsplash.com/photo-1504711434969-e33886168f5c?w=640&q=75&auto=format&fit=crop" alt="" style="width:100%;height:200px;object-fit:cover;display:block;flex-shrink:0;" loading="lazy">
       </div>
       <div class="article-body"><div class="article-date">June 5, 2026</div>
       <div class="article-title">Hoe ziet een moderne mediacampagne eruit in 2026?</div></div>
@@ -2127,7 +2141,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 
     <a href="#" class="article">
       <div class="article-img">
-        <img src="https://images.unsplash.com/photo-1460925895917-afdab827c52f?w=640&q=75&auto=format&fit=crop" alt="" style="width:100%;height:100%;object-fit:cover;display:block;" loading="lazy">
+        <img src="https://images.unsplash.com/photo-1460925895917-afdab827c52f?w=640&q=75&auto=format&fit=crop" alt="" style="width:100%;height:200px;object-fit:cover;display:block;flex-shrink:0;" loading="lazy">
       </div>
       <div class="article-body"><div class="article-date">May 10, 2026</div>
       <div class="article-title">AI architectuur: voor ieder bedrijf een must?</div></div>
@@ -2135,7 +2149,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 
     <a href="#" class="article">
       <div class="article-img">
-        <img src="https://images.unsplash.com/photo-1593784991095-a205069470b6?w=640&q=75&auto=format&fit=crop" alt="" style="width:100%;height:100%;object-fit:cover;display:block;" loading="lazy">
+        <img src="https://images.unsplash.com/photo-1593784991095-a205069470b6?w=640&q=75&auto=format&fit=crop" alt="" style="width:100%;height:200px;object-fit:cover;display:block;flex-shrink:0;" loading="lazy">
       </div>
       <div class="article-body"><div class="article-date">September 2, 2025</div>
       <div class="article-title">Connected TV: de toekomst van televisie reclame</div></div>
