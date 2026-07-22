@@ -2127,97 +2127,73 @@ iframe[src*="chatbase"] { display: none !important; }
 }
 
 /* ══ FULL-SCREEN BLACKOUT EFFECT ══ */
-#cta-blackout {
-  position: fixed;
-  inset: 0; z-index: 9999;
-  background: #000;
-  opacity: 0;
-  pointer-events: none;
-  transition: opacity 0.4s ease;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-}
-#cta-blackout.active {
-  opacity: 1;
-  pointer-events: all;
-}
-#cta-blackout-text {
-  font-family: 'Bricolage Grotesque', system-ui, sans-serif;
-  font-size: clamp(32px, 9vw, 56px);
-  font-weight: 900;
-  letter-spacing: -2px;
-  color: #fff;
-  text-align: center;
-  line-height: 1.05;
-  opacity: 0;
-  transform: scale(0.95);
-  transition: opacity 0.5s 0.2s ease, transform 0.5s 0.2s ease;
-}
-#cta-blackout.active #cta-blackout-text {
-  opacity: 1;
-  transform: scale(1);
-}
 
-/* ── HERO BLACKOUT HOLD EFFECT ── */
-#hero-blackout {
-  position: fixed; inset: 0; z-index: 9999;
-  opacity: 0; pointer-events: none;
-  transition: opacity 0.45s ease;
-}
+
+
+
+
 /* Step 1+2: black + slogan visible */
-#hero-blackout.phase-black {
-  opacity: 1; pointer-events: all; background: #000;
-}
+
 /* Step 3: slogan semi-transparent → video reveals (overlay fades) */
-#hero-blackout.phase-video {
-  opacity: 1; pointer-events: all; background: rgba(0,0,0,0);
-  transition: opacity 0.45s ease, background 0.7s ease;
-}
+
 /* Release: CTA video plays, blackout fades out */
-#hero-blackout.phase-release {
+
+
+
+
+
+
+
+
+/* Slogan goes semi-transparent when video reveals */
+
+
+
+
+
+/* ══ SLOGAN HOLD EFFECT ════════════════════════════════════════════ */
+#slogan-overlay {
+  position: fixed; inset: 0; z-index: 9999;
+  background: #000;
   opacity: 0; pointer-events: none;
-  transition: opacity 1.2s ease;
+  transition: opacity 0.5s ease;
 }
-#bo-video {
+#slogan-overlay.s-black  { opacity: 1; pointer-events: all; }
+#slogan-overlay.s-video  { opacity: 1; pointer-events: all; }
+#slogan-overlay.s-out    { opacity: 0; pointer-events: none; transition: opacity 1.4s ease; }
+#slogan-video {
   position: absolute; inset: 0;
   width: 100%; height: 100%;
   object-fit: cover; z-index: 0;
+  opacity: 0; transition: opacity 0.8s ease;
 }
-#hero-blackout-slogan {
-  position: absolute; inset: 0;
+#slogan-overlay.s-video #slogan-video { opacity: 1; }
+#slogan-text {
+  position: absolute; inset: 0; z-index: 1;
   display: flex; flex-direction: column;
   align-items: flex-start; justify-content: center;
-  padding: 0 28px; z-index: 1;
+  padding: 0 32px;
+  pointer-events: none;
 }
-.bo-word {
-  font-family: var(--ff-disp);
-  font-size: clamp(44px,13vw,80px);
-  font-weight: 900; letter-spacing: -2px; line-height: 0.9;
+.s-word {
+  font-family: 'Bricolage Grotesque', system-ui, sans-serif;
+  font-size: clamp(48px, 13vw, 88px);
+  font-weight: 900; letter-spacing: -2.5px; line-height: 0.88;
   color: #fff; display: block;
-  opacity: 0; transform: translateY(10px);
-  transition: opacity 0.3s ease, transform 0.3s ease, color 0.7s ease;
+  opacity: 0; transform: translateY(12px);
+  transition: opacity 0.35s ease, transform 0.35s ease, color 0.8s ease;
 }
-#hero-blackout.phase-black .bo-word {
-  opacity: 1; transform: translateY(0);
-}
-#hero-blackout.phase-black .bo-word:nth-child(1) { transition-delay: 0s, 0s, 0s; }
-#hero-blackout.phase-black .bo-word:nth-child(2) { transition-delay: 0.08s, 0.08s, 0s; }
-#hero-blackout.phase-black .bo-word:nth-child(3) { transition-delay: 0.16s, 0.16s, 0s; }
-/* Slogan goes semi-transparent when video reveals */
-#hero-blackout.phase-video .bo-word {
-  opacity: 0.28; transform: translateY(0); color: #fff;
-  transition: opacity 0.7s ease, transform 0s, color 0s;
-}
-.bo-word--ignite {
+#slogan-overlay.s-black .s-word  { opacity: 1; transform: translateY(0); }
+#slogan-overlay.s-video .s-word  { opacity: 0.22; transform: translateY(0); color: #fff; }
+#slogan-overlay.s-black .s-word:nth-child(1) { transition-delay: 0s,   0s,   0s; }
+#slogan-overlay.s-black .s-word:nth-child(2) { transition-delay: 0.09s,0.09s,0s; }
+#slogan-overlay.s-black .s-word:nth-child(3) { transition-delay: 0.18s,0.18s,0s; }
+.s-word-ignite {
   background: linear-gradient(90deg,#E8294A,#FF6090);
   -webkit-background-clip: text; -webkit-text-fill-color: transparent;
   background-clip: text;
 }
-
-#hero-blackout.phase-video .bo-word--ignite {
-  opacity: 0.35;
-}
+#slogan-overlay.s-video .s-word-ignite { opacity: 0.3; }
 </style>
 <!-- Default consent vóór GTM -->
 
@@ -3623,7 +3599,6 @@ document.addEventListener('click', function(e) {
 (function() {
   var wrap = document.getElementById('cta-card-wrap');
   var video = document.getElementById('cta-bg-video');
-  var blackout = document.getElementById('cta-blackout');
   var ctaH = document.querySelector('.cta-h');
   if (!wrap || !ctaH) return;
 
@@ -3666,94 +3641,73 @@ document.addEventListener('click', function(e) {
   ctaH.addEventListener('mouseleave', endHold);
 
   // Blackout dismiss
-  if (blackout) {
-    blackout.addEventListener('mousedown', endHold);
-    blackout.addEventListener('touchstart', function(e) {
-      e.preventDefault(); endHold();
-    }, { passive: false });
-  }
-
   // Cursor: show pointer on hover
   ctaH.style.cursor = 'pointer';
   ctaH.style.userSelect = 'none';
   ctaH.style.webkitUserSelect = 'none';
 })();
 </script>
-
-<!-- CTA BLACKOUT OVERLAY -->
-<div id="cta-blackout" onmouseup="endBlackout()" ontouchend="endBlackout()">
-  <div id="cta-blackout-text">Let's ignite<br>ambitions</div>
+<div id="slogan-overlay">
+  <video id="slogan-video" muted loop playsinline preload="none"
+    src="https://fliimedia.github.io/Flii.nl/assets/eklipse-montage.mp4"></video>
+  <div id="slogan-text">
+    <span class="s-word">Let's</span>
+    <span class="s-word s-word-ignite">ignite</span>
+    <span class="s-word">ambitions</span>
+  </div>
 </div>
+
 <script>
 (function() {
-  var bo      = document.getElementById('hero-blackout');
-  var vid     = document.getElementById('bo-video');       // fullscreen video in overlay
-  var ctaVid  = document.getElementById('cta-bg-video');   // CTA section video
-  var headline = document.querySelector('.hero-headline');
-  if (!bo || !headline) return;
+  var ov  = document.getElementById('slogan-overlay');
+  var vid = document.getElementById('slogan-video');
+  // Target: the CTA card h2 "Let's ignite ambitions"
+  var trigger = document.querySelector('.cta-h');
+  if (!ov || !trigger) { return; }
 
-  var holdTimer  = null;
+  var holdTimer = null;
   var videoTimer = null;
-  var active     = false;
+  var active = false;
 
-  function startHold() {
-    if (holdTimer || active) return;
+  function start(e) {
+    if (active) return;
     holdTimer = setTimeout(function() {
       active = true;
-
-      // ── PHASE 1+2: screen goes black, slogan appears ──────────────
-      bo.className = 'phase-black';
+      ov.className = 's-black';
       vid.currentTime = 0;
       vid.play().catch(function(){});
 
-      // ── PHASE 3 (800ms): slogan semi-transparent, video reveals ───
+      // After 800ms: slogan semi-transparent + video visible
       videoTimer = setTimeout(function() {
-        bo.className = 'phase-video';   // overlay bg → transparent, slogan → 0.28 opacity
+        ov.className = 's-video';
       }, 800);
-
-    }, 260);
+    }, 220);
   }
 
-  function endHold() {
+  function end() {
     clearTimeout(holdTimer);
     clearTimeout(videoTimer);
-    holdTimer = null;
-    videoTimer = null;
     if (!active) return;
     active = false;
 
-    // ── RELEASE: fade out overlay → CTA video takes over ──────────
-    bo.className = 'phase-release';   // 1.2s fade out
-
-    // Hand off: scroll to CTA and let ctaVid play (it's already autoplaying)
-    // The fullscreen overlay disappears, revealing the page behind it
-    // CTA video is already playing in the background → no extra action needed
-
+    // Fade out: video keeps playing briefly behind fading overlay
+    ov.className = 's-out';
     setTimeout(function() {
-      bo.className = '';
+      ov.className = '';
       vid.pause();
-      vid.currentTime = 0;
-    }, 1300);
+    }, 1500);
   }
 
-  headline.addEventListener('mousedown', startHold);
-  window.addEventListener('mouseup', endHold);
-  headline.addEventListener('touchstart', function(e) {
-    e.preventDefault(); startHold();
+  trigger.addEventListener('mousedown', start);
+  trigger.style.cursor = 'default';
+  trigger.style.userSelect = 'none';
+  window.addEventListener('mouseup', end);
+  trigger.addEventListener('touchstart', function(e) {
+    e.preventDefault(); start(e);
   }, { passive: false });
-  window.addEventListener('touchend', endHold);
-  window.addEventListener('touchcancel', endHold);
-  bo.addEventListener('click', endHold);
+  window.addEventListener('touchend', end);
+  window.addEventListener('touchcancel', end);
 })();
 </script>
-<div id="hero-blackout">
-  <video id="bo-video" muted loop playsinline preload="none"
-    src="https://fliimedia.github.io/Flii.nl/assets/eklipse-montage.mp4"></video>
-  <div id="hero-blackout-slogan">
-    <span class="bo-word">Let's</span>
-    <span class="bo-word bo-word--ignite">ignite</span>
-    <span class="bo-word">ambitions</span>
-  </div>
-</div>
 </body>
 </html>
