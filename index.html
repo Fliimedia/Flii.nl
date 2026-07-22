@@ -1474,7 +1474,7 @@ details.faq-item[open] .faq-answer {
   color: #fff; letter-spacing: -.2px;
 }
 .nav-loop-desc {
-  font-size: 12px; color: rgba(255,255,255,.45);
+  font-size: 12px; color: #0F0E0C;
   font-family: var(--ff-body);
 }
 
@@ -1995,8 +1995,22 @@ details.faq-item[open] .faq-answer {
 .ai-launch-section {
   background: #0C0C0A;
   margin: 0;
-  padding: 40px 24px 44px;
+  padding: 24px 20px;
   position: relative; overflow: hidden;
+}
+.ai-launch-card {
+  background: rgba(255,255,255,0.04);
+  border: 1px solid rgba(255,255,255,0.1);
+  border-radius: 20px;
+  padding: 28px 22px 24px;
+  position: relative; overflow: hidden;
+}
+.ai-launch-card::before {
+  content: '';
+  position: absolute; top: -60px; right: -40px;
+  width: 200px; height: 200px; border-radius: 50%;
+  background: radial-gradient(circle, rgba(232,41,74,.2) 0%, transparent 70%);
+  pointer-events: none;
 }
 .ai-launch-section::before {
   content: '';
@@ -2052,11 +2066,11 @@ details.faq-item[open] .faq-answer {
 .ai-launch-btn-ghost {
   display: inline-flex; align-items: center;
   color: rgba(255,255,255,.45);
-  border: 1px solid rgba(255,255,255,.15);
-  border-radius: 100px; padding: 11px 18px;
+  border: none;
+  border: none; padding: 11px 18px;
   font-size: 12px; font-weight: 600; font-family: var(--ff-body);
   text-decoration: none; margin-left: 10px;
-  transition: border-color .15s, color .15s;
+  transition: border: none;
 }
 .ai-launch-btn-ghost:hover { border-color: rgba(255,255,255,.4); color: #fff; }
 
@@ -4086,8 +4100,22 @@ details.faq-item[open] .faq-answer {
 .ai-launch-section {
   background: #0C0C0A;
   margin: 0;
-  padding: 40px 24px 44px;
+  padding: 24px 20px;
   position: relative; overflow: hidden;
+}
+.ai-launch-card {
+  background: rgba(255,255,255,0.04);
+  border: 1px solid rgba(255,255,255,0.1);
+  border-radius: 20px;
+  padding: 28px 22px 24px;
+  position: relative; overflow: hidden;
+}
+.ai-launch-card::before {
+  content: '';
+  position: absolute; top: -60px; right: -40px;
+  width: 200px; height: 200px; border-radius: 50%;
+  background: radial-gradient(circle, rgba(232,41,74,.2) 0%, transparent 70%);
+  pointer-events: none;
 }
 .ai-launch-section::before {
   content: '';
@@ -4143,11 +4171,11 @@ details.faq-item[open] .faq-answer {
 .ai-launch-btn-ghost {
   display: inline-flex; align-items: center;
   color: rgba(255,255,255,.45);
-  border: 1px solid rgba(255,255,255,.15);
-  border-radius: 100px; padding: 11px 18px;
+  border: none;
+  border: none; padding: 11px 18px;
   font-size: 12px; font-weight: 600; font-family: var(--ff-body);
   text-decoration: none; margin-left: 10px;
-  transition: border-color .15s, color .15s;
+  transition: border: none;
 }
 .ai-launch-btn-ghost:hover { border-color: rgba(255,255,255,.4); color: #fff; }
 
@@ -4558,6 +4586,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 
 <!-- AI LAUNCH PLAN -->
 <section class="ai-launch-section">
+  <div class="ai-launch-card">
   <span class="ai-launch-eyebrow">SaaS &amp; Digitale producten</span>
   <h2 class="ai-launch-title">Product launch<br>plan &amp; <em>uitvoer.</em></h2>
   <div class="ai-usp-mini">
@@ -4577,6 +4606,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
   <div>
     <a href="diensten/ai-launchplan.html" class="ai-launch-btn">Bekijk het plan →</a>
     <button class="ai-launch-btn-ghost" onclick="toggleContactPopup()">Plan een gesprek</button>
+  </div>
   </div>
 </section>
 
