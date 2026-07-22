@@ -5727,59 +5727,6 @@ document.addEventListener('click', function(e) {
 
 
 (function(){document.addEventListener('click',function(e){var l=e.target.closest('.service-tag-link');if(!l)return;e.preventDefault();var p=l.closest('.service-tags');if(p)p.querySelectorAll('.service-tag-link').forEach(function(x){x.classList.remove('active');});l.classList.toggle('active');});})();
-
-
-// ── CTA: hold-to-blackout + video background ─────────────────────
-(function() {
-  var wrap = document.getElementById('cta-card-wrap');
-  var video = document.getElementById('cta-bg-video');
-  var ctaH = document.querySelector('.cta-h');
-  if (!wrap || !ctaH) return;
-
-  var holdTimer = null;
-  var holdDur = 600; // ms to start fade
-
-  function startHold() {
-    // Start loading video
-    if (video) {
-      video.load();
-      video.play().catch(function(){});
-    }
-
-    // Fade in video background on card
-    wrap.classList.add('video-active');
-
-    // After hold duration, blackout the screen
-    holdTimer = setTimeout(function() {
-      if (blackout) blackout.classList.add('active');
-    }, holdDur);
-  }
-
-  function endHold() {
-    clearTimeout(holdTimer);
-    wrap.classList.remove('video-active');
-    if (video) { video.pause(); video.currentTime = 0; }
-    if (blackout) blackout.classList.remove('active');
-  }
-
-  // Touch
-  ctaH.addEventListener('touchstart', function(e) {
-    e.preventDefault(); startHold();
-  }, { passive: false });
-  ctaH.addEventListener('touchend', endHold);
-  ctaH.addEventListener('touchcancel', endHold);
-
-  // Mouse
-  ctaH.addEventListener('mousedown', function(e) { e.preventDefault(); startHold(); });
-  ctaH.addEventListener('mouseup', endHold);
-  ctaH.addEventListener('mouseleave', endHold);
-
-  // Blackout dismiss
-  // Cursor: show pointer on hover
-  ctaH.style.cursor = 'pointer';
-  ctaH.style.userSelect = 'none';
-  ctaH.style.webkitUserSelect = 'none';
-})();
 </script>
 <div id="slogan-overlay">
   <video id="slogan-video" muted loop playsinline preload="none"
