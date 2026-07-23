@@ -29,7 +29,7 @@ img{max-width:100%;display:block;}
 .nav-back{font-size:13px;color:var(--subtle);font-weight:500;text-decoration:none;}
 .nav-back:hover{color:var(--ink);}
 .eyebrow{font-family:var(--ff-mono);font-size:10px;font-weight:700;
-  letter-spacing:.14em;text-transform:uppercase;color:var(--mag);}
+  letter-spacing:.14em;text-transform:uppercase;color:var(--ink);}
 .page-hero{padding:48px 24px 0;}
 .page-hero h1{font-family:var(--ff-disp);font-size:clamp(26px,7vw,40px);
   font-weight:800;letter-spacing:-1px;line-height:1.08;margin-top:10px;}
@@ -42,12 +42,21 @@ img{max-width:100%;display:block;}
 .section-body strong{font-weight:700;}
 .section-body h2{font-family:var(--ff-disp);font-size:22px;font-weight:800;
   letter-spacing:-.4px;margin:36px 0 14px;}
-.results-box{background:#0F0E0C;border-radius:16px;padding:28px 24px;margin:0 24px 40px;}
+.results-box{background:#0F0E0C;border-radius:16px;padding:28px 24px;margin:48px 24px 0;}
 .results-box h3{font-family:var(--ff-disp);font-size:18px;font-weight:800;
   color:#fff;margin-bottom:20px;}
-.results-box ul{list-style:none;display:flex;flex-direction:column;gap:10px;}
+.result-row{display:grid;grid-template-columns:24px 1fr auto;
+  align-items:start;gap:10px 12px;padding:12px 0;
+  border-top:1px solid rgba(255,255,255,.07);}
+.result-row:first-of-type{border-top:none;}
+.result-icon{color:var(--mag);flex-shrink:0;margin-top:2px;}
+.result-label{font-size:13px;color:rgba(255,255,255,.75);line-height:1.5;}
+.result-value{font-family:var(--ff-mono);font-size:14px;font-weight:700;color:#fff;white-space:nowrap;text-align:right;}
+/* Legacy list fallback */
+.results-box ul{list-style:none;display:flex;flex-direction:column;gap:0;}
 .results-box li{font-size:14px;color:rgba(255,255,255,.75);line-height:1.5;
-  padding-left:16px;position:relative;}
+  padding:12px 0 12px 20px;position:relative;border-top:1px solid rgba(255,255,255,.07);}
+.results-box li:first-child{border-top:none;}
 .results-box li::before{content:'→';color:var(--mag);position:absolute;left:0;}
 .results-box li strong{color:#fff;}
 .img-grid{display:grid;grid-template-columns:1fr 1fr;gap:10px;padding:0 24px;margin-bottom:36px;}
@@ -72,6 +81,44 @@ img{max-width:100%;display:block;}
 .quote-block{border-left:3px solid var(--mag);padding:14px 18px;
   margin:24px 0;background:#F9F8F6;border-radius:0 8px 8px 0;}
 .quote-block p{font-size:15px;font-style:italic;color:var(--mid);margin:0;}
+
+/* CTA section — home style */
+.cta-section{padding:0 24px 48px;}
+.cta-card-wrap{
+  position:relative;border-radius:16px;border:1.5px solid rgba(232,41,74,.4);
+  overflow:hidden;min-height:220px;
+}
+.cta-bg-video{
+  position:absolute;top:0;left:0;width:100%;height:100%;
+  object-fit:cover;z-index:0;
+}
+.cta-video-overlay{
+  position:absolute;inset:0;z-index:1;
+  background:linear-gradient(135deg,#0F0E0C 0%,#0F0E0C 25%,rgba(15,14,12,.88) 38%,rgba(15,14,12,.5) 50%,rgba(15,14,12,0) 65%);
+}
+.cta-inner{
+  position:relative;z-index:2;
+  padding:40px 24px 36px;max-width:65%;
+}
+.cta-inner h2{
+  font-family:var(--ff-disp);font-size:clamp(22px,6vw,32px);
+  font-weight:900;letter-spacing:-1.2px;
+  color:transparent;
+  background:linear-gradient(135deg,#fff 30%,rgba(255,255,255,.55) 100%);
+  -webkit-background-clip:text;background-clip:text;
+  -webkit-text-fill-color:transparent;
+  line-height:1.05;margin-bottom:20px;
+}
+.cta-btn{
+  display:inline-flex;align-items:center;gap:8px;
+  background:#fff;color:#0F0E0C;
+  font-family:var(--ff-body);font-size:13px;font-weight:700;
+  padding:12px 22px;border-radius:100px;
+  text-decoration:none;transition:background .15s;
+}
+.cta-btn:hover{background:#eee;}
+.cta-btn-arrow{display:inline-flex;align-items:center;justify-content:center;width:18px;height:18px;}
+
 </style>
 </head>
 <body>
@@ -85,11 +132,23 @@ img{max-width:100%;display:block;}
   <p class="lead">Content die de funnel voedt: van awareness-video's tot conversiegerichte landingspagina's. Data-gedreven en creatief.</p>
 </div>
 <div class="section-body"><p>Content is de brandstof van je funnel. Zonder relevante, sterke content vallen campagnes plat. Wij maken content die aansluit op elke fase van de customer journey — van de eerste kennismaking tot de uiteindelijke aankoop.</p><h2>Contentvormen</h2><ul><li>Video (brand, product, testimonial, social)</li><li>Statische en animated advertenties</li><li>Landingspagina-copy en CRO-content</li><li>E-mailsequenties en nurture-flows</li><li>Blog- en SEO-artikelen</li></ul></div>
-<div class="cta-strip">
-  <h2>Interesse?</h2>
-  <p>Plan een vrijblijvend gesprek over wat Content voor jou kan betekenen.</p>
-  <a href="https://calendly.com/flii-media" target="_blank">Plan een gesprek →</a>
-</div>
+
+<section class="cta-section" id="contact">
+  <div class="cta-card-wrap">
+    <video class="cta-bg-video" autoplay muted loop playsinline preload="auto"
+      src="https://fliimedia.github.io/Flii.nl/assets/eklipse-montage.mp4"></video>
+    <div class="cta-video-overlay"></div>
+    <div class="cta-inner">
+      <h2>Let's ignite<br>ambitions</h2>
+      <a href="https://calendly.com/flii-media" target="_blank" class="cta-btn">
+        Plan een gesprek
+        <span class="cta-btn-arrow">
+          <svg viewBox="0 0 8 8" width="14" height="14"><path d="M1 4h6M4 1l3 3-3 3" stroke="#0F0E0C" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" fill="none"/></svg>
+        </span>
+      </a>
+    </div>
+  </div>
+</section>
 <footer class="footer-mini">
   <p><a href="../index.html">Flii Media</a> · <a href="mailto:info@flii.nl">info@flii.nl</a> · © 2026</p>
 </footer>
