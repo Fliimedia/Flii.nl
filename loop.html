@@ -656,7 +656,14 @@ body{font-family:var(--ff-body);background:var(--paper);color:var(--ink);}
       <div id="calc-body"></div>
       <div class="calc-nav" id="calc-nav-bar" style="display:none">
         <button class="btn btn-ghost" id="calc-btn-back" onclick="go(-1)" disabled>← Terug</button>
-        <div class="c
+        <div class="calc-progress" id="calc-progress"></div>
+        <button class="btn btn-cta" id="calc-btn-next" onclick="go(1)">Volgende →</button>
+      </div>
+    </div>
+  </div>
+</section>
+
+<script>
 // ── LOOP RING ─────────────────────────────────────────────────────────
 var LOOP_ITEMS = [
   { k: "Livegang", body: "De campagne gaat live. Kanalen zijn ingericht, creatives staan klaar." },
@@ -1364,48 +1371,12 @@ renderCalc();
           (idx < stages.length-1 ? '<button class="fnl-nav-btn fnl-nav-next" onclick="window.setFunnelPhase(' + (idx+1) + ')">Volgende →</button>' : '<span class="fnl-nav-done">✓ Alle fases</span>') +
         '</div>' +
       '</div>';
-  } else {
-      var st = stages[window.active];
-      el.innerHTML =
-        '<div class="fnl-desc-card">' +
-        '<span class="fnl-phase-k">' + st.k + '</span>' +
-        '<p class="fnl-phase-goal">' + st.goal + '</p>' +
-        '<div class="fnl-phase-example"><strong>Voorbeeld:</strong> ' + st.example + '</div>' +
-        '</div>';
-    }
-  } else {
-      var s = stages[window.active];
-      el.innerHTML =
-        '<div class="fnl-phase-card active">' +
-        '<span class="fnl-phase-k">' + s.k + '</span>' +
-        '<p class="fnl-phase-goal">' + s.goal + '</p>' +
-        '<div class="fnl-phase-example"><strong>Voorbeeld:</strong> ' + s.example + '</div>' +
-        '<button class="fnl-pill" style="margin-top:10px;opacity:.55;font-size:11px" onclick="window.clearFunnelPhase()">← Alle fases</button>' +
-        '</div>';
-    }
   }
   renderDesc(); // init: show all phase cards
   window.renderDesc = renderDesc;
 
   // Global helpers for onclick
   window.setFunnelPhase = function(i) {
-    window.active = i;
-    document.querySelectorAll('.fnl-seg').forEach(function(sg, j) {
-      sg.classList.toggle('on', j === i);
-    });
-    renderDesc();
-  };
-  window.clearFunnelPhase = function() {
-    window.active = null;
-    document.querySelectorAll('.fnl-seg').forEach(function(sg) {
-      sg.classList.remove('on');
-    });
-    renderDesc();
-  };
-
-})();
-
-etFunnelPhase = function(i) {
     window.active = i;
     document.querySelectorAll('.fnl-seg').forEach(function(sg, j) {
       sg.classList.toggle('on', j === i);
