@@ -198,6 +198,14 @@ body{font-family:var(--ff-body);background:var(--bg);color:var(--ink);-webkit-fo
 .cta-btn:hover{background:#eee;}
 .cta-btn-arrow{display:inline-flex;align-items:center;justify-content:center;width:22px;height:22px;background:#0F0E0C;border-radius:50%;}
 </style>
+<script>
+(function(){
+  var loc = window.location;
+  if (loc.pathname.endsWith('.html') && loc.pathname !== '/index.html') {
+    history.replaceState(null, '', loc.pathname.slice(0,-5) + loc.search + loc.hash);
+  }
+})();
+</script>
 </head>
 <body>
 
