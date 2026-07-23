@@ -6299,23 +6299,29 @@ document.addEventListener('click', function(e) {
     // After 1 frame settle, start drop transition
     requestAnimationFrame(function() {
       requestAnimationFrame(function() {
-        // Measure target: .cta-h position + font size
-        var ctaRect     = ctaH.getBoundingClientRect();
-        var ctaFontSize = parseFloat(getComputedStyle(ctaH).fontSize);
+        // Scroll CTA section into view first, then measure
+        var ctaSection = ctaH.closest('section') || ctaH.closest('#contact');
+        ctaSection.scrollIntoView({ behavior: 'instant', block: 'start' });
 
-        // Scroll cta into viewport if needed
-        if (ctaRect.top > window.innerHeight || ctaRect.bottom < 0) {
-          ctaH.closest('section').scrollIntoView({ behavior: 'instant' });
-          ctaRect = ctaH.getBoundingClientRect();
-        }
+        // Wait one frame for layout to settle after scroll
+        requestAnimationFrame(function() {
+          var ctaWrap     = document.getElementById('cta-card-wrap');
+          var wrapRect    = ctaWrap ? ctaWrap.getBoundingClientRect() : ctaH.getBoundingClientRect();
+          var ctaRect     = ctaH.getBoundingClientRect();
+          var ctaFontSize = parseFloat(getComputedStyle(ctaH).fontSize);
 
-        // Smooth drop
-        dropText.style.transition  = 'top 0.75s cubic-bezier(0.4, 0, 0.2, 1), font-size 0.75s cubic-bezier(0.4, 0, 0.2, 1), letter-spacing 0.75s ease, line-height 0.75s ease';
-        dropText.style.top         = ctaRect.top    + 'px';
-        dropText.style.left        = ctaRect.left   + 'px';
-        dropText.style.fontSize    = ctaFontSize    + 'px';
-        dropText.style.letterSpacing = '-1.5px';
-        dropText.style.lineHeight    = '1.0';
+          // The slogan in the video sits at the left padding of the card, vertically
+          // aligned with where .cta-h renders. Use cta-h position directly.
+          var targetTop  = ctaRect.top;
+          var targetLeft = wrapRect.left + 20; // match cta-card left padding (var(--sp-3) ≈ 20px)
+
+          // Smooth drop
+          dropText.style.transition  = 'top 0.75s cubic-bezier(0.4, 0, 0.2, 1), left 0.75s cubic-bezier(0.4, 0, 0.2, 1), font-size 0.75s cubic-bezier(0.4, 0, 0.2, 1), letter-spacing 0.75s ease, line-height 0.75s ease';
+          dropText.style.top         = targetTop  + 'px';
+          dropText.style.left        = targetLeft + 'px';
+          dropText.style.fontSize    = ctaFontSize + 'px';
+          dropText.style.letterSpacing = '-1.5px';
+          dropText.style.lineHeight    = '1.0';
 
         // Start video
         if (ctaVideo) {
