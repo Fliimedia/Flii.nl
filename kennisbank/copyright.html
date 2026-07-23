@@ -40,6 +40,14 @@ a{color:inherit;}
 .page-footer{padding:28px 24px;text-align:center;font-size:12px;color:var(--subtle);
   border-top:1px solid var(--rule);background:var(--white);}
 .page-footer a{color:var(--ink);font-weight:600;text-decoration:none;}</style>
+<script>
+(function(){
+  var loc = window.location;
+  if (loc.pathname.endsWith('.html') && loc.pathname !== '/index.html') {
+    history.replaceState(null, '', loc.pathname.slice(0,-5) + loc.search + loc.hash);
+  }
+})();
+</script>
 </head>
 <body>
 <nav class="nav">
