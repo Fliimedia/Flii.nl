@@ -2,98 +2,36 @@
 <html lang="nl">
 <head>
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="viewport" content="width=device-width,initial-scale=1">
 <title>Algemene voorwaarden — Flii Media</title>
 <meta name="robots" content="noindex">
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,400;12..96,600;12..96,800;12..96,900&family=DM+Sans:ital,opsz,wght@0,9..40,400;0,9..40,500;0,9..40,700;1,9..40,400&family=JetBrains+Mono:wght@400;700&display=swap" rel="stylesheet">
-
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,400;12..96,700;12..96,800;12..96,900&family=DM+Sans:ital,opsz,wght@0,9..40,400;0,9..40,500;0,9..40,700;1,9..40,400&family=JetBrains+Mono:wght@400;700&display=swap" rel="stylesheet">
 <style>
-*{box-sizing:border-box;margin:0;padding:0}
+*{box-sizing:border-box;margin:0;padding:0;-webkit-font-smoothing:antialiased;-moz-osx-font-smoothing:grayscale}
 :root{
   --ff-disp:'Bricolage Grotesque',sans-serif;
   --ff-body:'DM Sans',sans-serif;
   --ff-mono:'JetBrains Mono',monospace;
   --c-ink:#0F0E0C;--c-red:#E8294A;--c-muted:#6B6866;
-  --c-rule:rgba(15,14,12,.1);--c-page:#FFFFFF;
-  --c-card-bg:#F7F6F3;--r:16px;
+  --c-rule:rgba(15,14,12,.1);--c-page:#FFFFFF;--c-card:#F7F6F3;--r:16px;
 }
-*{-webkit-font-smoothing:antialiased;-moz-osx-font-smoothing:grayscale}
-body{font-family:var(--ff-body);color:var(--c-ink);background:#fff;font-size:16px;line-height:1.6}
+body{font-family:var(--ff-body);color:var(--c-ink);background:#fff;line-height:1.6}
 a{color:var(--c-red);text-decoration:none}
 a:hover{text-decoration:underline}
-
-/* Legal page layout */
-.legal-wrap{max-width:720px;margin:0 auto;padding:80px 24px 64px}
-.legal-eyebrow{
-  font-family:var(--ff-mono);font-size:10px;font-weight:700;
-  letter-spacing:.14em;text-transform:uppercase;
-  color:var(--c-red);margin-bottom:16px;display:block;
-}
-.legal-h1{
-  font-family:var(--ff-disp);font-size:clamp(28px,6vw,42px);
-  font-weight:900;letter-spacing:-1.5px;color:var(--c-ink);
-  line-height:1.05;margin-bottom:24px;
-}
-.legal-meta{font-size:13px;color:var(--c-muted);margin-bottom:48px;padding-bottom:24px;border-bottom:1px solid var(--c-rule)}
-.legal-body h2{
-  font-family:var(--ff-disp);font-size:18px;font-weight:800;
-  color:var(--c-ink);margin:36px 0 10px;letter-spacing:-.3px;
-}
-.legal-body h3{
-  font-family:var(--ff-disp);font-size:15px;font-weight:700;
-  color:var(--c-ink);margin:20px 0 6px;
-}
-.legal-body p{margin-bottom:14px;font-size:15px;line-height:1.65;color:#2a2826}
-.legal-body ul,.legal-body ol{margin:0 0 16px 22px;font-size:15px;line-height:1.65;color:#2a2826}
-.legal-body li{margin-bottom:6px}
-.legal-body table{width:100%;border-collapse:collapse;margin-bottom:20px;font-size:14px}
-.legal-body th,.legal-body td{padding:10px 14px;border:1px solid var(--c-rule);text-align:left}
-.legal-body th{background:var(--c-card-bg);font-weight:700;font-family:var(--ff-disp)}
-.legal-body .highlight-box{
-  background:var(--c-card-bg);border-radius:12px;
-  padding:18px 20px;margin:24px 0;border-left:3px solid var(--c-red);
-}
-.legal-back{
-  display:inline-flex;align-items:center;gap:6px;
-  font-size:13px;font-weight:600;color:var(--c-muted);
-  text-decoration:none;margin-bottom:32px;
-}
-.legal-back:hover{color:var(--c-ink)}
-
-/* Preference center */
-.pref-card{
-  background:var(--c-card-bg);border:1px solid var(--c-rule);
-  border-radius:14px;padding:20px;margin-bottom:16px;
-}
-.pref-card-header{display:flex;justify-content:space-between;align-items:flex-start;gap:12px}
-.pref-card-title{font-family:var(--ff-disp);font-size:15px;font-weight:800;margin-bottom:4px}
-.pref-card-desc{font-size:13px;color:var(--c-muted);line-height:1.5}
-.pref-toggle{position:relative;width:44px;height:24px;flex-shrink:0;margin-top:2px}
-.pref-toggle input{opacity:0;width:0;height:0}
-.pref-slider{
-  position:absolute;inset:0;cursor:pointer;
-  background:#d0cdc9;border-radius:24px;
-  transition:.25s;
-}
-.pref-slider:before{
-  content:'';position:absolute;height:18px;width:18px;
-  left:3px;bottom:3px;background:#fff;border-radius:50%;
-  transition:.25s;
-}
-input:checked + .pref-slider{background:var(--c-red)}
-input:checked + .pref-slider:before{transform:translateX(20px)}
-input:disabled + .pref-slider{opacity:.6;cursor:not-allowed}
-.pref-actions{display:flex;gap:10px;flex-wrap:wrap;margin-top:32px}
-.btn-pref{
-  padding:12px 24px;border-radius:10px;font-size:14px;font-weight:700;
-  cursor:pointer;border:none;font-family:var(--ff-body);transition:.15s;
-}
-.btn-pref-primary{background:var(--c-red);color:#fff}
-.btn-pref-primary:hover{background:#c42140}
-.btn-pref-secondary{background:var(--c-card-bg);color:var(--c-ink);border:1px solid var(--c-rule)}
-.btn-pref-secondary:hover{background:#e8e5e0}
+.legal-page{max-width:720px;margin:0 auto;padding:80px 24px 80px}
+.legal-back{display:inline-flex;align-items:center;gap:6px;font-size:13px;font-weight:600;color:var(--c-muted);margin-bottom:28px;text-decoration:none}
+.legal-back:hover{color:var(--c-ink);text-decoration:none}
+.legal-eyebrow{display:block;font-family:var(--ff-mono);font-size:10px;font-weight:700;letter-spacing:.14em;text-transform:uppercase;color:var(--c-red);margin-bottom:14px}
+.legal-h1{font-family:var(--ff-disp);font-size:clamp(28px,6vw,42px);font-weight:900;letter-spacing:-1.5px;line-height:1.05;margin-bottom:12px}
+.legal-meta{font-size:13px;color:var(--c-muted);padding-bottom:28px;border-bottom:1px solid var(--c-rule);margin-bottom:40px}
+.legal-body h2{font-family:var(--ff-disp);font-size:17px;font-weight:800;letter-spacing:-.3px;margin:32px 0 8px;color:var(--c-ink)}
+.legal-body p{font-size:15px;line-height:1.7;color:#2a2826;margin-bottom:14px}
+.legal-body ul,.legal-body ol{font-size:15px;line-height:1.7;color:#2a2826;margin:0 0 14px 22px}
+.legal-body li{margin-bottom:5px}
+.legal-body table{width:100%;border-collapse:collapse;font-size:14px;margin-bottom:20px}
+.legal-body th,.legal-body td{padding:9px 13px;border:1px solid var(--c-rule);text-align:left;vertical-align:top}
+.legal-body th{background:var(--c-card);font-weight:700;font-family:var(--ff-disp)}
+.info-box{background:var(--c-card);border-left:3px solid var(--c-red);border-radius:0 12px 12px 0;padding:16px 20px;margin:24px 0;font-size:14px;color:var(--c-muted)}
 </style>
 </head>
 <body>
@@ -108,46 +46,62 @@ input:disabled + .pref-slider{opacity:.6;cursor:not-allowed}
     <span></span><span></span>
   </button>
 </nav>
-
 <main>
-  <div class="legal-wrap">
-    <a href="./" class="legal-back">← Terug naar flii.nl</a>
+  <div class="legal-page">
+    <a href="./" class="legal-back">← Flii.nl</a>
     <span class="legal-eyebrow">Juridisch</span>
     <h1 class="legal-h1">Algemene voorwaarden</h1>
-    <p class="legal-meta">Versie: januari 2025 · Flii Media B.V.</p>
+    <p class="legal-meta">Flii Media BV · Versie januari 2025</p>
     <div class="legal-body">
 
+      <div class="info-box">
+        Flii Media BV · Handweg 159, 1185TX Amstelveen · KVK 82567336 · <a href="mailto:info@flii.nl">info@flii.nl</a>
+      </div>
+
       <h2>Artikel 1 — Definities</h2>
-      <p><strong>Flii Media:</strong> Flii Media B.V., gevestigd te Amstelveen, KVK 82345678.<br>
-      <strong>Opdrachtgever:</strong> De partij die een overeenkomst sluit met Flii Media.<br>
-      <strong>Diensten:</strong> Alle marketingdiensten, concepten, campagnes en digitale oplossingen die Flii Media levert.</p>
+      <p><strong>Flii Media:</strong> Flii Media BV, gevestigd te Amstelveen, KVK 82567336.<br>
+      <strong>Opdrachtgever:</strong> De partij die een overeenkomst aangaat met Flii Media.<br>
+      <strong>Diensten:</strong> Alle door Flii Media te leveren werkzaamheden, waaronder strategische adviezen, campagnebeheer, contentproductie, technische implementaties en rapportages.<br>
+      <strong>Overeenkomst:</strong> Elke schriftelijk of digitaal bevestigde afspraak tussen Flii Media en Opdrachtgever.</p>
 
       <h2>Artikel 2 — Toepasselijkheid</h2>
-      <p>Deze voorwaarden zijn van toepassing op alle offertes, overeenkomsten en leveringen van Flii Media. Afwijkingen zijn alleen geldig indien schriftelijk overeengekomen.</p>
+      <p>Deze algemene voorwaarden zijn van toepassing op alle offertes, overeenkomsten en leveringen van Flii Media. Afwijkingen zijn alleen geldig indien schriftelijk overeengekomen. De toepasselijkheid van algemene voorwaarden van de Opdrachtgever wordt uitdrukkelijk uitgesloten.</p>
 
-      <h2>Artikel 3 — Offertes & overeenkomsten</h2>
-      <p>Offertes zijn 30 dagen geldig. Een overeenkomst komt tot stand na schriftelijke bevestiging of ondertekening door beide partijen. Flii Media behoudt zich het recht voor offertes te herzien bij gewijzigde omstandigheden.</p>
+      <h2>Artikel 3 — Offertes en totstandkoming</h2>
+      <p>Offertes zijn 30 dagen geldig, tenzij anders vermeld. Een overeenkomst komt tot stand na schriftelijke of digitale bevestiging door beide partijen, of zodra Flii Media met instemming van Opdrachtgever een aanvang heeft gemaakt met de uitvoering.</p>
 
       <h2>Artikel 4 — Uitvoering</h2>
-      <p>Flii Media voert opdrachten naar beste inzicht en vermogen uit. Indien de opdrachtgever informatie verstrekt die onjuist of onvolledig blijkt, is Flii Media niet aansprakelijk voor gebreken die hieruit voortvloeien.</p>
+      <p>Flii Media voert opdrachten naar beste inzicht en vermogen uit, conform de stand der techniek. Flii Media is een inspanningsverplichting aangegaan, geen resultaatverplichting. Indien de Opdrachtgever onjuiste of onvolledige informatie verstrekt, is Flii Media niet aansprakelijk voor gebreken die hieruit voortvloeien.</p>
 
-      <h2>Artikel 5 — Betaling</h2>
-      <p>Facturen dienen te worden voldaan binnen 14 dagen na factuurdatum. Bij overschrijding is Flii Media gerechtigd wettelijke rente en incassokosten in rekening te brengen. Mediabudgetten worden doorgaans vooraf gefactureerd.</p>
+      <h2>Artikel 5 — Wijzigingen en meerwerk</h2>
+      <p>Wijzigingen in de opdracht worden schriftelijk overeengekomen. Meerwerk wordt separaat geoffreerd en uitgevoerd na akkoord van de Opdrachtgever.</p>
 
-      <h2>Artikel 6 — Intellectueel eigendom</h2>
-      <p>Alle door Flii Media ontwikkelde concepten, teksten, ontwerpen en code blijven eigendom van Flii Media totdat volledige betaling heeft plaatsgevonden. Na volledige betaling worden gebruiksrechten overgedragen zoals overeengekomen.</p>
+      <h2>Artikel 6 — Betaling</h2>
+      <p>Facturen dienen binnen 14 dagen na factuurdatum te worden voldaan, tenzij schriftelijk anders overeengekomen. Mediabudgetten worden doorgaans vooraf gefactureerd. Bij niet tijdige betaling is Flii Media gerechtigd wettelijke rente en redelijke incassokosten in rekening te brengen.</p>
 
-      <h2>Artikel 7 — Aansprakelijkheid</h2>
-      <p>Flii Media is niet aansprakelijk voor indirecte schade, gevolgschade of gederfde winst. De totale aansprakelijkheid is beperkt tot het factuurbedrag van de betreffende opdracht. Flii Media geeft geen garantie op specifieke marketingresultaten.</p>
+      <h2>Artikel 7 — Intellectueel eigendom</h2>
+      <p>Alle door Flii Media ontwikkelde concepten, ontwerpen, teksten, code en overige werken blijven eigendom van Flii Media totdat volledige betaling heeft plaatsgevonden. Na volledige betaling worden gebruiksrechten overgedragen conform de overeengekomen licentie. Flii Media behoudt het recht om geproduceerd werk op te nemen in zijn portfolio, tenzij schriftelijk anders overeengekomen.</p>
 
-      <h2>Artikel 8 — Toepasselijk recht</h2>
-      <p>Op deze voorwaarden is Nederlands recht van toepassing. Geschillen worden bij voorkeur in onderling overleg opgelost. Indien dit niet mogelijk is, is de rechtbank Amsterdam bevoegd.</p>
+      <h2>Artikel 8 — Vertrouwelijkheid</h2>
+      <p>Beide partijen verplichten zich tot geheimhouding van vertrouwelijke informatie die zij in het kader van de overeenkomst van de andere partij ontvangen, tenzij een wettelijke verplichting tot openbaarmaking bestaat.</p>
 
-      <p style="margin-top:32px;font-size:13px;color:var(--c-muted)">Versie: januari 2025. Flii Media behoudt zich het recht voor deze voorwaarden te wijzigen.</p>
+      <h2>Artikel 9 — Aansprakelijkheid</h2>
+      <p>Flii Media is niet aansprakelijk voor indirecte schade, gevolgschade of gederfde winst. De totale aansprakelijkheid van Flii Media is in alle gevallen beperkt tot het bedrag dat voor de betreffende opdracht in rekening is gebracht in de drie maanden voorafgaand aan de schadeveroorzakende gebeurtenis. Flii Media geeft geen garantie op specifieke marketingresultaten, platformprestaties of conversiepercentages.</p>
+
+      <h2>Artikel 10 — Overmacht</h2>
+      <p>Flii Media is niet gehouden aan haar verplichtingen indien dit het gevolg is van overmacht, waaronder maar niet beperkt tot storingen bij derden, wijzigingen in algoritmering van advertentieplatforms, of overheidsmaatregelen.</p>
+
+      <h2>Artikel 11 — Beëindiging</h2>
+      <p>Lopende overeenkomsten kunnen worden beëindigd met inachtneming van een opzegtermijn van 30 dagen, tenzij schriftelijk anders overeengekomen. Reeds gemaakte kosten en verrichte werkzaamheden worden gefactureerd.</p>
+
+      <h2>Artikel 12 — Toepasselijk recht en geschillenbeslechting</h2>
+      <p>Op alle overeenkomsten met Flii Media is Nederlands recht van toepassing. Geschillen worden bij voorkeur in onderling overleg opgelost. Indien dit niet mogelijk is, is de bevoegde rechter in het arrondissement Amsterdam exclusief bevoegd.</p>
+
+      <p style="margin-top:32px;font-size:13px;color:var(--c-muted)">Versie januari 2025. Flii Media behoudt zich het recht voor deze voorwaarden te wijzigen.</p>
+
     </div>
   </div>
 </main>
-
 <footer class="footer">
   <div class="footer-bento">
     <div class="footer-tile footer-tile-brand">
@@ -183,10 +137,10 @@ input:disabled + .pref-slider{opacity:.6;cursor:not-allowed}
     <div class="footer-tile footer-tile-bottom">
       <div class="footer-wordmark">FLII.<span>MEDIA</span></div>
       <div class="footer-legal">
-        <a href="voorkeuren.html" class="footer-link">Voorkeuren</a>
-        <a href="cookies.html" class="footer-link">Cookies</a>
-        <a href="voorwaarden.html" class="footer-link">Voorwaarden</a>
-        <a href="privacy.html" class="footer-link">Privacy</a>
+        <a href="#" class="footer-link">Voorkeuren</a>
+        <a href="#" class="footer-link">Cookies</a>
+        <a href="#" class="footer-link">Voorwaarden</a>
+        <a href="#" class="footer-link">Privacy</a>
         <button class="footer-contact-btn" id="footer-contact-btn" onclick="toggleContactPopup()">Contact</button>
       </div>
     </div>
