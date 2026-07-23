@@ -74,6 +74,41 @@
 </script>
 
 <style>
+
+/* ── CTA INTRO ANIMATION ── */
+#cta-intro-overlay {
+  position: fixed; inset: 0; z-index: 8000;
+  background: #fff;
+  display: flex; align-items: center; justify-content: flex-start;
+  padding: 0 24px;
+  pointer-events: none;
+  opacity: 0;
+}
+#cta-intro-overlay.phase-show {
+  opacity: 1; pointer-events: all;
+  transition: opacity 0.35s ease;
+}
+#cta-intro-overlay.phase-drop {
+  opacity: 1; pointer-events: all;
+}
+#cta-intro-overlay.phase-fade {
+  opacity: 0; pointer-events: none;
+  transition: opacity 0.55s ease;
+}
+#cta-intro-slogan {
+  font-family: var(--ff-disp);
+  font-size: clamp(38px, 11vw, 72px);
+  font-weight: 900;
+  letter-spacing: -2px;
+  color: var(--c-ink);
+  line-height: 1.0;
+  will-change: transform;
+  transform: translateY(0);
+}
+#cta-intro-overlay.phase-drop #cta-intro-slogan {
+  transition: transform 0.7s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
 /* ═══════════════════════════════════════════
    TOKEN SYSTEM
    All values derived from 8px base.
@@ -1317,6 +1352,41 @@ img { display: block; max-width: 100%; }
 </script>
 
 <style>
+
+/* ── CTA INTRO ANIMATION ── */
+#cta-intro-overlay {
+  position: fixed; inset: 0; z-index: 8000;
+  background: #fff;
+  display: flex; align-items: center; justify-content: flex-start;
+  padding: 0 24px;
+  pointer-events: none;
+  opacity: 0;
+}
+#cta-intro-overlay.phase-show {
+  opacity: 1; pointer-events: all;
+  transition: opacity 0.35s ease;
+}
+#cta-intro-overlay.phase-drop {
+  opacity: 1; pointer-events: all;
+}
+#cta-intro-overlay.phase-fade {
+  opacity: 0; pointer-events: none;
+  transition: opacity 0.55s ease;
+}
+#cta-intro-slogan {
+  font-family: var(--ff-disp);
+  font-size: clamp(38px, 11vw, 72px);
+  font-weight: 900;
+  letter-spacing: -2px;
+  color: var(--c-ink);
+  line-height: 1.0;
+  will-change: transform;
+  transform: translateY(0);
+}
+#cta-intro-overlay.phase-drop #cta-intro-slogan {
+  transition: transform 0.7s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
 /* ═══════════════════════════════════════════
    TOKEN SYSTEM
    All values derived from 8px base.
@@ -2641,6 +2711,41 @@ img { display: block; max-width: 100%; }
 
 
 
+
+
+/* ── CTA INTRO ANIMATION ── */
+#cta-intro-overlay {
+  position: fixed; inset: 0; z-index: 8000;
+  background: #fff;
+  display: flex; align-items: center; justify-content: flex-start;
+  padding: 0 24px;
+  pointer-events: none;
+  opacity: 0;
+}
+#cta-intro-overlay.phase-show {
+  opacity: 1; pointer-events: all;
+  transition: opacity 0.35s ease;
+}
+#cta-intro-overlay.phase-drop {
+  opacity: 1; pointer-events: all;
+}
+#cta-intro-overlay.phase-fade {
+  opacity: 0; pointer-events: none;
+  transition: opacity 0.55s ease;
+}
+#cta-intro-slogan {
+  font-family: var(--ff-disp);
+  font-size: clamp(38px, 11vw, 72px);
+  font-weight: 900;
+  letter-spacing: -2px;
+  color: var(--c-ink);
+  line-height: 1.0;
+  will-change: transform;
+  transform: translateY(0);
+}
+#cta-intro-overlay.phase-drop #cta-intro-slogan {
+  transition: transform 0.7s cubic-bezier(0.4, 0, 0.2, 1);
+}
 
 /* ═══════════════════════════════════════════
    TOKEN SYSTEM
@@ -6188,5 +6293,80 @@ document.addEventListener('click', function(e) {
   window.addEventListener('touchcancel', end);
 })();
 </script>
+
+<!-- CTA INTRO ANIMATION OVERLAY -->
+<div id="cta-intro-overlay">
+  <div id="cta-intro-slogan">Let's ignite<br>ambitions</div>
+</div>
+
+
+<script>
+(function() {
+  var overlay  = document.getElementById('cta-intro-overlay');
+  var slogan   = document.getElementById('cta-intro-slogan');
+  var ctaWrap  = document.getElementById('cta-card-wrap');
+  var ctaH     = document.querySelector('.cta-h');
+  var video    = document.getElementById('cta-bg-video');
+  if (!overlay || !slogan || !ctaWrap) return;
+
+  var played = false;
+
+  function runIntro() {
+    if (played) return;
+    played = true;
+
+    // Pause the bg video while overlay shows
+    if (video) video.pause();
+
+    // Phase 1: show white overlay with slogan centered
+    overlay.classList.add('phase-show');
+
+    setTimeout(function() {
+      // Measure where the slogan needs to land (top of .cta-h in viewport)
+      var targetY = 0;
+      if (ctaH) {
+        var ctaRect    = ctaH.getBoundingClientRect();
+        var sloganRect = slogan.getBoundingClientRect();
+        // Distance from current slogan top to target top
+        targetY = ctaRect.top - sloganRect.top;
+      }
+
+      // Phase 2: animate slogan downward
+      overlay.classList.remove('phase-show');
+      overlay.classList.add('phase-drop');
+      // Force reflow so transition fires
+      void overlay.offsetWidth;
+      slogan.style.transform = 'translateY(' + targetY + 'px)';
+
+      // Phase 3: after drop, fade overlay and start video
+      setTimeout(function() {
+        overlay.classList.remove('phase-drop');
+        overlay.classList.add('phase-fade');
+        if (video) {
+          video.currentTime = 0;
+          video.play().catch(function(){});
+        }
+        // Clean up after fade
+        setTimeout(function() {
+          overlay.style.display = 'none';
+        }, 600);
+      }, 750);
+
+    }, 550); // hold white screen for 550ms before dropping
+  }
+
+  var observer = new IntersectionObserver(function(entries) {
+    entries.forEach(function(entry) {
+      if (entry.isIntersecting) {
+        observer.disconnect();
+        runIntro();
+      }
+    });
+  }, { threshold: 0.45 });
+
+  observer.observe(ctaWrap);
+})();
+</script>
+
 </body>
 </html>
