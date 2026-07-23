@@ -923,18 +923,8 @@ img { display: block; max-width: 100%; }
 
 
 /* ── FLOATING ICON SIDEBAR ── */
-.float-sidebar {
-  position: fixed;
-  left: 12px; top: 50%;
-  transform: translateY(-50%) translateX(calc(-100% - 20px));
-  display: flex; flex-direction: column; gap: 0;
-  z-index: 995; border-radius: 12px; overflow: hidden;
-  border: 1.5px solid rgba(232,41,74,.7);
-  background: #0F0E0C;
-  box-shadow: 0 2px 16px rgba(232,41,74,.15);
-  transition: transform 0.4s cubic-bezier(0.23, 1, 0.32, 1);
-}
-.float-sidebar.visible { transform: translateY(-50%) translateX(0); }
+
+
 .float-icon {
   display: flex; align-items: center; justify-content: center;
   width: 44px; height: 44px;
@@ -2218,7 +2208,7 @@ img { display: block; max-width: 100%; }
 
 /* ── FLOATING ICON SIDEBAR ── */
 
-.float-sidebar.visible { transform: translateY(-50%) translateX(0); }
+
 .float-icon {
   display: flex; align-items: center; justify-content: center;
   width: 44px; height: 44px;
@@ -3589,7 +3579,7 @@ img { display: block; max-width: 100%; }
 
 /* ── FLOATING ICON SIDEBAR ── */
 
-.float-sidebar.visible { transform: translateY(-50%) translateX(0); }
+
 .float-icon {
   display: flex; align-items: center; justify-content: center;
   width: 44px; height: 44px;
@@ -4997,6 +4987,20 @@ details.faq-item[open] .faq-answer {
 
 /* ── FLOAT SIDEBAR: static border, no animation ── */
 /* (animation was causing constant movement — removed) */
+
+/* ── FLOATING ICON SIDEBAR ── */
+.float-sidebar {
+  position: fixed;
+  right: -56px; top: 50%;
+  transform: translateY(-50%);
+  display: flex; flex-direction: column; gap: 0;
+  z-index: 995; border-radius: 12px; overflow: hidden;
+  border: 1.5px solid rgba(232,41,74,.7);
+  box-shadow: 0 2px 12px rgba(0,0,0,.08);
+  background: #0F0E0C;
+  transition: right 0.4s cubic-bezier(0.23, 1, 0.32, 1);
+}
+.float-sidebar.visible { right: 12px; }
 </style>
 <!-- Default consent vóór GTM -->
 
@@ -6309,18 +6313,7 @@ document.addEventListener('click', function(e) {
 });
 
 </script>
-<script>
-(function() {
-  var sidebar = document.getElementById('float-sidebar');
-  if (!sidebar) return;
-  function check() {
-    var nearBottom = window.scrollY + window.innerHeight > document.body.scrollHeight - 120;
-    sidebar.classList.toggle('visible', window.scrollY > window.innerHeight * 0.6 && !nearBottom);
-  }
-  check();
-  window.addEventListener('scroll', check, { passive: true });
-})();
-</script>
+
 <script>
 
 /* rocket charge JS removed */
@@ -6560,6 +6553,18 @@ document.addEventListener('click', function(e) {
   ['mouseenter','click','touchstart'].forEach(function(ev) {
     wrap.addEventListener(ev, startVideo, { passive: true });
   });
+})();
+</script>
+<script>
+// ── FLOAT SIDEBAR VISIBILITY ──────────────────────────────────────────
+(function() {
+  var sidebar = document.getElementById('float-sidebar');
+  if (!sidebar) return;
+  function check() {
+    sidebar.classList.toggle('visible', window.scrollY > window.innerHeight * 0.6);
+  }
+  check();
+  window.addEventListener('scroll', check, { passive: true });
 })();
 </script>
 </body>
