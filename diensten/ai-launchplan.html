@@ -161,6 +161,42 @@ body{font-family:var(--ff-body);background:var(--bg);color:var(--ink);-webkit-fo
 .cta-btn:hover{background:#eee;}
 .cta-btn-arrow{display:inline-flex;align-items:center;justify-content:center;width:18px;height:18px;}
 
+
+.cta-section{padding:0 24px 48px;}
+.cta-card-wrap{
+  position:relative;border-radius:16px;border:1.5px solid rgba(232,41,74,.4);
+  overflow:hidden;min-height:220px;
+}
+.cta-bg-video{
+  position:absolute;top:0;left:0;width:100%;height:100%;
+  object-fit:cover;z-index:0;
+}
+.cta-video-overlay{
+  position:absolute;inset:0;z-index:1;
+  background:linear-gradient(135deg,#0F0E0C 0%,#0F0E0C 25%,rgba(15,14,12,.88) 38%,rgba(15,14,12,.5) 50%,rgba(15,14,12,0) 65%);
+}
+.cta-inner{
+  position:relative;z-index:2;
+  padding:40px 24px 36px;max-width:65%;
+}
+.cta-inner h2{
+  font-family:var(--ff-disp);font-size:clamp(22px,6vw,32px);
+  font-weight:900;letter-spacing:-1.2px;
+  color:transparent;
+  background:linear-gradient(135deg,#fff 30%,rgba(255,255,255,.55) 100%);
+  -webkit-background-clip:text;background-clip:text;
+  -webkit-text-fill-color:transparent;
+  line-height:1.05;margin-bottom:20px;
+}
+.cta-btn{
+  display:inline-flex;align-items:center;gap:8px;
+  background:#fff;color:#0F0E0C;
+  font-family:var(--ff-body);font-size:13px;font-weight:700;
+  padding:12px 22px;border-radius:100px;
+  text-decoration:none;transition:background .15s;
+}
+.cta-btn:hover{background:#eee;}
+.cta-btn-arrow{display:inline-flex;align-items:center;justify-content:center;width:22px;height:22px;background:#0F0E0C;border-radius:50%;}
 </style>
 </head>
 <body>
@@ -480,6 +516,23 @@ body{font-family:var(--ff-body);background:var(--bg);color:var(--ink);-webkit-fo
   <h2>Klaar om te lanceren?</h2>
   <p>Plan een vrijblijvend gesprek. We bespreken jouw product, doelgroep en ambitie.</p>
   <a href="https://calendly.com/flii-media" target="_blank" class="btn-mag" style="display:inline-flex;margin:0 auto">Plan een gesprek →</a>
+</section>
+
+<section class="cta-section" id="contact">
+  <div class="cta-card-wrap">
+    <video class="cta-bg-video" autoplay muted loop playsinline preload="auto"
+      src="https://fliimedia.github.io/Flii.nl/assets/eklipse-montage.mp4"></video>
+    <div class="cta-video-overlay"></div>
+    <div class="cta-inner">
+      <h2>Let's ignite<br>ambitions</h2>
+      <a href="https://calendly.com/flii-media" target="_blank" class="cta-btn">
+        Plan een gesprek
+        <span class="cta-btn-arrow">
+          <svg viewBox="0 0 8 8" width="14" height="14"><path d="M1 4h6M4 1l3 3-3 3" stroke="#0F0E0C" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" fill="none"/></svg>
+        </span>
+      </a>
+    </div>
+  </div>
 </section>
 
 <footer class="footer-mini">
