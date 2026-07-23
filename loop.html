@@ -725,10 +725,7 @@ function renderCore() {
 // ── DATA ────────────────────────────────────────────────────
 var PRICING = {
   scopes: {
-    campagne: { plan: 1500, build: 0,     run: 0    },
-    app:      { plan: 2500, build: 5000,  run: 750  },
-    platform: { plan: 4500, build: 18000, run: 2500 },
-    ai:       { plan: 2500, build: 6500,  run: 850  }
+    campagne: { plan: 1500, build: 0, run: 0 }
   }
 };
 
@@ -758,12 +755,11 @@ var DEL_PRICE = {
   persstrategie:{mo:500},influencerMgmt:{mo:450},affiliateSetup:{once:1200}
 };
 
-var AI_OPTS = ["chatbot","contentgen","automatisering","dataAnalyse","aiIntegratie","customModel"];
 
 // Labels
 var L = {
-  scopes: { campagne:"Campagne", app:"App", platform:"Platform", ai:"AI" },
-  scopeDesc: { campagne:"Een advertentiecampagne, opgezet en gestuurd op resultaat.", app:"Een werkende app of PWA, van één functie tot meerdere modules.", platform:"Een volwaardig, schaalbaar platform met backend en AI.", ai:"Een AI-oplossing of automatisering, van integratie tot een eigen model." },
+  scopes: { campagne:"Campagne" },
+  scopeDesc: { campagne:"Een advertentiecampagne, opgezet en gestuurd op resultaat." },
   phases:    { plan:"Loop Start", build:"Loop Build", run:"Loop Run" },
   phaseDesc: { plan:"Research en plan van aanpak.", build:"Creatie en activatie van je campagne.", run:"Beheer & optimalisatie van actieve campagnes." },
   phaseByType: {
@@ -780,7 +776,6 @@ var L = {
   steps:   { type:"Type", details:"Details", pakketten:"Pakketten", result:"Resultaat" },
   stepTitle:{ details:"Stel je scope samen.", pakketten:"Kies je Loop-fases.", result:"Jouw indicatie." },
   stepHelp: { details:"Kies je kanalen en diensten.", pakketten:"Welke fases van de loop neem je af?", result:"Je indicatieve investering." },
-  badge:"Meest gekozen",
   from:"v.a.",
   onRequest:"Op aanvraag",
   inclFree:"inbegrepen",
@@ -801,7 +796,7 @@ var L = {
 // ── STATE ────────────────────────────────────────────────────
 var S = {
   step: 0,
-  types:  { campagne:true, ai:false },
+  types:  { campagne:true },
   phases: { plan:true, build:true, run:true },
   cats:   {}, subs: {}, dels: {},
   opts:   {},
@@ -956,18 +951,6 @@ function renderCalc() {
       html += '</div></div>';
     }
 
-    // AI details
-    if (S.types.ai) {
-      html += '<div class="detail-block"><div class="detail-block-q">Welke AI-functionaliteit?</div><div class="refine-group opt-group">';
-      AI_OPTS.forEach(function(k) {
-        var on = !!S.opts[k];
-        html += '<button class="toggle toggle-sm'+(on?" on":"") +'" onclick="toggleOpt(\''+k+'\')">';
-        html += '<span class="toggle-main"><span class="toggle-t">'+(L.typeOpts[k]||k)+'</span></span>';
-        html += '<span class="tgt"><span class="tgt-dot"></span></span></button>';
-      });
-      html += '</div></div>';
-    }
-
     html += navBtns(true, true);
   }
 
@@ -1060,7 +1043,6 @@ function togglePhase(k) { S.phases[k] = !S.phases[k]; renderCalc(); }
 function toggleCat(k)   { S.cats[k]   = !S.cats[k];   renderCalc(); }
 function toggleSub(k)   { S.subs[k]   = !S.subs[k];   renderCalc(); }
 function toggleDel(k)   { S.dels[k]   = !S.dels[k];   renderCalc(); }
-function toggleOpt(k)   { S.opts[k]   = !S.opts[k];   renderCalc(); }
 function setAppKind(k)  { S.appKind   = k;             renderCalc(); }
 function toggleRow(label){ S.openRows[label] = !S.openRows[label]; renderCalc(); }
 
@@ -1072,10 +1054,7 @@ function toggleRow(label){ S.openRows[label] = !S.openRows[label]; renderCalc();
 // ── DATA ────────────────────────────────────────────────────
 var PRICING = {
   scopes: {
-    campagne: { plan: 1500, build: 0,     run: 0    },
-    app:      { plan: 2500, build: 5000,  run: 750  },
-    platform: { plan: 4500, build: 18000, run: 2500 },
-    ai:       { plan: 2500, build: 6500,  run: 850  }
+    campagne: { plan: 1500, build: 0, run: 0 }
   }
 };
 
@@ -1105,12 +1084,11 @@ var DEL_PRICE = {
   persstrategie:{mo:500},influencerMgmt:{mo:450},affiliateSetup:{once:1200}
 };
 
-var AI_OPTS = ["chatbot","contentgen","automatisering","dataAnalyse","aiIntegratie","customModel"];
 
 // Labels
 var L = {
-  scopes: { campagne:"Campagne", app:"App", platform:"Platform", ai:"AI" },
-  scopeDesc: { campagne:"Een advertentiecampagne, opgezet en gestuurd op resultaat.", app:"Een werkende app of PWA, van één functie tot meerdere modules.", platform:"Een volwaardig, schaalbaar platform met backend en AI.", ai:"Een AI-oplossing of automatisering, van integratie tot een eigen model." },
+  scopes: { campagne:"Campagne" },
+  scopeDesc: { campagne:"Een advertentiecampagne, opgezet en gestuurd op resultaat." },
   phases:    { plan:"Loop Start", build:"Loop Build", run:"Loop Run" },
   phaseDesc: { plan:"Research en plan van aanpak.", build:"Creatie en activatie van je campagne.", run:"Beheer & optimalisatie van actieve campagnes." },
   phaseByType: {
@@ -1127,7 +1105,6 @@ var L = {
   steps:   { type:"Type", details:"Details", pakketten:"Pakketten", result:"Resultaat" },
   stepTitle:{ details:"Stel je scope samen.", pakketten:"Kies je Loop-fases.", result:"Jouw indicatie." },
   stepHelp: { details:"Kies je kanalen en diensten.", pakketten:"Welke fases van de loop neem je af?", result:"Je indicatieve investering." },
-  badge:"Meest gekozen",
   from:"v.a.",
   onRequest:"Op aanvraag",
   inclFree:"inbegrepen",
@@ -1271,7 +1248,6 @@ function togglePhase(k) { S.phases[k] = !S.phases[k]; renderCalc(); }
 function toggleCat(k)   { S.cats[k]   = !S.cats[k];   renderCalc(); }
 function toggleSub(k)   { S.subs[k]   = !S.subs[k];   renderCalc(); }
 function toggleDel(k)   { S.dels[k]   = !S.dels[k];   renderCalc(); }
-function toggleOpt(k)   { S.opts[k]   = !S.opts[k];   renderCalc(); }
 function setAppKind(k)  { S.appKind   = k;             renderCalc(); }
 function toggleRow(label){ S.openRows[label] = !S.openRows[label]; renderCalc(); }
 
