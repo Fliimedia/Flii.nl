@@ -778,8 +778,8 @@ var L = {
   dels: { seoContent:"SEO (content)",seoTech:"SEO (technisch)",sea:"SEA / Google Ads",linkbuilding:"Linkbuilding",socialContent:"Contentcreatie",community:"Community management",paidSocial:"Paid social",socialInfluencer:"Influencer",bannerCreatie:"Bannercreatie",programmaticBuy:"Programmatic inkoop",retargetingSetup:"Retargeting-setup",videoProductie:"Videoproductie",videoMontage:"Montage",videoBuy:"Media-inkoop",spotProductie:"Spotproductie",podcastProductie:"Podcastproductie",audioBuy:"Media-inkoop",templateDesign:"Template-design",emailFlows:"Flows / automation",crmSetup:"CRM-inrichting",flowSetup:"Flow-opzet",msgCopy:"Copy",msgIntegratie:"Integratie",oohOntwerp:"Ontwerp",oohBuy:"Inkoop & planning",oohProductie:"Productie",printOntwerp:"Ontwerp",drukwerk:"Drukwerk",printDistributie:"Distributie",persstrategie:"PR-strategie",influencerMgmt:"Influencer management",affiliateSetup:"Affiliate-setup" },
   typeOpts: { webapp:"Webapp",pwa:"PWA",nativeApp:"Native app",uxDesign:"UX-design",backendApi:"Backend & API",appIntegraties:"Integraties",appStorePub:"App store-publicatie",website:"Website",ecommerce:"Webshop / e-commerce",portaal:"Portaal / dashboard",platformAi:"AI-functionaliteit",platformIntegraties:"Integraties",cms:"CMS",chatbot:"Chatbot / assistent",contentgen:"Contentgeneratie",automatisering:"Automatisering",dataAnalyse:"Data-analyse",aiIntegratie:"AI-integratie",customModel:"Custom model" },
   steps:   { type:"Type", details:"Details", pakketten:"Pakketten", result:"Resultaat" },
-  stepTitle:{ type:"Wat wil je bouwen?", details:"Stel je scope samen.", pakketten:"Kies je Loop-fases.", result:"Jouw indicatie." },
-  stepHelp: { type:"Kies één type of combineer er meerdere.", details:"Verfijn je keuze per dienst.", pakketten:"Welke fases van de loop neem je af?", result:"Je indicatieve investering." },
+  stepTitle:{ details:"Stel je scope samen.", pakketten:"Kies je Loop-fases.", result:"Jouw indicatie." },
+  stepHelp: { details:"Kies je kanalen en diensten.", pakketten:"Welke fases van de loop neem je af?", result:"Je indicatieve investering." },
   badge:"Meest gekozen",
   from:"v.a.",
   onRequest:"Op aanvraag",
@@ -808,13 +808,13 @@ var S = {
   advice: false,
   openRows: {}
 };
-var STEPS = ["type","details","pakketten","result"];
+var STEPS = ["details","pakketten","result"];
 
 function eur(n) { return "\u20AC\u00A0" + Math.round(n||0).toLocaleString("nl-NL"); }
 
 // ── COMPUTE ──────────────────────────────────────────────────
 function compute() {
-  var selected = ["campagne","app","platform","ai"].filter(function(k){ return S.types[k]; });
+  var selected = ["campagne"];
   var once = 0, mo = 0, saving = 0;
 
   selected.forEach(function(sk) {
@@ -846,7 +846,7 @@ function compute() {
 
 function lineItems() {
   var items = [];
-  var selected = ["campagne","app","platform","ai"].filter(function(k){ return S.types[k]; });
+  var selected = ["campagne"];
 
   selected.forEach(function(sk) {
     var sc = PRICING.scopes[sk];
@@ -856,10 +856,6 @@ function lineItems() {
     var sub = [];
 
     if (sk === "ai") {
-      AI_OPTS.forEach(function(k) {
-        if (S.opts[k]) sub.push({ label: L.typeOpts[k]||k, free: true });
-      });
-    }
 
     if (sk === "campagne" && S.phases.build) {
       CHANNEL_TREE.forEach(function(c) {
@@ -917,31 +913,10 @@ function renderCalc() {
 
   var html = '<div class="calc-slide-head"><div class="calc-slide-title">'+L.stepTitle[cur]+'</div><div class="calc-slide-help">'+L.stepHelp[cur]+'</div></div>';
 
-  // ── STEP 1: TYPE ──────────────────────────────────────────
-  if (cur === "type") {
-    html += '<div class="type-cards">';
-    ["campagne","app","platform","ai"].forEach(function(k) {
-      var on = S.types[k];
-      html += '<button class="scope-card'+(on?" on":"") +'" onclick="toggleType(\''+k+'\')">';
-      /* app badge removed */
-      if(k==="app") html += '<span class="scope-badge mono">Meest gekozen</span>';
-      html += '<span class="scope-check">'+(on?"&#10003;":"")+'</span>';
-      html += '<span class="scope-card-t">'+L.scopes[k]+'</span>';
-      html += '<div class="scope-card-d">'+L.scopeDesc[k]+'</div></button>';
-    });
-    html += '</div>';
-    html += navBtns(false, true);
-  }
-
-  // ── STEP 2: DETAILS ────────────────────────────────────────
-  else if (cur === "details") {
-    var selected = ["campagne","app","platform","ai"].filter(function(k){ return S.types[k]; });
-    if (!selected.length) {
-      html += '<p class="calc-note">'+L.stepHelp.type+'</p>';
-    }
-
+  // ── STEP 1: DETAILS ────────────────────────────────────────
+  if (cur === "details") {
     // Campagne channels
-    if (S.types.campagne) {
+    {
       html += '<div class="detail-block"><div class="detail-block-q">Welke mediakanalen wil je inzetten?</div>';
       html += '<div class="svc-list">';
       CHANNEL_TREE.forEach(function(c) {
@@ -1011,9 +986,7 @@ function renderCalc() {
       else html += price;
       html += '</span><span class="tgt"><span class="tgt-dot"></span></span></button>';
     });
-    if (S.phases.plan && S.phases.build) {
-      html += '<p class="calc-note combo-note">'+""+'</p>';
-    }
+
     html += '</div>';
     html += navBtns(true, true);
   }
@@ -1152,8 +1125,8 @@ var L = {
   dels: { seoContent:"SEO (content)",seoTech:"SEO (technisch)",sea:"SEA / Google Ads",linkbuilding:"Linkbuilding",socialContent:"Contentcreatie",community:"Community management",paidSocial:"Paid social",socialInfluencer:"Influencer",bannerCreatie:"Bannercreatie",programmaticBuy:"Programmatic inkoop",retargetingSetup:"Retargeting-setup",videoProductie:"Videoproductie",videoMontage:"Montage",videoBuy:"Media-inkoop",spotProductie:"Spotproductie",podcastProductie:"Podcastproductie",audioBuy:"Media-inkoop",templateDesign:"Template-design",emailFlows:"Flows / automation",crmSetup:"CRM-inrichting",flowSetup:"Flow-opzet",msgCopy:"Copy",msgIntegratie:"Integratie",oohOntwerp:"Ontwerp",oohBuy:"Inkoop & planning",oohProductie:"Productie",printOntwerp:"Ontwerp",drukwerk:"Drukwerk",printDistributie:"Distributie",persstrategie:"PR-strategie",influencerMgmt:"Influencer management",affiliateSetup:"Affiliate-setup" },
   typeOpts: { webapp:"Webapp",pwa:"PWA",nativeApp:"Native app",uxDesign:"UX-design",backendApi:"Backend & API",appIntegraties:"Integraties",appStorePub:"App store-publicatie",website:"Website",ecommerce:"Webshop / e-commerce",portaal:"Portaal / dashboard",platformAi:"AI-functionaliteit",platformIntegraties:"Integraties",cms:"CMS",chatbot:"Chatbot / assistent",contentgen:"Contentgeneratie",automatisering:"Automatisering",dataAnalyse:"Data-analyse",aiIntegratie:"AI-integratie",customModel:"Custom model" },
   steps:   { type:"Type", details:"Details", pakketten:"Pakketten", result:"Resultaat" },
-  stepTitle:{ type:"Wat wil je bouwen?", details:"Stel je scope samen.", pakketten:"Kies je Loop-fases.", result:"Jouw indicatie." },
-  stepHelp: { type:"Kies één type of combineer er meerdere.", details:"Verfijn je keuze per dienst.", pakketten:"Welke fases van de loop neem je af?", result:"Je indicatieve investering." },
+  stepTitle:{ details:"Stel je scope samen.", pakketten:"Kies je Loop-fases.", result:"Jouw indicatie." },
+  stepHelp: { details:"Kies je kanalen en diensten.", pakketten:"Welke fases van de loop neem je af?", result:"Je indicatieve investering." },
   badge:"Meest gekozen",
   from:"v.a.",
   onRequest:"Op aanvraag",
@@ -1175,20 +1148,20 @@ var L = {
 // ── STATE ────────────────────────────────────────────────────
 var S = {
   step: 0,
-  types:  { campagne:false, app:true, platform:false, ai:false },
+  types:  { campagne:true },  // campagne only
   phases: { plan:true, build:true, run:true },
   cats:   {}, subs: {}, dels: {},
   opts:   {},
   advice: false,
   openRows: {}
 };
-var STEPS = ["type","details","pakketten","result"];
+var STEPS = ["details","pakketten","result"];
 
 function eur(n) { return "\u20AC\u00A0" + Math.round(n||0).toLocaleString("nl-NL"); }
 
 // ── COMPUTE ──────────────────────────────────────────────────
 function compute() {
-  var selected = ["campagne","app","platform","ai"].filter(function(k){ return S.types[k]; });
+  var selected = ["campagne"];
   var once = 0, mo = 0, saving = 0;
 
   selected.forEach(function(sk) {
@@ -1220,7 +1193,7 @@ function compute() {
 
 function lineItems() {
   var items = [];
-  var selected = ["campagne","app","platform","ai"].filter(function(k){ return S.types[k]; });
+  var selected = ["campagne"];
 
   selected.forEach(function(sk) {
     var sc = PRICING.scopes[sk];
