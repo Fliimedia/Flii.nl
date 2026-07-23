@@ -95,6 +95,17 @@ input:disabled + .pref-slider{opacity:.6;cursor:not-allowed}
 .btn-pref-secondary{background:var(--c-card-bg);color:var(--c-ink);border:1px solid var(--c-rule)}
 .btn-pref-secondary:hover{background:#e8e5e0}
 </style>
+
+<script>
+// Clean URL: remove .html extension from address bar
+(function(){
+  var loc = window.location;
+  if (loc.pathname.endsWith('.html') && loc.pathname !== '/index.html') {
+    var clean = loc.pathname.slice(0, -5);
+    history.replaceState(null, '', clean + loc.search + loc.hash);
+  }
+})();
+</script>
 </head>
 <body>
 <nav class="nav">
