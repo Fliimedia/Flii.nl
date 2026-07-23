@@ -33,6 +33,17 @@ a:hover{text-decoration:underline}
 .legal-body th{background:var(--c-card);font-weight:700;font-family:var(--ff-disp)}
 .info-box{background:var(--c-card);border-left:3px solid var(--c-red);border-radius:0 12px 12px 0;padding:16px 20px;margin:24px 0;font-size:14px;color:var(--c-muted)}
 </style>
+
+<script>
+// Clean URL: remove .html extension from address bar
+(function(){
+  var loc = window.location;
+  if (loc.pathname.endsWith('.html') && loc.pathname !== '/index.html') {
+    var clean = loc.pathname.slice(0, -5);
+    history.replaceState(null, '', clean + loc.search + loc.hash);
+  }
+})();
+</script>
 </head>
 <body>
 <nav class="nav">
