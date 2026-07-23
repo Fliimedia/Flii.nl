@@ -446,6 +446,17 @@ body{font-family:var(--ff-body);background:var(--paper);color:var(--ink);}
 .fnl-nav-done { font-size: 12px; color: var(--soft); font-style: italic; }
 .scope-badge{display:inline-block;background:var(--mag);color:#fff;font-size:9px;font-weight:700;letter-spacing:.08em;border-radius:100px;padding:2px 8px;margin-bottom:6px;}
 </style>
+
+<script>
+// Clean URL: remove .html extension from address bar
+(function(){
+  var loc = window.location;
+  if (loc.pathname.endsWith('.html') && loc.pathname !== '/index.html') {
+    var clean = loc.pathname.slice(0, -5);
+    history.replaceState(null, '', clean + loc.search + loc.hash);
+  }
+})();
+</script>
 </head>
 <body>
 
