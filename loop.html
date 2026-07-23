@@ -444,6 +444,7 @@ body{font-family:var(--ff-body);background:var(--paper);color:var(--ink);}
 }
 .fnl-nav-next { margin-left: auto; }
 .fnl-nav-done { font-size: 12px; color: var(--soft); font-style: italic; }
+.scope-badge{display:inline-block;background:var(--mag);color:#fff;font-size:9px;font-weight:700;letter-spacing:.08em;border-radius:100px;padding:2px 8px;margin-bottom:6px;}
 </style>
 </head>
 <body>
@@ -724,8 +725,10 @@ function renderCore() {
 // ── DATA ────────────────────────────────────────────────────
 var PRICING = {
   scopes: {
-    campagne: { plan: 1500, build: 0,    run: 0   },
-    ai:       { plan: 2500, build: 6500, run: 850  }
+    campagne: { plan: 1500, build: 0,     run: 0    },
+    app:      { plan: 2500, build: 5000,  run: 750  },
+    platform: { plan: 4500, build: 18000, run: 2500 },
+    ai:       { plan: 2500, build: 6500,  run: 850  }
   }
 };
 
@@ -759,8 +762,8 @@ var AI_OPTS = ["chatbot","contentgen","automatisering","dataAnalyse","aiIntegrat
 
 // Labels
 var L = {
-  scopes: { campagne:"Campagne", ai:"AI" },
-  scopeDesc: { campagne:"Een advertentiecampagne, opgezet en gestuurd op resultaat.", ai:"Een AI-oplossing of automatisering, van integratie tot een eigen model." },
+  scopes: { campagne:"Campagne", app:"App", platform:"Platform", ai:"AI" },
+  scopeDesc: { campagne:"Een advertentiecampagne, opgezet en gestuurd op resultaat.", app:"Een werkende app of PWA, van één functie tot meerdere modules.", platform:"Een volwaardig, schaalbaar platform met backend en AI.", ai:"Een AI-oplossing of automatisering, van integratie tot een eigen model." },
   phases:    { plan:"Loop Start", build:"Loop Build", run:"Loop Run" },
   phaseDesc: { plan:"Research en plan van aanpak.", build:"Creatie en activatie van je campagne.", run:"Beheer & optimalisatie van actieve campagnes." },
   phaseByType: {
@@ -811,7 +814,7 @@ function eur(n) { return "\u20AC\u00A0" + Math.round(n||0).toLocaleString("nl-NL
 
 // ── COMPUTE ──────────────────────────────────────────────────
 function compute() {
-  var selected = ["campagne","ai"].filter(function(k){ return S.types[k]; });
+  var selected = ["campagne","app","platform","ai"].filter(function(k){ return S.types[k]; });
   var once = 0, mo = 0, saving = 0;
 
   selected.forEach(function(sk) {
@@ -843,7 +846,7 @@ function compute() {
 
 function lineItems() {
   var items = [];
-  var selected = ["campagne","ai"].filter(function(k){ return S.types[k]; });
+  var selected = ["campagne","app","platform","ai"].filter(function(k){ return S.types[k]; });
 
   selected.forEach(function(sk) {
     var sc = PRICING.scopes[sk];
@@ -917,10 +920,11 @@ function renderCalc() {
   // ── STEP 1: TYPE ──────────────────────────────────────────
   if (cur === "type") {
     html += '<div class="type-cards">';
-    ["campagne","ai"].forEach(function(k) {
+    ["campagne","app","platform","ai"].forEach(function(k) {
       var on = S.types[k];
       html += '<button class="scope-card'+(on?" on":"") +'" onclick="toggleType(\''+k+'\')">';
       /* app badge removed */
+      if(k==="app") html += '<span class="scope-badge mono">Meest gekozen</span>';
       html += '<span class="scope-check">'+(on?"&#10003;":"")+'</span>';
       html += '<span class="scope-card-t">'+L.scopes[k]+'</span>';
       html += '<div class="scope-card-d">'+L.scopeDesc[k]+'</div></button>';
@@ -931,7 +935,7 @@ function renderCalc() {
 
   // ── STEP 2: DETAILS ────────────────────────────────────────
   else if (cur === "details") {
-    var selected = ["campagne","ai"].filter(function(k){ return S.types[k]; });
+    var selected = ["campagne","app","platform","ai"].filter(function(k){ return S.types[k]; });
     if (!selected.length) {
       html += '<p class="calc-note">'+L.stepHelp.type+'</p>';
     }
@@ -1095,8 +1099,10 @@ function toggleRow(label){ S.openRows[label] = !S.openRows[label]; renderCalc();
 // ── DATA ────────────────────────────────────────────────────
 var PRICING = {
   scopes: {
-    campagne: { plan: 1500, build: 0,    run: 0   },
-    ai:       { plan: 2500, build: 6500, run: 850  }
+    campagne: { plan: 1500, build: 0,     run: 0    },
+    app:      { plan: 2500, build: 5000,  run: 750  },
+    platform: { plan: 4500, build: 18000, run: 2500 },
+    ai:       { plan: 2500, build: 6500,  run: 850  }
   }
 };
 
@@ -1130,8 +1136,8 @@ var AI_OPTS = ["chatbot","contentgen","automatisering","dataAnalyse","aiIntegrat
 
 // Labels
 var L = {
-  scopes: { campagne:"Campagne", ai:"AI" },
-  scopeDesc: { campagne:"Een advertentiecampagne, opgezet en gestuurd op resultaat.", ai:"Een AI-oplossing of automatisering, van integratie tot een eigen model." },
+  scopes: { campagne:"Campagne", app:"App", platform:"Platform", ai:"AI" },
+  scopeDesc: { campagne:"Een advertentiecampagne, opgezet en gestuurd op resultaat.", app:"Een werkende app of PWA, van één functie tot meerdere modules.", platform:"Een volwaardig, schaalbaar platform met backend en AI.", ai:"Een AI-oplossing of automatisering, van integratie tot een eigen model." },
   phases:    { plan:"Loop Start", build:"Loop Build", run:"Loop Run" },
   phaseDesc: { plan:"Research en plan van aanpak.", build:"Creatie en activatie van je campagne.", run:"Beheer & optimalisatie van actieve campagnes." },
   phaseByType: {
@@ -1182,7 +1188,7 @@ function eur(n) { return "\u20AC\u00A0" + Math.round(n||0).toLocaleString("nl-NL
 
 // ── COMPUTE ──────────────────────────────────────────────────
 function compute() {
-  var selected = ["campagne","ai"].filter(function(k){ return S.types[k]; });
+  var selected = ["campagne","app","platform","ai"].filter(function(k){ return S.types[k]; });
   var once = 0, mo = 0, saving = 0;
 
   selected.forEach(function(sk) {
@@ -1214,7 +1220,7 @@ function compute() {
 
 function lineItems() {
   var items = [];
-  var selected = ["campagne","ai"].filter(function(k){ return S.types[k]; });
+  var selected = ["campagne","app","platform","ai"].filter(function(k){ return S.types[k]; });
 
   selected.forEach(function(sk) {
     var sc = PRICING.scopes[sk];
