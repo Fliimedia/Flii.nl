@@ -98,6 +98,42 @@ a{color:inherit;text-decoration:none;}
 .cta-btn:hover{background:#eee;}
 .cta-btn-arrow{display:inline-flex;align-items:center;justify-content:center;width:18px;height:18px;}
 
+
+.cta-section{padding:0 24px 48px;}
+.cta-card-wrap{
+  position:relative;border-radius:16px;border:1.5px solid rgba(232,41,74,.4);
+  overflow:hidden;min-height:220px;
+}
+.cta-bg-video{
+  position:absolute;top:0;left:0;width:100%;height:100%;
+  object-fit:cover;z-index:0;
+}
+.cta-video-overlay{
+  position:absolute;inset:0;z-index:1;
+  background:linear-gradient(135deg,#0F0E0C 0%,#0F0E0C 25%,rgba(15,14,12,.88) 38%,rgba(15,14,12,.5) 50%,rgba(15,14,12,0) 65%);
+}
+.cta-inner{
+  position:relative;z-index:2;
+  padding:40px 24px 36px;max-width:65%;
+}
+.cta-inner h2{
+  font-family:var(--ff-disp);font-size:clamp(22px,6vw,32px);
+  font-weight:900;letter-spacing:-1.2px;
+  color:transparent;
+  background:linear-gradient(135deg,#fff 30%,rgba(255,255,255,.55) 100%);
+  -webkit-background-clip:text;background-clip:text;
+  -webkit-text-fill-color:transparent;
+  line-height:1.05;margin-bottom:20px;
+}
+.cta-btn{
+  display:inline-flex;align-items:center;gap:8px;
+  background:#fff;color:#0F0E0C;
+  font-family:var(--ff-body);font-size:13px;font-weight:700;
+  padding:12px 22px;border-radius:100px;
+  text-decoration:none;transition:background .15s;
+}
+.cta-btn:hover{background:#eee;}
+.cta-btn-arrow{display:inline-flex;align-items:center;justify-content:center;width:22px;height:22px;background:#0F0E0C;border-radius:50%;}
 </style>
 </head>
 <body>
@@ -112,21 +148,24 @@ a{color:inherit;text-decoration:none;}
   <p class="svc-desc">Voor creatief concept, ontwikkeling en data-gedreven verbetering van content.</p>
   <div class="svc-tags"><span class="svc-tag">Video</span><span class="svc-tag">Social content</span><span class="svc-tag">Fotografie</span><span class="svc-tag">Editorial</span></div>
 </section>
-<img src="https://images.unsplash.com/photo-1499750310107-5fef28a66643?w=800&q=75&auto=format&fit=crop" alt="Content creatie" class="svc-photo" loading="lazy">
-<div class="svc-body">
-  <p class="svc-intro">Goede ideeën verdienen vlekkeloze uitvoering. Wij zorgen voor professionele productie van je content, zodat elk stuk klopt in vorm, stijl en timing — of het nu gaat om video, foto of tekst.</p>
-  <p class="svc-text">Van eerste creatief concept tot de definitieve post: wij begeleiden het volledige contentproductieproces. Denk aan videoproducties voor social en broadcast, fotoshoots voor campagne en editorial, social content die converteert en copywriting die het merk versterkt. We meten wat werkt en optimaliseren op basis van data.</p>
-  <div class="svc-benefit">
-    <div class="svc-benefit-label">Wat levert het op</div>
-    <p class="svc-benefit-text">Content creatie uitbesteden scheelt tijd en stress. Je ontvangt professionele content: consistent en altijd op schema.</p>
+
+<section class="cta-section" id="contact">
+  <div class="cta-card-wrap">
+    <video class="cta-bg-video" autoplay muted loop playsinline preload="auto"
+      src="https://fliimedia.github.io/Flii.nl/assets/eklipse-montage.mp4"></video>
+    <div class="cta-video-overlay"></div>
+    <div class="cta-inner">
+      <h2>Let's ignite<br>ambitions</h2>
+      <a href="https://calendly.com/flii-media" target="_blank" class="cta-btn">
+        Plan een gesprek
+        <span class="cta-btn-arrow">
+          <svg viewBox="0 0 8 8" width="14" height="14"><path d="M1 4h6M4 1l3 3-3 3" stroke="#0F0E0C" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" fill="none"/></svg>
+        </span>
+      </a>
+    </div>
   </div>
-  <p class="svc-sub">Video marketing<span style="color:var(--rule)"> · </span>Social content<span style="color:var(--rule)"> · </span>Content creatie<span style="color:var(--rule)"> · </span>Editorial<span style="color:var(--rule)"> · </span>Fotografie<span style="color:var(--rule)"> · </span>Copywriting</p>
-</div>
-<div class="svc-cta">
-  <div class="svc-cta-h">Klaar om te starten?</div>
-  <p class="svc-cta-sub">Plan een vrijblijvende kennismaking en ontdek wat Flii voor jou kan betekenen.</p>
-  <a href="https://calendly.com/flii-media" target="_blank" class="svc-cta-btn">Plan een gesprek →</a>
-</div>
+</section>
+
 <footer class="page-footer">
   <p>Een dienst van <a href="../index.html">Flii Media</a> &middot; <a href="mailto:info@flii.nl">info@flii.nl</a></p>
 </footer>
