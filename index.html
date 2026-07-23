@@ -1992,14 +1992,14 @@ details.faq-item[open] .faq-answer {
 
 /* ── AI LAUNCH SECTION ── */
 .ai-launch-section {
-  background: #0C0C0A;
+  background: var(--c-page);
   margin: 0;
   padding: 24px 20px;
   position: relative; overflow: hidden;
 }
 .ai-launch-card {
-  background: rgba(255,255,255,0.04);
-  border: 1px solid rgba(255,255,255,0.1);
+  background: #0C0C0A;
+  border: 1px solid rgba(232,41,74,0.25);
   border-radius: 20px;
   padding: 28px 22px 24px;
   position: relative; overflow: hidden;
@@ -4095,14 +4095,14 @@ details.faq-item[open] .faq-answer {
 
 /* ── AI LAUNCH SECTION ── */
 .ai-launch-section {
-  background: #0C0C0A;
+  background: var(--c-page);
   margin: 0;
   padding: 24px 20px;
   position: relative; overflow: hidden;
 }
 .ai-launch-card {
-  background: rgba(255,255,255,0.04);
-  border: 1px solid rgba(255,255,255,0.1);
+  background: #0C0C0A;
+  border: 1px solid rgba(232,41,74,0.25);
   border-radius: 20px;
   padding: 28px 22px 24px;
   position: relative; overflow: hidden;
@@ -4281,6 +4281,25 @@ details.faq-item[open] .faq-answer {
   width: 100%; height: 100%;
   display: block;
 }
+
+/* ── Hero notification card ──────────────────────────────────────── */
+.hero-notify-card {
+  display: inline-flex; align-items: center; gap: 8px;
+  background: var(--c-page);
+  border: 1px solid var(--c-rule);
+  border-radius: 100px;
+  padding: 7px 14px 7px 10px;
+  text-decoration: none;
+  color: var(--c-ink);
+  font-size: 12px;
+  font-family: var(--ff-body);
+  width: fit-content;
+  transition: border-color .15s, box-shadow .15s;
+}
+.hero-notify-card:hover { border-color: var(--c-red); box-shadow: 0 0 0 3px rgba(232,41,74,.08); }
+.hero-notify-icon { color: #F5C518; display: flex; align-items: center; }
+.hero-notify-text strong { font-weight: 700; }
+.hero-notify-arrow { color: var(--c-subtle); font-size: 11px; margin-left: 2px; }
 </style>
 <!-- Default consent vóór GTM -->
 
@@ -4393,6 +4412,15 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
     <span class="hero-eyebrow-line"></span>
     <span class="hero-eyebrow-year">sinds 2021</span>
   </div>
+
+  <!-- Notification card -->
+  <a href="https://share.google/wEE1drPcTYlHW0Beo" target="_blank" rel="noopener" class="hero-notify-card">
+    <span class="hero-notify-icon">
+      <svg viewBox="0 0 20 20" fill="currentColor" width="14" height="14"><path d="M10 15l-5.878 3.09 1.123-6.545L.489 6.91l6.572-.955L10 0l2.939 5.955 6.572.955-4.756 4.635 1.123 6.545z"/></svg>
+    </span>
+    <span class="hero-notify-text"><strong>5.0</strong> op Google · 14 reviews</span>
+    <span class="hero-notify-arrow">→</span>
+  </a>
 
   <!-- Big headline -->
   <div class="hero-headline" aria-label="Let's ignite ambitions">
@@ -4913,7 +4941,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 
     <a href="insight/ai-architectuur-voor-ieder-bedrijf-nodig.html" class="article">
       <div class="article-img">
-        <img src="https://images.unsplash.com/photo-1493421419110-74f4e85ba126?w=640&q=75&auto=format&fit=crop" alt="" style="width:100%;height:200px;object-fit:cover;display:block;flex-shrink:0;" loading="lazy">
+        <img src="https://images.unsplash.com/photo-1611532736597-de2d4265fba3?w=640&q=75&auto=format&fit=crop" alt="" style="width:100%;height:200px;object-fit:cover;display:block;flex-shrink:0;" loading="lazy">
       </div>
       <div class="article-body"><div class="article-date">May 10, 2026</div>
       <div class="article-title">AI architectuur: voor ieder bedrijf een must?</div></div>
@@ -4921,7 +4949,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 
     <a href="insight/connected-tv-toekomst-televisie-reclame.html" class="article">
       <div class="article-img">
-        <img src="https://images.unsplash.com/photo-1558494949-ef010cbdcc31?w=640&q=75&auto=format&fit=crop" alt="" style="width:100%;height:200px;object-fit:cover;display:block;flex-shrink:0;" loading="lazy">
+        <img src="https://images.unsplash.com/photo-1677442135703-1787eea5ce01?w=640&q=75&auto=format&fit=crop" alt="" style="width:100%;height:200px;object-fit:cover;display:block;flex-shrink:0;" loading="lazy">
       </div>
       <div class="article-body"><div class="article-date">September 2, 2025</div>
       <div class="article-title">Connected TV: de toekomst van televisie reclame</div></div>
