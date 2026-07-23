@@ -879,8 +879,8 @@ img { display: block; max-width: 100%; }
 /* ── FLOATING ICON SIDEBAR ── */
 .float-sidebar {
   position: fixed;
-  left: 12px; top: 50%;
-  transform: translateY(-50%) translateX(calc(-100% - 20px));
+  right: 12px; top: 50%;
+  transform: translateY(-50%) translateX(calc(100% + 20px));
   display: flex; flex-direction: column; gap: 0;
   z-index: 995; border-radius: 12px; overflow: hidden;
   border: 1.5px solid rgba(232,41,74,.7);
@@ -1143,6 +1143,9 @@ img { display: block; max-width: 100%; }
   font-family: var(--ff-mono); font-size: 8.5px; font-weight: 700;
   letter-spacing: .1em; text-transform: uppercase; padding: 4px 10px; border-radius: 100px;
 }
+.case-card-tag + .case-card-tag,
+.case-card-sm-tag + .case-card-sm-tag,
+.case-card-xs-tag + .case-card-xs-tag { margin-left: 4px; }
 
 /* ── Tier 2: medium (2-col, 3/2) ── */
 .cases-grid-secondary {
@@ -2119,8 +2122,8 @@ img { display: block; max-width: 100%; }
 /* ── FLOATING ICON SIDEBAR ── */
 .float-sidebar {
   position: fixed;
-  left: 12px; top: 50%;
-  transform: translateY(-50%) translateX(calc(-100% - 20px));
+  right: 12px; top: 50%;
+  transform: translateY(-50%) translateX(calc(100% + 20px));
   display: flex; flex-direction: column; gap: 0;
   z-index: 995; border-radius: 12px; overflow: hidden;
   border: 1.5px solid rgba(232,41,74,.7);
@@ -3444,8 +3447,8 @@ img { display: block; max-width: 100%; }
 /* ── FLOATING ICON SIDEBAR ── */
 .float-sidebar {
   position: fixed;
-  left: 12px; top: 50%;
-  transform: translateY(-50%) translateX(calc(-100% - 20px));
+  right: 12px; top: 50%;
+  transform: translateY(-50%) translateX(calc(100% + 20px));
   display: flex; flex-direction: column; gap: 0;
   z-index: 995; border-radius: 12px; overflow: hidden;
   border: 1.5px solid rgba(232,41,74,.7);
@@ -5283,7 +5286,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
       <div class="case-card-hover">
         <div class="case-card-client">BikeFair</div>
         <p class="case-card-intro">Van nichemarktplaats voor expats naar een breed bekend fietsplatform in Nederland.</p>
-        <span class="case-card-tag">Performance & SEO</span>
+        <span class="case-card-tag">Performance</span><span class="case-card-tag">SEO</span>
       </div>
     </a>
     <a href="cases/theaterthuis.html" target="_blank" class="case-card">
@@ -5292,7 +5295,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
       <div class="case-card-hover">
         <div class="case-card-client">TheaterThuis</div>
         <p class="case-card-intro">Meer dan 1 miljoen organische views en 4.000+ abonnees voor de lancering van een streamingdienst.</p>
-        <span class="case-card-tag">Brand launch & Campagne</span>
+        <span class="case-card-tag">Brand launch</span><span class="case-card-tag">Campagne</span>
       </div>
     </a>
     <a href="cases/digitale-strategie-voor-zzpers.html" target="_blank" class="case-card">
@@ -5301,7 +5304,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
       <div class="case-card-hover">
         <div class="case-card-client">Zelfstandig Ondernemers</div>
         <p class="case-card-intro">48% van alle nieuwe klanten via campagnes en 1,2M+ videoviews voor een platform voor zzp'ers.</p>
-        <span class="case-card-tag">Content & Performance</span>
+        <span class="case-card-tag">Content</span><span class="case-card-tag">Performance</span>
       </div>
     </a>
   </div>
@@ -5316,7 +5319,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
         <div class="case-card-sm-hover">
           <div class="case-card-sm-client">Soest Machinery</div>
           <p class="case-card-sm-desc">SEO-strategie voor industriële machinebouwer bij domeinmigratie.</p>
-          <span class="case-card-sm-tag">SEO & Webmigratie</span>
+          <span class="case-card-sm-tag">SEO</span><span class="case-card-sm-tag">Webmigratie</span>
         </div>
       </a>
       <a href="cases/stichting-de-buurt.html" class="case-card-sm">
@@ -5325,7 +5328,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
         <div class="case-card-sm-hover">
           <div class="case-card-sm-client">Stichting De Buurt</div>
           <p class="case-card-sm-desc">1.000+ nieuwe buurtmakers via Google Grants & Meta Ads.</p>
-          <span class="case-card-sm-tag">Google Grants & Meta</span>
+          <span class="case-card-sm-tag">Google Grants</span><span class="case-card-sm-tag">Meta</span>
         </div>
       </a>
       <a href="cases/de-nieuwe-yogaschool.html" class="case-card-sm">
@@ -5334,7 +5337,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
         <div class="case-card-sm-hover">
           <div class="case-card-sm-client">De Nieuwe Yogaschool</div>
           <p class="case-card-sm-desc">SEO-herstel, e-commerce tracking & AI Search strategie.</p>
-          <span class="case-card-sm-tag">SEO & AI Search</span>
+          <span class="case-card-sm-tag">SEO</span><span class="case-card-sm-tag">AI Search</span>
         </div>
       </a>
       <a href="cases/digitaal-ondernemersplein.html" class="case-card-sm">
@@ -5343,7 +5346,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
         <div class="case-card-sm-hover">
           <div class="case-card-sm-client">Digitaal Ondernemersplein</div>
           <p class="case-card-sm-desc">Kanaalstrategie, AI-copy en KPI-framework voor KVK-platform.</p>
-          <span class="case-card-sm-tag">Social media & AI</span>
+          <span class="case-card-sm-tag">Social media</span><span class="case-card-sm-tag">AI</span>
         </div>
       </a>
       <a href="cases/padel2025.html" class="case-card-sm">
@@ -5372,7 +5375,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
         <div class="case-card-xs-hover">
           <div class="case-card-xs-client">Relax</div>
           <p class="case-card-xs-desc">Shopping, Social & e-commerce voor yogakledingmerk.</p>
-          <span class="case-card-xs-tag">Shopping & Social</span>
+          <span class="case-card-xs-tag">Shopping</span><span class="case-card-xs-tag">Social</span>
         </div>
       </a>
       <a href="cases/zelfstandigen-bouw.html" class="case-card-xs">
@@ -5381,7 +5384,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
         <div class="case-card-xs-hover">
           <div class="case-card-xs-client">Zelfstandigen Bouw</div>
           <p class="case-card-xs-desc">Content, SEO & advertising voor de bouwsector.</p>
-          <span class="case-card-xs-tag">SEO & Advertising</span>
+          <span class="case-card-xs-tag">SEO</span><span class="case-card-xs-tag">Advertising</span>
         </div>
       </a>
     </div>
