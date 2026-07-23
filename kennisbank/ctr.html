@@ -35,13 +35,39 @@ section p{font-size:14px;color:var(--mid);line-height:1.72}
 .example-box{background:var(--card);border-radius:12px;padding:18px 18px 16px;margin-top:4px}
 .example-label{font-family:var(--ff-mono);font-size:8px;font-weight:700;letter-spacing:.12em;text-transform:uppercase;color:var(--sub);display:block;margin-bottom:8px}
 .example-text{font-size:13px;color:var(--ink);line-height:1.65}
-.cta-section{padding:36px 24px;text-align:center;background:var(--ink)}
-.cta-section h2{font-family:var(--ff-disp);font-size:20px;font-weight:900;color:#fff;letter-spacing:-.5px;margin-bottom:8px}
-.cta-section p{font-size:13px;color:rgba(255,255,255,.5);margin-bottom:20px}
+
+
+
 .cta-btn{display:inline-flex;align-items:center;gap:6px;background:var(--mag);color:#fff;border-radius:100px;padding:13px 22px;font-size:13px;font-weight:700;font-family:var(--ff-body);text-decoration:none}
 .footer{padding:16px 24px;text-align:center;font-size:11px;color:var(--sub)}
 .footer a{color:var(--ink);font-weight:600;text-decoration:none}
-</style>
+.cta-section {
+  background: #0F0E0C;
+  border: 1.5px solid rgba(232,41,74,.4);
+  border-radius: 16px;
+  margin: 24px 20px;
+  padding: 32px 22px;
+  text-align: left;
+  position: relative;
+  overflow: hidden;
+}
+.cta-section::before {
+  content: '';
+  position: absolute; top: -60px; right: -40px;
+  width: 200px; height: 200px; border-radius: 50%;
+  background: radial-gradient(circle, rgba(232,41,74,.22) 0%, transparent 70%);
+  pointer-events: none;
+}
+.cta-section h2 {
+  font-family: var(--ff-disp);
+  color: #fff;
+  font-size: 20px; font-weight: 900; letter-spacing: -.5px;
+  margin-bottom: 8px; position: relative; z-index: 1;
+}
+.cta-section p {
+  font-size: 13px; color: rgba(255,255,255,.5);
+  margin-bottom: 20px; position: relative; z-index: 1;
+}</style>
 </head>
 <body>
 <nav class="nav">
