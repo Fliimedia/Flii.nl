@@ -230,11 +230,11 @@ img { display: block; max-width: 100%; }
   gap: var(--sp-1);
 }
 .nav-mark {
-  width: 64px; height: 64px;
+  width: 80px; height: 80px;
   background: transparent;
   display: flex; align-items: center; justify-content: center;
   overflow: visible; flex-shrink: 0;
-  margin-left: -10px;
+  margin-left: -20px;
 }
 .nav-mark img {
   width: 100%; height: 100%;
@@ -439,12 +439,19 @@ img { display: block; max-width: 100%; }
 .hero-description-row {
   display: flex;
   flex-direction: column;
-  gap: 8px;
+  gap: 10px;
 }
 .hero-desc {
   font-size: var(--t-sm);
   color: var(--c-muted);
   line-height: 1.5;
+}
+.hero-links-row {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  gap: 20px;
+  flex-wrap: wrap;
 }
 .hero-services-link {
   display: inline-flex;
@@ -452,13 +459,17 @@ img { display: block; max-width: 100%; }
   gap: 0;
   font-family: var(--ff-body);
   font-size: var(--t-sm);
-  font-weight: 600;
-  color: var(--c-ink);
+  font-weight: 400;
+  color: var(--c-muted);
   text-decoration: none;
   position: relative;
   padding-bottom: 2px;
   width: fit-content;
   cursor: pointer;
+}
+.hero-link-primary {
+  font-weight: 700;
+  color: var(--c-ink);
 }
 .hero-services-link::after {
   content: '';
@@ -1495,11 +1506,11 @@ img { display: block; max-width: 100%; }
   gap: var(--sp-1);
 }
 .nav-mark {
-  width: 64px; height: 64px;
+  width: 80px; height: 80px;
   background: transparent;
   display: flex; align-items: center; justify-content: center;
   overflow: visible; flex-shrink: 0;
-  margin-left: -10px;
+  margin-left: -20px;
 }
 .nav-mark img {
   width: 100%; height: 100%;
@@ -1704,12 +1715,19 @@ img { display: block; max-width: 100%; }
 .hero-description-row {
   display: flex;
   flex-direction: column;
-  gap: 8px;
+  gap: 10px;
 }
 .hero-desc {
   font-size: var(--t-sm);
   color: var(--c-muted);
   line-height: 1.5;
+}
+.hero-links-row {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  gap: 20px;
+  flex-wrap: wrap;
 }
 .hero-services-link {
   display: inline-flex;
@@ -1717,13 +1735,17 @@ img { display: block; max-width: 100%; }
   gap: 0;
   font-family: var(--ff-body);
   font-size: var(--t-sm);
-  font-weight: 600;
-  color: var(--c-ink);
+  font-weight: 400;
+  color: var(--c-muted);
   text-decoration: none;
   position: relative;
   padding-bottom: 2px;
   width: fit-content;
   cursor: pointer;
+}
+.hero-link-primary {
+  font-weight: 700;
+  color: var(--c-ink);
 }
 .hero-services-link::after {
   content: '';
@@ -2842,11 +2864,11 @@ img { display: block; max-width: 100%; }
   gap: var(--sp-1);
 }
 .nav-mark {
-  width: 64px; height: 64px;
+  width: 80px; height: 80px;
   background: transparent;
   display: flex; align-items: center; justify-content: center;
   overflow: visible; flex-shrink: 0;
-  margin-left: -10px;
+  margin-left: -20px;
 }
 .nav-mark img {
   width: 100%; height: 100%;
@@ -3051,12 +3073,19 @@ img { display: block; max-width: 100%; }
 .hero-description-row {
   display: flex;
   flex-direction: column;
-  gap: 8px;
+  gap: 10px;
 }
 .hero-desc {
   font-size: var(--t-sm);
   color: var(--c-muted);
   line-height: 1.5;
+}
+.hero-links-row {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  gap: 20px;
+  flex-wrap: wrap;
 }
 .hero-services-link {
   display: inline-flex;
@@ -3064,13 +3093,17 @@ img { display: block; max-width: 100%; }
   gap: 0;
   font-family: var(--ff-body);
   font-size: var(--t-sm);
-  font-weight: 600;
-  color: var(--c-ink);
+  font-weight: 400;
+  color: var(--c-muted);
   text-decoration: none;
   position: relative;
   padding-bottom: 2px;
   width: fit-content;
   cursor: pointer;
+}
+.hero-link-primary {
+  font-weight: 700;
+  color: var(--c-ink);
 }
 .hero-services-link::after {
   content: '';
@@ -4918,11 +4951,13 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
   <!-- Description + CTA -->
   <div class="hero-description-row">
     <p class="hero-desc">Jouw digitale partner voor campagnes en platformen.</p>
-    <a href="#diensten" class="hero-services-link" id="hero-svc-link" onclick="(function(e){e.preventDefault();var t=document.getElementById('diensten');if(t){var y=t.getBoundingClientRect().top+window.scrollY-60;var s=window.scrollY;var dur=700;var st=null;function step(ts){if(!st)st=ts;var p=Math.min((ts-st)/dur,1);var ease=p<.5?2*p*p:1-Math.pow(-2*p+2,2)/2;window.scrollTo(0,s+(y-s)*ease);if(p<1)requestAnimationFrame(step);}requestAnimationFrame(step);}}).call(this,event)">
-      <span>Bekijk onze diensten</span>
-      <span class="hero-svc-arrow">→</span>
-    </a>
-    <a href="#diensten" class="hero-services-link" onclick="(function(e){e.preventDefault();var t=document.getElementById('diensten');if(t){var y=t.getBoundingClientRect().top+window.scrollY-60;var s=window.scrollY;var dur=700;var st=null;function step(ts){if(!st)st=ts;var p=Math.min((ts-st)/dur,1);var ease=p<.5?2*p*p:1-Math.pow(-2*p+2,2)/2;window.scrollTo(0,s+(y-s)*ease);if(p<1)requestAnimationFrame(step);else if(window.highlightSidebar)window.highlightSidebar();}requestAnimationFrame(step);}).call(this,event)">Start een project →</a>
+    <div class="hero-links-row">
+      <a href="#diensten" class="hero-services-link hero-link-primary" id="hero-svc-link" onclick="(function(e){e.preventDefault();var t=document.getElementById('diensten');if(t){var y=t.getBoundingClientRect().top+window.scrollY-60;var s=window.scrollY;var dur=700;var st=null;function step(ts){if(!st)st=ts;var p=Math.min((ts-st)/dur,1);var ease=p<.5?2*p*p:1-Math.pow(-2*p+2,2)/2;window.scrollTo(0,s+(y-s)*ease);if(p<1)requestAnimationFrame(step);}requestAnimationFrame(step);}}).call(this,event)">
+        <span>Bekijk onze diensten</span>
+        <span class="hero-svc-arrow">→</span>
+      </a>
+      <a href="#diensten" class="hero-services-link" onclick="(function(e){e.preventDefault();var t=document.getElementById('diensten');if(t){var y=t.getBoundingClientRect().top+window.scrollY-60;var s=window.scrollY;var dur=700;var st=null;function step(ts){if(!st)st=ts;var p=Math.min((ts-st)/dur,1);var ease=p<.5?2*p*p:1-Math.pow(-2*p+2,2)/2;window.scrollTo(0,s+(y-s)*ease);if(p<1)requestAnimationFrame(step);else if(window.highlightSidebar)window.highlightSidebar();}requestAnimationFrame(step);}).call(this,event)">Start een project →</a>
+    </div>
   </div>
 
 
