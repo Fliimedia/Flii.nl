@@ -126,6 +126,14 @@ img{max-width:100%;display:block;}
 .cta-btn-arrow{display:inline-flex;align-items:center;justify-content:center;width:18px;height:18px;}
 
 </style>
+<script>
+(function(){
+  var loc = window.location;
+  if (loc.pathname.endsWith('.html') && loc.pathname !== '/index.html') {
+    history.replaceState(null, '', loc.pathname.slice(0,-5) + loc.search + loc.hash);
+  }
+})();
+</script>
 </head>
 <body>
 <nav class="nav">
