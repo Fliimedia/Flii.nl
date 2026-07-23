@@ -135,7 +135,7 @@ body{font-family:var(--ff-body);background:var(--paper);color:var(--ink);}
   filter:url(#fnlGlowF);stroke-dasharray:1;stroke-dashoffset:1;opacity:0;pointer-events:none;
   animation:fnlBuild 5.6s ease-in-out infinite;}
 @keyframes fnlBuild{0%{stroke-dashoffset:1;opacity:0;}6%{opacity:1;}46%{stroke-dashoffset:0;opacity:1;}72%{opacity:1;}100%{stroke-dashoffset:0;opacity:0;}}
-.fnl-desc{margin:24px auto 0;max-width:680px;text-align:center;display:flex;flex-direction:column;gap:7px;animation:fnlFade .3s ease;}
+.fnl-desc{margin:32px auto 0;max-width:520px;text-align:center;display:flex;flex-direction:column;gap:7px;animation:fnlFade .3s ease;}
 .fnl-desc-hint{font-size:12px;letter-spacing:.1em;text-transform:uppercase;color:var(--soft);}
 .fnl-desc-k{font-size:13px;letter-spacing:.08em;text-transform:uppercase;color:var(--mag);font-weight:600;}
 .fnl-desc-g{font-size:15px;color:var(--ink);line-height:1.5;}
@@ -180,12 +180,12 @@ body{font-family:var(--ff-body);background:var(--paper);color:var(--ink);}
   letter-spacing:-.01em;margin-bottom:5px;}
 .calc-slide-help{font-size:12.5px;letter-spacing:.02em;color:var(--soft);line-height:1.5;}
 /* scope cards */
-.scope-cards{display:flex;flex-direction:column;align-items:center;gap:10px;}
+.scope-cards{display:grid;grid-template-columns:repeat(2,1fr);gap:10px;}
 .scope-card {
   position: relative; border: 1.5px solid var(--line); border-radius: 14px;
   padding: 18px 16px 16px; cursor: pointer; background: var(--card);
   transition: border-color .15s, background .15s;
-  display: block; width: 100%; max-width: 320px; text-align: center;
+  display: block; width: 100%; text-align: left;
 }
 .scope-card.on { border-color: var(--mag); background: rgba(231,37,90,.04); }
 .scope-card:hover{border-color:var(--soft);}
@@ -210,7 +210,7 @@ body{font-family:var(--ff-body);background:var(--paper);color:var(--ink);}
 .svc-item{border-top:1px solid var(--line);}
 .svc-item:last-child{border-bottom:1px solid var(--line);}
 .svc-row{display:flex;align-items:center;gap:12px;width:100%;background:none;border:none;
-  padding:14px 2px;font:inherit;cursor:pointer;text-align:left;color:var(--ink);}
+  padding:16px 4px;font:inherit;cursor:pointer;text-align:left;color:var(--ink);}
 .svc-row-x{display:inline-flex;width:20px;height:20px;flex:none;align-items:center;justify-content:center;
   font-weight:700;font-size:15px;color:var(--soft);border:1px solid var(--line);border-radius:6px;
   transition:background .14s,border-color .14s,color .14s;}
@@ -224,9 +224,9 @@ body{font-family:var(--ff-body);background:var(--paper);color:var(--ink);}
 .refine-h{font-size:10px;letter-spacing:.11em;text-transform:uppercase;color:var(--soft);}
 /* toggles */
 .toggle {
-  display: flex; align-items: center; gap: 12px; width: 100%;
-  padding: 12px 14px; border: 1.5px solid var(--line); border-radius: 10px;
-  background: var(--card); cursor: pointer; margin-bottom: 6px;
+  display: flex; align-items: center; gap: 14px; width: 100%;
+  padding: 16px 16px; border: 1.5px solid var(--line); border-radius: 12px;
+  background: var(--card); cursor: pointer; margin-bottom: 8px;
   text-align: left; transition: border-color .15s, background .15s;
   font: inherit;
 }
@@ -256,7 +256,7 @@ body{font-family:var(--ff-body);background:var(--paper);color:var(--ink);}
 .rcp-head span+span{text-align:right;}
 .rcp-line+.rcp-line{border-top:1px dashed var(--line);}
 .rcp-row{display:grid;grid-template-columns:minmax(0,1fr) 80px 80px;gap:8px;
-  align-items:baseline;padding:11px 0;width:100%;text-align:left;background:none;border:none;font:inherit;}
+  align-items:baseline;padding:14px 0;width:100%;text-align:left;background:none;border:none;font:inherit;}
 .rcp-row-btn{cursor:pointer;}
 .rcp-row-btn:hover{background:rgba(0,0,0,.02);}
 .rcp-l{color:var(--ink);font-weight:500;font-size:14px;display:flex;align-items:baseline;gap:7px;}
@@ -409,8 +409,9 @@ body{font-family:var(--ff-body);background:var(--paper);color:var(--ink);}
   background: var(--card);
   border: 1.5px solid var(--mag);
   border-radius: 16px;
-  padding: 22px 20px 18px;
-  display: flex; flex-direction: column; gap: 10px;
+  padding: 26px 24px 22px;
+  display: flex; flex-direction: column; gap: 12px;
+  text-align: center;
 }
 .fnl-desc-default { border-color: var(--line); }
 .fnl-phase-header {
