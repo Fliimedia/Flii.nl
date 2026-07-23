@@ -1179,12 +1179,6 @@ function lineItems() {
     var moItem   = S.phases.run ? sc.run : 0;
     var sub = [];
 
-    if (sk === "ai") {
-      AI_OPTS.forEach(function(k) {
-        if (S.opts[k]) sub.push({ label: L.typeOpts[k]||k, free: true });
-      });
-    }
-
     if (sk === "campagne" && S.phases.build) {
       CHANNEL_TREE.forEach(function(c) {
         if (!S.cats[c.key]) return;
