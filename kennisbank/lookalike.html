@@ -68,6 +68,14 @@ section p{font-size:14px;color:var(--mid);line-height:1.72}
   font-size: 13px; color: rgba(255,255,255,.5);
   margin-bottom: 20px; position: relative; z-index: 1;
 }</style>
+<script>
+(function(){
+  var loc = window.location;
+  if (loc.pathname.endsWith('.html') && loc.pathname !== '/index.html') {
+    history.replaceState(null, '', loc.pathname.slice(0,-5) + loc.search + loc.hash);
+  }
+})();
+</script>
 </head>
 <body>
 <nav class="nav">
