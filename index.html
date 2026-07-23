@@ -2969,28 +2969,7 @@ details.faq-item[open] .faq-answer {
 }
 
 
-/* ── ROCKET CHARGE ── */
-.ignite-letter {
-  display: inline-block;
-  transition: transform 0.1s ease, color 0.1s;
-  position: relative;
-  cursor: default;
-}
-.ignite-letter.charging {
-  animation: none;
-}
-.ignite-letter.launched {
-  animation: rocketLaunch 0.7s cubic-bezier(.2,.8,.3,1) forwards;
-}
-@keyframes rocketLaunch {
-  0%   { transform: translateY(0) scale(1); opacity: 1; }
-  40%  { transform: translateY(-120px) scale(1.1); opacity: 0.7; }
-  60%  { transform: translateY(-200px) scale(0.8); opacity: 0; }
-  61%  { transform: translateY(60px) scale(0.9); opacity: 0; }
-  80%  { transform: translateY(8px) scale(1.05); opacity: 1; }
-  90%  { transform: translateY(-3px) scale(1.02); opacity: 1; }
-  100% { transform: translateY(0) scale(1); opacity: 1; }
-}
+/* rocket charge removed */
 
 .hero-eyebrow-dot {
   width: 4px; height: 4px;
@@ -3661,7 +3640,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
   <!-- Big headline -->
   <div class="hero-headline" aria-label="Let's ignite ambitions">
     <span class="hero-word hero-word--solid">Let's</span>
-    <span class="hero-word hero-word--ignite" id="ignite-word"><span class="ignite-letter">i</span><span class="ignite-letter">g</span><span class="ignite-letter">n</span><span class="ignite-letter">i</span><span class="ignite-letter">t</span><span class="ignite-letter">e</span></span>
+    <span class="hero-word hero-word--ignite" id="ignite-word">ignite</span>
     <span class="hero-word hero-word--solid">ambitions</span>
   </div>
 
@@ -3845,7 +3824,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 <!-- PRODUCT DEV CARD -->
 <div class="pd-card">
   <span class="pd-eyebrow">Apps &amp; Digitale producten</span>
-  <h2 class="pd-title">Product development:<br>we build your <em>app.</em></h2>
+  <h2 class="pd-title">Build your<br><em>product.</em></h2>
   <div class="pd-usp-mini">
     <div class="pd-usp-mini-item">
       <span class="pd-usp-mini-icon"><svg width="14" height="14" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="3" width="16" height="14" rx="2"/><path d="M6 8h8M6 12h5"/></svg></span>
@@ -3869,7 +3848,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 <section class="ai-launch-section">
   <div class="ai-launch-card">
   <span class="ai-launch-eyebrow">SaaS &amp; Digitale producten</span>
-  <h2 class="ai-launch-title">Product launch<br>plan &amp; <em>uitvoer.</em></h2>
+  <h2 class="ai-launch-title">Launch your<br><em>product.</em></h2>
   <div class="ai-usp-mini">
     <div class="ai-usp-mini-item">
       <span class="ai-usp-mini-icon"><svg width="14" height="14" viewBox="0 0 20 20" fill="none" stroke="rgba(255,255,255,.7)" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M10 2l2.4 4.8 5.6.8-4 3.9.9 5.5L10 14.4l-4.9 2.6.9-5.5L2 7.6l5.6-.8z"/></svg></span>
@@ -4881,80 +4860,7 @@ document.addEventListener('click', function(e) {
 </script>
 <script>
 
-// ── ROCKET CHARGE + LAUNCH per letter ─────────────────────────────
-(function() {
-  var igniteWord = document.getElementById('ignite-word');
-  if (!igniteWord) return;
-  var letters = Array.from(igniteWord.querySelectorAll('.ignite-letter'));
-  var chargeTimers = {};
-  var chargeStart = {};
-  var MAX_CHARGE = 2000; // ms until max charge
-  var charging = {};
-
-  function getChargeLevel(letter) {
-    var elapsed = Date.now() - (chargeStart[letter] || Date.now());
-    return Math.min(elapsed / MAX_CHARGE, 1);
-  }
-
-  function updateCharge(letter, el) {
-    if (!charging[letter]) return;
-    var level = getChargeLevel(letter);
-    // Scale down (compress like a spring), tint red
-    var scale = 1 - level * 0.35;
-    var glow = Math.round(level * 180);
-    el.style.transform = 'translateY(' + (level * 6) + 'px) scale(' + scale + ')';
-    el.style.color = 'rgb(' + Math.round(15 + level * 217) + ',' + Math.round(14 - level * 14 + 1) + ',' + Math.round(12 - level * 12 + 1) + ')';
-    el.style.textShadow = level > 0.3 ? '0 0 ' + Math.round(level*20) + 'px rgba(232,41,74,' + (level*0.8) + ')' : '';
-    chargeTimers[letter] = requestAnimationFrame(function() { updateCharge(letter, el); });
-  }
-
-  function launch(el, level) {
-    el.style.transform = '';
-    el.style.color = '';
-    el.style.textShadow = '';
-    if (level < 0.05) return; // tiny charge = no launch
-    el.classList.remove('launched');
-    void el.offsetWidth;
-    el.classList.add('launched');
-    setTimeout(function() { el.classList.remove('launched'); }, 750);
-  }
-
-  function startCharge(el) {
-    var key = el.textContent;
-    charging[key] = true;
-    chargeStart[key] = Date.now();
-    updateCharge(key, el);
-  }
-
-  function endCharge(el) {
-    var key = el.textContent;
-    var level = getChargeLevel(key);
-    charging[key] = false;
-    cancelAnimationFrame(chargeTimers[key]);
-    launch(el, level);
-  }
-
-  letters.forEach(function(el) {
-    el.addEventListener('mousedown', function(e) { e.preventDefault(); startCharge(el); });
-    el.addEventListener('touchstart', function(e) { e.preventDefault(); startCharge(el); }, {passive:false});
-    el.addEventListener('mouseup', function() { endCharge(el); });
-    el.addEventListener('mouseleave', function() { if (charging[el.textContent]) endCharge(el); });
-    el.addEventListener('touchend', function() { endCharge(el); });
-  });
-
-  // Also: click the whole word = launch all letters in sequence
-  igniteWord.addEventListener('click', function(e) {
-    if (e.target !== igniteWord) return; // individual letters handle their own
-    letters.forEach(function(el, i) {
-      setTimeout(function() {
-        el.classList.remove('launched');
-        void el.offsetWidth;
-        el.classList.add('launched');
-        setTimeout(function() { el.classList.remove('launched'); }, 750);
-      }, i * 60);
-    });
-  });
-})();
+/* rocket charge JS removed */
 
 
 (function(){document.addEventListener('click',function(e){var l=e.target.closest('.service-tag-link');if(!l)return;e.preventDefault();var p=l.closest('.service-tags');if(p)p.querySelectorAll('.service-tag-link').forEach(function(x){x.classList.remove('active');});l.classList.toggle('active');});})();
