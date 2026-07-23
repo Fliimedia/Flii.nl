@@ -4889,40 +4889,9 @@ details.faq-item[open] .faq-answer {
 
 
 
-/* Glare spot — rotates counter-clockwise on outside of card */
-.cta-neon-wrap::before {
-  content: '';
-  position: absolute;
-  inset: -1px;
-  border-radius: var(--r);
-  background: conic-gradient(
-    from 0deg,
-    transparent 0%,
-    transparent 70%,
-    rgba(255,180,210,.15) 76%,
-    rgba(255,220,235,.7)  81%,
-    #fff                  83%,
-    rgba(255,200,220,.6)  85%,
-    transparent           90%,
-    transparent           100%
-  );
-  animation: neon-glide 5s linear infinite;
-  pointer-events: none;
-  z-index: 0;
-  border-radius: var(--r);
-}
+
 /* Star sparkle at top-right when glare passes */
-.cta-neon-wrap::after {
-  content: '✦';
-  position: absolute;
-  top: -5px; right: -3px;
-  font-size: 13px; line-height: 1;
-  color: #fff;
-  text-shadow: 0 0 4px #E8294A, 0 0 10px #fff, 0 0 18px #FF6B9D;
-  animation: neon-star 5s linear infinite;
-  pointer-events: none;
-  z-index: 10;
-}
+
 /* The actual card sits inside the wrapper, on top of the glow */
 .cta-neon-wrap .cta-card-wrap {
   position: relative;
@@ -4957,6 +4926,22 @@ details.faq-item[open] .faq-answer {
 }
 .float-sidebar.highlight {
   animation: sidebarPulse 0.8s cubic-bezier(.36,.07,.19,.97);
+}
+
+/* CTA neon wrap: simple pulsing border, no rotating glare */
+.cta-neon-wrap {
+  position: relative;
+  border-radius: var(--r);
+  padding: 1.5px;
+  background: rgba(232,41,74,.85);
+  animation: neon-pulse 3s ease-in-out infinite;
+}
+.cta-neon-wrap .cta-card-wrap {
+  position: relative;
+  z-index: 1;
+  border: none !important;
+  border-radius: calc(var(--r) - 1px);
+  overflow: hidden;
 }
 </style>
 <!-- Default consent vóór GTM -->
@@ -5061,7 +5046,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 
 <!-- PAGE TITLE -->
 <!-- HERO -->
-<div class="hero-outer" style="position:relative"></canvas>
+<div class="hero-outer" style="position:relative">
 
   <!-- Eyebrow — very top -->
   <div class="hero-eyebrow">
