@@ -84,6 +84,17 @@ a{color:inherit;text-decoration:none;}
   border-top:1px solid var(--rule);background:var(--white);}
 .page-footer a{color:var(--ink);font-weight:600;}
 </style>
+
+<script>
+// Clean URL: remove .html extension from address bar
+(function(){
+  var loc = window.location;
+  if (loc.pathname.endsWith('.html') && loc.pathname !== '/index.html') {
+    var clean = loc.pathname.slice(0, -5);
+    history.replaceState(null, '', clean + loc.search + loc.hash);
+  }
+})();
+</script>
 </head>
 <body>
 <nav class="nav">
