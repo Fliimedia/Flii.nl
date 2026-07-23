@@ -77,25 +77,9 @@
 
 
 /* ── HERO SLOGAN DROP EFFECT ── */
-#hero-slogan-drop {
-  position: fixed; inset: 0; z-index: 9800;
-  background: #fff;
-  opacity: 0; pointer-events: none;
-  transition: opacity 0.3s ease;
-}
-#hero-slogan-drop.active {
-  opacity: 1; pointer-events: all;
-}
-#hero-slogan-drop-text {
-  position: absolute;
-  font-family: var(--ff-disp);
-  font-size: clamp(64px, 18.4vw, 99px);
-  font-weight: 800;
-  letter-spacing: -2.5px;
-  line-height: 0.9;
-  color: var(--c-ink);
-  will-change: transform, font-size;
-}
+
+
+
 /* ═══════════════════════════════════════════
    TOKEN SYSTEM
    All values derived from 8px base.
@@ -1124,6 +1108,7 @@ img { display: block; max-width: 100%; }
   grid-template-columns: 1fr;
   gap: 96px;
   padding: 16px 0 64px;
+  margin-bottom: 24px;
 }
 /* ══ UNIFIED CASE CARD SYSTEM ══════════════════════════════════════ */
 
@@ -1361,25 +1346,9 @@ img { display: block; max-width: 100%; }
 
 
 /* ── HERO SLOGAN DROP EFFECT ── */
-#hero-slogan-drop {
-  position: fixed; inset: 0; z-index: 9800;
-  background: #fff;
-  opacity: 0; pointer-events: none;
-  transition: opacity 0.3s ease;
-}
-#hero-slogan-drop.active {
-  opacity: 1; pointer-events: all;
-}
-#hero-slogan-drop-text {
-  position: absolute;
-  font-family: var(--ff-disp);
-  font-size: clamp(64px, 18.4vw, 99px);
-  font-weight: 800;
-  letter-spacing: -2.5px;
-  line-height: 0.9;
-  color: var(--c-ink);
-  will-change: transform, font-size;
-}
+
+
+
 /* ═══════════════════════════════════════════
    TOKEN SYSTEM
    All values derived from 8px base.
@@ -2408,6 +2377,7 @@ img { display: block; max-width: 100%; }
   grid-template-columns: 1fr;
   gap: 96px;
   padding: 16px 0 64px;
+  margin-bottom: 24px;
 }
 /* ══ UNIFIED CASE CARD SYSTEM ══════════════════════════════════════ */
 
@@ -2732,25 +2702,9 @@ img { display: block; max-width: 100%; }
 
 
 /* ── HERO SLOGAN DROP EFFECT ── */
-#hero-slogan-drop {
-  position: fixed; inset: 0; z-index: 9800;
-  background: #fff;
-  opacity: 0; pointer-events: none;
-  transition: opacity 0.3s ease;
-}
-#hero-slogan-drop.active {
-  opacity: 1; pointer-events: all;
-}
-#hero-slogan-drop-text {
-  position: absolute;
-  font-family: var(--ff-disp);
-  font-size: clamp(64px, 18.4vw, 99px);
-  font-weight: 800;
-  letter-spacing: -2.5px;
-  line-height: 0.9;
-  color: var(--c-ink);
-  will-change: transform, font-size;
-}
+
+
+
 /* ═══════════════════════════════════════════
    TOKEN SYSTEM
    All values derived from 8px base.
@@ -3779,6 +3733,7 @@ img { display: block; max-width: 100%; }
   grid-template-columns: 1fr;
   gap: 96px;
   padding: 16px 0 64px;
+  margin-bottom: 24px;
 }
 .case-photo-card {
   position: relative; display: block;
@@ -4586,7 +4541,7 @@ details.faq-item[open] .faq-answer {
 
 /* ── SECONDARY & MINOR CASE CARDS ── */
 .cases-secondary {
-  margin-top: 120px;
+  margin-top: 80px;
 }
 .cases-secondary-label {
   font-family: var(--ff-mono); font-size: 10px; font-weight: 700;
@@ -5001,6 +4956,15 @@ details.faq-item[open] .faq-answer {
   transition: right 0.4s cubic-bezier(0.23, 1, 0.32, 1);
 }
 .float-sidebar.visible { right: 12px; }
+
+@keyframes sidebarPulse {
+  0%   { box-shadow: 0 0 0 0 rgba(232,41,74,.6); }
+  50%  { box-shadow: 0 0 0 8px rgba(232,41,74,0); }
+  100% { box-shadow: 0 0 0 0 rgba(232,41,74,0); }
+}
+.float-sidebar.highlight {
+  animation: sidebarPulse 0.7s ease-out;
+}
 </style>
 <!-- Default consent vóór GTM -->
 
@@ -6446,88 +6410,8 @@ document.addEventListener('click', function(e) {
 
 
 <!-- HERO SLOGAN DROP OVERLAY -->
-<div id="hero-slogan-drop">
-  <div id="hero-slogan-drop-text">Let's<br>ignite<br>ambitions</div>
-</div>
 
-<script>
-(function() {
-  var overlay   = document.getElementById('hero-slogan-drop');
-  var dropText  = document.getElementById('hero-slogan-drop-text');
-  var heroHL    = document.querySelector('.hero-headline');
-  var ctaH      = document.querySelector('.cta-h');
-  var ctaVideo  = document.getElementById('cta-bg-video');
-  if (!overlay || !dropText || !heroHL || !ctaH) return;
 
-  var done = false;
-
-  heroHL.style.cursor = 'pointer';
-
-  heroHL.addEventListener('click', function() {
-    if (done) return;
-    done = true;
-
-    // Measure hero headline position
-    var heroRect    = heroHL.getBoundingClientRect();
-    var heroFontSize = parseFloat(getComputedStyle(heroHL.querySelector('.hero-word')).fontSize);
-
-    // Position overlay text exactly over hero headline
-    dropText.style.transition = 'none';
-    dropText.style.left       = heroRect.left + 'px';
-    dropText.style.top        = heroRect.top  + 'px';
-    dropText.style.fontSize   = heroFontSize  + 'px';
-    dropText.style.letterSpacing = '-2.5px';
-    dropText.style.lineHeight    = '0.9';
-
-    // Show white overlay (text already in position)
-    overlay.classList.add('active');
-
-    // After 1 frame settle, start drop transition
-    requestAnimationFrame(function() {
-      requestAnimationFrame(function() {
-        // Scroll CTA section into view first, then measure
-        var ctaSection = ctaH.closest('section') || ctaH.closest('#contact');
-        ctaSection.scrollIntoView({ behavior: 'instant', block: 'start' });
-
-        // Wait one frame for layout to settle after scroll
-        requestAnimationFrame(function() {
-          var ctaWrap     = document.getElementById('cta-card-wrap');
-          var wrapRect    = ctaWrap ? ctaWrap.getBoundingClientRect() : ctaH.getBoundingClientRect();
-          var ctaRect     = ctaH.getBoundingClientRect();
-          var ctaFontSize = parseFloat(getComputedStyle(ctaH).fontSize);
-
-          // The slogan in the video sits at the left padding of the card, vertically
-          // aligned with where .cta-h renders. Use cta-h position directly.
-          var targetTop  = ctaRect.top;
-          var targetLeft = wrapRect.left + 20; // match cta-card left padding (var(--sp-3) ≈ 20px)
-
-          // Smooth drop
-          dropText.style.transition  = 'top 0.75s cubic-bezier(0.4, 0, 0.2, 1), left 0.75s cubic-bezier(0.4, 0, 0.2, 1), font-size 0.75s cubic-bezier(0.4, 0, 0.2, 1), letter-spacing 0.75s ease, line-height 0.75s ease';
-          dropText.style.top         = targetTop  + 'px';
-          dropText.style.left        = targetLeft + 'px';
-          dropText.style.fontSize    = ctaFontSize + 'px';
-          dropText.style.letterSpacing = '-1.5px';
-          dropText.style.lineHeight    = '1.0';
-
-        // Start video
-        if (ctaVideo) {
-          ctaVideo.currentTime = 0;
-          ctaVideo.play().catch(function(){});
-        }
-
-        // After drop completes, fade out overlay
-        setTimeout(function() {
-          overlay.style.transition = 'opacity 0.6s ease';
-          overlay.classList.remove('active');
-          setTimeout(function() {
-            overlay.style.display = 'none';
-          }, 650);
-        }, 780);
-      });
-    });
-  });
-})();
-</script>
 
 <script>
 // ── OFFICE CARD VIDEO ─────────────────────────────────────────────────────
