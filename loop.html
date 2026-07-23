@@ -474,6 +474,82 @@ body{font-family:var(--ff-body);background:var(--paper);color:var(--ink);}
     <div class="loop-eyebrow">Flii Loop</div>
     <h2 class="loop-h2">Altijd lerend.</h2>
     <p class="loop-sub">Vier stappen. Continu herhaald. Elke iteratie scherper dan de vorige.</p>
+    <div class="loop-steps">
+      <div class="loop-step"><div class="loop-step-num">1</div><div class="loop-step-body"><div class="loop-step-k">Livegang</div><div class="loop-step-d">De campagne gaat live. Kanalen zijn ingericht, creatives staan klaar.</div></div></div>
+      <div class="loop-step"><div class="loop-step-num">2</div><div class="loop-step-body"><div class="loop-step-k">Measure</div><div class="loop-step-d">De reactie van gebruikers wordt in kaart gebracht.</div></div></div>
+      <div class="loop-step"><div class="loop-step-num">3</div><div class="loop-step-body"><div class="loop-step-k">Analyse</div><div class="loop-step-d">Data wordt omgezet naar inzichten, kansen en problemen.</div></div></div>
+      <div class="loop-step"><div class="loop-step-num">4</div><div class="loop-step-body"><div class="loop-step-k">Improve</div><div class="loop-step-d">We verbeteren, fixen of zetten een test op.</div></div></div>
+    </div>
+  </div>
+</section>
+
+<!-- FUNNEL -->
+<section class="funnel-section">
+  <div class="funnel-inner">
+    <span class="eyebrow">Campagnes</span>
+    <h2 class="section-h">Van onbekend tot ambassadeur.</h2>
+    <p class="section-lede">Elke campagne begeleidt je doelgroep stap voor stap door de funnel, van de eerste kennismaking tot herhaalaankopen en aanbevelingen.</p>
+    <div class="fnl" id="fnl-wrap">
+      <svg class="fnl-svg" viewBox="0 0 1000 360" role="img" aria-label="Marketing funnel">
+        <defs>
+          <linearGradient id="fnlFill" x1="0" y1="0" x2="1" y2="1">
+            <stop offset="0" stop-color="#DA3E68"/>
+            <stop offset="1" stop-color="#AE2249"/>
+          </linearGradient>
+          <filter id="fnlGlowF" x="-10%" y="-70%" width="120%" height="240%">
+            <feGaussianBlur stdDeviation="4" result="b"/>
+            <feMerge><feMergeNode in="b"/><feMergeNode in="SourceGraphic"/></feMerge>
+          </filter>
+        </defs>
+        <g id="fnl-segs"></g>
+        <path class="fnl-outline" id="fnl-outline" d=""/>
+        <path class="fnl-build" id="fnl-top" pathLength="1" d=""/>
+        <path class="fnl-build" id="fnl-bot" pathLength="1" d=""/>
+      </svg>
+      <div class="fnl-desc" id="fnl-desc"></div>
+    </div>
+  </div>
+</section>
+
+<!-- CALCULATOR -->
+<section class="calc-section" id="calculator">
+  <div class="calc-wrap">
+    <div class="calc-card">
+      <div class="calc-head">
+        <span class="eyebrow">Prijs indicator</span>
+        <h2>Bereken Loop.</h2>
+        <p>Klik door de stappen en zie meteen een indicatie. Exclusief btw en mediabudget.</p>
+      </div>
+      <div class="calc-steps" id="calc-nav"></div>
+      <div id="calc-body"></div>
+      <div class="calc-nav" id="calc-nav-bar" style="display:none">
+        <button class="btn btn-ghost" id="calc-btn-back" onclick="go(-1)" disabled>← Terug</button>
+        <div class="calc-progress" id="calc-progress"></div>
+        <button class="btn btn-cta" id="calc-btn-next" onclick="go(1)">Volgende →</button>
+      </div>
+    </div>
+  </div>
+</section>
+
+<script>
+
+
+<!-- HERO -->
+<section class="hero">
+  <span class="eyebrow">Flii Loop</span>
+  <h1>Verbeter op basis van marktvraag.</h1>
+  <p class="hero-lede">Een plan voor het opstarten en blijvend verbeteren van jouw campagnes. Synchroon aan de markt, elke maand scherper.</p>
+  <div class="hero-actions">
+    <a href="#calculator" class="btn-primary">Bereken Loop</a>
+  </div>
+</section>
+
+<!-- LOOP STEPS -->
+<section class="loop-section" id="loop">
+  <div class="loop-inner">
+    <div class="loop-eyebrow">Flii Loop</div>
+    <h2 class="loop-h2">Altijd lerend.</h2>
+    <p class="loop-sub">Vier stappen. Continu herhaald. Elke iteratie scherper dan de vorige.</p>
 
     <div class="loop-steps">
       <div class="loop-step">
