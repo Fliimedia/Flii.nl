@@ -56,6 +56,44 @@ body{font-family:var(--ff-body);background:#fff;color:var(--ink);-webkit-font-sm
 .cta-strip a{display:inline-flex;align-items:center;gap:6px;background:var(--mag);color:#fff;border-radius:100px;padding:13px 22px;font-size:13px;font-weight:700;text-decoration:none;position:relative;z-index:1}
 .footer-mini{padding:20px 24px;text-align:center;font-size:11px;color:var(--sub)}
 .footer-mini a{color:var(--ink);font-weight:600;text-decoration:none}
+
+/* CTA section — home style */
+.cta-section{padding:0 24px 48px;}
+.cta-card-wrap{
+  position:relative;border-radius:16px;border:1.5px solid rgba(232,41,74,.4);
+  overflow:hidden;min-height:220px;
+}
+.cta-bg-video{
+  position:absolute;top:0;left:0;width:100%;height:100%;
+  object-fit:cover;z-index:0;
+}
+.cta-video-overlay{
+  position:absolute;inset:0;z-index:1;
+  background:linear-gradient(135deg,#0F0E0C 0%,#0F0E0C 25%,rgba(15,14,12,.88) 38%,rgba(15,14,12,.5) 50%,rgba(15,14,12,0) 65%);
+}
+.cta-inner{
+  position:relative;z-index:2;
+  padding:40px 24px 36px;max-width:65%;
+}
+.cta-inner h2{
+  font-family:var(--ff-disp);font-size:clamp(22px,6vw,32px);
+  font-weight:900;letter-spacing:-1.2px;
+  color:transparent;
+  background:linear-gradient(135deg,#fff 30%,rgba(255,255,255,.55) 100%);
+  -webkit-background-clip:text;background-clip:text;
+  -webkit-text-fill-color:transparent;
+  line-height:1.05;margin-bottom:20px;
+}
+.cta-btn{
+  display:inline-flex;align-items:center;gap:8px;
+  background:#fff;color:#0F0E0C;
+  font-family:var(--ff-body);font-size:13px;font-weight:700;
+  padding:12px 22px;border-radius:100px;
+  text-decoration:none;transition:background .15s;
+}
+.cta-btn:hover{background:#eee;}
+.cta-btn-arrow{display:inline-flex;align-items:center;justify-content:center;width:18px;height:18px;}
+
 </style>
 </head>
 <body>
@@ -111,36 +149,48 @@ body{font-family:var(--ff-body);background:#fff;color:var(--ink);-webkit-font-sm
 <div class="results-box">
   <h3>Resultaten</h3>
   <div class="result-row">
-  <span class="result-icon"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><line x1="18" y1="20" x2="18" y2="10"/><line x1="12" y1="20" x2="12" y2="4"/><line x1="6" y1="20" x2="6" y2="14"/><line x1="2" y1="20" x2="22" y2="20"/></svg></span>
-  <span class="result-label">Kanaalstrategie geïmplementeerd op YouTube, uitgewerkt voor LinkedIn en Instagram</span>
-  
-</div>
+    <span class="result-icon"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><line x1="18" y1="20" x2="18" y2="10"/><line x1="12" y1="20" x2="12" y2="4"/><line x1="6" y1="20" x2="6" y2="14"/><line x1="2" y1="20" x2="22" y2="20"/></svg></span>
+    <span class="result-label">Kanaalstrategie op YouTube, LinkedIn en Instagram</span>
+    
+  </div>
   <div class="result-row">
-  <span class="result-icon"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><polyline points="20 6 9 17 4 12"/></svg></span>
-  <span class="result-label">AI-workflow live: geautomatiseerde social copy met platformnuance per bericht</span>
-  
-</div>
+    <span class="result-icon"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><polyline points="20 6 9 17 4 12"/></svg></span>
+    <span class="result-label">AI-workflow live: social copy geautomatiseerd</span>
+    
+  </div>
   <div class="result-row">
-  <span class="result-icon"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><polyline points="23 6 13.5 15.5 8.5 10.5 1 18"/><polyline points="17 6 23 6 23 12"/></svg></span>
-  <span class="result-label">YouTube-titels, beschrijvingen en tags herzien — betere vindbaarheid en kijkduur</span>
-  
-</div>
+    <span class="result-icon"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><polyline points="23 6 13.5 15.5 8.5 10.5 1 18"/><polyline points="17 6 23 6 23 12"/></svg></span>
+    <span class="result-label">YouTube-titels herzien voor betere vindbaarheid</span>
+    
+  </div>
   <div class="result-row">
-  <span class="result-icon"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><circle cx="12" cy="12" r="10"/><circle cx="12" cy="12" r="6"/><circle cx="12" cy="12" r="2"/></svg></span>
-  <span class="result-label">KPI-framework opgeleverd voor rapportage aan alle stakeholders</span>
-  
-</div>
+    <span class="result-icon"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><circle cx="12" cy="12" r="10"/><circle cx="12" cy="12" r="6"/><circle cx="12" cy="12" r="2"/></svg></span>
+    <span class="result-label">KPI-framework opgeleverd voor alle stakeholders</span>
+    
+  </div>
   <div class="result-row">
-  <span class="result-icon"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M10 13a5 5 0 007.54.54l3-3a5 5 0 00-7.07-7.07l-1.72 1.71"/><path d="M14 11a5 5 0 00-7.54-.54l-3 3a5 5 0 007.07 7.07l1.71-1.71"/></svg></span>
-  <span class="result-label">Voorstel ingediend voor uitbreiding naar WhatsApp en Reddit</span>
-  
+    <span class="result-icon"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><polyline points="20 6 9 17 4 12"/></svg></span>
+    <span class="result-label">Uitbreiding naar WhatsApp en Reddit ingediend</span>
+    
+  </div>
 </div>
-</div>
-<div class="cta-strip">
-  <h2>Vergelijkbare uitdaging?</h2>
-  <p>Plan een vrijblijvend gesprek en ontdek wat Flii voor jou kan betekenen.</p>
-  <a href="https://calendly.com/flii-media" target="_blank">Plan een gesprek →</a>
-</div>
+
+<section class="cta-section" id="contact">
+  <div class="cta-card-wrap">
+    <video class="cta-bg-video" autoplay muted loop playsinline preload="auto"
+      src="https://fliimedia.github.io/Flii.nl/assets/eklipse-montage.mp4"></video>
+    <div class="cta-video-overlay"></div>
+    <div class="cta-inner">
+      <h2>Let's ignite<br>ambitions</h2>
+      <a href="https://calendly.com/flii-media" target="_blank" class="cta-btn">
+        Plan een gesprek
+        <span class="cta-btn-arrow">
+          <svg viewBox="0 0 8 8" width="14" height="14"><path d="M1 4h6M4 1l3 3-3 3" stroke="#0F0E0C" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" fill="none"/></svg>
+        </span>
+      </a>
+    </div>
+  </div>
+</section>
 <footer class="footer-mini">
   <p><a href="../">Flii Media</a> · © 2026</p>
 </footer>
