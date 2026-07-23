@@ -73,6 +73,17 @@ body{font-family:var(--ff-body);background:#fff;color:var(--ink);-webkit-font-sm
 .footer{padding:20px 24px;text-align:center;font-size:11px;color:var(--sub)}
 .footer a{color:var(--ink);font-weight:600;text-decoration:none}
 </style>
+
+<script>
+// Clean URL: remove .html extension from address bar
+(function(){
+  var loc = window.location;
+  if (loc.pathname.endsWith('.html') && loc.pathname !== '/index.html') {
+    var clean = loc.pathname.slice(0, -5);
+    history.replaceState(null, '', clean + loc.search + loc.hash);
+  }
+})();
+</script>
 </head>
 <body>
 
