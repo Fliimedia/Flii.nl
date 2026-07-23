@@ -102,6 +102,14 @@ body{font-family:var(--ff-body);background:#fff;color:var(--ink);-webkit-font-sm
 .cta-btn-arrow{display:inline-flex;align-items:center;justify-content:center;width:18px;height:18px;}
 
 </style>
+<script>
+(function(){
+  var loc = window.location;
+  if (loc.pathname.endsWith('.html') && loc.pathname !== '/index.html') {
+    history.replaceState(null, '', loc.pathname.slice(0,-5) + loc.search + loc.hash);
+  }
+})();
+</script>
 </head>
 <body>
 <div class="ai-disclaimer">
