@@ -404,33 +404,45 @@ body{font-family:var(--ff-body);background:var(--paper);color:var(--ink);}
 .rcp-v { font-size: 12px; color: var(--mid); min-width: 60px; text-align: right; }
 
 /* ── Funnel description card ──────────────────────────────────────── */
-#fnl-desc { margin-top: 20px; display: flex; justify-content: center; }
+#fnl-desc { margin-top: 20px; }
 .fnl-desc-card {
-  width: 100%; max-width: 340px;
   background: var(--card);
   border: 1.5px solid var(--mag);
   border-radius: 16px;
-  padding: 20px 20px 16px;
-  display: flex; flex-direction: column; gap: 8px;
-  text-align: center;
+  padding: 22px 20px 18px;
+  display: flex; flex-direction: column; gap: 10px;
 }
-.fnl-desc-hint {
-  border-color: var(--line);
-  align-items: center; justify-content: center;
-  min-height: 80px;
+.fnl-desc-default { border-color: var(--line); }
+.fnl-phase-header {
+  display: flex; align-items: baseline; gap: 10px;
 }
-.fnl-desc-hint-text {
-  font-size: 13px; color: var(--soft); font-style: italic;
+.fnl-phase-num {
+  font-family: var(--ff-mono); font-size: 9px; font-weight: 700;
+  letter-spacing: .1em; text-transform: uppercase; color: var(--soft);
 }
 .fnl-phase-k {
-  font-family: var(--ff-disp); font-size: 16px; font-weight: 800;
-  color: var(--ink); letter-spacing: -.3px;
+  font-family: var(--ff-disp); font-size: 20px; font-weight: 900;
+  color: var(--ink); letter-spacing: -.5px;
 }
-.fnl-phase-goal { font-size: 13px; color: var(--mid); line-height: 1.55; margin: 0; }
+.fnl-phase-goal {
+  font-size: 14px; color: var(--mid); line-height: 1.6; margin: 0;
+  font-weight: 500;
+}
 .fnl-phase-example {
-  font-size: 11px; color: var(--soft); line-height: 1.5;
-  border-top: 1px solid var(--line); padding-top: 8px; margin-top: 2px;
+  font-size: 12px; color: var(--soft); line-height: 1.55;
+  border-top: 1px solid var(--line); padding-top: 10px;
+  font-style: italic;
 }
+.fnl-phase-nav {
+  display: flex; justify-content: space-between; align-items: center;
+  padding-top: 6px;
+}
+.fnl-nav-btn {
+  font-family: var(--ff-body); font-size: 12px; font-weight: 600;
+  color: var(--mag); background: none; border: none; cursor: pointer; padding: 0;
+}
+.fnl-nav-next { margin-left: auto; }
+.fnl-nav-done { font-size: 12px; color: var(--soft); font-style: italic; }
 </style>
 </head>
 <body>
@@ -644,19 +656,7 @@ body{font-family:var(--ff-body);background:var(--paper);color:var(--ink);}
       <div id="calc-body"></div>
       <div class="calc-nav" id="calc-nav-bar" style="display:none">
         <button class="btn btn-ghost" id="calc-btn-back" onclick="go(-1)" disabled>← Terug</button>
-        <div class="calc-running" id="calc-running"></div>
-        <button class="btn btn-primary" id="calc-btn-next" onclick="go(1)">Volgende →</button>
-      </div>
-    </div>
-  </div>
-</section>
-
-<footer class="page-footer">
-  <p>Een product van <a href="index.html">Flii Media</a> &middot; <a href="mailto:info@flii.nl">info@flii.nl</a></p>
-  <p style="margin-top:8px">&copy; 2026 Flii Media</p>
-</footer>
-
-<script>
+        <div class="c
 // ── LOOP RING ─────────────────────────────────────────────────────────
 var LOOP_ITEMS = [
   { k: "Livegang", body: "De campagne gaat live. Kanalen zijn ingericht, creatives staan klaar." },
@@ -1326,7 +1326,7 @@ renderCalc();
   document.getElementById("fnl-top").setAttribute("d", makePath(topPts));
   document.getElementById("fnl-bot").setAttribute("d", makePath(botPts));
 
-  window.active = null;
+  window.active = 0;
   var segsEl = document.getElementById("fnl-segs");
   stages.forEach(function(st, i) {
     var x0=i*segW, x1=(i+1)*segW, cx=(x0+x1)/2;
@@ -1347,12 +1347,24 @@ renderCalc();
 
   function renderDesc() {
     var el = document.getElementById("fnl-desc");
-    if (window.active === null) {
-      el.innerHTML =
-        '<div class="fnl-desc-card fnl-desc-hint">' +
-        '<span class="fnl-desc-hint-text">Klik een fase voor beschrijving</span>' +
-        '</div>';
-    } else {
+    var idx = window.active !== null ? window.active : 0;
+    var st = stages[idx];
+    var isDefault = window.active === null;
+
+    el.innerHTML =
+      '<div class="fnl-desc-card' + (isDefault ? ' fnl-desc-default' : '') + '">' +
+        '<div class="fnl-phase-header">' +
+          '<span class="fnl-phase-num">Fase ' + (idx + 1) + ' / ' + stages.length + '</span>' +
+          '<span class="fnl-phase-k">' + st.k + '</span>' +
+        '</div>' +
+        '<p class="fnl-phase-goal">' + st.goal + '</p>' +
+        '<div class="fnl-phase-example">' + st.example + '</div>' +
+        '<div class="fnl-phase-nav">' +
+          (idx > 0 ? '<button class="fnl-nav-btn" onclick="window.setFunnelPhase(' + (idx-1) + ')">← Vorige</button>' : '<span></span>') +
+          (idx < stages.length-1 ? '<button class="fnl-nav-btn fnl-nav-next" onclick="window.setFunnelPhase(' + (idx+1) + ')">Volgende →</button>' : '<span class="fnl-nav-done">✓ Alle fases</span>') +
+        '</div>' +
+      '</div>';
+  } else {
       var st = stages[window.active];
       el.innerHTML =
         '<div class="fnl-desc-card">' +
@@ -1377,6 +1389,23 @@ renderCalc();
 
   // Global helpers for onclick
   window.setFunnelPhase = function(i) {
+    window.active = i;
+    document.querySelectorAll('.fnl-seg').forEach(function(sg, j) {
+      sg.classList.toggle('on', j === i);
+    });
+    renderDesc();
+  };
+  window.clearFunnelPhase = function() {
+    window.active = null;
+    document.querySelectorAll('.fnl-seg').forEach(function(sg) {
+      sg.classList.remove('on');
+    });
+    renderDesc();
+  };
+
+})();
+
+etFunnelPhase = function(i) {
     window.active = i;
     document.querySelectorAll('.fnl-seg').forEach(function(sg, j) {
       sg.classList.toggle('on', j === i);
