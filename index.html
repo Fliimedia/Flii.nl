@@ -1944,7 +1944,7 @@ details.faq-item[open] .faq-answer {
 .ai-launch-section {
   background: var(--c-page);
   margin: 0;
-  padding: 24px 20px;
+  padding: 16px 20px 24px;
   position: relative; overflow: hidden;
 }
 .ai-launch-card {
@@ -2010,6 +2010,50 @@ details.faq-item[open] .faq-answer {
   transition: border: none;
 }
 .ai-launch-btn-ghost:hover { border-color: rgba(255,255,255,.4); color: #fff; }
+
+/* ── PRODUCT DEV CARD (white variant) ── */
+.pd-card {
+  background: #fff;
+  border: 1px solid var(--c-rule);
+  border-radius: 20px;
+  padding: 28px 22px 24px;
+  position: relative; overflow: hidden;
+  margin: 0 20px 0px;
+}
+.pd-eyebrow {
+  font-family: var(--ff-mono); font-size: 9px; font-weight: 700;
+  letter-spacing: .14em; text-transform: uppercase;
+  color: var(--c-red); margin-bottom: 12px; display: block;
+}
+.pd-title {
+  font-family: var(--ff-disp); font-size: clamp(22px,6vw,32px);
+  font-weight: 900; letter-spacing: -1px; color: var(--c-ink);
+  line-height: 1.08; margin-bottom: 12px;
+}
+.pd-title em {
+  font-style: normal; color: var(--c-red);
+}
+.pd-usp-mini {
+  display: flex; flex-direction: column; gap: 10px; margin-bottom: 24px;
+}
+.pd-usp-mini-item {
+  display: flex; align-items: center; gap: 10px;
+}
+.pd-usp-mini-icon {
+  font-size: 14px; width: 28px; text-align: center; flex-shrink: 0;
+}
+.pd-usp-mini-text {
+  font-size: 12px; color: var(--c-muted); line-height: 1.4;
+}
+.pd-usp-mini-text strong { color: var(--c-ink); font-weight: 600; }
+.pd-btn {
+  display: inline-flex; align-items: center; gap: 6px;
+  background: var(--c-ink); color: #fff;
+  border-radius: 100px; padding: 12px 22px;
+  font-size: 13px; font-weight: 700; font-family: var(--ff-body);
+  text-decoration: none; transition: opacity .15s;
+}
+.pd-btn:hover { opacity: .82; }
 
 /* Hide chatbase floating bubble only (not the chat window) */
 #chatbase-bubble-button, .chatbase-bubble-button,
@@ -4024,7 +4068,7 @@ details.faq-item[open] .faq-answer {
 .ai-launch-section {
   background: var(--c-page);
   margin: 0;
-  padding: 24px 20px;
+  padding: 16px 20px 24px;
   position: relative; overflow: hidden;
 }
 .ai-launch-card {
@@ -4090,6 +4134,50 @@ details.faq-item[open] .faq-answer {
   transition: border: none;
 }
 .ai-launch-btn-ghost:hover { border-color: rgba(255,255,255,.4); color: #fff; }
+
+/* ── PRODUCT DEV CARD (white variant) ── */
+.pd-card {
+  background: #fff;
+  border: 1px solid var(--c-rule);
+  border-radius: 20px;
+  padding: 28px 22px 24px;
+  position: relative; overflow: hidden;
+  margin: 0 20px 0px;
+}
+.pd-eyebrow {
+  font-family: var(--ff-mono); font-size: 9px; font-weight: 700;
+  letter-spacing: .14em; text-transform: uppercase;
+  color: var(--c-red); margin-bottom: 12px; display: block;
+}
+.pd-title {
+  font-family: var(--ff-disp); font-size: clamp(22px,6vw,32px);
+  font-weight: 900; letter-spacing: -1px; color: var(--c-ink);
+  line-height: 1.08; margin-bottom: 12px;
+}
+.pd-title em {
+  font-style: normal; color: var(--c-red);
+}
+.pd-usp-mini {
+  display: flex; flex-direction: column; gap: 10px; margin-bottom: 24px;
+}
+.pd-usp-mini-item {
+  display: flex; align-items: center; gap: 10px;
+}
+.pd-usp-mini-icon {
+  font-size: 14px; width: 28px; text-align: center; flex-shrink: 0;
+}
+.pd-usp-mini-text {
+  font-size: 12px; color: var(--c-muted); line-height: 1.4;
+}
+.pd-usp-mini-text strong { color: var(--c-ink); font-weight: 600; }
+.pd-btn {
+  display: inline-flex; align-items: center; gap: 6px;
+  background: var(--c-ink); color: #fff;
+  border-radius: 100px; padding: 12px 22px;
+  font-size: 13px; font-weight: 700; font-family: var(--ff-body);
+  text-decoration: none; transition: opacity .15s;
+}
+.pd-btn:hover { opacity: .82; }
 
 /* Hide chatbase floating bubble only (not the chat window) */
 #chatbase-bubble-button, .chatbase-bubble-button,
@@ -4521,6 +4609,29 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
     </div>
     </div>
   </section>
+
+<!-- PRODUCT DEV CARD -->
+<div class="pd-card">
+  <span class="pd-eyebrow">Apps &amp; Digitale producten</span>
+  <h2 class="pd-title">Product development:<br>we build your <em>app.</em></h2>
+  <div class="pd-usp-mini">
+    <div class="pd-usp-mini-item">
+      <span class="pd-usp-mini-icon"><svg width="14" height="14" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="3" width="16" height="14" rx="2"/><path d="M6 8h8M6 12h5"/></svg></span>
+      <span class="pd-usp-mini-text"><strong>Platform, app of digitaal product</strong></span>
+    </div>
+    <div class="pd-usp-mini-item">
+      <span class="pd-usp-mini-icon"><svg width="14" height="14" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M5 3l10 7-10 7V3z"/></svg></span>
+      <span class="pd-usp-mini-text"><strong>Van idee tot live product</strong></span>
+    </div>
+    <div class="pd-usp-mini-item">
+      <span class="pd-usp-mini-icon"><svg width="14" height="14" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M2 10s3-7 8-7 8 7 8 7-3 7-8 7-8-7-8-7z"/><circle cx="10" cy="10" r="3"/></svg></span>
+      <span class="pd-usp-mini-text"><strong>Bekijk flii.app voor meer</strong></span>
+    </div>
+  </div>
+  <div>
+    <a href="https://flii.app" target="_blank" class="pd-btn">Naar flii.app →</a>
+  </div>
+</div>
 
 <!-- AI LAUNCH PLAN -->
 <section class="ai-launch-section">
