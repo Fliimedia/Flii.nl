@@ -6190,8 +6190,7 @@ document.addEventListener('keydown', function(e) {
     }
   }
   window.addEventListener('scroll', check, { passive: true });
-  // Also check during smooth scroll RAF
-  (function loop() { check(); requestAnimationFrame(loop); })();
+  check(); // initial check
 })();
 
 </script>
