@@ -5,26 +5,29 @@
 <meta name="viewport" content="width=device-width,initial-scale=1">
 <title>Flii Media</title>
 <script>
-// GitHub Pages clean URL redirect
-// Requested: /over-ons → try /over-ons.html
 (function(){
-  var path = window.location.pathname;
-  // Don't redirect if already has extension or is root
-  if (path.indexOf('.') === -1 && path !== '/') {
-    // Try appending .html
-    var target = path.replace(/\/$/, '') + '.html' + window.location.search + window.location.hash;
-    // Store the clean path to restore after redirect
-    sessionStorage.setItem('cleanPath', path + window.location.search + window.location.hash);
+  var loc = window.location;
+  var path = loc.pathname;
+
+  // Only redirect if path has no file extension
+  if (path.indexOf('.') === -1 || path.endsWith('/')) {
+    // Save the clean path so the destination page can restore it
+    var cleanPath = path + loc.search + loc.hash;
+    sessionStorage.setItem('cleanPath', cleanPath);
+    // Redirect to .html version
+    var target = path.replace(/\/$/, '') + '.html' + loc.search + loc.hash;
     window.location.replace(target);
   } else {
-    // Genuine 404
-    document.title = 'Pagina niet gevonden — Flii Media';
-    document.getElementById('content').style.display = 'flex';
+    // Genuine 404 — show error page
+    document.addEventListener('DOMContentLoaded', function() {
+      document.getElementById('content').style.display = 'flex';
+    });
   }
 })();
 </script>
 <style>
-  #content { display:none; font-family:sans-serif; flex-direction:column; align-items:center; justify-content:center; min-height:100vh; margin:0; background:#fff; color:#0F0E0C; }
+  body { margin:0; background:#fff; }
+  #content { display:none; font-family:sans-serif; flex-direction:column; align-items:center; justify-content:center; min-height:100vh; color:#0F0E0C; }
   h1 { font-size:80px; margin:0; font-weight:800; color:#E8294A; }
   p { font-size:18px; color:#4A4840; }
   a { color:#E8294A; font-weight:600; text-decoration:none; }
@@ -34,7 +37,7 @@
 <div id="content">
   <h1>404</h1>
   <p>Deze pagina bestaat niet.</p>
-  <a href="/">← Terug naar Flii Media</a>
+  <a href="/Flii.nl/">← Terug naar Flii Media</a>
 </div>
 </body>
 </html>
