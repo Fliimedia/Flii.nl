@@ -160,6 +160,17 @@ img{max-width:100%;display:block;}
 }
 .cta-btn:hover { background: rgba(255,255,255,.88); }
 .cta-btn-arrow { display:inline-flex; align-items:center; }
+
+.dienst-contact-link {
+  display: inline-flex; align-items: center; gap: 8px;
+  margin-top: 24px; margin-bottom: 4px;
+  font-family: var(--ff-body); font-size: 14px; font-weight: 600;
+  color: #E8294A; text-decoration: none; cursor: pointer;
+  background: none; border: none; padding: 0;
+  transition: gap .15s;
+}
+.dienst-contact-link:hover { gap: 12px; }
+.dienst-contact-link svg { flex-shrink: 0; }
 </style>
 <script>
 (function(){
@@ -182,7 +193,12 @@ img{max-width:100%;display:block;}
   <h1>Custom code</h1>
   <p class="lead">Maatwerk voor complexe vraagstukken. Wanneer standaard tools niet volstaan, bouwen wij de oplossing die jij nodig hebt.</p>
 </div>
-<div class="section-body"><p>Soms past een probleem niet in een standaard tool. Dan is custom development de enige manier om precies te krijgen wat je nodig hebt. Wij schrijven schone, gedocumenteerde code die je team ook na oplevering kan onderhouden.</p><h2>Toepassingen</h2><ul><li>Complexe data-integraties</li><li>Maatwerk webapplicaties</li><li>Performance-kritische interfaces</li><li>Specifieke automatiseringen</li><li>Legacy-integraties en migraties</li></ul></div>
+<div class="section-body"><p>Soms past een probleem niet in een standaard tool. Dan is custom development de enige manier om precies te krijgen wat je nodig hebt. Wij schrijven schone, gedocumenteerde code die je team ook na oplevering kan onderhouden.</p><h2>Toepassingen</h2><ul><li>Complexe data-integraties</li><li>Maatwerk webapplicaties</li><li>Performance-kritische interfaces</li><li>Specifieke automatiseringen</li><li>Legacy-integraties en migraties</li></ul>
+<button class="dienst-contact-link" onclick="if(window.highlightSidebar)window.highlightSidebar();var sb=document.getElementById('float-sidebar');if(sb){sb.classList.add('visible');}" type="button">
+  Heb je een vraag of project over dit onderwerp? Neem contact op
+  <svg viewBox="0 0 16 16" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 8h10M9 4l4 4-4 4"/></svg>
+</button>
+</div>
 
 <section class="cta-section" id="contact">
   <div class="cta-card-wrap">
