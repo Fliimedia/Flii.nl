@@ -4950,6 +4950,20 @@ details.faq-item[open] .faq-answer {
 .case-card-xs-bottom .case-card-xs-chip {
   position: static;
 }
+
+/* cases secondary spacing */
+.cases-secondary { margin-top: 48px; }
+
+/* Tags in hover: side by side */
+.case-card-hover .case-card-tag,
+.case-card-sm-hover .case-card-sm-tag {
+  display: inline-block;
+  margin-right: 5px;
+  margin-top: 2px;
+}
+
+/* xs: max 1 chip — hide extras */
+.case-card-xs-bottom .case-card-xs-chip ~ .case-card-xs-chip { display: none; }
 </style>
 <!-- Default consent vóór GTM -->
 
