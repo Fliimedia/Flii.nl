@@ -2552,14 +2552,7 @@ img { display: block; max-width: 100%; }
 .ai-launch-btn-ghost:hover { border-color: rgba(255,255,255,.4); color: #fff; }
 
 /* ── PRODUCT DEV CARD (white variant) ── */
-.pd-card {
-  background: #fff;
-  border: 1px solid var(--c-rule);
-  border-radius: 20px;
-  padding: 28px 22px 24px;
-  position: relative; overflow: hidden;
-  margin: 0 20px 0px;
-}
+
 .pd-eyebrow {
   font-family: var(--ff-mono); font-size: 9px; font-weight: 700;
   letter-spacing: .14em; text-transform: uppercase;
@@ -4633,14 +4626,7 @@ details.faq-item[open] .faq-answer {
 .ai-launch-btn-ghost:hover { border-color: rgba(255,255,255,.4); color: #fff; }
 
 /* ── PRODUCT DEV CARD (white variant) ── */
-.pd-card {
-  background: #fff;
-  border: 1px solid var(--c-rule);
-  border-radius: 20px;
-  padding: 28px 22px 24px;
-  position: relative; overflow: hidden;
-  margin: 0 20px 0px;
-}
+
 .pd-eyebrow {
   font-family: var(--ff-mono); font-size: 9px; font-weight: 700;
   letter-spacing: .14em; text-transform: uppercase;
@@ -4963,6 +4949,27 @@ details.faq-item[open] .faq-answer {
   display: block;
 }
 
+
+
+
+
+
+
+
+
+/* ── Product build card ── */
+.pd-card {
+  background: #fff;
+  border: 1px solid var(--c-rule);
+  border-radius: 20px;
+  padding: 28px 22px 24px;
+  position: relative;
+  overflow: hidden;
+  margin: 0 20px 0;
+  cursor: pointer;
+}
+.pd-card:hover { border-color: transparent; }
+
 .pd-video-wrap {
   position: absolute;
   inset: 0;
@@ -4974,23 +4981,22 @@ details.faq-item[open] .faq-answer {
   z-index: 0;
 }
 .pd-card:hover .pd-video-wrap { opacity: 1; }
+
 .pd-video {
   width: 100%; height: 100%;
   object-fit: cover;
   display: block;
 }
-.pd-card:hover .pd-eyebrow,
-.pd-card:hover .pd-title,
-.pd-card:hover .pd-usp-mini {
+
+.pd-eyebrow, .pd-title, .pd-usp-mini {
   position: relative;
   z-index: 1;
 }
-.pd-card:hover .pd-title,
-.pd-card:hover .pd-usp-mini-text strong {
-  color: #fff;
-}
+.pd-card:hover .pd-title em,
+.pd-card:hover .pd-title { color: #fff; }
+.pd-card:hover .pd-usp-mini-text strong { color: #fff; }
 .pd-card:hover .pd-eyebrow { color: rgba(255,255,255,.7); }
-.pd-card:hover { border-color: transparent; }
+.pd-card:hover .pd-usp-mini-icon svg { stroke: rgba(255,255,255,.7); }
 </style>
 <!-- Default consent vóór GTM -->
 
