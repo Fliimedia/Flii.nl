@@ -160,6 +160,17 @@ img{max-width:100%;display:block;}
 }
 .cta-btn:hover { background: rgba(255,255,255,.88); }
 .cta-btn-arrow { display:inline-flex; align-items:center; }
+
+.dienst-contact-link {
+  display: inline-flex; align-items: center; gap: 8px;
+  margin-top: 24px; margin-bottom: 4px;
+  font-family: var(--ff-body); font-size: 14px; font-weight: 600;
+  color: #E8294A; text-decoration: none; cursor: pointer;
+  background: none; border: none; padding: 0;
+  transition: gap .15s;
+}
+.dienst-contact-link:hover { gap: 12px; }
+.dienst-contact-link svg { flex-shrink: 0; }
 </style>
 <script>
 (function(){
@@ -182,7 +193,12 @@ img{max-width:100%;display:block;}
   <h1>Influencers</h1>
   <p class="lead">Authentieke samenwerking met creators die jouw doelgroep kennen en bereiken. Van nano tot macro.</p>
 </div>
-<div class="section-body"><p>Influencer marketing werkt wanneer het authentiek is. Wij selecteren creators die écht aansluiten bij jouw merk en doelgroep — niet alleen op volgersaantal, maar op engagement, tone of voice en relevantie.</p><h2>Aanpak</h2><ul><li>Creator-selectie en screening</li><li>Campagnebrief en creatieve begeleiding</li><li>Contractering en rechtenmanagement</li><li>Contentbeoordeling en goedkeuring</li><li>Resultaatmeting (reach, views, conversie)</li></ul><h2>Schaalniveaus</h2><ul><li>Nano (1K-10K): hoge engagement, niche doelgroepen</li><li>Micro (10K-100K): categorie-experts</li><li>Macro (100K+): brede merkbekendheid</li></ul></div>
+<div class="section-body"><p>Influencer marketing werkt wanneer het authentiek is. Wij selecteren creators die écht aansluiten bij jouw merk en doelgroep — niet alleen op volgersaantal, maar op engagement, tone of voice en relevantie.</p><h2>Aanpak</h2><ul><li>Creator-selectie en screening</li><li>Campagnebrief en creatieve begeleiding</li><li>Contractering en rechtenmanagement</li><li>Contentbeoordeling en goedkeuring</li><li>Resultaatmeting (reach, views, conversie)</li></ul><h2>Schaalniveaus</h2><ul><li>Nano (1K-10K): hoge engagement, niche doelgroepen</li><li>Micro (10K-100K): categorie-experts</li><li>Macro (100K+): brede merkbekendheid</li></ul>
+<button class="dienst-contact-link" onclick="if(window.highlightSidebar)window.highlightSidebar();var sb=document.getElementById('float-sidebar');if(sb){sb.classList.add('visible');}" type="button">
+  Heb je een vraag of project over dit onderwerp? Neem contact op
+  <svg viewBox="0 0 16 16" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 8h10M9 4l4 4-4 4"/></svg>
+</button>
+</div>
 
 <section class="cta-section" id="contact">
   <div class="cta-card-wrap">
