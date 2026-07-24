@@ -160,6 +160,17 @@ img{max-width:100%;display:block;}
 }
 .cta-btn:hover { background: rgba(255,255,255,.88); }
 .cta-btn-arrow { display:inline-flex; align-items:center; }
+
+.dienst-contact-link {
+  display: inline-flex; align-items: center; gap: 8px;
+  margin-top: 24px; margin-bottom: 4px;
+  font-family: var(--ff-body); font-size: 14px; font-weight: 600;
+  color: #E8294A; text-decoration: none; cursor: pointer;
+  background: none; border: none; padding: 0;
+  transition: gap .15s;
+}
+.dienst-contact-link:hover { gap: 12px; }
+.dienst-contact-link svg { flex-shrink: 0; }
 </style>
 <script>
 (function(){
@@ -182,7 +193,12 @@ img{max-width:100%;display:block;}
   <h1>No-code</h1>
   <p class="lead">Snelle, flexibele websites en tools zonder zware development. Webflow, Framer en meer — beheerbaar voor iedereen.</p>
 </div>
-<div class="section-body"><p>No-code tools maken het mogelijk om snel professionele websites te bouwen die eenvoudig te beheren zijn — zonder afhankelijkheid van developers voor iedere wijziging.</p><h2>Platforms</h2><ul><li>Webflow (websites, CMS, e-commerce)</li><li>Framer (interactieve marketing sites)</li><li>Notion en Airtable (interne tools)</li><li>Make / Zapier (automatiseringen)</li></ul><h2>Voordelen</h2><ul><li>Snellere time-to-market</li><li>Lagere onderhoudskosten</li><li>Zelf beheerbaar na oplevering</li><li>Eenvoudig te A/B-testen</li></ul></div>
+<div class="section-body"><p>No-code tools maken het mogelijk om snel professionele websites te bouwen die eenvoudig te beheren zijn — zonder afhankelijkheid van developers voor iedere wijziging.</p><h2>Platforms</h2><ul><li>Webflow (websites, CMS, e-commerce)</li><li>Framer (interactieve marketing sites)</li><li>Notion en Airtable (interne tools)</li><li>Make / Zapier (automatiseringen)</li></ul><h2>Voordelen</h2><ul><li>Snellere time-to-market</li><li>Lagere onderhoudskosten</li><li>Zelf beheerbaar na oplevering</li><li>Eenvoudig te A/B-testen</li></ul>
+<button class="dienst-contact-link" onclick="if(window.highlightSidebar)window.highlightSidebar();var sb=document.getElementById('float-sidebar');if(sb){sb.classList.add('visible');}" type="button">
+  Heb je een vraag of project over dit onderwerp? Neem contact op
+  <svg viewBox="0 0 16 16" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 8h10M9 4l4 4-4 4"/></svg>
+</button>
+</div>
 
 <section class="cta-section" id="contact">
   <div class="cta-card-wrap">
