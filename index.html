@@ -4890,8 +4890,7 @@ details.faq-item[open] .faq-answer {
   transition: opacity 0.6s ease;
   pointer-events: none;
 }
-.office-photo-wrap.video-on 
-.office-photo-wrap.video-on .office-video-overlay { opacity: 1; }
+
 
 00;
   letter-spacing: .06em; margin-top: 6px;
@@ -4972,12 +4971,8 @@ details.faq-item[open] .faq-answer {
 .case-card-sm-hover .case-url-badge { font-size: 7.5px; margin-bottom: 5px; }
 
 /* Office video: photo hides, video shows on .video-on */
-.office-photo-wrap.video-on .office-photo { opacity: 0; }
-.office-photo-wrap.video-on 
 
 
-.office-photo-wrap.video-on 
-.office-photo-wrap.video-on .office-photo { opacity: 0; }
 
 .office-bg-video {
   position: absolute;
@@ -4989,6 +4984,10 @@ details.faq-item[open] .faq-answer {
   transition: opacity 0.6s ease;
   pointer-events: none;
 }
+
+.office-photo-wrap.video-on .office-bg-video { opacity: 1; }
+.office-photo-wrap.video-on .office-photo { opacity: 0; }
+.office-photo-wrap.video-on .office-video-overlay { opacity: 1; }
 </style>
 <!-- Default consent vóór GTM -->
 
