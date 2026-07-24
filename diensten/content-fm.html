@@ -160,6 +160,17 @@ img{max-width:100%;display:block;}
 }
 .cta-btn:hover { background: rgba(255,255,255,.88); }
 .cta-btn-arrow { display:inline-flex; align-items:center; }
+
+.dienst-contact-link {
+  display: inline-flex; align-items: center; gap: 8px;
+  margin-top: 24px; margin-bottom: 4px;
+  font-family: var(--ff-body); font-size: 14px; font-weight: 600;
+  color: #E8294A; text-decoration: none; cursor: pointer;
+  background: none; border: none; padding: 0;
+  transition: gap .15s;
+}
+.dienst-contact-link:hover { gap: 12px; }
+.dienst-contact-link svg { flex-shrink: 0; }
 </style>
 <script>
 (function(){
@@ -182,7 +193,12 @@ img{max-width:100%;display:block;}
   <h1>Content</h1>
   <p class="lead">Content die de funnel voedt: van awareness-video's tot conversiegerichte landingspagina's. Data-gedreven en creatief.</p>
 </div>
-<div class="section-body"><p>Content is de brandstof van je funnel. Zonder relevante, sterke content vallen campagnes plat. Wij maken content die aansluit op elke fase van de customer journey — van de eerste kennismaking tot de uiteindelijke aankoop.</p><h2>Contentvormen</h2><ul><li>Video (brand, product, testimonial, social)</li><li>Statische en animated advertenties</li><li>Landingspagina-copy en CRO-content</li><li>E-mailsequenties en nurture-flows</li><li>Blog- en SEO-artikelen</li></ul></div>
+<div class="section-body"><p>Content is de brandstof van je funnel. Zonder relevante, sterke content vallen campagnes plat. Wij maken content die aansluit op elke fase van de customer journey — van de eerste kennismaking tot de uiteindelijke aankoop.</p><h2>Contentvormen</h2><ul><li>Video (brand, product, testimonial, social)</li><li>Statische en animated advertenties</li><li>Landingspagina-copy en CRO-content</li><li>E-mailsequenties en nurture-flows</li><li>Blog- en SEO-artikelen</li></ul>
+<button class="dienst-contact-link" onclick="if(window.highlightSidebar)window.highlightSidebar();var sb=document.getElementById('float-sidebar');if(sb){sb.classList.add('visible');}" type="button">
+  Heb je een vraag of project over dit onderwerp? Neem contact op
+  <svg viewBox="0 0 16 16" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 8h10M9 4l4 4-4 4"/></svg>
+</button>
+</div>
 
 <section class="cta-section" id="contact">
   <div class="cta-card-wrap">
