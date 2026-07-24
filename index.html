@@ -1103,21 +1103,11 @@ img { display: block; max-width: 100%; }
   100% { transform: translate(-50%,-50%) scale(1); }
 }
 /* ── CASE PHOTO CARDS ── */
-.cases-grid {
-  display: grid;
-  grid-template-columns: 1fr;
-  gap: 96px;
-  padding: 16px 0 64px;
-  margin-bottom: 24px;
-}
+
 /* ══ UNIFIED CASE CARD SYSTEM ══════════════════════════════════════ */
 
 /* shared grid */
-.cases-grid {
-  display: grid;
-  grid-template-columns: 1fr;
-  gap: 16px;
-}
+
 
 /* ── Tier 1: large (full-width, 4/3) ── */
 .case-card {
@@ -2372,21 +2362,11 @@ img { display: block; max-width: 100%; }
   100% { transform: translate(-50%,-50%) scale(1); }
 }
 /* ── CASE PHOTO CARDS ── */
-.cases-grid {
-  display: grid;
-  grid-template-columns: 1fr;
-  gap: 96px;
-  padding: 16px 0 64px;
-  margin-bottom: 24px;
-}
+
 /* ══ UNIFIED CASE CARD SYSTEM ══════════════════════════════════════ */
 
 /* ── Tier 1: large photo cards (3-up, portrait-ish) ── */
-.cases-grid {
-  display: grid;
-  grid-template-columns: 1fr;
-  gap: 20px !important;
-}
+
 
 .case-card {
   position: relative;
@@ -3721,13 +3701,7 @@ img { display: block; max-width: 100%; }
   100% { transform: translate(-50%,-50%) scale(1); }
 }
 /* ── CASE PHOTO CARDS ── */
-.cases-grid {
-  display: grid;
-  grid-template-columns: 1fr;
-  gap: 96px;
-  padding: 16px 0 64px;
-  margin-bottom: 24px;
-}
+
 .case-photo-card {
   position: relative; display: block;
   border-radius: var(--r); overflow: visible;
@@ -4533,9 +4507,7 @@ details.faq-item[open] .faq-answer {
 }
 
 /* ── SECONDARY & MINOR CASE CARDS ── */
-.cases-secondary {
-  margin-top: 80px;
-}
+
 .cases-secondary-label {
   font-family: var(--ff-mono); font-size: 10px; font-weight: 700;
   letter-spacing: .14em; text-transform: uppercase;
@@ -4997,6 +4969,18 @@ details.faq-item[open] .faq-answer {
 .pd-card:hover .pd-usp-mini-text strong { color: #fff; }
 .pd-card:hover .pd-eyebrow { color: rgba(255,255,255,.7); }
 .pd-card:hover .pd-usp-mini-icon svg { stroke: rgba(255,255,255,.7); }
+
+.cases-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 96px;
+  padding: 16px 0 64px;
+}
+.cases-secondary {
+  margin-top: 80px;
+  padding-top: 40px;
+  border-top: 1px solid var(--c-rule);
+}
 </style>
 <!-- Default consent vóór GTM -->
 
