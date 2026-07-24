@@ -6437,6 +6437,8 @@ document.addEventListener('click', function(e) {
 
   [triggerCta].filter(Boolean).forEach(function(t) {
     t.addEventListener('mousedown', start);
+    t.addEventListener('touchstart', start, { passive: true });
+    t.style.cursor = 'pointer';
     t.style.userSelect = 'none';
   });
   heroWords.forEach(function(w) {
