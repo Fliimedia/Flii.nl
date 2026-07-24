@@ -4962,6 +4962,35 @@ details.faq-item[open] .faq-answer {
   width: 100%; height: 100%;
   display: block;
 }
+
+.pd-video-wrap {
+  position: absolute;
+  inset: 0;
+  border-radius: 20px;
+  overflow: hidden;
+  opacity: 0;
+  transition: opacity 0.4s ease;
+  pointer-events: none;
+  z-index: 0;
+}
+.pd-card:hover .pd-video-wrap { opacity: 1; }
+.pd-video {
+  width: 100%; height: 100%;
+  object-fit: cover;
+  display: block;
+}
+.pd-card:hover .pd-eyebrow,
+.pd-card:hover .pd-title,
+.pd-card:hover .pd-usp-mini {
+  position: relative;
+  z-index: 1;
+}
+.pd-card:hover .pd-title,
+.pd-card:hover .pd-usp-mini-text strong {
+  color: #fff;
+}
+.pd-card:hover .pd-eyebrow { color: rgba(255,255,255,.7); }
+.pd-card:hover { border-color: transparent; }
 </style>
 <!-- Default consent vóór GTM -->
 
@@ -5270,6 +5299,11 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
   </div>
   <div>
     <a href="https://flii.app" target="_blank" class="pd-btn">Naar flii.app →</a>
+  </div>
+
+  <div class="pd-video-wrap">
+    <video class="pd-video" id="pd-video" muted loop playsinline preload="auto"
+      src="https://flii.nl/69e8f17ada150b5fea446328_260224_Flii_DEF.mp4"></video>
   </div>
 </div>
 
@@ -6449,6 +6483,16 @@ document.addEventListener('click', function(e) {
   });
   document.addEventListener('mouseup',  end);
   document.addEventListener('touchend', end);
+})();
+</script>
+<script>
+(function(){
+  var card = document.querySelector('.pd-card');
+  var vid  = document.getElementById('pd-video');
+  if (!card || !vid) return;
+  card.addEventListener('mouseenter', function(){ vid.play().catch(function(){}); });
+  card.addEventListener('mouseleave', function(){ vid.pause(); vid.currentTime = 0; });
+  card.addEventListener('touchstart', function(){ vid.play().catch(function(){}); }, {passive:true});
 })();
 </script>
 </body>
