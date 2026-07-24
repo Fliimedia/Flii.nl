@@ -160,6 +160,17 @@ img{max-width:100%;display:block;}
 }
 .cta-btn:hover { background: rgba(255,255,255,.88); }
 .cta-btn-arrow { display:inline-flex; align-items:center; }
+
+.dienst-contact-link {
+  display: inline-flex; align-items: center; gap: 8px;
+  margin-top: 24px; margin-bottom: 4px;
+  font-family: var(--ff-body); font-size: 14px; font-weight: 600;
+  color: #E8294A; text-decoration: none; cursor: pointer;
+  background: none; border: none; padding: 0;
+  transition: gap .15s;
+}
+.dienst-contact-link:hover { gap: 12px; }
+.dienst-contact-link svg { flex-shrink: 0; }
 </style>
 <script>
 (function(){
@@ -182,7 +193,12 @@ img{max-width:100%;display:block;}
   <h1>Media</h1>
   <p class="lead">Bereik de juiste mensen op de juiste kanalen. Van display tot video, van programmatic tot social — wij zorgen voor media-inkoop die converteert.</p>
 </div>
-<div class="section-body"><p>Effectieve media-inkoop begint bij strategie. Welke kanalen passen bij jouw doelgroep, budget en doelstellingen? Wij combineren data en creativiteit om campagnes te bouwen die echt werken.</p><h2>Wat we doen</h2><ul><li>Media-strategie en kanalenselectie</li><li>Programmatic inkoop via DSP's</li><li>Social media advertising (Meta, TikTok, LinkedIn, Pinterest)</li><li>Display en video campagnes</li><li>Connected TV en OLV</li><li>Continu optimalisatie op basis van data</li></ul><h2>Onze aanpak</h2><p>We werken altijd vanuit een full-funnel perspectief: awareness, overweging en conversie. Elk kanaal heeft zijn rol, en samen zorgen ze voor een consistente merkervaring. We rapporteren transparant en optimaliseren weekly op basis van actuele data.</p></div>
+<div class="section-body"><p>Effectieve media-inkoop begint bij strategie. Welke kanalen passen bij jouw doelgroep, budget en doelstellingen? Wij combineren data en creativiteit om campagnes te bouwen die echt werken.</p><h2>Wat we doen</h2><ul><li>Media-strategie en kanalenselectie</li><li>Programmatic inkoop via DSP's</li><li>Social media advertising (Meta, TikTok, LinkedIn, Pinterest)</li><li>Display en video campagnes</li><li>Connected TV en OLV</li><li>Continu optimalisatie op basis van data</li></ul><h2>Onze aanpak</h2><p>We werken altijd vanuit een full-funnel perspectief: awareness, overweging en conversie. Elk kanaal heeft zijn rol, en samen zorgen ze voor een consistente merkervaring. We rapporteren transparant en optimaliseren weekly op basis van actuele data.</p>
+<button class="dienst-contact-link" onclick="if(window.highlightSidebar)window.highlightSidebar();var sb=document.getElementById('float-sidebar');if(sb){sb.classList.add('visible');}" type="button">
+  Heb je een vraag of project over dit onderwerp? Neem contact op
+  <svg viewBox="0 0 16 16" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 8h10M9 4l4 4-4 4"/></svg>
+</button>
+</div>
 
 <section class="cta-section" id="contact">
   <div class="cta-card-wrap">
