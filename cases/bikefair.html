@@ -125,6 +125,19 @@ img{max-width:100%;display:block;}
 .cta-btn:hover{background:#eee;}
 .cta-btn-arrow{display:inline-flex;align-items:center;justify-content:center;width:18px;height:18px;}
 
+
+.case-link-badge {
+  display: inline-flex; align-items: center; gap: 5px;
+  background: #fff; border: 1px solid rgba(0,0,0,.1);
+  border-radius: 100px; padding: 4px 10px 4px 8px;
+  font-family: var(--ff-mono); font-size: 10px; font-weight: 600;
+  color: #0F0E0C; text-decoration: none; letter-spacing: .01em;
+  box-shadow: 0 1px 4px rgba(0,0,0,.06);
+  transition: box-shadow .15s, border-color .15s;
+  margin-bottom: 10px;
+}
+.case-link-badge:hover { border-color: rgba(232,41,74,.4); box-shadow: 0 2px 8px rgba(0,0,0,.1); }
+.case-link-badge svg { flex-shrink: 0; }
 </style>
 <script>
 (function(){
@@ -143,7 +156,8 @@ img{max-width:100%;display:block;}
 
 <div class="page-hero">
   <span class="eyebrow">Cases</span>
-  <div class="article-meta">
+  <a href="https://bikefair.nl" target="_blank" class="case-link-badge"><svg width="11" height="11" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M7 3H3a1 1 0 00-1 1v9a1 1 0 001 1h9a1 1 0 001-1V9M10 2h4v4M14 2L8 8"/></svg>bikefair.nl</a>
+    <div class="article-meta">
     <span class="article-tag">E-commerce & Performance</span>
   </div>
   <h1>BikeFair</h1>
