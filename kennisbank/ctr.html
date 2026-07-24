@@ -70,9 +70,11 @@ section p{font-size:14px;color:var(--mid);line-height:1.72}
 }</style>
 <script>
 (function(){
+  var clean = sessionStorage.getItem('cleanPath');
+  if (clean) { sessionStorage.removeItem('cleanPath'); history.replaceState(null,'',clean); return; }
   var loc = window.location;
   if (loc.pathname.endsWith('.html') && loc.pathname !== '/index.html') {
-    history.replaceState(null, '', loc.pathname.slice(0,-5) + loc.search + loc.hash);
+    history.replaceState(null,'',loc.pathname.slice(0,-5)+loc.search+loc.hash);
   }
 })();
 </script>
