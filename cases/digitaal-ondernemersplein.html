@@ -102,7 +102,18 @@ body{font-family:var(--ff-body);background:#fff;color:var(--ink);-webkit-font-sm
 .cta-btn-arrow{display:inline-flex;align-items:center;justify-content:center;width:18px;height:18px;}
 
 
-.case-link-badge {
+
+.case-link-badge:hover { border-color: rgba(232,41,74,.4); box-shadow: 0 2px 8px rgba(0,0,0,.1); }
+.case-link-badge svg { flex-shrink: 0; }
+
+
+
+
+
+.case-link-badge:hover { border-color: rgba(232,41,74,.4); box-shadow: 0 2px 8px rgba(0,0,0,.1); }
+.case-link-badge svg, 
+
+.case-url-badge {
   display: inline-flex; align-items: center; gap: 5px;
   background: #fff; border: 1px solid rgba(0,0,0,.1);
   border-radius: 100px; padding: 4px 10px 4px 8px;
@@ -110,14 +121,11 @@ body{font-family:var(--ff-body);background:#fff;color:var(--ink);-webkit-font-sm
   color: #0F0E0C; text-decoration: none; letter-spacing: .01em;
   box-shadow: 0 1px 4px rgba(0,0,0,.06);
   transition: box-shadow .15s, border-color .15s;
-  margin-bottom: 10px;
+  margin-bottom: 8px; display: inline-flex;
 }
-.case-link-badge:hover { border-color: rgba(232,41,74,.4); box-shadow: 0 2px 8px rgba(0,0,0,.1); }
-.case-link-badge svg { flex-shrink: 0; }
-
-.case-meta-row {
-  display: flex; flex-wrap: wrap; align-items: center; gap: 8px;
-  margin-top: 16px;
+.case-url-badge:hover { border-color: rgba(232,41,74,.4); }
+.case-dienst-chips {
+  display: flex; flex-wrap: wrap; gap: 6px;
 }
 .case-dienst-chip {
   display: inline-flex; align-items: center;
@@ -128,17 +136,6 @@ body{font-family:var(--ff-body);background:#fff;color:var(--ink);-webkit-font-sm
   transition: background .15s;
 }
 .case-dienst-chip:hover { background: rgba(232,41,74,.1); color: #E8294A; }
-.case-link-badge {
-  display: inline-flex; align-items: center; gap: 5px;
-  background: #fff; border: 1px solid rgba(0,0,0,.1);
-  border-radius: 100px; padding: 4px 10px 4px 8px;
-  font-family: var(--ff-mono); font-size: 10px; font-weight: 600;
-  color: #0F0E0C; text-decoration: none; letter-spacing: .01em;
-  box-shadow: 0 1px 4px rgba(0,0,0,.06);
-  transition: box-shadow .15s, border-color .15s;
-}
-.case-link-badge:hover { border-color: rgba(232,41,74,.4); box-shadow: 0 2px 8px rgba(0,0,0,.1); }
-.case-link-badge svg, .case-dienst-chip svg { flex-shrink: 0; }
 </style>
 <script>
 (function(){
@@ -159,7 +156,8 @@ body{font-family:var(--ff-body);background:#fff;color:var(--ink);-webkit-font-sm
   <span class="eyebrow">Cases</span>
   <h1>Digitaal Ondernemersplein</h1>
   <p class="lead">Het Digitaal Ondernemersplein is een samenwerkingsverband van KVK, Belastingdienst en RVO. Flii ontwikkelde de kanaalstrategie, AI-gestuurde werkprocessen en een KPI-framework om ondernemers effectiever te bereiken.</p>
-  <div class="case-meta-row"><a href="https://digitaalondernemersplein.nl" target="_blank" class="case-link-badge"><svg width="11" height="11" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M7 3H3a1 1 0 00-1 1v9a1 1 0 001 1h9a1 1 0 001-1V9M10 2h4v4M14 2L8 8"/></svg>digitaalondernemersplein.nl</a><a href="../diensten/social-media.html" class="case-dienst-chip">Social Media</a><a href="../diensten/social-content.html" class="case-dienst-chip">Social content</a><a href="../diensten/content-creatie.html" class="case-dienst-chip">Content</a><a href="../diensten/analyse-optimalisatie.html" class="case-dienst-chip">Analyse & optimalisatie</a></div>
+  <a href="https://digitaalondernemersplein.nl" target="_blank" class="case-url-badge"><svg width="11" height="11" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M7 3H3a1 1 0 00-1 1v9a1 1 0 001 1h9a1 1 0 001-1V9M10 2h4v4M14 2L8 8"/></svg>digitaalondernemersplein.nl</a>
+  <div class="case-dienst-chips"><a href="../diensten/social-media.html" class="case-dienst-chip">Social Media</a><a href="../diensten/social-content.html" class="case-dienst-chip">Social content</a><a href="../diensten/content-creatie.html" class="case-dienst-chip">Content</a><a href="../diensten/analyse-optimalisatie.html" class="case-dienst-chip">Analyse & optimalisatie</a></div>
 
   <div class="services-bar">
     <span class="svc-chip">Kanaalstrategie</span>
