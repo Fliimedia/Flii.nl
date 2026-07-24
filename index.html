@@ -1094,11 +1094,7 @@ img { display: block; max-width: 100%; }
 }
 
 /* ── OFFICE PHOTO ── */
-.office-photo-wrap {
-  position: relative; border-radius: var(--r); overflow: hidden;
-  margin-bottom: var(--sp-3);
-  aspect-ratio: 16/9;
-}
+
 .office-photo {
   position: absolute; inset: 0;
   width: 100%; height: 100%;
@@ -2390,11 +2386,7 @@ img { display: block; max-width: 100%; }
 }
 
 /* ── OFFICE PHOTO ── */
-.office-photo-wrap {
-  position: relative; border-radius: var(--r); overflow: hidden;
-  margin-bottom: var(--sp-3);
-  aspect-ratio: 16/9;
-}
+
 .office-photo {
   position: absolute; inset: 0;
   width: 100%; height: 100%;
@@ -4889,15 +4881,7 @@ details.faq-item[open] .faq-answer {
   background: #0F0E0C; color: #fff;
   border-radius: 100px; padding: 3px 10px;
   font-family: var(--ff-mono); font-size: 9px; font-weight: 6
-.office-bg-video {
-  position: absolute;
-  inset: 0; width: 100%; height: 100%;
-  object-fit: cover;
-  z-index: 1;
-  opacity: 0;
-  transition: opacity 0.6s ease;
-  pointer-events: none;
-}
+
 .office-video-overlay {
   position: absolute;
   inset: 0; z-index: 2;
@@ -4906,7 +4890,7 @@ details.faq-item[open] .faq-answer {
   transition: opacity 0.6s ease;
   pointer-events: none;
 }
-.office-photo-wrap.video-on .office-bg-video { opacity: 1; }
+.office-photo-wrap.video-on 
 .office-photo-wrap.video-on .office-video-overlay { opacity: 1; }
 
 00;
@@ -4989,7 +4973,20 @@ details.faq-item[open] .faq-answer {
 
 /* Office video: photo hides, video shows on .video-on */
 .office-photo-wrap.video-on .office-photo { opacity: 0; }
+.office-photo-wrap.video-on 
+
+.office-bg-video {
+  position: absolute;
+  top: 0; left: 0;
+  width: 100%; height: 100%;
+  object-fit: cover;
+  z-index: 1;
+  opacity: 0;
+  transition: opacity 0.6s ease;
+  pointer-events: none;
+}
 .office-photo-wrap.video-on .office-bg-video { opacity: 1; }
+.office-photo-wrap.video-on .office-photo { opacity: 0; }
 </style>
 <!-- Default consent vóór GTM -->
 
