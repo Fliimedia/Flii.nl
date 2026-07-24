@@ -163,9 +163,11 @@ img{max-width:100%;display:block;}
 </style>
 <script>
 (function(){
+  var clean = sessionStorage.getItem('cleanPath');
+  if (clean) { sessionStorage.removeItem('cleanPath'); history.replaceState(null,'',clean); return; }
   var loc = window.location;
   if (loc.pathname.endsWith('.html') && loc.pathname !== '/index.html') {
-    history.replaceState(null, '', loc.pathname.slice(0,-5) + loc.search + loc.hash);
+    history.replaceState(null,'',loc.pathname.slice(0,-5)+loc.search+loc.hash);
   }
 })();
 </script>
