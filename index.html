@@ -4980,6 +4980,11 @@ details.faq-item[open] .faq-answer {
 .case-url-badge:hover { border-color: rgba(15,14,12,.3); color: var(--c-ink); }
 .case-url-badge svg { flex-shrink: 0; opacity: .5; }
 .case-card-sm-hover .case-url-badge { font-size: 7.5px; margin-bottom: 5px; }
+
+/* Office video: photo hides, video shows on .video-on */
+.office-photo-wrap .office-photo { transition: opacity 0.6s ease; }
+.office-photo-wrap.video-on .office-photo { opacity: 0; }
+.office-photo-wrap.video-on .office-bg-video { opacity: 1; }
 </style>
 <!-- Default consent vóór GTM -->
 
@@ -6541,15 +6546,23 @@ document.addEventListener('click', function(e) {
     if (playing) return;
     playing = true;
     wrap.classList.add('video-on');
-    var p = vid.play(); if (p && p.catch) p.catch(function(){});
+    vid.play().catch(function(){});
   }
 
-  vid.addEventListener('ended', function() {
+  function stopVideo() {
+    if (!playing) return;
     playing = false;
     wrap.classList.remove('video-on');
-  });
+    vid.pause();
+  }
 
-  ['mouseenter','click','touchstart'].forEach(function(e){ wrap.addEventListener(e, startVideo, {passive:true}); });
+  vid.addEventListener('ended', stopVideo);
+  wrap.addEventListener('mouseenter', startVideo);
+  wrap.addEventListener('click', startVideo);
+  wrap.addEventListener('touchstart', startVideo, { passive: true });
+  wrap.addEventListener('mouseleave', function() {
+    // Don't stop on mouseleave — let it play to end
+  });
 })();
 </script>
 </body>
