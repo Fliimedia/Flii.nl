@@ -136,7 +136,18 @@ img{max-width:100%;display:block;}
 .cta-btn-arrow{display:inline-flex;align-items:center;justify-content:center;width:18px;height:18px;}
 
 
-.case-link-badge {
+
+.case-link-badge:hover { border-color: rgba(232,41,74,.4); box-shadow: 0 2px 8px rgba(0,0,0,.1); }
+.case-link-badge svg { flex-shrink: 0; }
+
+
+
+
+
+.case-link-badge:hover { border-color: rgba(232,41,74,.4); box-shadow: 0 2px 8px rgba(0,0,0,.1); }
+.case-link-badge svg, 
+
+.case-url-badge {
   display: inline-flex; align-items: center; gap: 5px;
   background: #fff; border: 1px solid rgba(0,0,0,.1);
   border-radius: 100px; padding: 4px 10px 4px 8px;
@@ -144,14 +155,11 @@ img{max-width:100%;display:block;}
   color: #0F0E0C; text-decoration: none; letter-spacing: .01em;
   box-shadow: 0 1px 4px rgba(0,0,0,.06);
   transition: box-shadow .15s, border-color .15s;
-  margin-bottom: 10px;
+  margin-bottom: 8px; display: inline-flex;
 }
-.case-link-badge:hover { border-color: rgba(232,41,74,.4); box-shadow: 0 2px 8px rgba(0,0,0,.1); }
-.case-link-badge svg { flex-shrink: 0; }
-
-.case-meta-row {
-  display: flex; flex-wrap: wrap; align-items: center; gap: 8px;
-  margin-top: 16px;
+.case-url-badge:hover { border-color: rgba(232,41,74,.4); }
+.case-dienst-chips {
+  display: flex; flex-wrap: wrap; gap: 6px;
 }
 .case-dienst-chip {
   display: inline-flex; align-items: center;
@@ -162,17 +170,6 @@ img{max-width:100%;display:block;}
   transition: background .15s;
 }
 .case-dienst-chip:hover { background: rgba(232,41,74,.1); color: #E8294A; }
-.case-link-badge {
-  display: inline-flex; align-items: center; gap: 5px;
-  background: #fff; border: 1px solid rgba(0,0,0,.1);
-  border-radius: 100px; padding: 4px 10px 4px 8px;
-  font-family: var(--ff-mono); font-size: 10px; font-weight: 600;
-  color: #0F0E0C; text-decoration: none; letter-spacing: .01em;
-  box-shadow: 0 1px 4px rgba(0,0,0,.06);
-  transition: box-shadow .15s, border-color .15s;
-}
-.case-link-badge:hover { border-color: rgba(232,41,74,.4); box-shadow: 0 2px 8px rgba(0,0,0,.1); }
-.case-link-badge svg, .case-dienst-chip svg { flex-shrink: 0; }
 </style>
 <script>
 (function(){
@@ -194,7 +191,8 @@ img{max-width:100%;display:block;}
   <h1>Stichting De Buurt</h1>
   <span class="article-tag" style="display:inline-flex;margin-bottom:4px">Leadgeneratie & Maatschappelijke impact</span>
   <p class="lead">Stichting De Buurt werkt aan buurten waarin mensen elkaar groeten, kennen en helpen. Via initiatieven als De Buurtcamping, BuurtBankjes en Zwaaistenen brengen zij buurtbewoners samen. Flii hielp hen nieuwe buurtmakers te werven via gerichte digitale leadgeneratie.</p>
-  <div class="case-meta-row"><a href="https://stichtingdebuurt.nl" target="_blank" class="case-link-badge"><svg width="11" height="11" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M7 3H3a1 1 0 00-1 1v9a1 1 0 001 1h9a1 1 0 001-1V9M10 2h4v4M14 2L8 8"/></svg>stichtingdebuurt.nl</a><a href="../diensten/campagne.html" class="case-dienst-chip">Campagne</a><a href="../diensten/social-media.html" class="case-dienst-chip">Social Media</a><a href="../diensten/tracking.html" class="case-dienst-chip">Tracking</a><a href="../diensten/analyse-optimalisatie.html" class="case-dienst-chip">Analyse & optimalisatie</a></div>
+  <a href="https://stichtingdebuurt.nl" target="_blank" class="case-url-badge"><svg width="11" height="11" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M7 3H3a1 1 0 00-1 1v9a1 1 0 001 1h9a1 1 0 001-1V9M10 2h4v4M14 2L8 8"/></svg>stichtingdebuurt.nl</a>
+  <div class="case-dienst-chips"><a href="../diensten/campagne.html" class="case-dienst-chip">Campagne</a><a href="../diensten/social-media.html" class="case-dienst-chip">Social Media</a><a href="../diensten/tracking.html" class="case-dienst-chip">Tracking</a><a href="../diensten/analyse-optimalisatie.html" class="case-dienst-chip">Analyse & optimalisatie</a></div>
 
   <div class="services-bar"><span class="svc-chip">Google Grants</span><span class="svc-chip">Meta Ads</span><span class="svc-chip">Leadgeneratie</span><span class="svc-chip">Landingspagina's</span><span class="svc-chip">Data & Privacy</span></div>
   <div style="margin:40px 0 16px;padding:12px 16px;background:#FFF8E1;border:1px solid #F59E0B;border-radius:10px;display:flex;align-items:flex-start;gap:10px">
