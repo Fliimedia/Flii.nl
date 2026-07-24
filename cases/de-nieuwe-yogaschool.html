@@ -206,6 +206,88 @@ img{max-width:100%;display:block;}
 }
 .cta-btn:hover { background: rgba(255,255,255,.88); }
 .cta-btn-arrow { display:inline-flex; align-items:center; }
+.float-sidebar {
+  position: fixed;
+  right: 12px; top: 50%;
+  transform: translateY(-50%) translateX(calc(100% + 20px));
+  display: flex; flex-direction: column; gap: 0;
+  z-index: 995; border-radius: 12px; overflow: hidden;
+  border: 1.5px solid rgba(232,41,74,.7);
+  background: #0F0E0C;
+  box-shadow: 0 2px 16px rgba(232,41,74,.15);
+  transition: transform 0.4s cubic-bezier(0.23, 1, 0.32, 1);
+}
+.float-sidebar.visible { transform: translateY(-50%) translateX(0); }
+.float-sidebar {
+  position: fixed;
+  right: 12px; top: 50%;
+  transform: translateY(-50%) translateX(calc(100% + 20px));
+  display: flex; flex-direction: column; gap: 0;
+  z-index: 995; border-radius: 12px; overflow: hidden;
+  border: 1.5px solid rgba(232,41,74,.7);
+  background: #0F0E0C;
+  box-shadow: 0 2px 16px rgba(232,41,74,.15);
+  transition: transform 0.4s cubic-bezier(0.23, 1, 0.32, 1);
+}
+.float-sidebar.visible { transform: translateY(-50%) translateX(0); }
+.float-sidebar {
+  position: fixed;
+  right: 12px; top: 50%;
+  transform: translateY(-50%) translateX(calc(100% + 20px));
+  display: flex; flex-direction: column; gap: 0;
+  z-index: 995; border-radius: 12px; overflow: hidden;
+  border: 1.5px solid rgba(232,41,74,.7);
+  background: #0F0E0C;
+  box-shadow: 0 2px 16px rgba(232,41,74,.15);
+  transition: transform 0.4s cubic-bezier(0.23, 1, 0.32, 1);
+}
+.float-sidebar.visible { transform: translateY(-50%) translateX(0); }
+.float-sidebar.highlight { animation: sidebarPulse 0.9s cubic-bezier(.36,.07,.19,.97); }
+.float-icon {
+  display: flex; align-items: center; justify-content: center;
+  width: 44px; height: 44px;
+  background: #0F0E0C;
+  color: rgba(255,255,255,0.85);
+  border-bottom: 0.5px solid rgba(255,255,255,.1);
+  text-decoration: none;
+  transition: background .15s, color .15s;
+}
+.float-icon:hover { background: #1a1917; color: #fff; }
+.float-icon:last-child { border-bottom: none; }
+.float-icon svg { width: 18px; height: 18px; }
+.float-icon:hover { transform: scale(1.1); background: #fff; }
+.float-icon svg { width: 20px; height: 20px; }
+.float-icon {
+  display: flex; align-items: center; justify-content: center;
+  width: 44px; height: 44px;
+  background: #0F0E0C;
+  color: rgba(255,255,255,0.85);
+  border-bottom: 0.5px solid rgba(255,255,255,.1);
+  text-decoration: none;
+  transition: background .15s, color .15s;
+}
+.float-icon:hover { background: #1a1917; color: #fff; }
+.float-icon:last-child { border-bottom: none; }
+.float-icon svg { width: 18px; height: 18px; }
+.float-icon:hover { transform: scale(1.1); background: #fff; }
+.float-icon svg { width: 20px; height: 20px; }
+.float-icon {
+  display: flex; align-items: center; justify-content: center;
+  width: 44px; height: 44px;
+  background: #0F0E0C;
+  color: rgba(255,255,255,0.85);
+  border-bottom: 0.5px solid rgba(255,255,255,.1);
+  text-decoration: none;
+  transition: background .15s, color .15s;
+}
+.float-icon:hover { background: #1a1917; color: #fff; }
+.float-icon:last-child { border-bottom: none; }
+.float-icon svg { width: 18px; height: 18px; }
+.float-icon:hover { transform: scale(1.1); background: #fff; }
+.float-icon svg { width: 20px; height: 20px; }
+@keyframes sidebarPulse {
+  0%   { box-shadow: 0 2px 16px rgba(232,41,74,.15); transform: translateY(-50%) translateX(0) scale(1); }
+  25%  { box-shadow: 0 0 0 6px rgba(232,41,74,.25), 0 4px 24px rgba(232,41,74,.4); transform: translateY(-50%) translateX(0) scale(1.08); }
 </style>
 <script>
 (function(){
@@ -300,5 +382,42 @@ img{max-width:100%;display:block;}
 <footer class="footer-mini">
   <p><a href="../">Flii Media</a> · © 2026</p>
 </footer>
+<div class="float-sidebar" id="float-sidebar">
+  <a href="mailto:info@flii.nl" class="float-icon" title="E-mail">
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round">
+      <rect x="2" y="4" width="20" height="16" rx="2"/>
+      <path d="M2 8l10 6 10-6"/>
+    </svg>
+  </a>
+  <a href="tel:+31640881169" class="float-icon" title="Bel ons">
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+      <path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07A19.5 19.5 0 014.72 11.5a19.79 19.79 0 01-3.07-8.67A2 2 0 013.62 1h3a2 2 0 012 1.72c.127.96.361 1.903.7 2.81a2 2 0 01-.45 2.11L7.91 8.59a16 16 0 006.29 6.29l.96-.96a2 2 0 012.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0122 16.92z"/>
+    </svg>
+  </a>
+  <div class="float-icon" title="Chat" onclick="window.chatbase && window.chatbase('open')">
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round">
+      <path d="M21 15a2 2 0 01-2 2H7l-4 4V5a2 2 0 012-2h14a2 2 0 012 2z"/>
+    </svg>
+  </div>
+<script>
+window.highlightSidebar = function() {
+  var sb = document.getElementById('float-sidebar');
+  if (!sb) return;
+  sb.classList.add('visible');
+  sb.classList.remove('highlight');
+  void sb.offsetWidth;
+  sb.classList.add('highlight');
+  setTimeout(function() { sb.classList.remove('highlight'); }, 900);
+};
+(function() {
+  var sidebar = document.getElementById('float-sidebar');
+  if (!sidebar) return;
+  function check() {
+    sidebar.classList.toggle('visible', window.scrollY > window.innerHeight * 0.3);
+  }
+  check();
+  window.addEventListener('scroll', check, { passive: true });
+})();
+</script>
 </body>
 </html>
