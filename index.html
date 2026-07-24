@@ -6345,5 +6345,109 @@ document.addEventListener('click', function(e) {
     src="https://fliimedia.github.io/Flii.nl/assets/eklipse-montage.mp4"
     style="position:absolute;width:1px;height:1px;opacity:0;pointer-events:none"></video>
 </div>
+<script>
+(function() {
+  var ov      = document.getElementById('slogan-overlay');
+  var vid     = document.getElementById('slogan-video');
+  var canvas  = document.getElementById('slogan-canvas');
+  var triggerCta  = document.querySelector('.cta-h');
+  // Bind each word span individually so only clicking the text triggers the effect
+  var heroWords = Array.from(document.querySelectorAll('.hero-word'));
+  if (!ov || !canvas) return;
+
+  var ctx = canvas.getContext('2d');
+  var offscreen = document.createElement('canvas');
+  var octx = offscreen.getContext('2d');
+  var raf = null;
+  var holdTimer = null, active = false;
+
+  function resize() {
+    canvas.width  = offscreen.width  = window.innerWidth;
+    canvas.height = offscreen.height = window.innerHeight;
+  }
+  resize();
+  window.addEventListener('resize', resize);
+
+  function drawFrame() {
+    var W = canvas.width, H = canvas.height;
+
+    // 1. Video full screen, fully opaque
+    ctx.clearRect(0, 0, W, H);
+    ctx.drawImage(vid, 0, 0, W, H);
+
+    // 2. Offscreen: gradient right-top → left-bottom
+    offscreen.width = W; offscreen.height = H;
+    octx.clearRect(0, 0, W, H);
+
+    var fontSize = Math.min(105, Math.max(62, W * 0.168));
+    var lineH    = fontSize * 0.86;
+    var lines    = ["Let's", "ignite", "ambitions"];
+    var textX    = 24;
+    var textY    = H - (lines.length * lineH) - 48;
+
+    // Gradient: left-bottom (solid black) → right-top (transparent) — full diagonal
+    var grad = octx.createLinearGradient(0, H, W, 0);
+    grad.addColorStop(0,    'rgba(0,0,0,1)');
+    grad.addColorStop(0.45, 'rgba(0,0,0,0.92)');
+    grad.addColorStop(0.7,  'rgba(0,0,0,0.5)');
+    grad.addColorStop(1,    'rgba(0,0,0,0)');
+    octx.fillStyle = grad;
+    octx.fillRect(0, 0, W, H);
+
+    // 3. Cut text out of gradient — always visible for full duration
+    octx.save();
+    octx.globalCompositeOperation = 'destination-out';
+    octx.font = '900 ' + fontSize + 'px "Bricolage Grotesque", system-ui, sans-serif';
+    octx.textBaseline = 'top';
+    octx.globalAlpha = 0.85;
+    lines.forEach(function(line, i) {
+      octx.fillText(line, textX, textY + i * lineH);
+    });
+    octx.restore();
+
+    // 4. Composite onto video
+    ctx.drawImage(offscreen, 0, 0);
+
+    raf = requestAnimationFrame(drawFrame);
+  }
+
+  function start() {
+    if (active) return;
+    holdTimer = setTimeout(function() {
+      active = true;
+      vid.currentTime = 0;
+      vid.play().catch(function(){});
+      ov.className = 's-glass';
+      drawFrame();
+    }, 180);
+  }
+
+  function end() {
+    clearTimeout(holdTimer);
+    if (!active) return;
+    active = false;
+    ov.className = 's-out';
+    if (raf) { cancelAnimationFrame(raf); raf = null; }
+    setTimeout(function() {
+      ov.className = '';
+      vid.pause();
+      ctx.clearRect(0, 0, canvas.width, canvas.height);
+    }, 1500);
+  }
+
+  [triggerCta].filter(Boolean).forEach(function(t) {
+    t.addEventListener('mousedown', start);
+    t.style.userSelect = 'none';
+  });
+  heroWords.forEach(function(w) {
+    w.addEventListener('mousedown',  start);
+    w.addEventListener('touchstart', start, { passive: true });
+    w.style.cursor     = 'pointer';
+    w.style.userSelect = 'none';
+  });
+  document.addEventListener('mouseup',  end);
+  document.addEventListener('touchend', end);
+})();
+</script>
 </body>
 </html>
