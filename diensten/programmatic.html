@@ -160,6 +160,17 @@ img{max-width:100%;display:block;}
 }
 .cta-btn:hover { background: rgba(255,255,255,.88); }
 .cta-btn-arrow { display:inline-flex; align-items:center; }
+
+.dienst-contact-link {
+  display: inline-flex; align-items: center; gap: 8px;
+  margin-top: 24px; margin-bottom: 4px;
+  font-family: var(--ff-body); font-size: 14px; font-weight: 600;
+  color: #E8294A; text-decoration: none; cursor: pointer;
+  background: none; border: none; padding: 0;
+  transition: gap .15s;
+}
+.dienst-contact-link:hover { gap: 12px; }
+.dienst-contact-link svg { flex-shrink: 0; }
 </style>
 <script>
 (function(){
@@ -182,7 +193,12 @@ img{max-width:100%;display:block;}
   <h1>Programmatic</h1>
   <p class="lead">Geautomatiseerde media-inkoop via DSP's voor maximale schaal en precisie. Van display tot Connected TV.</p>
 </div>
-<div class="section-body"><p>Programmatic advertising maakt het mogelijk om op grote schaal te adverteren met chirurgische precisie. Via DSP's (Demand Side Platforms) kopen we media in op basis van data, context en gedrag — niet op basis van vaste plaatsingen.</p><h2>Kanalen</h2><ul><li>Display (banner en rich media)</li><li>Online video (OLV, pre-roll)</li><li>Connected TV (CTV)</li><li>Digital Out-of-Home (DOOH)</li><li>Audio advertising</li></ul><h2>Data & targeting</h2><ul><li>First-party data activatie</li><li>Contextual targeting</li><li>Lookalike en retargeting</li><li>Frequency management</li></ul></div>
+<div class="section-body"><p>Programmatic advertising maakt het mogelijk om op grote schaal te adverteren met chirurgische precisie. Via DSP's (Demand Side Platforms) kopen we media in op basis van data, context en gedrag — niet op basis van vaste plaatsingen.</p><h2>Kanalen</h2><ul><li>Display (banner en rich media)</li><li>Online video (OLV, pre-roll)</li><li>Connected TV (CTV)</li><li>Digital Out-of-Home (DOOH)</li><li>Audio advertising</li></ul><h2>Data & targeting</h2><ul><li>First-party data activatie</li><li>Contextual targeting</li><li>Lookalike en retargeting</li><li>Frequency management</li></ul>
+<button class="dienst-contact-link" onclick="if(window.highlightSidebar)window.highlightSidebar();var sb=document.getElementById('float-sidebar');if(sb){sb.classList.add('visible');}" type="button">
+  Heb je een vraag of project over dit onderwerp? Neem contact op
+  <svg viewBox="0 0 16 16" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 8h10M9 4l4 4-4 4"/></svg>
+</button>
+</div>
 
 <section class="cta-section" id="contact">
   <div class="cta-card-wrap">
