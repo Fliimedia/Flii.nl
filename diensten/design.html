@@ -160,6 +160,17 @@ img{max-width:100%;display:block;}
 }
 .cta-btn:hover { background: rgba(255,255,255,.88); }
 .cta-btn-arrow { display:inline-flex; align-items:center; }
+
+.dienst-contact-link {
+  display: inline-flex; align-items: center; gap: 8px;
+  margin-top: 24px; margin-bottom: 4px;
+  font-family: var(--ff-body); font-size: 14px; font-weight: 600;
+  color: #E8294A; text-decoration: none; cursor: pointer;
+  background: none; border: none; padding: 0;
+  transition: gap .15s;
+}
+.dienst-contact-link:hover { gap: 12px; }
+.dienst-contact-link svg { flex-shrink: 0; }
 </style>
 <script>
 (function(){
@@ -182,7 +193,12 @@ img{max-width:100%;display:block;}
   <h1>Design</h1>
   <p class="lead">UI/UX design dat gebruikers begrijpen, mooi vinden en graag gebruiken. Van wireframe tot high-fidelity prototype.</p>
 </div>
-<div class="section-body"><p>Design gaat over meer dan esthetiek. Het gaat over hoe iets werkt, aanvoelt en begrijpelijk is. Wij ontwerpen digitale producten waarbij gebruikservaring en merk hand in hand gaan.</p><h2>Onze diensten</h2><ul><li>UX-onderzoek en gebruikersflows</li><li>Wireframes en prototypes</li><li>UI-design (web, app, dashboard)</li><li>Designsystemen en stijlgidsen</li><li>Landingspagina-design en CRO</li></ul><h2>Tools</h2><p>We werken in Figma en leveren volledig uitgewerkte, developer-ready designs met annotaties en componenten.</p></div>
+<div class="section-body"><p>Design gaat over meer dan esthetiek. Het gaat over hoe iets werkt, aanvoelt en begrijpelijk is. Wij ontwerpen digitale producten waarbij gebruikservaring en merk hand in hand gaan.</p><h2>Onze diensten</h2><ul><li>UX-onderzoek en gebruikersflows</li><li>Wireframes en prototypes</li><li>UI-design (web, app, dashboard)</li><li>Designsystemen en stijlgidsen</li><li>Landingspagina-design en CRO</li></ul><h2>Tools</h2><p>We werken in Figma en leveren volledig uitgewerkte, developer-ready designs met annotaties en componenten.</p>
+<button class="dienst-contact-link" onclick="if(window.highlightSidebar)window.highlightSidebar();var sb=document.getElementById('float-sidebar');if(sb){sb.classList.add('visible');}" type="button">
+  Heb je een vraag of project over dit onderwerp? Neem contact op
+  <svg viewBox="0 0 16 16" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 8h10M9 4l4 4-4 4"/></svg>
+</button>
+</div>
 
 <section class="cta-section" id="contact">
   <div class="cta-card-wrap">
