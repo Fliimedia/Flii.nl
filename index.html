@@ -4964,6 +4964,22 @@ details.faq-item[open] .faq-answer {
 
 /* xs: max 1 chip — hide extras */
 .case-card-xs-bottom .case-card-xs-chip ~ .case-card-xs-chip { display: none; }
+
+/* Case card website badge */
+.case-url-badge {
+  display: inline-flex; align-items: center; gap: 4px;
+  background: rgba(15,14,12,.06);
+  border: 1px solid rgba(15,14,12,.12);
+  border-radius: 100px; padding: 3px 8px 3px 6px;
+  font-family: var(--ff-mono); font-size: 8px; font-weight: 600;
+  color: var(--c-muted); letter-spacing: .03em;
+  text-decoration: none; white-space: nowrap;
+  margin-bottom: 7px; width: fit-content;
+  transition: border-color .15s, color .15s;
+}
+.case-url-badge:hover { border-color: rgba(15,14,12,.3); color: var(--c-ink); }
+.case-url-badge svg { flex-shrink: 0; opacity: .5; }
+.case-card-sm-hover .case-url-badge { font-size: 7.5px; margin-bottom: 5px; }
 </style>
 <!-- Default consent vóór GTM -->
 
@@ -5512,6 +5528,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
       <div class="case-card-hover">
         <div class="case-card-client">BikeFair</div>
         <p class="case-card-intro">Van nichemarktplaats voor expats naar een breed bekend fietsplatform in Nederland.</p>
+        <a href="https://bikefair.nl" target="_blank" class="case-url-badge" onclick="event.stopPropagation()"><svg viewBox="0 0 12 12" width="9" height="9" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round"><circle cx="6" cy="6" r="4.5"/><path d="M1.5 6h9M6 1.5a7 7 0 000 9M6 1.5a7 7 0 010 9"/></svg>bikefair.nl</a>
         <span class="case-card-tag">Performance</span><span class="case-card-tag">SEO</span>
       </div>
     </a>
@@ -5521,6 +5538,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
       <div class="case-card-hover">
         <div class="case-card-client">TheaterThuis</div>
         <p class="case-card-intro">Meer dan 1 miljoen organische views en 4.000+ abonnees voor de lancering van een streamingdienst.</p>
+        <a href="https://theaterthuis.nl" target="_blank" class="case-url-badge" onclick="event.stopPropagation()"><svg viewBox="0 0 12 12" width="9" height="9" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round"><circle cx="6" cy="6" r="4.5"/><path d="M1.5 6h9M6 1.5a7 7 0 000 9M6 1.5a7 7 0 010 9"/></svg>theaterthuis.nl</a>
         <span class="case-card-tag">Brand launch</span><span class="case-card-tag">Campagne</span>
       </div>
     </a>
@@ -5530,6 +5548,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
       <div class="case-card-hover">
         <div class="case-card-client">Zelfstandig Ondernemers</div>
         <p class="case-card-intro">48% van alle nieuwe klanten via campagnes en 1,2M+ videoviews voor een platform voor zzp'ers.</p>
+        <a href="https://zelfstandigondernemers.nl" target="_blank" class="case-url-badge" onclick="event.stopPropagation()"><svg viewBox="0 0 12 12" width="9" height="9" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round"><circle cx="6" cy="6" r="4.5"/><path d="M1.5 6h9M6 1.5a7 7 0 000 9M6 1.5a7 7 0 010 9"/></svg>zelfstandigondernemers.nl</a>
         <span class="case-card-tag">Content</span><span class="case-card-tag">Performance</span>
       </div>
     </a>
@@ -5544,7 +5563,8 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
         <div class="case-card-sm-hover">
           <div class="case-card-sm-client">Soest Machinery</div>
           <p class="case-card-sm-desc">SEO-strategie voor industriële machinebouwer bij domeinmigratie.</p>
-          <span class="case-card-sm-tag">SEO</span><span class="case-card-sm-tag">Webmigratie</span>
+          <a href="https://soest-machinery.nl" target="_blank" class="case-url-badge" onclick="event.stopPropagation()"><svg viewBox="0 0 12 12" width="9" height="9" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round"><circle cx="6" cy="6" r="4.5"/><path d="M1.5 6h9M6 1.5a7 7 0 000 9M6 1.5a7 7 0 010 9"/></svg>soest-machinery.nl</a>
+        <span class="case-card-sm-tag">SEO</span><span class="case-card-sm-tag">Webmigratie</span>
         </div>
       </a>
       <a href="cases/stichting-de-buurt.html" class="case-card-sm">
@@ -5553,7 +5573,8 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
         <div class="case-card-sm-hover">
           <div class="case-card-sm-client">Stichting De Buurt</div>
           <p class="case-card-sm-desc">1.000+ nieuwe buurtmakers via Google Grants & Meta Ads.</p>
-          <span class="case-card-sm-tag">Google Grants</span><span class="case-card-sm-tag">Meta</span>
+          <a href="https://debuurt.nl" target="_blank" class="case-url-badge" onclick="event.stopPropagation()"><svg viewBox="0 0 12 12" width="9" height="9" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round"><circle cx="6" cy="6" r="4.5"/><path d="M1.5 6h9M6 1.5a7 7 0 000 9M6 1.5a7 7 0 010 9"/></svg>debuurt.nl</a>
+        <span class="case-card-sm-tag">Google Grants</span><span class="case-card-sm-tag">Meta</span>
         </div>
       </a>
       <a href="cases/de-nieuwe-yogaschool.html" class="case-card-sm">
@@ -5562,7 +5583,8 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
         <div class="case-card-sm-hover">
           <div class="case-card-sm-client">De Nieuwe Yogaschool</div>
           <p class="case-card-sm-desc">SEO-herstel, e-commerce tracking & AI Search strategie.</p>
-          <span class="case-card-sm-tag">SEO</span><span class="case-card-sm-tag">AI Search</span>
+          <a href="https://nieuweyogaschool.nl" target="_blank" class="case-url-badge" onclick="event.stopPropagation()"><svg viewBox="0 0 12 12" width="9" height="9" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round"><circle cx="6" cy="6" r="4.5"/><path d="M1.5 6h9M6 1.5a7 7 0 000 9M6 1.5a7 7 0 010 9"/></svg>nieuweyogaschool.nl</a>
+        <span class="case-card-sm-tag">SEO</span><span class="case-card-sm-tag">AI Search</span>
         </div>
       </a>
       <a href="cases/digitaal-ondernemersplein.html" class="case-card-sm">
@@ -5571,7 +5593,8 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
         <div class="case-card-sm-hover">
           <div class="case-card-sm-client">Digitaal Ondernemersplein</div>
           <p class="case-card-sm-desc">Kanaalstrategie, AI-copy en KPI-framework voor KVK-platform.</p>
-          <span class="case-card-sm-tag">Social media</span><span class="case-card-sm-tag">AI</span>
+          <a href="https://ondernemersplein.kvk.nl" target="_blank" class="case-url-badge" onclick="event.stopPropagation()"><svg viewBox="0 0 12 12" width="9" height="9" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round"><circle cx="6" cy="6" r="4.5"/><path d="M1.5 6h9M6 1.5a7 7 0 000 9M6 1.5a7 7 0 010 9"/></svg>ondernemersplein.kvk.nl</a>
+        <span class="case-card-sm-tag">Social media</span><span class="case-card-sm-tag">AI</span>
         </div>
       </a>
       <a href="cases/padel2025.html" class="case-card-sm">
@@ -5580,7 +5603,8 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
         <div class="case-card-sm-hover">
           <div class="case-card-sm-client">Padel2025</div>
           <p class="case-card-sm-desc">3M+ organische views · 16.000+ volgers in 12 maanden.</p>
-          <span class="case-card-sm-tag">Organische groei</span>
+          <a href="https://instagram.com/padel2025mag" target="_blank" class="case-url-badge" onclick="event.stopPropagation()"><svg viewBox="0 0 12 12" width="9" height="9" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round"><rect x="2" y="2" width="8" height="8" rx="2.5"/><circle cx="6" cy="6" r="2"/><circle cx="8.5" cy="3.5" r=".5" fill="currentColor" stroke="none"/></svg>instagram.com/@padel2025mag</a>
+        <span class="case-card-sm-tag">Organische groei</span>
         </div>
       </a>
     </div>
@@ -5591,7 +5615,8 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
         <div class="case-card-xs-hover">
           <div class="case-card-xs-client">RonReizen</div>
           <p class="case-card-xs-desc">Video-first campagne voor reisorganisatie.</p>
-          <span class="case-card-xs-tag">Video</span>
+          <a href="https://ronreizen.nl" target="_blank" class="case-url-badge" onclick="event.stopPropagation()"><svg viewBox="0 0 12 12" width="9" height="9" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round"><circle cx="6" cy="6" r="4.5"/><path d="M1.5 6h9M6 1.5a7 7 0 000 9M6 1.5a7 7 0 010 9"/></svg>ronreizen.nl</a>
+        <span class="case-card-xs-tag">Video</span>
         </div>
       </a>
       <a href="cases/relax.html" class="case-card-xs">
@@ -5600,7 +5625,8 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
         <div class="case-card-xs-hover">
           <div class="case-card-xs-client">Relax</div>
           <p class="case-card-xs-desc">Shopping, Social & e-commerce voor yogakledingmerk.</p>
-          <span class="case-card-xs-tag">Shopping</span><span class="case-card-xs-tag">Social</span>
+          <a href="https://relaxyoga.nl" target="_blank" class="case-url-badge" onclick="event.stopPropagation()"><svg viewBox="0 0 12 12" width="9" height="9" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round"><circle cx="6" cy="6" r="4.5"/><path d="M1.5 6h9M6 1.5a7 7 0 000 9M6 1.5a7 7 0 010 9"/></svg>relaxyoga.nl</a>
+        <span class="case-card-xs-tag">Shopping</span><span class="case-card-xs-tag">Social</span>
         </div>
       </a>
       <a href="cases/zelfstandigen-bouw.html" class="case-card-xs">
@@ -5609,7 +5635,8 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
         <div class="case-card-xs-hover">
           <div class="case-card-xs-client">Zelfstandigen Bouw</div>
           <p class="case-card-xs-desc">Content, SEO & advertising voor de bouwsector.</p>
-          <span class="case-card-xs-tag">SEO</span><span class="case-card-xs-tag">Advertising</span>
+          <a href="https://zelfstandigenbouw.nl" target="_blank" class="case-url-badge" onclick="event.stopPropagation()"><svg viewBox="0 0 12 12" width="9" height="9" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round"><circle cx="6" cy="6" r="4.5"/><path d="M1.5 6h9M6 1.5a7 7 0 000 9M6 1.5a7 7 0 010 9"/></svg>zelfstandigenbouw.nl</a>
+        <span class="case-card-xs-tag">SEO</span><span class="case-card-xs-tag">Advertising</span>
         </div>
       </a>
     </div>
