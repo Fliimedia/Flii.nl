@@ -1,6 +1,5 @@
 <!D
-  <div class="case-meta-row"><a href="https://theaterthuis.nl" target="_blank" class="case-link-badge"><svg width="11" height="11" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M7 3H3a1 1 0 00-1 1v9a1 1 0 001 1h9a1 1 0 001-1V9M10 2h4v4M14 2L8 8"/></svg>theaterthuis.nl</a><a href="../diensten/social-media.html" class="case-dienst-chip">Social Media</a><a href="../diensten/content-creatie.html" class="case-dienst-chip">Content</a><a href="../diensten/social-content.html" class="case-dienst-chip">Social content</a><a href="../diensten/video.html" class="case-dienst-chip">Video</a><a href="../diensten/campagne.html" class="case-dienst-chip">Campagne</a></div>
-OCTYPE html>
+  OCTYPE html>
 <html lang="nl">
 <head>
 <meta charset="UTF-8">
@@ -128,7 +127,18 @@ img{max-width:100%;display:block;}
 .cta-btn-arrow{display:inline-flex;align-items:center;justify-content:center;width:18px;height:18px;}
 
 
-.case-link-badge {
+
+.case-link-badge:hover { border-color: rgba(232,41,74,.4); box-shadow: 0 2px 8px rgba(0,0,0,.1); }
+.case-link-badge svg { flex-shrink: 0; }
+
+
+
+
+
+.case-link-badge:hover { border-color: rgba(232,41,74,.4); box-shadow: 0 2px 8px rgba(0,0,0,.1); }
+.case-link-badge svg, 
+
+.case-url-badge {
   display: inline-flex; align-items: center; gap: 5px;
   background: #fff; border: 1px solid rgba(0,0,0,.1);
   border-radius: 100px; padding: 4px 10px 4px 8px;
@@ -136,14 +146,11 @@ img{max-width:100%;display:block;}
   color: #0F0E0C; text-decoration: none; letter-spacing: .01em;
   box-shadow: 0 1px 4px rgba(0,0,0,.06);
   transition: box-shadow .15s, border-color .15s;
-  margin-bottom: 10px;
+  margin-bottom: 8px; display: inline-flex;
 }
-.case-link-badge:hover { border-color: rgba(232,41,74,.4); box-shadow: 0 2px 8px rgba(0,0,0,.1); }
-.case-link-badge svg { flex-shrink: 0; }
-
-.case-meta-row {
-  display: flex; flex-wrap: wrap; align-items: center; gap: 8px;
-  margin-top: 16px;
+.case-url-badge:hover { border-color: rgba(232,41,74,.4); }
+.case-dienst-chips {
+  display: flex; flex-wrap: wrap; gap: 6px;
 }
 .case-dienst-chip {
   display: inline-flex; align-items: center;
@@ -154,17 +161,6 @@ img{max-width:100%;display:block;}
   transition: background .15s;
 }
 .case-dienst-chip:hover { background: rgba(232,41,74,.1); color: #E8294A; }
-.case-link-badge {
-  display: inline-flex; align-items: center; gap: 5px;
-  background: #fff; border: 1px solid rgba(0,0,0,.1);
-  border-radius: 100px; padding: 4px 10px 4px 8px;
-  font-family: var(--ff-mono); font-size: 10px; font-weight: 600;
-  color: #0F0E0C; text-decoration: none; letter-spacing: .01em;
-  box-shadow: 0 1px 4px rgba(0,0,0,.06);
-  transition: box-shadow .15s, border-color .15s;
-}
-.case-link-badge:hover { border-color: rgba(232,41,74,.4); box-shadow: 0 2px 8px rgba(0,0,0,.1); }
-.case-link-badge svg, .case-dienst-chip svg { flex-shrink: 0; }
 </style>
 <script>
 (function(){
@@ -183,11 +179,11 @@ img{max-width:100%;display:block;}
 
 <div class="page-hero">
   <span class="eyebrow">Cases</span>
-  <div class="article-meta">
-    <span class="article-tag">Digitale lancering & Groei</span>
-  </div>
   <h1>TheaterThuis</h1>
   <p class="lead">TheaterThuis is een digitale streamingdienst voor liefhebbers van toneel, cabaret en musicals. Tijdens de COVID-19-pandemie ontstond een unieke kans én uitdaging: hoe breng je de magie van theater naar huiskamers?</p>
+  <a href="https://theaterthuis.nl" target="_blank" class="case-url-badge"><svg width="11" height="11" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M7 3H3a1 1 0 00-1 1v9a1 1 0 001 1h9a1 1 0 001-1V9M10 2h4v4M14 2L8 8"/></svg>theaterthuis.nl</a>
+  <div class="case-dienst-chips"><a href="../diensten/social-media.html" class="case-dienst-chip">Social Media</a><a href="../diensten/content-creatie.html" class="case-dienst-chip">Content</a><a href="../diensten/social-content.html" class="case-dienst-chip">Social content</a><a href="../diensten/video.html" class="case-dienst-chip">Video</a><a href="../diensten/campagne.html" class="case-dienst-chip">Campagne</a></div>
+
 </div>
 <img src="https://cdn.prod.website-files.com/688fb21882303e399ad11240/68922c00abc12e6e0c9e2d07_tt_presenteerders.jpg" alt="TheaterThuis" class="hero-img" loading="lazy">
 <div class="section-body">
