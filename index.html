@@ -1100,9 +1100,11 @@ img { display: block; max-width: 100%; }
   aspect-ratio: 16/9;
 }
 .office-photo {
-  width: 100%; aspect-ratio: 16/9;
+  position: absolute; inset: 0;
+  width: 100%; height: 100%;
   object-fit: cover; display: block;
-  position: relative; z-index: 0;
+  z-index: 0;
+  transition: opacity 0.6s ease;
 }
 .office-visit-btn {
   position: absolute; bottom: var(--sp-2); right: var(--sp-2); z-index: 3;
@@ -2394,9 +2396,11 @@ img { display: block; max-width: 100%; }
   aspect-ratio: 16/9;
 }
 .office-photo {
-  width: 100%; aspect-ratio: 16/9;
+  position: absolute; inset: 0;
+  width: 100%; height: 100%;
   object-fit: cover; display: block;
-  position: relative; z-index: 0;
+  z-index: 0;
+  transition: opacity 0.6s ease;
 }
 .office-visit-btn {
   position: absolute; bottom: var(--sp-2); right: var(--sp-2); z-index: 3;
@@ -3775,9 +3779,11 @@ img { display: block; max-width: 100%; }
   aspect-ratio: 16/9;
 }
 .office-photo {
-  width: 100%; aspect-ratio: 16/9;
+  position: absolute; inset: 0;
+  width: 100%; height: 100%;
   object-fit: cover; display: block;
-  position: relative; z-index: 0;
+  z-index: 0;
+  transition: opacity 0.6s ease;
 }
 .office-visit-btn {
   position: absolute; bottom: var(--sp-2); right: var(--sp-2); z-index: 3;
@@ -4982,7 +4988,6 @@ details.faq-item[open] .faq-answer {
 .case-card-sm-hover .case-url-badge { font-size: 7.5px; margin-bottom: 5px; }
 
 /* Office video: photo hides, video shows on .video-on */
-.office-photo-wrap .office-photo { transition: opacity 0.6s ease; }
 .office-photo-wrap.video-on .office-photo { opacity: 0; }
 .office-photo-wrap.video-on .office-bg-video { opacity: 1; }
 </style>
