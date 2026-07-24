@@ -175,9 +175,11 @@ body{font-family:var(--ff-body);background:#fff;color:var(--ink);-webkit-font-sm
 </style>
 <script>
 (function(){
+  var clean = sessionStorage.getItem('cleanPath');
+  if (clean) { sessionStorage.removeItem('cleanPath'); history.replaceState(null,'',clean); return; }
   var loc = window.location;
   if (loc.pathname.endsWith('.html') && loc.pathname !== '/index.html') {
-    history.replaceState(null, '', loc.pathname.slice(0,-5) + loc.search + loc.hash);
+    history.replaceState(null,'',loc.pathname.slice(0,-5)+loc.search+loc.hash);
   }
 })();
 </script>
