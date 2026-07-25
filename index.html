@@ -1,6 +1,14 @@
 <!DOCTYPE html>
 <html lang="nl"><!-- build:1784676792 -->
 <head>
+<script>
+(function(){
+  var p = window.location.pathname;
+  if (p === '/index.html' || p.endsWith('/index.html')) {
+    history.replaceState(null, '', p.replace(/\/index\.html$/, '/') + window.location.search + window.location.hash);
+  }
+})();
+</script>
 <meta charset="UTF-8">
 <meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate">
 <meta http-equiv="Pragma" content="no-cache">
