@@ -1,3 +1,83 @@
+<!DOCTYPE html>
+<html lang="nl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>A/B-testen — Kennisbank Flii Media</title>
+<meta name="description" content="Twee versies van een advertentie, pagina of e-mail gelijktijdig testen om te bepalen welke beter presteert.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,400;12..96,500;12..96,600;12..96,700;12..96,800&family=DM+Sans:ital,opsz,wght@0,9..40,400;0,9..40,500;0,9..40,600;1,9..40,400&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+:root{
+  --ff-disp:'Bricolage Grotesque','Inter',system-ui,sans-serif;
+  --ff-body:'DM Sans',system-ui,sans-serif;
+  --ff-mono:'JetBrains Mono',monospace;
+  --mag:#E8294A;--ink:#0F0E0C;--mid:#4A4840;--sub:#9B9790;--rule:#E8E6E1;--card:#F9F8F6;
+}
+body{font-family:var(--ff-body);background:#fff;color:var(--ink);-webkit-font-smoothing:antialiased;}
+.nav{display:flex;align-items:center;justify-content:space-between;padding:14px 20px;border-bottom:1px solid var(--rule);position:sticky;top:0;background:#fff;z-index:100}
+.nav img{height:32px;width:auto}
+.nav-back{font-size:12px;font-weight:600;color:var(--sub);text-decoration:none;transition:color .15s}
+.nav-back:hover{color:var(--ink)}
+.hero{padding:36px 24px 28px;border-bottom:1px solid var(--rule)}
+.eyebrow{
+  font-family:'Bricolage Grotesque',system-ui,sans-serif;
+  font-size:11px;font-weight:700;letter-spacing:.12em;
+  text-transform:uppercase;color:#E8294A;display:block;margin-bottom:10px;
+}
+.hero h1{font-family:var(--ff-disp);font-size:clamp(28px,8vw,42px);font-weight:900;letter-spacing:-1.5px;line-height:1.05;color:var(--ink);margin-bottom:12px}
+.defn{font-size:15px;color:var(--mid);line-height:1.65;border-left:3px solid var(--mag);padding-left:16px;margin-top:4px}
+section{padding:28px 24px;border-bottom:1px solid var(--rule)}
+section h2{font-family:var(--ff-disp);font-size:16px;font-weight:800;letter-spacing:-.3px;color:var(--ink);margin-bottom:10px}
+section p{font-size:14px;color:var(--mid);line-height:1.72}
+.example-box{background:var(--card);border-radius:12px;padding:18px 18px 16px;margin-top:4px}
+.example-label{font-family:var(--ff-mono);font-size:8px;font-weight:700;letter-spacing:.12em;text-transform:uppercase;color:var(--sub);display:block;margin-bottom:8px}
+.example-text{font-size:13px;color:var(--ink);line-height:1.65}
+
+
+
+.cta-btn{display:inline-flex;align-items:center;gap:6px;background:var(--mag);color:#fff;border-radius:100px;padding:13px 22px;font-size:13px;font-weight:700;font-family:var(--ff-body);text-decoration:none}
+.footer{padding:16px 24px;text-align:center;font-size:11px;color:var(--sub)}
+.footer a{color:var(--ink);font-weight:600;text-decoration:none}
+.cta-section {
+  background: #0F0E0C;
+  border: 1.5px solid rgba(232,41,74,.4);
+  border-radius: 16px;
+  margin: 24px 20px;
+  padding: 32px 22px;
+  text-align: left;
+  position: relative;
+  overflow: hidden;
+}
+.cta-section::before {
+  content: '';
+  position: absolute; top: -60px; right: -40px;
+  width: 200px; height: 200px; border-radius: 50%;
+  background: radial-gradient(circle, rgba(232,41,74,.22) 0%, transparent 70%);
+  pointer-events: none;
+}
+.cta-section h2 {
+  font-family: var(--ff-disp);
+  color: #fff;
+  font-size: 20px; font-weight: 900; letter-spacing: -.5px;
+  margin-bottom: 8px; position: relative; z-index: 1;
+}
+.cta-section p {
+  font-size: 13px; color: rgba(255,255,255,.5);
+  margin-bottom: 20px; position: relative; z-index: 1;
+}
+.cta-section{padding:0 20px 56px;margin-top:48px;}
+.cta-card-wrap{position:relative;border-radius:20px;border:1.5px solid rgba(232,41,74,.7);overflow:hidden;min-height:200px;animation:neon-pulse 3s ease-in-out infinite;background:#0F0E0C;}
+@keyframes neon-pulse{0%,100%{border-color:rgba(232,41,74,.7);box-shadow:0 0 8px rgba(232,41,74,.2);}50%{border-color:rgba(232,41,74,1);box-shadow:0 0 16px rgba(232,41,74,.4);}}
+.cta-bg-video{position:absolute;top:0;left:0;width:100%;height:100%;object-fit:cover;z-index:0;}
+.cta-video-overlay{position:absolute;inset:0;z-index:1;background:linear-gradient(135deg,#0F0E0C 0%,#0F0E0C 25%,rgba(15,14,12,.88) 38%,rgba(15,14,12,.5) 50%,rgba(15,14,12,.15) 75%,transparent 100%);}
+.cta-inner{position:relative;z-index:2;padding:40px 24px 36px;}
+.cta-inner h2{font-family:var(--ff-disp);font-size:clamp(26px,7vw,36px);font-weight:900;letter-spacing:-1.5px;line-height:1.0;color:transparent;background:linear-gradient(135deg,#fff 30%,rgba(255,255,255,.55) 100%);-webkit-background-clip:text;background-clip:text;-webkit-text-fill-color:transparent;margin-bottom:20px;}
+.cta-btn{display:inline-flex;align-items:center;gap:8px;background:#fff;color:#0F0E0C;font-family:var(--ff-body);font-size:14px;font-weight:700;padding:12px 20px;border-radius:100px;text-decoration:none;border:none;cursor:pointer;}
+.cta-btn:hover{background:rgba(255,255,255,.88);}
+</style>
 <body>
 <nav class="nav">
   <a href="../kennisbank.html"><img src="data:image/png;base64,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<body>
@@ -21,6 +101,7 @@
     <p class="example-text">Spotify segmenteert zijn 600 miljoen gebruikers in meer dan 2.000 micro-segmenten op basis van luistergedrag, apparaatgebruik, tijdstip en genre. "Gym-gebruikers op maandagochtend" krijgen andere aanbevelingen dan "thuiswerkers op vrijdagmiddag". Die hypersegmentatie verhoogde de engagement met aanbevelingen met 40% en verlaagde het churngetal significant.</p>
   </div>
 </section>
+</div>
 <section class="cta-section" id="contact">
   <div class="cta-card-wrap">
     <video class="cta-bg-video" autoplay muted loop playsinline preload="auto"
@@ -35,9 +116,6 @@
     </div>
   </div>
 </section>
-
-
-</div>
 <footer class="footer">
   <p><a href="../">Flii Media</a> · <a href="../kennisbank.html">Kennisbank</a> · © 2026</p>
 </footer>
