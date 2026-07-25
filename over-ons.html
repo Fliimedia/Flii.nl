@@ -99,18 +99,27 @@ body{font-family:var(--ff-body);background:#fff;color:var(--ink);-webkit-font-sm
 </div>
 
 <!-- Numbers bar -->
-<div style="display:flex;gap:0;border-top:1px solid rgba(15,14,12,.08);border-bottom:1px solid rgba(15,14,12,.08);margin:0 0 8px;">
-  <div style="flex:1;padding:20px 16px;text-align:center;border-right:1px solid rgba(15,14,12,.08);">
-    <div style="font-family:var(--ff-display);font-size:32px;font-weight:800;color:#0F0E0C;line-height:1;">60+</div>
-    <div style="font-family:var(--ff-mono);font-size:10px;letter-spacing:.08em;text-transform:uppercase;color:#6B6866;margin-top:4px;">Projecten</div>
+<div style="display:flex;flex-wrap:wrap;gap:0;border-top:1px solid rgba(15,14,12,.08);border-bottom:1px solid rgba(15,14,12,.08);margin:0 0 8px;">
+  <div style="flex:1;min-width:0;padding:18px 10px;text-align:center;border-right:1px solid rgba(15,14,12,.08);">
+    <div style="font-family:var(--ff-display);font-size:26px;font-weight:800;color:#0F0E0C;line-height:1;">342</div>
+    <div style="font-family:var(--ff-mono);font-size:9px;letter-spacing:.07em;text-transform:uppercase;color:#6B6866;margin-top:4px;">Online campagnes</div>
   </div>
-  <div style="flex:1;padding:20px 16px;text-align:center;border-right:1px solid rgba(15,14,12,.08);">
-    <div style="font-family:var(--ff-display);font-size:32px;font-weight:800;color:#0F0E0C;line-height:1;">4</div>
-    <div style="font-family:var(--ff-mono);font-size:10px;letter-spacing:.08em;text-transform:uppercase;color:#6B6866;margin-top:4px;">Jaar actief</div>
+  <div style="flex:1;min-width:0;padding:18px 10px;text-align:center;border-right:1px solid rgba(15,14,12,.08);">
+    <div style="font-family:var(--ff-display);font-size:26px;font-weight:800;color:#0F0E0C;line-height:1;">26</div>
+    <div style="font-family:var(--ff-mono);font-size:9px;letter-spacing:.07em;text-transform:uppercase;color:#6B6866;margin-top:4px;">Omnichannel</div>
   </div>
-  <div style="flex:1;padding:20px 16px;text-align:center;">
-    <div style="font-family:var(--ff-display);font-size:32px;font-weight:800;color:#0F0E0C;line-height:1;">10+</div>
-    <div style="font-family:var(--ff-mono);font-size:10px;letter-spacing:.08em;text-transform:uppercase;color:#6B6866;margin-top:4px;">Specialisten</div>
+  <div style="flex:1;min-width:0;padding:18px 10px;text-align:center;border-right:1px solid rgba(15,14,12,.08);">
+    <div style="font-family:var(--ff-display);font-size:26px;font-weight:800;color:#0F0E0C;line-height:1;">60+</div>
+    <div style="font-family:var(--ff-mono);font-size:9px;letter-spacing:.07em;text-transform:uppercase;color:#6B6866;margin-top:4px;">Projecten</div>
+  </div>
+  <div style="flex:1;min-width:0;padding:18px 10px;text-align:center;position:relative;">
+    <div style="font-family:var(--ff-display);font-size:26px;font-weight:800;color:#0F0E0C;line-height:1;">40+</div>
+    <div style="font-family:var(--ff-mono);font-size:9px;letter-spacing:.07em;text-transform:uppercase;color:#6B6866;margin-top:4px;">Blije klanten</div>
+    <!-- Tooltip -->
+    <div style="position:absolute;top:6px;right:6px;" class="stat-tip-wrap">
+      <span style="display:inline-flex;align-items:center;justify-content:center;width:14px;height:14px;border-radius:50%;border:1px solid rgba(15,14,12,.25);font-size:9px;font-family:var(--ff-mono);color:#6B6866;cursor:default;line-height:1;" onmouseenter="this.nextElementSibling.style.display='block'" onmouseleave="this.nextElementSibling.style.display='none'">i</span>
+      <div style="display:none;position:absolute;right:0;top:18px;background:#0F0E0C;color:#fff;font-family:var(--ff-mono);font-size:9px;line-height:1.5;padding:7px 10px;border-radius:7px;white-space:nowrap;z-index:10;box-shadow:0 4px 12px rgba(0,0,0,.2);">Klant en campagne bestand<br>per 1-7-2026</div>
+    </div>
   </div>
 </div>
 
