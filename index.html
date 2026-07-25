@@ -5357,9 +5357,8 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
   </section>
 
 <!-- PRODUCT DEV CARD -->
-<div class="section-label">Producten</div>
+<div class="section-label">Bouw en lanceer jouw idee</div>
 <section class="section" id="producten">
-  <h2 class="section-h">Bouw en lanceer jouw idee</h2>
 <div class="pd-card">
   <span class="pd-eyebrow">Apps &amp; Digitale producten</span>
   <h2 class="pd-title">Build your<br><em>product.</em></h2>
@@ -5755,8 +5754,8 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
   <div class="cta-card-wrap" id="cta-card-wrap">
   <video class="cta-bg-video" id="cta-bg-video"
     src="https://fliimedia.github.io/Flii.nl/assets/eklipse-montage.mp4"
-    autoplay muted loop playsinline
-    preload="auto">
+    muted loop playsinline
+    preload="none">
   </video>
   <div class="cta-video-overlay" id="cta-video-overlay"></div>
   <div class="cta-card">
@@ -6650,8 +6649,20 @@ a.case-card { display: block !important; }
 a.case-card-sm { display: block !important; }
 a.case-card-xs { display: block !important; }
 a.bento-card { display: block !important; }
-.cases-grid { gap: 24px !important; }
-a.case-card { margin-bottom: 24px !important; }
+.cases-grid { display: grid !important; grid-template-columns: 1fr !important; gap: 24px !important; }
 </style>
+
+// ── CTA video: play on scroll into view ─────────────────────────────
+(function() {
+  var vid = document.getElementById('cta-bg-video');
+  if (!vid) return;
+  var obs = new IntersectionObserver(function(entries) {
+    entries.forEach(function(e) {
+      if (e.isIntersecting) { vid.play().catch(function(){}); }
+      else { vid.pause(); }
+    });
+  }, { threshold: 0.2 });
+  obs.observe(vid);
+})();
 </body>
 </html>
