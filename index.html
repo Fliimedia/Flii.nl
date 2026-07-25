@@ -5187,13 +5187,13 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
     <span class="hero-word hero-word--ignite" id="ignite-word">ignite</span>
     <span class="hero-word hero-word--solid">ambitions</span>
   </div>
+  <a href="over-ons.html" class="flii-at-chip" style="display:inline-flex;align-items:center;gap:5px;font-family:var(--ff-mono);font-size:11px;font-weight:700;letter-spacing:.06em;color:#0F0E0C;text-decoration:none;border:1.5px solid rgba(15,14,12,.15);border-radius:20px;padding:5px 11px;transition:border-color .2s,color .2s;margin-top:14px;" onmouseover="this.style.borderColor='rgba(232,41,74,.6)';this.style.color='#E8294A'" onmouseout="this.style.borderColor='rgba(15,14,12,.15)';this.style.color='#0F0E0C'"><span style="color:#E8294A;font-size:13px;">@</span>fliimedia</a>
 
   <!-- Description + CTA -->
   <div class="hero-description-row">
     <p class="hero-desc">Jouw partner in marketing &amp; media.</p>
     <p class="hero-links-sentence"><a href="#diensten" id="hero-svc-link" class="hero-inline-link hero-link-primary" onclick="(function(e){e.preventDefault();var t=document.getElementById('diensten');if(t){var y=t.getBoundingClientRect().top+window.scrollY-60;var s=window.scrollY;var dur=700;var st=null;function step(ts){if(!st)st=ts;var p=Math.min((ts-st)/dur,1);var ease=p<.5?2*p*p:1-Math.pow(-2*p+2,2)/2;window.scrollTo(0,s+(y-s)*ease);if(p<1)requestAnimationFrame(step);}requestAnimationFrame(step);}}).call(this,event)">Bekijk onze diensten</a><span class="hero-inline-sep"> of </span><a href="#diensten" class="hero-inline-link hero-link-primary" onclick="(function(e){e.preventDefault();var t=document.getElementById('diensten');if(t){var y=t.getBoundingClientRect().top+window.scrollY-60;var s=window.scrollY;var dur=700;var st=null;function step(ts){if(!st)st=ts;var p=Math.min((ts-st)/dur,1);var ease=p<.5?2*p*p:1-Math.pow(-2*p+2,2)/2;window.scrollTo(0,s+(y-s)*ease);if(p<1)requestAnimationFrame(step);else if(window.highlightSidebar)window.highlightSidebar();}requestAnimationFrame(step);}).call(this,event)">start een project →</a></p>
   </div>
-  <a href="over-ons.html" class="flii-at-chip" style="display:inline-flex;align-items:center;gap:5px;font-family:var(--ff-mono);font-size:11px;font-weight:700;letter-spacing:.06em;color:#0F0E0C;text-decoration:none;border:1.5px solid rgba(15,14,12,.15);border-radius:20px;padding:5px 11px;transition:border-color .2s,color .2s;margin-top:14px;" onmouseover="this.style.borderColor='rgba(232,41,74,.6)';this.style.color='#E8294A'" onmouseout="this.style.borderColor='rgba(15,14,12,.15)';this.style.color='#0F0E0C'"><span style="color:#E8294A;font-size:13px;">@</span>fliimedia</a>
 
 
 
@@ -6583,6 +6583,8 @@ document.addEventListener('click', function(e) {
     var baseDelay = 300; // start after 300ms
     var stagger   = 75;  // ms between each letter
 
+    var allLetterSpans = [];
+
     words.forEach(function(word) {
       var text = word.textContent;
       word.textContent = '';
@@ -6592,15 +6594,30 @@ document.addEventListener('click', function(e) {
         var span = document.createElement('span');
         span.textContent = ch;
         word.appendChild(span);
+        allLetterSpans.push(span);
 
         var p = profiles[letterIdx % profiles.length];
         var delay = baseDelay + letterIdx * stagger;
-        // Add slight random jitter ±20ms
         delay += Math.floor(Math.random() * 40) - 20;
         springDrop(span, delay, p[0], p[1], p[2]);
         letterIdx++;
       });
     });
+
+    // After all letters have landed, fall out to bottom of viewport
+    var lastLetterDone = baseDelay + (allLetterSpans.length - 1) * stagger + 1500 + 600; // last letter land time + settle
+    setTimeout(function() {
+      allLetterSpans.forEach(function(span, i) {
+        var fallDelay = Math.floor(Math.random() * 300); // staggered exit
+        var fallDist = window.innerHeight - span.getBoundingClientRect().top + 60;
+        var dur = 500 + Math.floor(Math.random() * 300);
+        setTimeout(function() {
+          span.style.transition = 'transform ' + dur + 'ms cubic-bezier(0.4,0,1,1), opacity ' + (dur * 0.4) + 'ms ease ' + (dur * 0.6) + 'ms';
+          span.style.transform = 'translateY(' + fallDist + 'px)';
+          span.style.opacity = '0';
+        }, fallDelay);
+      });
+    }, lastLetterDone);
   });
 })();
 </script>
