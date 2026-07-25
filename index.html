@@ -6644,12 +6644,21 @@ a.case-card, .case-card {
 }
 </style>
 <style>
-/* Body-injected: force case-card display:block (head CSS ignored for large files) */
+/* Body-injected: head CSS not fully applied for large files */
 a.case-card { display: block !important; }
 a.case-card-sm { display: block !important; }
 a.case-card-xs { display: block !important; }
 a.bento-card { display: block !important; }
 .cases-grid { display: grid !important; grid-template-columns: 1fr !important; gap: 24px !important; }
+/* Prevent flash: hover overlays must start hidden */
+.case-card-hover { opacity: 0 !important; transform: translateY(10px) !important; transition: opacity .28s, transform .28s !important; }
+.case-card:hover .case-card-hover { opacity: 1 !important; transform: translateY(0) !important; }
+.case-card-sm-hover { opacity: 0 !important; transform: translateY(8px) !important; transition: opacity .25s, transform .25s !important; }
+.case-card-sm:hover .case-card-sm-hover { opacity: 1 !important; transform: translateY(0) !important; }
+.case-card-xs-hover { opacity: 0 !important; transform: scale(.96) !important; transition: opacity .22s, transform .22s !important; }
+.case-card-xs:hover .case-card-xs-hover { opacity: 1 !important; transform: scale(1) !important; }
+.bento-hover { opacity: 0 !important; transform: translateY(8px) !important; transition: opacity .25s, transform .25s !important; }
+.bento-card:hover .bento-hover { opacity: 1 !important; transform: translateY(0) !important; }
 </style>
 
 // ── CTA video: play on scroll into view ─────────────────────────────
