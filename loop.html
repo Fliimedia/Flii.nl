@@ -296,6 +296,17 @@ body{font-family:var(--ff-body);background:var(--paper);color:var(--ink);}
   .rcp-row,.rcp-tot{grid-template-columns:1fr auto;}
   .rcp-v:last-child{display:block;}
 }
+
+.fnl-desc-card {
+  margin: 20px auto 0; max-width: 340px; min-height: 90px;
+  background: #fff; border: 1px solid #E8E6E1; border-radius: 16px;
+  padding: 20px 22px; text-align: center;
+  display: flex; flex-direction: column; align-items: center; justify-content: center;
+  box-shadow: 0 2px 12px rgba(0,0,0,.06);
+}
+.fnl-desc-card .fnl-desc-hint { font-size: 12px; color: #9B9790; font-family: var(--ff-mono); }
+.fnl-phase-name { font-family: var(--ff-disp); font-size: 18px; font-weight: 900; color: #0F0E0C; margin-bottom: 6px; letter-spacing: -.3px; }
+.fnl-phase-body { font-size: 13px; color: #4A4840; line-height: 1.6; }
 </style>
 </head>
 <body>
@@ -369,23 +380,6 @@ body{font-family:var(--ff-body);background:var(--paper);color:var(--ink);}
     <div class="loop-eyebrow">Flii Loop</div>
     <h2 class="loop-h2">Altijd lerend.</h2>
     <p class="loop-sub">Vier stappen. Continu herhaald. Elke iteratie beter dan de vorige.</p>
-
-    <!-- Lens filter -->
-    <div class="loop-lens" id="loop-lens">
-      <button class="loop-lens-btn" data-lens="platform" onclick="setLens('platform')">
-        <span class="loop-lens-ic"><svg viewBox="0 0 24 24"><path d="M12 3 3 8l9 5 9-5-9-5Z"/><path d="M3 12l9 5 9-5"/><path d="M3 16l9 5 9-5"/></svg></span>
-        <span class="loop-lens-l">Platform</span>
-      </button>
-      <button class="loop-lens-btn" data-lens="app" onclick="setLens('app')">
-        <span class="loop-lens-ic"><svg viewBox="0 0 24 24"><rect x="7" y="3" width="10" height="18" rx="2.5"/><path d="M11 18h2"/></svg></span>
-        <span class="loop-lens-l">App</span>
-      </button>
-      <button class="loop-lens-btn" data-lens="media" onclick="setLens('media')">
-        <span class="loop-lens-ic"><svg viewBox="0 0 24 24"><path d="M4 10v4h3l6 4V6L7 10H4Z"/><path d="M17 9.5a4 4 0 0 1 0 5"/></svg></span>
-        <span class="loop-lens-l">Media</span>
-      </button>
-    </div>
-
     <!-- Ring -->
     <div class="loop-ring-stage" id="loop-ring-stage">
       <div class="loop-ring-tilt" id="loop-ring-tilt">
@@ -507,8 +501,8 @@ body{font-family:var(--ff-body);background:var(--paper);color:var(--ink);}
         <path class="fnl-build" id="fnl-top" pathLength="1" d=""/>
         <path class="fnl-build" id="fnl-bot" pathLength="1" d=""/>
       </svg>
-      <div class="fnl-desc" id="fnl-desc">
-        <span class="fnl-desc-hint">Tik op een fase voor beschrijving</span>
+      <div class="fnl-desc-card" id="fnl-desc">
+        <span class="fnl-desc-hint">Tik op een fase</span>
       </div>
     </div>
   </div>
@@ -553,16 +547,10 @@ var LOOP_VARIANTS = {
   media: ["Wij zetten je campagne live over de gekozen kanalen.","Wij meten bereik, kliks en conversies per kanaal.","Wij zien welke creatives en boodschappen werken.","Wij schalen de winnaars en scherpen de targeting aan."]
 };
 var activeStep = null;
-var activeLens = "generic";
+var activeLens = "media";
 var spinning = false;
 
-function setLens(k) {
-  activeLens = (activeLens === k) ? "generic" : k;
-  document.querySelectorAll(".loop-lens-btn").forEach(function(b) {
-    b.classList.toggle("on", b.dataset.lens === activeLens);
-  });
-  renderCore();
-}
+function setLens(k) { activeLens = k; renderCore(); }
 
 function selectStep(i) {
   var wasActive = activeStep === i;
@@ -593,7 +581,7 @@ function renderCore() {
     core.innerHTML = '<div class="loop-core-default"><div class="loop-core-mark">Flii Loop</div><div class="loop-core-hint">Altijd lerend</div></div>';
   } else {
     var item = LOOP_ITEMS[activeStep];
-    var body = (activeLens !== "generic" && LOOP_VARIANTS[activeLens]) ? LOOP_VARIANTS[activeLens][activeStep] : item.body;
+    var body = (LOOP_VARIANTS[activeLens] && LOOP_VARIANTS[activeLens][activeStep]) ? LOOP_VARIANTS[activeLens][activeStep] : item.body;
     core.innerHTML = '<div class="loop-core-content"><div class="loop-core-k">' + item.k + '</div><p class="loop-core-b">' + body + '</p></div>';
   }
 }
@@ -605,10 +593,8 @@ function renderCore() {
 // ── DATA ────────────────────────────────────────────────────
 var PRICING = {
   scopes: {
-    campagne: { plan: 1500, build: 0,     run: 0    },
-    app:      { plan: 2500, build: 5000,  run: 750  },
-    platform: { plan: 4500, build: 18000, run: 2500 },
-    ai:       { plan: 2500, build: 6500,  run: 850  }
+    campagne: { plan: 1500, build: 0,    run: 0   },
+    ai:       { plan: 2500, build: 6500, run: 850 }
   }
 };
 
@@ -648,8 +634,8 @@ var APP_CAP = 10000;
 
 // Labels
 var L = {
-  scopes:    { campagne:"Campagne", app:"App", platform:"Platform", ai:"AI" },
-  scopeDesc: { campagne:"Een advertentiecampagne, opgezet en gestuurd op resultaat.", app:"Een werkende app of PWA, van één functie tot meerdere modules.", platform:"Een volwaardig, schaalbaar platform met backend en AI.", ai:"Een AI-oplossing of automatisering, van integratie tot een eigen model." },
+  scopes:    { campagne:"Campagne", ai:"AI" },
+  scopeDesc: { campagne:"Een advertentiecampagne, opgezet en gestuurd op resultaat.", ai:"Een AI-oplossing of automatisering, van integratie tot een eigen model." },
   phases:    { plan:"Loop Start", build:"Loop Build", run:"Loop Run" },
   phaseDesc: { plan:"Research en plan van aanpak.", build:"Creatie: de app, het platform of de campagne wordt gebouwd.", run:"Beheer & verbeter: hosting, optimalisatie en doorontwikkeling." },
   phaseByType: {
@@ -702,7 +688,7 @@ function eur(n) { return "\u20AC\u00A0" + Math.round(n||0).toLocaleString("nl-NL
 
 // ── COMPUTE ──────────────────────────────────────────────────
 function compute() {
-  var selected = ["campagne","app","platform","ai"].filter(function(k){ return S.types[k]; });
+  var selected = ["campagne","ai"].filter(function(k){ return S.types[k]; });
   var once = 0, mo = 0, saving = 0;
   var allLoop = S.phases.plan && S.phases.build && S.phases.run;
 
@@ -749,7 +735,7 @@ function compute() {
 
 function lineItems() {
   var items = [];
-  var selected = ["campagne","app","platform","ai"].filter(function(k){ return S.types[k]; });
+  var selected = ["campagne","ai"].filter(function(k){ return S.types[k]; });
 
   selected.forEach(function(sk) {
     var sc = PRICING.scopes[sk];
@@ -849,7 +835,7 @@ function renderCalc() {
 
   // ── STEP 2: DETAILS ────────────────────────────────────────
   else if (cur === "details") {
-    var selected = ["campagne","app","platform","ai"].filter(function(k){ return S.types[k]; });
+    var selected = ["campagne","ai"].filter(function(k){ return S.types[k]; });
     if (!selected.length) {
       html += '<p class="calc-note">'+L.stepHelp.type+'</p>';
     }
@@ -1045,10 +1031,8 @@ function toggleRow(label){ S.openRows[label] = !S.openRows[label]; renderCalc();
 // ── DATA ────────────────────────────────────────────────────
 var PRICING = {
   scopes: {
-    campagne: { plan: 1500, build: 0,     run: 0    },
-    app:      { plan: 2500, build: 5000,  run: 750  },
-    platform: { plan: 4500, build: 18000, run: 2500 },
-    ai:       { plan: 2500, build: 6500,  run: 850  }
+    campagne: { plan: 1500, build: 0,    run: 0   },
+    ai:       { plan: 2500, build: 6500, run: 850 }
   }
 };
 
@@ -1088,8 +1072,8 @@ var APP_CAP = 10000;
 
 // Labels
 var L = {
-  scopes:    { campagne:"Campagne", app:"App", platform:"Platform", ai:"AI" },
-  scopeDesc: { campagne:"Een advertentiecampagne, opgezet en gestuurd op resultaat.", app:"Een werkende app of PWA, van één functie tot meerdere modules.", platform:"Een volwaardig, schaalbaar platform met backend en AI.", ai:"Een AI-oplossing of automatisering, van integratie tot een eigen model." },
+  scopes:    { campagne:"Campagne", ai:"AI" },
+  scopeDesc: { campagne:"Een advertentiecampagne, opgezet en gestuurd op resultaat.", ai:"Een AI-oplossing of automatisering, van integratie tot een eigen model." },
   phases:    { plan:"Loop Start", build:"Loop Build", run:"Loop Run" },
   phaseDesc: { plan:"Research en plan van aanpak.", build:"Creatie: de app, het platform of de campagne wordt gebouwd.", run:"Beheer & verbeter: hosting, optimalisatie en doorontwikkeling." },
   phaseByType: {
@@ -1142,7 +1126,7 @@ function eur(n) { return "\u20AC\u00A0" + Math.round(n||0).toLocaleString("nl-NL
 
 // ── COMPUTE ──────────────────────────────────────────────────
 function compute() {
-  var selected = ["campagne","app","platform","ai"].filter(function(k){ return S.types[k]; });
+  var selected = ["campagne","ai"].filter(function(k){ return S.types[k]; });
   var once = 0, mo = 0, saving = 0;
   var allLoop = S.phases.plan && S.phases.build && S.phases.run;
 
@@ -1189,7 +1173,7 @@ function compute() {
 
 function lineItems() {
   var items = [];
-  var selected = ["campagne","app","platform","ai"].filter(function(k){ return S.types[k]; });
+  var selected = ["campagne","ai"].filter(function(k){ return S.types[k]; });
 
   selected.forEach(function(sk) {
     var sc = PRICING.scopes[sk];
@@ -1334,8 +1318,12 @@ renderCalc();
   function renderDesc() {
     var el=document.getElementById("fnl-desc");
     if (active===null) {
-      el.innerHTML='<span class="fnl-desc-hint">Tik op een fase voor beschrijving</span>';
+      el.innerHTML='<span class="fnl-desc-hint">Tik op een fase</span>';
     } else {
+      var f=FUNNEL[active];
+      el.innerHTML='<div class="fnl-phase-name">'+f.name+'</div><p class="fnl-phase-body">'+f.desc+'</p>';
+    }
+  } else {
       var s=stages[active];
       el.innerHTML='<span class="fnl-desc-k">'+s.k+'</span><span class="fnl-desc-g"><strong>Doel:</strong> '+s.goal+'</span><span class="fnl-desc-ex"><strong>Voorbeeld:</strong> '+s.example+'</span>';
     }
