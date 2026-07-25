@@ -910,7 +910,7 @@ function renderCalc() {
       html += '<span class="toggle-d">'+phaseDescFor(k)+'</span></span>';
       html += '<span class="toggle-p mono">';
       if (waived && price) html += '<span class="waived">'+price+'</span>';
-      else html += price;
+      } else html += price;
       html += '</span><span class="tgt"><span class="tgt-dot"></span></span></button>';
     });
     if (S.phases.plan && S.phases.build) {
