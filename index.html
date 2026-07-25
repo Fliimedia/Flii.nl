@@ -5071,7 +5071,10 @@ details.faq-item[open] .faq-answer {
 
 .cases-grid{display:grid;grid-template-columns:1fr;gap:24px;padding:16px 0 0;}
 
-.flii-at-chip,.flii-at-chip:hover,.flii-at-chip:active,.flii-at-chip:focus,.flii-at-chip:visited{background:none!important;border:none!important;box-shadow:none!important;outline:none!important;}
+
+.flii-at-chip{display:inline-flex;align-self:flex-start;align-items:center;gap:4px;font-family:var(--ff-mono);font-size:11px;font-weight:700;letter-spacing:.06em;color:#0F0E0C;text-decoration:none;background:none!important;border:none!important;box-shadow:none!important;outline:none;padding:0;}
+.flii-at-chip:hover,.flii-at-chip:active,.flii-at-chip:focus,.flii-at-chip:visited{background:none!important;border:none!important;box-shadow:none!important;color:#E8294A;}
+.chip-at{color:#E8294A;font-size:12px;}
 </style>
 <!-- Default consent vóór GTM -->
 
@@ -5190,7 +5193,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
     <span class="hero-word hero-word--ignite" id="ignite-word">ignite</span>
     <span class="hero-word hero-word--solid">ambitions</span>
   
-    <a href="over-ons.html" class="flii-at-chip" id="flii-at-chip" style="display:inline-flex;align-self:flex-start;align-items:center;gap:4px;font-family:var(--ff-mono);font-size:11px;font-weight:700;letter-spacing:.06em;color:#0F0E0C;text-decoration:none;border:1.5px solid rgba(15,14,12,.12);border-radius:20px;padding:3px 9px;transition:border-color .2s,color .2s;background:none;border-color:transparent;box-shadow:none;" onmouseover="this.style.borderColor='rgba(232,41,74,.5)';this.style.color='#E8294A'" onmouseout="this.style.borderColor='rgba(15,14,12,.12)';this.style.color='#0F0E0C'"><span style="color:#E8294A;font-size:12px;">@</span>fliimedia</a>
+    <a href="over-ons.html" clas<a href="over-ons.html" class="flii-at-chip" id="flii-at-chip"><span class="chip-at">@</span>fliimedia</a>
   </div>
 
   <!-- Description + CTA -->
@@ -6688,6 +6691,7 @@ document.addEventListener('click', function(e) {
           item.span.style.opacity = '0';
         });
         if (chipEl) { chipEl.style.transition = 'opacity 180ms ease'; chipEl.style.opacity = '0'; }
+        if (chipEl) { chipEl.style.transition = 'opacity 180ms ease'; chipEl.style.opacity = '0'; }
         setTimeout(showOverlay, 200);
       }, maxEnd + 60);
     }
@@ -6717,14 +6721,20 @@ document.addEventListener('click', function(e) {
       }
     }
 
-    // Bind click to words and headline container
+    // Include chip in drop/rise animation
+    var chipEl = document.getElementById('flii-at-chip');
+    if (chipEl) {
+      var cp = profiles[12];
+      setSpanFrom(chipEl, -cp[0]);
+      animSpan(chipEl, baseDelay + allSpans.length * stagger + 100, cp[2], cp[1], 0, 1);
+    }
+    // Bind click to words
     wordEls.forEach(function(w) {
       w.style.cursor = 'pointer';
       w.addEventListener('click', triggerFall);
       w.addEventListener('touchend', function(e) { e.preventDefault(); triggerFall(); }, {passive:false});
     });
-    var hl = document.querySelector('.hero-headline');
-    if (hl) { hl.style.cursor = 'pointer'; hl.addEventListener('click', function(e) { if (!e.target.closest('a')) triggerFall(); }); }
+    if (chipEl) chipEl.addEventListener('click', function(e) { e.stopPropagation(); });
 
     // Rise on overlay close
     var _triggered_ref = function() { return triggered; };
