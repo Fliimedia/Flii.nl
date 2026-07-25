@@ -6526,83 +6526,80 @@ document.addEventListener('click', function(e) {
 
 
 <!-- HERO SLOGAN DROP OVERLAY -->
-<div id="hero-slogan-drop">
-  <div id="hero-slogan-drop-text">Let's<br>ignite<br>ambitions</div>
-</div>
-
 <script>
 (function() {
-  var overlay   = document.getElementById('hero-slogan-drop');
-  var dropText  = document.getElementById('hero-slogan-drop-text');
-  var heroHL    = document.querySelector('.hero-headline');
-  var ctaH      = document.querySelector('.cta-h');
-  var ctaVideo  = document.getElementById('cta-bg-video');
-  if (!overlay || !dropText || !heroHL || !ctaH) return;
+  // ── Letter-drop slogan animation ──────────────────────────────────
+  // Splits hero headline words into individual letters, each drops from
+  // above with a unique spring bounce — playful, varied, staggered.
 
-  var done = false;
+  function springDrop(el, delay, height, bounce, dur) {
+    // height: how far above to start (px)
+    // bounce: overshoot amount (0–1 scale)
+    // dur: total animation duration ms
+    el.style.display = 'inline-block';
+    el.style.transform = 'translateY(-' + height + 'px)';
+    el.style.opacity = '0';
+    el.style.transition = 'none';
 
-  heroHL.style.cursor = 'pointer';
+    setTimeout(function() {
+      el.style.transition =
+        'transform ' + dur + 'ms cubic-bezier(0.34,' + (1.2 + bounce) + ',0.64,1), ' +
+        'opacity 120ms ease';
+      el.style.transform = 'translateY(0)';
+      el.style.opacity = '1';
+    }, delay);
+  }
 
-  heroHL.addEventListener('click', function() {
-    if (done) return;
-    done = true;
+  window.addEventListener('DOMContentLoaded', function() {
+    // Find hero headline words
+    var words = document.querySelectorAll('.hero-word');
+    if (!words.length) return;
 
-    // Measure hero headline position
-    var heroRect    = heroHL.getBoundingClientRect();
-    var heroFontSize = parseFloat(getComputedStyle(heroHL.querySelector('.hero-word')).fontSize);
+    // Per-letter spring parameters [height, bounce, duration]
+    // Varied to feel handmade, not mechanical
+    var profiles = [
+      [320, 0.52, 780],
+      [180, 0.38, 650],
+      [420, 0.65, 900],
+      [240, 0.44, 720],
+      [380, 0.58, 840],
+      [160, 0.30, 600],
+      [290, 0.50, 760],
+      [350, 0.62, 820],
+      [200, 0.40, 680],
+      [440, 0.70, 920],
+      [270, 0.46, 740],
+      [310, 0.55, 800],
+      [190, 0.35, 640],
+      [400, 0.60, 860],
+      [230, 0.42, 700],
+      [360, 0.56, 810],
+      [150, 0.28, 580],
+      [480, 0.72, 940],
+      [260, 0.48, 750],
+      [330, 0.54, 790],
+    ];
 
-    // Position overlay text exactly over hero headline
-    dropText.style.transition = 'none';
-    dropText.style.left       = heroRect.left + 'px';
-    dropText.style.top        = heroRect.top  + 'px';
-    dropText.style.fontSize   = heroFontSize  + 'px';
-    dropText.style.letterSpacing = '-2.5px';
-    dropText.style.lineHeight    = '0.9';
+    var letterIdx = 0;
+    var baseDelay = 200; // start after 200ms
+    var stagger   = 55;  // ms between each letter
 
-    // Show white overlay (text already in position)
-    overlay.classList.add('active');
+    words.forEach(function(word) {
+      var text = word.textContent;
+      word.textContent = '';
+      word.style.whiteSpace = 'nowrap';
 
-    // After 1 frame settle, start drop transition
-    requestAnimationFrame(function() {
-      requestAnimationFrame(function() {
-        // Scroll CTA section into view first, then measure
-        var ctaSection = ctaH.closest('section') || ctaH.closest('#contact');
-        ctaSection.scrollIntoView({ behavior: 'instant', block: 'start' });
+      text.split('').forEach(function(ch) {
+        var span = document.createElement('span');
+        span.textContent = ch;
+        word.appendChild(span);
 
-        // Wait one frame for layout to settle after scroll
-        requestAnimationFrame(function() {
-          var ctaWrap     = document.getElementById('cta-card-wrap');
-          var wrapRect    = ctaWrap ? ctaWrap.getBoundingClientRect() : ctaH.getBoundingClientRect();
-          var ctaRect     = ctaH.getBoundingClientRect();
-          var ctaFontSize = parseFloat(getComputedStyle(ctaH).fontSize);
-
-          // The slogan in the video sits at the left padding of the card, vertically
-          // aligned with where .cta-h renders. Use cta-h position directly.
-          var targetTop  = ctaRect.top;
-          var targetLeft = wrapRect.left + 20; // match cta-card left padding (var(--sp-3) ≈ 20px)
-
-          // Smooth drop
-          dropText.style.transition  = 'top 0.75s cubic-bezier(0.4, 0, 0.2, 1), left 0.75s cubic-bezier(0.4, 0, 0.2, 1), font-size 0.75s cubic-bezier(0.4, 0, 0.2, 1), letter-spacing 0.75s ease, line-height 0.75s ease';
-          dropText.style.top         = targetTop  + 'px';
-          dropText.style.left        = targetLeft + 'px';
-          dropText.style.fontSize    = ctaFontSize + 'px';
-          dropText.style.letterSpacing = '-1.5px';
-          dropText.style.lineHeight    = '1.0';
-
-        // Start video
-        if (ctaVideo) {
-          ctaVideo.currentTime = 0;
-          ctaVideo.play().catch(function(){});
-        }
-
-        // After drop completes, fade out overlay
-        setTimeout(function() {
-          overlay.style.transition = 'opacity 0.6s ease';
-          overlay.classList.remove('active');
-          setTimeout(function() {
-            overlay.style.display = 'none';
-          }, 650);
-        }, 780);
+        var p = profiles[letterIdx % profiles.length];
+        var delay = baseDelay + letterIdx * stagger;
+        // Add slight random jitter ±20ms
+        delay += Math.floor(Math.random() * 40) - 20;
+        springDrop(span, delay, p[0], p[1], p[2]);
+        letterIdx++;
       });
     });
   });
