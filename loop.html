@@ -1277,8 +1277,8 @@ renderCalc();
     if (active===null) {
       el.innerHTML='<span class="fnl-desc-hint">Tik op een fase</span>';
     } else {
-      var f=FUNNEL[active];
-      el.innerHTML='<div class="fnl-phase-name">'+f.name+'</div><p class="fnl-phase-body">'+f.desc+'</p>';
+      var s=stages[active];
+      el.innerHTML='<div class="fnl-phase-name">'+s.k+'</div><p class="fnl-phase-body">'+s.goal+'</p>';
     }
   }
 
