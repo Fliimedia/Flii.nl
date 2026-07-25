@@ -1,6 +1,10 @@
 Options -MultiViews
 RewriteEngine On
 
+# Redirect /index.html to /
+RewriteCond %{THE_REQUEST} /index\.html[\s?] [NC]
+RewriteRule ^index\.html$ / [R=301,L]
+
 # If the request is for an existing file or directory, serve it directly
 RewriteCond %{REQUEST_FILENAME} -f [OR]
 RewriteCond %{REQUEST_FILENAME} -d
