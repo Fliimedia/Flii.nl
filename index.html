@@ -2607,7 +2607,12 @@ img { display: block; max-width: 100%; }
   line-height: 1.08; margin-bottom: 12px;
 }
 .pd-title em {
-  font-style: normal; color: var(--c-red);
+  font-style: normal;
+  background: linear-gradient(90deg, #E8294A, #FF608A, #E8294A);
+  background-size: 200% auto;
+  -webkit-background-clip: text; -webkit-text-fill-color: transparent;
+  background-clip: text;
+  animation: aiGrad 3s linear infinite;
 }
 .pd-usp-mini {
   display: flex; flex-direction: column; gap: 10px; margin-bottom: 24px;
@@ -4706,7 +4711,12 @@ details.faq-item[open] .faq-answer {
   line-height: 1.08; margin-bottom: 12px;
 }
 .pd-title em {
-  font-style: normal; color: var(--c-red);
+  font-style: normal;
+  background: linear-gradient(90deg, #E8294A, #FF608A, #E8294A);
+  background-size: 200% auto;
+  -webkit-background-clip: text; -webkit-text-fill-color: transparent;
+  background-clip: text;
+  animation: aiGrad 3s linear infinite;
 }
 .pd-usp-mini {
   display: flex; flex-direction: column; gap: 10px; margin-bottom: 24px;
@@ -6661,6 +6671,7 @@ a.bento-card { display: block !important; }
 .bento-card:hover .bento-hover { opacity: 1 !important; transform: translateY(0) !important; }
 </style>
 
+<script>
 // ── CTA video: play on scroll into view ─────────────────────────────
 (function() {
   var vid = document.getElementById('cta-bg-video');
@@ -6673,5 +6684,6 @@ a.bento-card { display: block !important; }
   }, { threshold: 0.2 });
   obs.observe(vid);
 })();
+</script>
 </body>
 </html>
