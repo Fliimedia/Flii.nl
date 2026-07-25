@@ -1135,20 +1135,11 @@ img { display: block; max-width: 100%; }
   100% { transform: translate(-50%,-50%) scale(1); }
 }
 /* ── CASE PHOTO CARDS ── */
-.cases-grid {
-  display: grid;
-  grid-template-columns: 1fr;
-  gap: 96px;
-  padding: 16px 0 0;
-}
+
 /* ══ UNIFIED CASE CARD SYSTEM ══════════════════════════════════════ */
 
 /* shared grid */
-.cases-grid {
-  display: grid;
-  grid-template-columns: 1fr;
-  gap: 16px;
-}
+
 
 /* ── Tier 1: large (full-width, 4/3) ── */
 .case-card {
@@ -2427,20 +2418,11 @@ img { display: block; max-width: 100%; }
   100% { transform: translate(-50%,-50%) scale(1); }
 }
 /* ── CASE PHOTO CARDS ── */
-.cases-grid {
-  display: grid;
-  grid-template-columns: 1fr;
-  gap: 96px;
-  padding: 16px 0 0;
-}
+
 /* ══ UNIFIED CASE CARD SYSTEM ══════════════════════════════════════ */
 
 /* ── Tier 1: large photo cards (3-up, portrait-ish) ── */
-.cases-grid {
-  display: grid;
-  grid-template-columns: 1fr;
-  gap: 20px !important;
-}
+
 
 .case-card {
   position: relative;
@@ -3810,12 +3792,7 @@ img { display: block; max-width: 100%; }
   100% { transform: translate(-50%,-50%) scale(1); }
 }
 /* ── CASE PHOTO CARDS ── */
-.cases-grid {
-  display: grid;
-  grid-template-columns: 1fr;
-  gap: 96px;
-  padding: 16px 0 0;
-}
+
 .case-photo-card {
   position: relative; display: block;
   border-radius: var(--r); overflow: visible;
@@ -4436,7 +4413,7 @@ details.faq-item[open] .faq-answer {
   padding-left: var(--sp-3);
   padding-right: var(--sp-3);
   padding-top: var(--sp-5);
-  padding-bottom: var(--sp-6);
+  padding-bottom: 0;
   overflow: hidden;
 }
 
@@ -5018,7 +4995,7 @@ details.faq-item[open] .faq-answer {
 
 
 
-.cases-bento{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin-top:10px;}
+.cases-bento{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin-top:10px;padding-bottom:var(--sp-6);}
 .bento-card{position:relative;display:block;text-decoration:none;border-radius:14px;overflow:hidden;background:#111;aspect-ratio:3/2;}
 .bento-card:nth-child(5n+1){aspect-ratio:4/3;grid-column:span 2;}
 .bento-card-img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;transition:transform .5s,opacity .3s;}
@@ -5086,7 +5063,13 @@ details.faq-item[open] .faq-answer {
   100% { bottom: 110vh; opacity: 0; }
 }
 
-</style>
+
+.cases-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 96px;
+  padding: 16px 0 0;
+}</style>
 <!-- Default consent vóór GTM -->
 
 <script>
