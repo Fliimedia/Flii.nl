@@ -5143,8 +5143,8 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
   <div class="hero-eyebrow">
     <span class="hero-eyebrow-bubble"></span>
     <span class="hero-eyebrow-sub">Resultaatgerichte marketing</span>
-    <span class="hero-eyebrow-line"></span>
-    <span class="hero-eyebrow-year">Sinds 2021</span>
+    <span class="hero-eyebrow-line" id="launchpad" role="button" aria-label="Launch rocket"></span>
+    <span class="hero-eyebrow-year" id="since2021">Sinds 2021</span>
   </div>
 
   <!-- Big headline -->
@@ -6601,5 +6601,214 @@ document.addEventListener('click', function(e) {
   });
 })();
 </script>
+
+<style>
+/* ── Launchpad line ── */
+#launchpad {
+  cursor: pointer;
+  transition: background .15s;
+  position: relative;
+}
+#launchpad.charging {
+  background: linear-gradient(90deg, rgba(232,41,74,0) 0%, rgba(232,41,74,.9) var(--charge, 0%), rgba(232,41,74,.2) var(--charge, 0%), transparent 100%) !important;
+  animation: none;
+}
+#since2021 {
+  transition: opacity .2s;
+}
+#since2021.hidden { opacity: 0; }
+
+/* ── Rocket ── */
+#rocket-el {
+  position: fixed;
+  left: 50%;
+  bottom: -120px;
+  transform: translateX(-50%);
+  font-size: 28px;
+  line-height: 1;
+  pointer-events: none;
+  z-index: 9999;
+  transition: none;
+  filter: drop-shadow(0 0 6px rgba(232,41,74,.6));
+}
+#rocket-el.charging {
+  position: fixed;
+  bottom: auto;
+  transition: none;
+  animation: rkt-shake .08s infinite;
+}
+@keyframes rkt-shake {
+  0%,100% { transform: translateX(-50%) rotate(-2deg) scale(var(--rkt-scale,1)); }
+  50%      { transform: translateX(-50%) rotate(2deg)  scale(var(--rkt-scale,1)); }
+}
+#rocket-el.launching {
+  transition: bottom 1.2s cubic-bezier(.2,.8,.3,1), opacity .3s ease 1s;
+}
+/* Scroll reappear: rocket rises from bottom */
+#rocket-el.scroll-reappear {
+  bottom: -80px;
+  animation: rkt-rise 1.8s cubic-bezier(.2,.8,.2,1) forwards;
+}
+@keyframes rkt-rise {
+  0%   { bottom: -80px; opacity: 1; }
+  85%  { opacity: 1; }
+  100% { bottom: 110vh; opacity: 0; }
+}
+/* Exhaust trail */
+#rocket-exhaust {
+  position: fixed;
+  pointer-events: none;
+  z-index: 9998;
+  width: 4px;
+  border-radius: 2px;
+  background: linear-gradient(to top, rgba(232,41,74,0), rgba(232,41,74,.7));
+  left: 50%;
+  transform: translateX(-50%);
+  bottom: 0;
+  height: 0;
+  transition: none;
+}
+#rocket-exhaust.launching {
+  animation: exhaust-fade 1.2s ease forwards;
+}
+@keyframes exhaust-fade {
+  0%   { height: 60px; opacity: 1; }
+  100% { height: 200px; opacity: 0; }
+}
+</style>
+
+<div id="rocket-el" aria-hidden="true">🚀</div>
+<div id="rocket-exhaust" aria-hidden="true"></div>
+
+<script>
+(function() {
+  var pad     = document.getElementById('launchpad');
+  var since   = document.getElementById('since2021');
+  var rocket  = document.getElementById('rocket-el');
+  var exhaust = document.getElementById('rocket-exhaust');
+  if (!pad || !rocket) return;
+
+  var charging   = false;
+  var chargeStart= 0;
+  var chargeRAF  = null;
+  var launched   = false;
+  var padRect    = null;
+
+  // Position rocket on launchpad
+  function positionOnPad() {
+    padRect = pad.getBoundingClientRect();
+    rocket.style.left   = (padRect.left + padRect.width / 2) + 'px';
+    rocket.style.bottom = (window.innerHeight - padRect.top + 6) + 'px';
+    rocket.style.transform = 'translateX(-50%)';
+    exhaust.style.left = rocket.style.left;
+    exhaust.style.bottom = (window.innerHeight - padRect.top + 6) + 'px';
+  }
+
+  function startCharge(e) {
+    if (launched) return;
+    e.preventDefault();
+    charging    = true;
+    chargeStart = Date.now();
+    launched    = false;
+
+    positionOnPad();
+    rocket.style.transition = 'none';
+    rocket.style.opacity    = '1';
+    rocket.className        = 'charging';
+    since.classList.add('hidden');
+    pad.classList.add('charging');
+
+    function tick() {
+      if (!charging) return;
+      var elapsed  = Date.now() - chargeStart;
+      var progress = Math.min(elapsed / 1200, 1); // max 1.2s charge
+      var scale    = 1 + progress * 0.5;
+      rocket.style.setProperty('--rkt-scale', scale);
+      pad.style.setProperty('--charge', (progress * 100) + '%');
+      chargeRAF = requestAnimationFrame(tick);
+    }
+    chargeRAF = requestAnimationFrame(tick);
+  }
+
+  function launch(e) {
+    if (!charging) return;
+    e.preventDefault();
+    charging = false;
+    cancelAnimationFrame(chargeRAF);
+
+    var elapsed  = Date.now() - chargeStart;
+    var power    = Math.min(elapsed / 1200, 1);
+    var duration = 0.5 + power * 0.7; // .5s–1.2s flight
+
+    rocket.classList.remove('charging');
+    rocket.classList.add('launching');
+    rocket.style.transition = 'bottom ' + duration + 's cubic-bezier(.2,.8,.3,1), opacity .25s ease ' + (duration - 0.25) + 's';
+    rocket.style.bottom     = '110vh';
+    rocket.style.opacity    = '0';
+    rocket.style.setProperty('--rkt-scale', 1);
+
+    exhaust.style.left      = rocket.style.left;
+    exhaust.style.bottom    = (window.innerHeight - padRect.top + 6) + 'px';
+    exhaust.classList.add('launching');
+
+    pad.classList.remove('charging');
+    pad.style.setProperty('--charge', '0%');
+
+    launched = true;
+
+    // After launch — reset after 2s
+    setTimeout(function() {
+      rocket.style.transition = 'none';
+      rocket.classList.remove('launching');
+      rocket.style.opacity    = '1';
+      rocket.style.bottom     = '-120px';
+      exhaust.classList.remove('launching');
+      exhaust.style.height    = '0';
+      since.classList.remove('hidden');
+      launched = false;
+    }, (duration + 0.4) * 1000);
+  }
+
+  pad.addEventListener('mousedown',  startCharge);
+  pad.addEventListener('touchstart', startCharge, { passive: false });
+  pad.addEventListener('mouseup',    launch);
+  pad.addEventListener('mouseleave', launch);
+  pad.addEventListener('touchend',   launch);
+
+  // ── Scroll reappear ──
+  var lastScroll   = window.scrollY;
+  var scrollDebounce = null;
+  var rocketShown  = false;
+
+  window.addEventListener('scroll', function() {
+    var curr = window.scrollY;
+    var diff = curr - lastScroll;
+    lastScroll = curr;
+
+    // Only on downward scroll, when not charging/launching, past 300px
+    if (diff > 0 && curr > 300 && !charging && !launched && !rocketShown) {
+      clearTimeout(scrollDebounce);
+      scrollDebounce = setTimeout(function() {
+        rocketShown = true;
+        positionOnPad();
+        rocket.style.transition = 'none';
+        rocket.style.opacity    = '1';
+        rocket.style.bottom     = '-80px';
+        rocket.style.left       = (window.innerWidth / 2) + 'px'; // center screen
+        rocket.className        = 'scroll-reappear';
+
+        setTimeout(function() {
+          rocket.className = '';
+          rocket.style.bottom  = '-120px';
+          rocket.style.opacity = '1';
+          rocketShown = false;
+        }, 2000);
+      }, 400);
+    }
+  }, { passive: true });
+
+})();
+</script>
+
 </body>
 </html>
