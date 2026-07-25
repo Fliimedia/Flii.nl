@@ -5034,6 +5034,81 @@ details.faq-item[open] .faq-answer {
 .bento-desc{font-size:10.5px;color:var(--c-muted);line-height:1.45;margin-bottom:6px;}
 .bento-tags{display:flex;gap:4px;flex-wrap:wrap;}
 .bento-tag{background:var(--c-ink);color:#fff;font-family:var(--ff-mono);font-size:7.5px;font-weight:700;letter-spacing:.08em;text-transform:uppercase;padding:2px 7px;border-radius:100px;white-space:nowrap;}
+
+/* ── Rocket launchpad ── */
+#launchpad {
+  cursor: pointer;
+  position: relative;
+  user-select: none;
+  -webkit-user-select: none;
+}
+#launchpad:active { opacity: .6; }
+
+.rocket-wrap {
+  position: fixed;
+  pointer-events: none;
+  z-index: 9999;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0;
+  transition: none;
+}
+.rocket-svg {
+  width: 28px;
+  height: 28px;
+  filter: drop-shadow(0 0 6px rgba(232,41,74,.8));
+  transition: transform .15s ease;
+}
+.rocket-charge-ring {
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
+  border: 2px solid rgba(232,41,74,.0);
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%,-50%) scale(0);
+  transition: transform .3s ease, border-color .3s ease;
+}
+.rocket-flame {
+  width: 10px;
+  height: 0px;
+  background: linear-gradient(to bottom, #E8294A, #ff6b00, transparent);
+  border-radius: 0 0 50% 50%;
+  margin-top: -2px;
+  transition: height .1s ease;
+  opacity: 0;
+}
+@keyframes rocket-fly {
+  0%   { transform: translateY(0) rotate(-45deg);  opacity: 1; }
+  80%  { opacity: 1; }
+  100% { transform: translateY(-110vh) rotate(-45deg); opacity: 0; }
+}
+@keyframes rocket-scroll {
+  0%   { bottom: -60px; opacity: 0; }
+  10%  { opacity: 1; }
+  90%  { opacity: 1; }
+  100% { bottom: 110vh;  opacity: 0; }
+}
+.rocket-wrap.charging .rocket-charge-ring {
+  transform: translate(-50%,-50%) scale(1.4);
+  border-color: rgba(232,41,74,.5);
+}
+.rocket-wrap.charging .rocket-flame {
+  opacity: 1;
+}
+.rocket-wrap.launching {
+  animation: rocket-fly .8s cubic-bezier(.4,0,.2,1) forwards;
+}
+.rocket-scroll-instance {
+  position: fixed;
+  right: 24px;
+  pointer-events: none;
+  z-index: 9998;
+  animation: rocket-scroll 2.2s ease-in forwards;
+}
+
 </style>
 <!-- Default consent vóór GTM -->
 
@@ -6807,6 +6882,99 @@ document.addEventListener('click', function(e) {
     }
   }, { passive: true });
 
+})();
+</script>
+
+
+<script>
+(function() {
+  var launchpad = document.getElementById('launchpad');
+  var since = document.getElementById('since2021');
+  if (!launchpad) return;
+
+  var rocket = null;
+  var chargeTimer = null;
+  var chargeStart = null;
+  var launched = false;
+
+  function createRocket() {
+    var wrap = document.createElement('div');
+    wrap.className = 'rocket-wrap';
+    wrap.innerHTML = '<div class="rocket-charge-ring"></div>' +
+      '<svg class='rocket-svg' viewBox='0 0 32 32' fill='none' xmlns='http://www.w3.org/2000/svg'>  <path d='M16 3C16 3 10 8 10 16v3l-3 2v4l3-1v1c0 1.1.9 2 2 2h8c1.1 0 2-.9 2-2v-1l3 1v-4l-3-2v-3C22 8 16 3 16 3z' fill='#E8294A'/>  <ellipse cx='16' cy='14' rx='3' ry='3.5' fill='white' opacity='.9'/>  <path d='M13 24h6v2c0 .6-.4 1-1 1h-4c-.6 0-1-.4-1-1v-2z' fill='#cc1f3a'/></svg>' +
+      '<div class="rocket-flame"></div>';
+    return wrap;
+  }
+
+  function getRocketOrigin() {
+    var rect = launchpad.getBoundingClientRect();
+    return { x: rect.left + rect.width / 2, y: rect.top + rect.height / 2 };
+  }
+
+  function placeRocketAtLaunchpad() {
+    if (rocket) rocket.remove();
+    rocket = createRocket();
+    var o = getRocketOrigin();
+    rocket.style.cssText = 'left:' + (o.x - 18) + 'px;top:' + (o.y - 14) + 'px;';
+    document.body.appendChild(rocket);
+    since.style.opacity = '0';
+    launched = false;
+    void rocket.offsetWidth;
+  }
+
+  function startCharge(e) {
+    if (launched) placeRocketAtLaunchpad();
+    else if (!rocket) placeRocketAtLaunchpad();
+    chargeStart = Date.now();
+    rocket.classList.add('charging');
+    var flame = rocket.querySelector('.rocket-flame');
+    chargeTimer = setInterval(function() {
+      var ms = Date.now() - chargeStart;
+      if (flame) flame.style.height = Math.min(ms / 20, 20) + 'px';
+    }, 30);
+  }
+
+  function launch() {
+    if (!rocket || launched) return;
+    clearInterval(chargeTimer);
+    launched = true;
+    rocket.classList.remove('charging');
+    rocket.classList.add('launching');
+    rocket.addEventListener('animationend', function() {
+      rocket.remove();
+      rocket = null;
+      since.style.opacity = '1';
+      triggerScrollRocket();
+    }, { once: true });
+  }
+
+  function triggerScrollRocket() {
+    var el = document.createElement('div');
+    el.className = 'rocket-scroll-instance';
+    el.innerHTML = '<svg class='rocket-svg' viewBox='0 0 32 32' fill='none' xmlns='http://www.w3.org/2000/svg'>  <path d='M16 3C16 3 10 8 10 16v3l-3 2v4l3-1v1c0 1.1.9 2 2 2h8c1.1 0 2-.9 2-2v-1l3 1v-4l-3-2v-3C22 8 16 3 16 3z' fill='#E8294A'/>  <ellipse cx='16' cy='14' rx='3' ry='3.5' fill='white' opacity='.9'/>  <path d='M13 24h6v2c0 .6-.4 1-1 1h-4c-.6 0-1-.4-1-1v-2z' fill='#cc1f3a'/></svg>';
+    el.style.right = Math.floor(Math.random() * 60 + 10) + 'px';
+    document.body.appendChild(el);
+    el.addEventListener('animationend', function() { el.remove(); }, { once: true });
+  }
+
+  launchpad.addEventListener('mousedown', startCharge);
+  launchpad.addEventListener('touchstart', function(e) { e.preventDefault(); startCharge(e); }, { passive: false });
+  launchpad.addEventListener('mouseup', launch);
+  launchpad.addEventListener('mouseleave', launch);
+  launchpad.addEventListener('touchend', launch);
+
+  // Scroll easter egg: rocket flies up from bottom when scrolling down
+  var lastScroll = window.scrollY;
+  var scrollCooldown = false;
+  window.addEventListener('scroll', function() {
+    var s = window.scrollY;
+    if (s > lastScroll + 300 && !scrollCooldown) {
+      scrollCooldown = true;
+      triggerScrollRocket();
+      setTimeout(function() { scrollCooldown = false; }, 3000);
+    }
+    lastScroll = s;
+  }, { passive: true });
 })();
 </script>
 
