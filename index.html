@@ -5190,7 +5190,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
     <span class="hero-word hero-word--ignite" id="ignite-word">ignite</span>
     <span class="hero-word hero-word--solid">ambitions</span>
   
-    <a href="over-ons.html" class="flii-at-chip" style="display:inline-flex;align-items:center;gap:4px;font-family:var(--ff-mono);font-size:11px;font-weight:700;letter-spacing:.06em;color:#0F0E0C;text-decoration:none;border:1.5px solid rgba(15,14,12,.12);border-radius:20px;padding:3px 9px;transition:border-color .2s,color .2s;background:linear-gradient(135deg,rgba(255,255,255,.88),rgba(255,255,255,.3));backdrop-filter:blur(4px);-webkit-backdrop-filter:blur(4px);" onmouseover="this.style.borderColor='rgba(232,41,74,.5)';this.style.color='#E8294A'" onmouseout="this.style.borderColor='rgba(15,14,12,.12)';this.style.color='#0F0E0C'"><span style="color:#E8294A;font-size:12px;">@</span>fliimedia</a>
+    <a href="over-ons.html" class="flii-at-chip" style="display:inline-flex;align-self:flex-start;align-items:center;gap:4px;font-family:var(--ff-mono);font-size:11px;font-weight:700;letter-spacing:.06em;color:#0F0E0C;text-decoration:none;border:1.5px solid rgba(15,14,12,.12);border-radius:20px;padding:3px 9px;transition:border-color .2s,color .2s;background:linear-gradient(135deg,rgba(255,255,255,.88),rgba(255,255,255,.3));backdrop-filter:blur(4px);-webkit-backdrop-filter:blur(4px);" onmouseover="this.style.borderColor='rgba(232,41,74,.5)';this.style.color='#E8294A'" onmouseout="this.style.borderColor='rgba(15,14,12,.12)';this.style.color='#0F0E0C'"><span style="color:#E8294A;font-size:12px;">@</span>fliimedia</a>
   </div>
 
   <!-- Description + CTA -->
@@ -6528,8 +6528,12 @@ document.addEventListener('click', function(e) {
 <!-- HERO SLOGAN DROP OVERLAY -->
 <script>
 (function() {
+<script>
+(function() {
 // ── Letter-drop slogan animation ──────────────────────────────────
-  function springDrop(el, delay, height, bounce, dur) {
+
+  function springDrop(el, delay, height, bounce, dur, cb) {
+    // Drop from above into position
     el.style.display = 'inline-block';
     el.style.transform = 'translateY(-' + height + 'px)';
     el.style.opacity = '0';
@@ -6540,12 +6544,30 @@ document.addEventListener('click', function(e) {
         'opacity 120ms ease';
       el.style.transform = 'translateY(0)';
       el.style.opacity = '1';
+      if (cb) setTimeout(cb, dur);
+    }, delay);
+  }
+
+  function springRise(el, delay, dist, bounce, dur, cb) {
+    // Rise from below into position
+    el.style.display = 'inline-block';
+    el.style.transform = 'translateY(' + dist + 'px)';
+    el.style.opacity = '0';
+    el.style.transition = 'none';
+    setTimeout(function() {
+      el.style.transition =
+        'transform ' + dur + 'ms cubic-bezier(0.34,' + (1.2 + bounce) + ',0.64,1), ' +
+        'opacity 150ms ease';
+      el.style.transform = 'translateY(0)';
+      el.style.opacity = '1';
+      if (cb) setTimeout(cb, dur);
     }, delay);
   }
 
   window.addEventListener('DOMContentLoaded', function() {
     var words = document.querySelectorAll('.hero-word');
     if (!words.length) return;
+
     var profiles = [
       [340,0.18,1050],[220,0.10,780],[480,0.22,1300],[160,0.08,680],
       [550,0.25,1450],[290,0.14,920],[400,0.20,1180],[180,0.09,720],
@@ -6553,9 +6575,11 @@ document.addEventListener('click', function(e) {
       [600,0.26,1500],[310,0.15,980],[380,0.19,1120],[140,0.07,640],
       [540,0.24,1420],[270,0.13,900],[430,0.20,1200],[190,0.09,740],
     ];
+
     var letterIdx = 0, baseDelay = 300, stagger = 75;
     var allLetterSpans = [], allWords = Array.from(words);
 
+    // Build spans
     allWords.forEach(function(word) {
       var text = word.textContent;
       word.textContent = '';
@@ -6572,53 +6596,132 @@ document.addEventListener('click', function(e) {
       });
     });
 
-    // Click: fall letters to video-slogan position, THEN show overlay
-    var triggered = false;
-    function triggerFallAndOverlay() {
-      if (triggered) return;
-      triggered = true;
+    // ── Compute video slogan position ──────────────────────────────
+    function getSloganTargets() {
       var W = window.innerWidth, H = window.innerHeight;
-      // Match slogan position in drawFrame: textY = H - (3 * lineH) - 48
       var fontSize = Math.min(105, Math.max(62, W * 0.168));
       var lineH = fontSize * 0.86;
       var textY = H - (3 * lineH) - 48;
-      var wordTargetY = allWords.map(function(w, wi) { return textY + wi * lineH; });
-      var maxFallEnd = 0;
+      return allWords.map(function(w, wi) { return textY + wi * lineH; });
+    }
+
+    // ── Fall to video position (LAND, don't fade) ──────────────────
+    var triggered = false;
+
+    function fallToTarget(onDone) {
+      var wordTargetY = getSloganTargets();
+      var maxEnd = 0;
+
       allLetterSpans.forEach(function(span) {
         var wi = allWords.indexOf(span.parentElement);
         var targetY = wordTargetY[Math.max(0, wi)];
         var rect = span.getBoundingClientRect();
-        var fallDist = targetY - rect.top;
+        var fallDist = targetY - rect.top; // positive = downward
         var fd = Math.floor(Math.random() * 180);
         var dur = 580 + Math.floor(Math.random() * 320);
-        if (fd + dur > maxFallEnd) maxFallEnd = fd + dur;
+        if (fd + dur > maxEnd) maxEnd = fd + dur;
         setTimeout(function() {
-          span.style.transition =
-            'transform ' + dur + 'ms cubic-bezier(0.4,0,0.85,1), ' +
-            'opacity ' + Math.round(dur*0.25) + 'ms ease ' + Math.round(dur*0.75) + 'ms';
+          // Land at target — keep opacity:1, just translate
+          span.style.transition = 'transform ' + dur + 'ms cubic-bezier(0.4,0,0.2,1)';
           span.style.transform = 'translateY(' + fallDist + 'px)';
-          span.style.opacity = '0';
+          // opacity stays 1 until overlay is shown
         }, fd);
       });
-      // Show overlay after last letter finishes
-      setTimeout(function() {
-        var ov = document.getElementById('slogan-overlay');
+
+      if (onDone) setTimeout(onDone, maxEnd + 80);
+    }
+
+    // ── Rise back from video position to home ──────────────────────
+    function riseToHome() {
+      var wordTargetY = getSloganTargets();
+      var maxEnd = 0;
+
+      allLetterSpans.forEach(function(span, i) {
+        var wi = allWords.indexOf(span.parentElement);
+        var targetY = wordTargetY[Math.max(0, wi)];
+        var rect = span.getBoundingClientRect();
+        // Current position is at targetY (from fall); rise back to 0
+        var riseDist = targetY - rect.top; // how far below home it is
+        // Reset transform instantly, then animate from below
+        var fd = Math.floor(Math.random() * 200);
+        var p = profiles[i % profiles.length];
+        var dur = p[2];
+        if (fd + dur > maxEnd) maxEnd = fd + dur;
+
+        // Set to bottom position immediately, then spring up
+        span.style.transition = 'none';
+        span.style.opacity = '0';
+        span.style.transform = 'translateY(' + Math.abs(riseDist || 300) + 'px)';
+        var bounce = p[1];
+        setTimeout(function() {
+          span.style.transition =
+            'transform ' + dur + 'ms cubic-bezier(0.34,' + (1.2 + bounce) + ',0.64,1), ' +
+            'opacity 150ms ease';
+          span.style.transform = 'translateY(0)';
+          span.style.opacity = '1';
+        }, fd + 20); // +20 to ensure transition:none has taken effect
+      });
+    }
+
+    // ── Click trigger ──────────────────────────────────────────────
+    function triggerFallAndOverlay() {
+      if (triggered) return;
+      triggered = true;
+
+      fallToTarget(function() {
+        // All letters have landed — now show overlay
+        var ov  = document.getElementById('slogan-overlay');
         var vid = document.getElementById('slogan-video');
         if (!ov || !vid) return;
+        // Fade out letters just as overlay fades in
+        allLetterSpans.forEach(function(s) {
+          s.style.transition = 'opacity 200ms ease';
+          s.style.opacity = '0';
+        });
         vid.currentTime = 0;
         vid.play().catch(function(){});
         ov.className = 's-glass';
-      }, maxFallEnd + 60);
+      });
     }
 
     allWords.forEach(function(w) {
       w.style.cursor = 'pointer';
       w.addEventListener('click', triggerFallAndOverlay);
-      w.addEventListener('touchend', function(e) { e.preventDefault(); triggerFallAndOverlay(); }, {passive:false});
+      w.addEventListener('touchend', function(e) {
+        e.preventDefault();
+        triggerFallAndOverlay();
+      }, {passive:false});
     });
+
+    // ── Return animation when overlay closes ───────────────────────
+    var ov = document.getElementById('slogan-overlay');
+    if (ov) {
+      new MutationObserver(function() {
+        // When overlay fades out (class becomes 's-out' or ''), rise back
+        if ((ov.className === 's-out' || ov.className === '') && triggered) {
+          triggered = false;
+          // Small delay so overlay fade starts first
+          setTimeout(riseToHome, 300);
+        }
+      }).observe(ov, { attributes: true, attributeFilter: ['class'] });
+    }
+
+    // ── Scroll-based return: if user scrolls hero back into view ───
+    window.addEventListener('scroll', function() {
+      if (!triggered) return;
+      var heroEl = document.querySelector('.hero-headline');
+      if (!heroEl) return;
+      var rect = heroEl.getBoundingClientRect();
+      if (rect.top > -50 && rect.bottom > 100) {
+        // Hero is back in view but triggered — overlay should still be showing
+        // handled by overlay MutationObserver above
+      }
+    }, { passive: true });
+
   });
 })();
 </script>
+
 
 <script>
 // ── OFFICE CARD VIDEO ─────────────────────────────────────────────────────
