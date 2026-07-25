@@ -674,7 +674,7 @@ var L = {
 // ── STATE ────────────────────────────────────────────────────
 var S = {
   step: 0,
-  types:  { campagne:false, app:true, platform:false, ai:false },
+  types:  { campagne:true, app:false, platform:false, ai:false },
   phases: { plan:true, build:true, run:true },
   cats:   {}, subs: {}, dels: {},
   opts:   {},
@@ -700,19 +700,7 @@ function compute() {
     if (S.phases.plan && S.phases.build) saving += sc.plan;
   });
 
-  // App options
-  if (S.types.app && S.phases.build) {
-    var room = APP_CAP - PRICING.scopes.app.build;
-    var kp = APP_KIND_PRICE[S.appKind] || 0;
-    once += Math.min(kp, Math.max(0, room));
-    room -= Math.min(kp, Math.max(0, room));
-    APP_OPTS.forEach(function(k) {
-      if (S.opts[k]) {
-        var add = Math.min(APP_OPT_PRICE[k]||0, Math.max(0,room));
-        once += add; room -= add;
-      }
-    });
-  }
+  // App/Platform scopes removed (Flii.app only)
 
   // Campaign channels
   if (S.types.campagne) {
@@ -821,10 +809,9 @@ function renderCalc() {
   // ── STEP 1: TYPE ──────────────────────────────────────────
   if (cur === "type") {
     html += '<div class="type-cards">';
-    ["campagne","app","platform","ai"].forEach(function(k) {
+    ["campagne","ai"].forEach(function(k) {
       var on = S.types[k];
       html += '<button class="scope-card'+(on?" on":"") +'" onclick="toggleType(\''+k+'\')">';
-      if (k==="app") html += '<span class="scope-badge">'+L.badge+'</span>';
       html += '<span class="scope-check">'+(on?"&#10003;":"")+'</span>';
       html += '<span class="scope-card-t">'+L.scopes[k]+'</span>';
       html += '<div class="scope-card-d">'+L.scopeDesc[k]+'</div></button>';
@@ -882,25 +869,7 @@ function renderCalc() {
     }
 
     // App details
-    if (S.types.app) {
-      html += '<div class="detail-block"><div class="detail-block-q">Wat voor app wil je?</div><div class="refine-group opt-group">';
-      APP_KINDS.forEach(function(k) {
-        var on = S.appKind === k;
-        html += '<button class="toggle toggle-sm'+(on?" on":"") +'" onclick="setAppKind(\''+k+'\')">';
-        html += '<span class="toggle-main"><span class="toggle-t">'+(L.typeOpts[k]||k)+'</span></span>';
-        html += '<span class="toggle-p mono">'+(APP_KIND_PRICE[k]?L.from+" "+eur(APP_KIND_PRICE[k]):L.inclFree)+'</span>';
-        html += '<span class="tgt"><span class="tgt-dot"></span></span></button>';
-      });
-      html += '</div><div class="detail-block-q" style="margin-top:12px">Extra diensten</div><div class="refine-group opt-group">';
-      APP_OPTS.forEach(function(k) {
-        var on = !!S.opts[k];
-        html += '<button class="toggle toggle-sm'+(on?" on":"") +'" onclick="toggleOpt(\''+k+'\')">';
-        html += '<span class="toggle-main"><span class="toggle-t">'+(L.typeOpts[k]||k)+'</span></span>';
-        html += '<span class="toggle-p mono">'+L.from+" "+eur(APP_OPT_PRICE[k])+'</span>';
-        html += '<span class="tgt"><span class="tgt-dot"></span></span></button>';
-      });
-      html += '</div></div>';
-    }
+
 
     // Platform details
     if (S.types.platform) {
@@ -1112,7 +1081,7 @@ var L = {
 // ── STATE ────────────────────────────────────────────────────
 var S = {
   step: 0,
-  types:  { campagne:false, app:true, platform:false, ai:false },
+  types:  { campagne:true, app:false, platform:false, ai:false },
   phases: { plan:true, build:true, run:true },
   cats:   {}, subs: {}, dels: {},
   opts:   {},
@@ -1138,19 +1107,7 @@ function compute() {
     if (S.phases.plan && S.phases.build) saving += sc.plan;
   });
 
-  // App options
-  if (S.types.app && S.phases.build) {
-    var room = APP_CAP - PRICING.scopes.app.build;
-    var kp = APP_KIND_PRICE[S.appKind] || 0;
-    once += Math.min(kp, Math.max(0, room));
-    room -= Math.min(kp, Math.max(0, room));
-    APP_OPTS.forEach(function(k) {
-      if (S.opts[k]) {
-        var add = Math.min(APP_OPT_PRICE[k]||0, Math.max(0,room));
-        once += add; room -= add;
-      }
-    });
-  }
+  // App/Platform scopes removed (Flii.app only)
 
   // Campaign channels
   if (S.types.campagne) {
