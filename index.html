@@ -5074,7 +5074,7 @@ details.faq-item[open] .faq-answer {
 
 .flii-at-chip{display:inline-flex;align-self:flex-start;align-items:center;gap:4px;font-family:var(--ff-mono);font-size:11px;font-weight:700;letter-spacing:.06em;color:#0F0E0C;text-decoration:none;background:none!important;border:none!important;box-shadow:none!important;outline:none;padding:0;}
 .flii-at-chip:hover,.flii-at-chip:active,.flii-at-chip:focus,.flii-at-chip:visited{background:none!important;border:none!important;box-shadow:none!important;color:#E8294A;}
-.chip-at{color:#E8294A;font-size:12px;}
+.chip-at{color:#0F0E0C;font-size:11px;}
 </style>
 <!-- Default consent vóór GTM -->
 
@@ -5183,8 +5183,9 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
   <!-- Eyebrow — very top -->
   <div class="hero-eyebrow">
     <span class="hero-eyebrow-bubble"></span>
+    <span class="hero-eyebrow-year" id="since2021">Digital marketing agency</span>
     <span class="hero-eyebrow-line"></span>
-    <span class="hero-eyebrow-year" id="since2021">Digital marketing agency &mdash; sinds 2021</span>
+    <span class="hero-eyebrow-year">sinds 2021</span>
   </div>
 
   <!-- Big headline -->
@@ -6632,6 +6633,7 @@ document.addEventListener('click', function(e) {
     if (!wordEls.length) return;
     var allSpans = [];
     var letterIdx = 0;
+    var chipEl = document.getElementById('flii-at-chip'); // declare early for use in triggerFall/riseToHome
 
     wordEls.forEach(function(word) {
       var text = word.textContent;
@@ -6691,7 +6693,6 @@ document.addEventListener('click', function(e) {
           item.span.style.opacity = '0';
         });
         if (chipEl) { chipEl.style.transition = 'opacity 180ms ease'; chipEl.style.opacity = '0'; }
-        if (chipEl) { chipEl.style.transition = 'opacity 180ms ease'; chipEl.style.opacity = '0'; }
         setTimeout(showOverlay, 200);
       }, maxEnd + 60);
     }
@@ -6722,7 +6723,6 @@ document.addEventListener('click', function(e) {
     }
 
     // Include chip in drop/rise animation
-    var chipEl = document.getElementById('flii-at-chip');
     if (chipEl) {
       var cp = profiles[12];
       setSpanFrom(chipEl, -cp[0]);
