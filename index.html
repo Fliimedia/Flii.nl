@@ -6655,11 +6655,14 @@ a.case-card, .case-card {
 </style>
 <style>
 /* Body-injected: head CSS not fully applied for large files */
+/* Bento logos: uniform circular badges */
+.bento-logo { width:44px!important;height:44px!important;border-radius:50%!important;background:#fff!important;display:flex!important;align-items:center!important;justify-content:center!important;overflow:hidden!important;box-shadow:0 1px 4px rgba(0,0,0,.1)!important;flex-shrink:0!important; }
+.bento-logo img { width:28px!important;height:28px!important;object-fit:contain!important;padding:0!important;display:block!important; }
 a.case-card { display: block !important; }
 a.case-card-sm { display: block !important; }
 a.case-card-xs { display: block !important; }
 a.bento-card { display: block !important; }
-.cases-grid { display: grid !important; grid-template-columns: 1fr !important; gap: 24px !important; }
+.cases-grid { display: grid !important; grid-template-columns: 1fr !important; gap: 24px !important; padding-bottom: 24px !important; }
 /* Prevent flash: hover overlays must start hidden */
 .case-card-hover { opacity: 0 !important; transform: translateY(10px) !important; transition: opacity .28s, transform .28s !important; }
 .case-card:hover .case-card-hover { opacity: 1 !important; transform: translateY(0) !important; }
