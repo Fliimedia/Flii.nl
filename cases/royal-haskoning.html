@@ -277,6 +277,11 @@ img{max-width:100%;display:block;}
 @keyframes sidebarPulse {
   0%   { box-shadow: 0 2px 16px rgba(232,41,74,.15); transform: translateY(-50%) translateX(0) scale(1); }
   25%  { box-shadow: 0 0 0 6px rgba(232,41,74,.25), 0 4px 24px rgba(232,41,74,.4); transform: translateY(-50%) translateX(0) scale(1.08); }
+
+.case-more-wrap{text-align:center;padding:32px 20px 8px;}
+.case-more-text{font-size:14px;color:var(--c-muted,#6B6866);}
+.case-more-link{color:var(--c-ink,#0F0E0C);font-weight:600;text-decoration:underline;text-decoration-color:rgba(232,41,74,.4);text-underline-offset:3px;}
+.case-more-link:hover{text-decoration-color:var(--mag,#E8294A);}
 </style>
 <script>
 (function(){
@@ -323,6 +328,10 @@ img{max-width:100%;display:block;}
 </div>
 </div>
 
+
+<div class="case-more-wrap">
+  <p class="case-more-text">Meer weten? <a href="../#cases" class="case-more-link">Bekijk de andere cases</a> of <a href="#" class="case-more-link" onclick="event.preventDefault();if(window.highlightSidebar){highlightSidebar();}else{var sb=document.getElementById('float-sidebar');if(sb){sb.classList.add('visible');sb.classList.remove('highlight');void sb.offsetWidth;sb.classList.add('highlight');}}return false;">stel je vraag</a>.</p>
+</div>
 <section class="cta-section" id="contact">
   <div class="cta-card-wrap">
     <video class="cta-bg-video" autoplay muted loop playsinline preload="auto"
