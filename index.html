@@ -5042,120 +5042,46 @@ details.faq-item[open] .faq-answer {
 }
 #launchpad:active { opacity: .6; }
 
-.rocket-wrap {
-  position: fixed;
-  pointer-events: none;
-  z-index: 9999;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  gap: 0;
-  transition: none;
-}
-.rocket-svg {
-  width: 28px;
-  height: 28px;
-  filter: drop-shadow(0 0 6px rgba(232,41,74,.8));
-  transition: transform .15s ease;
-}
-.rocket-charge-ring {
-  width: 36px;
-  height: 36px;
-  border-radius: 50%;
-  border: 2px solid rgba(232,41,74,.0);
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%,-50%) scale(0);
-  transition: transform .3s ease, border-color .3s ease;
-}
-.rocket-flame {
-  width: 10px;
-  height: 0px;
-  background: linear-gradient(to bottom, #E8294A, #ff6b00, transparent);
-  border-radius: 0 0 50% 50%;
-  margin-top: -2px;
-  transition: height .1s ease;
-  opacity: 0;
-}
-@keyframes rocket-fly {
-  0%   { transform: translateY(0) rotate(-45deg);  opacity: 1; }
-  80%  { opacity: 1; }
+
+
+
+
+
   100% { transform: translateY(-110vh) rotate(-45deg); opacity: 0; }
 }
-@keyframes rocket-scroll {
-  0%   { bottom: -60px; opacity: 0; }
-  10%  { opacity: 1; }
+
   90%  { opacity: 1; }
   100% { bottom: 110vh;  opacity: 0; }
 }
-.rocket-wrap.charging .rocket-charge-ring {
-  transform: translate(-50%,-50%) scale(1.4);
-  border-color: rgba(232,41,74,.5);
-}
-.rocket-wrap.charging .rocket-flame {
-  opacity: 1;
-}
+.rocket-wrap.charging 
+.rocket-wrap.charging 
 .rocket-wrap.launching {
   animation: rocket-fly .8s cubic-bezier(.4,0,.2,1) forwards;
 }
-.rocket-scroll-instance {
-  position: fixed;
-  right: 24px;
-  pointer-events: none;
-  z-index: 9998;
-  animation: rocket-scroll 2.2s ease-in forwards;
-}
-#since2021 { position: relative; display: inline-flex; align-items: center; }
-.rocket-container {
-  position: absolute;
-  right: 0;
-  /* bottom of rocket (boosters) aligned with the line — line is at center of eyebrow */
-  /* hero-eyebrow-line is height:1px. Rocket is 80px tall. Place so bottom is at line level. */
-  bottom: calc(50% - 1px); /* bottom of container = center of eyebrow = the line */
-  transform: translateX(50%);
-  pointer-events: none;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  opacity: 0;
-  transition: opacity .2s;
-}
+
+
+
 .rocket-container.visible { opacity: 1; }
-.rocket-container svg .rocket-exhaust { opacity: 0; transition: opacity .1s; }
-.rocket-container.charging svg .rocket-exhaust { opacity: 1; }
+.rocket-container svg 
+.rocket-container.charging svg 
 .rocket-container.charging svg ellipse[cx="14"][cy="72"],
 .rocket-container.charging svg ellipse[cx="26"][cy="72"] {
   animation: flame-flicker .12s ease-in-out infinite alternate;
 }
-@keyframes flame-flicker {
-  from { ry: 6; opacity: .9; }
-  to   { ry: 10; opacity: 1; }
+
 }
-@keyframes charge-pulse {
-  0%   { box-shadow: 0 0 0 0 rgba(232,41,74,.6); }
-  100% { box-shadow: 0 0 0 12px rgba(232,41,74,0); }
+
 }
 .rocket-container.charging { animation: charge-pulse .5s ease-out infinite; border-radius: 50%; }
-@keyframes rocket-launch {
-  0%   { transform: translateX(50%) translateY(0) rotate(0deg); opacity: 1; }
-  20%  { transform: translateX(50%) translateY(-30px) rotate(-8deg); opacity: 1; }
+
   100% { transform: translateX(50%) translateY(-120vh) rotate(-15deg); opacity: 0; }
 }
 .rocket-container.launching {
   animation: rocket-launch .9s cubic-bezier(.25,.46,.45,.94) forwards;
 }
 /* Scroll rocket — flies bottom to top */
-.scroll-rocket {
-  position: fixed;
-  bottom: -90px;
-  pointer-events: none;
-  z-index: 9999;
-  animation: scroll-fly 2.4s cubic-bezier(.25,.46,.45,.94) forwards;
-}
-@keyframes scroll-fly {
-  0%   { bottom: -90px; opacity: 0; }
-  8%   { opacity: 1; }
+
+
   90%  { opacity: 1; }
   100% { bottom: 110vh; opacity: 0; }
 }
@@ -5269,7 +5195,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
   <div class="hero-eyebrow">
     <span class="hero-eyebrow-bubble"></span>
     <span class="hero-eyebrow-sub">Resultaatgerichte marketing</span>
-    <span class="hero-eyebrow-line" id="launchpad" role="button" aria-label="Launch rocket"></span>
+    <span class="hero-eyebrow-line"></span>
     <span class="hero-eyebrow-year" id="since2021">Sinds 2021</span>
   </div>
 
@@ -6482,13 +6408,7 @@ document.addEventListener('click', function(e) {
   window.addEventListener('scroll', check, { passive: true });
 })();
 </script>
-<script>
 
-/* rocket charge JS removed */
-
-
-(function(){document.addEventListener('click',function(e){var l=e.target.closest('.service-tag-link');if(!l)return;var p=l.closest('.service-tags');if(p)p.querySelectorAll('.service-tag-link').forEach(function(x){x.classList.remove('active');});l.classList.add('active');});})();
-</script>
 <div id="slogan-overlay">
   <canvas id="slogan-canvas"></canvas>
   <video id="slogan-video" muted loop playsinline preload="none"
@@ -6744,7 +6664,7 @@ document.addEventListener('click', function(e) {
 }
 #since2021.hidden { opacity: 0; }
 
-/* ── Rocket ── */
+
 #rocket-el {
   position: fixed;
   left: 50%;
