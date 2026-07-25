@@ -5034,8 +5034,6 @@ details.faq-item[open] .faq-answer {
 .bento-desc{font-size:10.5px;color:var(--c-muted);line-height:1.45;margin-bottom:6px;}
 .bento-tags{display:flex;gap:4px;flex-wrap:wrap;}
 .bento-tag{background:var(--c-ink);color:#fff;font-family:var(--ff-mono);font-size:7.5px;font-weight:700;letter-spacing:.08em;text-transform:uppercase;padding:2px 7px;border-radius:100px;white-space:nowrap;}
-
-/* ── Rocket launchpad ── */
 #launchpad {
   cursor: pointer;
   position: relative;
@@ -5107,6 +5105,62 @@ details.faq-item[open] .faq-answer {
   pointer-events: none;
   z-index: 9998;
   animation: rocket-scroll 2.2s ease-in forwards;
+}
+
+
+/* ── Rocket easter egg ── */
+#since2021 { position: relative; display: inline-flex; align-items: center; }
+.rocket-container {
+  position: absolute;
+  right: 0;
+  /* bottom of rocket (boosters) aligned with the line — line is at center of eyebrow */
+  /* hero-eyebrow-line is height:1px. Rocket is 80px tall. Place so bottom is at line level. */
+  bottom: calc(50% - 1px); /* bottom of container = center of eyebrow = the line */
+  transform: translateX(50%);
+  pointer-events: none;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  opacity: 0;
+  transition: opacity .2s;
+}
+.rocket-container.visible { opacity: 1; }
+.rocket-container svg .rocket-exhaust { opacity: 0; transition: opacity .1s; }
+.rocket-container.charging svg .rocket-exhaust { opacity: 1; }
+.rocket-container.charging svg ellipse[cx="14"][cy="72"],
+.rocket-container.charging svg ellipse[cx="26"][cy="72"] {
+  animation: flame-flicker .12s ease-in-out infinite alternate;
+}
+@keyframes flame-flicker {
+  from { ry: 6; opacity: .9; }
+  to   { ry: 10; opacity: 1; }
+}
+@keyframes charge-pulse {
+  0%   { box-shadow: 0 0 0 0 rgba(232,41,74,.6); }
+  100% { box-shadow: 0 0 0 12px rgba(232,41,74,0); }
+}
+.rocket-container.charging { animation: charge-pulse .5s ease-out infinite; border-radius: 50%; }
+@keyframes rocket-launch {
+  0%   { transform: translateX(50%) translateY(0) rotate(0deg); opacity: 1; }
+  20%  { transform: translateX(50%) translateY(-30px) rotate(-8deg); opacity: 1; }
+  100% { transform: translateX(50%) translateY(-120vh) rotate(-15deg); opacity: 0; }
+}
+.rocket-container.launching {
+  animation: rocket-launch .9s cubic-bezier(.25,.46,.45,.94) forwards;
+}
+/* Scroll rocket — flies bottom to top */
+.scroll-rocket {
+  position: fixed;
+  bottom: -90px;
+  pointer-events: none;
+  z-index: 9999;
+  animation: scroll-fly 2.4s cubic-bezier(.25,.46,.45,.94) forwards;
+}
+@keyframes scroll-fly {
+  0%   { bottom: -90px; opacity: 0; }
+  8%   { opacity: 1; }
+  90%  { opacity: 1; }
+  100% { bottom: 110vh; opacity: 0; }
 }
 
 </style>
@@ -6890,89 +6944,78 @@ document.addEventListener('click', function(e) {
 (function() {
   var launchpad = document.getElementById('launchpad');
   var since = document.getElementById('since2021');
-  if (!launchpad) return;
+  if (!launchpad || !since) return;
 
-  var rocket = null;
-  var chargeTimer = null;
-  var chargeStart = null;
-  var launched = false;
+  // Create rocket container and place inside #since2021
+  var container = document.createElement('div');
+  container.className = 'rocket-container';
+  container.innerHTML = '<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 40 80" width="40" height="80">  <!-- Exhaust flames (bottom, hidden until charging) -->  <g class="rocket-exhaust">    <ellipse cx="14" cy="72" rx="4" ry="6" fill="#ff6b00" opacity=".9"/>    <ellipse cx="26" cy="72" rx="4" ry="6" fill="#ff6b00" opacity=".9"/>    <ellipse cx="14" cy="74" rx="2.5" ry="4" fill="#ffcc00"/>    <ellipse cx="26" cy="74" rx="2.5" ry="4" fill="#ffcc00"/>  </g>  <!-- Body -->  <path d="M20 4 C13 4 8 16 8 30 L8 58 L32 58 L32 30 C32 16 27 4 20 4Z" fill="#1a1a2e"/>  <path d="M20 4 C15 4 11 14 11 28 L11 58 L20 58 L20 4Z" fill="#16213e"/>  <!-- Window -->  <circle cx="20" cy="28" r="7" fill="#0f3460"/>  <circle cx="20" cy="28" r="5.5" fill="#e94560"/>  <circle cx="18" cy="26" r="2" fill="rgba(255,255,255,.3)"/>  <!-- Nose cone -->  <path d="M20 4 C17 4 13 8 12 16 L28 16 C27 8 23 4 20 4Z" fill="#e94560"/>  <path d="M20 4 C18 4 15 8 14 16 L20 16 Z" fill="#c73652"/>  <!-- Fins left -->  <path d="M8 45 L2 62 L8 58 Z" fill="#e94560"/>  <!-- Fins right -->  <path d="M32 45 L38 62 L32 58 Z" fill="#e94560"/>  <!-- Boosters -->  <rect x="5" y="52" width="8" height="14" rx="3" fill="#2d2d44"/>  <rect x="27" y="52" width="8" height="14" rx="3" fill="#2d2d44"/>  <!-- Booster detail -->  <rect x="6" y="54" width="6" height="2" rx="1" fill="#e94560" opacity=".5"/>  <rect x="28" y="54" width="6" height="2" rx="1" fill="#e94560" opacity=".5"/>  <!-- Highlight stripe -->  <path d="M17 16 L17 56" stroke="rgba(255,255,255,.08)" stroke-width="2"/></svg>';
+  since.appendChild(container);
 
-  function createRocket() {
-    var wrap = document.createElement('div');
-    wrap.className = 'rocket-wrap';
-    wrap.innerHTML = '<div class="rocket-charge-ring"></div>' +
-      '<svg class='rocket-svg' viewBox='0 0 32 32' fill='none' xmlns='http://www.w3.org/2000/svg'>  <path d='M16 3C16 3 10 8 10 16v3l-3 2v4l3-1v1c0 1.1.9 2 2 2h8c1.1 0 2-.9 2-2v-1l3 1v-4l-3-2v-3C22 8 16 3 16 3z' fill='#E8294A'/>  <ellipse cx='16' cy='14' rx='3' ry='3.5' fill='white' opacity='.9'/>  <path d='M13 24h6v2c0 .6-.4 1-1 1h-4c-.6 0-1-.4-1-1v-2z' fill='#cc1f3a'/></svg>' +
-      '<div class="rocket-flame"></div>';
-    return wrap;
-  }
+  var charging = false;
+  var chargeInterval = null;
 
-  function getRocketOrigin() {
-    var rect = launchpad.getBoundingClientRect();
-    return { x: rect.left + rect.width / 2, y: rect.top + rect.height / 2 };
-  }
-
-  function placeRocketAtLaunchpad() {
-    if (rocket) rocket.remove();
-    rocket = createRocket();
-    var o = getRocketOrigin();
-    rocket.style.cssText = 'left:' + (o.x - 18) + 'px;top:' + (o.y - 14) + 'px;';
-    document.body.appendChild(rocket);
-    since.style.opacity = '0';
-    launched = false;
-    void rocket.offsetWidth;
+  function showRocket() {
+    container.classList.add('visible');
+    container.classList.remove('launching', 'charging');
+    since.style.color = 'transparent';
   }
 
   function startCharge(e) {
-    if (launched) placeRocketAtLaunchpad();
-    else if (!rocket) placeRocketAtLaunchpad();
-    chargeStart = Date.now();
-    rocket.classList.add('charging');
-    var flame = rocket.querySelector('.rocket-flame');
-    chargeTimer = setInterval(function() {
-      var ms = Date.now() - chargeStart;
-      if (flame) flame.style.height = Math.min(ms / 20, 20) + 'px';
-    }, 30);
+    if (e.cancelable) e.preventDefault();
+    charging = true;
+    showRocket();
+    // Small delay then add charging class
+    setTimeout(function() {
+      if (charging) container.classList.add('charging');
+    }, 80);
   }
 
-  function launch() {
-    if (!rocket || launched) return;
-    clearInterval(chargeTimer);
-    launched = true;
-    rocket.classList.remove('charging');
-    rocket.classList.add('launching');
-    rocket.addEventListener('animationend', function() {
-      rocket.remove();
-      rocket = null;
-      since.style.opacity = '1';
-      triggerScrollRocket();
+  function releaseLaunch(e) {
+    if (!charging) return;
+    charging = false;
+    clearInterval(chargeInterval);
+    container.classList.remove('charging');
+    container.classList.add('launching');
+    container.addEventListener('animationend', function() {
+      container.classList.remove('launching', 'visible');
+      since.style.color = '';
+      setTimeout(triggerScrollRocket, 600);
     }, { once: true });
   }
 
-  function triggerScrollRocket() {
-    var el = document.createElement('div');
-    el.className = 'rocket-scroll-instance';
-    el.innerHTML = '<svg class='rocket-svg' viewBox='0 0 32 32' fill='none' xmlns='http://www.w3.org/2000/svg'>  <path d='M16 3C16 3 10 8 10 16v3l-3 2v4l3-1v1c0 1.1.9 2 2 2h8c1.1 0 2-.9 2-2v-1l3 1v-4l-3-2v-3C22 8 16 3 16 3z' fill='#E8294A'/>  <ellipse cx='16' cy='14' rx='3' ry='3.5' fill='white' opacity='.9'/>  <path d='M13 24h6v2c0 .6-.4 1-1 1h-4c-.6 0-1-.4-1-1v-2z' fill='#cc1f3a'/></svg>';
-    el.style.right = Math.floor(Math.random() * 60 + 10) + 'px';
-    document.body.appendChild(el);
-    el.addEventListener('animationend', function() { el.remove(); }, { once: true });
+  function cancelCharge() {
+    if (!charging) return;
+    charging = false;
+    clearInterval(chargeInterval);
+    container.classList.remove('charging', 'visible');
+    since.style.color = '';
   }
 
-  launchpad.addEventListener('mousedown', startCharge);
-  launchpad.addEventListener('touchstart', function(e) { e.preventDefault(); startCharge(e); }, { passive: false });
-  launchpad.addEventListener('mouseup', launch);
-  launchpad.addEventListener('mouseleave', launch);
-  launchpad.addEventListener('touchend', launch);
+  launchpad.addEventListener('mousedown',  startCharge,  { passive: false });
+  launchpad.addEventListener('touchstart', startCharge,  { passive: false });
+  launchpad.addEventListener('mouseup',    releaseLaunch);
+  launchpad.addEventListener('touchend',   releaseLaunch);
+  launchpad.addEventListener('mouseleave', cancelCharge);
 
-  // Scroll easter egg: rocket flies up from bottom when scrolling down
+  // Scroll easter egg
   var lastScroll = window.scrollY;
-  var scrollCooldown = false;
+  var cooldown = false;
+
+  function triggerScrollRocket() {
+    if (cooldown) return;
+    cooldown = true;
+    var el = document.createElement('div');
+    el.className = 'scroll-rocket';
+    el.style.left = Math.floor(Math.random() * 60 + 15) + '%';
+    el.innerHTML = '<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 40 80" width="40" height="80">  <!-- Exhaust flames (bottom, hidden until charging) -->  <g class="rocket-exhaust">    <ellipse cx="14" cy="72" rx="4" ry="6" fill="#ff6b00" opacity=".9"/>    <ellipse cx="26" cy="72" rx="4" ry="6" fill="#ff6b00" opacity=".9"/>    <ellipse cx="14" cy="74" rx="2.5" ry="4" fill="#ffcc00"/>    <ellipse cx="26" cy="74" rx="2.5" ry="4" fill="#ffcc00"/>  </g>  <!-- Body -->  <path d="M20 4 C13 4 8 16 8 30 L8 58 L32 58 L32 30 C32 16 27 4 20 4Z" fill="#1a1a2e"/>  <path d="M20 4 C15 4 11 14 11 28 L11 58 L20 58 L20 4Z" fill="#16213e"/>  <!-- Window -->  <circle cx="20" cy="28" r="7" fill="#0f3460"/>  <circle cx="20" cy="28" r="5.5" fill="#e94560"/>  <circle cx="18" cy="26" r="2" fill="rgba(255,255,255,.3)"/>  <!-- Nose cone -->  <path d="M20 4 C17 4 13 8 12 16 L28 16 C27 8 23 4 20 4Z" fill="#e94560"/>  <path d="M20 4 C18 4 15 8 14 16 L20 16 Z" fill="#c73652"/>  <!-- Fins left -->  <path d="M8 45 L2 62 L8 58 Z" fill="#e94560"/>  <!-- Fins right -->  <path d="M32 45 L38 62 L32 58 Z" fill="#e94560"/>  <!-- Boosters -->  <rect x="5" y="52" width="8" height="14" rx="3" fill="#2d2d44"/>  <rect x="27" y="52" width="8" height="14" rx="3" fill="#2d2d44"/>  <!-- Booster detail -->  <rect x="6" y="54" width="6" height="2" rx="1" fill="#e94560" opacity=".5"/>  <rect x="28" y="54" width="6" height="2" rx="1" fill="#e94560" opacity=".5"/>  <!-- Highlight stripe -->  <path d="M17 16 L17 56" stroke="rgba(255,255,255,.08)" stroke-width="2"/></svg>';
+    document.body.appendChild(el);
+    el.addEventListener('animationend', function() { el.remove(); cooldown = false; }, { once: true });
+  }
+
   window.addEventListener('scroll', function() {
     var s = window.scrollY;
-    if (s > lastScroll + 300 && !scrollCooldown) {
-      scrollCooldown = true;
-      triggerScrollRocket();
-      setTimeout(function() { scrollCooldown = false; }, 3000);
-    }
+    if (s > lastScroll + 250 && !cooldown) triggerScrollRocket();
     lastScroll = s;
   }, { passive: true });
 })();
