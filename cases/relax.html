@@ -283,6 +283,17 @@ img{max-width:100%;display:block;}
 .case-more-text{font-size:14px;color:var(--c-muted,#6B6866);margin-top:32px;}
 .case-more-link{color:var(--c-ink,#0F0E0C);font-weight:700;text-decoration:underline;text-decoration-color:rgba(232,41,74,.4);text-underline-offset:3px;}
 .case-more-link:hover{text-decoration-color:var(--mag,#E8294A);}
+
+/* Results grid */
+.results-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:12px;margin-top:32px;}
+.result-item{background:#0F0E0C;border:1.5px solid rgba(232,41,74,.7);border-radius:14px;padding:16px 14px;display:flex;flex-direction:column;gap:4px;animation:neon-pulse 3s ease-in-out infinite;}
+.result-value{font-family:var(--ff-mono);font-size:14px;font-weight:700;color:#fff;white-space:nowrap;}
+.result-label{font-size:11px;color:rgba(255,255,255,.7);line-height:1.45;}
+/* CTA white overlay */
+.cta-white-overlay{position:absolute;inset:0;z-index:1;background:#fff;transition:opacity .4s ease;pointer-events:none;}
+.cta-card-wrap:hover .cta-white-overlay{opacity:0;}
+.cta-video-overlay{z-index:2;}
+.cta-inner{z-index:3;}
 </style>
 <script>
 (function(){
@@ -317,11 +328,18 @@ img{max-width:100%;display:block;}
 <p>Op Meta zetten we campagnes op gericht op koude doelgroepen via interesse- en gedragsgerichte targeting, en retargeting voor productbezoekers en voormalige kopers. Dynamic Product Ads zorgden voor relevante advertenties op basis van het eerder bekeken assortiment.</p>
 <h2>Beheer & optimalisatie</h2>
 <p>We onderhielden nauw contact met de klant, rapporteerden periodiek over prestaties en optimaliseerden campagnes continu op basis van data. Biedstrategieën, doelgroepuitsluitingen en creativiteiten werden getest en bijgesteld om het rendement op mediabudget te maximaliseren.</p>
-<p class="case-more-text" style="margin-top:32px;">Meer weten? <a href="../#cases" class="case-more-link">Bekijk de andere cases</a> of <a href="#" class="case-more-link" onclick="event.preventDefault();if(window.highlightSidebar){highlightSidebar();}else{var sb=document.getElementById('float-sidebar');if(sb){sb.classList.add('visible');sb.classList.remove('highlight');void sb.offsetWidth;sb.classList.add('highlight');}}return false;">stel je vraag</a>.</p>
+
+<div class="results-grid">
+  <div class="result-item"><span class="result-value">ROAS</span><span class="result-label">boven benchmark</span></div>
+  <div class="result-item"><span class="result-value">Meta + Google</span><span class="result-label">gecombineerde aanpak</span></div>
+  <div class="result-item"><span class="result-value">↑</span><span class="result-label">conversie op productpagina's</span></div>
+</div>
+<p class="case-more-text" style="margin-top:32px;">Meer weten? <a href="../#cases" class="case-more-link"><strong>Bekijk de andere cases</strong></a> of <a href="#" class="case-more-link" onclick="event.preventDefault();if(window.highlightSidebar){highlightSidebar();}else{var sb=document.getElementById('float-sidebar');if(sb){sb.classList.add('visible');sb.classList.remove('highlight');void sb.offsetWidth;sb.classList.add('highlight');}}return false;"><strong>stel je vraag</strong></a>.</p>
 </div>
 
 <section class="cta-section" id="contact">
   <div class="cta-card-wrap">
+    <div class="cta-white-overlay"></div>
     <video class="cta-bg-video" autoplay muted loop playsinline preload="auto"
       src="https://fliimedia.github.io/Flii.nl/assets/eklipse-montage.mp4"></video>
     <div class="cta-video-overlay"></div>
