@@ -257,6 +257,17 @@ body{font-family:var(--ff-body);background:#fff;color:var(--ink);-webkit-font-sm
 .case-more-text{font-size:14px;color:var(--c-muted,#6B6866);margin-top:32px;}
 .case-more-link{color:var(--c-ink,#0F0E0C);font-weight:700;text-decoration:underline;text-decoration-color:rgba(232,41,74,.4);text-underline-offset:3px;}
 .case-more-link:hover{text-decoration-color:var(--mag,#E8294A);}
+
+/* Results grid */
+.results-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:12px;margin-top:32px;}
+.result-item{background:#0F0E0C;border:1.5px solid rgba(232,41,74,.7);border-radius:14px;padding:16px 14px;display:flex;flex-direction:column;gap:4px;animation:neon-pulse 3s ease-in-out infinite;}
+.result-value{font-family:var(--ff-mono);font-size:14px;font-weight:700;color:#fff;white-space:nowrap;}
+.result-label{font-size:11px;color:rgba(255,255,255,.7);line-height:1.45;}
+/* CTA white overlay */
+.cta-white-overlay{position:absolute;inset:0;z-index:1;background:#fff;transition:opacity .4s ease;pointer-events:none;}
+.cta-card-wrap:hover .cta-white-overlay{opacity:0;}
+.cta-video-overlay{z-index:2;}
+.cta-inner{z-index:3;}
 </style>
 <script>
 (function(){
@@ -305,7 +316,13 @@ body{font-family:var(--ff-body);background:#fff;color:var(--ink);-webkit-font-sm
   <h2>Voorstel uitbreiding kanalen</h2>
   <p>We dienden een voorstel in voor uitbreiding naar meer relevante kanalen met groter publiek, waaronder WhatsApp en Reddit — platforms waar ondernemers actief vragen stellen maar overheidsinstanties nauwelijks aanwezig zijn.</p>
 
-<p class="case-more-text" style="margin-top:32px;">Meer weten? <a href="../#cases" class="case-more-link">Bekijk de andere cases</a> of <a href="#" class="case-more-link" onclick="event.preventDefault();if(window.highlightSidebar){highlightSidebar();}else{var sb=document.getElementById('float-sidebar');if(sb){sb.classList.add('visible');sb.classList.remove('highlight');void sb.offsetWidth;sb.classList.add('highlight');}}return false;">stel je vraag</a>.</p>
+
+<div class="results-grid">
+  <div class="result-item"><span class="result-value">10k+</span><span class="result-label">volgers opgebouwd</span></div>
+  <div class="result-item"><span class="result-value">↑2×</span><span class="result-label">engagement vs. benchmark</span></div>
+  <div class="result-item"><span class="result-value">Wekelijks</span><span class="result-label">content op 3 platforms</span></div>
+</div>
+<p class="case-more-text" style="margin-top:32px;">Meer weten? <a href="../#cases" class="case-more-link"><strong>Bekijk de andere cases</strong></a> of <a href="#" class="case-more-link" onclick="event.preventDefault();if(window.highlightSidebar){highlightSidebar();}else{var sb=document.getElementById('float-sidebar');if(sb){sb.classList.add('visible');sb.classList.remove('highlight');void sb.offsetWidth;sb.classList.add('highlight');}}return false;"><strong>stel je vraag</strong></a>.</p>
 </div>
 <div class="results-box">
   <h3>Resultaten</h3>
@@ -338,6 +355,7 @@ body{font-family:var(--ff-body);background:#fff;color:var(--ink);-webkit-font-sm
 
 <section class="cta-section" id="contact">
   <div class="cta-card-wrap">
+    <div class="cta-white-overlay"></div>
     <video class="cta-bg-video" autoplay muted loop playsinline preload="auto"
       src="https://fliimedia.github.io/Flii.nl/assets/eklipse-montage.mp4"></video>
     <div class="cta-video-overlay"></div>
