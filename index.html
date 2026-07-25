@@ -5070,6 +5070,8 @@ details.faq-item[open] .faq-answer {
 
 
 .cases-grid{display:grid;grid-template-columns:1fr;gap:24px;padding:16px 0 0;}
+
+.flii-at-chip,.flii-at-chip:hover,.flii-at-chip:active,.flii-at-chip:focus,.flii-at-chip:visited{background:none!important;border:none!important;box-shadow:none!important;outline:none!important;}
 </style>
 <!-- Default consent vóór GTM -->
 
@@ -5178,6 +5180,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
   <!-- Eyebrow — very top -->
   <div class="hero-eyebrow">
     <span class="hero-eyebrow-bubble"></span>
+    <span class="hero-eyebrow-line"></span>
     <span class="hero-eyebrow-year" id="since2021">Digital marketing agency &mdash; sinds 2021</span>
   </div>
 
@@ -6678,12 +6681,13 @@ document.addEventListener('click', function(e) {
           item.span.style.opacity = '1';
         }, fd);
       });
-      // After landing: brief pause, fade letters, show overlay
+      // After landing: brief pause, fade letters + chip, show overlay
       setTimeout(function() {
         allSpans.forEach(function(item) {
           item.span.style.transition = 'opacity 180ms ease';
           item.span.style.opacity = '0';
         });
+        if (chipEl) { chipEl.style.transition = 'opacity 180ms ease'; chipEl.style.opacity = '0'; }
         setTimeout(showOverlay, 200);
       }, maxEnd + 60);
     }
@@ -6691,16 +6695,26 @@ document.addEventListener('click', function(e) {
     // ── Rise back from below ────────────────────────────────────────
     function riseToHome() {
       triggered = false;
-      var baseRiseDelay = 200;
       allSpans.forEach(function(item, i) {
         var p = item.profile;
-        var riseFrom = getTargetY(item.wordIdx) - item.span.getBoundingClientRect().top + item.span.getBoundingClientRect().top;
-        // Simpler: rise from a fixed distance below
         var riseFrom = 300 + item.wordIdx * 80;
         var fd = Math.floor(Math.random()*220);
         setSpanFrom(item.span, riseFrom);
         animSpan(item.span, fd + 20, p[2], p[1], 0, 1);
       });
+      // Rise chip too
+      if (chipEl) {
+        setTimeout(function() {
+          chipEl.style.transition = 'none';
+          chipEl.style.opacity = '0';
+          chipEl.style.transform = 'translateY(380px)';
+          setTimeout(function() {
+            chipEl.style.transition = 'transform 900ms cubic-bezier(0.34,1.4,0.64,1), opacity 160ms ease';
+            chipEl.style.transform = 'translateY(0)';
+            chipEl.style.opacity = '1';
+          }, 20);
+        }, 300 + Math.floor(Math.random()*200));
+      }
     }
 
     // Bind click to words and headline container
