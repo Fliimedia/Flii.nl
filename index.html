@@ -4438,6 +4438,7 @@ details.faq-item[open] .faq-answer {
   padding-top: var(--sp-5);
   padding-bottom: var(--sp-6);
   overflow: hidden;
+  contain: layout;
 }
 
 /* ══ BENTO FOOTER ════════════════════════════════════════════════════ */
@@ -5018,7 +5019,7 @@ details.faq-item[open] .faq-answer {
 
 
 
-.cases-bento{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin-top:16px;overflow:hidden;}
+.cases-bento{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin-top:16px;overflow:hidden;overflow:hidden;}
 .bento-card{position:relative;display:block;text-decoration:none;border-radius:14px;overflow:hidden;background:#111;aspect-ratio:3/2;}
 .bento-card:nth-child(5n+1){aspect-ratio:4/3;grid-column:span 2;}
 .bento-card-img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;transition:transform .5s,opacity .3s;}
