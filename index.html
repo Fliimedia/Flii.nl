@@ -4402,7 +4402,7 @@ details.faq-item[open] .faq-answer {
 @keyframes lmSpin { to { transform-origin:50px 50px; transform:rotate(360deg); } }
 
 /* ── 3D WATER RIPPLE ── */
-#water-ripple-canvas{position:absolute;top:0;left:0;width:320px;height:320px;pointer-events:none;z-index:3;}
+#water-ripple-canvas{position:absolute;top:0;left:0;width:320px;height:320px;pointer-events:auto;z-index:3;}
 @keyframes waterFloat {
   0%   { transform: translate(-50%,-50%) translateY(0) scale(1); }
   30%  { transform: translate(-50%,-50%) translateY(-2.5px) scale(1.015); }
@@ -5009,7 +5009,7 @@ details.faq-item[open] .faq-answer {
 .bento-card-bottom{position:absolute;bottom:10px;left:10px;z-index:2;transition:opacity .2s;}
 .bento-card:hover .bento-card-bottom{opacity:0;}
 .bento-chip{background:rgba(255,255,255,.92);backdrop-filter:blur(6px);border-radius:100px;padding:3px 9px;font-family:var(--ff-mono);font-size:8.5px;font-weight:700;letter-spacing:.08em;text-transform:uppercase;color:var(--c-ink);white-space:nowrap;}
-.bento-hover{position:absolute;inset:0;z-index:3;display:flex;flex-direction:column;justify-content:flex-end;padding:12px;background:linear-gradient(to top,rgba(255,255,255,1) 0%,rgba(255,255,255,.96) 50%,rgba(255,255,255,0) 100%);opacity:0;transform:translateY(8px);transition:opacity .25s,transform .25s;pointer-events:none;}
+.bento-hover{position:absolute;inset:0;z-index:3;display:flex;flex-direction:column;justify-content:flex-end;padding:12px;background:linear-gradient(to top,rgba(255,255,255,1) 0%,rgba(255,255,255,.96) 50%,rgba(255,255,255,0) 100%);opacity:0;transform:translateY(8px);transition:opacity .25s,transform .25s;pointer-events:auto;}
 .bento-card:hover .bento-hover{opacity:1;transform:translateY(0);}
 .bento-client{font-family:var(--ff-disp);font-size:13px;font-weight:900;letter-spacing:-.3px;color:var(--c-ink);line-height:1.1;margin-bottom:3px;}
 .bento-desc{font-size:10.5px;color:var(--c-muted);line-height:1.45;margin-bottom:6px;}
