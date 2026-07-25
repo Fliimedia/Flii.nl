@@ -6476,28 +6476,19 @@ document.addEventListener('click', function(e) {
     raf = requestAnimationFrame(drawFrame);
   }
 
-  // Expose drawFrame globally so letter-drop script can trigger it
-  window._sloganDrawFrame = function() {
-    if (!active) {
+  function start() {
+    if (active) return;
+    holdTimer = setTimeout(function() {
       active = true;
+      vid.currentTime = 0;
+      vid.play().catch(function(){});
+      ov.className = 's-glass';
       drawFrame();
-    }
-  };
+    }, 180);
+  }
 
-  // Watch for overlay class change to start/stop
-  var observer = new MutationObserver(function() {
-    if (ov.className === 's-glass' && !active) {
-      active = true;
-      drawFrame();
-    } else if (ov.className !== 's-glass' && active) {
-      active = false;
-      if (raf) { cancelAnimationFrame(raf); raf = null; }
-    }
-  });
-  observer.observe(ov, { attributes: true, attributeFilter: ['class'] });
-
-  // Click on overlay to dismiss
   function end() {
+    clearTimeout(holdTimer);
     if (!active) return;
     active = false;
     ov.className = 's-out';
@@ -6509,10 +6500,24 @@ document.addEventListener('click', function(e) {
     }, 1500);
   }
 
+  // Watch for 's-glass' class set by letter-drop script
+  var _ovObserver = new MutationObserver(function() {
+    if (ov.className === 's-glass' && !active) {
+      active = true;
+      drawFrame();
+    }
+  });
+  _ovObserver.observe(ov, { attributes: true, attributeFilter: ['class'] });
+
+  // Click overlay to dismiss
   ov.addEventListener('click', end);
+
+  // CTA still works as hold
   [triggerCta].filter(Boolean).forEach(function(t) {
+    t.addEventListener('mousedown', start);
     t.style.userSelect = 'none';
   });
+  window.addEventListener('mouseup', end);
 })();
 </script>
 
@@ -6762,34 +6767,25 @@ a.bento-card { display: block !important; }
       // Match exactly where slogan appears in video (same calc as drawFrame)
       var fontSize = Math.min(105, Math.max(62, W * 0.168));
       var lineH    = fontSize * 0.86;
-      var lines    = ["Let's", "ignite", "ambitions"];
-      var textY    = H - (lines.length * lineH) - 48;
+      var textY    = H - (3 * lineH) - 48;
 
-      // Word bottom positions in video (each word gets its line)
-      var wordTargetY = allWords.map(function(word, wi) {
-        return textY + wi * lineH;
-      });
+      // Word target Y positions (Let's → line 0, ignite → line 1, ambitions → line 2)
+      var wordTargetY = allWords.map(function(w, wi) { return textY + wi * lineH; });
 
-      var maxFallDur = 0;
+      var maxFallEnd = 0;
 
       allLetterSpans.forEach(function(span) {
-        // Find which word this span belongs to
-        var parentWord = span.parentElement;
-        var wi = allWords.indexOf(parentWord);
-        var targetAbsY = wordTargetY[Math.max(0, wi)];
-
+        var wi = allWords.indexOf(span.parentElement);
+        var targetY = wordTargetY[Math.max(0, wi)];
         var rect = span.getBoundingClientRect();
-        var currentY = rect.top + window.scrollY - (document.querySelector('.hero-outer') ? document.querySelector('.hero-outer').getBoundingClientRect().top : 0);
-        var fallDist = targetAbsY - rect.top; // pixels to move down
-
-        var fallDelay = Math.floor(Math.random() * 200);
-        var dur = 600 + Math.floor(Math.random() * 350);
-        if (fallDelay + dur > maxFallDur) maxFallDur = fallDelay + dur;
-
+        var fallDist = targetY - rect.top;
+        var fallDelay = Math.floor(Math.random() * 180);
+        var dur = 580 + Math.floor(Math.random() * 320);
+        if (fallDelay + dur > maxFallEnd) maxFallEnd = fallDelay + dur;
         setTimeout(function() {
           span.style.transition =
-            'transform ' + dur + 'ms cubic-bezier(0.4,0,0.8,1), ' +
-            'opacity ' + Math.round(dur * 0.3) + 'ms ease ' + Math.round(dur * 0.7) + 'ms';
+            'transform ' + dur + 'ms cubic-bezier(0.4,0,0.85,1), ' +
+            'opacity ' + Math.round(dur * 0.25) + 'ms ease ' + Math.round(dur * 0.75) + 'ms';
           span.style.transform = 'translateY(' + fallDist + 'px)';
           span.style.opacity = '0';
         }, fallDelay);
@@ -6803,16 +6799,17 @@ a.bento-card { display: block !important; }
         vid.currentTime = 0;
         vid.play().catch(function(){});
         ov.className = 's-glass';
-        // drawFrame is started by the overlay script on 's-glass'
-        if (window._sloganDrawFrame) window._sloganDrawFrame();
-      }, maxFallDur + 80);
+      }, maxFallEnd + 60);
     }
 
     // Bind click to hero words
     allWords.forEach(function(w) {
       w.style.cursor = 'pointer';
       w.addEventListener('click', triggerFallAndOverlay);
-      w.addEventListener('touchend', function(e) { e.preventDefault(); triggerFallAndOverlay(); }, { passive: false });
+      w.addEventListener('touchend', function(e) {
+        e.preventDefault();
+        triggerFallAndOverlay();
+      }, { passive: false });
     });
   });
 })();
@@ -13294,28 +13291,19 @@ document.addEventListener('click', function(e) {
     raf = requestAnimationFrame(drawFrame);
   }
 
-  // Expose drawFrame globally so letter-drop script can trigger it
-  window._sloganDrawFrame = function() {
-    if (!active) {
+  function start() {
+    if (active) return;
+    holdTimer = setTimeout(function() {
       active = true;
+      vid.currentTime = 0;
+      vid.play().catch(function(){});
+      ov.className = 's-glass';
       drawFrame();
-    }
-  };
+    }, 180);
+  }
 
-  // Watch for overlay class change to start/stop
-  var observer = new MutationObserver(function() {
-    if (ov.className === 's-glass' && !active) {
-      active = true;
-      drawFrame();
-    } else if (ov.className !== 's-glass' && active) {
-      active = false;
-      if (raf) { cancelAnimationFrame(raf); raf = null; }
-    }
-  });
-  observer.observe(ov, { attributes: true, attributeFilter: ['class'] });
-
-  // Click on overlay to dismiss
   function end() {
+    clearTimeout(holdTimer);
     if (!active) return;
     active = false;
     ov.className = 's-out';
@@ -13327,10 +13315,24 @@ document.addEventListener('click', function(e) {
     }, 1500);
   }
 
+  // Watch for 's-glass' class set by letter-drop script
+  var _ovObserver = new MutationObserver(function() {
+    if (ov.className === 's-glass' && !active) {
+      active = true;
+      drawFrame();
+    }
+  });
+  _ovObserver.observe(ov, { attributes: true, attributeFilter: ['class'] });
+
+  // Click overlay to dismiss
   ov.addEventListener('click', end);
+
+  // CTA still works as hold
   [triggerCta].filter(Boolean).forEach(function(t) {
+    t.addEventListener('mousedown', start);
     t.style.userSelect = 'none';
   });
+  window.addEventListener('mouseup', end);
 })();
 </script>
 
