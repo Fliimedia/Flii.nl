@@ -1,3 +1,83 @@
+<!DOCTYPE html>
+<html lang="nl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>A/B-testen — Kennisbank Flii Media</title>
+<meta name="description" content="Twee versies van een advertentie, pagina of e-mail gelijktijdig testen om te bepalen welke beter presteert.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,400;12..96,500;12..96,600;12..96,700;12..96,800&family=DM+Sans:ital,opsz,wght@0,9..40,400;0,9..40,500;0,9..40,600;1,9..40,400&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+:root{
+  --ff-disp:'Bricolage Grotesque','Inter',system-ui,sans-serif;
+  --ff-body:'DM Sans',system-ui,sans-serif;
+  --ff-mono:'JetBrains Mono',monospace;
+  --mag:#E8294A;--ink:#0F0E0C;--mid:#4A4840;--sub:#9B9790;--rule:#E8E6E1;--card:#F9F8F6;
+}
+body{font-family:var(--ff-body);background:#fff;color:var(--ink);-webkit-font-smoothing:antialiased;}
+.nav{display:flex;align-items:center;justify-content:space-between;padding:14px 20px;border-bottom:1px solid var(--rule);position:sticky;top:0;background:#fff;z-index:100}
+.nav img{height:32px;width:auto}
+.nav-back{font-size:12px;font-weight:600;color:var(--sub);text-decoration:none;transition:color .15s}
+.nav-back:hover{color:var(--ink)}
+.hero{padding:36px 24px 28px;border-bottom:1px solid var(--rule)}
+.eyebrow{
+  font-family:'Bricolage Grotesque',system-ui,sans-serif;
+  font-size:11px;font-weight:700;letter-spacing:.12em;
+  text-transform:uppercase;color:#E8294A;display:block;margin-bottom:10px;
+}
+.hero h1{font-family:var(--ff-disp);font-size:clamp(28px,8vw,42px);font-weight:900;letter-spacing:-1.5px;line-height:1.05;color:var(--ink);margin-bottom:12px}
+.defn{font-size:15px;color:var(--mid);line-height:1.65;border-left:3px solid var(--mag);padding-left:16px;margin-top:4px}
+section{padding:28px 24px;border-bottom:1px solid var(--rule)}
+section h2{font-family:var(--ff-disp);font-size:16px;font-weight:800;letter-spacing:-.3px;color:var(--ink);margin-bottom:10px}
+section p{font-size:14px;color:var(--mid);line-height:1.72}
+.example-box{background:var(--card);border-radius:12px;padding:18px 18px 16px;margin-top:4px}
+.example-label{font-family:var(--ff-mono);font-size:8px;font-weight:700;letter-spacing:.12em;text-transform:uppercase;color:var(--sub);display:block;margin-bottom:8px}
+.example-text{font-size:13px;color:var(--ink);line-height:1.65}
+
+
+
+.cta-btn{display:inline-flex;align-items:center;gap:6px;background:var(--mag);color:#fff;border-radius:100px;padding:13px 22px;font-size:13px;font-weight:700;font-family:var(--ff-body);text-decoration:none}
+.footer{padding:16px 24px;text-align:center;font-size:11px;color:var(--sub)}
+.footer a{color:var(--ink);font-weight:600;text-decoration:none}
+.cta-section {
+  background: #0F0E0C;
+  border: 1.5px solid rgba(232,41,74,.4);
+  border-radius: 16px;
+  margin: 24px 20px;
+  padding: 32px 22px;
+  text-align: left;
+  position: relative;
+  overflow: hidden;
+}
+.cta-section::before {
+  content: '';
+  position: absolute; top: -60px; right: -40px;
+  width: 200px; height: 200px; border-radius: 50%;
+  background: radial-gradient(circle, rgba(232,41,74,.22) 0%, transparent 70%);
+  pointer-events: none;
+}
+.cta-section h2 {
+  font-family: var(--ff-disp);
+  color: #fff;
+  font-size: 20px; font-weight: 900; letter-spacing: -.5px;
+  margin-bottom: 8px; position: relative; z-index: 1;
+}
+.cta-section p {
+  font-size: 13px; color: rgba(255,255,255,.5);
+  margin-bottom: 20px; position: relative; z-index: 1;
+}
+.cta-section{padding:0 20px 56px;margin-top:48px;}
+.cta-card-wrap{position:relative;border-radius:20px;border:1.5px solid rgba(232,41,74,.7);overflow:hidden;min-height:200px;animation:neon-pulse 3s ease-in-out infinite;background:#0F0E0C;}
+@keyframes neon-pulse{0%,100%{border-color:rgba(232,41,74,.7);box-shadow:0 0 8px rgba(232,41,74,.2);}50%{border-color:rgba(232,41,74,1);box-shadow:0 0 16px rgba(232,41,74,.4);}}
+.cta-bg-video{position:absolute;top:0;left:0;width:100%;height:100%;object-fit:cover;z-index:0;}
+.cta-video-overlay{position:absolute;inset:0;z-index:1;background:linear-gradient(135deg,#0F0E0C 0%,#0F0E0C 25%,rgba(15,14,12,.88) 38%,rgba(15,14,12,.5) 50%,rgba(15,14,12,.15) 75%,transparent 100%);}
+.cta-inner{position:relative;z-index:2;padding:40px 24px 36px;}
+.cta-inner h2{font-family:var(--ff-disp);font-size:clamp(26px,7vw,36px);font-weight:900;letter-spacing:-1.5px;line-height:1.0;color:transparent;background:linear-gradient(135deg,#fff 30%,rgba(255,255,255,.55) 100%);-webkit-background-clip:text;background-clip:text;-webkit-text-fill-color:transparent;margin-bottom:20px;}
+.cta-btn{display:inline-flex;align-items:center;gap:8px;background:#fff;color:#0F0E0C;font-family:var(--ff-body);font-size:14px;font-weight:700;padding:12px 20px;border-radius:100px;text-decoration:none;border:none;cursor:pointer;}
+.cta-btn:hover{background:rgba(255,255,255,.88);}
+</style>
 <body>
 <nav class="nav">
   <a href="../index.html" class="nav-brand"><img src="../data:image/png;base64,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" alt="Flii"> Kennisbank</a>
@@ -16,20 +96,6 @@
 <div class="topic-closer">
   Vragen over hoe <strong>Customer Experience (CX)</strong> werkt in jouw marketingstrategie? <a href="mailto:info@flii.nl">Neem contact op</a> — we helpen je graag verder.
 </div>
-<footer class="page-footer">
-  <p>Kennisbank van <a href="../index.html">Flii Media</a> &middot; <a href="mailto:info@flii.nl">info@flii.nl</a></p>
-</footer>
-</body>
-</html><body>
-<nav class="nav">
-  <a href="../index.html" class="nav-brand"><img src="../data:image/png;base64,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" alt="Flii"> Kennisbank</a>
-  <a href="../kennisbank.html" class="nav-back">← Klant & Groei</a>
-</nav>
-<section class="topic-hero">
-  <span class="eyebrow">Klant & Groei</span>
-  <h1 class="topic-h1">Customer Experience (CX)</h1>
-  <div class="topic-def">De totale perceptie en emotie die een klant ervaart gedurende alle interacties met een merk, van eerste contactmoment tot na-aankoop.</div>
-</section>
 <section class="cta-section" id="contact">
   <div class="cta-card-wrap">
     <video class="cta-bg-video" autoplay muted loop playsinline preload="auto"
@@ -44,7 +110,20 @@
     </div>
   </div>
 </section>
-
+<footer class="page-footer">
+  <p>Kennisbank van <a href="../index.html">Flii Media</a> &middot; <a href="mailto:info@flii.nl">info@flii.nl</a></p>
+</footer>
+</body>
+</html><body>
+<nav class="nav">
+  <a href="../index.html" class="nav-brand"><img src="../data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAEAAAABACAYAAACqaXHeAAABCGlDQ1BJQ0MgUHJvZmlsZQAAeJxjYGA8wQAELAYMDLl5JUVB7k4KEZFRCuwPGBiBEAwSk4sLGHADoKpv1yBqL+viUYcLcKakFicD6Q9ArFIEtBxopAiQLZIOYWuA2EkQtg2IXV5SUAJkB4DYRSFBzkB2CpCtkY7ETkJiJxcUgdT3ANk2uTmlyQh3M/Ck5oUGA2kOIJZhKGYIYnBncAL5H6IkfxEDg8VXBgbmCQixpJkMDNtbGRgkbiHEVBYwMPC3MDBsO48QQ4RJQWJRIliIBYiZ0tIYGD4tZ2DgjWRgEL7AwMAVDQsIHG5TALvNnSEfCNMZchhSgSKeDHkMyQx6QJYRgwGDIYMZAKbWPz9HbOBQAAAHlUlEQVR42u1Z3Y9dVRX//dbe5350ZlrAAgpFKB9iKmp0JMbEOOMDRkPjg8loLB82vphofDW+TYd/wAdjSAgxMWHayFUfFIlfBCaR+BH6oGC1gNAvSqHOtNPemXvvuWevnw/nzkeZgkRuyxjP7+Vmz9ln7bPXXvu3fmsNUKFChQoVKlSoUKFChQoV/v/AYRkSQJa/Fxj/T+PBu+CFj97S3hvnVnjXI2B62sYfeyyMjo7+VyczB2D69DU2c6iVD05e4+Pj2cXstdtt7t59MM3MwN91B2hqKrDVSs/tum/Ptcn2tdXrAwjQOrMU3mrs9LSNtWwx5d+75cUfPwgAL952/w/GiLuWkfcBBtpgPQ9pm7LsFPLpXS/MHlhZ/53sIb6Tl596/XUCQEi2fTvqt0X1ETD42pVfaXBzN47L+yzAiWYe/gwAR2//+nWW+nvHGLc0VS/nJgFwFBC2WcAZ8ar1679rDlg9VFO/m/redxU5U7yApjjY8LqxsxxTSFtDZgue/2bHsf0HAUAp3fse1racK3p9EmH1fTgAK5ZQRNGKYXHAUBwAiSRMRhMGAcs38Pe6MVfGgqIsFCgOlMw/FU4C9+RIABFksjUbBngwwgxIQ8tedqlZVgAkXezvnoUQ5j0/2e75LwXw+K2NTzdoH+6oEAlbO/lLl/WG6ABeuGkAtAAY5YQKSYLkgBwSpNRkTYn2sztOtBYIyA17mzQCSGBazfqCQSDcNHRXDOcKIGx0gATKUQ81ioK8KL0tAyEkY9Z1h/qYFcBX3zu13fJ0dzv2AShcGEO8ZBEQhxnrGnysuyPGiKJQ6he9M+WjhEBDkEO0xBBq/dR9esfR/X8ioCMj8SvXhObVZ72bjAgCVzfO9fJwszpAICCDCMQYvMFo51icfMUX78zOdrod71qBIAAYs0x5svCpc/PnV0440L4qucLqjScuB4bkgIRkEe6EkVASBCFJ/t37Pz4/NzNTXNxpIkAc23nPnTXgk4vowGjhcm1+qCSoUtVBAswMgGAAv9U61HhyYiI+Mz6ePTkxETUxHR/FVBBATEwGAopZuG80ZAFAEi9vnTOUCLCQgQ4ElBHgviJ3Q/ryoVZ7o/IfVHtzc8UzN09to+tLHUsgzCi+ZaYxM8BtszhgstyQAeYEScgFd2dBwICxo7fe/7mGcakQDQzeDCF0i3QaL+w4DMzoKmZfvALx+kXPE8nwdlb1zRMBT5Uf1O9DiZADkoMQCyTUiO012q8lIoKQO65kDS+j9x1i5u8AkAFfS1byO9eJpkEMcb16dDk8DTcVDE0HWKldkThQbhQcQlfJVaoZRUScLtpnQ8xmBfDlm+79SF38zJIKgFh/+spAFoN8IBdoRIxx6PJ1eCTogJCwUg2QAEmAAWSQWSxGQh19129vPPzDkwRUjz61Ncsyl6dSHAoCVGdgntJ+SPNRhLsLAtwdJOBDvAR2acysZHJDk8GaDFaH1QJoTv+RAD6365ujBXzPsvJy4iDsI409pYUAPCgiwggaIQIih64PhnQFHGaESUiDWp8lWRVL8GMAUs0snvbe84uN/hM7AGztntl9RVbfuZT6q+RHIY2EGBaK3hPLW4vDo0u1EQGIWVaWRH6RRuFmEUKgrX6YIG8gszb5yk9vHvvYwtip7tbjCDfcgHyqtYsEdJy2J7rJwHW1okwJzIv08JZuwwGH3OEsCfZSlLBDlMKOBB8URmvktTB2qjvTauUAgD+Wc09ct/eGOvyujhfUgPwEeIOZ/ct7z+888sHfnbr9yPtFTwCjXGUniVY2lMw2nwPeROrilsP1TED/xPV7Pj8Sat8+z95SZP+WyKzRRSGSK+0jbyJaRz5LzPhx25uFZGt8wkvTDB9iNbhGUBoMHUAnOysCeo32AuFfeF9tCzrKscR80BfiSpEczqZer5fSo6W2cA9WPil7A5u6FggXZ2cKJ0fPuyBee+KRF5fMH3Z50UXKgQsY3UctIpc/vfPogX8AQM3ccRkwtMtEAoFr9TsFlLr+prXIMBzIlaJWI8/W6QjShIc29Jjob2g/aqhaeEgOSOvT/8WaZRLExUbv9+eVnm0gGjXYmeANhrCcipdP9UZ/sSZ0G2Uy5f9EBDiEkqo1aPwLEte18A6OfyPecaiVF8bZmkUQ7iy7v95Ahr70k0+8+tDy33ZNZeX2B9WBbPM7wC1YZCQYs4gaDVkwi8wjs5U5Lx08U5547q1z/d5y6SPvB0HtlBdtYRYAPnTodQeALoNQoBj8P6QQUIAoHCqMw7sEQ3GAYui0oXMFeTpHOpOQ5pfpZ9uZzy80XxMATKHlj05NhRuP7X8ppz9+bRzLtqCWXR1Gsp77Xz5w5JG/TmPagEkHAEsKTYaRq6wWr7RadoXV4ohlja2hEYtCzU2RBj87N1cAwJYrfbbzCn4+EuXA+fLeLzb50Yzp+8/+Kl/lgdYuCeBLGR+YT51/9pR6XnTqLj3OgdQB9gmYQTdvLxTEA21ZdHMlA0mkbqG6DH8AgMnJScfcHCq8k+w1LDt68wU2PJrGtO2bgJUNlUlgDk7M+EabEwETG7tQ++bgMxvnV6hQoUKFChUqVKhQoUKFChUqvC38G0Ft19hq8F5uAAAAAElFTkSuQmCC" alt="Flii"> Kennisbank</a>
+  <a href="../kennisbank.html" class="nav-back">← Klant & Groei</a>
+</nav>
+<section class="topic-hero">
+  <span class="eyebrow">Klant & Groei</span>
+  <h1 class="topic-h1">Customer Experience (CX)</h1>
+  <div class="topic-def">De totale perceptie en emotie die een klant ervaart gedurende alle interacties met een merk, van eerste contactmoment tot na-aankoop.</div>
+</section>
 <img src="https://images.unsplash.com/photo-1556745757-8d76bdb6984b?w=800&q=70&auto=format&fit=crop" alt="Customer Experience (CX)" class="topic-img" loading="lazy">
 <div class="topic-body">
   <p>CX omvat functionele ervaringen (werkt het product?) en emotionele ervaringen (voelt de interactie prettig?). NPS, CSAT en CES zijn de drie meest gebruikte meetmethoden. Journey analytics koppelt CX-scores aan specifieke touchpoints, waardoor pijnpunten in de klantreis zichtbaar en prioriteerbaar worden.</p>
