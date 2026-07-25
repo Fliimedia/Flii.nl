@@ -282,6 +282,17 @@ img{max-width:100%;display:block;}
 .case-more-text{font-size:14px;color:var(--c-muted,#6B6866);margin-top:32px;}
 .case-more-link{color:var(--c-ink,#0F0E0C);font-weight:700;text-decoration:underline;text-decoration-color:rgba(232,41,74,.4);text-underline-offset:3px;}
 .case-more-link:hover{text-decoration-color:var(--mag,#E8294A);}
+
+/* Results grid */
+.results-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:12px;margin-top:32px;}
+.result-item{background:#0F0E0C;border:1.5px solid rgba(232,41,74,.7);border-radius:14px;padding:16px 14px;display:flex;flex-direction:column;gap:4px;animation:neon-pulse 3s ease-in-out infinite;}
+.result-value{font-family:var(--ff-mono);font-size:14px;font-weight:700;color:#fff;white-space:nowrap;}
+.result-label{font-size:11px;color:rgba(255,255,255,.7);line-height:1.45;}
+/* CTA white overlay */
+.cta-white-overlay{position:absolute;inset:0;z-index:1;background:#fff;transition:opacity .4s ease;pointer-events:none;}
+.cta-card-wrap:hover .cta-white-overlay{opacity:0;}
+.cta-video-overlay{z-index:2;}
+.cta-inner{z-index:3;}
 </style>
 <script>
 (function(){
@@ -319,7 +330,13 @@ img{max-width:100%;display:block;}
 <p><strong>Conversie</strong><br>In de laatste fase activeerden we gericht met conversiegerichte campagnes via SEA, social media, video en display remarketing. Promoties en slimme timing zorgden voor extra momentum.</p>
 <p>Deze always-on strategie werd aangevuld met piekcampagnes rondom relevante momenten en zoektrends. Zo bleven we continu zichtbaar en relevant.</p>
 
-<p class="case-more-text" style="margin-top:32px;">Meer weten? <a href="../#cases" class="case-more-link">Bekijk de andere cases</a> of <a href="#" class="case-more-link" onclick="event.preventDefault();if(window.highlightSidebar){highlightSidebar();}else{var sb=document.getElementById('float-sidebar');if(sb){sb.classList.add('visible');sb.classList.remove('highlight');void sb.offsetWidth;sb.classList.add('highlight');}}return false;">stel je vraag</a>.</p>
+
+<div class="results-grid">
+  <div class="result-item"><span class="result-value">↑60%</span><span class="result-label">meer organisch bereik</span></div>
+  <div class="result-item"><span class="result-value">12+</span><span class="result-label">kanalen geactiveerd</span></div>
+  <div class="result-item"><span class="result-value">Always-on</span><span class="result-label">strategie met seizoenspiek</span></div>
+</div>
+<p class="case-more-text" style="margin-top:32px;">Meer weten? <a href="../#cases" class="case-more-link"><strong>Bekijk de andere cases</strong></a> of <a href="#" class="case-more-link" onclick="event.preventDefault();if(window.highlightSidebar){highlightSidebar();}else{var sb=document.getElementById('float-sidebar');if(sb){sb.classList.add('visible');sb.classList.remove('highlight');void sb.offsetWidth;sb.classList.add('highlight');}}return false;"><strong>stel je vraag</strong></a>.</p>
 </div>
 <div class="img-grid">
   <img src="https://cdn.prod.website-files.com/688fb21882303e399ad11240/6890ca98669a9565ea066307_zo-4-1.jpg" alt="" loading="lazy">
@@ -359,6 +376,7 @@ img{max-width:100%;display:block;}
 
 <section class="cta-section" id="contact">
   <div class="cta-card-wrap">
+    <div class="cta-white-overlay"></div>
     <video class="cta-bg-video" autoplay muted loop playsinline preload="auto"
       src="https://fliimedia.github.io/Flii.nl/assets/eklipse-montage.mp4"></video>
     <div class="cta-video-overlay"></div>
