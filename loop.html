@@ -150,12 +150,12 @@ body{font-family:var(--ff-body);background:var(--paper);color:var(--ink);}
 .calc-wrap{max-width:760px;margin:0 auto;padding:0 10px;}
 .calc-card{background:var(--card);border:1px solid var(--line);border-radius:22px;overflow:hidden;
   box-shadow:0 14px 34px -18px rgba(231,37,90,.2);}
-.calc-head{padding:20px 10px 0;}
+.calc-head{padding:24px 20px 0;}
 .calc-head .eyebrow{margin-bottom:6px;}
 .calc-head h2{font-family:var(--ff-disp);font-size:clamp(20px,5vw,28px);font-weight:800;
   letter-spacing:-.8px;margin-bottom:6px;}
 .calc-head p{font-size:13px;color:var(--mid);line-height:1.5;margin-bottom:20px;}
-.calc-steps{display:flex;gap:4px;padding:0 28px;border-bottom:1px solid var(--line);overflow-x:auto;}
+.calc-steps{display:flex;gap:4px;padding:0 20px;border-bottom:1px solid var(--line);overflow-x:auto;}
 .calc-dot{display:flex;align-items:center;gap:8px;background:none;border:none;cursor:pointer;
   font:inherit;color:var(--soft);padding:12px 10px;border-radius:0;white-space:nowrap;
   transition:color .15s;border-bottom:2px solid transparent;margin-bottom:-1px;}
@@ -167,14 +167,14 @@ body{font-family:var(--ff-body);background:var(--paper);color:var(--ink);}
 .calc-dot.on{color:var(--ink);border-bottom-color:var(--mag);}
 .calc-dot.on .calc-dot-n{border-color:var(--mag);background:var(--mag);color:#fff;}
 .calc-dot.done .calc-dot-n{border-color:var(--ink);background:var(--ink);color:var(--paper);}
-.calc-slide{padding:20px 10px;min-height:286px;animation:slideIn .34s ease both;}
+.calc-slide{padding:24px 20px;min-height:286px;animation:slideIn .34s ease both;}
 @keyframes slideIn{from{opacity:0;transform:translateX(12px);}to{opacity:1;transform:none;}}
-.calc-slide-head{margin-bottom:20px;}
+.calc-slide-head{margin-bottom:24px;}
 .calc-slide-title{font-family:var(--ff-disp);font-weight:600;font-size:19px;color:var(--ink);
   letter-spacing:-.01em;margin-bottom:5px;}
 .calc-slide-help{font-size:12.5px;letter-spacing:.02em;color:var(--soft);line-height:1.5;}
 /* scope cards */
-.scope-cards{display:grid;grid-template-columns:repeat(2,1fr);gap:10px;}
+.scope-cards{display:grid;grid-template-columns:repeat(2,1fr);gap:12px;}
 .scope-card{position:relative;border:1.5px solid var(--line);border-radius:14px;padding:16px;
   cursor:pointer;background:var(--card);text-align:left;transition:border-color .15s,background .15s,box-shadow .15s;}
 .scope-card:hover{border-color:var(--soft);}
@@ -190,7 +190,7 @@ body{font-family:var(--ff-body);background:var(--paper);color:var(--ink);}
 .scope-card-t{font-family:var(--ff-disp);font-size:16px;font-weight:700;color:var(--ink);display:block;margin-bottom:4px;}
 .scope-card-d{font-size:12px;color:var(--mid);line-height:1.4;}
 /* details */
-.calc-details{display:flex;flex-direction:column;gap:22px;}
+.calc-details{display:flex;flex-direction:column;gap:24px;}
 .detail-block{display:flex;flex-direction:column;gap:12px;border-top:1px solid var(--line);padding-top:18px;}
 .calc-details .detail-block:first-child{border-top:none;padding-top:0;}
 .detail-block-q{font-size:15px;font-weight:600;color:var(--ink);}
@@ -199,7 +199,7 @@ body{font-family:var(--ff-body);background:var(--paper);color:var(--ink);}
 .svc-item{border-top:1px solid var(--line);}
 .svc-item:last-child{border-bottom:1px solid var(--line);}
 .svc-row{display:flex;align-items:center;gap:12px;width:100%;background:none;border:none;
-  padding:14px 2px;font:inherit;cursor:pointer;text-align:left;color:var(--ink);}
+  padding:14px 4px;font:inherit;cursor:pointer;text-align:left;color:var(--ink);}
 .svc-row-x{display:inline-flex;width:20px;height:20px;flex:none;align-items:center;justify-content:center;
   font-weight:700;font-size:15px;color:var(--soft);border:1px solid var(--line);border-radius:6px;
   transition:background .14s,border-color .14s,color .14s;}
@@ -229,7 +229,7 @@ body{font-family:var(--ff-body);background:var(--paper);color:var(--ink);}
 .cfg-toggles{display:flex;flex-direction:column;gap:8px;margin-bottom:4px;}
 .combo-note{font-size:12px;color:var(--mag);margin-top:4px;font-style:italic;}
 /* receipt */
-.cfg-out-card{background:var(--card);border:1px solid var(--line);border-radius:16px;padding:22px;
+.cfg-out-card{background:var(--card);border:1px solid var(--line);border-radius:16px;padding:24px;
   box-shadow:0 14px 34px -18px rgba(231,37,90,.25);}
 .cfg-out-h{font-size:11px;letter-spacing:.1em;text-transform:uppercase;color:var(--soft);
   padding-bottom:14px;border-bottom:1px solid var(--line);margin-bottom:10px;}
