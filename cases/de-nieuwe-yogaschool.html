@@ -436,6 +436,16 @@ window.highlightSidebar = function() {
 .cta-inner{position:relative;z-index:3;padding:40px 24px 36px;}
 .cta-inner h2{font-family:var(--ff-disp);font-size:clamp(26px,7vw,36px);font-weight:900;letter-spacing:-1.5px;line-height:1.0;color:transparent;background:linear-gradient(135deg,#fff 30%,rgba(255,255,255,.55) 100%);-webkit-background-clip:text;background-clip:text;-webkit-text-fill-color:transparent;margin-bottom:20px;}
 .cta-btn{display:inline-flex;align-items:center;gap:8px;background:#fff;color:#0F0E0C;font-family:var(--ff-body);font-size:14px;font-weight:700;padding:12px 20px;border-radius:100px;text-decoration:none;}
+
+/* content-width-cap v2 */
+/* Keep every block within the text column (680px outer / 632px inner). */
+.page-hero{max-width:680px;box-sizing:border-box;}
+.section-body{max-width:680px;box-sizing:border-box;}
+.cta-section{max-width:680px;box-sizing:border-box;}
+.dienst-photo{max-width:632px;margin:24px 24px 0;width:calc(100% - 48px);}
+@media (min-width:760px){
+  .hero-img{max-width:632px;width:calc(100% - 48px);margin-left:24px;margin-right:24px;}
+}
 </style>
 </body>
 </html>
