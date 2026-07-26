@@ -6515,6 +6515,123 @@ document.addEventListener('click', function(e) {
 
 <script>
 (function() {
+  // ── Letter-drop slogan animation ─────────────────────────────────
+  function springDrop(el, delay, height, bounce, dur) {
+    el.style.display = 'inline-block';
+    el.style.transform = 'translateY(-' + height + 'px)';
+    el.style.opacity = '0';
+    el.style.transition = 'none';
+    setTimeout(function() {
+      el.style.transition =
+        'transform ' + dur + 'ms cubic-bezier(0.34,' + (1.2 + bounce) + ',0.64,1), ' +
+        'opacity 120ms ease';
+      el.style.transform = 'translateY(0)';
+      el.style.opacity = '1';
+    }, delay);
+  }
+
+  window.addEventListener('DOMContentLoaded', function() {
+    var words = Array.from(document.querySelectorAll('.hero-word'));
+    var chipEl = document.getElementById('flii-at-chip');
+    if (!words.length) return;
+
+    var profiles = [
+      [340,0.18,1050],[220,0.10,780],[480,0.22,1300],[160,0.08,680],
+      [550,0.25,1450],[290,0.14,920],[400,0.20,1180],[180,0.09,720],
+      [520,0.23,1380],[250,0.12,860],[460,0.21,1260],[200,0.10,760],
+      [600,0.26,1500],[310,0.15,980],[380,0.19,1120],[140,0.07,640],
+      [540,0.24,1420],[270,0.13,900],[430,0.20,1200],[190,0.09,740],
+    ];
+
+    var letterIdx = 0, baseDelay = 300, stagger = 75;
+    var allSpans = [];
+
+    words.forEach(function(word) {
+      var text = word.textContent;
+      word.textContent = '';
+      word.style.whiteSpace = 'nowrap';
+      text.split('').forEach(function(ch) {
+        var s = document.createElement('span');
+        s.textContent = ch;
+        word.appendChild(s);
+        var p = profiles[letterIdx % profiles.length];
+        allSpans.push({ el: s, wordIdx: words.indexOf(word), p: p });
+        var delay = baseDelay + letterIdx * stagger + Math.floor(Math.random()*40) - 20;
+        springDrop(s, delay, p[0], p[1], p[2]);
+        letterIdx++;
+      });
+    });
+
+    // Chip drop-in
+    if (chipEl) {
+      var cp = profiles[12];
+      chipEl.style.transform = 'translateY(-' + cp[0] + 'px)';
+      chipEl.style.opacity = '0';
+      chipEl.style.transition = 'none';
+      setTimeout(function() {
+        chipEl.style.transition = 'transform ' + cp[2] + 'ms cubic-bezier(0.34,' + (1.2+cp[1]) + ',0.64,1), opacity 120ms ease';
+        chipEl.style.transform = 'translateY(0)';
+        chipEl.style.opacity = '1';
+      }, baseDelay + allSpans.length * stagger + 100);
+    }
+
+    // ── Click: fall to video position then show overlay ───────────────
+    var triggered = false;
+    function triggerFall() {
+      if (triggered) return;
+      triggered = true;
+      var W = window.innerWidth, H = window.innerHeight;
+      var fs = Math.min(105, Math.max(62, W*0.168));
+      var lh = fs * 0.86;
+      var textY = H - 3*lh - 48;
+      var maxEnd = 0;
+      allSpans.forEach(function(item) {
+        var rect = item.el.getBoundingClientRect();
+        var fallDist = (textY + item.wordIdx * lh) - rect.top;
+        var fd = Math.floor(Math.random()*180);
+        var dur = 600 + Math.floor(Math.random()*300);
+        if (fd+dur > maxEnd) maxEnd = fd+dur;
+        setTimeout(function() {
+          item.el.style.transition = 'transform '+dur+'ms cubic-bezier(0.4,0,0.2,1)';
+          item.el.style.transform = 'translateY('+fallDist+'px)';
+        }, fd);
+      });
+      if (chipEl) { setTimeout(function() { chipEl.style.transition='opacity 300ms ease'; chipEl.style.opacity='0'; }, 80); }
+      setTimeout(function() {
+        allSpans.forEach(function(item) { item.el.style.transition='opacity 200ms ease'; item.el.style.opacity='0'; });
+        setTimeout(function() { if (window._sloganShowOverlay) window._sloganShowOverlay(); }, 220);
+      }, maxEnd + 50);
+    }
+
+    // ── Rise back from below ──────────────────────────────────────────
+    window._sloganRiseToHome = function() {
+      triggered = false;
+      allSpans.forEach(function(item) {
+        var p = item.p;
+        var fd = Math.floor(Math.random()*220) + 20;
+        item.el.style.transition = 'none';
+        item.el.style.opacity = '0';
+        item.el.style.transform = 'translateY(' + (300 + item.wordIdx*80) + 'px)';
+        setTimeout(function() {
+          item.el.style.transition = 'transform '+p[2]+'ms cubic-bezier(0.34,'+(1.2+p[1])+',0.64,1), opacity 150ms ease';
+          item.el.style.transform = 'translateY(0)';
+          item.el.style.opacity = '1';
+        }, fd);
+      });
+      if (chipEl) { setTimeout(function() { chipEl.style.transition='opacity 400ms ease'; chipEl.style.opacity='1'; }, 400); }
+    };
+
+    words.forEach(function(w) {
+      w.style.cursor = 'pointer';
+      w.addEventListener('click', triggerFall);
+      w.addEventListener('touchend', function(e) { e.preventDefault(); triggerFall(); }, {passive:false});
+    });
+    if (chipEl) chipEl.addEventListener('click', function(e) { e.stopPropagation(); });
+  });
+})();
+</script>
+<script>
+(function() {
   // ── Slogan canvas overlay ─────────────────────────────────────────
   var ov, vid, canvas, ctx, off, octx, raf, active;
 
