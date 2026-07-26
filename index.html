@@ -6752,6 +6752,15 @@ document.addEventListener('click', function(e) {
       ctaH.addEventListener('click', showOverlay);
       ctaH.addEventListener('touchend', function(e) { e.preventDefault(); showOverlay(); }, { passive: false });
     }
+
+    // Dismiss on scroll
+    function dismissOnScroll() {
+      if (active) {
+        hideOverlay();
+        if (window._sloganRiseToHome) window._sloganRiseToHome();
+      }
+    }
+    window.addEventListener('scroll', dismissOnScroll, { passive: true });
   }
 
   if (document.readyState === 'loading') {
