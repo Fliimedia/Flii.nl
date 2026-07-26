@@ -6322,7 +6322,7 @@ window.chatbaseConfig={chatbotId:"xDWiHhLymvD2NuZKQ-bO_",hideBubble:true};
     updateSpotlight(-9999, -9999); /* hide cursor hole when idle */
       if (canvas) canvas.style.opacity = '0.12'; /* subtle matrix always visible */  // back to base
       spotActive = false;
-    }, 4000);
+    }, 5000);
   }
 
   function animSway() {
@@ -6602,7 +6602,7 @@ document.addEventListener('click', function(e) {
       if (chipEl) { setTimeout(function() { chipEl.style.transition='opacity 300ms ease'; chipEl.style.opacity='0'; }, 80); }
 
       // Pre-render canvas ~300ms before crossfade so it's ready
-      var preAt = maxEnd - 540 > 0 ? maxEnd - 540 : 0;
+      var preAt = maxEnd - 800 > 0 ? maxEnd - 800 : 0;
       setTimeout(function() {
         if (window._sloganPreRender) window._sloganPreRender();
       }, preAt);
