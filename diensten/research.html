@@ -253,6 +253,13 @@ img{max-width:100%;display:block;}
 @keyframes sidebarPulse {
   0%   { box-shadow: 0 2px 16px rgba(232,41,74,.15); transform: translateY(-50%) translateX(0) scale(1); }
   25%  { box-shadow: 0 0 0 6px rgba(232,41,74,.25), 0 4px 24px rgba(232,41,74,.4); transform: translateY(-50%) translateX(0) scale(1.08); }
+
+.svc-tags{display:flex;flex-wrap:wrap;gap:6px;margin-top:16px;margin-bottom:0;}
+.svc-tag{font-size:11px;font-weight:600;letter-spacing:.01em;white-space:nowrap;
+  background:#0F0E0C;color:#fff;border-radius:100px;
+  padding:3px 10px;border:1px solid #0F0E0C;
+  transition:background .15s,border-color .15s,color .15s;}
+.svc-tag:hover{background:rgba(232,41,74,.18);color:#E8294A;border-color:rgba(232,41,74,.3);}
 </style>
 <script>
 (function(){
@@ -274,6 +281,7 @@ img{max-width:100%;display:block;}
   <span class="eyebrow">Data & analyse</span>
   <h1>Research</h1>
   <p class="lead">Markt- en doelgroeponderzoek als fundament voor betere beslissingen. Kwantitatief, kwalitatief of een combinatie.</p>
+  <div class="svc-tags"><span class="svc-tag">Marktonderzoek</span><span class="svc-tag">Doelgroepanalyse</span><span class="svc-tag">Concurrentie</span><span class="svc-tag">Trends</span></div>
 </div>
 <div class="section-body"><p>Goede beslissingen beginnen bij betrouwbare informatie. Wij voeren markt- en doelgroeponderzoek uit dat je écht verder helpt — niet als doel op zich, maar als basis voor strategie en executie.</p><h2>Onderzoeksvormen</h2><ul><li>Doelgroepanalyse en persona-onderzoek</li><li>Concurrentieanalyse</li><li>Klanttevredenheidsonderzoek</li><li>Trendanalyse en marktscan</li><li>Focusgroepen en interviews</li></ul>
 <p>Heb je een vraag of project over dit onderwerp? <button onclick="if(window.highlightSidebar)window.highlightSidebar();var sb=document.getElementById('float-sidebar');if(sb){sb.classList.add('visible');}" type="button" style="background:none;border:none;padding:0;cursor:pointer;font:inherit;color:inherit;"><strong>Neem contact op →</strong></button></p>
