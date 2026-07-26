@@ -6952,11 +6952,14 @@ document.addEventListener('click', function(e) {
     if (wantSound) { vid.muted = false; vid.volume = 1; }
     var p = vid.play();
     if (p && p.catch) {
-      p.catch(function() {
-        // Browser blocked audio autoplay — fall back to muted playback
-        vid.muted = true;
-        syncBtn();
-        vid.play().catch(function(){});
+      p.catch(function(err) {
+        // Only fall back to muted when the browser blocked audio autoplay.
+        // Other failures (decode, network) shouldn't silently flip the toggle.
+        if (err && err.name === 'NotAllowedError') {
+          vid.muted = true;
+          syncBtn();
+          vid.play().catch(function(){});
+        }
       });
     }
     syncBtn();
