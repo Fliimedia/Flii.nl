@@ -260,6 +260,13 @@ img{max-width:100%;display:block;}
 .cta-inner{position:relative;z-index:3;padding:40px 24px 36px;}
 .cta-inner h2{font-family:var(--ff-disp);font-size:clamp(26px,7vw,36px);font-weight:900;letter-spacing:-1.5px;line-height:1.0;color:transparent;background:linear-gradient(135deg,#fff 30%,rgba(255,255,255,.55) 100%);-webkit-background-clip:text;background-clip:text;-webkit-text-fill-color:transparent;margin-bottom:20px;}
 .cta-btn{display:inline-flex;align-items:center;gap:8px;background:#fff;color:#0F0E0C;font-family:var(--ff-body);font-size:14px;font-weight:700;padding:12px 20px;border-radius:100px;text-decoration:none;}
+/* width-align v1 */
+/* CTA card and hero image were unconstrained and spanned the full viewport.
+   Constrain them to the same column as .section-body (632px inner, 24px gutter). */
+.cta-section{max-width:680px;}
+@media (min-width:760px){
+  .hero-img{max-width:632px;width:calc(100% - 48px);margin-left:24px;margin-right:24px;}
+}
 </style>
 <script>
 (function(){
