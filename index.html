@@ -5083,6 +5083,7 @@ details.faq-item[open] .faq-answer {
     f.parentNode.insertBefore(j,f);
   })(window,document,'script','dataLayer','GTM-NTFZJ9D');
 </script>
+<style>a.case-card{contain:layout size}a.case-card .case-card-img{opacity:0;transition:opacity .3s}</style>
 </head>
 <body>
 <!-- Google Tag Manager (noscript) -->
@@ -6312,15 +6313,20 @@ window.chatbaseConfig={chatbotId:"xDWiHhLymvD2NuZKQ-bO_",hideBubble:true};
 
   function hideSpotlightFromOutsideIn() {
     if (!spotlight) return;
-    // Keep last position, animate radius 140→0 (outside closes in)
     var x = _lastSpotX, y = _lastSpotY;
-    var startTime = null, startR = 140, dur = 2600;
+    var startTime = null;
+    var totalDur = 3200;
+    var pulseAmp = 18;   // px radius oscillation
+    var pulseFreq = 1.8; // pulses per second
     function animR(ts) {
       if (!startTime) startTime = ts;
-      var progress = Math.min((ts - startTime) / dur, 1);
-      // ease-in: slow start, accelerates inward
-      var eased = progress * progress;
-      var r = Math.round(startR * (1 - eased));
+      var elapsed = ts - startTime;
+      var progress = Math.min(elapsed / totalDur, 1);
+      // Shrink with ease-in
+      var shrinkR = 140 * (1 - progress * progress);
+      // Add pulse that fades out with the radius
+      var pulse = Math.sin(elapsed * 0.001 * pulseFreq * Math.PI * 2) * pulseAmp * (1 - progress);
+      var r = Math.max(0, Math.round(shrinkR + pulse));
       updateSpotlight(x, y, r);
       if (progress < 1) {
         requestAnimationFrame(animR);
@@ -6909,7 +6915,7 @@ document.addEventListener('DOMContentLoaded', function() {
   if (grid) requestAnimationFrame(function() {
     grid.style.opacity = '1';
     var imgs = grid.querySelectorAll('.case-card-img');
-    imgs.forEach(function(img) { img.style.visibility = 'visible'; });
+    imgs.forEach(function(img) { img.style.visibility = 'visible'; img.style.opacity = '1'; });
   });
 });
 </script>
