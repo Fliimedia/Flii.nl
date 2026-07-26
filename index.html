@@ -6969,6 +6969,24 @@ document.addEventListener('DOMContentLoaded', function() {
     imgs.forEach(function(img) { img.style.visibility = 'visible'; img.style.opacity = '1'; });
   });
 });
+
+// ── Service sticky stack offsets ──────────────────────────────────────
+(function() {
+  function initServiceStack() {
+    var services = document.querySelectorAll('#diensten .service');
+    var headerH = 56;
+    services.forEach(function(el, i) {
+      el.style.top = (headerH + i * 8) + 'px';
+      el.style.zIndex = 10 + i;
+    });
+  }
+  if (document.readyState === 'loading') {
+    document.addEventListener('DOMContentLoaded', initServiceStack);
+  } else {
+    initServiceStack();
+  }
+})();
+
 </script>
 </body>
 </html>
