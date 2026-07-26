@@ -6551,7 +6551,7 @@ document.addEventListener('click', function(e) {
 
 <script>
 (function() {
-  // ── Slogan: drop-in animation + hover swap + click-to-video ─────────
+  // ── Letter-drop slogan animation ─────────────────────────────────
   function springDrop(el, delay, height, bounce, dur) {
     el.style.display = 'inline-block';
     el.style.transform = 'translateY(-' + height + 'px)';
@@ -6559,6 +6559,7 @@ document.addEventListener('click', function(e) {
     el.style.filter = 'blur(6px)';
     el.style.transition = 'none';
     setTimeout(function() {
+      // Fall: blur fades out in first 60% of duration
       el.style.transition =
         'transform ' + dur + 'ms cubic-bezier(0.34,' + (1.2 + bounce) + ',0.64,1), ' +
         'opacity 80ms ease, ' +
@@ -6572,7 +6573,6 @@ document.addEventListener('click', function(e) {
   window.addEventListener('DOMContentLoaded', function() {
     var words = Array.from(document.querySelectorAll('.hero-word'));
     var chipEl = document.getElementById('flii-at-chip');
-    var headline = document.querySelector('.hero-headline');
     if (!words.length) return;
 
     var profiles = [
@@ -6583,15 +6583,9 @@ document.addEventListener('click', function(e) {
       [620,0.33,960],[310,0.21,620],[510,0.28,840],[220,0.16,520],
     ];
 
-    var baseDelay = 180, stagger = 52;
-    var allSpans = [], letterIdx = 0;
+    var letterIdx = 0, baseDelay = 300, stagger = 75;
+    var allSpans = [];
 
-    // Original word texts
-    var originalTexts = words.map(function(w) { return w.textContent; });
-    // Hover swap words (one per hero-word line)
-    var hoverTexts = ['Campagnes', 'AI', 'Platformen'];
-
-    // Build letter spans for drop-in
     words.forEach(function(word) {
       var text = word.textContent;
       word.textContent = '';
@@ -6613,100 +6607,87 @@ document.addEventListener('click', function(e) {
       var cp = profiles[12];
       chipEl.style.transform = 'translateY(-' + cp[0] + 'px)';
       chipEl.style.opacity = '0';
-      chipEl.style.filter = 'blur(6px)';
       chipEl.style.transition = 'none';
       setTimeout(function() {
-        chipEl.style.transition = 'transform ' + cp[2] + 'ms cubic-bezier(0.34,' + (1.2+cp[1]) + ',0.64,1), opacity 80ms ease, filter ' + Math.round(cp[2]*0.55) + 'ms ease';
+        chipEl.style.transition = 'transform ' + cp[2] + 'ms cubic-bezier(0.34,' + (1.2+cp[1]) + ',0.64,1), opacity 120ms ease';
         chipEl.style.transform = 'translateY(0)';
         chipEl.style.opacity = '1';
-        chipEl.style.filter = 'blur(0px)';
       }, baseDelay + allSpans.length * stagger + 100);
     }
 
-    // ── Hover swap: replace letter spans with plain text ─────────────
-    var hovered = false, swapping = false;
-
-    function swapToHover() {
-      if (hovered || swapping) return;
-      hovered = true; swapping = true;
-      // Fade out current spans
+    // ── Click: fall to video position then show overlay ───────────────
+    var triggered = false;
+    function triggerFall() {
+      if (triggered) return;
+      triggered = true;
+      var W = window.innerWidth, H = window.innerHeight;
+      var fs = Math.min(105, Math.max(62, W*0.168));
+      var lh = fs * 0.86;
+      var textY = H - 3*lh - 48;
+      var maxEnd = 0;
       allSpans.forEach(function(item) {
-        item.el.style.transition = 'opacity 120ms ease, filter 120ms ease, transform 120ms ease';
+        var rect = item.el.getBoundingClientRect();
+        var fallDist = (textY + item.wordIdx * lh) - rect.top;
+        var fd = Math.floor(Math.random()*180);
+        // Use same spring profile as drop-in for matching feel
+        var p = item.p;
+        var dur = p[2]; // same duration as drop-in
+        var bounce = p[1]; // same bounce
+        if (fd+dur > maxEnd) maxEnd = fd+dur;
+        setTimeout(function() {
+          item.el.style.transition = 'transform '+dur+'ms cubic-bezier(0.34,'+(1.2+bounce)+',0.64,1)';
+          item.el.style.transform = 'translateY('+fallDist+'px)';
+        }, fd);
+      });
+      // Hide description row immediately
+      var descRow = document.querySelector('.hero-description-row');
+      if (descRow) { descRow.style.transition = 'opacity 200ms ease'; descRow.style.opacity = '0'; }
+      if (chipEl) { setTimeout(function() { chipEl.style.transition='opacity 300ms ease'; chipEl.style.opacity='0'; }, 80); }
+
+      // Pre-render canvas ~300ms before crossfade so it's ready
+      var preAt = maxEnd - 800 > 0 ? maxEnd - 800 : 0;
+      setTimeout(function() {
+        if (window._sloganPreRender) window._sloganPreRender();
+      }, preAt);
+
+      // Crossfade: HTML letters fade out while canvas fades in — simultaneous
+      var crossAt = maxEnd - 40 > 0 ? maxEnd - 40 : 50;
+      setTimeout(function() {
+        // Fade HTML letters and canvas in one motion
+        allSpans.forEach(function(item) {
+          item.el.style.transition = 'opacity 300ms ease';
+          item.el.style.opacity = '0';
+        });
+        if (window._sloganCrossfade) window._sloganCrossfade();
+      }, crossAt);
+    }
+
+    // ── Rise back from below ──────────────────────────────────────────
+    window._sloganRiseToHome = function() {
+      triggered = false;
+      var descRow = document.querySelector('.hero-description-row');
+      if (descRow) { descRow.style.transition = 'opacity 400ms ease'; descRow.style.opacity = '1'; }
+      allSpans.forEach(function(item) {
+        var p = item.p;
+        var fd = Math.floor(Math.random()*220) + 20;
+        item.el.style.transition = 'none';
         item.el.style.opacity = '0';
-        item.el.style.filter = 'blur(4px)';
-        item.el.style.transform = 'translateY(8px)';
+        item.el.style.transform = 'translateY(' + (300 + item.wordIdx*80) + 'px)';
+        setTimeout(function() {
+          item.el.style.transition = 'transform '+p[2]+'ms cubic-bezier(0.34,'+(1.2+p[1])+',0.64,1), opacity 150ms ease';
+          item.el.style.transform = 'translateY(0)';
+          item.el.style.opacity = '1';
+        }, fd);
       });
-      setTimeout(function() {
-        // Replace with plain hover text, animate in
-        words.forEach(function(word, wi) {
-          word.innerHTML = '';
-          var t = document.createTextNode(hoverTexts[wi] || '');
-          word.appendChild(t);
-          word.style.opacity = '0';
-          word.style.transform = 'translateY(-12px)';
-          word.style.transition = 'opacity 180ms ease, transform 180ms cubic-bezier(0.34,1.3,0.64,1)';
-          requestAnimationFrame(function() {
-            word.style.opacity = '1';
-            word.style.transform = 'translateY(0)';
-          });
-        });
-        swapping = false;
-      }, 140);
-    }
+      if (chipEl) { setTimeout(function() { chipEl.style.transition='opacity 400ms ease'; chipEl.style.opacity='1'; }, 400); }
+    };
 
-    function swapToOriginal() {
-      if (!hovered || swapping) return;
-      hovered = false; swapping = true;
-      // Fade out hover text
-      words.forEach(function(word) {
-        word.style.transition = 'opacity 100ms ease, transform 100ms ease';
-        word.style.opacity = '0';
-        word.style.transform = 'translateY(8px)';
-      });
-      setTimeout(function() {
-        // Rebuild letter spans
-        allSpans = []; letterIdx = 0;
-        words.forEach(function(word, wi) {
-          word.innerHTML = '';
-          word.style.opacity = '';
-          word.style.transform = '';
-          word.style.transition = '';
-          originalTexts[wi].split('').forEach(function(ch) {
-            var s = document.createElement('span');
-            s.textContent = ch;
-            s.style.display = 'inline-block';
-            s.style.opacity = '0';
-            s.style.transform = 'translateY(6px)';
-            s.style.transition = 'opacity 160ms ease ' + (letterIdx * 18) + 'ms, transform 160ms cubic-bezier(0.34,1.2,0.64,1) ' + (letterIdx * 18) + 'ms';
-            word.appendChild(s);
-            allSpans.push({ el: s, wordIdx: wi, p: profiles[letterIdx % profiles.length] });
-            letterIdx++;
-            requestAnimationFrame(function() {
-              s.style.opacity = '1';
-              s.style.transform = 'translateY(0)';
-            });
-          });
-        });
-        swapping = false;
-      }, 120);
-    }
-
-    if (headline) {
-      headline.addEventListener('mouseenter', swapToHover);
-      headline.addEventListener('mouseleave', swapToOriginal);
-    }
-
-    // ── Click: directly show overlay, no fall animation ───────────────
     words.forEach(function(w) {
       w.style.cursor = 'pointer';
-      w.addEventListener('click', function() {
-        if (window._sloganShowOverlay) window._sloganShowOverlay();
-      });
+      w.addEventListener('click', triggerFall);
+      w.addEventListener('touchend', function(e) { e.preventDefault(); triggerFall(); }, {passive:false});
     });
     if (chipEl) chipEl.addEventListener('click', function(e) { e.stopPropagation(); });
-
-    // Rise back (called when overlay closes)
-    window._sloganRiseToHome = function() {};
   });
 })();
 </script>
