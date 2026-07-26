@@ -6291,16 +6291,44 @@ window.chatbaseConfig={chatbotId:"xDWiHhLymvD2NuZKQ-bO_",hideBubble:true};
     if (canvas) canvas.style.opacity = '0';
     /* canvas stops on menu close */
     /* spotlight stays dark always */
-    updateSpotlight(-9999, -9999); /* hide cursor hole when idle */
+    hideSpotlightFromOutsideIn(); /* fade from outside in */
     mx = my = -999; swayX = swayY = swayVX = swayVY = 0;
     clearTimeout(moveTimeout); spotActive = false;
   }
 
-  function updateSpotlight(x, y) {
+  function updateSpotlight(x, y, radius) {
     if (!spotlight) return;
+    var r = (radius !== undefined) ? radius : 140;
     spotlight.style.background =
-      'radial-gradient(circle 140px at ' + x + 'px ' + y + 'px, ' +
+      'radial-gradient(circle ' + r + 'px at ' + x + 'px ' + y + 'px, ' +
       'transparent 0%, transparent 30%, rgba(0,0,0,0.70) 65%, rgba(0,0,0,0.95) 100%)';
+  }
+
+  var _lastSpotX = -9999, _lastSpotY = -9999;
+  function updateSpotlightTracked(x, y) {
+    _lastSpotX = x; _lastSpotY = y;
+    updateSpotlight(x, y, 140);
+  }
+
+  function hideSpotlightFromOutsideIn() {
+    if (!spotlight) return;
+    // Keep last position, animate radius 140→0 (outside closes in)
+    var x = _lastSpotX, y = _lastSpotY;
+    var startTime = null, startR = 140, dur = 2600;
+    function animR(ts) {
+      if (!startTime) startTime = ts;
+      var progress = Math.min((ts - startTime) / dur, 1);
+      // ease-in: slow start, accelerates inward
+      var eased = progress * progress;
+      var r = Math.round(startR * (1 - eased));
+      updateSpotlight(x, y, r);
+      if (progress < 1) {
+        requestAnimationFrame(animR);
+      } else {
+        updateSpotlight(-9999, -9999, 0);
+      }
+    }
+    requestAnimationFrame(animR);
   }
 
   function onMenuMove(e) {
@@ -6321,7 +6349,7 @@ window.chatbaseConfig={chatbotId:"xDWiHhLymvD2NuZKQ-bO_",hideBubble:true};
     clearTimeout(moveTimeout);
     moveTimeout = setTimeout(function() {
       /* spotlight stays dark always */
-    updateSpotlight(-9999, -9999); /* hide cursor hole when idle */
+    hideSpotlightFromOutsideIn(); /* fade from outside in */
       if (canvas) canvas.style.opacity = '0.12'; /* subtle matrix always visible */  // back to base
       spotActive = false;
     }, 5000);
@@ -6613,7 +6641,7 @@ document.addEventListener('click', function(e) {
       }, preAt);
 
       // Crossfade: HTML letters fade out while canvas fades in — simultaneous
-      var crossAt = maxEnd - 240 > 0 ? maxEnd - 240 : 50;
+      var crossAt = maxEnd - 40 > 0 ? maxEnd - 40 : 50;
       setTimeout(function() {
         // Fade HTML letters and canvas in one motion
         allSpans.forEach(function(item) {
