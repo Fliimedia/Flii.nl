@@ -4793,7 +4793,7 @@ details.faq-item[open] .faq-answer {
 #slogan-overlay {
   position: fixed; inset: 0; z-index: 9999;
   opacity: 0; pointer-events: none;
-  transition: opacity 0.45s ease;
+  transition: opacity 0.3s ease;
 }
 #slogan-overlay.s-glass { opacity: 1; pointer-events: all; }
 #slogan-overlay.s-full  { opacity: 1; pointer-events: all; }
@@ -6600,10 +6600,23 @@ document.addEventListener('click', function(e) {
       var descRow = document.querySelector('.hero-description-row');
       if (descRow) { descRow.style.transition = 'opacity 200ms ease'; descRow.style.opacity = '0'; }
       if (chipEl) { setTimeout(function() { chipEl.style.transition='opacity 300ms ease'; chipEl.style.opacity='0'; }, 80); }
+
+      // Pre-render canvas ~300ms before crossfade so it's ready
+      var preAt = maxEnd - 540 > 0 ? maxEnd - 540 : 0;
       setTimeout(function() {
-        allSpans.forEach(function(item) { item.el.style.transition='opacity 200ms ease'; item.el.style.opacity='0'; });
-        setTimeout(function() { if (window._sloganShowOverlay) window._sloganShowOverlay(); }, 220);
-      }, maxEnd - 240 > 0 ? maxEnd - 240 : 50);
+        if (window._sloganPreRender) window._sloganPreRender();
+      }, preAt);
+
+      // Crossfade: HTML letters fade out while canvas fades in — simultaneous
+      var crossAt = maxEnd - 240 > 0 ? maxEnd - 240 : 50;
+      setTimeout(function() {
+        // Fade HTML letters and canvas in one motion
+        allSpans.forEach(function(item) {
+          item.el.style.transition = 'opacity 300ms ease';
+          item.el.style.opacity = '0';
+        });
+        if (window._sloganCrossfade) window._sloganCrossfade();
+      }, crossAt);
     }
 
     // ── Rise back from below ──────────────────────────────────────────
@@ -6699,8 +6712,25 @@ document.addEventListener('click', function(e) {
       }, 1500);
     }
 
+    // Pre-render: start video+canvas but keep opacity:0
+    function preRender() {
+      if (active) return;
+      vid.currentTime = 0;
+      vid.play().catch(function(){});
+      drawFrame(); // renders invisibly (opacity still 0)
+    }
+
+    // Crossfade: set opacity:1 while HTML letters simultaneously fade
+    function crossfadeIn() {
+      if (active) return;
+      active = true;
+      ov.className = 's-glass'; // triggers CSS opacity:1 transition
+    }
+
     // Expose globally for letter script
     window._sloganShowOverlay = showOverlay;
+    window._sloganPreRender   = preRender;
+    window._sloganCrossfade   = crossfadeIn;
 
     // Click overlay to dismiss + rise letters
     ov.addEventListener('click', function() {
