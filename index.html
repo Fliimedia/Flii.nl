@@ -607,11 +607,16 @@ img { display: block; max-width: 100%; }
 .services-card {
   background: var(--c-dark);
   border-radius: var(--r);
-  overflow: hidden;
+  overflow: visible;
 }
 .service {
   padding: var(--sp-3) var(--sp-3) var(--sp-3);
   border-bottom: 1px solid rgba(255,255,255,.07);
+  position: sticky;
+  border-radius: 16px;
+  transition: box-shadow .3s;
+  background: #0F0E0C;
+  z-index: 1;
 }
 .service:last-child { border-bottom: none; }
 .service:hover { background: rgba(255,255,255,.03); }
@@ -4038,11 +4043,15 @@ img { display: block; max-width: 100%; }
   color: var(--c-red);
   border-color: rgba(232,41,74,.3);
 }
-.service-tag-link--product,
-a.service-tag-link--product:hover {
-  border-color: rgba(232,41,74,.7) !important;
-  color: #E8294A !important;
-  background: rgba(232,41,74,.08) !important;
+.service-tag-link--fliiapp {
+  background: #0F0E0C !important;
+  color: #fff !important;
+  border: 1px solid #E8294A !important;
+  animation: rb-glow 4s linear infinite !important;
+}
+.service-tag-link--fliiapp:hover {
+  background: #1a1816 !important;
+  color: #fff !important;
 }
 
 /* ── CTA DIAMOND SHINE ── */
@@ -5305,7 +5314,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
           <a href="diensten/web-development.html" class="service-name service-name-link">Web & AI development <span class="svc-link-arr">→</span></a>
         </div>
         <p class="service-desc">Van website tot platform: wij bieden no-code, custom code en integratie oplossingen op maat.</p>
-        <div class="service-tags"><a href="diensten/design.html" class="service-tag service-tag-link">Design</a> <a href="diensten/development.html" class="service-tag service-tag-link">Development</a> <a href="diensten/no-code.html" class="service-tag service-tag-link">No-code</a> <a href="diensten/custom-code.html" class="service-tag service-tag-link">Custom code</a> <a href="https://flii.app" class="service-tag service-tag-link service-tag-link--product" target="_blank">flii.app ↗</a></div>
+        <div class="service-tags"><a href="diensten/design.html" class="service-tag service-tag-link">Design</a> <a href="diensten/development.html" class="service-tag service-tag-link">Development</a> <a href="diensten/no-code.html" class="service-tag service-tag-link">No-code</a> <a href="diensten/custom-code.html" class="service-tag service-tag-link">Custom code</a> <a href="https://flii.app" class="service-tag service-tag-link service-tag-link--fliiapp" target="_blank">flii.app ↗</a></div>
       </div>
       <div class="service">
         <div class="service-header">
