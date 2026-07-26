@@ -118,6 +118,13 @@ img{max-width:100%;display:block;}
 .cta-btn:hover{background:#eee;}
 .cta-btn-arrow{display:inline-flex;align-items:center;justify-content:center;width:18px;height:18px;}
 
+/* width-align v1 */
+/* CTA card and hero image were unconstrained and spanned the full viewport.
+   Constrain them to the same column as .section-body (632px inner, 24px gutter). */
+.cta-section{max-width:680px;}
+@media (min-width:760px){
+  .hero-img{max-width:632px;width:calc(100% - 48px);margin-left:24px;margin-right:24px;}
+}
 </style>
 </head>
 <body>
