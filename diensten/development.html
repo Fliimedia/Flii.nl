@@ -253,6 +253,13 @@ img{max-width:100%;display:block;}
 @keyframes sidebarPulse {
   0%   { box-shadow: 0 2px 16px rgba(232,41,74,.15); transform: translateY(-50%) translateX(0) scale(1); }
   25%  { box-shadow: 0 0 0 6px rgba(232,41,74,.25), 0 4px 24px rgba(232,41,74,.4); transform: translateY(-50%) translateX(0) scale(1.08); }
+
+.svc-tags{display:flex;flex-wrap:wrap;gap:6px;margin-top:16px;margin-bottom:0;}
+.svc-tag{font-size:11px;font-weight:600;letter-spacing:.01em;white-space:nowrap;
+  background:#0F0E0C;color:#fff;border-radius:100px;
+  padding:3px 10px;border:1px solid #0F0E0C;
+  transition:background .15s,border-color .15s,color .15s;}
+.svc-tag:hover{background:rgba(232,41,74,.18);color:#E8294A;border-color:rgba(232,41,74,.3);}
 </style>
 <script>
 (function(){
@@ -274,6 +281,7 @@ img{max-width:100%;display:block;}
   <span class="eyebrow">Web development</span>
   <h1>Development</h1>
   <p class="lead">Custom web development op maat. Van eenvoudige website tot complexe webapplicatie — altijd schoon, snel en schaalbaar.</p>
+  <div class="svc-tags"><span class="svc-tag">Frontend</span><span class="svc-tag">Backend</span><span class="svc-tag">No-code</span><span class="svc-tag">Custom code</span></div>
 </div>
 <div class="section-body"><p>Techniek is de basis van alles online. Wij bouwen websites en applicaties die snel laden, goed scoren op SEO, en prettig zijn in gebruik — voor zowel bezoekers als beheerders.</p><h2>Wat we bouwen</h2><ul><li>Marketing websites en landingspagina's</li><li>E-commerce platformen</li><li>Web-applicaties en tools</li><li>API-integraties</li><li>Headless CMS-implementaties</li></ul><h2>Stack</h2><p>We werken met moderne technologieën als React, Next.js, Node.js en Webflow, altijd afgestemd op jouw wensen en schaalbehoefte.</p>
 <p>Heb je een vraag of project over dit onderwerp? <button onclick="if(window.highlightSidebar)window.highlightSidebar();var sb=document.getElementById('float-sidebar');if(sb){sb.classList.add('visible');}" type="button" style="background:none;border:none;padding:0;cursor:pointer;font:inherit;color:inherit;"><strong>Neem contact op →</strong></button></p>
