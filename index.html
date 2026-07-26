@@ -5062,6 +5062,37 @@ details.faq-item[open] .faq-answer {
   color: #fff;
   transform: scale(0.96);
 }
+
+/* ── DESKTOP GRID LAYOUTS ── */
+@media (min-width: 900px) {
+  /* Products: Build + Launch cards side by side */
+  #producten {
+    display: grid; grid-template-columns: 1fr 1fr; gap: 20px;
+    max-width: 1080px; margin: 0 auto; align-items: stretch;
+  }
+  #producten .pd-card { margin: 0; height: 100%; display: flex; flex-direction: column; }
+  #producten .pd-card > div:last-child { margin-top: auto; }
+  #producten .ai-launch-section { padding: 0; background: transparent; overflow: visible; }
+  #producten .ai-launch-card { height: 100%; display: flex; flex-direction: column; }
+
+  /* Reviews: 2x2 grid */
+  .reviews-list {
+    display: grid; grid-template-columns: 1fr 1fr; gap: 20px;
+    max-width: 1080px; margin: 0 auto;
+  }
+  .reviews-list .review { height: 100%; }
+
+  /* Team: members side by side */
+  .team-list { flex-direction: row; justify-content: center; align-items: flex-start; gap: 56px; flex-wrap: wrap; }
+  .team-list .team-member { width: auto; margin-bottom: 0; }
+
+  /* Insight articles: 3 across */
+  .articles-list {
+    display: grid; grid-template-columns: repeat(3, 1fr); gap: 20px;
+    max-width: 1080px; margin: 0 auto;
+  }
+  .articles-list .article { height: 100%; }
+}
 </style>
 <!-- Default consent vóór GTM -->
 
