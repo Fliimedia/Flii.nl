@@ -6712,19 +6712,24 @@ document.addEventListener('click', function(e) {
       }, 1500);
     }
 
-    // Pre-render: start video+canvas but keep opacity:0
+    // Pre-render: start video+canvas invisibly (opacity still 0)
+    var preRendering = false;
     function preRender() {
-      if (active) return;
+      if (active || preRendering) return;
+      preRendering = true;
       vid.currentTime = 0;
       vid.play().catch(function(){});
-      drawFrame(); // renders invisibly (opacity still 0)
+      if (!raf) drawFrame();
     }
 
-    // Crossfade: set opacity:1 while HTML letters simultaneously fade
+    // Crossfade: HTML letters fade out simultaneously as canvas fades in
     function crossfadeIn() {
       if (active) return;
       active = true;
-      ov.className = 's-glass'; // triggers CSS opacity:1 transition
+      preRendering = false;
+      // Ensure video is playing and drawFrame is running
+      if (!raf) { vid.play().catch(function(){}); drawFrame(); }
+      ov.className = 's-glass';
     }
 
     // Expose globally for letter script
