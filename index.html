@@ -6040,8 +6040,8 @@ document.addEventListener('click', function(e) {
     ctx.moveTo(pts[0][0], pts[0][1]);
     for (var i = 1; i < pts.length; i++) ctx.lineTo(pts[i][0], pts[i][1]);
     ctx.lineWidth   = 1.2;
-    ctx.strokeStyle = 'rgba(220,240,255,' + alpha + ')';
-    ctx.shadowColor = 'rgba(140,210,255,' + alpha * 0.9 + ')';
+    ctx.strokeStyle = 'rgba(255,80,200,' + alpha + ')';
+    ctx.shadowColor = 'rgba(232,41,74,' + alpha * 0.9 + ')';
     ctx.shadowBlur  = 8;
     ctx.stroke();
 
@@ -6050,9 +6050,9 @@ document.addEventListener('click', function(e) {
     ctx.moveTo(pts[0][0], pts[0][1]);
     for (var j = 1; j < pts.length; j++) ctx.lineTo(pts[j][0], pts[j][1]);
     ctx.lineWidth   = 6;
-    ctx.strokeStyle = 'rgba(100,180,255,' + alpha * 0.18 + ')';
+    ctx.strokeStyle = 'rgba(200,0,160,' + alpha * 0.18 + ')';
     ctx.shadowBlur  = 20;
-    ctx.shadowColor = 'rgba(100,180,255,' + alpha * 0.3 + ')';
+    ctx.shadowColor = 'rgba(200,0,160,' + alpha * 0.3 + ')';
     ctx.stroke();
 
     ctx.shadowBlur = 0;
@@ -6075,8 +6075,8 @@ document.addEventListener('click', function(e) {
 
   // illuminate a badge border
   function illuminate(el, intensity) {
-    el.style.borderColor   = 'rgba(140,210,255,' + Math.min(1, intensity) + ')';
-    el.style.boxShadow     = '0 0 ' + (8 * intensity) + 'px ' + (4 * intensity) + 'px rgba(100,180,255,' + (0.5 * intensity) + '), inset 0 0 ' + (6 * intensity) + 'px rgba(180,220,255,' + (0.2 * intensity) + ')';
+    el.style.borderColor   = 'rgba(232,41,74,' + Math.min(1, intensity) + ')';
+    el.style.boxShadow     = '0 0 ' + (8 * intensity) + 'px ' + (4 * intensity) + 'px rgba(232,41,74,' + (0.5 * intensity) + '), inset 0 0 ' + (6 * intensity) + 'px rgba(255,80,200,' + (0.2 * intensity) + ')';
   }
 
   function resetBadge(el) {
@@ -6085,8 +6085,8 @@ document.addEventListener('click', function(e) {
   }
 
   var lastFire = 0;
-  var INTERVAL_MIN = 600;   // ms between arc bursts
-  var INTERVAL_MAX = 1800;
+  var INTERVAL_MIN = 1200;   // ms between arc bursts
+  var INTERVAL_MAX = 3200;
   var nextFire = 800;
 
   function fire() {
@@ -6102,7 +6102,7 @@ document.addEventListener('click', function(e) {
       arcs.push({
         tx: c.x, ty: c.y, el: el,
         born: Date.now(),
-        dur: 220 + Math.random() * 180,   // arc visible duration ms
+        dur: 320 + Math.random() * 260,   // arc visible duration ms
         spread: 28 + Math.random() * 22,
         branches: Math.floor(Math.random() * 3) + 4,
         lit: false
@@ -6149,8 +6149,8 @@ document.addEventListener('click', function(e) {
       // Central emitter flash
       ctx.beginPath();
       ctx.arc(CX, CY, 3 + alpha * 5, 0, Math.PI * 2);
-      ctx.fillStyle = 'rgba(220,240,255,' + alpha * 0.9 + ')';
-      ctx.shadowColor = 'rgba(160,220,255,' + alpha + ')';
+      ctx.fillStyle = 'rgba(255,100,220,' + alpha * 0.9 + ')';
+      ctx.shadowColor = 'rgba(232,41,74,' + alpha + ')';
       ctx.shadowBlur = 16;
       ctx.fill();
       ctx.shadowBlur = 0;
