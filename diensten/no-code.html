@@ -253,6 +253,13 @@ img{max-width:100%;display:block;}
 @keyframes sidebarPulse {
   0%   { box-shadow: 0 2px 16px rgba(232,41,74,.15); transform: translateY(-50%) translateX(0) scale(1); }
   25%  { box-shadow: 0 0 0 6px rgba(232,41,74,.25), 0 4px 24px rgba(232,41,74,.4); transform: translateY(-50%) translateX(0) scale(1.08); }
+
+.svc-tags{display:flex;flex-wrap:wrap;gap:6px;margin-top:16px;margin-bottom:0;}
+.svc-tag{font-size:11px;font-weight:600;letter-spacing:.01em;white-space:nowrap;
+  background:#0F0E0C;color:#fff;border-radius:100px;
+  padding:3px 10px;border:1px solid #0F0E0C;
+  transition:background .15s,border-color .15s,color .15s;}
+.svc-tag:hover{background:rgba(232,41,74,.18);color:#E8294A;border-color:rgba(232,41,74,.3);}
 </style>
 <script>
 (function(){
@@ -274,6 +281,7 @@ img{max-width:100%;display:block;}
   <span class="eyebrow">Web development</span>
   <h1>No-code</h1>
   <p class="lead">Snelle, flexibele websites en tools zonder zware development. Webflow, Framer en meer — beheerbaar voor iedereen.</p>
+  <div class="svc-tags"><span class="svc-tag">Webflow</span><span class="svc-tag">Framer</span><span class="svc-tag">Bubble</span><span class="svc-tag">Zapier</span></div>
 </div>
 <div class="section-body"><p>No-code tools maken het mogelijk om snel professionele websites te bouwen die eenvoudig te beheren zijn — zonder afhankelijkheid van developers voor iedere wijziging.</p><h2>Platforms</h2><ul><li>Webflow (websites, CMS, e-commerce)</li><li>Framer (interactieve marketing sites)</li><li>Notion en Airtable (interne tools)</li><li>Make / Zapier (automatiseringen)</li></ul><h2>Voordelen</h2><ul><li>Snellere time-to-market</li><li>Lagere onderhoudskosten</li><li>Zelf beheerbaar na oplevering</li><li>Eenvoudig te A/B-testen</li></ul>
 <p>Heb je een vraag of project over dit onderwerp? <button onclick="if(window.highlightSidebar)window.highlightSidebar();var sb=document.getElementById('float-sidebar');if(sb){sb.classList.add('visible');}" type="button" style="background:none;border:none;padding:0;cursor:pointer;font:inherit;color:inherit;"><strong>Neem contact op →</strong></button></p>
