@@ -6596,16 +6596,21 @@ document.addEventListener('click', function(e) {
           item.el.style.transform = 'translateY('+fallDist+'px)';
         }, fd);
       });
+      // Hide description row immediately
+      var descRow = document.querySelector('.hero-description-row');
+      if (descRow) { descRow.style.transition = 'opacity 200ms ease'; descRow.style.opacity = '0'; }
       if (chipEl) { setTimeout(function() { chipEl.style.transition='opacity 300ms ease'; chipEl.style.opacity='0'; }, 80); }
       setTimeout(function() {
         allSpans.forEach(function(item) { item.el.style.transition='opacity 200ms ease'; item.el.style.opacity='0'; });
         setTimeout(function() { if (window._sloganShowOverlay) window._sloganShowOverlay(); }, 220);
-      }, maxEnd + 50);
+      }, maxEnd - 500 > 0 ? maxEnd - 500 : 50);
     }
 
     // ── Rise back from below ──────────────────────────────────────────
     window._sloganRiseToHome = function() {
       triggered = false;
+      var descRow = document.querySelector('.hero-description-row');
+      if (descRow) { descRow.style.transition = 'opacity 400ms ease'; descRow.style.opacity = '1'; }
       allSpans.forEach(function(item) {
         var p = item.p;
         var fd = Math.floor(Math.random()*220) + 20;
