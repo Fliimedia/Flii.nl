@@ -6869,6 +6869,7 @@ a.case-card, .case-card {
 <style>
 /* Body-injected: head CSS not fully applied for large files */
 .cases-grid { opacity: 0; transition: opacity 0.3s ease; }
+.cases-grid .case-card-img { visibility: hidden; }
 /* Bento logos: uniform circular badges */
 .bento-logo { width:40px!important;height:40px!important;border-radius:50%!important;background:#fff!important;display:flex!important;align-items:center!important;justify-content:center!important;overflow:hidden!important;box-shadow:0 1px 4px rgba(0,0,0,.1)!important;flex-shrink:0!important;padding:0!important; }
 .bento-logo img { width:100%!important;height:100%!important;object-fit:contain!important;padding:20%!important;box-sizing:border-box!important;display:block!important; }
@@ -6905,7 +6906,11 @@ a.bento-card { display: block !important; }
 <script>
 document.addEventListener('DOMContentLoaded', function() {
   var grid = document.querySelector('.cases-grid');
-  if (grid) requestAnimationFrame(function() { grid.style.opacity = '1'; });
+  if (grid) requestAnimationFrame(function() {
+    grid.style.opacity = '1';
+    var imgs = grid.querySelectorAll('.case-card-img');
+    imgs.forEach(function(img) { img.style.visibility = 'visible'; });
+  });
 });
 </script>
 </body>
