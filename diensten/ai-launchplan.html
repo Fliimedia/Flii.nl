@@ -308,6 +308,13 @@ body{font-family:var(--ff-body);background:var(--bg);color:var(--ink);-webkit-fo
 @keyframes sidebarPulse {
   0%   { box-shadow: 0 2px 16px rgba(232,41,74,.15); transform: translateY(-50%) translateX(0) scale(1); }
   25%  { box-shadow: 0 0 0 6px rgba(232,41,74,.25), 0 4px 24px rgba(232,41,74,.4); transform: translateY(-50%) translateX(0) scale(1.08); }
+
+.svc-tags{display:flex;flex-wrap:wrap;gap:6px;margin-top:16px;margin-bottom:0;}
+.svc-tag{font-size:11px;font-weight:600;letter-spacing:.01em;white-space:nowrap;
+  background:#0F0E0C;color:#fff;border-radius:100px;
+  padding:3px 10px;border:1px solid #0F0E0C;
+  transition:background .15s,border-color .15s,color .15s;}
+.svc-tag:hover{background:rgba(232,41,74,.18);color:#E8294A;border-color:rgba(232,41,74,.3);}
 </style>
 <script>
 (function(){
@@ -762,7 +769,8 @@ function scrollToPhase(n) {
             html+='<div style="display:flex;justify-content:space-between;padding:8px 0;font-size:13px"><span style="color:#0F0E0C">'+pkg.label+'</span><span style="color:#E8294A;font-weight:600">'+pkg.price+'</span></div>';
           }
         }
-        html+='<p style="font-size:11px;color:#9B9790;margin:12px 0 0;line-height:1.5">Indicatie excl. btw en mediabudget. Definitief voorstel op aanvraag.</p>';
+        html+='<p style="font-size:11px;color:#9B9790;margin:12px 0 0;line-height:1.5">Indicatie excl. btw en mediabudget. Definitief voorstel op aanvraag.</p>
+  <div class="svc-tags"><span class="svc-tag">AI strategie</span><span class="svc-tag">Product design</span><span class="svc-tag">Go-to-market</span><span class="svc-tag">Copywriting</span></div>';
       }
       html+='</div>';
       html+='<a href="https://calendly.com/flii-media" target="_blank" style="display:flex;align-items:center;justify-content:center;width:100%;background:#E8294A;color:#fff;border-radius:100px;padding:14px 24px;font-size:14px;font-weight:700;font-family:inherit;text-decoration:none;margin-bottom:8px">Plan een gesprek →</a>';
