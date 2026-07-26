@@ -925,7 +925,7 @@ function renderCalc() {
           c.subs.forEach(function(sub) {
             var son = !!S.subs[sub];
             html += '<button class="toggle toggle-sm'+(son?" on":"") +'" onclick="toggleSub(\''+sub+'\')">';
-            html += '<span class="toggle-main"><span class="toggle-t">'+(L.subs[sub]||sub)+'</span></span>';
+            html += '<span class="toggle-main"><span class="toggle-t">'+(L.subs[sub]||sub)+'</span>'+(SUB_DESC[sub]?'<span class="toggle-desc">'+SUB_DESC[sub]+'</span>':'')+'</span>';
             html += '<span class="tgt"><span class="tgt-dot"></span></span></button>';
           });
           html += '</div>';
@@ -937,7 +937,7 @@ function renderCalc() {
             var plabel = dp.once?L.from+" "+eur(dp.once)+(dp.mo?"+":""):"";
             if (dp.mo) plabel += (dp.once?"":L.from+" ")+eur(dp.mo)+L.mo;
             html += '<button class="toggle toggle-sm'+(don?" on":"") +'" onclick="toggleDel(\''+d+'\')">';
-            html += '<span class="toggle-main"><span class="toggle-t">'+(L.dels[d]||d)+'</span></span>';
+            html += '<span class="toggle-main"><span class="toggle-t">'+(L.dels[d]||d)+'</span>'+(DEL_DESC[d]?'<span class="toggle-desc">'+DEL_DESC[d]+'</span>':'')+'</span>';
             if (plabel) html += '<span class="toggle-p mono">'+plabel+'</span>';
             html += '<span class="tgt"><span class="tgt-dot"></span></span></button>';
           });
