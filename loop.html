@@ -149,12 +149,12 @@ body{font-family:var(--ff-body);background:var(--paper);color:var(--ink);}
 .calc-section{padding:64px 0;background:transparent;}
 .calc-wrap{max-width:760px;margin:0 auto;padding:0 10px;}
 .calc-card{background:transparent;border:none;border-radius:0;overflow:visible;box-shadow:none;}
-.calc-head{padding:24px 20px 0;}
+.calc-head{padding:24px 28px 0;}
 .calc-head .eyebrow{margin-bottom:6px;}
 .calc-head h2{font-family:var(--ff-disp);font-size:clamp(20px,5vw,28px);font-weight:800;
   letter-spacing:-.8px;margin-bottom:6px;}
 .calc-head p{font-size:13px;color:var(--mid);line-height:1.5;margin-bottom:20px;}
-.calc-steps{display:flex;gap:4px;padding:0 20px;border-bottom:none;overflow-x:auto;}
+.calc-steps{display:flex;gap:4px;padding:0 28px;border-bottom:none;overflow-x:auto;}
 .calc-dot{display:flex;align-items:center;gap:8px;background:none;border:none;cursor:pointer;
   font:inherit;color:var(--soft);padding:12px 10px;border-radius:0;white-space:nowrap;
   transition:color .15s;border-bottom:2px solid transparent;margin-bottom:-1px;}
@@ -166,7 +166,7 @@ body{font-family:var(--ff-body);background:var(--paper);color:var(--ink);}
 .calc-dot.on{color:var(--ink);border-bottom-color:var(--mag);}
 .calc-dot.on .calc-dot-n{border-color:var(--mag);background:var(--mag);color:#fff;}
 .calc-dot.done .calc-dot-n{border-color:var(--ink);background:var(--ink);color:var(--paper);}
-.calc-slide{padding:24px 20px 28px;min-height:286px;animation:slideIn .34s ease both;}
+.calc-slide{padding:24px 28px 32px;min-height:286px;animation:slideIn .34s ease both;}
 @keyframes slideIn{from{opacity:0;transform:translateX(12px);}to{opacity:1;transform:none;}}
 .calc-slide-head{margin-bottom:20px;padding-bottom:4px;}
 .calc-slide-title{font-family:var(--ff-disp);font-weight:600;font-size:19px;color:var(--ink);
@@ -268,7 +268,7 @@ body{font-family:var(--ff-body);background:var(--paper);color:var(--ink);}
   transition:background .15s;}
 .cfg-cta:hover{background:#C2173A;}
 .calc-nav{display:flex;align-items:center;justify-content:space-between;gap:12px;
-  padding:20px 20px 4px;border-top:none;background:transparent;}
+  padding:20px 28px 4px;border-top:none;background:transparent;}
 .calc-running{font-size:12.5px;color:var(--mid);text-align:center;flex:1;font-weight:600;}
 .btn{display:inline-flex;align-items:center;justify-content:center;gap:6px;border:none;
   border-radius:100px;padding:10px 20px;font-family:var(--ff-body);font-size:13px;font-weight:700;
@@ -700,30 +700,27 @@ function eur(n) { return "\u20AC\u00A0" + Math.round(n||0).toLocaleString("nl-NL
 function compute() {
   var selected = ["campagne","ai"].filter(function(k){ return S.types[k]; });
   var once = 0, mo = 0, saving = 0;
-  var allLoop = S.phases.plan && S.phases.build && S.phases.run;
 
   selected.forEach(function(sk) {
     var sc = PRICING.scopes[sk];
-    var planFee = S.phases.build ? 0 : (S.phases.plan ? sc.plan : 0);
-    once += planFee + (S.phases.build ? sc.build : 0);
-    mo   += S.phases.run ? sc.run : 0;
+    // Plan fee: charged when plan is selected AND build is not (build includes plan)
+    if (S.phases.plan && !S.phases.build) once += sc.plan;
+    if (S.phases.build) once += sc.build;
+    if (S.phases.run)   mo   += sc.run;
     if (S.phases.plan && S.phases.build) saving += sc.plan;
   });
 
-  // App/Platform scopes removed (Flii.app only)
-
-  // Campaign channels
+  // Campaign channels: setup (once) applies when plan OR build selected
   if (S.types.campagne) {
     CHANNEL_TREE.forEach(function(c) {
       if (!S.cats[c.key]) return;
-      if (S.phases.build) once += c.once;
-      if (S.phases.run)   mo   += c.mo;
+      if (S.phases.plan || S.phases.build) once += c.once;
+      if (S.phases.run)                    mo   += c.mo;
       c.dels.forEach(function(d) {
-        if (S.dels[d]) {
-          var dp = DEL_PRICE[d] || {};
-          if (S.phases.build) once += dp.once || 0;
-          if (S.phases.run)   mo   += dp.mo   || 0;
-        }
+        if (!S.dels[d]) return;
+        var dp = DEL_PRICE[d] || {};
+        if (S.phases.plan || S.phases.build) once += dp.once || 0;
+        if (S.phases.run)                    mo   += dp.mo   || 0;
       });
     });
   }
@@ -737,8 +734,7 @@ function lineItems() {
 
   selected.forEach(function(sk) {
     var sc = PRICING.scopes[sk];
-    var planFee = S.phases.build ? 0 : (S.phases.plan ? sc.plan : 0);
-    var onceItem = planFee + (S.phases.build ? sc.build : 0);
+    var onceItem = (S.phases.plan && !S.phases.build ? sc.plan : 0) + (S.phases.build ? sc.build : 0);
     var moItem   = S.phases.run ? sc.run : 0;
     var sub = [];
 
@@ -774,9 +770,9 @@ function lineItems() {
       c.subs.filter(function(x){ return S.subs[x]; }).forEach(function(x){ sub.push({ label:L.subs[x]||x, free:true }); });
       selDels.forEach(function(d) {
         var dp = DEL_PRICE[d]||{};
-        sub.push({ label:L.dels[d]||d, once:(dp.once||0)*(S.phases.build?1:0), mo:(dp.mo||0)*(S.phases.run?1:0) });
+        sub.push({ label:L.dels[d]||d, once:(dp.once||0)*((S.phases.plan||S.phases.build)?1:0), mo:(dp.mo||0)*(S.phases.run?1:0) });
       });
-      var totOnce = (c.once + selDels.reduce(function(a,d){ return a+((DEL_PRICE[d]&&DEL_PRICE[d].once)||0);},0)) * (S.phases.build?1:0);
+      var totOnce = (c.once + selDels.reduce(function(a,d){ return a+((DEL_PRICE[d]&&DEL_PRICE[d].once)||0);},0)) * ((S.phases.plan||S.phases.build)?1:0);
       var totMo   = (c.mo   + selDels.reduce(function(a,d){ return a+((DEL_PRICE[d]&&DEL_PRICE[d].mo  )||0);},0)) * (S.phases.run ?1:0);
       items.push({ label:L.cats[c.key], once:totOnce, mo:totMo, req:c.once===0&&c.mo===0, sub:sub });
     });
@@ -800,6 +796,81 @@ function packagePrice(k) {
   selected.forEach(function(sk) { total += PRICING.scopes[sk][k] || 0; });
   return total > 0 ? L.from + " " + eur(total) : (k === "build" ? "" : L.onRequest);
 }
+
+var DEL_DESC = {
+  seoContent:"Artikelen en pagina's die scoren op relevante zoektermen.",
+  seoTech:"Snelheid, structuur en crawlbaarheid van je website optimaliseren.",
+  sea:"Betaalde advertenties in Google zoekresultaten.",
+  linkbuilding:"Kwalitatieve externe links bouwen voor meer autoriteit.",
+  socialContent:"Posts, reels en stories die engagement genereren.",
+  community:"Reacties beheren en je community actief houden.",
+  paidSocial:"Betaalde campagnes op sociale platformen.",
+  socialInfluencer:"Samenwerking met creators en influencers.",
+  bannerCreatie:"Display-banners ontwerpen in alle formaten.",
+  programmaticBuy:"Geautomatiseerde media-inkoop via DSP-platforms.",
+  retargetingSetup:"Bezoekers terugwinnen met gerichte advertenties.",
+  videoProductie:"Professionele videoproductie voor campagnes.",
+  videoMontage:"Ruw beeldmateriaal monteren tot een sterk eindproduct.",
+  videoBuy:"Media-inkoop voor video-advertenties op YouTube e.a.",
+  spotProductie:"Radio- of audiospot schrijven en produceren.",
+  podcastProductie:"Podcast opnemen, monteren en publiceren.",
+  audioBuy:"Media-inkoop voor audio-advertenties op Spotify e.a.",
+  templateDesign:"E-mail templates ontwerpen die passen bij je merk.",
+  emailFlows:"Geautomatiseerde e-mailreeksen op basis van gedrag.",
+  crmSetup:"CRM-systeem inrichten en koppelen aan je kanalen.",
+  flowSetup:"Berichtflow opzetten in WhatsApp, sms of push.",
+  msgCopy:"Berichten schrijven die conversie stimuleren.",
+  msgIntegratie:"Berichtenplatform koppelen aan je website of CRM.",
+  oohOntwerp:"Visueel ontwerp voor billboards en abri's.",
+  oohBuy:"Locaties selecteren, inkopen en plannen.",
+  oohProductie:"Drukwerk en montage voor buitenreclame.",
+  printOntwerp:"Ontwerp voor flyers, brochures en drukwerk.",
+  drukwerk:"Printen en afwerken van je gedrukte materialen.",
+  printDistributie:"Versturen of verspreiden van je drukwerk.",
+  persstrategie:"PR-plan en persrelaties opbouwen en beheren.",
+  influencerMgmt:"Influencers scouten, briefen en campagne begeleiden.",
+  affiliateSetup:"Affiliate-netwerk opzetten en partners werven.",
+};
+
+var SUB_DESC = {
+  searchEngines:"Adverteren op Google en Bing zoekresultaten.",
+  aiSearch:"Zichtbaar zijn in AI-gestuurde zoekresultaten (ChatGPT, Perplexity).",
+  socialSearch:"Gevonden worden via zoeken op TikTok, Instagram en Pinterest.",
+  appStore:"App store optimalisatie voor meer organische downloads.",
+  meta:"Facebook en Instagram advertenties en organisch bereik.",
+  tiktok:"Short-form video content en advertenties op TikTok.",
+  linkedin:"B2B-campagnes en thought leadership op LinkedIn.",
+  pinterest:"Visuele content voor inspiratie en productontdekking.",
+  otherSocial:"Aanwezigheid op X, Snapchat en Reddit.",
+  programmatic:"Real-time bieden op display advertentieruimte.",
+  gdn:"Banners op het Google Display netwerk.",
+  native:"Advertenties die opgaan in redactionele content.",
+  retargeting:"Eerdere bezoekers opnieuw bereiken met gerichte ads.",
+  onlineVideo:"Pre-roll en skippable video ads op YouTube.",
+  ctv:"Advertenties op streaming-tv zoals Netflix en Videoland.",
+  linearTv:"Spots op traditionele televisiezenders.",
+  radio:"Spots op landelijke en regionale radiozenders.",
+  streamingAudio:"Audiospots op Spotify en andere streamingdiensten.",
+  podcasts:"Host-read en dynamisch ingevoegde podcast-advertenties.",
+  newsletters:"Gerichte e-mailcampagnes naar je eigen lijst.",
+  automation:"Automatische e-mailreeksen op basis van gedrag.",
+  loyalty:"Loyaliteitsmails om klanten actief en betrokken te houden.",
+  whatsapp:"Berichten en campagnes via WhatsApp Business.",
+  sms:"Korte, directe berichten voor hoge open rates.",
+  push:"Browser- en app pushberichten voor direct bereik.",
+  billboards:"Grote formaten langs drukke wegen en pleinen.",
+  dooh:"Digitale schermen in steden en winkelcentra.",
+  transit:"Abri's, bus- en metroreclame.",
+  retail:"In-store displays en reclame op winkelpunten.",
+  stationery:"Visitekaartjes, briefpapier en huisstijl-drukwerk.",
+  flyers:"Flyers en brochures voor offline distributie.",
+  directMail:"Gepersonaliseerde post naar geselecteerde adressen.",
+  merch:"Gebrandde merchandise en relatiegeschenken.",
+  earned:"PR en redactionele aandacht via journalisten en media.",
+  influencer:"Samenwerkingen met content creators en KOL's.",
+  affiliate:"Commissiemodel waarbij partners klanten aanbrengen.",
+  sponsoring:"Merkzichtbaarheid via evenementen en content sponsoring.",
+};
 
 // ── RENDER ───────────────────────────────────────────────────
 function renderCalc() {
@@ -1003,237 +1074,6 @@ function setAppKind(k)  { S.appKind   = k;             renderCalc(); }
 function toggleRow(label){ S.openRows[label] = !S.openRows[label]; renderCalc(); }
 
 
-// ============================================================
-// PRICE CALCULATOR — faithful port of Fliimedia/Flii.app
-// ============================================================
-
-// ── DATA ────────────────────────────────────────────────────
-var PRICING = {
-  scopes: {
-    campagne: { plan: 1500, build: 0,    run: 0   },
-    ai:       { plan: 2500, build: 6500, run: 850 }
-  }
-};
-
-var CHANNEL_TREE = [
-  { key:"search",    once:850,  mo:0, subs:["searchEngines","aiSearch","socialSearch","appStore"],         dels:["seoContent","seoTech","sea","linkbuilding"] },
-  { key:"social",    once:750,  mo:0, subs:["meta","tiktok","linkedin","pinterest","otherSocial"],          dels:["socialContent","community","paidSocial","socialInfluencer"] },
-  { key:"display",   once:700,  mo:0, subs:["programmatic","gdn","native","retargeting"],                  dels:["bannerCreatie","programmaticBuy","retargetingSetup"] },
-  { key:"videotv",   once:950,  mo:0, subs:["onlineVideo","ctv","linearTv"],                               dels:["videoProductie","videoMontage","videoBuy"] },
-  { key:"audio",     once:0,    mo:0, subs:["radio","streamingAudio","podcasts"],                          dels:["spotProductie","podcastProductie","audioBuy"] },
-  { key:"email",     once:850,  mo:0, subs:["newsletters","automation","loyalty"],                         dels:["templateDesign","emailFlows","crmSetup"] },
-  { key:"messaging", once:0,    mo:0, subs:["whatsapp","sms","push"],                                     dels:["flowSetup","msgCopy","msgIntegratie"] },
-  { key:"ooh",       once:850,  mo:0, subs:["billboards","dooh","transit","retail"],                      dels:["oohOntwerp","oohBuy","oohProductie"] },
-  { key:"print",     once:650,  mo:0, subs:["stationery","flyers","directMail","merch"],                  dels:["printOntwerp","drukwerk","printDistributie"] },
-  { key:"pr",        once:0,    mo:0, subs:["earned","influencer","affiliate","sponsoring"],               dels:["persstrategie","influencerMgmt","affiliateSetup"] }
-];
-
-var DEL_PRICE = {
-  seoContent:{mo:450},seoTech:{mo:400},sea:{mo:500},linkbuilding:{mo:350},
-  socialContent:{mo:550},community:{mo:450},paidSocial:{mo:500},socialInfluencer:{mo:400},
-  bannerCreatie:{once:750},programmaticBuy:{mo:500},retargetingSetup:{once:500},
-  videoProductie:{once:4500},videoMontage:{once:900},videoBuy:{mo:450},
-  spotProductie:{once:1500},podcastProductie:{once:1500},audioBuy:{mo:400},
-  templateDesign:{once:650},emailFlows:{once:1200},crmSetup:{once:1500},
-  flowSetup:{once:850},msgCopy:{mo:250},msgIntegratie:{once:1200},
-  oohOntwerp:{once:750},oohBuy:{once:500},oohProductie:{once:1500},
-  printOntwerp:{once:650},drukwerk:{once:750},printDistributie:{once:600},
-  persstrategie:{mo:500},influencerMgmt:{mo:450},affiliateSetup:{once:1200}
-};
-
-var APP_KINDS = ["webapp","pwa","nativeApp"];
-var APP_OPTS  = ["uxDesign","backendApi","appIntegraties","appStorePub"];
-var PLATFORM_OPTS = ["website","ecommerce","portaal","platformAi","platformIntegraties","cms"];
-var AI_OPTS   = ["chatbot","contentgen","automatisering","dataAnalyse","aiIntegratie","customModel"];
-var APP_KIND_PRICE = { webapp:0, pwa:0, nativeApp:1500 };
-var APP_OPT_PRICE  = { uxDesign:900, backendApi:1200, appIntegraties:900, appStorePub:500 };
-var APP_CAP = 10000;
-
-// Labels
-var L = {
-  scopes:    { campagne:"Campagne", ai:"AI" },
-  scopeDesc: { campagne:"Een advertentiecampagne, opgezet en gestuurd op resultaat.", ai:"Een AI-oplossing of automatisering, van integratie tot een eigen model." },
-  phases:    { plan:"Loop Start", build:"Loop Build", run:"Loop Run" },
-  phaseDesc: { plan:"Research en plan van aanpak.", build:"Creatie: de app, het platform of de campagne wordt gebouwd.", run:"Beheer & verbeter: hosting, optimalisatie en doorontwikkeling." },
-  phaseByType: {
-    campagne:{ plan:"Onderzoek en strategie voor je campagnes.", build:"Creatie van de content en campagnes.", run:"Beheer en verbetering van je campagnes." },
-    app:     { plan:"Onderzoek en plan voor je app.", build:"Ontwerp en bouw van de app.", run:"Beheer en doorontwikkeling van de app." },
-    platform:{ plan:"Onderzoek en plan voor je platform.", build:"Ontwerp en bouw van het platform.", run:"Hosting, beheer en doorontwikkeling." },
-    ai:      { plan:"Onderzoek en plan voor de AI-integratie.", build:"Bouw en integratie van de AI-oplossing.", run:"Beheer en optimalisatie van de AI." }
-  },
-  cats: { search:"Search",social:"Social",display:"Display",videotv:"Video & TV",audio:"Audio",email:"E-mail & CRM",messaging:"Messaging",ooh:"Out-of-home",print:"Print",pr:"PR & partnerships" },
-  catDesc: { search:"Gevonden worden bij een zoekintentie, in zoekmachines en AI.",social:"Organisch en betaald op de platforms waar je doelgroep is.",display:"Banners en native advertenties op het hele web.",videotv:"Video-advertenties op YouTube, streaming en tv.",audio:"Radio, Spotify en podcasts.",email:"E-mail, automation en CRM.",messaging:"WhatsApp, sms en push-notificaties.",ooh:"Buitenreclame, digitaal en klassiek.",print:"Print, flyers en direct mail.",pr:"PR, influencers en affiliates." },
-  subs: { searchEngines:"Zoekmachines (Google, Bing)",aiSearch:"AI-search / LLM's",socialSearch:"Social search",appStore:"App store (ASO)",meta:"Meta (Facebook, Instagram)",tiktok:"TikTok",linkedin:"LinkedIn",pinterest:"Pinterest",otherSocial:"X, Snapchat, Reddit",programmatic:"Programmatic display",gdn:"Google Display Network",native:"Native advertising",retargeting:"Retargeting",onlineVideo:"Online video (YouTube Ads)",ctv:"Connected TV / streaming",linearTv:"Lineaire TV",radio:"Radio",streamingAudio:"Streaming audio (Spotify)",podcasts:"Podcasts",newsletters:"Nieuwsbrieven",automation:"Marketing automation",loyalty:"Loyaliteitsmail",whatsapp:"WhatsApp Business",sms:"SMS",push:"Push-notificaties",billboards:"Billboards",dooh:"Digitale OOH (DOOH)",transit:"Transit / abri",retail:"Retail / winkels",stationery:"Briefpapier & huisstijl",flyers:"Flyers & brochures",directMail:"Direct mail",merch:"Merchandise",earned:"Earned media / PR",influencer:"Influencer",affiliate:"Affiliate",sponsoring:"Sponsoring" },
-  dels: { seoContent:"SEO (content)",seoTech:"SEO (technisch)",sea:"SEA / Google Ads",linkbuilding:"Linkbuilding",socialContent:"Contentcreatie",community:"Community management",paidSocial:"Paid social",socialInfluencer:"Influencer",bannerCreatie:"Bannercreatie",programmaticBuy:"Programmatic inkoop",retargetingSetup:"Retargeting-setup",videoProductie:"Videoproductie",videoMontage:"Montage",videoBuy:"Media-inkoop",spotProductie:"Spotproductie",podcastProductie:"Podcastproductie",audioBuy:"Media-inkoop",templateDesign:"Template-design",emailFlows:"Flows / automation",crmSetup:"CRM-inrichting",flowSetup:"Flow-opzet",msgCopy:"Copy",msgIntegratie:"Integratie",oohOntwerp:"Ontwerp",oohBuy:"Inkoop & planning",oohProductie:"Productie",printOntwerp:"Ontwerp",drukwerk:"Drukwerk",printDistributie:"Distributie",persstrategie:"PR-strategie",influencerMgmt:"Influencer management",affiliateSetup:"Affiliate-setup" },
-  typeOpts: { webapp:"Webapp",pwa:"PWA",nativeApp:"Native app",uxDesign:"UX-design",backendApi:"Backend & API",appIntegraties:"Integraties",appStorePub:"App store-publicatie",website:"Website",ecommerce:"Webshop / e-commerce",portaal:"Portaal / dashboard",platformAi:"AI-functionaliteit",platformIntegraties:"Integraties",cms:"CMS",chatbot:"Chatbot / assistent",contentgen:"Contentgeneratie",automatisering:"Automatisering",dataAnalyse:"Data-analyse",aiIntegratie:"AI-integratie",customModel:"Custom model" },
-  steps:   { type:"Type", details:"Details", pakketten:"Pakketten", result:"Resultaat" },
-  stepTitle:{ type:"Wat wil je bouwen?", details:"Stel je scope samen.", pakketten:"Kies je Loop-fases.", result:"Jouw indicatie." },
-  stepHelp: { type:"Kies één type of combineer er meerdere.", details:"Verfijn je keuze per dienst.", pakketten:"Welke fases van de loop neem je af?", result:"Je indicatieve investering." },
-  badge:"Meest gekozen",
-  from:"v.a.",
-  onRequest:"Op aanvraag",
-  inclFree:"inbegrepen",
-  once:"Eenmalig",
-  mo:"/mnd",
-  monthCol:"Maand",
-  svcCol:"Dienst",
-  totalWord:"Totaal",
-  totalFrom:"Totaal v.a.",
-  back:"← Terug",
-  next:"Volgende →",
-  startOver:"Opnieuw",
-  cta:"Plan een gesprek",
-  empty:"Kies minimaal één type en fase.",
-  comboNote:"Loop Start-fee vervalt bij Loop Build.",
-  save:"Je bespaart"
-};
-
-// ── STATE ────────────────────────────────────────────────────
-var S = {
-  step: 0,
-  types:  { campagne:true, app:false, platform:false, ai:false },
-  phases: { plan:true, build:true, run:true },
-  cats:   {}, subs: {}, dels: {},
-  opts:   {},
-  appKind:"webapp",
-  advice: false,
-  openRows: {}
-};
-var STEPS = ["type","details","pakketten","result"];
-
-function eur(n) { return "\u20AC\u00A0" + Math.round(n||0).toLocaleString("nl-NL"); }
-
-// ── COMPUTE ──────────────────────────────────────────────────
-function compute() {
-  var selected = ["campagne","ai"].filter(function(k){ return S.types[k]; });
-  var once = 0, mo = 0, saving = 0;
-  var allLoop = S.phases.plan && S.phases.build && S.phases.run;
-
-  selected.forEach(function(sk) {
-    var sc = PRICING.scopes[sk];
-    var planFee = S.phases.build ? 0 : (S.phases.plan ? sc.plan : 0);
-    once += planFee + (S.phases.build ? sc.build : 0);
-    mo   += S.phases.run ? sc.run : 0;
-    if (S.phases.plan && S.phases.build) saving += sc.plan;
-  });
-
-  // App/Platform scopes removed (Flii.app only)
-
-  // Campaign channels
-  if (S.types.campagne) {
-    CHANNEL_TREE.forEach(function(c) {
-      if (!S.cats[c.key]) return;
-      if (S.phases.build) once += c.once;
-      if (S.phases.run)   mo   += c.mo;
-      c.dels.forEach(function(d) {
-        if (S.dels[d]) {
-          var dp = DEL_PRICE[d] || {};
-          if (S.phases.build) once += dp.once || 0;
-          if (S.phases.run)   mo   += dp.mo   || 0;
-        }
-      });
-    });
-  }
-
-  return { once:once, mo:mo, saving:saving, selected:selected, nothing: once===0 && mo===0 };
-}
-
-function lineItems() {
-  var items = [];
-  var selected = ["campagne","ai"].filter(function(k){ return S.types[k]; });
-
-  selected.forEach(function(sk) {
-    var sc = PRICING.scopes[sk];
-    var planFee = S.phases.build ? 0 : (S.phases.plan ? sc.plan : 0);
-    var onceItem = planFee + (S.phases.build ? sc.build : 0);
-    var moItem   = S.phases.run ? sc.run : 0;
-    var sub = [];
-
-    if (sk === "app" && S.phases.build) {
-      var room = APP_CAP - sc.build;
-      var kp = APP_KIND_PRICE[S.appKind] || 0;
-      var add = Math.min(kp, Math.max(0,room));
-      room -= add; onceItem += add;
-      sub.push({ label: L.typeOpts[S.appKind]||S.appKind, once:add, free:kp===0 });
-      APP_OPTS.forEach(function(k) {
-        if (S.opts[k]) {
-          var a2 = Math.min(APP_OPT_PRICE[k]||0, Math.max(0,room));
-          room -= a2; onceItem += a2;
-          sub.push({ label:L.typeOpts[k]||k, once:a2 });
-        }
-      });
-    } else if (sk === "platform") {
-      PLATFORM_OPTS.forEach(function(k) { if (S.opts[k]) sub.push({ label:L.typeOpts[k]||k, free:true }); });
-    } else if (sk === "ai") {
-      AI_OPTS.forEach(function(k) { if (S.opts[k]) sub.push({ label:L.typeOpts[k]||k, free:true }); });
-    }
-
-    if (onceItem > 0 || moItem > 0 || sub.length > 0) {
-      items.push({ label:L.scopes[sk], once:onceItem, mo:moItem, sub:sub });
-    }
-  });
-
-  if (S.types.campagne) {
-    CHANNEL_TREE.forEach(function(c) {
-      if (!S.cats[c.key]) return;
-      var selDels = c.dels.filter(function(d){ return S.dels[d]; });
-      var sub = [];
-      c.subs.filter(function(x){ return S.subs[x]; }).forEach(function(x){ sub.push({ label:L.subs[x]||x, free:true }); });
-      selDels.forEach(function(d) {
-        var dp = DEL_PRICE[d]||{};
-        sub.push({ label:L.dels[d]||d, once:(dp.once||0)*(S.phases.build?1:0), mo:(dp.mo||0)*(S.phases.run?1:0) });
-      });
-      var totOnce = (c.once + selDels.reduce(function(a,d){ return a+((DEL_PRICE[d]&&DEL_PRICE[d].once)||0);},0)) * (S.phases.build?1:0);
-      var totMo   = (c.mo   + selDels.reduce(function(a,d){ return a+((DEL_PRICE[d]&&DEL_PRICE[d].mo  )||0);},0)) * (S.phases.run ?1:0);
-      items.push({ label:L.cats[c.key], once:totOnce, mo:totMo, req:c.once===0&&c.mo===0, sub:sub });
-    });
-  }
-  return items;
-}
-
-function phaseDescFor(k) {
-  var selected = ["campagne","app","platform","ai"].filter(function(s){ return S.types[s]; });
-  if (selected.length === 1) {
-    var pd = L.phaseByType[selected[0]];
-    return pd ? pd[k] : L.phaseDesc[k];
-  }
-  return L.phaseDesc[k];
-}
-
-function packagePrice(k) {
-  var selected = ["campagne","app","platform","ai"].filter(function(s){ return S.types[s]; });
-  if (selected.length === 0) return "";
-  var total = 0;
-  selected.forEach(function(sk) { total += PRICING.scopes[sk][k] || 0; });
-  return total > 0 ? L.from + " " + eur(total) : (k === "build" ? "" : L.onRequest);
-}
-
-// ── RENDER ───────────────────────────────────────────────────
-
-function navBtns(back, next) {
-  var h = '<div class="calc-nav">';
-  if (back) h += '<button class="btn btn-secondary" onclick="goStep('+(S.step-1)+')">'+L.back+'</button>';
-  if (next) h += '<button class="btn btn-primary"   onclick="goStep('+(S.step+1)+')">'+L.next+'</button>';
-  if (!next && S.step > 0) h += '<button class="btn btn-ghost" onclick="goStep(0)">'+L.startOver+'</button>';
-  h += '</div>';
-  return h;
-}
-
-function goStep(i) {
-  S.step = Math.max(0, Math.min(STEPS.length-1, i));
-  renderCalc();
-  document.getElementById("calculator").scrollIntoView({behavior:"smooth",block:"start"});
-}
-function toggleType(k)  { S.types[k]  = !S.types[k];  renderCalc(); }
-function togglePhase(k) { S.phases[k] = !S.phases[k]; renderCalc(); }
-function toggleCat(k)   { S.cats[k]   = !S.cats[k];   renderCalc(); }
-function toggleSub(k)   { S.subs[k]   = !S.subs[k];   renderCalc(); }
-function toggleDel(k)   { S.dels[k]   = !S.dels[k];   renderCalc(); }
-function toggleOpt(k)   { S.opts[k]   = !S.opts[k];   renderCalc(); }
-function setAppKind(k)  { S.appKind   = k;             renderCalc(); }
-function toggleRow(label){ S.openRows[label] = !S.openRows[label]; renderCalc(); }
-
-renderCalc();
 
 
 
