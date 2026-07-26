@@ -5093,6 +5093,21 @@ details.faq-item[open] .faq-answer {
   }
   .articles-list .article { height: 100%; }
 }
+
+.office-mute-btn {
+  position: absolute; top: var(--sp-2); right: var(--sp-2); z-index: 4;
+  width: 34px; height: 34px; border-radius: 50%;
+  background: rgba(255,255,255,.92); backdrop-filter: blur(8px);
+  border: none; padding: 0; cursor: pointer; color: var(--c-ink);
+  display: none; align-items: center; justify-content: center;
+  transition: background .2s ease, transform .2s ease;
+}
+.office-photo-wrap.video-on .office-mute-btn { display: flex; }
+.office-mute-btn:hover { background: #fff; transform: scale(1.06); }
+.office-mute-btn svg { width: 16px; height: 16px; display: block; }
+.office-mute-btn .icon-on { display: none; }
+.office-mute-btn.is-unmuted .icon-on { display: block; }
+.office-mute-btn.is-unmuted .icon-off { display: none; }
 </style>
 <!-- Default consent vóór GTM -->
 
@@ -5285,6 +5300,10 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
     <video class="office-bg-video" id="office-bg-video" muted loop playsinline preload="auto"
       src="https://fliimedia.github.io/Flii.nl/assets/260224_Flii_DEF.mp4"></video>
     <div class="office-video-overlay"></div>
+    <button class="office-mute-btn" id="office-mute-btn" type="button" aria-label="Geluid aan" aria-pressed="true">
+      <svg class="icon-off" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polygon points="11 5 6 9 2 9 2 15 6 15 11 19 11 5"/><line x1="23" y1="9" x2="17" y2="15"/><line x1="17" y1="9" x2="23" y2="15"/></svg>
+      <svg class="icon-on" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polygon points="11 5 6 9 2 9 2 15 6 15 11 19 11 5"/><path d="M15.5 8.5a5 5 0 0 1 0 7"/><path d="M18.5 5.5a9 9 0 0 1 0 13"/></svg>
+    </button>
     <button class="office-visit-btn" onclick="window.chatbase && window.chatbase('open')" type="button">
       Welkom @ Flii
     </button>
@@ -6906,18 +6925,41 @@ document.addEventListener('click', function(e) {
 
 
 <script>
-// ── OFFICE CARD VIDEO ─────────────────────────────────────────────────────
+// ── OFFICE CARD VIDEO + AUDIO ─────────────────────────────────────────────
 (function() {
   var wrap = document.querySelector('.office-photo-wrap');
   var vid  = document.getElementById('office-bg-video');
+  var btn  = document.getElementById('office-mute-btn');
   if (!wrap || !vid) return;
-  var playing = false;
 
-  function startVideo() {
-    if (playing) return;
-    playing = true;
-    wrap.classList.add('video-on');
-    vid.play().catch(function(){});
+  var playing   = false;
+  var wantSound = false;   // becomes true after a real user gesture
+
+  function syncBtn() {
+    if (!btn) return;
+    var unmuted = !vid.muted;
+    btn.classList.toggle('is-unmuted', unmuted);
+    btn.setAttribute('aria-pressed', unmuted ? 'false' : 'true');
+    btn.setAttribute('aria-label', unmuted ? 'Geluid uit' : 'Geluid aan');
+  }
+
+  function startVideo(withSound) {
+    if (withSound) wantSound = true;
+    if (!playing) {
+      playing = true;
+      wrap.classList.add('video-on');
+    }
+    if (wantSound) { vid.muted = false; vid.volume = 1; }
+    var p = vid.play();
+    if (p && p.catch) {
+      p.catch(function() {
+        // Browser blocked audio autoplay — fall back to muted playback
+        vid.muted = true;
+        syncBtn();
+        vid.play().catch(function(){});
+      });
+    }
+    syncBtn();
   }
 
   function stopVideo() {
@@ -6927,13 +6969,32 @@ document.addEventListener('click', function(e) {
     vid.pause();
   }
 
+  function fromButton(e) { return btn && e.target && btn.contains(e.target); }
+
   vid.addEventListener('ended', stopVideo);
-  wrap.addEventListener('mouseenter', startVideo);
-  wrap.addEventListener('click', startVideo);
-  wrap.addEventListener('touchstart', startVideo, { passive: true });
-  wrap.addEventListener('mouseleave', function() {
-    // Don't stop on mouseleave — let it play to end
+  wrap.addEventListener('mouseenter', function() { startVideo(false); });
+  wrap.addEventListener('click', function(e) {
+    if (fromButton(e)) return;
+    startVideo(true);
   });
+  wrap.addEventListener('touchstart', function(e) {
+    if (fromButton(e)) return;
+    startVideo(true);
+  }, { passive: true });
+
+  if (btn) {
+    btn.addEventListener('click', function(e) {
+      e.preventDefault();
+      e.stopPropagation();
+      vid.muted = !vid.muted;
+      wantSound = !vid.muted;
+      if (!vid.muted) vid.volume = 1;
+      if (vid.paused) startVideo(wantSound);
+      syncBtn();
+    });
+  }
+
+  syncBtn();
 })();
 </script>
 
