@@ -4801,7 +4801,7 @@ details.faq-item[open] .faq-answer {
 #slogan-overlay.s-glass { opacity: 1; pointer-events: all; }
 #slogan-overlay.s-full  { opacity: 1; pointer-events: all; }
 #slogan-overlay.s-out   { opacity: 0; pointer-events: none; transition: opacity 1.4s ease; }
-#slogan-overlay.s-scroll { pointer-events: none; animation: sloganSlideOut 0.9s cubic-bezier(0.4,0,0.2,1) forwards; }
+#slogan-overlay.s-scroll { opacity: 0; pointer-events: none; transition: opacity 0.7s cubic-bezier(0.33,0,0.2,1); }
 @keyframes sloganSlideOut { from { transform: translateY(0); opacity: 1; } to { transform: translateY(100vh); opacity: 0; } }
 #slogan-canvas {
   position: absolute; inset: 0;
@@ -6947,12 +6947,37 @@ document.addEventListener('click', function(e) {
       }
     });
 
-    // CTA click triggers overlay
-    var ctaH = document.querySelector('.cta-h');
-    if (ctaH) {
-      ctaH.style.cursor = 'pointer';
-      ctaH.addEventListener('click', showOverlay);
-      ctaH.addEventListener('touchend', function(e) { e.preventDefault(); showOverlay(); }, { passive: false });
+    // ── CTA card: behaves like every other page first — the video plays
+    //    inside the card on hover/click. Only a following click goes fullscreen.
+    var ctaWrap = document.getElementById('cta-card-wrap');
+    var ctaVid  = document.getElementById('cta-bg-video');
+    if (ctaWrap && ctaVid) {
+      var cardArmed = false;
+
+      function playInCard() {
+        cardArmed = true;
+        ctaWrap.classList.add('cta-playing');
+        var pr = ctaVid.play();
+        if (pr && pr.catch) pr.catch(function(){});
+      }
+
+      function fromButton(e) {
+        return e.target && e.target.closest && e.target.closest('.btn-cta');
+      }
+
+      ctaWrap.style.cursor = 'pointer';
+      ctaWrap.addEventListener('mouseenter', playInCard);
+      ctaWrap.addEventListener('click', function(e) {
+        if (fromButton(e)) return;
+        if (!cardArmed) { playInCard(); return; }
+        showOverlay();
+      });
+      ctaWrap.addEventListener('touchend', function(e) {
+        if (fromButton(e)) return;
+        e.preventDefault();
+        if (!cardArmed) { playInCard(); return; }
+        showOverlay();
+      }, { passive: false });
     }
 
     // Dismiss on scroll: slide overlay down (bottom-up disappear)
