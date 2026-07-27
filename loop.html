@@ -733,7 +733,19 @@ function compute() {
     });
   }
 
-  return { once:once, mo:mo, saving:saving, selected:selected, nothing: once===0 && mo===0 };
+  var anyChannel = false;
+  if (S.types.campagne) {
+    CHANNEL_TREE.forEach(function(c) { if (S.cats[c.key]) anyChannel = true; });
+  }
+  var hasSelection = selected.length > 0 || anyChannel;
+
+  return {
+    once: once, mo: mo, saving: saving, selected: selected,
+    hasSelection: hasSelection,
+    // something is chosen, but none of it carries a listed price yet
+    onRequest: hasSelection && once === 0 && mo === 0,
+    nothing: !hasSelection
+  };
 }
 
 function lineItems() {
@@ -765,9 +777,13 @@ function lineItems() {
       AI_OPTS.forEach(function(k) { if (S.opts[k]) sub.push({ label:L.typeOpts[k]||k, free:true }); });
     }
 
-    if (onceItem > 0 || moItem > 0 || sub.length > 0) {
-      items.push({ label:L.scopes[sk], once:onceItem, mo:moItem, sub:sub });
-    }
+    // Always list the chosen type, so the result card names what was picked
+    // even when its own price is zero or still on request.
+    items.push({
+      label: L.scopes[sk], once: onceItem, mo: moItem,
+      req: onceItem === 0 && moItem === 0,
+      sub: sub
+    });
   });
 
   if (S.types.campagne) {
@@ -1036,7 +1052,7 @@ function renderCalc() {
         }
         html += '</div>';
       });
-      html += '<div class="rcp-row rcp-tot"><span class="rcp-l">'+L.totalWord+'</span><span class="rcp-v mono">'+eur(r.once)+'</span><span class="rcp-v mono">'+(r.mo>0?eur(r.mo):"")+'</span></div>';
+      html += '<div class="rcp-row rcp-tot"><span class="rcp-l">'+L.totalWord+'</span><span class="rcp-v mono">'+(r.onRequest?L.onRequest:eur(r.once))+'</span><span class="rcp-v mono">'+(r.mo>0?eur(r.mo):"")+'</span></div>';
       html += '</div>';
     }
     html += '<button class="btn-cta" onclick="window.open(\'https://calendly.com/flii-media\',\'_blank\')">'+L.cta+' \u2192</button>';
@@ -1046,7 +1062,9 @@ function renderCalc() {
 
   // Running total bar
   var running = "";
-  if (!r.nothing) {
+  if (r.onRequest) {
+    running = L.onRequest;
+  } else if (!r.nothing) {
     running = L.totalFrom + " " + eur(r.once);
     if (r.mo) running += " \u00B7 " + eur(r.mo) + L.mo;
   }
