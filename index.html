@@ -325,9 +325,11 @@ img { display: block; max-width: 100%; }
 }
 .hero-word {
   font-family: var(--ff-disp);
-  font-size: clamp(64px, 18.4vw, 99px);
+  /* 'ambitions' is the widest line: 5.24px wide per px of font-size.
+     (100vw - 32px) is the usable width; 0.179 keeps it at ~94% of that. */
+  font-size: clamp(44px, calc((100vw - 32px) * 0.179), 224px);
   font-weight: 800;
-  letter-spacing: -2.5px;
+  letter-spacing: -0.039em;
   line-height: 0.9;
   display: block;
   user-select: none;
@@ -1566,9 +1568,11 @@ img { display: block; max-width: 100%; }
 }
 .hero-word {
   font-family: var(--ff-disp);
-  font-size: clamp(64px, 18.4vw, 99px);
+  /* 'ambitions' is the widest line: 5.24px wide per px of font-size.
+     (100vw - 32px) is the usable width; 0.179 keeps it at ~94% of that. */
+  font-size: clamp(44px, calc((100vw - 32px) * 0.179), 224px);
   font-weight: 800;
-  letter-spacing: -2.5px;
+  letter-spacing: -0.039em;
   line-height: 0.9;
   display: block;
   user-select: none;
@@ -2925,9 +2929,11 @@ img { display: block; max-width: 100%; }
 }
 .hero-word {
   font-family: var(--ff-disp);
-  font-size: clamp(64px, 18.4vw, 99px);
+  /* 'ambitions' is the widest line: 5.24px wide per px of font-size.
+     (100vw - 32px) is the usable width; 0.179 keeps it at ~94% of that. */
+  font-size: clamp(44px, calc((100vw - 32px) * 0.179), 224px);
   font-weight: 800;
-  letter-spacing: -2.5px;
+  letter-spacing: -0.039em;
   line-height: 0.9;
   display: block;
   user-select: none;
@@ -6813,7 +6819,9 @@ document.addEventListener('click', function(e) {
         var p = profiles[letterIdx % profiles.length];
         allSpans.push({ el: s, wordIdx: words.indexOf(word), p: p });
         var delay = baseDelay + letterIdx * stagger + Math.floor(Math.random()*40) - 20;
-        if (!reduce) springDrop(s, delay, p[0], p[1], p[2]);
+        // 'ignite' is the promise in the sentence: it is present from the first
+        // frame and anchors the headline while the other words arrive around it.
+        if (!reduce && words.indexOf(word) !== 1) springDrop(s, delay, p[0], p[1], p[2]);
         letterIdx++;
       });
     });
