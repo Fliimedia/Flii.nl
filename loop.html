@@ -46,21 +46,6 @@ body{font-family:var(--ff-body);background:var(--paper);color:var(--ink);}
   padding:12px 24px;font-family:var(--ff-body);font-size:14px;font-weight:700;
   cursor:pointer;text-decoration:none;transition:background .15s;}
 .btn-primary:hover{background:#C2173A;}
-/* Final-slide conversion button */
-.btn-cta{
-  display:flex;align-items:center;justify-content:center;gap:8px;
-  width:100%;margin-top:22px;
-  background:var(--mag);color:#fff;
-  border:none;border-radius:100px;
-  padding:15px 24px;
-  font-family:var(--ff-body);font-size:14.5px;font-weight:700;letter-spacing:-.01em;
-  cursor:pointer;text-decoration:none;
-  box-shadow:0 8px 20px -10px rgba(231,37,90,.55);
-  transition:background .15s ease,transform .15s ease,box-shadow .15s ease;
-}
-.btn-cta:hover{background:#C2173A;transform:translateY(-1px);box-shadow:0 12px 26px -10px rgba(231,37,90,.6);}
-.btn-cta:active{transform:translateY(0);box-shadow:0 6px 16px -10px rgba(231,37,90,.5);}
-.btn-cta:focus-visible{outline:2px solid var(--mag);outline-offset:3px;}
 .loop-cta{display:inline-flex;align-items:center;gap:10px;text-decoration:none;color:var(--ink);
   transition:color .15s;}
 .loop-cta:hover{color:var(--mag);}
@@ -278,11 +263,12 @@ body{font-family:var(--ff-body);background:var(--paper);color:var(--ink);}
 .cfg-mo{font-size:15px;font-weight:600;color:var(--soft);margin-left:2px;}
 .cfg-excl{font-size:11px;color:var(--soft);line-height:1.5;margin:12px 0 0;}
 .cfg-empty{padding:16px 0;color:var(--soft);font-size:14px;}
-.cfg-cta{width:100%;justify-content:center;margin-top:16px;display:flex;align-items:center;
+.cfg-cta,.btn-cta{width:100%;justify-content:center;margin-top:16px;display:flex;align-items:center;
   background:var(--mag);color:#fff;border:none;border-radius:100px;padding:13px 24px;
   font-family:var(--ff-body);font-size:14px;font-weight:700;cursor:pointer;text-decoration:none;
   transition:background .15s;}
-.cfg-cta:hover{background:#C2173A;}
+.cfg-cta:hover,.btn-cta:hover{background:#C2173A;transform:translateY(-1px);}
+.cfg-cta,.btn-cta{transition:background .15s ease,transform .15s ease;}
 .calc-nav{display:flex;align-items:center;justify-content:space-between;gap:12px;
   padding:20px 28px 4px;border-top:none;background:transparent;}
 .calc-running{font-size:12.5px;color:var(--mid);text-align:center;flex:1;font-weight:600;}
