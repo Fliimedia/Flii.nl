@@ -6785,6 +6785,8 @@ document.addEventListener('click', function(e) {
   }
 
   window.addEventListener('DOMContentLoaded', function() {
+    var reduce = window.matchMedia &&
+                 window.matchMedia('(prefers-reduced-motion: reduce)').matches;
     var words = Array.from(document.querySelectorAll('.hero-word'));
     var chipEl = document.getElementById('flii-at-chip');
     if (!words.length) return;
@@ -6811,7 +6813,7 @@ document.addEventListener('click', function(e) {
         var p = profiles[letterIdx % profiles.length];
         allSpans.push({ el: s, wordIdx: words.indexOf(word), p: p });
         var delay = baseDelay + letterIdx * stagger + Math.floor(Math.random()*40) - 20;
-        springDrop(s, delay, p[0], p[1], p[2]);
+        if (!reduce) springDrop(s, delay, p[0], p[1], p[2]);
         letterIdx++;
       });
     });
@@ -7283,7 +7285,7 @@ document.addEventListener('DOMContentLoaded', function() {
 
   function frame(){
     if (!dragging) {
-      if (!hovering) x -= speed;
+      if (!hovering && !window.__reducedMotion) x -= speed;
       x += momentum;
       momentum *= 0.92;
       if (Math.abs(momentum) < 0.02) momentum = 0;
