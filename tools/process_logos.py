@@ -125,6 +125,33 @@ def knockout(img: Image.Image) -> Image.Image:
     return img
 
 
+def darken_light_ink(img: Image.Image, thresh: int = 200, target: int = 45) -> Image.Image:
+    """A logo made of white ink is invisible on the site's white marquee.
+    Push near-white pixels down in luminance, leaving other hues and alpha alone."""
+    img = img.convert("RGBA")
+    w, h = img.size
+    px = img.load()
+
+    opaque = [(x, y) for y in range(h) for x in range(w) if px[x, y][3] > 128]
+    if not opaque:
+        return img
+    light = 0
+    for x, y in opaque:
+        r, g, b, _ = px[x, y]
+        if 0.299 * r + 0.587 * g + 0.114 * b > 225:
+            light += 1
+    if light < 0.40 * len(opaque):          # mostly dark already -> leave it
+        return img
+
+    for x, y in opaque:
+        r, g, b, a = px[x, y]
+        lum = 0.299 * r + 0.587 * g + 0.114 * b
+        if lum > thresh:
+            f = target / max(lum, 1)
+            px[x, y] = (int(r * f), int(g * f), int(b * f), a)
+    return img
+
+
 def normalise(img: Image.Image, target_h: int = TARGET_H) -> Image.Image:
     bbox = img.getbbox()                # transparent margins gone
     if bbox:
@@ -150,7 +177,7 @@ def main() -> int:
                 print(f"     discovered {name}: {url}")
             img = fetch(url)
             before = img.size
-            img = normalise(knockout(img))
+            img = normalise(darken_light_ink(knockout(img)))
             out = f"assets/logos/{name}.png"
             img.save(out, optimize=True)
             print(f"OK   {name:24} {before[0]}x{before[1]} -> {img.width}x{img.height}  {os.path.getsize(out):,}B")
