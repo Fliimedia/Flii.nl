@@ -1,0 +1,6 @@
+/* Shared chip — same shape as the services and insight chips */
+.kb-chip{display:inline-flex;align-items:center;margin-top:14px;
+  background:linear-gradient(135deg,rgba(0,0,0,.07) 0%,rgba(0,0,0,.02) 100%);
+  color:#0F0E0C;border:1px solid rgba(0,0,0,.25);border-radius:100px;
+  padding:3px 10px;font-size:11px;font-weight:600;line-height:1.5;
+  letter-spacing:.01em;white-space:nowrap;}
