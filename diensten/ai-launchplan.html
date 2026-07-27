@@ -348,6 +348,8 @@ body{font-family:var(--ff-body);background:var(--bg);color:var(--ink);-webkit-fo
     <a href="#fase-1" class="btn-mag">Bekijk het proces →</a>
     <a href="https://calendly.com/flii-media" target="_blank" class="btn-ghost">Plan een gesprek</a>
   </div>
+  <div class="svc-tags"><span class="svc-tag">AI strategie</span><span class="svc-tag">Product design</span><span class="svc-tag">Go-to-market</span><span class="svc-tag">Copywriting</span></div>
+  <div class="dienst-photo"><img src="https://images.pexels.com/photos/8386440/pexels-photo-8386440.jpeg?auto=compress&cs=tinysrgb&w=900" alt="" loading="lazy"></div>
 </section>
 
 <!-- USP STRIP -->
@@ -734,7 +736,7 @@ function scrollToPhase(n) {
       html+='<div style="font-size:13px;font-weight:700;color:#0F0E0C;margin-bottom:14px">Welke kanalen wil je inzetten?</div><div style="display:flex;flex-direction:column;gap:8px">';
       CHANNELS.forEach(function(c){
         var on=!!state.channels[c.key];
-        html+='<button onclick="toggleCalcCh(''+c.key+'')" style="display:flex;align-items:center;justify-content:space-between;padding:12px 14px;border:1.5px solid '+(on?'#E8294A':'#E8E6E1')+';border-radius:10px;background:'+(on?'rgba(232,41,74,.04)':'#fff')+';cursor:pointer;text-align:left;width:100%;font:inherit">'
+        html+='<button onclick="toggleCalcCh(\''+c.key+'\')" style="display:flex;align-items:center;justify-content:space-between;padding:12px 14px;border:1.5px solid '+(on?'#E8294A':'#E8E6E1')+';border-radius:10px;background:'+(on?'rgba(232,41,74,.04)':'#fff')+';cursor:pointer;text-align:left;width:100%;font:inherit">'
           +'<span style="font-size:13px;font-weight:600;color:#0F0E0C">'+c.label+'</span>'
           +'<span style="font-size:11px;color:'+(on?'#E8294A':'#9B9790')+'">'+c.price+'</span>'
           +'</button>';
@@ -744,7 +746,7 @@ function scrollToPhase(n) {
       html+='<div style="font-size:13px;font-weight:700;color:#0F0E0C;margin-bottom:14px">Kies een pakket.</div><div style="display:flex;flex-direction:column;gap:8px">';
       PACKAGES.forEach(function(p){
         var on=state.package===p.key;
-        html+='<button onclick="setCalcPkg(''+p.key+'')" style="display:flex;align-items:flex-start;justify-content:space-between;padding:14px;border:1.5px solid '+(on?'#E8294A':'#E8E6E1')+';border-radius:10px;background:'+(on?'rgba(232,41,74,.04)':'#fff')+';cursor:pointer;text-align:left;width:100%;font:inherit">'
+        html+='<button onclick="setCalcPkg(\''+p.key+'\')" style="display:flex;align-items:flex-start;justify-content:space-between;padding:14px;border:1.5px solid '+(on?'#E8294A':'#E8E6E1')+';border-radius:10px;background:'+(on?'rgba(232,41,74,.04)':'#fff')+';cursor:pointer;text-align:left;width:100%;font:inherit">'
           +'<span style="display:flex;flex-direction:column;gap:3px"><span style="font-size:13px;font-weight:700;color:#0F0E0C">'+p.label+'</span><span style="font-size:11px;color:#9B9790">'+p.desc+'</span></span>'
           +'<span style="font-size:11px;font-weight:600;color:'+(on?'#E8294A':'#9B9790')+';white-space:nowrap;margin-left:8px">'+p.price+'</span>'
           +'</button>';
@@ -767,11 +769,9 @@ function scrollToPhase(n) {
             html+='<div style="display:flex;justify-content:space-between;padding:8px 0;font-size:13px"><span style="color:#0F0E0C">'+pkg.label+'</span><span style="color:#E8294A;font-weight:600">'+pkg.price+'</span></div>';
           }
         }
-        html+='<p style="font-size:11px;color:#9B9790;margin:12px 0 0;line-height:1.5">Indicatie excl. btw en mediabudget. Definitief voorstel op aanvraag.</p>
-  <div class="svc-tags"><span class="svc-tag">AI strategie</span><span class="svc-tag">Product design</span><span class="svc-tag">Go-to-market</span><span class="svc-tag">Copywriting</span></div>';
+        html+='<p style="font-size:11px;color:#9B9790;margin:12px 0 0;line-height:1.5">Indicatie excl. btw en mediabudget. Definitief voorstel op aanvraag.</p>';
       }
-      html+='</div>
-<div class="dienst-photo"><img src="https://images.pexels.com/photos/8386440/pexels-photo-8386440.jpeg?auto=compress&cs=tinysrgb&w=900" alt="" loading="lazy"></div>';
+      html+='</div>';
       html+='<a href="https://calendly.com/flii-media" target="_blank" style="display:flex;align-items:center;justify-content:center;width:100%;background:#E8294A;color:#fff;border-radius:100px;padding:14px 24px;font-size:14px;font-weight:700;font-family:inherit;text-decoration:none;margin-bottom:8px">Plan een gesprek →</a>';
       html+=nav(true,false);
     }
