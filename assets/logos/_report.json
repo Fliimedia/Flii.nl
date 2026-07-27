@@ -1,0 +1,108 @@
+[
+  {
+    "name": "stichting-de-buurt",
+    "status": "ok",
+    "source": "https://i.ibb.co/DgtWs74Y/images.png",
+    "size": "290x169"
+  },
+  {
+    "name": "soest-machinery",
+    "status": "ok",
+    "source": "https://soestmachinery.com/wp-content/uploads/2024/12/Soest-logo-rond-1-300x300.png",
+    "size": "240x240"
+  },
+  {
+    "name": "de-nieuwe-yogaschool",
+    "status": "ok",
+    "source": "https://denieuweyogaschool.nl/wp-content/uploads/2025/01/Favicon-Logo-Full-De-Nieuwe-Yogaschool-300x300.png",
+    "size": "196x188"
+  },
+  {
+    "name": "kvk",
+    "status": "ok",
+    "source": "https://i.ibb.co/fdFGhCL4/KVK-logo-RGB30.png",
+    "size": "568x155"
+  },
+  {
+    "name": "padel2025",
+    "status": "ok",
+    "source": "https://padelgids.nl/media/logos/Padel2025.jpg",
+    "size": "340x240"
+  },
+  {
+    "name": "relax",
+    "status": "ok",
+    "source": "https://relax.nl/cdn/shop/files/Relax---Logo-Only---final---high-resolution---black.png?v=1695040975&width=300",
+    "size": "248x240"
+  },
+  {
+    "name": "theaterthuis",
+    "status": "ok",
+    "source": "https://www.broadcastmagazine.nl/wp-content/uploads/2020/09/theaterthuis1020.jpg",
+    "size": "472x70"
+  },
+  {
+    "name": "scone",
+    "status": "ok",
+    "source": "https://scone.ai/assets/2026-03-17-logo-edited-v0_1773846423116-BZdTqzJp.png",
+    "size": "1024x237"
+  },
+  {
+    "name": "abrandtob",
+    "status": "ok",
+    "source": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQpiiCHCZvZKalM-GdVkjmVjTCWVwnAX6SbN_wlVjL1L746wIr3Cp62SWjv&s=10",
+    "size": "201x201"
+  },
+  {
+    "name": "huisarts-integraal",
+    "status": "ok",
+    "source": "https://www.huisartsintegraal.nl/wp-content/uploads/sites/15/2026/05/huisartsintegraal-header-logo.png",
+    "size": "687x192"
+  },
+  {
+    "name": "grandado",
+    "status": "failed",
+    "error": "RuntimeError: no logo candidate found"
+  },
+  {
+    "name": "heros-journey-coach",
+    "status": "ok",
+    "source": "https://herosjourneycoach.com/wp-content/uploads/2025/03/logo-HJ-SM-e1778415209909.png",
+    "size": "285x240"
+  },
+  {
+    "name": "geen-woorden-voor",
+    "status": "ok",
+    "source": "https://www.geenwoordenvoor.theater/wp-content/uploads/2025/10/myspace-drawn-logo_72163.png",
+    "size": "218x240"
+  },
+  {
+    "name": "spokk",
+    "status": "ok",
+    "source": "https://spokk.nl/wp-content/uploads/2024/08/Spokk_logo-transparent.png",
+    "size": "207x161"
+  },
+  {
+    "name": "kudel-staart",
+    "status": "ok",
+    "source": "https://kudel-staart.nl/wp-content/uploads/2023/11/cropped-KUDELSTAART-wit.png",
+    "size": "1290x205"
+  },
+  {
+    "name": "the-rusty-nail",
+    "status": "ok",
+    "source": "https://marceldumernit.nl/wp-content/uploads/2025/07/cropped-logo_png.png",
+    "size": "383x240"
+  },
+  {
+    "name": "blauwe-vinkjes",
+    "status": "ok",
+    "source": "https://blauwevinkjes.nl/wp-content/uploads/2023/09/BV-logo_donkerblauw.png",
+    "size": "1215x173"
+  },
+  {
+    "name": "sound-meditation",
+    "status": "failed",
+    "error": "URLError: <urlopen error [Errno -2] Name or service not known>"
+  }
+]
