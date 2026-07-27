@@ -5126,6 +5126,10 @@ details.faq-item[open] .faq-answer {
   background:var(--c-ink);opacity:.55;margin:0 7px;vertical-align:middle;}
 
 .hero-tagline{align-self:flex-start;font-size:var(--t-sm);color:var(--c-muted);font-weight:400;white-space:nowrap;margin-top:var(--sp-2);margin-bottom:6px;}
+
+.hero-tagline .tl-part{display:inline-block;opacity:0;transform:translateY(8px);
+  transition:opacity .34s ease, transform .5s cubic-bezier(.34,1.45,.64,1);}
+.hero-tagline .tl-part.is-in{opacity:1;transform:translateY(0);}
 </style>
 <!-- Default consent vóór GTM -->
 
@@ -5246,7 +5250,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
     <span class="hero-word hero-word--ignite" id="ignite-word">ignite</span>
     <span class="hero-word hero-word--solid">ambitions</span>
   
-    <span class="hero-tagline">Platformen<span class="eb-dot" aria-hidden="true"></span>campagnes<span class="eb-dot" aria-hidden="true"></span>AI</span>
+    <span class="hero-tagline"><span class="tl-part">Platformen</span><span class="tl-part"><span class="eb-dot" aria-hidden="true"></span>campagnes</span><span class="tl-part"><span class="eb-dot" aria-hidden="true"></span>AI</span></span>
     <a href="over-ons.html" class="flii-at-chip" id="flii-at-chip"><span class="chip-at">@</span>fliimedia</a>
   </div>
 
@@ -6751,6 +6755,20 @@ document.addEventListener('click', function(e) {
         chipEl.style.transform = 'translateY(0)';
         chipEl.style.opacity = '1';
       }, baseDelay + allSpans.length * stagger + 100);
+    }
+
+    // ── Tagline: reveals last, one word at a time ────────────────────
+    var tlParts = Array.prototype.slice.call(
+      document.querySelectorAll('.hero-tagline .tl-part'));
+    if (tlParts.length) {
+      var tlStart = baseDelay + allSpans.length * stagger + 320;
+      tlParts.forEach(function(el, i) {
+        setTimeout(function() { el.classList.add('is-in'); }, tlStart + i * 180);
+      });
+      // failsafe: never leave the line hidden if a timer is dropped
+      setTimeout(function() {
+        tlParts.forEach(function(el) { el.classList.add('is-in'); });
+      }, tlStart + tlParts.length * 180 + 2000);
     }
 
     // ── Click: fall to video position then show overlay ───────────────
