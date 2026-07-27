@@ -48,12 +48,6 @@
     "size": "1024x237"
   },
   {
-    "name": "abrandtob",
-    "status": "ok",
-    "source": "https://s3-eu-west-1.amazonaws.com/tpd/logos/5c0d28bc08450e0001527842/0x0.png",
-    "size": "1784x237"
-  },
-  {
     "name": "huisarts-integraal",
     "status": "ok",
     "source": "https://www.huisartsintegraal.nl/wp-content/uploads/sites/15/2026/05/huisartsintegraal-header-logo.png",
@@ -61,8 +55,9 @@
   },
   {
     "name": "grandado",
-    "status": "failed",
-    "error": "RuntimeError: no logo candidate found"
+    "status": "ok",
+    "source": "https://raw.githubusercontent.com/Fliimedia/Flii.nl/main/assets/logos/_src/grandado-original.png",
+    "size": "1784x237"
   },
   {
     "name": "heros-journey-coach",
@@ -104,5 +99,22 @@
     "name": "sound-meditation",
     "status": "failed",
     "error": "URLError: <urlopen error [Errno -2] Name or service not known>"
+  },
+  {
+    "name": "the-holistic-banker",
+    "status": "failed",
+    "error": "URLError: <urlopen error [Errno -2] Name or service not known>"
+  },
+  {
+    "name": "ijsburcht",
+    "status": "ok",
+    "source": "https://inhaleexhale.nl/wp-content/uploads/2026/01/trang-ca-cuoc-bong-da.webp",
+    "size": "480x240"
+  },
+  {
+    "name": "slimbieden",
+    "status": "ok",
+    "source": "https://static.wixstatic.com/media/0ad5d8_4ba720b902ac47e09d5545ffaf118684~mv2.png/v1/fill/w_140,h_66,al_c,q_85,usm_0.66_1.00_0.01,enc_avif,quality_auto/logo_viisi_hypotheken_06_SB_adjusted_groen.png",
+    "size": "140x66"
   }
 ]
