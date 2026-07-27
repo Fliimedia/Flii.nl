@@ -1,0 +1,36 @@
+/* Respect the visitor's motion preference — loaded on every page.
+   Some people get motion sickness from parallax, drops and looping video. */
+@media (prefers-reduced-motion: reduce) {
+
+  *, *::before, *::after {
+    animation-duration: 0.001ms !important;
+    animation-iteration-count: 1 !important;
+    animation-delay: 0ms !important;
+    transition-duration: 0.001ms !important;
+    transition-delay: 0ms !important;
+    scroll-behavior: auto !important;
+  }
+
+  /* Hero: show the finished state instead of the drop-in */
+  .hero-word span, .hero-tagline .tl-part, .flii-at-chip {
+    opacity: 1 !important;
+    transform: none !important;
+    filter: none !important;
+  }
+
+  /* Marquee stands still but stays readable */
+  .clients-row { transform: none !important; }
+  .clients-ticker { overflow-x: auto; cursor: default !important; }
+
+  /* Decorative motion layers off */
+  #water-ripple-canvas,
+  .orbit-center { animation: none !important; }
+
+  /* Background video is motion too — freeze the first frame */
+  .cta-bg-video, .office-bg-video, #slogan-video { animation: none !important; }
+
+  /* Keep hover affordances legible without movement */
+  .article:hover, .case-card:hover, .float-icon:hover, .pd-card:hover {
+    transform: none !important;
+  }
+}
