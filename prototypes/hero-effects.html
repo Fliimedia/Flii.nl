@@ -76,10 +76,19 @@
     filter:blur(2px);}
 
   @media (prefers-reduced-motion: reduce){
-    .line span,.line{opacity:1 !important;filter:none !important;color:var(--ink) !important;
-      transform:none !important;font-variation-settings:'wght' 800 !important;}
-    .spark{display:none !important;}
+    body:not(.force-motion) .line span,
+    body:not(.force-motion) .line{opacity:1 !important;filter:none !important;
+      color:var(--ink) !important;transform:none !important;
+      font-variation-settings:'wght' 800 !important;}
+    body:not(.force-motion) .spark{display:none !important;}
   }
+  .rm-notice{display:none;max-width:1080px;margin:0 auto;padding:14px 20px;
+    font-size:13px;line-height:1.5;color:var(--muted);
+    border-bottom:1px solid var(--rule);background:rgba(232,41,74,.05);}
+  .rm-notice b{color:var(--ink)}
+  .rm-notice button{margin-left:10px;font-family:var(--ff-mono);font-size:11px;font-weight:700;
+    padding:6px 14px;border-radius:100px;cursor:pointer;background:var(--ink);color:#fff;
+    border:1.5px solid rgba(232,41,74,.7);}
 </style>
 </head>
 <body>
@@ -91,6 +100,12 @@
   <button class="tab" data-v="weight">C · gewicht</button>
   <button class="replay" id="replay">Opnieuw afspelen</button>
 </div>
+
+<p class="rm-notice" id="rmNotice">
+  <b>Je systeem staat op &lsquo;beperk beweging&rsquo;.</b> De site respecteert dat, dus de
+  animaties spelen hier niet af. Wil je ze tóch bekijken om te kunnen kiezen?
+  <button id="forceMotion">Toon animaties</button>
+</p>
 
 <div class="stage" id="stage" data-fx="drop">
   <div class="eyebrow">
@@ -283,6 +298,16 @@
     });
   });
   document.getElementById('replay').addEventListener('click', function () { run(current); });
+
+  var rm = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  if (rm) {
+    document.getElementById('rmNotice').style.display = 'block';
+    document.getElementById('forceMotion').addEventListener('click', function () {
+      document.body.classList.add('force-motion');
+      document.getElementById('rmNotice').style.display = 'none';
+      run(current);
+    });
+  }
 
   run('drop');
 })();
