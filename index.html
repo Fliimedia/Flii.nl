@@ -6952,10 +6952,11 @@ document.addEventListener('click', function(e) {
     var ctaWrap = document.getElementById('cta-card-wrap');
     var ctaVid  = document.getElementById('cta-bg-video');
     if (ctaWrap && ctaVid) {
-      var cardArmed = false;
+      // Hover only starts in-card playback; fullscreen is armed by a click,
+      // so moving the mouse across the card never skips the in-card stage.
+      var clickedOnce = false;
 
       function playInCard() {
-        cardArmed = true;
         ctaWrap.classList.add('cta-playing');
         var pr = ctaVid.play();
         if (pr && pr.catch) pr.catch(function(){});
@@ -6969,13 +6970,13 @@ document.addEventListener('click', function(e) {
       ctaWrap.addEventListener('mouseenter', playInCard);
       ctaWrap.addEventListener('click', function(e) {
         if (fromButton(e)) return;
-        if (!cardArmed) { playInCard(); return; }
+        if (!clickedOnce) { clickedOnce = true; playInCard(); return; }
         showOverlay();
       });
       ctaWrap.addEventListener('touchend', function(e) {
         if (fromButton(e)) return;
         e.preventDefault();
-        if (!cardArmed) { playInCard(); return; }
+        if (!clickedOnce) { clickedOnce = true; playInCard(); return; }
         showOverlay();
       }, { passive: false });
     }
