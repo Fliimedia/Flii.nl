@@ -6937,7 +6937,7 @@ document.addEventListener('click', function(e) {
 
   // ── Volume ducking when the card scrolls out of view ────────────────────
   var FULL_VOL = 1.0;
-  var DUCK_VOL = 0.5;      // -50% while off screen
+  var DUCK_VOL = 0.15;     // 15% of full volume while off screen
   var FADE_MS  = 450;
   var inView   = true;
   var fadeRAF  = null;
