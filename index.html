@@ -6761,7 +6761,10 @@ document.addEventListener('click', function(e) {
     var tlParts = Array.prototype.slice.call(
       document.querySelectorAll('.hero-tagline .tl-part'));
     if (tlParts.length) {
-      var tlStart = baseDelay + allSpans.length * stagger + 320;
+      // start only once the @-chip has finished its drop
+      var chipStart = baseDelay + allSpans.length * stagger + 100;
+      var chipDur   = profiles[12][2];
+      var tlStart   = chipStart + chipDur + 180;
       tlParts.forEach(function(el, i) {
         setTimeout(function() { el.classList.add('is-in'); }, tlStart + i * 180);
       });
