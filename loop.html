@@ -254,22 +254,25 @@ body{font-family:var(--ff-body);background:var(--paper);color:var(--ink);}
 .rcp-tot{border-top:1px solid var(--line);margin-top:3px;padding-top:12px;}
 .rcp-tot .rcp-l{font-size:11px;text-transform:uppercase;letter-spacing:.08em;color:var(--soft);font-weight:700;}
 .rcp-tot .rcp-v{color:var(--ink);font-weight:700;font-size:15px;}
-.saving-badge{display:inline-flex;align-items:center;gap:6px;background:rgba(231,37,90,.1);
-  border:1px solid rgba(231,37,90,.25);border-radius:100px;padding:4px 12px;
-  font-size:12px;font-weight:600;color:var(--mag);margin-bottom:12px;}
+
 .cfg-amount{margin:16px 0 4px;}
 .cfg-amount-l{font-size:11px;color:var(--mid);margin-bottom:2px;}
 .cfg-amount-v{font-family:var(--ff-disp);font-size:30px;font-weight:800;letter-spacing:-.8px;}
 .cfg-mo{font-size:15px;font-weight:600;color:var(--soft);margin-left:2px;}
 .cfg-excl{font-size:11px;color:var(--soft);line-height:1.5;margin:12px 0 0;}
 .cfg-empty{padding:16px 0;color:var(--soft);font-size:14px;}
-.cfg-cta,.btn-cta{width:100%;justify-content:center;margin-top:16px;display:flex;align-items:center;
-  background:var(--mag);color:#fff;border:none;border-radius:100px;padding:13px 24px;
-  font-family:var(--ff-body);font-size:14px;font-weight:700;cursor:pointer;text-decoration:none;
-  transition:background .15s;}
-.cfg-cta:hover,.btn-cta:hover{background:#C2173A;transform:translateY(-1px);}
-.cfg-cta,.btn-cta{transition:background .15s ease,transform .15s ease;}
-.calc-nav{display:flex;align-items:center;justify-content:space-between;gap:12px;
+.cfg-cta,@keyframes cta-neon-pulse{
+  0%,100%{border-color:rgba(232,41,74,.7);box-shadow:0 0 8px rgba(232,41,74,.18);}
+  50%    {border-color:rgba(232,41,74,1); box-shadow:0 0 18px rgba(232,41,74,.42);}
+}
+.btn-cta{width:100%;justify-content:center;margin-top:20px;display:flex;align-items:center;gap:8px;
+  background:#0F0E0C;color:#fff;border:1.5px solid rgba(232,41,74,.7);border-radius:100px;
+  padding:15px 24px;font-family:var(--ff-body);font-size:14px;font-weight:700;
+  cursor:pointer;text-decoration:none;
+  animation:cta-neon-pulse 3s ease-in-out infinite;
+  transition:background .15s ease,transform .15s ease;}
+.cfg-cta:hover,.btn-cta:hover{background:#1A1917;border-color:#E8294A;transform:translateY(-1px);}
+.cfg-cta,.calc-nav{display:flex;align-items:center;justify-content:space-between;gap:12px;
   padding:20px 28px 4px;border-top:none;background:transparent;}
 .calc-running{font-size:12.5px;color:var(--mid);text-align:center;flex:1;font-weight:600;}
 .btn{display:inline-flex;align-items:center;justify-content:center;gap:6px;border:none;
@@ -1009,9 +1012,6 @@ function renderCalc() {
     if (r.nothing) {
       html += '<p class="cfg-empty">'+L.empty+'</p>';
     } else {
-      if (r.saving > 0) {
-        html += '<div class="saving-badge">'+L.save+' '+eur(r.saving)+'</div>';
-      }
       // Line items table
       var items = lineItems();
       html += '<div class="rcp"><div class="rcp-head mono"><span>'+L.svcCol+'</span><span>'+L.once+'</span><span>'+L.monthCol+'</span></div>';
