@@ -105,6 +105,8 @@ def knockout(img: Image.Image) -> Image.Image:
                 seen[y * w + x] = 1
                 q.append((x, y))
 
+    original = img.copy()
+
     while q:
         x, y = q.popleft()
         px[x, y] = (px[x, y][0], px[x, y][1], px[x, y][2], 0)
@@ -114,6 +116,12 @@ def knockout(img: Image.Image) -> Image.Image:
                 if close(px[nx, ny], bg) and px[nx, ny][3] > 0:
                     seen[ny * w + nx] = 1
                     q.append((nx, ny))
+
+    # Safety net: if the fill ate (almost) the whole image the background
+    # guess was wrong -- e.g. a white logo on a white plate. Keep the original.
+    opaque = sum(1 for p in img.getdata() if p[3] > 40)
+    if opaque < 0.02 * w * h:
+        return original
     return img
 
 
@@ -131,6 +139,7 @@ def main() -> int:
     cfg = json.load(open("tools/logos.json"))
     os.makedirs("assets/logos", exist_ok=True)
     failed = []
+    report = []
 
     for item in cfg:
         name = item["name"]
@@ -145,10 +154,15 @@ def main() -> int:
             out = f"assets/logos/{name}.png"
             img.save(out, optimize=True)
             print(f"OK   {name:24} {before[0]}x{before[1]} -> {img.width}x{img.height}  {os.path.getsize(out):,}B")
+            report.append({"name": name, "status": "ok", "source": url,
+                           "size": f"{img.width}x{img.height}"})
         except Exception as exc:                      # noqa: BLE001
             failed.append(name)
             print(f"FAIL {name:24} {type(exc).__name__}: {exc}")
+            report.append({"name": name, "status": "failed",
+                           "error": f"{type(exc).__name__}: {exc}"[:300]})
 
+    json.dump(report, open("assets/logos/_report.json", "w"), indent=2)
     if failed:
         print("\nFailed:", ", ".join(failed))
     print(f"\nDone: {len(cfg) - len(failed)}/{len(cfg)} logos written")
