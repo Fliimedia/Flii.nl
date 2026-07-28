@@ -60,6 +60,14 @@ section p{font-size:14px;color:var(--mid);line-height:1.72}
 
 
 
+
+.src-chip{display:inline-flex;align-items:center;gap:6px;margin-top:12px;
+  font-family:var(--ff-mono,monospace);font-size:10px;font-weight:600;letter-spacing:.04em;
+  padding:4px 10px;border-radius:100px;text-decoration:none;
+  background:linear-gradient(135deg,rgba(0,0,0,.07) 0%,rgba(0,0,0,.02) 100%);
+  color:#0F0E0C;border:1px solid rgba(0,0,0,.25);transition:background .15s;}
+.src-chip:hover{background:rgba(0,0,0,.07);}
+.src-chip svg{width:11px;height:11px;flex-shrink:0;opacity:.6;}
 </style>
 <script type="application/ld+json">
 {
@@ -106,7 +114,8 @@ section p{font-size:14px;color:var(--mid);line-height:1.72}
   <h2>Praktisch voorbeeld</h2>
   <div class="example-box">
     <span class="example-label">Hoe Flii dit toepast</span>
-    <p class="example-text">WhatsApp kreeg in 2021 een boete van €225 miljoen van de Ierse DPC voor het niet transparant informeren van gebruikers over hoe hun data werd gedeeld met de Facebook-groep. De zaak toonde aan dat "toestemming via gebruiksvoorwaarden" onvoldoende is: verwerkingsgrondslag, doel en ontvangers moeten expliciet en begrijpelijk worden gecommuniceerd — ook als de dienst gratis is.</p>
+    <p class="example-text">De Ierse toezichthouder legde WhatsApp op 2 september 2021 een boete van 225 miljoen euro op — destijds de hoogste die de DPC ooit uitdeelde. De zaak ging niet over datalekken of misbruik, maar puur over transparantie: WhatsApp had gebruikers onvoldoende duidelijk geïnformeerd over de verwerking van hun gegevens en verstrekte volgens het besluit slechts 41% van de voorgeschreven informatie. Het oorspronkelijke voorstel lag op 30 tot 50 miljoen; acht andere Europese toezichthouders vonden dat te laag, waarna de boete ruim verviervoudigde.</p>
+    <a class="src-chip" href="https://www.bbc.com/news/technology-58422465" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.5.5l3-3a5 5 0 0 0-7-7l-1.5 1.5"/><path d="M14 11a5 5 0 0 0-7.5-.5l-3 3a5 5 0 0 0 7 7L12 19"/></svg>Bron: bbc.com</a>
   </div>
 </section>
 </div>
