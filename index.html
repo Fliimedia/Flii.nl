@@ -6813,9 +6813,7 @@ document.addEventListener('click', function(e) {
         var p = profiles[letterIdx % profiles.length];
         allSpans.push({ el: s, wordIdx: words.indexOf(word), p: p });
         var delay = baseDelay + letterIdx * stagger + Math.floor(Math.random()*40) - 20;
-        // 'ignite' is the promise in the sentence: it is present from the first
-        // frame and anchors the headline while the other words arrive around it.
-        if (!reduce && words.indexOf(word) !== 1) springDrop(s, delay, p[0], p[1], p[2]);
+        if (!reduce) springDrop(s, delay, p[0], p[1], p[2]);
         letterIdx++;
       });
     });
