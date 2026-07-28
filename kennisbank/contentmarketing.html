@@ -60,6 +60,14 @@ section p{font-size:14px;color:var(--mid);line-height:1.72}
 
 
 
+
+.src-chip{display:inline-flex;align-items:center;gap:6px;margin-top:12px;
+  font-family:var(--ff-mono,monospace);font-size:10px;font-weight:600;letter-spacing:.04em;
+  padding:4px 10px;border-radius:100px;text-decoration:none;
+  background:linear-gradient(135deg,rgba(0,0,0,.07) 0%,rgba(0,0,0,.02) 100%);
+  color:#0F0E0C;border:1px solid rgba(0,0,0,.25);transition:background .15s;}
+.src-chip:hover{background:rgba(0,0,0,.07);}
+.src-chip svg{width:11px;height:11px;flex-shrink:0;opacity:.6;}
 </style>
 <script type="application/ld+json">
 {
@@ -106,7 +114,8 @@ section p{font-size:14px;color:var(--mid);line-height:1.72}
   <h2>Praktisch voorbeeld</h2>
   <div class="example-box">
     <span class="example-label">Hoe Flii dit toepast</span>
-    <p class="example-text">HubSpot bouwde zijn bedrijf op contentmarketing. Ze publiceerden duizenden gratis gidsen, sjablonen en tools — van "gratis e-mailtemplate generator" tot "wat is inbound marketing?". Die content trekt jaarlijks meer dan 25 miljoen organische bezoekers die via nurturing-flows worden omgezet naar leads en klanten. Meer dan 60% van HubSpot's pipeline is afkomstig van organisch content-gedreven verkeer.</p>
+    <p class="example-text">HubSpot werd in 2006 opgericht en verkocht software voor inbound marketing door zelf aan inbound marketing te doen. In plaats van het product te promoten publiceerde het bedrijf jarenlang gratis uitleg over SEO, e-mail en leadgeneratie — precies waar de doelgroep op zocht. Daar kwam een gratis tool bij, Website Grader, waarmee tussen 2006 en 2011 ruim vier miljoen websites werden doorgelicht. Het resultaat is een blog die inmiddels rond de 1,5 miljoen organische bezoekers per maand trekt en op honderdduizenden zoekwoorden rankt.</p>
+    <a class="src-chip" href="https://growthhackers.com/growth-studies/hubspot/" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.5.5l3-3a5 5 0 0 0-7-7l-1.5 1.5"/><path d="M14 11a5 5 0 0 0-7.5-.5l-3 3a5 5 0 0 0 7 7L12 19"/></svg>Bron: growthhackers.com</a>
   </div>
 </section>
 </div>
