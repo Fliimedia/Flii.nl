@@ -173,6 +173,18 @@ img{max-width:100%;display:block;}
 @media (min-width:760px){
   .hero-img{max-width:632px;width:calc(100% - 48px);margin-left:24px;margin-right:24px;}
 }
+
+.rel-cases{display:flex;flex-direction:column;gap:0;margin-top:6px;
+  border-top:1px solid var(--rule);}
+.rel-case{display:block;padding:16px 0;text-decoration:none;color:inherit;
+  border-bottom:1px solid var(--rule);transition:padding-left .18s ease;}
+.rel-case:hover{padding-left:6px;}
+.rel-name{display:flex;align-items:baseline;gap:7px;font-family:var(--ff-disp);
+  font-size:17px;font-weight:800;letter-spacing:-.3px;color:var(--ink);}
+.rel-arr{color:var(--mag);font-size:14px;}
+.rel-desc{display:block;font-size:13.5px;line-height:1.5;color:var(--mid);margin-top:5px;}
+.rel-tags{display:block;font-family:var(--ff-mono);font-size:10px;letter-spacing:.05em;
+  color:var(--subtle);margin-top:7px;}
 </style>
 <script>
 (function(){
@@ -225,6 +237,27 @@ img{max-width:100%;display:block;}
 <div class="dienst-photo"><img src="https://images.pexels.com/photos/265087/pexels-photo-265087.jpeg?auto=compress&cs=tinysrgb&w=900" alt="" loading="lazy"></div>
 <div class="section-body"><p>Effectieve media-inkoop begint bij strategie. Welke kanalen passen bij jouw doelgroep, budget en doelstellingen? Wij combineren data en creativiteit om campagnes te bouwen die echt werken.</p><h2>Wat we doen</h2><ul><li>Media-strategie en kanalenselectie</li><li>Programmatic inkoop via DSP's</li><li>Social media advertising (Meta, TikTok, LinkedIn, Pinterest)</li><li>Display en video campagnes</li><li>Connected TV en OLV</li><li>Continu optimalisatie op basis van data</li></ul><h2>Onze aanpak</h2><p>We werken altijd vanuit een full-funnel perspectief: awareness, overweging en conversie. Elk kanaal heeft zijn rol, en samen zorgen ze voor een consistente merkervaring. We rapporteren transparant en optimaliseren weekly op basis van actuele data.</p>
 <p>Heb je een vraag of project over dit onderwerp? <button onclick="if(window.highlightSidebar)window.highlightSidebar();var sb=document.getElementById('float-sidebar');if(sb){sb.classList.add('visible');}" type="button" style="background:none;border:none;padding:0;cursor:pointer;font:inherit;color:inherit;"><strong>Neem contact op →</strong></button></p>
+</div>
+
+<div class="section-body">
+  <h2>Relevant</h2>
+  <div class="rel-cases">
+      <a href="../cases/royal-haskoning" class="rel-case">
+        <span class="rel-name">Royal HaskoningDHV<span class="rel-arr">&rarr;</span></span>
+        <span class="rel-desc">Voor een van &#x27;s werelds grootste ingenieursbureaus begonnen we met een gerichte Google Ads campagne…</span>
+        <span class="rel-tags">Campagne &middot; Zoekmachines &middot; Tracking</span>
+      </a>
+      <a href="../cases/bikefair" class="rel-case">
+        <span class="rel-name">BikeFair<span class="rel-arr">&rarr;</span></span>
+        <span class="rel-desc">BikeFair is een snelgroeiende online marktplaats voor tweedehands fietsen. Het platform had al een…</span>
+        <span class="rel-tags">Campagne &middot; Zoekmachines &middot; Social media</span>
+      </a>
+      <a href="../cases/digitale-strategie-voor-zzpers" class="rel-case">
+        <span class="rel-name">Zelfstandig Ondernemers<span class="rel-arr">&rarr;</span></span>
+        <span class="rel-desc">Voor een snelgroeiende start-up, gericht op zelfstandige ondernemers, lag er een duidelijke uitdaging…</span>
+        <span class="rel-tags">Campagne &middot; Content creatie &middot; Social media</span>
+      </a>
+  </div>
 </div>
 
 <div id="cta-mount"><noscript><p style="text-align:center;padding:32px 24px"><a href="https://calendly.com/flii-media">Plan een gesprek &rarr;</a></p></noscript></div>
