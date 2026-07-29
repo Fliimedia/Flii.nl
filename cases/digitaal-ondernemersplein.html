@@ -159,6 +159,14 @@ body{font-family:var(--ff-body);background:#fff;color:var(--ink);-webkit-font-sm
 
 /* ── Results grid ── */
 
+
+/* Slotblokken van een case staan onder elkaar: geen dubbele padding stapelen */
+.case-outro{padding-top:0;padding-bottom:0;}
+.case-outro h2{margin-top:28px;margin-bottom:12px;}
+.case-outro > .result-card:first-child{margin-top:22px;}
+.case-outro > .case-more-text:first-child{margin-top:20px;margin-bottom:0;}
+.case-outro:last-of-type{padding-bottom:4px;}
+.cta-section{margin-top:36px;}
 </style>
 <script>
 (function(){
@@ -235,7 +243,7 @@ body{font-family:var(--ff-body);background:#fff;color:var(--ink);-webkit-font-sm
 </div>
 </div>
 </div>
-<div class="section-body">
+<div class="section-body case-outro">
 <div class="result-card">
   <div class="rc-row"><span class="rc-icon"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="rgba(232,41,74,.9)" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg></span><span class="rc-desc">kanalen bespeeld: YouTube, LinkedIn en Instagram</span><span class="rc-num">3</span></div>
   <div class="rc-row rc-row--note"><span class="rc-icon"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="rgba(232,41,74,.9)" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg></span><span class="rc-desc">Vaste tone of voice ontwikkeld en per bericht geautomatiseerd</span></div>
@@ -243,7 +251,7 @@ body{font-family:var(--ff-body);background:#fff;color:var(--ink);-webkit-font-sm
 </div>
 </div>
 
-<div class="section-body">
+<div class="section-body case-outro">
 <p class="case-more-text">Meer weten? <a href="../#cases" class="case-more-link"><strong>Bekijk de andere cases</strong></a> of <a href="#" class="case-more-link" onclick="event.preventDefault();if(window.highlightSidebar){{highlightSidebar();}}else{{var sb=document.getElementById('float-sidebar');if(sb){{sb.classList.add('visible');sb.classList.remove('highlight');void sb.offsetWidth;sb.classList.add('highlight');}}}}return false;"><strong>stel je vraag</strong></a>.</p>
 </div>
 
