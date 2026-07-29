@@ -1,14 +1,25 @@
 [
   {
     "name": "theaterthuis",
-    "playlist": "PLq_uaPJGJY_-evEabusblDL_Uu0Ox_KSa"
+    "playlist": "PLq_uaPJGJY_-evEabusblDL_Uu0Ox_KSa",
+    "label": "TheaterThuis"
   },
   {
     "name": "trading",
-    "playlist": "PLq_uaPJGJY_9jzCQNCLG4jJd7fUapp9pT"
+    "playlist": "PLq_uaPJGJY_9jzCQNCLG4jJd7fUapp9pT",
+    "label": "Trading"
   },
   {
     "name": "zelfstandig-ondernemers",
-    "playlist": "PLEAc2p8jjAJ0"
+    "playlist": "PLEAc2p8jjAJ0",
+    "label": "Zelfstandig Ondernemers",
+    "from": 1,
+    "to": 10
+  },
+  {
+    "name": "zelfstandigen-bouw",
+    "playlist": "PLEAc2p8jjAJ0",
+    "label": "Zelfstandigen Bouw",
+    "from": 11
   }
 ]
