@@ -173,6 +173,18 @@ img{max-width:100%;display:block;}
 @media (min-width:760px){
   .hero-img{max-width:632px;width:calc(100% - 48px);margin-left:24px;margin-right:24px;}
 }
+
+.rel-cases{display:flex;flex-direction:column;gap:0;margin-top:6px;
+  border-top:1px solid var(--rule);}
+.rel-case{display:block;padding:16px 0;text-decoration:none;color:inherit;
+  border-bottom:1px solid var(--rule);transition:padding-left .18s ease;}
+.rel-case:hover{padding-left:6px;}
+.rel-name{display:flex;align-items:baseline;gap:7px;font-family:var(--ff-disp);
+  font-size:17px;font-weight:800;letter-spacing:-.3px;color:var(--ink);}
+.rel-arr{color:var(--mag);font-size:14px;}
+.rel-desc{display:block;font-size:13.5px;line-height:1.5;color:var(--mid);margin-top:5px;}
+.rel-tags{display:block;font-family:var(--ff-mono);font-size:10px;letter-spacing:.05em;
+  color:var(--subtle);margin-top:7px;}
 </style>
 <script>
 (function(){
@@ -225,6 +237,27 @@ img{max-width:100%;display:block;}
 <div class="dienst-photo"><img src="https://images.pexels.com/photos/4620866/pexels-photo-4620866.jpeg?auto=compress&cs=tinysrgb&w=900" alt="" loading="lazy"></div>
 <div class="section-body"><p>Influencer marketing werkt wanneer het authentiek is. Wij selecteren creators die écht aansluiten bij jouw merk en doelgroep — niet alleen op volgersaantal, maar op engagement, tone of voice en relevantie.</p><h2>Aanpak</h2><ul><li>Creator-selectie en screening</li><li>Campagnebrief en creatieve begeleiding</li><li>Contractering en rechtenmanagement</li><li>Contentbeoordeling en goedkeuring</li><li>Resultaatmeting (reach, views, conversie)</li></ul><h2>Schaalniveaus</h2><ul><li>Nano (1K-10K): hoge engagement, niche doelgroepen</li><li>Micro (10K-100K): categorie-experts</li><li>Macro (100K+): brede merkbekendheid</li></ul>
 <p>Heb je een vraag of project over dit onderwerp? <button onclick="if(window.highlightSidebar)window.highlightSidebar();var sb=document.getElementById('float-sidebar');if(sb){sb.classList.add('visible');}" type="button" style="background:none;border:none;padding:0;cursor:pointer;font:inherit;color:inherit;"><strong>Neem contact op →</strong></button></p>
+</div>
+
+<div class="section-body">
+  <h2>Relevant</h2>
+  <div class="rel-cases">
+      <a href="../cases/bikefair" class="rel-case">
+        <span class="rel-name">BikeFair<span class="rel-arr">&rarr;</span></span>
+        <span class="rel-desc">BikeFair is een snelgroeiende online marktplaats voor tweedehands fietsen. Het platform had al een…</span>
+        <span class="rel-tags">Campagne &middot; Zoekmachines &middot; Social media</span>
+      </a>
+      <a href="../cases/zelfstandigen-bouw" class="rel-case">
+        <span class="rel-name">Zelfstandigen Bouw<span class="rel-arr">&rarr;</span></span>
+        <span class="rel-desc">Zelfstandigen Bouw is een platform dat zelfstandige vakmensen in de bouwsector ondersteunt met…</span>
+        <span class="rel-tags">Zoekmachines &middot; Campagne &middot; Content creatie</span>
+      </a>
+      <a href="../cases/royal-haskoning" class="rel-case">
+        <span class="rel-name">Royal HaskoningDHV<span class="rel-arr">&rarr;</span></span>
+        <span class="rel-desc">Voor een van &#x27;s werelds grootste ingenieursbureaus begonnen we met een gerichte Google Ads campagne…</span>
+        <span class="rel-tags">Campagne &middot; Zoekmachines &middot; Tracking</span>
+      </a>
+  </div>
 </div>
 
 <div id="cta-mount"><noscript><p style="text-align:center;padding:32px 24px"><a href="https://calendly.com/flii-media">Plan een gesprek &rarr;</a></p></noscript></div>
