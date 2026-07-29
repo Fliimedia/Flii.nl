@@ -173,6 +173,18 @@ img{max-width:100%;display:block;}
 @media (min-width:760px){
   .hero-img{max-width:632px;width:calc(100% - 48px);margin-left:24px;margin-right:24px;}
 }
+
+.rel-cases{display:flex;flex-direction:column;gap:0;margin-top:6px;
+  border-top:1px solid var(--rule);}
+.rel-case{display:block;padding:16px 0;text-decoration:none;color:inherit;
+  border-bottom:1px solid var(--rule);transition:padding-left .18s ease;}
+.rel-case:hover{padding-left:6px;}
+.rel-name{display:flex;align-items:baseline;gap:7px;font-family:var(--ff-disp);
+  font-size:17px;font-weight:800;letter-spacing:-.3px;color:var(--ink);}
+.rel-arr{color:var(--mag);font-size:14px;}
+.rel-desc{display:block;font-size:13.5px;line-height:1.5;color:var(--mid);margin-top:5px;}
+.rel-tags{display:block;font-family:var(--ff-mono);font-size:10px;letter-spacing:.05em;
+  color:var(--subtle);margin-top:7px;}
 </style>
 <script>
 (function(){
@@ -225,6 +237,27 @@ img{max-width:100%;display:block;}
 <div class="dienst-photo"><img src="https://images.pexels.com/photos/607812/pexels-photo-607812.jpeg?auto=compress&cs=tinysrgb&w=900" alt="" loading="lazy"></div>
 <div class="section-body"><p>Social media is meer dan aanwezig zijn — het gaat om de juiste boodschap, het juiste format en het juiste moment. Wij beheren je social advertising volledig: van strategie en inkoop tot creative en rapportage.</p><h2>Platforms</h2><ul><li>Meta (Facebook + Instagram)</li><li>TikTok Ads</li><li>LinkedIn Ads (B2B focus)</li><li>Pinterest Ads</li><li>Snapchat en YouTube</li></ul><h2>Wat we leveren</h2><ul><li>Campagne-architectuur en targeting</li><li>Creative testing (A/B en multivariate)</li><li>Pixel-implementatie en event tracking</li><li>Weekly optimalisatie en maandrapportage</li></ul>
 <p>Heb je een vraag of project over dit onderwerp? <button onclick="if(window.highlightSidebar)window.highlightSidebar();var sb=document.getElementById('float-sidebar');if(sb){sb.classList.add('visible');}" type="button" style="background:none;border:none;padding:0;cursor:pointer;font:inherit;color:inherit;"><strong>Neem contact op →</strong></button></p>
+</div>
+
+<div class="section-body">
+  <h2>Relevant</h2>
+  <div class="rel-cases">
+      <a href="../cases/bikefair" class="rel-case">
+        <span class="rel-name">BikeFair<span class="rel-arr">&rarr;</span></span>
+        <span class="rel-desc">BikeFair is een snelgroeiende online marktplaats voor tweedehands fietsen. Het platform had al een…</span>
+        <span class="rel-tags">Campagne &middot; Zoekmachines &middot; Social media</span>
+      </a>
+      <a href="../cases/zelfstandigen-bouw" class="rel-case">
+        <span class="rel-name">Zelfstandigen Bouw<span class="rel-arr">&rarr;</span></span>
+        <span class="rel-desc">Zelfstandigen Bouw is een platform dat zelfstandige vakmensen in de bouwsector ondersteunt met…</span>
+        <span class="rel-tags">Zoekmachines &middot; Campagne &middot; Content creatie</span>
+      </a>
+      <a href="../cases/ae-trading" class="rel-case">
+        <span class="rel-name">Trading<span class="rel-arr">&rarr;</span></span>
+        <span class="rel-desc">Voor een startup e-commerce fietsenwinkel in fatbikes, scooters en e-bikes ontwikkelden we een content…</span>
+        <span class="rel-tags">Social content &middot; Video &middot; Social media</span>
+      </a>
+  </div>
 </div>
 
 <div id="cta-mount"><noscript><p style="text-align:center;padding:32px 24px"><a href="https://calendly.com/flii-media">Plan een gesprek &rarr;</a></p></noscript></div>
