@@ -2,16 +2,19 @@
   {
     "name": "theaterthuis",
     "title": "TheaterThuis",
-    "count": 0
+    "count": 3,
+    "via": "rss"
   },
   {
     "name": "trading",
     "title": "Trading",
-    "count": 0
+    "count": 10,
+    "via": "page"
   },
   {
     "name": "zelfstandig-ondernemers",
     "title": "FC Klap",
-    "count": 0
+    "count": 15,
+    "via": "rss"
   }
 ]
