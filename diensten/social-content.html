@@ -173,6 +173,18 @@ img{max-width:100%;display:block;}
 @media (min-width:760px){
   .hero-img{max-width:632px;width:calc(100% - 48px);margin-left:24px;margin-right:24px;}
 }
+
+.rel-cases{display:flex;flex-direction:column;gap:0;margin-top:6px;
+  border-top:1px solid var(--rule);}
+.rel-case{display:block;padding:16px 0;text-decoration:none;color:inherit;
+  border-bottom:1px solid var(--rule);transition:padding-left .18s ease;}
+.rel-case:hover{padding-left:6px;}
+.rel-name{display:flex;align-items:baseline;gap:7px;font-family:var(--ff-disp);
+  font-size:17px;font-weight:800;letter-spacing:-.3px;color:var(--ink);}
+.rel-arr{color:var(--mag);font-size:14px;}
+.rel-desc{display:block;font-size:13.5px;line-height:1.5;color:var(--mid);margin-top:5px;}
+.rel-tags{display:block;font-family:var(--ff-mono);font-size:10px;letter-spacing:.05em;
+  color:var(--subtle);margin-top:7px;}
 </style>
 <script>
 (function(){
@@ -225,6 +237,27 @@ img{max-width:100%;display:block;}
 <div class="dienst-photo"><img src="https://images.pexels.com/photos/1092671/pexels-photo-1092671.jpeg?auto=compress&cs=tinysrgb&w=900" alt="" loading="lazy"></div>
 <div class="section-body"><p>Social content vraagt om snelheid, relevantie en creativiteit. Wij maken content die native aanvoelt op elk platform — niet dezelfde post overal, maar format-first denken.</p><h2>Wat we maken</h2><ul><li>Feed posts en carousels (Instagram, LinkedIn, Facebook)</li><li>Stories en Reels</li><li>TikTok video's</li><li>UGC-stijl content</li><li>Content kalenders en planningen</li></ul><h2>Contentstrategie</h2><p>Goede social content begint bij een duidelijke strategie. Welke pijlers dek je af? Hoe mix je awareness, engagement en conversie? Wij helpen je structuur aanbrengen én uitvoeren.</p>
 <p>Heb je een vraag of project over dit onderwerp? <button onclick="if(window.highlightSidebar)window.highlightSidebar();var sb=document.getElementById('float-sidebar');if(sb){sb.classList.add('visible');}" type="button" style="background:none;border:none;padding:0;cursor:pointer;font:inherit;color:inherit;"><strong>Neem contact op →</strong></button></p>
+</div>
+
+<div class="section-body">
+  <h2>Relevant</h2>
+  <div class="rel-cases">
+      <a href="../cases/ae-trading" class="rel-case">
+        <span class="rel-name">Trading<span class="rel-arr">&rarr;</span></span>
+        <span class="rel-desc">Voor een startup e-commerce fietsenwinkel in fatbikes, scooters en e-bikes ontwikkelden we een content…</span>
+        <span class="rel-tags">Social content &middot; Video &middot; Social media</span>
+      </a>
+      <a href="../cases/theaterthuis" class="rel-case">
+        <span class="rel-name">TheaterThuis<span class="rel-arr">&rarr;</span></span>
+        <span class="rel-desc">TheaterThuis is een digitale streamingdienst voor liefhebbers van toneel, cabaret en musicals. Tijdens…</span>
+        <span class="rel-tags">Social media &middot; Content creatie &middot; Social content</span>
+      </a>
+      <a href="../cases/digitaal-ondernemersplein" class="rel-case">
+        <span class="rel-name">Digitaal Ondernemersplein<span class="rel-arr">&rarr;</span></span>
+        <span class="rel-desc">Het Digitaal Ondernemersplein is een platform van de overheid — met onder andere KVK, Belastingdienst…</span>
+        <span class="rel-tags">Social media &middot; Social content &middot; Content creatie</span>
+      </a>
+  </div>
 </div>
 
 <div id="cta-mount"><noscript><p style="text-align:center;padding:32px 24px"><a href="https://calendly.com/flii-media">Plan een gesprek &rarr;</a></p></noscript></div>
