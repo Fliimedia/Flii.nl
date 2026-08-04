@@ -388,6 +388,11 @@ body{font-family:var(--ff-body);background:var(--paper);color:var(--ink);}
 .del-t{font-size:13.5px;font-weight:600;color:var(--ink);display:block;}
 .del-d{display:block;font-size:11px;color:var(--soft);margin-top:2px;line-height:1.4;}
 .del-p{font-size:11.5px;color:var(--mid);white-space:nowrap;font-weight:500;padding-top:1px;}
+
+.btn.is-disabled{opacity:.4;cursor:not-allowed;pointer-events:none;}
+.calc-empty-step{display:flex;flex-direction:column;align-items:flex-start;gap:14px;
+  padding:28px 0 8px;}
+.calc-empty-step p{margin:0;font-size:14px;color:var(--soft);}
 </style>
 <link rel="canonical" href="https://flii.nl/loop">
 <link rel="stylesheet" href="https://fliimedia.github.io/Flii.nl/assets/reduced-motion.css">
@@ -756,7 +761,9 @@ var L = {
   next:"Volgende →",
   startOver:"Opnieuw",
   cta:"Plan een gesprek",
-  empty:"Kies minimaal één type en fase.",
+  empty:"Kies minimaal \u00e9\u00e9n type en fase.",
+  pickTypeFirst:"Kies eerst wat je wilt maken.",
+  backToType:"\u2190 Terug naar stap 1",
   comboNote:"Loop Start-fee vervalt bij Loop Build.",
   save:"Je bespaart"
 };
@@ -1004,7 +1011,8 @@ function renderCalc() {
   else if (cur === "details") {
     var selected = ["campagne","ai"].filter(function(k){ return S.types[k]; });
     if (!selected.length) {
-      html += '<p class="calc-note">'+L.stepHelp.type+'</p>';
+      html += '<div class="calc-empty-step"><p>'+L.pickTypeFirst+'</p>'
+           +  '<button class="btn btn-secondary" onclick="goStep(0)">'+L.backToType+'</button></div>';
     }
 
     // Campagne channels
@@ -1121,7 +1129,9 @@ function renderCalc() {
       html += '<div class="rcp-row rcp-tot"><span class="rcp-l">'+L.totalWord+'</span>'+'<span class="rcp-v mono" data-kind="once">'+(r.onRequest?L.onRequest:(r.once>0?eur(r.once)+' '+L.onceShort:''))+'</span>'+'<span class="rcp-v mono" data-kind="mo">'+(r.mo>0?eur(r.mo)+L.mo:'')+'</span></div>';
       html += '</div>';
     }
-    html += '<button class="btn-cta" onclick="window.open(\'https://calendly.com/flii-media\',\'_blank\')">'+L.cta+' \u2192</button>';
+    if (!r.nothing) {
+      html += '<button class="btn-cta" onclick="window.open(\'https://calendly.com/flii-media\',\'_blank\')">'+L.cta+' \u2192</button>';
+    }
     html += navBtns(true, false);
     html += '</div>';
   }
@@ -1144,7 +1154,13 @@ function renderCalc() {
 function navBtns(back, next) {
   var h = '<div class="calc-nav">';
   if (back) h += '<button class="btn btn-secondary" onclick="goStep('+(S.step-1)+')">'+L.back+'</button>';
-  if (next) h += '<button class="btn btn-primary"   onclick="goStep('+(S.step+1)+')">'+L.next+'</button>';
+  if (next) {
+    // Without a type there is nothing to configure on the next step.
+    var ready = S.types.campagne || S.types.ai;
+    h += '<button class="btn btn-primary'+(ready?"":" is-disabled")+'"'
+      +  (ready ? ' onclick="goStep('+(S.step+1)+')"' : ' disabled aria-disabled="true"')
+      +  '>'+L.next+'</button>';
+  }
   if (!next && S.step > 0) h += '<button class="btn btn-ghost" onclick="goStep(0)">'+L.startOver+'</button>';
   h += '</div>';
   return h;
