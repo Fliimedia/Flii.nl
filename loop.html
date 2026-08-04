@@ -620,22 +620,24 @@ function renderCore() {
 // ── DATA ────────────────────────────────────────────────────
 var PRICING = {
   scopes: {
-    campagne: { plan: 1500, build: 0,    run: 0   },
-    ai:       { plan: 2500, build: 6500, run: 850 }
+    campagne: { plan: 1500, build: 2500, run:  650 },
+    app:      { plan: 2500, build: 9500, run:  550 },
+    platform: { plan: 2000, build: 6500, run:  450 },
+    ai:       { plan: 2500, build: 6500, run:  850 }
   }
 };
 
 var CHANNEL_TREE = [
-  { key:"search",    once:850,  mo:0, subs:["searchEngines","aiSearch","socialSearch","appStore"],         dels:["seoContent","seoTech","sea","linkbuilding"] },
-  { key:"social",    once:750,  mo:0, subs:["meta","tiktok","linkedin","pinterest","otherSocial"],          dels:["socialContent","community","paidSocial","socialInfluencer"] },
-  { key:"display",   once:700,  mo:0, subs:["programmatic","gdn","native","retargeting"],                  dels:["bannerCreatie","programmaticBuy","retargetingSetup"] },
-  { key:"videotv",   once:950,  mo:0, subs:["onlineVideo","ctv","linearTv"],                               dels:["videoProductie","videoMontage","videoBuy"] },
-  { key:"audio",     once:0,    mo:0, subs:["radio","streamingAudio","podcasts"],                          dels:["spotProductie","podcastProductie","audioBuy"] },
-  { key:"email",     once:850,  mo:0, subs:["newsletters","automation","loyalty"],                         dels:["templateDesign","emailFlows","crmSetup"] },
-  { key:"messaging", once:0,    mo:0, subs:["whatsapp","sms","push"],                                     dels:["flowSetup","msgCopy","msgIntegratie"] },
-  { key:"ooh",       once:850,  mo:0, subs:["billboards","dooh","transit","retail"],                      dels:["oohOntwerp","oohBuy","oohProductie"] },
-  { key:"print",     once:650,  mo:0, subs:["stationery","flyers","directMail","merch"],                  dels:["printOntwerp","drukwerk","printDistributie"] },
-  { key:"pr",        once:0,    mo:0, subs:["earned","influencer","affiliate","sponsoring"],               dels:["persstrategie","influencerMgmt","affiliateSetup"] }
+  { key:"search",    once:850,  mo:650, subs:["searchEngines","aiSearch","socialSearch","appStore"],         dels:["seoContent","seoTech","sea","linkbuilding"] },
+  { key:"social",    once:750,  mo:600, subs:["meta","tiktok","linkedin","pinterest","otherSocial"],          dels:["socialContent","community","paidSocial","socialInfluencer"] },
+  { key:"display",   once:700,  mo:450, subs:["programmatic","gdn","native","retargeting"],                  dels:["bannerCreatie","programmaticBuy","retargetingSetup"] },
+  { key:"videotv",   once:950,  mo:550, subs:["onlineVideo","ctv","linearTv"],                               dels:["videoProductie","videoMontage","videoBuy"] },
+  { key:"audio",     once:650,  mo:400, subs:["radio","streamingAudio","podcasts"],                          dels:["spotProductie","podcastProductie","audioBuy"] },
+  { key:"email",     once:850,  mo:500, subs:["newsletters","automation","loyalty"],                         dels:["templateDesign","emailFlows","crmSetup"] },
+  { key:"messaging", once:750,  mo:350, subs:["whatsapp","sms","push"],                                     dels:["flowSetup","msgCopy","msgIntegratie"] },
+  { key:"ooh",       once:850,  mo:400, subs:["billboards","dooh","transit","retail"],                      dels:["oohOntwerp","oohBuy","oohProductie"] },
+  { key:"print",     once:650,  mo:300, subs:["stationery","flyers","directMail","merch"],                  dels:["printOntwerp","drukwerk","printDistributie"] },
+  { key:"pr",        once:900,  mo:550, subs:["earned","influencer","affiliate","sponsoring"],               dels:["persstrategie","influencerMgmt","affiliateSetup"] }
 ];
 
 var DEL_PRICE = {
@@ -655,14 +657,23 @@ var APP_KINDS = ["webapp","pwa","nativeApp"];
 var APP_OPTS  = ["uxDesign","backendApi","appIntegraties","appStorePub"];
 var PLATFORM_OPTS = ["website","ecommerce","portaal","platformAi","platformIntegraties","cms"];
 var AI_OPTS   = ["chatbot","contentgen","automatisering","dataAnalyse","aiIntegratie","customModel"];
-var APP_KIND_PRICE = { webapp:0, pwa:0, nativeApp:1500 };
-var APP_OPT_PRICE  = { uxDesign:900, backendApi:1200, appIntegraties:900, appStorePub:500 };
-var APP_CAP = 10000;
+var APP_KIND_PRICE = { webapp:0, pwa:1500, nativeApp:4500 };
+var APP_OPT_PRICE  = { uxDesign:2500, backendApi:3500, appIntegraties:1800, appStorePub:750 };
+var PLATFORM_OPT_PRICE = {
+  website:{once:0}, ecommerce:{once:4500,mo:150}, portaal:{once:6500,mo:250},
+  platformAi:{once:3500,mo:200}, platformIntegraties:{once:1800}, cms:{once:1200}
+};
+var AI_OPT_PRICE = {
+  chatbot:{once:3500,mo:250}, contentgen:{once:2500,mo:200},
+  automatisering:{once:3000,mo:150}, dataAnalyse:{once:2800,mo:250},
+  aiIntegratie:{once:2200,mo:150}, customModel:{once:9500,mo:650}
+};
+var APP_CAP = 32000;
 
 // Labels
 var L = {
-  scopes:    { campagne:"Campagne", ai:"AI" },
-  scopeDesc: { campagne:"Een advertentiecampagne, opgezet en gestuurd op resultaat.", ai:"Een AI-oplossing of automatisering, van integratie tot een eigen model." },
+  scopes:    { campagne:"Campagne", app:"App", platform:"Platform", ai:"AI" },
+  scopeDesc: { campagne:"Een advertentiecampagne, opgezet en gestuurd op resultaat.", app:"Een webapp, PWA of native app \u2014 van ontwerp tot publicatie.", platform:"Een website, webshop of portaal, gebouwd op maat of no-code.", ai:"Een AI-oplossing of automatisering, van integratie tot een eigen model." },
   phases:    { plan:"Loop Start", build:"Loop Build", run:"Loop Run" },
   phaseDesc: { plan:"Research en plan van aanpak.", build:"Creatie: de app, het platform of de campagne wordt gebouwd.", run:"Beheer & verbeter: hosting, optimalisatie en doorontwikkeling." },
   phaseByType: {
@@ -715,19 +726,20 @@ function eur(n) { return "\u20AC\u00A0" + Math.round(n||0).toLocaleString("nl-NL
 
 // ── COMPUTE ──────────────────────────────────────────────────
 function compute() {
-  var selected = ["campagne","ai"].filter(function(k){ return S.types[k]; });
+  var selected = ["campagne","app","platform","ai"].filter(function(k){ return S.types[k]; });
   var once = 0, mo = 0, saving = 0;
 
   selected.forEach(function(sk) {
     var sc = PRICING.scopes[sk];
-    // Plan fee: charged when plan is selected AND build is not (build includes plan)
+    if (!sc) return;
+    // Loop Start is included in Loop Build, so it is only charged on its own
     if (S.phases.plan && !S.phases.build) once += sc.plan;
     if (S.phases.build) once += sc.build;
     if (S.phases.run)   mo   += sc.run;
     if (S.phases.plan && S.phases.build) saving += sc.plan;
   });
 
-  // Campaign channels: setup (once) applies when plan OR build selected
+  // Campaign channels: setup during plan/build, management during run
   if (S.types.campagne) {
     CHANNEL_TREE.forEach(function(c) {
       if (!S.cats[c.key]) return;
@@ -742,6 +754,25 @@ function compute() {
     });
   }
 
+  // App: type of app plus the chosen options
+  if (S.types.app && S.phases.build) {
+    once += APP_KIND_PRICE[S.appKind] || 0;
+    APP_OPTS.forEach(function(k) { if (S.opts[k]) once += APP_OPT_PRICE[k] || 0; });
+    if (once > APP_CAP) once = APP_CAP;   // above this we quote instead
+  }
+
+  // Platform and AI options
+  [["platform", PLATFORM_OPTS, PLATFORM_OPT_PRICE],
+   ["ai",       AI_OPTS,       AI_OPT_PRICE]].forEach(function(set) {
+    if (!S.types[set[0]]) return;
+    set[1].forEach(function(k) {
+      if (!S.opts[k]) return;
+      var pr = set[2][k] || {};
+      if (S.phases.build) once += pr.once || 0;
+      if (S.phases.run)   mo   += pr.mo   || 0;
+    });
+  });
+
   var anyChannel = false;
   if (S.types.campagne) {
     CHANNEL_TREE.forEach(function(c) { if (S.cats[c.key]) anyChannel = true; });
@@ -751,7 +782,6 @@ function compute() {
   return {
     once: once, mo: mo, saving: saving, selected: selected,
     hasSelection: hasSelection,
-    // something is chosen, but none of it carries a listed price yet
     onRequest: hasSelection && once === 0 && mo === 0,
     nothing: !hasSelection
   };
@@ -759,7 +789,7 @@ function compute() {
 
 function lineItems() {
   var items = [];
-  var selected = ["campagne","ai"].filter(function(k){ return S.types[k]; });
+  var selected = ["campagne","app","platform","ai"].filter(function(k){ return S.types[k]; });
 
   selected.forEach(function(sk) {
     var sc = PRICING.scopes[sk];
@@ -780,10 +810,17 @@ function lineItems() {
           sub.push({ label:L.typeOpts[k]||k, once:a2 });
         }
       });
-    } else if (sk === "platform") {
-      PLATFORM_OPTS.forEach(function(k) { if (S.opts[k]) sub.push({ label:L.typeOpts[k]||k, free:true }); });
-    } else if (sk === "ai") {
-      AI_OPTS.forEach(function(k) { if (S.opts[k]) sub.push({ label:L.typeOpts[k]||k, free:true }); });
+    } else if (sk === "platform" || sk === "ai") {
+      var list  = sk === "platform" ? PLATFORM_OPTS : AI_OPTS;
+      var table = sk === "platform" ? PLATFORM_OPT_PRICE : AI_OPT_PRICE;
+      list.forEach(function(k) {
+        if (!S.opts[k]) return;
+        var pr = table[k] || {};
+        var o  = S.phases.build ? (pr.once || 0) : 0;
+        var m  = S.phases.run   ? (pr.mo   || 0) : 0;
+        onceItem += o; moItem += m;
+        sub.push({ label:L.typeOpts[k]||k, once:o, mo:m, free:(o===0 && m===0) });
+      });
     }
 
     // Always list the chosen type, so the result card names what was picked
@@ -923,7 +960,7 @@ function renderCalc() {
   // ── STEP 1: TYPE ──────────────────────────────────────────
   if (cur === "type") {
     html += '<div class="type-cards">';
-    ["campagne","ai"].forEach(function(k) {
+    ["campagne","app","platform","ai"].forEach(function(k) {
       var on = S.types[k];
       html += '<button class="scope-card'+(on?" on":"") +'" onclick="toggleType(\''+k+'\')">';
       html += '<span class="scope-check">'+(on?"&#10003;":"")+'</span>';
