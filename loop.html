@@ -162,7 +162,8 @@ body{font-family:var(--ff-body);background:var(--paper);color:var(--ink);}
 .calc-head h2{font-family:var(--ff-disp);font-size:clamp(20px,5vw,28px);font-weight:800;
   letter-spacing:-.8px;margin-bottom:6px;}
 .calc-head p{font-size:13px;color:var(--mid);line-height:1.5;margin-bottom:20px;}
-.calc-steps{display:flex;gap:4px;padding:0;border-bottom:none;overflow-x:auto;}
+.calc-steps{display:flex;gap:4px;padding:0;border-bottom:none;overflow-x:auto;scrollbar-width:none;-ms-overflow-style:none;}
+.calc-steps::-webkit-scrollbar{display:none;width:0;height:0;}
 .calc-dot{display:flex;align-items:center;gap:8px;background:none;border:none;cursor:pointer;
   font:inherit;color:var(--soft);padding:12px 10px;border-radius:0;white-space:nowrap;
   transition:color .15s;border-bottom:2px solid transparent;margin-bottom:-1px;}
