@@ -304,10 +304,15 @@ body{font-family:var(--ff-body);background:var(--paper);color:var(--ink);}
   .calc-dot-n{width:26px;height:26px;}
   .calc-slide{padding:20px;}
   .calc-running{display:none;}
-  .rcp-head span+span,.rcp-v{display:none;}
+  /* Beide bedragen blijven zichtbaar: eenmalig boven, per maand eronder. */
+  .rcp-head span+span{display:none;}
   .rcp-head{grid-template-columns:1fr;}
-  .rcp-row,.rcp-tot{grid-template-columns:1fr auto;}
-  .rcp-v:last-child{display:block;}
+  .rcp-row,.rcp-tot{grid-template-columns:minmax(0,1fr) auto;}
+  .rcp-v{display:block;grid-column:2;font-size:12px;}
+  .rcp-v:empty{display:none;}
+  .rcp-v[data-kind="once"]{grid-row:1;}
+  .rcp-v[data-kind="mo"]{grid-row:2;color:var(--soft);}
+  .rcp-tot .rcp-v{font-size:13px;}
 }
 
 .fnl-desc-card {
@@ -741,6 +746,7 @@ var L = {
   onRequest:"Op aanvraag",
   inclFree:"inbegrepen",
   once:"Eenmalig",
+  onceShort:"eenmalig",
   mo:"/mnd",
   monthCol:"Maand",
   svcCol:"Dienst",
@@ -1101,18 +1107,18 @@ function renderCalc() {
         html += '<span class="rcp-l">';
         if (hasSub) html += '<span class="rcp-caret'+(isOpen?" on":"")+'">&#x203A;</span>';
         html += it.label+'</span>';
-        html += '<span class="rcp-v mono">'+(it.req?L.onRequest:(it.once>0?eur(it.once):""))+'</span>';
-        html += '<span class="rcp-v mono">'+(it.req?"":(it.mo>0?eur(it.mo):""))+'</span></div>';
+        html += '<span class="rcp-v mono" data-kind="once">'+(it.req?L.onRequest:(it.once>0?eur(it.once):""))+'</span>';
+        html += '<span class="rcp-v mono" data-kind="mo">'+(it.req?"":(it.mo>0?eur(it.mo)+L.mo:""))+'</span></div>';
         if (hasSub && isOpen) {
           it.sub.forEach(function(s) {
             html += '<div class="rcp-row rcp-srow"><span class="rcp-l">'+s.label+'</span>';
-            html += '<span class="rcp-v mono">'+(s.free?'<em class="rcp-free">'+L.inclFree+'</em>':(s.once>0?eur(s.once):""))+'</span>';
-            html += '<span class="rcp-v mono">'+(s.free?"":(s.mo>0?eur(s.mo):""))+'</span></div>';
+            html += '<span class="rcp-v mono" data-kind="once">'+(s.free?'<em class="rcp-free">'+L.inclFree+'</em>':(s.once>0?eur(s.once):""))+'</span>';
+            html += '<span class="rcp-v mono" data-kind="mo">'+(s.free?"":(s.mo>0?eur(s.mo)+L.mo:""))+'</span></div>';
           });
         }
         html += '</div>';
       });
-      html += '<div class="rcp-row rcp-tot"><span class="rcp-l">'+L.totalWord+'</span><span class="rcp-v mono">'+(r.onRequest?L.onRequest:eur(r.once))+'</span><span class="rcp-v mono">'+(r.mo>0?eur(r.mo):"")+'</span></div>';
+      html += '<div class="rcp-row rcp-tot"><span class="rcp-l">'+L.totalWord+'</span>'+'<span class="rcp-v mono" data-kind="once">'+(r.onRequest?L.onRequest:(r.once>0?eur(r.once)+' '+L.onceShort:''))+'</span>'+'<span class="rcp-v mono" data-kind="mo">'+(r.mo>0?eur(r.mo)+L.mo:'')+'</span></div>';
       html += '</div>';
     }
     html += '<button class="btn-cta" onclick="window.open(\'https://calendly.com/flii-media\',\'_blank\')">'+L.cta+' \u2192</button>';
@@ -1125,8 +1131,10 @@ function renderCalc() {
   if (r.onRequest) {
     running = L.onRequest;
   } else if (!r.nothing) {
-    running = L.totalFrom + " " + eur(r.once);
-    if (r.mo) running += " \u00B7 " + eur(r.mo) + L.mo;
+    var parts = [];
+    if (r.once > 0) parts.push(eur(r.once) + " " + L.onceShort);
+    if (r.mo   > 0) parts.push(eur(r.mo) + L.mo);
+    if (parts.length) running = L.totalFrom + " " + parts.join(" \u00B7 ");
   }
   html += '<div class="calc-running-bar"><div class="calc-running mono">'+running+'</div></div>';
 
