@@ -393,6 +393,7 @@ body{font-family:var(--ff-body);background:var(--paper);color:var(--ink);}
 .calc-empty-step{display:flex;flex-direction:column;align-items:flex-start;gap:14px;
   padding:28px 0 8px;}
 .calc-empty-step p{margin:0;font-size:14px;color:var(--soft);}
+.rcp-nrow .rcp-l{font-style:italic;color:var(--soft);font-size:11.5px;}
 </style>
 <link rel="canonical" href="https://flii.nl/loop">
 <link rel="stylesheet" href="https://fliimedia.github.io/Flii.nl/assets/reduced-motion.css">
@@ -677,11 +678,39 @@ function renderCore() {
 
 // ── DATA ────────────────────────────────────────────────────
 var PRICING = {
+  // The base covers work that does not scale with the number of channels:
+  // strategy, creative concept, measurement framework, coordination and
+  // reporting. Channel work is priced separately per channel.
   scopes: {
-    campagne: { plan: 1500, build: 2500, run:  650 },
-    ai:       { plan: 2500, build: 6500, run:  850 }
-  }
+    campagne: { plan: 1200, build:  900, run: 250 },
+    ai:       { plan: 1800, build: 2500, run: 350 }
+  },
+  // Research per channel during Loop Start (Build charges the full setup).
+  channelResearch: 150,
+  // Shared research, creative and one reporting cycle mean each extra
+  // channel costs less to run than the first.
+  tiers: [
+    { upTo: 1,        factor: 1.00 },
+    { upTo: 3,        factor: 0.85 },
+    { upTo: Infinity, factor: 0.70 }
+  ]
 };
+
+function tierFactor(rank) {           // rank is 0-based, priciest channel first
+  var n = rank + 1, t;
+  for (var i = 0; i < PRICING.tiers.length; i++) {
+    t = PRICING.tiers[i];
+    if (n <= t.upTo) return t.factor;
+  }
+  return 1;
+}
+
+// Channels sorted by setup price, so the biggest one is always at full rate.
+function selectedChannels() {
+  var out = [];
+  CHANNEL_TREE.forEach(function(c) { if (S.cats[c.key]) out.push(c); });
+  return out.sort(function(a, b) { return b.once - a.once; });
+}
 
 var CHANNEL_TREE = [
   { key:"search",    once:850,  mo:650, subs:["searchEngines","aiSearch","socialSearch","appStore"],         dels:["seoContent","seoTech","sea","linkbuilding"] },
@@ -762,6 +791,8 @@ var L = {
   startOver:"Opnieuw",
   cta:"Plan een gesprek",
   empty:"Kies minimaal \u00e9\u00e9n type en fase.",
+  tierNote:"schaalvoordeel \u2212{p}%",
+  baseNote:"strategie, concept & co\u00f6rdinatie",
   pickTypeFirst:"Kies eerst wat je wilt maken.",
   backToType:"\u2190 Terug naar stap 1",
   comboNote:"Loop Start-fee vervalt bij Loop Build.",
@@ -786,35 +817,44 @@ function eur(n) { return "\u20AC\u00A0" + Math.round(n||0).toLocaleString("nl-NL
 // ── COMPUTE ──────────────────────────────────────────────────
 function compute() {
   var selected = ["campagne","ai"].filter(function(k){ return S.types[k]; });
-  var once = 0, mo = 0, saving = 0;
+  var once = 0, mo = 0, saving = 0, discOnce = 0, discMo = 0;
 
   selected.forEach(function(sk) {
     var sc = PRICING.scopes[sk];
     if (!sc) return;
-    // Loop Start is included in Loop Build, so it is only charged on its own
+    // Loop Start is included in Loop Build, so it is only charged on its own.
     if (S.phases.plan && !S.phases.build) once += sc.plan;
     if (S.phases.build) once += sc.build;
     if (S.phases.run)   mo   += sc.run;
     if (S.phases.plan && S.phases.build) saving += sc.plan;
   });
 
-  // Campaign channels: setup during plan/build, management during run
   if (S.types.campagne) {
-    CHANNEL_TREE.forEach(function(c) {
-      if (!S.cats[c.key]) return;
-      if (S.phases.plan || S.phases.build) once += c.once;
-      if (S.phases.run)                    mo   += c.mo;
+    selectedChannels().forEach(function(c, i) {
+      var f = tierFactor(i);
+      // Start only pays for research; the actual setup happens in Build.
+      if (S.phases.plan && !S.phases.build) {
+        once += Math.round(PRICING.channelResearch * f);
+        discOnce += Math.round(PRICING.channelResearch * (1 - f));
+      }
+      if (S.phases.build) {
+        once += Math.round(c.once * f);
+        discOnce += Math.round(c.once * (1 - f));
+      }
+      if (S.phases.run) {
+        mo += Math.round(c.mo * f);
+        discMo += Math.round(c.mo * (1 - f));
+      }
+      // Deliverables are discrete pieces of work: no volume discount.
       c.dels.forEach(function(d) {
         if (!S.dels[d]) return;
         var dp = DEL_PRICE[d] || {};
-        if (S.phases.plan || S.phases.build) once += dp.once || 0;
-        if (S.phases.run)                    mo   += dp.mo   || 0;
+        if (S.phases.build) once += dp.once || 0;
+        if (S.phases.run)   mo   += dp.mo   || 0;
       });
     });
   }
 
-
-  // Platform and AI options
   if (S.types.ai) {
     AI_OPTS.forEach(function(k) {
       if (!S.opts[k]) return;
@@ -824,14 +864,11 @@ function compute() {
     });
   }
 
-  var anyChannel = false;
-  if (S.types.campagne) {
-    CHANNEL_TREE.forEach(function(c) { if (S.cats[c.key]) anyChannel = true; });
-  }
-  var hasSelection = selected.length > 0 || anyChannel;
+  var hasSelection = selected.length > 0 || selectedChannels().length > 0;
 
   return {
     once: once, mo: mo, saving: saving, selected: selected,
+    discOnce: discOnce, discMo: discMo,
     hasSelection: hasSelection,
     onRequest: hasSelection && once === 0 && mo === 0,
     nothing: !hasSelection
@@ -861,6 +898,9 @@ function lineItems() {
 
     // Always list the chosen type, so the result card names what was picked
     // even when its own price is zero or still on request.
+    if (sk === "campagne" && (onceItem > 0 || moItem > 0)) {
+      sub.unshift({ label: L.baseNote, note: true });
+    }
     items.push({
       label: L.scopes[sk], once: onceItem, mo: moItem,
       req: onceItem === 0 && moItem === 0,
@@ -869,18 +909,26 @@ function lineItems() {
   });
 
   if (S.types.campagne) {
-    CHANNEL_TREE.forEach(function(c) {
-      if (!S.cats[c.key]) return;
-      var selDels = c.dels.filter(function(d){ return S.dels[d]; });
-      var sub = [];
-      c.subs.filter(function(x){ return S.subs[x]; }).forEach(function(x){ sub.push({ label:L.subs[x]||x, free:true }); });
-      selDels.forEach(function(d) {
-        var dp = DEL_PRICE[d]||{};
-        sub.push({ label:L.dels[d]||d, once:(dp.once||0)*((S.phases.plan||S.phases.build)?1:0), mo:(dp.mo||0)*(S.phases.run?1:0) });
+    selectedChannels().forEach(function(c, i) {
+      var f = tierFactor(i);
+      var onceItem = 0, moItem = 0, sub = [];
+
+      if (S.phases.plan && !S.phases.build) onceItem += Math.round(PRICING.channelResearch * f);
+      if (S.phases.build) onceItem += Math.round(c.once * f);
+      if (S.phases.run)   moItem   += Math.round(c.mo * f);
+
+      c.dels.filter(function(d){ return S.dels[d]; }).forEach(function(d) {
+        var dp = DEL_PRICE[d] || {};
+        var o = S.phases.build ? (dp.once || 0) : 0;
+        var m = S.phases.run   ? (dp.mo   || 0) : 0;
+        onceItem += o; moItem += m;
+        sub.push({ label: L.dels[d] || d, once: o, mo: m, free: (o === 0 && m === 0) });
       });
-      var totOnce = (c.once + selDels.reduce(function(a,d){ return a+((DEL_PRICE[d]&&DEL_PRICE[d].once)||0);},0)) * ((S.phases.plan||S.phases.build)?1:0);
-      var totMo   = (c.mo   + selDels.reduce(function(a,d){ return a+((DEL_PRICE[d]&&DEL_PRICE[d].mo  )||0);},0)) * (S.phases.run ?1:0);
-      items.push({ label:L.cats[c.key], once:totOnce, mo:totMo, req:c.once===0&&c.mo===0, sub:sub });
+
+      if (f < 1) sub.push({ label: L.tierNote.replace("{p}", Math.round((1-f)*100)), note: true });
+
+      items.push({ label: L.cats[c.key] || c.key, once: onceItem, mo: moItem,
+                   req: onceItem === 0 && moItem === 0, sub: sub });
     });
   }
   return items;
@@ -1119,6 +1167,11 @@ function renderCalc() {
         html += '<span class="rcp-v mono" data-kind="mo">'+(it.req?"":(it.mo>0?eur(it.mo)+L.mo:""))+'</span></div>';
         if (hasSub && isOpen) {
           it.sub.forEach(function(s) {
+            if (s.note) {
+              html += '<div class="rcp-row rcp-srow rcp-nrow"><span class="rcp-l">'+s.label+'</span>'
+                   +  '<span class="rcp-v"></span><span class="rcp-v"></span></div>';
+              return;
+            }
             html += '<div class="rcp-row rcp-srow"><span class="rcp-l">'+s.label+'</span>';
             html += '<span class="rcp-v mono" data-kind="once">'+(s.free?'<em class="rcp-free">'+L.inclFree+'</em>':(s.once>0?eur(s.once):""))+'</span>';
             html += '<span class="rcp-v mono" data-kind="mo">'+(s.free?"":(s.mo>0?eur(s.mo)+L.mo:""))+'</span></div>';
