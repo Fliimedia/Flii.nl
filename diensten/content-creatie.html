@@ -184,6 +184,11 @@ a{color:inherit;text-decoration:none;}
 .section-body h2{font-family:var(--ff-disp);font-size:22px;font-weight:800; letter-spacing:-.4px;margin:36px 0 14px;}
 a.svc-tag{text-decoration:none;cursor:pointer;transition:background .15s,border-color .15s,color .15s;}
 a.svc-tag:hover{background:var(--ink);border-color:var(--ink);color:#fff;}
+
+/* Chips op een hoofddienstpagina zijn links: laat dat ook zonder hover zien. */
+a.svc-tag{padding-right:7px;}
+a.svc-tag::after{content:"\203A";margin-left:5px;opacity:.45;font-weight:700;}
+a.svc-tag:hover::after{opacity:.9;}
 </style>
 <script>
 (function(){
