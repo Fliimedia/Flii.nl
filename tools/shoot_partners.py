@@ -15,8 +15,12 @@ def main():
                 ctx = b.new_context(viewport={"width": 1440, "height": 900},
                                     device_scale_factor=1.5)
                 pg = ctx.new_page()
-                pg.goto(u, wait_until="networkidle", timeout=45000)
-                pg.wait_for_timeout(2500)
+                pg.goto(u, wait_until="domcontentloaded", timeout=60000)
+                try:
+                    pg.wait_for_load_state("networkidle", timeout=15000)
+                except Exception:
+                    pass
+                pg.wait_for_timeout(3500)
                 # cookiemeldingen wegklikken waar mogelijk
                 for tekst in ["Accepteren", "Accept", "Akkoord", "Alles accepteren",
                               "Souhlasím", "Přijmout vše", "Got it", "OK"]:
