@@ -177,6 +177,17 @@ body{font-family:var(--ff-body);background:#fff;color:var(--ink);-webkit-font-sm
   margin:0 auto 12px;max-width:640px;padding:0 24px;}
 .footer-mini-links a{font-size:11px;color:#6B6866;text-decoration:none;transition:color .12s;}
 .footer-mini-links a:hover{color:#0F0E0C;}
+
+.case-slot{border:1.5px solid rgba(232,41,74,.7);border-radius:20px;overflow:hidden;
+  background:#0F0E0C;animation:neon-pulse 3s ease-in-out infinite;margin-top:32px;}
+.case-slot .result-card{border:none;border-radius:0;margin-top:0;animation:none;
+  background:transparent;padding:6px 0 0;}
+.case-slot .rc-row:last-child{border-bottom:1px solid rgba(255,255,255,.07);}
+.case-slot .cta-card-wrap{border:none;border-radius:0;animation:none;margin-top:0;
+  min-height:auto;}
+.case-slot #cta-mount{margin:0;}
+.case-slot .cta-section{padding:0 !important;margin:0 !important;}
+@media (prefers-reduced-motion:reduce){.case-slot{animation:none;}}
 </style>
 <script>
 (function(){
@@ -282,22 +293,23 @@ body{font-family:var(--ff-body);background:#fff;color:var(--ink);-webkit-font-sm
 
   <h2>Voorstel uitbreiding kanalen</h2>
   <p>We dienden een voorstel in voor uitbreiding naar meer relevante kanalen met groter publiek, waaronder WhatsApp en Reddit — platforms waar ondernemers actief vragen stellen maar overheidsinstanties nauwelijks aanwezig zijn.</p>
+<p class="case-more-text">Meer weten? <a href="../#cases" class="case-more-link"><strong>Bekijk de andere cases</strong></a> of <a href="#" class="case-more-link" onclick="event.preventDefault();if(window.highlightSidebar){{highlightSidebar();}}else{{var sb=document.getElementById('float-sidebar');if(sb){{sb.classList.add('visible');sb.classList.remove('highlight');void sb.offsetWidth;sb.classList.add('highlight');}}}}return false;"><strong>stel je vraag</strong></a>.</p>
 </div>
 </div>
 </div>
 <div class="section-body case-outro">
+<div class="case-slot">
 <div class="result-card">
   <div class="rc-row"><span class="rc-icon"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="rgba(232,41,74,.9)" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg></span><span class="rc-desc">kanalen bespeeld: YouTube, LinkedIn en Instagram</span><span class="rc-num">3</span></div>
   <div class="rc-row rc-row--note"><span class="rc-icon"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="rgba(232,41,74,.9)" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg></span><span class="rc-desc">Vaste tone of voice ontwikkeld en per bericht geautomatiseerd</span></div>
   <div class="rc-row rc-row--note"><span class="rc-icon"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="rgba(232,41,74,.9)" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg></span><span class="rc-desc">KPI-framework gebouwd waar meetbare doelen tot dan toe ontbraken</span></div>
 </div>
-</div>
-
-<div class="section-body case-outro">
-<p class="case-more-text">Meer weten? <a href="../#cases" class="case-more-link"><strong>Bekijk de andere cases</strong></a> of <a href="#" class="case-more-link" onclick="event.preventDefault();if(window.highlightSidebar){{highlightSidebar();}}else{{var sb=document.getElementById('float-sidebar');if(sb){{sb.classList.add('visible');sb.classList.remove('highlight');void sb.offsetWidth;sb.classList.add('highlight');}}}}return false;"><strong>stel je vraag</strong></a>.</p>
-</div>
-
 <div id="cta-mount"><noscript><p style="text-align:center;padding:32px 24px"><a href="https://calendly.com/flii-media">Plan een gesprek &rarr;</a></p></noscript></div>
+</div>
+</div>
+
+
+
 <style>
 @keyframes neon-pulse{0%,100%{border-color:rgba(232,41,74,.5);box-shadow:0 0 6px rgba(232,41,74,.12);}50%{border-color:rgba(232,41,74,.9);box-shadow:0 0 16px rgba(232,41,74,.3);}}
 .result-card{background:#0F0E0C;border:1.5px solid rgba(232,41,74,.6);border-radius:16px;padding:4px 0;margin-top:32px;animation:neon-pulse 3s ease-in-out infinite;}
