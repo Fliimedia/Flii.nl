@@ -127,12 +127,20 @@
         opacity: 0,
         complete: function () {
           obj.zetBeeld(item.dataset.beeld);
+          // Startpositie eerst zetten. In anime.js v3 werkt een van-naar-array
+          // vanuit een functie niet meer, vandaar anime.set() als aparte stap.
+          window.anime.set(obj.stukken, {
+            translateX: 0,
+            rotateZ: 0,
+            opacity: 0,
+            translateY: function () { return window.anime.random(180, 640); }
+          });
           obj.animeer({
             duration: 520,
             easing: [0.3, 1, 0.3, 1],
             delay: function (t) { return +t.dataset.rij * +t.dataset.vertraging; },
             translateX: 0,
-            translateY: function () { return [window.anime.random(180, 640) + 'px', '0px']; },
+            translateY: 0,
             rotateZ: 0,
             opacity: { value: 1, duration: 480, easing: 'linear' },
             complete: function () { bezig = false; }
