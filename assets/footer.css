@@ -272,33 +272,41 @@ footer .footer-bento{grid-template-columns:repeat(3,minmax(0,1fr));align-items:s
 footer .footer-tile-zoek{grid-column:span 2;}
 footer .footer-tile-loop{grid-column:span 1;}
 
-/* Liquid glass */
-footer .footer-tile-zoek,
+/* Zoektegel: rustige achtergrond, zonder gloed. */
+footer .footer-tile-zoek{
+  background:#F9F8F6;border:1px solid rgba(15,14,12,.07);border-radius:14px;
+}
+
+/* Loop-kaart: glas met een gloed die vanuit de ring naar buiten beweegt. */
 footer .footer-tile-loop{
-  position:relative;overflow:hidden;isolation:isolate;
-  background:linear-gradient(135deg,rgba(255,255,255,.72) 0%,rgba(255,255,255,.32) 100%);
+  position:relative;overflow:hidden;isolation:isolate;border-radius:14px;
+  background:linear-gradient(135deg,rgba(255,255,255,.74) 0%,rgba(255,255,255,.34) 100%);
   -webkit-backdrop-filter:blur(14px) saturate(170%);
   backdrop-filter:blur(14px) saturate(170%);
   border:1px solid rgba(255,255,255,.7);
   box-shadow:0 4px 20px rgba(15,14,12,.07),
              inset 0 1px 0 rgba(255,255,255,.85),
              inset 0 -1px 0 rgba(15,14,12,.04);
-  border-radius:14px;
 }
-/* gekleurde gloed onder het glas */
-footer .footer-tile-zoek::before,
+/* gloed straalt uit het midden, waar het ringmerk staat */
 footer .footer-tile-loop::before{
-  content:"";position:absolute;inset:-40% -20% auto -20%;height:170%;z-index:-1;
-  background:radial-gradient(60% 60% at 22% 12%,rgba(232,41,74,.20),transparent 70%),
-             radial-gradient(55% 55% at 84% 0%,rgba(59,130,246,.16),transparent 72%),
-             radial-gradient(50% 50% at 60% 100%,rgba(168,85,247,.14),transparent 70%);
-  filter:blur(8px);
+  content:"";position:absolute;left:50%;top:42%;width:150%;aspect-ratio:1;z-index:-1;
+  transform:translate(-50%,-50%);
+  background:radial-gradient(closest-side,
+      rgba(232,41,74,.34) 0%,
+      rgba(255,94,154,.22) 34%,
+      rgba(176,75,255,.16) 58%,
+      transparent 74%);
+  filter:blur(10px);
+  animation:ftLoopGlow 5.5s ease-in-out infinite;
 }
-/* lichtstreep over de bovenrand */
-footer .footer-tile-zoek::after,
 footer .footer-tile-loop::after{
   content:"";position:absolute;left:0;right:0;top:0;height:1px;
   background:linear-gradient(90deg,transparent,rgba(255,255,255,.95),transparent);
+}
+@keyframes ftLoopGlow{
+  0%,100% { transform:translate(-50%,-50%) scale(.72); opacity:.75; }
+  50%     { transform:translate(-50%,-50%) scale(1.06); opacity:1; }
 }
 
 footer .footer-tile-zoek{align-items:flex-start;text-align:left;}
@@ -325,4 +333,8 @@ footer .ft-loop-card:hover .ft-loop-name{color:#E8294A;}
 }
 @media (prefers-reduced-motion:reduce){
   footer .loopmark-svg .lm-rot,footer .loopmark-svg .lm-rot2{animation:none;}
+}
+
+@media (prefers-reduced-motion:reduce){
+  footer .footer-tile-loop::before{animation:none;}
 }
