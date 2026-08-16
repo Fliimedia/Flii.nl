@@ -4728,7 +4728,6 @@ details.faq-item[open] .faq-answer {
 .rocket-wrap.charging 
 .rocket-wrap.charging 
 .rocket-wrap.launching {
-  animation: rocket-fly .8s cubic-bezier(.4,0,.2,1) forwards;
 }
 
 .rocket-container.visible { opacity: 1; }
@@ -4736,15 +4735,13 @@ details.faq-item[open] .faq-answer {
 .rocket-container.charging svg 
 .rocket-container.charging svg ellipse[cx="14"][cy="72"],
 .rocket-container.charging svg ellipse[cx="26"][cy="72"] {
-  animation: flame-flicker .12s ease-in-out infinite alternate;
 }
 
-.rocket-container.charging { animation: charge-pulse .5s ease-out infinite; border-radius: 50%; }
+.rocket-container.charging { border-radius: 50%; }
 
   100% { transform: translateX(50%) translateY(-120vh) rotate(-15deg); opacity: 0; }
 
 .rocket-container.launching {
-  animation: rocket-launch .9s cubic-bezier(.25,.46,.45,.94) forwards;
 }
 /* Scroll rocket — flies bottom to top */
 
