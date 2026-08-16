@@ -760,4 +760,21 @@
     <loc>https://flii.nl/voorwaarden</loc>
     <priority>0.8</priority>
   </url>
+
+  <url>
+    <loc>https://flii.nl/partners/webiz</loc>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://flii.nl/partners/digital-movements</loc>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://flii.nl/partners/fc-klap</loc>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://flii.nl/partners/tiny-wolf</loc>
+    <priority>0.6</priority>
+  </url>
 </urlset>
