@@ -324,6 +324,12 @@ img{max-width:100%;display:block;}
 .pfp-groep{margin-top:30px;}
 .pfp-groep h2{font-family:var(--ff-disp,sans-serif);font-size:17px;font-weight:800;
   letter-spacing:-.3px;margin:0;}
+.pfp-meer{display:grid;grid-template-columns:repeat(auto-fill,minmax(140px,1fr));gap:9px;margin-top:14px;}
+.pfp-meer a{display:flex;align-items:center;gap:10px;padding:11px 12px;border-radius:12px;border:1px solid rgba(0,0,0,.14);background:#fff;text-decoration:none;transition:border-color .15s;}
+.pfp-meer a:hover{border-color:rgba(0,0,0,.4);}
+.pfp-meer span.m{width:28px;height:28px;border-radius:50%;flex:none;display:flex;align-items:center;justify-content:center;border:1px solid rgba(0,0,0,.2);}
+.pfp-meer span.m svg{width:14px;height:14px;color:#0F0E0C;}
+.pfp-meer span.n{font-family:var(--ff-disp,sans-serif);font-size:13.5px;font-weight:800;letter-spacing:-.2px;color:#0F0E0C;}
 </style>
 <script>
 (function(){
@@ -408,6 +414,16 @@ img{max-width:100%;display:block;}
   <div class="lp-sec">
     <h2>Wat het oplevert</h2>
     <div class="pfp-case"><p><b>Uit de praktijk</b>Een webshop stuurde maandenlang op een conversieratio die te mooi was: bedankpagina&rsquo;s werden dubbel geteld bij een herlaadactie. Na correctie bleek het werkelijke cijfer een derde lager — en werd duidelijk welke campagne wél rendeerde.</p></div>
+  </div>
+
+  
+  <div class="lp-sec">
+    <h2>Andere platformen</h2>
+    <div class="pfp-meer">
+      <a href="google-tag-manager"><span class="m"><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12.003 0a3 3 0 0 0-2.121 5.121l6.865 6.865-4.446 4.541 1.745 1.836a3.432 3.432 0 0 1 .7.739l.012.011-.001.002a3.432 3.432 0 0 1 .609 1.953 3.432 3.432 0 0 1-.09.78l7.75-7.647c.031-.029.067-.05.098-.08.023-.023.038-.052.06-.076a2.994 2.994 0 0 0-.06-4.166l-9-9A2.99 2.99 0 0 0 12.003 0zM8.63 2.133L.88 9.809a2.998 2.998 0 0 0 0 4.238l7.7 7.75a3.432 3.432 0 0 1-.077-.729 3.432 3.432 0 0 1 3.431-3.431 3.432 3.432 0 0 1 .826.101l-5.523-5.81 4.371-4.373-2.08-2.08c-.903-.904-1.193-2.183-.898-3.342zm3.304 16.004a2.932 2.932 0 0 0-2.931 2.931A2.932 2.932 0 0 0 11.934 24a2.932 2.932 0 0 0 2.932-2.932 2.932 2.932 0 0 0-2.932-2.931z"/></svg></span><span class="n">Google Tag Manager</span></a>
+      <a href="search-console"><span class="m"><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M8.548 1.156L6.832 2.872v1.682h1.716zm0 3.398v.035H6.832v-.035H3.386L0 7.844v3.577h2.826V8.94c0-.525.429-.954.954-.954h16.476c.525 0 .954.43.954.954v2.48h2.754V7.844l-3.386-3.29H17.3v.035h-1.717v-.035zm7.035 0H17.3V2.872l-1.717-1.716zM8.679 1.188V2.84h6.773V1.188zm11.471 7.07a.834.834 0 00-.132.01l-.543.002c-5.216.014-10.432-.008-15.648.01-.435-.063-.794.436-.716.883v2.264h17.812c-.016-.888.045-1.782-.034-2.666-.104-.342-.427-.502-.739-.502zm-15.422.634a.689.698 0 01.689.698.689.698 0 01-.689.697.689.698 0 01-.688-.697.689.698 0 01.688-.698zm2.134 0a.689.698 0 01.689.698.689.698 0 01-.689.697.689.698 0 01-.688-.697.689.698 0 01.688-.698zM.036 11.645v9.156c0 1.05.858 1.908 1.907 1.908h.883V11.645zm21.174 0v11.064h.882c1.05 0 1.908-.858 1.908-1.908v-9.156zM4.057 13.133v6.85h6.137v-6.85zm13.243.021v3.777l-1.708.977-1.708-.977v-3.758a4.006 4.006 0 000 7.23v2.441h3.457v-2.442a4.006 4.006 0 00-.041-7.248zm-13.243 8.26v1.43h7.925v-1.43z"/></svg></span><span class="n">Search Console</span></a>
+      <a href="hubspot"><span class="m"><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M18.164 7.93V5.084a2.198 2.198 0 001.267-1.978v-.067A2.2 2.2 0 0017.238.845h-.067a2.2 2.2 0 00-2.193 2.193v.067a2.196 2.196 0 001.252 1.973l.013.006v2.852a6.22 6.22 0 00-2.969 1.31l.012-.01-7.828-6.095A2.497 2.497 0 104.3 4.656l-.012.006 7.697 5.991a6.176 6.176 0 00-1.038 3.446c0 1.343.425 2.588 1.147 3.607l-.013-.02-2.342 2.343a1.968 1.968 0 00-.58-.095h-.002a2.033 2.033 0 102.033 2.033 1.978 1.978 0 00-.1-.595l.005.014 2.317-2.317a6.247 6.247 0 104.782-11.134l-.036-.005zm-.964 9.378a3.206 3.206 0 113.215-3.207v.002a3.206 3.206 0 01-3.207 3.207z"/></svg></span><span class="n">HubSpot</span></a>
+    </div>
   </div>
 
   <div class="lp-close">
