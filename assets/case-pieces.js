@@ -140,7 +140,7 @@
           });
           obj.animeer({
             duration: 520,
-            easing: [0.3, 1, 0.3, 1],
+            easing: 'cubicBezier(0.3, 1, 0.3, 1)',
             delay: function (t) { return +t.dataset.rij * +t.dataset.vertraging; },
             translateX: 0,
             translateY: 0,
