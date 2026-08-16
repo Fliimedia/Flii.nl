@@ -2,21 +2,8 @@
    Variabelen hebben een terugvalwaarde zodat elke pagina gelijk oogt. */
 /* ── GOOGLE REVIEW BANNER ── */
 
-
-
-
 .grb-text strong { font-weight: 700; }
 /* ── FOOTER REDESIGN ── */
-
-
-
-
-
-
-
-
-
-
 
 /* ── CONTACT POPUP ── */
 
@@ -27,17 +14,10 @@
 .contact-popup-item:hover { color: var(--c-red, #E8294A); }
 /* Top section: left info + right nav columns */
 
-
-
-
 /* Nav columns */
-
-
-
 
 .footer-nav-link:hover { color: #0F0E0C; }
 /* Bottom bar */
-
 
 .footer-wordmark span {
   background: linear-gradient(90deg, #E8294A, #FF6B9D, #A855F7, #3B82F6, #06B6D4, #E8294A);
@@ -51,32 +31,16 @@
 .footer-link:hover, .footer-contact-btn:hover { color: #0F0E0C; }
 /* Contact button inline flex for arrow */
 
-
 .footer-contact-btn:hover 
-
-
 
 /* ══ FOOTER ══════════════════════════════════════════════════════════ */
 
-
 /* Row 1: social + GRB + address stacked on left, nav cols on right */
-
-
-
-
-
-
-
-
 
 /* Nav columns — mobile: wrap, no overflow */
 
-
-
-
 .footer-nav-link:hover { color: #0F0E0C; }
 /* Bottom bar */
-
 
 .footer-wordmark span {
   background: linear-gradient(90deg,#E8294A,#FF6B9D,#A855F7,#3B82F6,#06B6D4,#E8294A);
@@ -88,7 +52,6 @@
 .footer-link, 
 .footer-link:hover, .footer-contact-btn:hover { color: #0F0E0C; }
 .footer-contact-btn:hover 
-
 
 /* Contact popup — fixed bottom-right, hidden by default */
 
@@ -204,7 +167,6 @@
 .contact-popup-item:hover { color: #E8294A; }
 /* Force cases spacing */
 
-
 /* Footer bottom tile */
 .footer-tile-bottom{grid-column:1/-1;display:flex;flex-direction:column;align-items:center;gap:8px;padding:10px 14px;}
 .footer-legal{display:flex;gap:10px;flex-wrap:wrap;align-items:center;justify-content:center;}
@@ -212,7 +174,6 @@
 .footer-bento{display:grid;grid-template-columns:1fr 1fr 1fr;gap:10px;margin-bottom:10px;padding-bottom:80px;}
 .footer-address .footer-hours-link{color:inherit;text-decoration:none;border-bottom:1px solid rgba(255,255,255,.28);transition:border-color .15s,color .15s;}
 .footer-address .footer-hours-link:hover{border-color:currentColor;}
-
 
 /* Aanvullend uit de homepage: iconen en merkregel */
 .social-icon {
@@ -270,51 +231,14 @@ footer .footer-nav-link,footer .footer-nav-head{overflow-wrap:anywhere;}
 /* ── Footer: brede zoektegel naast de Loop-kaart, beide in glas ── */
 footer .footer-bento{grid-template-columns:repeat(3,minmax(0,1fr));align-items:stretch;}
 footer .footer-tile-zoek{grid-column:span 2;}
-footer .footer-tile-loop{grid-column:span 1;}
 
 /* Zoektegel: rustige achtergrond, zonder gloed. */
 footer .footer-tile-zoek{
   background:#F9F8F6;border:1px solid rgba(15,14,12,.07);border-radius:14px;
 }
 
-/* Loop-kaart: glas met een gloed die vanuit de ring naar buiten beweegt. */
-footer .footer-tile-loop{
-  position:relative;overflow:hidden;isolation:isolate;border-radius:14px;
-  background:linear-gradient(135deg,rgba(255,255,255,.74) 0%,rgba(255,255,255,.34) 100%);
-  -webkit-backdrop-filter:blur(14px) saturate(170%);
-  backdrop-filter:blur(14px) saturate(170%);
-  border:1px solid rgba(255,255,255,.7);
-  box-shadow:0 4px 20px rgba(15,14,12,.07),
-             inset 0 1px 0 rgba(255,255,255,.85),
-             inset 0 -1px 0 rgba(15,14,12,.04);
-}
-/* gloed straalt uit het midden, waar het ringmerk staat */
-footer .footer-tile-loop::before{
-  content:"";position:absolute;left:50%;top:42%;width:150%;aspect-ratio:1;z-index:-1;
-  transform:translate(-50%,-50%);
-  background:radial-gradient(closest-side,
-      rgba(232,41,74,.34) 0%,
-      rgba(255,94,154,.22) 34%,
-      rgba(176,75,255,.16) 58%,
-      transparent 74%);
-  filter:blur(10px);
-  animation:ftLoopGlow 5.5s ease-in-out infinite;
-}
-footer .footer-tile-loop::after{
-  content:"";position:absolute;left:0;right:0;top:0;height:1px;
-  background:linear-gradient(90deg,transparent,rgba(255,255,255,.95),transparent);
-}
-@keyframes ftLoopGlow{
-  0%,100% { transform:translate(-50%,-50%) scale(.72); opacity:.75; }
-  50%     { transform:translate(-50%,-50%) scale(1.06); opacity:1; }
-}
-
 footer .footer-tile-zoek{align-items:flex-start;text-align:left;}
 footer .footer-tile-zoek .footer-nav-head{border-bottom-color:rgba(15,14,12,.12);}
-
-/* Loop-kaart in de footer */
-footer .footer-tile-loop{display:flex;flex-direction:column;align-items:center;
-  justify-content:center;text-align:center;padding:14px 12px;}
 footer .ft-loop-card{display:flex;flex-direction:column;align-items:center;gap:8px;
   text-decoration:none;color:inherit;width:100%;}
 footer .ft-loop-card .loopmark-svg{width:38px;height:38px;}
@@ -342,3 +266,33 @@ footer .ft-loop-card:hover .ft-loop-name{color:#E8294A;}
 footer .footer-tile-zoek .footer-nav-link{display:flex;align-items:center;gap:7px;}
 footer .fn-ic{width:12px;height:12px;flex:none;opacity:.55;}
 footer .footer-nav-link:hover .fn-ic{opacity:1;}
+
+/* Loop-kaart: echt glas — semi-transparant, wat erachter ligt schemert door. */
+footer .footer-tile-loop{
+  position:relative;overflow:hidden;isolation:isolate;border-radius:14px;
+  display:flex;flex-direction:column;align-items:center;justify-content:center;
+  text-align:center;padding:14px 12px;
+  background:
+    linear-gradient(135deg,rgba(255,255,255,.42) 0%,rgba(255,255,255,.16) 46%,rgba(255,255,255,.34) 100%),
+    radial-gradient(120% 90% at 12% 0%,rgba(232,41,74,.16),transparent 58%),
+    radial-gradient(110% 90% at 92% 8%,rgba(80,140,255,.14),transparent 60%),
+    radial-gradient(120% 100% at 60% 108%,rgba(176,75,255,.13),transparent 62%);
+  -webkit-backdrop-filter:blur(22px) saturate(185%) brightness(1.06);
+  backdrop-filter:blur(22px) saturate(185%) brightness(1.06);
+  border:1px solid rgba(255,255,255,.55);
+  box-shadow:0 8px 26px rgba(15,14,12,.09),0 1px 2px rgba(15,14,12,.05),
+    inset 0 1px 0 rgba(255,255,255,.9),inset 0 -1px 0 rgba(255,255,255,.35),
+    inset 1px 0 0 rgba(255,255,255,.4),inset -1px 0 0 rgba(255,255,255,.4);
+}
+footer .footer-tile-loop::before{
+  content:"";position:absolute;left:0;right:0;top:0;height:46%;pointer-events:none;
+  background:linear-gradient(180deg,rgba(255,255,255,.55) 0%,rgba(255,255,255,.10) 62%,transparent 100%);
+}
+footer .footer-tile-loop::after{
+  content:"";position:absolute;inset:0;pointer-events:none;border-radius:14px;
+  background:linear-gradient(115deg,transparent 34%,rgba(255,255,255,.26) 47%,transparent 58%);
+}
+@media (max-width:520px){
+  footer .footer-tile-loop{padding:12px 8px;}
+  footer .footer-tile-loop .loopmark-svg{width:30px;height:30px;}
+}
