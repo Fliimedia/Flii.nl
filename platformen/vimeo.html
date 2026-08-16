@@ -324,6 +324,12 @@ img{max-width:100%;display:block;}
 .pfp-groep{margin-top:30px;}
 .pfp-groep h2{font-family:var(--ff-disp,sans-serif);font-size:17px;font-weight:800;
   letter-spacing:-.3px;margin:0;}
+.pfp-meer{display:grid;grid-template-columns:repeat(auto-fill,minmax(140px,1fr));gap:9px;margin-top:14px;}
+.pfp-meer a{display:flex;align-items:center;gap:10px;padding:11px 12px;border-radius:12px;border:1px solid rgba(0,0,0,.14);background:#fff;text-decoration:none;transition:border-color .15s;}
+.pfp-meer a:hover{border-color:rgba(0,0,0,.4);}
+.pfp-meer span.m{width:28px;height:28px;border-radius:50%;flex:none;display:flex;align-items:center;justify-content:center;border:1px solid rgba(0,0,0,.2);}
+.pfp-meer span.m svg{width:14px;height:14px;color:#0F0E0C;}
+.pfp-meer span.n{font-family:var(--ff-disp,sans-serif);font-size:13.5px;font-weight:800;letter-spacing:-.2px;color:#0F0E0C;}
 </style>
 <script>
 (function(){
@@ -408,6 +414,17 @@ img{max-width:100%;display:block;}
   <div class="lp-sec">
     <h2>Wat het oplevert</h2>
     <div class="pfp-case"><p><b>Uit de praktijk</b>Een organisatie wilde opnames delen met leden zonder ze publiek te maken. Via Vimeo bleef het materiaal afgeschermd en toch eenvoudig te bekijken — zonder de reclame en aanbevelingen die op een open platform naast je content verschijnen.</p></div>
+  </div>
+
+  
+  <div class="lp-sec">
+    <h2>Andere platformen</h2>
+    <div class="pfp-meer">
+      <a href="youtube"><span class="m"><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M23.498 6.186a3.016 3.016 0 0 0-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 0 0 .502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 0 0 2.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 0 0 2.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z"/></svg></span><span class="n">YouTube</span></a>
+      <a href="google-ads"><span class="m"><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M3.9998 22.9291C1.7908 22.9291 0 21.1383 0 18.9293s1.7908-3.9998 3.9998-3.9998 3.9998 1.7908 3.9998 3.9998-1.7908 3.9998-3.9998 3.9998zm19.4643-6.0004L15.4632 3.072C14.3586 1.1587 11.9121.5028 9.9988 1.6074S7.4295 5.1585 8.5341 7.0718l8.0009 13.8567c1.1046 1.9133 3.5511 2.5679 5.4644 1.4646 1.9134-1.1046 2.568-3.5511 1.4647-5.4644zM7.5137 4.8438L1.5645 15.1484A4.5 4.5 0 0 1 4 14.4297c2.5597-.0075 4.6248 2.1585 4.4941 4.7148l3.2168-5.5723-3.6094-6.25c-.4499-.7793-.6322-1.6394-.5878-2.4784z"/></svg></span><span class="n">Google Ads</span></a>
+      <a href="google-search"><span class="m"><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12.48 10.92v3.28h7.84c-.24 1.84-.853 3.187-1.787 4.133-1.147 1.147-2.933 2.4-6.053 2.4-4.827 0-8.6-3.893-8.6-8.72s3.773-8.72 8.6-8.72c2.6 0 4.507 1.027 5.907 2.347l2.307-2.307C18.747 1.44 16.133 0 12.48 0 5.867 0 .307 5.387.307 12s5.56 12 12.173 12c3.573 0 6.267-1.173 8.373-3.36 2.16-2.16 2.84-5.213 2.84-7.667 0-.76-.053-1.467-.173-2.053H12.48z"/></svg></span><span class="n">Google Search</span></a>
+      <a href="google-analytics"><span class="m"><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M22.84 2.9982v17.9987c.0086 1.6473-1.3197 2.9897-2.967 2.9984a2.9808 2.9808 0 01-.3677-.0208c-1.528-.226-2.6477-1.5558-2.6105-3.1V3.1204c-.0369-1.5458 1.0856-2.8762 2.6157-3.1 1.6361-.1915 3.1178.9796 3.3093 2.6158.014.1201.0208.241.0202.3619zM4.1326 18.0548c-1.6417 0-2.9726 1.331-2.9726 2.9726C1.16 22.6691 2.4909 24 4.1326 24s2.9726-1.3309 2.9726-2.9726-1.331-2.9726-2.9726-2.9726zm7.8728-9.0098c-.0171 0-.0342 0-.0513.0003-1.6495.0904-2.9293 1.474-2.891 3.1256v7.9846c0 2.167.9535 3.4825 2.3505 3.763 1.6118.3266 3.1832-.7152 3.5098-2.327.04-.1974.06-.3983.0593-.5998v-8.9585c.003-1.6474-1.33-2.9852-2.9773-2.9882z"/></svg></span><span class="n">Google Analytics</span></a>
+    </div>
   </div>
 
   <div class="lp-close">
