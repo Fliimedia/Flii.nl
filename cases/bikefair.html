@@ -205,6 +205,17 @@ img{max-width:100%;display:block;}
   margin:0 auto 12px;max-width:640px;padding:0 24px;}
 .footer-mini-links a{font-size:11px;color:#6B6866;text-decoration:none;transition:color .12s;}
 .footer-mini-links a:hover{color:#0F0E0C;}
+
+.case-slot{border:1.5px solid rgba(232,41,74,.7);border-radius:20px;overflow:hidden;
+  background:#0F0E0C;animation:neon-pulse 3s ease-in-out infinite;margin-top:32px;}
+.case-slot .result-card{border:none;border-radius:0;margin-top:0;animation:none;
+  background:transparent;padding:6px 0 0;}
+.case-slot .rc-row:last-child{border-bottom:1px solid rgba(255,255,255,.07);}
+.case-slot .cta-card-wrap{border:none;border-radius:0;animation:none;margin-top:0;
+  min-height:auto;}
+.case-slot #cta-mount{margin:0;}
+.case-slot .cta-section{padding:0 !important;margin:0 !important;}
+@media (prefers-reduced-motion:reduce){.case-slot{animation:none;}}
 </style>
 <script>
 (function(){
@@ -297,22 +308,23 @@ img{max-width:100%;display:block;}
 <p>We begonnen bij de basis: het optimaliseren van de e-commerce infrastructuur. Door slimme koppelingen te leggen en campagnes op onder andere Google Shopping te lanceren, zagen we al binnen drie maanden een omzetstijging van <strong>+28%</strong>. Een snelle winst die direct ruimte gaf voor de volgende stap.</p>
 <p>Om het merk ook bij Nederlandse consumenten op de kaart te zetten, rolden we een landelijke awarenesscampagne uit. Met een mix van video, display, social advertising, PR en print bereikten we ruim <strong>800.000 Nederlanders</strong>, met een gemiddelde frequentie van 2,4 keer. Dit zorgde voor zichtbaarheid én herkenning.</p>
 <p>Voor structurele groei legden we vervolgens de focus op SEO. Op basis van diepgaand zoekwoordonderzoek brachten we het zoekgedrag van de doelgroep terug tot acht belangrijke thema's. Samen met het developmentteam van BikeFair ontwikkelden we een op maat gemaakte pagebuilder-CMS. Hiermee konden we automatisch honderden SEO-geoptimaliseerde landingspagina's genereren, volledig afgestemd op actuele voorraad en concrete zoekvragen van gebruikers.</p>
+<p class="case-more-text">Meer weten? <a href="../#cases" class="case-more-link"><strong>Bekijk de andere cases</strong></a> of <a href="#" class="case-more-link" onclick="event.preventDefault();if(window.highlightSidebar){{highlightSidebar();}}else{{var sb=document.getElementById('float-sidebar');if(sb){{sb.classList.add('visible');sb.classList.remove('highlight');void sb.offsetWidth;sb.classList.add('highlight');}}}}return false;"><strong>stel je vraag</strong></a>.</p>
 </div>
 </div>
 </div>
 <div class="section-body case-outro">
+<div class="case-slot">
 <div class="result-card">
   <div class="rc-row"><span class="rc-icon"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="rgba(232,41,74,.9)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg></span><span class="rc-desc">Nederlanders bereikt via merkopbouw</span><span class="rc-num">800K+</span></div>
   <div class="rc-row"><span class="rc-icon"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="rgba(232,41,74,.9)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="22 7 13.5 15.5 8.5 10.5 2 17"/><polyline points="16 7 22 7 22 13"/></svg></span><span class="rc-desc">groei in organisch verkeer</span><span class="rc-num">750%</span></div>
   <div class="rc-row"><span class="rc-icon"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="rgba(232,41,74,.9)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"/></svg></span><span class="rc-desc">omzet afkomstig uit organisch kanaal</span><span class="rc-num">~30%</span></div>
 </div>
-</div>
-
-<div class="section-body case-outro">
-<p class="case-more-text">Meer weten? <a href="../#cases" class="case-more-link"><strong>Bekijk de andere cases</strong></a> of <a href="#" class="case-more-link" onclick="event.preventDefault();if(window.highlightSidebar){{highlightSidebar();}}else{{var sb=document.getElementById('float-sidebar');if(sb){{sb.classList.add('visible');sb.classList.remove('highlight');void sb.offsetWidth;sb.classList.add('highlight');}}}}return false;"><strong>stel je vraag</strong></a>.</p>
-</div>
-
 <div id="cta-mount"><noscript><p style="text-align:center;padding:32px 24px"><a href="https://calendly.com/flii-media">Plan een gesprek &rarr;</a></p></noscript></div>
+</div>
+</div>
+
+
+
 <style>
 @keyframes neon-pulse{0%,100%{border-color:rgba(232,41,74,.5);box-shadow:0 0 6px rgba(232,41,74,.12);}50%{border-color:rgba(232,41,74,.9);box-shadow:0 0 16px rgba(232,41,74,.3);}}
 .result-card{background:#0F0E0C;border:1.5px solid rgba(232,41,74,.6);border-radius:16px;padding:4px 0;margin-top:32px;animation:neon-pulse 3s ease-in-out infinite;}
