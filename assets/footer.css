@@ -213,12 +213,50 @@
 .footer-address .footer-hours-link{color:inherit;text-decoration:none;border-bottom:1px solid rgba(255,255,255,.28);transition:border-color .15s,color .15s;}
 .footer-address .footer-hours-link:hover{border-color:currentColor;}
 
-/* Sociale iconen op een vaste maat, los van pagina-CSS. */
-footer .footer-social-row{display:flex;align-items:center;justify-content:center;
-  gap:8px;flex-wrap:wrap;}
-footer .footer-social-row > a{display:inline-flex;align-items:center;justify-content:center;
-  width:30px;height:30px;flex:none;border-radius:50%;}
-footer .footer-social-row > a svg{width:16px;height:16px;display:block;}
-footer .footer-social-row > a.google-review-banner{width:auto;height:auto;border-radius:100px;}
-footer .footer-social-row > a.google-review-banner svg{width:11px;height:11px;}
-footer .footer-brandmark img,footer .footer-brand-top img{max-height:26px;width:auto;}
+
+/* Aanvullend uit de homepage: iconen en merkregel */
+.social-icon {
+  display: flex; align-items: center; justify-content: center;
+  width: 28px; height: 28px;
+  border: 1px solid #E8E6E1;
+  border-radius: 50%; background: #fff;
+}
+.social-icon svg { width: 13px; height: 13px; }
+.footer-brand-top {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+.footer-wordmark span {
+  background: linear-gradient(90deg, #E8294A, #FF6B9D, #A855F7, #3B82F6, #06B6D4, #E8294A);
+  background-size: 200% auto;
+  -webkit-background-clip: text; -webkit-text-fill-color: transparent;
+  background-clip: text;
+  animation: rainbowShift 4s linear infinite;
+}
+.footer-wordmark span {
+  background: linear-gradient(90deg,#E8294A,#FF6B9D,#A855F7,#3B82F6,#06B6D4,#E8294A);
+  background-size: 200% auto;
+  -webkit-background-clip: text; -webkit-text-fill-color: transparent;
+  background-clip: text;
+  animation: rainbowShift 4s linear infinite;
+}
+.footer-wordmark {
+  font-family: var(--ff-disp, 'Bricolage Grotesque', 'Inter', system-ui, sans-serif);
+  font-size: 13px; font-weight: 800;
+  letter-spacing: -.3px; color: #0F0E0C;
+  white-space: nowrap;
+}
+
+/* Footer staat los van pagina-CSS zodat hij overal identiek oogt. */
+footer.footer{padding:20px 16px 0;background:#fff;border-top:1px solid #E8E6E1;
+  max-width:none;margin:0;box-sizing:border-box;}
+footer .footer-bento{max-width:720px;margin-left:auto;margin-right:auto;}
+footer .social-icon{width:28px;height:28px;flex:none;}
+footer .social-icon svg{width:13px;height:13px;}
+footer .footer-nav-head{color:#0F0E0C;}
+footer .footer-nav-link{color:#4A4840;}
+footer .footer-nav-link:hover{color:#0F0E0C;}
+footer .footer-link,footer .footer-contact-btn{color:#9B9790;}
+footer .footer-link:hover,footer .footer-contact-btn:hover{color:#0F0E0C;}
+footer .footer-address{color:#9B9790;}
