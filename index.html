@@ -7252,14 +7252,46 @@ document.addEventListener('DOMContentLoaded', function() {
   kijk.observe(menu, { attributes: true, attributeFilter: ['class'] });
   if (menu.classList.contains('open')) start();
 
-  // Klik onthult de matrix: overlay 40% minder donker.
+  // Klik onthult de matrix: de donkere laag 40% lichter.
+  // De bestaande code zet opacity inline, dus we sturen hier ook inline bij.
+  var licht = document.getElementById('nav-spotlight');
+  var doek  = document.getElementById('matrix-canvas');
+  var vorig = null;
+
   knop.addEventListener('click', function () {
     var aan = menu.classList.toggle('matrix-on');
     knop.classList.toggle('on', aan);
     knop.setAttribute('aria-pressed', aan ? 'true' : 'false');
     knop.setAttribute('aria-label', aan ? 'Verberg de matrix' : 'Onthul de matrix');
-    if (aan && typeof window.startMatrix === 'function') window.startMatrix();
+
+    if (aan) {
+      if (licht) {
+        vorig = licht.style.background || '';
+        // basis is rgba(0,0,0,.82); 40% minder donker wordt .49
+        licht.style.background = 'rgba(0,0,0,0.49)';
+      }
+      if (doek) doek.style.opacity = '0.62';
+      if (typeof window.startMatrix === 'function') window.startMatrix();
+    } else {
+      if (licht) licht.style.background = vorig;
+      if (doek) doek.style.opacity = '0.12';
+    }
   });
+
+  // Sluit het menu, dan valt alles terug op de standaard.
+  kijk.observe(menu, { attributes: true, attributeFilter: ['class'] });
+  var wasOpen = menu.classList.contains('open');
+  new MutationObserver(function () {
+    var open = menu.classList.contains('open');
+    if (wasOpen && !open && menu.classList.contains('matrix-on')) {
+      menu.classList.remove('matrix-on');
+      knop.classList.remove('on');
+      knop.setAttribute('aria-pressed', 'false');
+      if (licht) licht.style.background = vorig;
+      if (doek) doek.style.opacity = '0.12';
+    }
+    wasOpen = open;
+  }).observe(menu, { attributes: true, attributeFilter: ['class'] });
 })();
 </script>
 </body>
