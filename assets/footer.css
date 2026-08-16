@@ -266,3 +266,61 @@ footer .footer-address{color:#9B9790;}
 footer .footer-bento{grid-template-columns:repeat(3,minmax(0,1fr));}
 footer .footer-tile-brand,footer .footer-tile-bottom{grid-column:1/-1;}
 footer .footer-nav-link,footer .footer-nav-head{overflow-wrap:anywhere;}
+
+/* ── Footer: brede zoektegel naast de Loop-kaart, beide in glas ── */
+footer .footer-bento{grid-template-columns:repeat(3,minmax(0,1fr));align-items:stretch;}
+footer .footer-tile-zoek{grid-column:span 2;}
+footer .footer-tile-loop{grid-column:span 1;}
+
+/* Liquid glass */
+footer .footer-tile-zoek,
+footer .footer-tile-loop{
+  position:relative;overflow:hidden;isolation:isolate;
+  background:linear-gradient(135deg,rgba(255,255,255,.72) 0%,rgba(255,255,255,.32) 100%);
+  -webkit-backdrop-filter:blur(14px) saturate(170%);
+  backdrop-filter:blur(14px) saturate(170%);
+  border:1px solid rgba(255,255,255,.7);
+  box-shadow:0 4px 20px rgba(15,14,12,.07),
+             inset 0 1px 0 rgba(255,255,255,.85),
+             inset 0 -1px 0 rgba(15,14,12,.04);
+  border-radius:14px;
+}
+/* gekleurde gloed onder het glas */
+footer .footer-tile-zoek::before,
+footer .footer-tile-loop::before{
+  content:"";position:absolute;inset:-40% -20% auto -20%;height:170%;z-index:-1;
+  background:radial-gradient(60% 60% at 22% 12%,rgba(232,41,74,.20),transparent 70%),
+             radial-gradient(55% 55% at 84% 0%,rgba(59,130,246,.16),transparent 72%),
+             radial-gradient(50% 50% at 60% 100%,rgba(168,85,247,.14),transparent 70%);
+  filter:blur(8px);
+}
+/* lichtstreep over de bovenrand */
+footer .footer-tile-zoek::after,
+footer .footer-tile-loop::after{
+  content:"";position:absolute;left:0;right:0;top:0;height:1px;
+  background:linear-gradient(90deg,transparent,rgba(255,255,255,.95),transparent);
+}
+
+footer .footer-tile-zoek{align-items:flex-start;text-align:left;}
+footer .footer-tile-zoek .footer-nav-head{border-bottom-color:rgba(15,14,12,.12);}
+
+/* Loop-kaart in de footer */
+footer .footer-tile-loop{display:flex;flex-direction:column;align-items:center;
+  justify-content:center;text-align:center;padding:14px 12px;}
+footer .ft-loop-card{display:flex;flex-direction:column;align-items:center;gap:8px;
+  text-decoration:none;color:inherit;width:100%;}
+footer .ft-loop-card .loopmark-svg{width:38px;height:38px;}
+footer .ft-loop-name{font-family:var(--ff-disp,'Bricolage Grotesque',sans-serif);
+  font-size:13px;font-weight:800;letter-spacing:-.2px;color:#0F0E0C;}
+footer .ft-loop-desc{font-size:10px;line-height:1.35;color:#6B6866;}
+footer .ft-loop-card:hover .ft-loop-name{color:#E8294A;}
+
+@media (max-width:520px){
+  footer .footer-tile-zoek{grid-column:span 3;}
+  footer .footer-tile-loop{grid-column:span 3;}
+  footer .footer-tile-loop .ft-loop-card{flex-direction:row;justify-content:center;gap:12px;}
+  footer .footer-tile-loop .ft-loop-text{text-align:left;}
+}
+@media (prefers-reduced-motion:reduce){
+  footer .loopmark-svg .lm-rot,footer .loopmark-svg .lm-rot2{animation:none;}
+}
