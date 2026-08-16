@@ -260,3 +260,9 @@ footer .footer-nav-link:hover{color:#0F0E0C;}
 footer .footer-link,footer .footer-contact-btn{color:#9B9790;}
 footer .footer-link:hover,footer .footer-contact-btn:hover{color:#0F0E0C;}
 footer .footer-address{color:#9B9790;}
+
+/* Kolommen exact gelijk: minmax(0,1fr) negeert de min-content-breedte,
+   zodat tekstlengte of een nog niet geladen lettertype de indeling niet verschuift. */
+footer .footer-bento{grid-template-columns:repeat(3,minmax(0,1fr));}
+footer .footer-tile-brand,footer .footer-tile-bottom{grid-column:1/-1;}
+footer .footer-nav-link,footer .footer-nav-head{overflow-wrap:anywhere;}
