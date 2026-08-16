@@ -8,7 +8,7 @@
 .footer-tile-brand{grid-column:1/-1;display:flex;flex-direction:column;align-items:center;gap:8px;}
 .footer-tile-nav{display:flex;flex-direction:column;align-items:flex-start;gap:4px;text-align:left;}
 .footer-tile-bottom{grid-column:1/-1;display:flex;flex-direction:column;align-items:center;gap:8px;padding:10px 14px;}
-.footer-nav-head{font-family:var(--ff-mono);font-size:8px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:#0F0E0C;margin-bottom:6px;padding-bottom:5px;border-bottom:1px solid var(--c-rule);text-align:left;width:100%;}
+.footer-nav-head{font-family:var(--ff-mono, 'JetBrains Mono', monospace);font-size:8px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:#0F0E0C;margin-bottom:6px;padding-bottom:5px;border-bottom:1px solid var(--c-rule, #E8E6E1);text-align:left;width:100%;}
 .footer-nav-link:hover { color: #0F0E0C; }
 .footer-nav-link {
   font-size: 11px; color: #4A4840;
@@ -19,7 +19,7 @@
 .footer-link, 
 .footer-link:hover, .footer-contact-btn:hover { color: #0F0E0C; }
 .footer-link, .footer-contact-btn {
-  font-family: var(--ff-body);
+  font-family: var(--ff-body, 'DM Sans', system-ui, sans-serif);
   font-size: 10px; color: #9B9790;
   text-decoration: none;
   background: none; border: none; cursor: pointer; padding: 0;
@@ -41,7 +41,7 @@
   animation: rainbowShift 4s linear infinite;
 }
 .footer-wordmark {
-  font-family: var(--ff-disp);
+  font-family: var(--ff-disp, 'Bricolage Grotesque', 'Inter', system-ui, sans-serif);
   font-size: 13px; font-weight: 800;
   letter-spacing: -.3px; color: #0F0E0C;
   white-space: nowrap;
@@ -90,12 +90,12 @@
   box-shadow: 0 8px 32px rgba(0,0,0,.12); min-width: 200px;
 }
 .contact-popup-label {
-  font-family: var(--ff-mono); font-size: 9px; font-weight: 700;
+  font-family: var(--ff-mono, 'JetBrains Mono', monospace); font-size: 9px; font-weight: 700;
   letter-spacing: .12em; text-transform: uppercase;
   color: #9B9790; margin-bottom: 10px;
 }
 .contact-popup-item:last-child { border-bottom: none; }
-.contact-popup-item:hover { color: var(--c-red); }
+.contact-popup-item:hover { color: var(--c-red, #E8294A); }
 .contact-popup-item:hover { color: #E8294A; }
 .contact-popup-item {
   display: flex; align-items: center; gap: 9px;
@@ -136,7 +136,7 @@
   opacity: 1; pointer-events: all; transform: translateY(0);
 }
 .footer-contact-btn {
-  font-family: var(--ff-body);
+  font-family: var(--ff-body, 'DM Sans', system-ui, sans-serif);
   font-size: 10px; color: #9B9790;
   text-decoration: none;
   background: none; border: none; cursor: pointer; padding: 0;
@@ -152,3 +152,12 @@
 .footer-contact-arr { opacity:1; transform:translateX(2px); }
 .footer-hours-link{color:inherit;text-decoration:none;border-bottom:1px solid rgba(255,255,255,.28);transition:border-color .15s,color .15s;}
 .footer-hours-link:hover{border-color:currentColor;}
+
+/* Footer staat los van de pagina-variabelen, zodat hij overal gelijk oogt. */
+footer .footer-nav-head{color:#0F0E0C;}
+footer .footer-nav-link{color:#4A4840;}
+footer .footer-nav-link:hover{color:#0F0E0C;}
+footer .footer-link,footer .footer-contact-btn{color:#9B9790;}
+footer .footer-link:hover,footer .footer-contact-btn:hover{color:#0F0E0C;}
+footer .footer-address{color:#9B9790;}
+footer .footer-wordmark{color:#0F0E0C;}
