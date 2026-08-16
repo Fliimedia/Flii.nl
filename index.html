@@ -4914,8 +4914,8 @@ details.faq-item[open] .faq-answer {
 .menu-fm .fm-b img{filter:hue-rotate(-90deg) saturate(3);}
 /* actief: de matrix is onthuld */
 .menu-fm.on{filter:drop-shadow(0 0 16px rgba(0,255,70,.55));}
-.nav-menu.matrix-on .nav-spotlight{background:rgba(0,0,0,0.49);}
-.nav-menu.matrix-on #matrix-canvas{opacity:1;}
+.nav-menu.matrix-on .nav-spotlight{opacity:0.6 !important;}
+.nav-menu.matrix-on #matrix-canvas{opacity:0.55 !important;}
 @media (prefers-reduced-motion:reduce){
   .menu-fm.glitch img,.menu-fm.glitch .fm-a,.menu-fm.glitch .fm-b{animation:none;}
 }
@@ -7252,43 +7252,25 @@ document.addEventListener('DOMContentLoaded', function() {
   kijk.observe(menu, { attributes: true, attributeFilter: ['class'] });
   if (menu.classList.contains('open')) start();
 
-  // Klik onthult de matrix: de donkere laag 40% lichter.
-  // De bestaande code zet opacity inline, dus we sturen hier ook inline bij.
-  var licht = document.getElementById('nav-spotlight');
-  var doek  = document.getElementById('matrix-canvas');
-  var vorig = null;
-
+  // Klik onthult de matrix. De spotlight volgt de muis en zet zijn eigen
+  // achtergrond, dus sturen we de dekking via een klasse met voorrang.
   knop.addEventListener('click', function () {
     var aan = menu.classList.toggle('matrix-on');
     knop.classList.toggle('on', aan);
     knop.setAttribute('aria-pressed', aan ? 'true' : 'false');
     knop.setAttribute('aria-label', aan ? 'Verberg de matrix' : 'Onthul de matrix');
-
-    if (aan) {
-      if (licht) {
-        vorig = licht.style.background || '';
-        // basis is rgba(0,0,0,.82); 40% minder donker wordt .49
-        licht.style.background = 'rgba(0,0,0,0.49)';
-      }
-      if (doek) doek.style.opacity = '0.62';
-      if (typeof window.startMatrix === 'function') window.startMatrix();
-    } else {
-      if (licht) licht.style.background = vorig;
-      if (doek) doek.style.opacity = '0.12';
-    }
+    if (aan && typeof window.startMatrix === 'function') window.startMatrix();
   });
 
-  // Sluit het menu, dan valt alles terug op de standaard.
-  kijk.observe(menu, { attributes: true, attributeFilter: ['class'] });
+  // Menu dicht: terug naar de standaard.
   var wasOpen = menu.classList.contains('open');
   new MutationObserver(function () {
     var open = menu.classList.contains('open');
-    if (wasOpen && !open && menu.classList.contains('matrix-on')) {
+    if (wasOpen && !open) {
       menu.classList.remove('matrix-on');
       knop.classList.remove('on');
       knop.setAttribute('aria-pressed', 'false');
-      if (licht) licht.style.background = vorig;
-      if (doek) doek.style.opacity = '0.12';
+      knop.setAttribute('aria-label', 'Onthul de matrix');
     }
     wasOpen = open;
   }).observe(menu, { attributes: true, attributeFilter: ['class'] });
