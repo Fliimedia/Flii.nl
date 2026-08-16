@@ -127,6 +127,9 @@
         opacity: 0,
         complete: function () {
           obj.zetBeeld(item.dataset.beeld);
+          // Een frame wachten: binnen de complete-callback zou anime.remove()
+          // de nieuwe animatie meteen weer opruimen.
+          requestAnimationFrame(function () {
           // Startpositie eerst zetten. In anime.js v3 werkt een van-naar-array
           // vanuit een functie niet meer, vandaar anime.set() als aparte stap.
           window.anime.set(obj.stukken, {
@@ -144,6 +147,7 @@
             rotateZ: 0,
             opacity: { value: 1, duration: 480, easing: 'linear' },
             complete: function () { bezig = false; }
+          });
           });
         }
       });
