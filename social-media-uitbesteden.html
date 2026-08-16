@@ -4,10 +4,10 @@
 <meta charset="UTF-8">
 <meta http-equiv="Cache-Control" content="max-age=300, must-revalidate">
 <meta name="viewport" content="width=device-width,initial-scale=1">
-<title>Social media uitbesteden aan een bureau | Flii Media</title>
+<title>Social media uitbesteden | Flii Media</title>
 <meta property="og:type" content="website">
-<meta property="og:title" content="Social media uitbesteden aan een bureau | Flii Media">
-<meta property="og:description" content="Social media laten beheren: contentproductie, advertenties en dagelijkse opvolging. Voor bedrijven die het niet meer zelf willen doen.">
+<meta property="og:title" content="Social media uitbesteden | Flii Media">
+<meta property="og:description" content="Social media laten beheren: content, advertenties en dagelijkse opvolging. Voor bedrijven die het niet meer zelf willen doen.">
 <meta property="og:url" content="https://flii.nl/social-media-uitbesteden">
 <meta property="og:site_name" content="Flii Media">
 <meta name="twitter:card" content="summary_large_image">
@@ -17,7 +17,7 @@
 <meta property="og:locale" content="nl_NL">
 <meta name="twitter:image" content="https://fliimedia.github.io/Flii.nl/assets/og/social-media-uitbesteden.jpg">
 
-<meta name="description" content="Social media laten beheren: contentproductie, advertenties en dagelijkse opvolging. Voor bedrijven die het niet meer zelf willen doen.">
+<meta name="description" content="Social media laten beheren: content, advertenties en dagelijkse opvolging. Voor bedrijven die het niet meer zelf willen doen.">
 <style>
 @font-face{font-family:'Bricolage Grotesque';src:url('https://fliimedia.github.io/Flii.nl/assets/fonts/BricolageGrotesque.ttf') format('truetype-variations');
   font-weight:200 800;font-display:swap;}
@@ -198,6 +198,84 @@ img{max-width:100%;display:block;}
   margin:0 auto 12px;max-width:640px;padding:0 24px;}
 .footer-mini-links a{font-size:11px;color:#6B6866;text-decoration:none;transition:color .12s;}
 .footer-mini-links a:hover{color:#0F0E0C;}
+
+:root{--lp-ink:#0F0E0C;--lp-mag:#E8294A;--lp-page:#FDFCFA;--lp-soft:#6B6866;
+  --lp-rule:#E8E6E1;--lp-tint:#F6F5F2;}
+.lp{max-width:760px;margin:0 auto;padding:0 24px 120px;}
+
+/* hero */
+.lp-hero{padding:44px 0 0;}
+.lp-eyebrow{display:inline-flex;align-items:center;gap:8px;font-family:var(--ff-mono,monospace);
+  font-size:10px;font-weight:700;letter-spacing:.12em;text-transform:uppercase;color:var(--lp-soft);}
+.lp-eyebrow::before{content:"";width:6px;height:6px;border-radius:50%;background:var(--lp-mag);}
+.lp-h1{font-family:var(--ff-disp,sans-serif);font-size:clamp(32px,8.4vw,46px);font-weight:800;
+  letter-spacing:-1.4px;line-height:1.04;margin:14px 0 0;color:var(--lp-ink);}
+.lp-sub{font-size:16px;line-height:1.55;color:var(--lp-soft);margin:14px 0 0;max-width:520px;}
+
+/* stat */
+.lp-stat{display:flex;align-items:baseline;gap:12px;margin:26px 0 0;padding:18px 20px;
+  border-radius:14px;background:var(--lp-ink);color:#fff;}
+.lp-stat-n{font-family:var(--ff-disp,sans-serif);font-size:38px;font-weight:800;
+  letter-spacing:-1.4px;line-height:1;color:#fff;}
+.lp-stat-t{font-size:13.5px;line-height:1.4;color:rgba(255,255,255,.72);}
+.lp-stat-t b{color:#fff;font-weight:600;}
+
+/* cta */
+.lp-cta{display:inline-flex;align-items:center;gap:9px;margin-top:22px;padding:15px 26px;
+  border-radius:100px;background:var(--lp-ink);color:#fff !important;text-decoration:none;
+  font-size:15px;font-weight:700;border:1.5px solid rgba(232,41,74,.75);
+  transition:transform .15s,box-shadow .15s;}
+.lp-cta:hover{transform:translateY(-1px);box-shadow:0 6px 20px rgba(232,41,74,.24);}
+.lp-trust{display:flex;align-items:center;gap:7px;margin-top:12px;font-size:12.5px;
+  color:var(--lp-soft);flex-wrap:wrap;}
+.lp-trust .st{color:#F4B400;letter-spacing:1px;}
+
+/* wat je krijgt */
+.lp-block{margin-top:44px;}
+.lp-block h2{font-family:var(--ff-disp,sans-serif);font-size:19px;font-weight:800;
+  letter-spacing:-.4px;margin:0 0 16px;color:var(--lp-ink);}
+.lp-list{display:flex;flex-direction:column;gap:2px;}
+.lp-item{display:flex;gap:13px;align-items:flex-start;padding:14px 0;
+  border-bottom:1px solid var(--lp-rule);}
+.lp-item:last-child{border-bottom:none;}
+.lp-tick{flex:none;width:20px;height:20px;border-radius:50%;background:var(--lp-mag);
+  display:flex;align-items:center;justify-content:center;margin-top:1px;}
+.lp-tick svg{width:11px;height:11px;stroke:#fff;stroke-width:3;fill:none;}
+.lp-item b{display:block;font-size:15px;color:var(--lp-ink);font-weight:700;}
+.lp-item span{display:block;font-size:13.5px;color:var(--lp-soft);line-height:1.5;margin-top:2px;}
+
+/* bewijs naast cta */
+.lp-proof{margin-top:44px;padding:24px;border-radius:16px;background:var(--lp-tint);
+  border:1px solid var(--lp-rule);}
+.lp-quote{font-family:var(--ff-disp,sans-serif);font-size:20px;font-weight:700;
+  letter-spacing:-.5px;line-height:1.3;color:var(--lp-ink);margin:0;}
+.lp-quote em{font-style:normal;color:var(--lp-mag);}
+.lp-who{font-size:12.5px;color:var(--lp-soft);margin:10px 0 0;}
+.lp-who a{color:var(--lp-ink);font-weight:600;}
+
+/* wat je houdt */
+.lp-keep{margin-top:40px;padding:22px 24px;border-radius:16px;border:1.5px solid var(--lp-ink);}
+.lp-keep h2{margin-top:0;}
+.lp-keep p{font-size:14px;color:var(--lp-soft);line-height:1.6;margin:0 0 10px;}
+.lp-keep p:last-child{margin-bottom:0;}
+.lp-keep b{color:var(--lp-ink);}
+
+/* sticky */
+.lp-sticky{position:fixed;left:0;right:0;bottom:0;z-index:8000;display:flex;
+  align-items:center;justify-content:space-between;gap:14px;
+  padding:12px 20px;background:rgba(15,14,12,.96);backdrop-filter:blur(10px);
+  transform:translateY(110%);transition:transform .3s cubic-bezier(.22,1,.36,1);}
+.lp-sticky.on{transform:translateY(0);}
+.lp-sticky-t{font-size:13px;color:rgba(255,255,255,.8);line-height:1.3;}
+.lp-sticky-t b{color:#fff;display:block;font-size:14px;}
+.lp-sticky a{flex:none;padding:11px 20px;border-radius:100px;background:#fff;color:#0F0E0C;
+  text-decoration:none;font-size:14px;font-weight:700;white-space:nowrap;}
+@media(max-width:520px){.lp-sticky-t{display:none;}.lp-sticky{justify-content:center;}
+  .lp-sticky a{width:100%;text-align:center;}}
+@media(min-width:760px){.lp-hero{padding-top:60px;}
+  .lp-stat{align-items:center;gap:18px;padding:22px 26px;}
+  .lp-stat-n{font-size:46px;}}
+@media (prefers-reduced-motion: reduce){.lp-sticky{transition:none;}.lp-cta:hover{transform:none;}}
 </style>
 <script>
 (function(){
@@ -231,7 +309,7 @@ img{max-width:100%;display:block;}
     {
       "@type": "ListItem",
       "position": 2,
-      "name": "Social media uitbesteden",
+      "name": "Social media uit handen",
       "item": "https://flii.nl/social-media-uitbesteden"
     }
   ]
@@ -247,79 +325,49 @@ img{max-width:100%;display:block;}
   <a href="" class="nav-brand"><img src="https://fliimedia.github.io/Flii.nl/assets/img/d913cc3c069f.webp" alt="Flii Media" fetchpriority="high" decoding="async"></a>
   <a href="" class="nav-back">← Terug</a>
 </nav>
-<div class="page-hero">
-  <span class="eyebrow">Flii Media</span>
-  <h1>Social media uitbesteden</h1>
-  <p class="lead">Content, advertenties en dagelijkse opvolging — zodat het niet meer op iemands bureau blijft liggen.</p>
-</div>
-</div>
-<div class="section-body">
-<p>Social media uitbesteden is zelden een kwestie van geen ideeën hebben. Het is een kwestie van
-tijd: het vraagt volume, ritme en dagelijkse aandacht, en dat verliest het altijd van werk dat
-urgenter voelt.</p>
+<div class="lp">
+  <div class="lp-hero">
+    <span class="lp-eyebrow">Social media</span>
+    <h1 class="lp-h1">Social media uit handen</h1>
+    <p class="lp-sub">Content, advertenties en reacties. Eén draaidag per maand levert genoeg materiaal voor weken vooruit.</p>
+    <div class="lp-stat">
+      <span class="lp-stat-n">1M+</span>
+      <span class="lp-stat-t">organische videoviews voor <b>TheaterThuis</b>, plus ruim 4.000 nieuwe abonnees</span>
+    </div>
+    <a class="lp-cta" href="https://calendly.com/flii-media" target="_blank" rel="noopener">Plan een kennismaking &rarr;</a>
+    <p class="lp-trust"><span class="st">&#9733;&#9733;&#9733;&#9733;&#9733;</span>
+      5,0 op Google &middot; 14 reviews &middot; Amstelveen, sinds 2021</p>
+  </div>
 
-<h2>Wat we overnemen</h2>
-<ul>
-  <li><strong>Contentproductie</strong> — reels, stories, carrousels en statisch beeld</li>
-  <li><strong>Planning</strong> — een kalender die vooruit staat maar ruimte laat voor actualiteit</li>
-  <li><strong>Advertenties</strong> — Meta, LinkedIn, TikTok en Pinterest</li>
-  <li><strong>Community management</strong> — reacties en berichten binnen afgesproken tijd</li>
-  <li><strong>Rapportage</strong> — wat er gebeurde, wat het betekent, wat we voorstellen</li>
-</ul>
+  <div class="lp-block">
+    <h2>Hoe het werkt</h2>
+    <div class="lp-list">
+      <div class="lp-item"><span class="lp-tick"><svg viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg></span><div><b>Wij maken het</b><span>Reels, stories, carrousels en advertentievarianten. Eén shoot, weken content.</span></div></div>
+      <div class="lp-item"><span class="lp-tick"><svg viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg></span><div><b>Wij plaatsen het</b><span>Een kalender die vooruit staat maar ruimte laat voor wat er speelt.</span></div></div>
+      <div class="lp-item"><span class="lp-tick"><svg viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg></span><div><b>Wij reageren</b><span>Berichten en reacties binnen de tijd die we afspreken.</span></div></div>
+    </div>
+  </div>
 
-<h2>Creatie is de targeting geworden</h2>
-<p>De algoritmes bepalen inmiddels grotendeels zelf wie je advertentie ziet. Dat verschuift het
-zwaartepunt: waar je vroeger won met slimme doelgroepinstellingen, win je nu met beter materiaal.
-Wij testen daarom meerdere invalshoeken naast elkaar en laten de cijfers beslissen welke aanslaat.</p>
+  <div class="lp-proof">
+    <p class="lp-quote">&ldquo;Van nul naar een eigen contentmerk: <em>tien video&rsquo;s per maand</em> in drie vaste formats.&rdquo;</p>
+    <p class="lp-who">Trading &middot; <a href="cases/ae-trading">bekijk de case</a></p>
+    <a class="lp-cta" href="https://calendly.com/flii-media" target="_blank" rel="noopener">Plan een kennismaking &rarr;</a>
+  </div>
 
-<h2>Volume zonder middelmaat</h2>
-<p>Eén goede post per maand valt weg; twintig middelmatige ook. De kunst zit in een productieritme
-waarin genoeg materiaal ontstaat om te testen, met het niveau dat bij je merk past. Meestal betekent
-dat een vaste draaidag per maand waaruit we weken vooruit kunnen.</p>
-
-<h2>Wat je houdt</h2>
-<p>Je accounts, je volgers en je opgebouwde doelgroepen blijven van jou. Wij werken met toegang, niet
-met eigendom. Stopt de samenwerking, dan trek je die toegang in en houd je alles — inclusief het
-materiaal dat we maakten.</p>
-
-<h2>Resultaat</h2>
-<p><a href="cases/ae-trading">Trading</a> bouwde vanaf nul een contentmerk met tien video's per
-maand. <a href="cases/theaterthuis">TheaterThuis</a> haalde meer dan een miljoen organische views.
-Voor <a href="cases/padel2025">Padel2025</a> bereikten we 3 miljoen mensen en 16.000 aanmeldingen
-voor een evenement dat nog niet bestond.</p>
-
-<p>Benieuwd wat dit voor jou kan betekenen? <button onclick="if(window.highlightSidebar)window.highlightSidebar();var sb=document.getElementById('float-sidebar');if(sb){sb.classList.add('visible');}" type="button" style="background:none;border:none;padding:0;cursor:pointer;font:inherit;color:inherit;"><strong>Neem contact op &rarr;</strong></button></p>
-</div>
-
-<div class="section-body">
-  <h2>Cases</h2>
-  <div class="rel-cases">
-      <a href="cases/ae-trading" class="rel-case">
-        <span class="rel-name">Trading<span class="rel-arr">&rarr;</span></span>
-        <span class="rel-desc">Voor een startup e-commerce fietsenwinkel in fatbikes, scooters en e-bikes ontwikkelden we een content…</span>
-        <span class="rel-tags">Social content &middot; Video &middot; Social media</span>
-      </a>
-      <a href="cases/theaterthuis" class="rel-case">
-        <span class="rel-name">TheaterThuis<span class="rel-arr">&rarr;</span></span>
-        <span class="rel-desc">TheaterThuis is een digitale streamingdienst voor liefhebbers van toneel, cabaret en musicals. Tijdens…</span>
-        <span class="rel-tags">Social media &middot; Content &middot; Social content</span>
-      </a>
-      <a href="cases/padel2025" class="rel-case">
-        <span class="rel-name">Padel2025<span class="rel-arr">&rarr;</span></span>
-        <span class="rel-desc">Padel2025 is een platform voor padel-enthousiastelingen in Nederland. Flii ontwikkelde de strategie…</span>
-        <span class="rel-tags">Social content &middot; Video &middot; Social media</span>
-      </a>
-      <a href="cases/stichting-de-buurt" class="rel-case">
-        <span class="rel-name">Stichting De Buurt<span class="rel-arr">&rarr;</span></span>
-        <span class="rel-desc">Stichting De Buurt werkt aan buurten waarin mensen elkaar groeten, kennen en helpen. Via initiatieven…</span>
-        <span class="rel-tags">Campagne &middot; Social media &middot; Tracking</span>
-      </a>
+  <div class="lp-keep">
+    <h2>Wat je houdt</h2>
+      <p><b>Je accounts en volgers blijven van jou.</b> Inclusief het materiaal dat we maken en de doelgroepen die we opbouwen.</p>
+      <p><b>Maandelijks opzegbaar.</b> Geen jaarcontract.</p>
+      <p><b>Vast contactpersoon.</b> Je hoeft je verhaal nooit twee keer te doen.</p>
   </div>
 </div>
 
-<div id="cta-mount"><noscript><p style="text-align:center;padding:32px 24px"><a href="https://calendly.com/flii-media">Plan een gesprek &rarr;</a></p></noscript></div>
+<div class="lp-sticky">
+  <span class="lp-sticky-t"><b>Zelf geen tijd meer voor social?</b>Vrijblijvend, 20 minuten.</span>
+  <a href="https://calendly.com/flii-media" target="_blank" rel="noopener">Plan een gesprek</a>
+</div>
 <footer class="footer-mini">
-  <div class="footer-mini-links"><a href="google-ads-bureau">Google Ads bureau</a><a href="videoproductie">Videoproductie</a><a href="website-laten-maken">Website laten maken</a><a href="marketing-brancheorganisaties">Marketing voor brancheorganisaties</a></div>
+  <div class="footer-mini-links"><a href="social-media-uitbesteden">Social media uitbesteden</a><a href="videoproductie">Videoproductie</a><a href="website-laten-maken">Website laten maken</a><a href="marketing-brancheorganisaties">Marketing voor brancheorganisaties</a></div>
   
   <p><a href="">Flii Media</a> · <a href="mailto:info@flii.nl">info@flii.nl</a> · © 2026</p>
 </footer>
