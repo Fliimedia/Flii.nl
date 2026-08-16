@@ -371,3 +371,11 @@ img{max-width:100%;display:block;}
   
   <p><a href="">Flii Media</a> · <a href="mailto:info@flii.nl">info@flii.nl</a> · © 2026</p>
 </footer>
+<script>
+(function(){
+  var bar=document.querySelector('.lp-sticky');
+  if(!bar) return;
+  function check(){ bar.classList.toggle('on', window.scrollY > 420); }
+  check(); window.addEventListener('scroll', check, {passive:true});
+})();
+</script>
