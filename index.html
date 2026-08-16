@@ -5161,9 +5161,15 @@ details.faq-item[open] .faq-answer {
 .footer-address .footer-hours-link{color:inherit;text-decoration:none;border-bottom:1px solid rgba(255,255,255,.28);transition:border-color .15s,color .15s;}
 .footer-address .footer-hours-link:hover{border-color:currentColor;}
 
-.orbit-label--link{text-decoration:none;transition:transform .18s ease, box-shadow .18s ease;}
-.orbit-label--link:hover{transform:scale(1.14);box-shadow:0 4px 18px rgba(232,41,74,.28);}
+
+/* Badges met een partnerpagina vangen klikken op; het canvas erboven laat ze door. */
+.orbit-label--link{pointer-events:auto !important;cursor:pointer;z-index:6;
+  text-decoration:none;transition:transform .18s ease, box-shadow .18s ease;
+  border-radius:50%;}
+.orbit-label--link:hover{transform:translate(-50%,-50%) scale(1.16);
+  box-shadow:0 4px 20px rgba(232,41,74,.35);}
 .orbit-label--link:focus-visible{outline:2px solid #E8294A;outline-offset:3px;}
+#water-ripple-canvas{pointer-events:none;}
 </style>
 <!-- Default consent vóór GTM -->
 
