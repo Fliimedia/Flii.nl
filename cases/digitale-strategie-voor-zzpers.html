@@ -53,7 +53,7 @@ img{max-width:100%;display:block;}
 .page-hero h1{font-family:var(--ff-disp);font-size:clamp(26px,7vw,40px);
   font-weight:800;letter-spacing:-1px;line-height:1.08;margin-top:10px;}
 .page-hero .lead{font-size:15px;color:var(--mid);line-height:1.65;margin-top:14px;max-width:580px;}
-.hero-img{width:100%;height:280px;object-fit:cover;margin-top:32px;}
+.hero-img{width:100%;height:280px;object-fit:cover;margin-top:20px;}
 .section-body{padding:36px 24px;max-width:680px;}
 .section-body p{font-size:15px;line-height:1.75;color:var(--ink);margin-bottom:18px;}
 .section-body ul{margin:0 0 18px 20px;}
@@ -217,9 +217,18 @@ img{max-width:100%;display:block;}
 .case-slot .cta-section{padding:0 !important;margin:0 !important;}
 @media (prefers-reduced-motion:reduce){.case-slot{animation:none;}}
 
-/* Zelfde breedte en uitlijning als de CTA-kaart en de bodytekst. */
-.page-hero{max-width:680px;}
-img.hero-img{max-width:632px;display:block;margin-left:24px;border-radius:14px;}
+/* Hele pagina op de breedte van de CTA/resultaat-kaart. */
+nav.nav,.page-hero,.section-body,.cta-section,footer.footer,
+body > picture,body > .section-body{max-width:680px;margin-left:auto;margin-right:auto;}
+body > picture{display:block;padding:0 24px;box-sizing:border-box;}
+img.hero-img{width:100%;max-width:100%;display:block;margin:0;border-radius:14px;}
+footer.footer{box-sizing:border-box;}
+footer .footer-bento{max-width:100%;}
+
+/* Minder lucht tussen tekst en de slotkaart (was 32px). */
+.section-body.case-outro{padding-top:0;padding-bottom:0;}
+.case-slot{margin-top:13px;}
+.section-body:last-of-type{padding-bottom:12px;}
 </style>
 <script>
 (function(){
