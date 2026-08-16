@@ -296,3 +296,8 @@ footer .footer-tile-loop::after{
   footer .footer-tile-loop{padding:12px 8px;}
   footer .footer-tile-loop .loopmark-svg{width:30px;height:30px;}
 }
+
+/* Geen horizontale scrollbalk: losse elementen die een paar pixels uitsteken
+   worden afgeknipt. 'clip' in plaats van 'hidden', zodat sticky blijft werken. */
+html{overflow-x:clip;}
+body{overflow-x:clip;max-width:100%;}
