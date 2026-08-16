@@ -332,6 +332,18 @@ img{max-width:100%;display:block;}
 .pfp-meer span.n{font-family:var(--ff-disp,sans-serif);font-size:13.5px;font-weight:800;letter-spacing:-.2px;color:#0F0E0C;}
 .pfp-bron{display:inline-block;margin-top:12px;font-family:var(--ff-mono,monospace);font-size:10px;letter-spacing:.04em;color:var(--lp-soft,#6B6866);text-decoration:none;border-bottom:1px solid rgba(0,0,0,.2);}
 .pfp-bron:hover{color:#0F0E0C;}
+
+a.pfp-cat{text-decoration:none;transition:background .15s,color .15s;}
+a.pfp-cat:hover{background:#0F0E0C;color:#fff;border-color:#0F0E0C;}
+.pfp-diensten{display:flex;flex-wrap:wrap;gap:6px;margin-top:14px;}
+.pfp-diensten a{display:inline-flex;align-items:center;gap:5px;font-size:11px;font-weight:600;
+  letter-spacing:.01em;white-space:nowrap;padding:6px 12px;border-radius:100px;
+  background:linear-gradient(135deg,rgba(0,0,0,.07) 0%,rgba(0,0,0,.02) 100%);
+  color:#0F0E0C;border:1px solid rgba(0,0,0,.22);text-decoration:none;
+  transition:background .15s,border-color .15s,color .15s;}
+.pfp-diensten a::after{content:"\203A";opacity:.45;font-weight:700;}
+.pfp-diensten a:hover{background:#0F0E0C;border-color:#0F0E0C;color:#fff;}
+.pfp-diensten a:hover::after{opacity:.9;}
 </style>
 <script>
 (function(){
@@ -397,7 +409,7 @@ img{max-width:100%;display:block;}
       <h1 class="lp-h1">YouTube</h1>
     </div>
     <p class="lp-lead">Na Google de meest gebruikte zoekmachine ter wereld, en tegelijk het grootste videoplatform. Mensen zoeken er actief naar uitleg, reviews en vergelijkingen — wat het geschikt maakt voor content die langer meegaat dan een tijdlijn.</p>
-    <span class="pfp-cat">Video</span>
+    <a class="pfp-cat" href="../platformen#video">Video</a>
   </div>
   <div class="lp-foto"><picture>
     <source srcset="https://fliimedia.github.io/Flii.nl/assets/og-src/diensten-video.jpg" type="image/jpeg">
@@ -419,6 +431,13 @@ img{max-width:100%;display:block;}
   </div>
 
   
+  
+  <div class="lp-sec">
+    <h2>Diensten met YouTube</h2>
+    <p style="font-size:14.5px;line-height:1.65;color:var(--lp-soft,#6B6866);margin:0">Waar YouTube bij ons in terugkomt:</p>
+    <div class="pfp-diensten"><a href="../diensten/content-creatie">Content creatie</a><a href="../diensten/video">Video</a><a href="../diensten/media-beheer">Media beheer</a><a href="../diensten/programmatic">Programmatic</a></div>
+  </div>
+
   <div class="lp-sec">
     <h2>Andere platformen</h2>
     <div class="pfp-meer">
