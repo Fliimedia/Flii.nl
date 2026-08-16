@@ -96,6 +96,8 @@
     var rustig = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
     var eerste = items[0];
 
+    wortel.dataset.rijk = 'ja';
+    paneel.style.backgroundImage = 'none';
     var obj = new Stukken(paneel, {
       rijen: RIJEN, kolommen: KOLOMMEN, vertraging: [0, 40],
       bron: eerste.dataset.beeld
@@ -155,6 +157,16 @@
   function init() {
     var wortel = document.querySelector('.cp');
     if (!wortel) return;
+    // Toon het eerste beeld meteen, zodat er iets staat voordat anime.js geladen is.
+    var paneel = wortel.querySelector('.cp-pieces');
+    var eersteItem = wortel.querySelector('.cp-item');
+    if (paneel && eersteItem) {
+      paneel.style.backgroundImage = 'url(' + eersteItem.dataset.beeld + ')';
+      paneel.style.backgroundSize = 'cover';
+      paneel.style.backgroundPosition = 'center';
+    }
+    // Werkt ook zonder animatie: klikken wisselt dan gewoon het beeld.
+    eenvoudigeWissel(wortel);
     // anime.js pas laden wanneer de sectie in beeld komt
     function laad() {
       if (window.anime) { start(wortel); return; }
@@ -169,6 +181,22 @@
       }, { rootMargin: '200px' });
       io.observe(wortel);
     } else { laad(); }
+  }
+
+  function eenvoudigeWissel(wortel) {
+    var items = Array.prototype.slice.call(wortel.querySelectorAll('.cp-item'));
+    var link = wortel.querySelector('.cp-link');
+    var paneel = wortel.querySelector('.cp-pieces');
+    items.forEach(function (item) {
+      item.addEventListener('click', function () {
+        if (wortel.dataset.rijk === 'ja') return;   // volwaardige versie draait al
+        items.forEach(function (i) { i.classList.remove('is-actief'); });
+        item.classList.add('is-actief');
+        paneel.style.backgroundImage = 'url(' + item.dataset.beeld + ')';
+        link.setAttribute('href', item.dataset.url);
+        wortel.style.setProperty('--cp-kleur', item.dataset.kleur || '#E8294A');
+      });
+    });
   }
 
   if (document.readyState === 'loading') {
