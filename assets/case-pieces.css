@@ -1,69 +1,65 @@
-/* Cases als geanimeerde beeldfragmenten */
-.cp{
-  --cp-kleur:#E8294A;
-  display:grid;grid-template-columns:1fr;gap:26px;align-items:center;
-  max-width:1080px;margin:0 auto;padding:0 24px;
-}
-.cp-kop{margin:0 0 4px;}
+/* Cases als geanimeerde beeldfragmenten — opzet naar Codrops' Animated Image Pieces */
+.cp{--cp-kleur:#E8294A;position:relative;max-width:1180px;margin:0 auto;}
+
+/* paneel met de fragmenten */
+.cp-paneel{position:relative;border-radius:18px;width:100%;aspect-ratio:1/1;}
+.cp-pieces{position:absolute;inset:0;border-radius:18px;}
+.cp-stuk{position:absolute;background-repeat:no-repeat;pointer-events:none;
+  will-change:transform,opacity;filter:grayscale(.32) contrast(1.06) saturate(1.14);}
+.cp-tint{position:absolute;inset:0;border-radius:18px;pointer-events:none;z-index:2;
+  background:linear-gradient(150deg,var(--cp-kleur) 0%,transparent 58%),
+             linear-gradient(330deg,rgba(15,14,12,.6) 0%,transparent 62%);
+  mix-blend-mode:soft-light;opacity:.9;transition:background .5s ease;}
+.cp-scrim{position:absolute;inset:0;border-radius:18px;pointer-events:none;z-index:3;
+  display:none;background:linear-gradient(180deg,rgba(15,14,12,.5) 0%,
+  rgba(15,14,12,.2) 44%,rgba(15,14,12,.72) 100%);}
+.cp-rand{position:absolute;inset:0;border-radius:18px;pointer-events:none;z-index:4;
+  border:1px solid transparent;}
+.cp-link{position:absolute;inset:0;z-index:5;border-radius:18px;display:block;
+  text-decoration:none;outline-offset:4px;}
+.cp-link::after{content:"Bekijk case \2192";position:absolute;right:20px;bottom:20px;
+  padding:8px 15px;border-radius:100px;background:rgba(255,255,255,.94);
+  -webkit-backdrop-filter:blur(8px);backdrop-filter:blur(8px);
+  border:1px solid rgba(0,0,0,.22);color:#0F0E0C;font-size:11px;font-weight:600;
+  letter-spacing:.01em;white-space:nowrap;opacity:0;transform:translateY(6px);
+  transition:opacity .2s,transform .2s;}
+.cp-link:hover::after,.cp-link:focus-visible::after{opacity:1;transform:translateY(0);}
+
+/* tekst */
+.cp-tekst{position:relative;z-index:6;pointer-events:none;margin-top:20px;padding:0 4px;
+  display:flex;flex-direction:column;justify-content:space-between;}
 .cp-eyebrow{display:inline-flex;align-items:center;gap:8px;
   font-family:var(--ff-mono,monospace);font-size:10px;font-weight:700;
   letter-spacing:.12em;text-transform:uppercase;color:var(--c-subtle,#6B6866);}
 .cp-eyebrow::before{content:"";width:6px;height:6px;border-radius:50%;background:#E8294A;}
-.cp-titel{font-family:var(--ff-disp,sans-serif);font-size:clamp(26px,5.4vw,34px);
-  font-weight:800;letter-spacing:-1px;line-height:1.08;margin:12px 0 0;color:var(--c-ink,#0F0E0C);}
+.cp-titel{font-family:var(--ff-disp,sans-serif);font-weight:800;letter-spacing:-2px;
+  line-height:.9;margin:14px 0 0;color:var(--c-ink,#0F0E0C);font-size:clamp(30px,8.2vw,42px);}
 
-/* vierkant paneel */
-.cp-paneel{position:relative;width:100%;max-width:460px;aspect-ratio:1/1;
-  margin:0 auto;border-radius:18px;}
-.cp-pieces{position:absolute;inset:0;border-radius:18px;}
-.cp-stuk{position:absolute;background-repeat:no-repeat;pointer-events:none;
-  will-change:transform,opacity;
-  filter:grayscale(.35) contrast(1.06) saturate(1.12);}
-/* merkfilter over het beeld */
-.cp-tint{position:absolute;inset:0;border-radius:18px;pointer-events:none;z-index:2;
-  background:linear-gradient(150deg,var(--cp-kleur) 0%,transparent 58%),
-             linear-gradient(330deg,rgba(15,14,12,.55) 0%,transparent 62%);
-  mix-blend-mode:soft-light;opacity:.9;transition:background .5s ease;}
-.cp-rand{position:absolute;inset:0;border-radius:18px;pointer-events:none;z-index:3;
-  border:1px solid rgba(15,14,12,.14);
-  box-shadow:inset 0 1px 0 rgba(255,255,255,.28);}
-.cp-link{position:absolute;inset:0;z-index:4;border-radius:18px;display:block;
-  text-decoration:none;outline-offset:4px;}
-.cp-link::after{content:"Bekijk case \2192";position:absolute;left:14px;bottom:14px;
-  padding:7px 13px;border-radius:100px;background:rgba(255,255,255,.94);
-  -webkit-backdrop-filter:blur(8px);backdrop-filter:blur(8px);
-  border:1px solid rgba(0,0,0,.22);color:#0F0E0C;
-  font-size:11px;font-weight:600;letter-spacing:.01em;white-space:nowrap;
-  opacity:0;transform:translateY(6px);transition:opacity .2s,transform .2s;}
-.cp-link:hover::after,.cp-link:focus-visible::after{opacity:1;transform:translateY(0);}
+/* namen achter elkaar, gescheiden door //, chiptekst lichter */
+.cp-lijst{pointer-events:auto;margin-top:16px;font-size:16px;}
+.cp-item{display:inline;padding:0;margin:0;border:none;background:none;cursor:pointer;
+  font-family:var(--ff-disp,sans-serif);font-weight:800;letter-spacing:-.6px;
+  line-height:1.24;color:rgba(15,14,12,.34);transition:color .2s ease;}
+.cp-item:hover{color:rgba(15,14,12,.72);}
+.cp-item.is-actief{color:#0F0E0C;}
+.cp-item:not(:last-child)::after{content:" // ";font-weight:400;letter-spacing:0;
+  color:rgba(15,14,12,.2);}
+.cp-item-c{font-weight:400;letter-spacing:-.2px;opacity:.55;margin-left:.32em;}
+.cp-item.is-actief .cp-item-c{opacity:.66;}
+.cp-item:focus-visible{outline:2px solid #E8294A;outline-offset:3px;border-radius:4px;}
 
-/* lijst met cases */
-.cp-lijst{display:flex;flex-direction:column;gap:0;}
-.cp-item{display:block;padding:13px 0;border-bottom:1px solid var(--c-rule,#E8E6E1);
-  cursor:pointer;text-decoration:none;background:none;border-left:none;border-right:none;
-  border-top:none;text-align:left;width:100%;font:inherit;color:inherit;
-  transition:padding-left .18s ease;}
-.cp-item:last-child{border-bottom:none;}
-.cp-item:hover{padding-left:6px;}
-.cp-item-n{display:block;font-family:var(--ff-disp,sans-serif);font-size:17px;
-  font-weight:800;letter-spacing:-.3px;color:var(--c-ink,#0F0E0C);
-  opacity:.42;transition:opacity .2s;}
-.cp-item.is-actief .cp-item-n{opacity:1;}
-.cp-item.is-actief .cp-item-n::before{content:"";display:inline-block;width:6px;height:6px;
-  border-radius:50%;background:#E8294A;margin-right:9px;vertical-align:middle;}
-.cp-item-c{display:flex;flex-wrap:wrap;gap:5px;margin-top:6px;opacity:0;max-height:0;
-  overflow:hidden;transition:opacity .25s ease,max-height .25s ease;}
-.cp-item.is-actief .cp-item-c{opacity:1;max-height:60px;}
-.cp-item-c span{font-size:11px;font-weight:600;letter-spacing:.01em;white-space:nowrap;
-  background:linear-gradient(135deg,rgba(0,0,0,.07) 0%,rgba(0,0,0,.02) 100%);
-  color:#0F0E0C;border:1px solid rgba(0,0,0,.25);border-radius:100px;padding:3px 10px;}
-
+/* desktop: beeld vult de sectie, tekst eroverheen */
 @media(min-width:820px){
-  .cp{grid-template-columns:1fr 460px;gap:48px;align-items:center;}
-  .cp-tekst{align-self:center;}
-  .cp-paneel{margin:0;}
+  .cp{min-height:min(78vh,640px);display:flex;}
+  .cp-paneel{position:absolute;inset:0;width:auto;aspect-ratio:auto;}
+  .cp-scrim{display:block;}
+  .cp-tekst{flex:1;margin:0;padding:42px 46px;}
+  .cp-eyebrow{color:rgba(255,255,255,.72);}
+  .cp-titel{color:#fff;font-size:clamp(52px,7vw,84px);}
+  .cp-lijst{margin-top:0;font-size:clamp(19px,2.4vw,32px);max-width:86%;}
+  .cp-item{color:rgba(255,255,255,.4);}
+  .cp-item:hover{color:rgba(255,255,255,.8);}
+  .cp-item.is-actief{color:#fff;}
+  .cp-item:not(:last-child)::after{color:rgba(255,255,255,.22);}
 }
-@media (prefers-reduced-motion:reduce){
-  .cp-item:hover{padding-left:0;}
-  .cp-link::after{transition:none;}
-}
+@media (prefers-reduced-motion:reduce){.cp-link::after{transition:none;}}
