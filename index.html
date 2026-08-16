@@ -4882,6 +4882,43 @@ details.faq-item[open] .faq-answer {
   background:rgba(255,255,255,.09);color:rgba(255,255,255,.72);
   border:1px solid rgba(255,255,255,.16);transition:background .15s,color .15s;}
 .netwerk-links a:hover{background:rgba(255,255,255,.18);color:#fff;}
+
+/* ── FM-merkteken in het geopende menu ── */
+.menu-fm{position:absolute;top:var(--sp-3);left:var(--sp-3);z-index:11;
+  background:none;border:none;padding:6px;cursor:pointer;line-height:0;
+  filter:drop-shadow(0 0 10px rgba(232,41,74,.35));}
+.menu-fm img{width:34px;height:34px;display:block;}
+.menu-fm:focus-visible{outline:2px solid #E8294A;outline-offset:4px;border-radius:8px;}
+.menu-fm .fm-l{position:absolute;inset:6px;pointer-events:none;opacity:0;}
+.menu-fm .fm-l img{width:34px;height:34px;}
+.menu-fm.glitch .fm-a{animation:fmGlitchA .42s steps(2,end);}
+.menu-fm.glitch .fm-b{animation:fmGlitchB .42s steps(2,end);}
+.menu-fm.glitch img{animation:fmGlitchMain .42s steps(3,end);}
+@keyframes fmGlitchMain{
+  0%,100%{transform:translate(0,0);}
+  20%{transform:translate(-2px,1px);} 40%{transform:translate(2px,-1px);}
+  60%{transform:translate(-1px,-2px);} 80%{transform:translate(1px,2px);}
+}
+@keyframes fmGlitchA{
+  0%,100%{opacity:0;transform:translate(0,0);}
+  25%{opacity:.85;transform:translate(-3px,0);}
+  55%{opacity:.6;transform:translate(3px,1px);}
+  75%{opacity:.4;transform:translate(-2px,-1px);}
+}
+@keyframes fmGlitchB{
+  0%,100%{opacity:0;transform:translate(0,0);}
+  30%{opacity:.7;transform:translate(3px,-1px);}
+  60%{opacity:.5;transform:translate(-3px,1px);}
+}
+.menu-fm .fm-a img{filter:hue-rotate(150deg) saturate(3);}
+.menu-fm .fm-b img{filter:hue-rotate(-90deg) saturate(3);}
+/* actief: de matrix is onthuld */
+.menu-fm.on{filter:drop-shadow(0 0 16px rgba(0,255,70,.55));}
+.nav-menu.matrix-on .nav-spotlight{background:rgba(0,0,0,0.49);}
+.nav-menu.matrix-on #matrix-canvas{opacity:1;}
+@media (prefers-reduced-motion:reduce){
+  .menu-fm.glitch img,.menu-fm.glitch .fm-a,.menu-fm.glitch .fm-b{animation:none;}
+}
 </style>
 <link rel="stylesheet" href="https://fliimedia.github.io/Flii.nl/assets/footer.css">
 
@@ -4998,6 +5035,12 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 <div class="nav-menu" id="nav-menu" role="dialog" aria-modal="true">
   <canvas id="matrix-canvas"></canvas>
   <div class="nav-spotlight" id="nav-spotlight"></div>
+    <button class="menu-fm" id="menu-fm" type="button"
+          aria-pressed="false" aria-label="Onthul de matrix">
+    <span class="fm-l fm-a"><img src="https://fliimedia.github.io/Flii.nl/assets/img/d913cc3c069f.webp" alt="" aria-hidden="true"></span>
+    <span class="fm-l fm-b"><img src="https://fliimedia.github.io/Flii.nl/assets/img/d913cc3c069f.webp" alt="" aria-hidden="true"></span>
+    <img src="https://fliimedia.github.io/Flii.nl/assets/img/d913cc3c069f.webp" alt="Flii Media">
+  </button>
   <button class="nav-menu-close" id="nav-menu-close" aria-label="Sluiten">×</button>
   <div class="nav-menu-inner" id="nav-menu-inner">
     <nav class="nav-menu-links">
@@ -7184,6 +7227,39 @@ document.addEventListener('DOMContentLoaded', function() {
   wrap.addEventListener('pointerup', release);
   wrap.addEventListener('pointercancel', release);
   wrap.addEventListener('dragstart', function(e){ e.preventDefault(); });
+})();
+</script>
+<script>
+(function () {
+  var knop = document.getElementById('menu-fm');
+  var menu = document.getElementById('nav-menu');
+  if (!knop || !menu) return;
+
+  // Elke 3 seconden een korte storing, alleen zolang het menu open is.
+  var timer = null;
+  function start() {
+    stop();
+    timer = setInterval(function () {
+      knop.classList.add('glitch');
+      setTimeout(function () { knop.classList.remove('glitch'); }, 430);
+    }, 3000);
+  }
+  function stop() { if (timer) { clearInterval(timer); timer = null; } }
+
+  var kijk = new MutationObserver(function () {
+    if (menu.classList.contains('open')) start(); else stop();
+  });
+  kijk.observe(menu, { attributes: true, attributeFilter: ['class'] });
+  if (menu.classList.contains('open')) start();
+
+  // Klik onthult de matrix: overlay 40% minder donker.
+  knop.addEventListener('click', function () {
+    var aan = menu.classList.toggle('matrix-on');
+    knop.classList.toggle('on', aan);
+    knop.setAttribute('aria-pressed', aan ? 'true' : 'false');
+    knop.setAttribute('aria-label', aan ? 'Verberg de matrix' : 'Onthul de matrix');
+    if (aan && typeof window.startMatrix === 'function') window.startMatrix();
+  });
 })();
 </script>
 </body>
