@@ -338,3 +338,7 @@ footer .ft-loop-card:hover .ft-loop-name{color:#E8294A;}
 @media (prefers-reduced-motion:reduce){
   footer .footer-tile-loop::before{animation:none;}
 }
+
+footer .footer-tile-zoek .footer-nav-link{display:flex;align-items:center;gap:7px;}
+footer .fn-ic{width:12px;height:12px;flex:none;opacity:.55;}
+footer .footer-nav-link:hover .fn-ic{opacity:1;}
