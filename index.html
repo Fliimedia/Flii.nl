@@ -5160,6 +5160,10 @@ details.faq-item[open] .faq-answer {
 .hero-h1{margin:0;font:inherit;letter-spacing:inherit;display:contents;}
 .footer-address .footer-hours-link{color:inherit;text-decoration:none;border-bottom:1px solid rgba(255,255,255,.28);transition:border-color .15s,color .15s;}
 .footer-address .footer-hours-link:hover{border-color:currentColor;}
+
+.orbit-label--link{text-decoration:none;transition:transform .18s ease, box-shadow .18s ease;}
+.orbit-label--link:hover{transform:scale(1.14);box-shadow:0 4px 18px rgba(232,41,74,.28);}
+.orbit-label--link:focus-visible{outline:2px solid #E8294A;outline-offset:3px;}
 </style>
 <!-- Default consent vóór GTM -->
 
@@ -6178,22 +6182,28 @@ document.addEventListener('click', function(e) {
   var tkSrc  = 'https://fliimedia.github.io/Flii.nl/assets/img/ab300fc141fe.webp';
 
   var outerNodes = [
-    { src: fckSrc, alt: 'FC Klap', angle: 0 },
-    { src: voxSrc, alt: 'Vox Media', angle: 120 },
-    { src: tkSrc,  alt: 'TK Media', angle: 240 },
+    { src: fckSrc, alt: 'FC Klap', angle: 0, href: 'partners/fc-klap' },
+    { src: voxSrc, alt: 'Vox Media', angle: 120, href: 'partners/tiny-wolf' },
+    { src: tkSrc,  alt: 'TK Media', angle: 240, href: 'partners/tk-media' },
   ];
   var webizSrc = 'https://fliimedia.github.io/Flii.nl/assets/img/52a19cbaa860.svg';
   var dmSrc    = 'https://fliimedia.github.io/Flii.nl/assets/img/5d8de99418bb.webp';
   var innerNodes = [
-    { src: webizSrc, alt: 'Webiz', angle: 60 },
-    { src: dmSrc, alt: 'Digital Movements', angle: 240 },
+    { src: webizSrc, alt: 'Webiz', angle: 60, href: 'partners/webiz' },
+    { src: dmSrc, alt: 'Digital Movements', angle: 240, href: 'partners/digital-movements' },
   ];
 
   var outerR = 120, innerR = 70;
 
   function makeNode(data) {
-    var el = document.createElement('div');
-    el.className = 'orbit-label';
+    // Badge is een link naar de partnerpagina wanneer die bestaat.
+    var el = document.createElement(data.href ? 'a' : 'div');
+    if (data.href) {
+      el.setAttribute('href', data.href);
+      el.setAttribute('aria-label', data.alt + ' — bekijk partner');
+      el.style.cursor = 'pointer';
+    }
+    el.className = 'orbit-label' + (data.href ? ' orbit-label--link' : '');
     el.style.left = '50%';
     el.style.top  = '50%';
     el.style.width = '38px';
