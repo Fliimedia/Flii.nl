@@ -199,6 +199,8 @@ img{max-width:100%;display:block;}
 .footer-mini-links a{font-size:11px;color:#6B6866;text-decoration:none;transition:color .12s;}
 .footer-mini-links a:hover{color:#0F0E0C;}
 
+}
+
 :root{--lp-ink:#0F0E0C;--lp-mag:#E8294A;--lp-soft:#6B6866;--lp-rule:#E8E6E1;--lp-tint:#F6F5F2;}
 .lp{max-width:720px;margin:0 auto;padding:0 24px 100px;}
 .lp-hero{padding:48px 0 0;}
@@ -232,35 +234,31 @@ img{max-width:100%;display:block;}
 .lp-chip:hover{background:var(--lp-ink);border-color:var(--lp-ink);color:#fff;}
 .lp-chip:hover::after{opacity:.9;}
 
-/* bewijs */
-.lp-proof{display:flex;flex-direction:column;gap:14px;margin-top:20px;}
-.lp-pr{display:flex;gap:16px;align-items:flex-start;padding:16px 18px;border-radius:14px;
-  background:var(--lp-tint);border:1px solid var(--lp-rule);}
-.lp-pr-n{font-family:var(--ff-disp,sans-serif);font-size:28px;font-weight:800;letter-spacing:-1px;
-  line-height:1;color:var(--lp-mag);flex:none;min-width:74px;}
-.lp-pr-t{font-size:14px;line-height:1.55;color:var(--lp-ink);}
-.lp-pr-t a{color:var(--lp-ink);font-weight:700;}
-
-/* collectie: review + cases */
-.lp-coll{margin-top:56px;border:1.5px solid var(--lp-ink);border-radius:20px;overflow:hidden;}
-.lp-coll-rev{padding:26px 24px 22px;background:var(--lp-ink);color:#fff;}
-.lp-coll-stars{color:#F4B400;font-size:13px;letter-spacing:2px;}
-.lp-coll-q{font-family:var(--ff-disp,sans-serif);font-size:19px;font-weight:700;
-  letter-spacing:-.4px;line-height:1.4;margin:10px 0 0;color:#fff;}
-.lp-coll-by{display:flex;align-items:center;gap:10px;margin-top:14px;}
-.lp-coll-av{width:34px;height:34px;border-radius:50%;background:rgba(255,255,255,.1);
+/* review — eigen sectie */
+.lp-rev{margin-top:52px;padding:26px 24px;border-radius:20px;background:var(--lp-ink);color:#fff;}
+.lp-rev-stars{color:#F4B400;font-size:13px;letter-spacing:2px;}
+.lp-rev-q{font-family:var(--ff-disp,sans-serif);font-size:20px;font-weight:700;
+  letter-spacing:-.4px;line-height:1.4;margin:12px 0 0;color:#fff;}
+.lp-rev-by{display:flex;align-items:center;gap:10px;margin-top:16px;}
+.lp-rev-av{width:36px;height:36px;border-radius:50%;background:rgba(255,255,255,.1);
   display:flex;align-items:center;justify-content:center;padding:6px;flex:none;overflow:hidden;}
-.lp-coll-av img{width:100%;height:100%;object-fit:contain;}
-.lp-coll-nm{font-size:13px;font-weight:700;color:#fff;}
-.lp-coll-rl{font-size:11.5px;color:rgba(255,255,255,.6);}
-.lp-coll-cases{padding:20px 24px 24px;}
+.lp-rev-av img{width:100%;height:100%;object-fit:contain;}
+.lp-rev-nm{display:block;font-size:13px;font-weight:700;color:#fff;}
+.lp-rev-rl{display:block;font-size:11.5px;color:rgba(255,255,255,.6);}
+.lp-rev-src{display:inline-block;margin-top:14px;font-family:var(--ff-mono,monospace);
+  font-size:10px;letter-spacing:.05em;color:rgba(255,255,255,.55);text-decoration:none;}
+.lp-rev-src:hover{color:#fff;}
+
+/* cases — eigen collectiekaart */
+.lp-coll{margin-top:52px;border:1.5px solid var(--lp-ink);border-radius:20px;
+  padding:22px 24px 24px;}
 .lp-coll-h{font-family:var(--ff-mono,monospace);font-size:10px;font-weight:700;
   letter-spacing:.12em;text-transform:uppercase;color:var(--lp-soft);margin:0 0 12px;}
-.lp-cc{display:flex;gap:13px;align-items:center;padding:12px 0;text-decoration:none;
+.lp-cc{display:flex;gap:13px;align-items:center;padding:13px 0;text-decoration:none;
   border-bottom:1px solid var(--lp-rule);transition:padding-left .16s;}
 .lp-cc:last-of-type{border-bottom:none;}
 .lp-cc:hover{padding-left:5px;}
-.lp-cc-img{width:56px;height:44px;border-radius:8px;object-fit:cover;flex:none;background:var(--lp-tint);}
+.lp-cc-img{width:60px;height:46px;border-radius:8px;object-fit:cover;flex:none;background:var(--lp-tint);}
 .lp-cc-b{flex:1;min-width:0;}
 .lp-cc-n{display:block;font-family:var(--ff-disp,sans-serif);font-size:15px;font-weight:800;
   letter-spacing:-.2px;color:var(--lp-ink);}
@@ -353,31 +351,22 @@ je bestaande volgers. Dat is zelden waarvoor je hem liet maken.</p>
     </div>
   </div>
 
-  <div class="lp-sec">
-    <h2>Hoe dat uitpakte voor anderen</h2>
-    <div class="lp-proof">
-    <div class="lp-pr"><span class="lp-pr-n">1M+</span><span class="lp-pr-t">organische views voor <a href="cases/theaterthuis">TheaterThuis</a>, zonder mediabudget</span></div>
-    <div class="lp-pr"><span class="lp-pr-n">3 formats</span><span class="lp-pr-t">voor <a href="cases/ae-trading">Trading</a>: productvideo, demo onder 60 seconden en review — tien per maand</span></div>
-    <div class="lp-pr"><span class="lp-pr-n">YouTube + social</span><span class="lp-pr-t">gescheiden aanpak voor <a href="cases/ronreizen">RonReizen</a>: korte sfeerbeelden naast verhaalgedreven content</span></div>
+  <div class="lp-rev">
+    <div class="lp-rev-stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
+    <p class="lp-rev-q">&ldquo;Niets minder dan indrukwekkend. Ik kan hun diensten ten zeerste aanbevelen.&rdquo;</p>
+    <div class="lp-rev-by">
+      <span class="lp-rev-av"><img src="https://fliimedia.github.io/Flii.nl/assets/img/f68eb961be95.webp" alt="" loading="lazy"></span>
+      <span><span class="lp-rev-nm">H. Hasnaoui</span>
+      <span class="lp-rev-rl">Eigenaar @ Zeewind</span></span>
     </div>
+    <a class="lp-rev-src" href="https://share.google/wEE1drPcTYlHW0Beo" target="_blank" rel="noopener">5,0 op Google &middot; 14 reviews &rarr;</a>
   </div>
 
   <div class="lp-coll">
-    <div class="lp-coll-rev">
-      <div class="lp-coll-stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
-      <p class="lp-coll-q">&ldquo;Niets minder dan indrukwekkend. Ik kan hun diensten ten zeerste aanbevelen.&rdquo;</p>
-      <div class="lp-coll-by">
-        <span class="lp-coll-av"><img src="https://fliimedia.github.io/Flii.nl/assets/img/f68eb961be95.webp" alt="" loading="lazy"></span>
-        <span><span class="lp-coll-nm">H. Hasnaoui</span>
-        <span class="lp-coll-rl">Eigenaar @ Zeewind</span></span>
-      </div>
-    </div>
-    <div class="lp-coll-cases">
-      <p class="lp-coll-h">Zo deden we dat</p>
+    <p class="lp-coll-h">Zo deden we dat</p>
       <a class="lp-cc" href="cases/theaterthuis"><img class="lp-cc-img" src="https://fliimedia.github.io/Flii.nl/assets/media/d1bd14e388f2.webp" alt="" loading="lazy"><span class="lp-cc-b"><span class="lp-cc-n">TheaterThuis</span><span class="lp-cc-d">TheaterThuis is een digitale streamingdienst voor liefhebbers…</span></span><span class="lp-cc-a">&rarr;</span></a>
       <a class="lp-cc" href="cases/ae-trading"><img class="lp-cc-img" src="https://fliimedia.github.io/Flii.nl/assets/media/dd446619f021.webp" alt="" loading="lazy"><span class="lp-cc-b"><span class="lp-cc-n">Trading</span><span class="lp-cc-d">Voor een startup e-commerce fietsenwinkel in fatbikes,…</span></span><span class="lp-cc-a">&rarr;</span></a>
       <a class="lp-cc" href="cases/ronreizen"><img class="lp-cc-img" src="https://fliimedia.github.io/Flii.nl/assets/media/eca792ad1ac5.webp" alt="" loading="lazy"><span class="lp-cc-b"><span class="lp-cc-n">RonReizen</span><span class="lp-cc-d">RonReizen is een Nederlandse reisorganisatie met een sterk…</span></span><span class="lp-cc-a">&rarr;</span></a>
-    </div>
   </div>
 
   <div class="lp-close">
