@@ -1,0 +1,231 @@
+<!DOCTYPE html>
+<html lang="nl">
+<head>
+<meta charset="UTF-8">
+<meta http-equiv="Cache-Control" content="max-age=300, must-revalidate">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Webiz — partner van Flii Media</title>
+<meta property="og:type" content="article">
+<meta property="og:title" content="Webiz — partner van Flii Media">
+<meta property="og:description" content="Webiz is ons technische partnerbureau in Tsjechië. Voor maatwerkontwikkeling, complexe koppelingen en platformen die verder gaan dan een standaardoplossing.">
+<meta property="og:url" content="https://flii.nl/partners/webiz">
+<meta property="og:site_name" content="Flii Media">
+<meta name="twitter:card" content="summary_large_image">
+<meta property="og:image" content="https://fliimedia.github.io/Flii.nl/assets/og/partners-webiz.jpg">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:locale" content="nl_NL">
+<meta name="twitter:image" content="https://fliimedia.github.io/Flii.nl/assets/og/partners-webiz.jpg">
+
+<meta name="description" content="Webiz is ons technische partnerbureau in Tsjechië. Voor maatwerkontwikkeling, complexe koppelingen en platformen die verder gaan dan een standaardoplossing.">
+<style>
+@font-face{font-family:'Bricolage Grotesque';src:url('https://fliimedia.github.io/Flii.nl/assets/fonts/BricolageGrotesque.ttf') format('truetype-variations');
+  font-weight:200 800;font-display:swap;}
+@font-face{font-family:'JetBrains Mono';src:url('https://fliimedia.github.io/Flii.nl/assets/fonts/JetBrainsMono.ttf') format('truetype-variations');
+  font-weight:100 800;font-display:swap;}
+@font-face{font-family:'DM Sans';src:url('https://fliimedia.github.io/Flii.nl/assets/fonts/DMSans.ttf') format('truetype-variations');
+  font-weight:100 1000;font-display:swap;}
+
+:root{
+  --mag:#E8294A;--ink:#0F0E0C;--mid:#4A4840;--subtle:#9B9790;
+  --rule:#E8E6E1;--bg:#F3F1EB;--white:#fff;
+  --ff-disp:'Bricolage Grotesque','Inter',system-ui,sans-serif;
+  --ff-body:'DM Sans',system-ui,sans-serif;
+  --ff-mono:'JetBrains Mono',monospace;
+  --r:14px;
+}
+*{box-sizing:border-box;margin:0;padding:0;-webkit-font-smoothing:antialiased;}
+html,body{font-family:var(--ff-body);background:#fff;color:var(--ink);overflow-x:hidden;}
+a{color:inherit;text-decoration:none;}
+img{max-width:100%;display:block;}
+.nav{display:flex;align-items:center;justify-content:space-between;
+  padding:0 20px;height:56px;border-bottom:1px solid var(--rule);
+  position:sticky;top:0;background:rgba(255,255,255,.95);
+  backdrop-filter:blur(12px);z-index:100;}
+.nav-brand{display:flex;align-items:center;gap:8px;}
+.nav-brand img{height:28px;width:auto;}
+.nav-back{font-size:13px;color:var(--subtle);font-weight:500;text-decoration:none;}
+.nav-back:hover{color:var(--ink);}
+.eyebrow{font-family:var(--ff-mono);font-size:10px;font-weight:700;
+  letter-spacing:.14em;text-transform:uppercase;color:var(--ink);}
+.page-hero{padding:48px 24px 0;}
+.page-hero h1{font-family:var(--ff-disp);font-size:clamp(26px,7vw,40px);
+  font-weight:800;letter-spacing:-1px;line-height:1.08;margin-top:10px;}
+.page-hero .lead{font-size:15px;color:var(--mid);line-height:1.65;margin-top:14px;max-width:580px;}
+.hero-img{width:100%;height:280px;object-fit:cover;margin-top:32px;}
+.section-body{padding:36px 24px;max-width:680px;}
+.section-body p{font-size:15px;line-height:1.75;color:var(--ink);margin-bottom:18px;}
+.section-body ul{margin:0 0 18px 20px;}
+.section-body li{font-size:15px;line-height:1.75;color:var(--ink);margin-bottom:8px;}
+.section-body strong{font-weight:700;}
+.section-body h2{font-family:var(--ff-disp);font-size:22px;font-weight:800;
+  letter-spacing:-.4px;margin:36px 0 14px;}
+.results-box{background:#0F0E0C;border-radius:16px;padding:28px 24px;margin:48px 24px 0;}
+.results-box h3{font-family:var(--ff-disp);font-size:18px;font-weight:800;
+  color:#fff;margin-bottom:20px;}
+.result-row{display:grid;grid-template-columns:24px 1fr auto;
+  align-items:start;gap:10px 12px;padding:12px 0;
+  border-top:1px solid rgba(255,255,255,.07);}
+.result-row:first-of-type{border-top:none;}
+.result-icon{color:var(--mag);flex-shrink:0;margin-top:2px;}
+.result-label{font-size:13px;color:rgba(255,255,255,.75);line-height:1.5;}
+.result-value{font-family:var(--ff-mono);font-size:14px;font-weight:700;color:#fff;white-space:nowrap;text-align:right;}
+/* Legacy list fallback */
+.results-box ul{list-style:none;display:flex;flex-direction:column;gap:0;}
+.results-box li{font-size:14px;color:rgba(255,255,255,.75);line-height:1.5;
+  padding:12px 0 12px 20px;position:relative;border-top:1px solid rgba(255,255,255,.07);}
+.results-box li:first-child{border-top:none;}
+.results-box li::before{content:'→';color:var(--mag);position:absolute;left:0;}
+.results-box li strong{color:#fff;}
+.img-grid{display:grid;grid-template-columns:1fr 1fr;gap:10px;padding:0 24px;margin-bottom:36px;}
+.img-grid img{border-radius:10px;aspect-ratio:4/3;object-fit:cover;width:100%;height:auto;}
+.img-full{padding:0 24px;margin-bottom:36px;}
+.img-full img{border-radius:12px;width:100%;height:auto;}
+
+
+
+
+.footer-mini{padding:24px;text-align:center;border-top:1px solid var(--rule);
+  font-size:12px;color:var(--subtle);}
+.footer-mini a{color:var(--ink);font-weight:600;}
+/* Article specific */
+.article-meta{display:flex;align-items:center;gap:12px;margin-top:12px;flex-wrap:wrap;}
+.article-tag{font-size:11px;font-weight:600;letter-spacing:.08em;text-transform:uppercase;font-family:var(--ff-mono);background:linear-gradient(135deg,rgba(0,0,0,.07) 0%,rgba(0,0,0,.02) 100%);color:#0F0E0C;border:1px solid rgba(0,0,0,.25);border-radius:4px;padding:3px 8px;}
+.article-date-lbl{font-family:var(--ff-mono);font-size:10px;color:var(--subtle);letter-spacing:.06em;}
+.quote-block{border-left:3px solid var(--mag);padding:14px 18px;
+  margin:24px 0;background:#F9F8F6;border-radius:0 8px 8px 0;}
+.quote-block p{font-size:15px;font-style:italic;color:var(--mid);margin:0;}
+
+/* CTA section — home style */
+
+
+
+
+
+
+
+
+
+
+/* width-align v1 */
+/* CTA card and hero image were unconstrained and spanned the full viewport.
+   Constrain them to the same column as .section-body (632px inner, 24px gutter). */
+
+@media (min-width:760px){
+  .hero-img{max-width:632px;width:calc(100% - 48px);margin-left:24px;margin-right:24px;}
+}
+
+/* content-width-cap v2 */
+/* Keep every block within the text column (680px outer / 632px inner). */
+.page-hero{max-width:680px;box-sizing:border-box;}
+.section-body{max-width:680px;box-sizing:border-box;}
+
+.dienst-photo{max-width:632px;margin:24px 24px 0;width:calc(100% - 48px);}
+@media (min-width:760px){
+  .hero-img{max-width:632px;width:calc(100% - 48px);margin-left:24px;margin-right:24px;}
+}
+
+.article-chip{display:inline-flex;align-items:center;font-family:var(--ff-mono);
+  font-size:10px;font-weight:600;letter-spacing:.08em;line-height:1;white-space:nowrap;
+  border-radius:100px;padding:4px 10px;}
+.article-chip--unprompted{background:linear-gradient(135deg,rgba(0,0,0,.07) 0%,rgba(0,0,0,.02) 100%);
+  color:#0F0E0C;border:1px solid rgba(0,0,0,.25);}
+.article-chip--prompted{background:#0F0E0C;color:#fff;border:1px solid #0F0E0C;}
+.page-hero .article-chip{margin-top:14px;}
+.article-author{font-size:12px;color:var(--sub,#6B6866);}
+.article-author::before{content:'\00B7';margin:0 7px;opacity:.5;}
+
+.pt-visit{display:inline-flex;align-items:center;gap:8px;margin-top:18px;padding:11px 18px;
+  border-radius:100px;background:#0F0E0C;color:#fff;text-decoration:none;
+  font-family:var(--ff-mono,monospace);font-size:12px;font-weight:700;letter-spacing:.03em;
+  border:1.5px solid rgba(232,41,74,.7);transition:background .15s;}
+.pt-visit:hover{background:#1a1917;}
+.pt-shot{margin:26px 24px 0;max-width:632px;border-radius:14px;overflow:hidden;
+  border:1px solid var(--rule,#E8E6E1);}
+.pt-shot img{width:100%;height:auto;display:block;}
+.pt-shot-cap{font-size:11px;color:var(--soft,#9B9790);margin:8px 24px 0;
+  font-family:var(--ff-mono,monospace);}
+</style>
+<link rel="stylesheet" href="https://fliimedia.github.io/Flii.nl/assets/cta.css">
+<link rel="stylesheet" href="https://fliimedia.github.io/Flii.nl/assets/contact-bar.css">
+<script defer src="https://fliimedia.github.io/Flii.nl/assets/cta.js"></script>
+<script defer src="https://fliimedia.github.io/Flii.nl/assets/contact-bar.js"></script>
+<link rel="canonical" href="https://flii.nl/partners/webiz">
+<link rel="stylesheet" href="https://fliimedia.github.io/Flii.nl/assets/reduced-motion.css">
+<script defer src="https://fliimedia.github.io/Flii.nl/assets/reduced-motion.js"></script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    {
+      "@type": "ListItem",
+      "position": 1,
+      "name": "Home",
+      "item": "https://flii.nl/"
+    },
+    {
+      "@type": "ListItem",
+      "position": 2,
+      "name": "Netwerk",
+      "item": "https://flii.nl/#netwerk"
+    },
+    {
+      "@type": "ListItem",
+      "position": 3,
+      "name": "Webiz",
+      "item": "https://flii.nl/partners/webiz"
+    }
+  ]
+}
+</script>
+<link rel="icon" href="https://fliimedia.github.io/Flii.nl/assets/img/d913cc3c069f.webp" type="image/png">
+<link rel="apple-touch-icon" href="https://fliimedia.github.io/Flii.nl/assets/img/d913cc3c069f.webp">
+<meta name="theme-color" content="#0F0E0C">
+<link rel="preload" href="https://fliimedia.github.io/Flii.nl/assets/fonts/BricolageGrotesque.ttf" as="font" type="font/ttf" crossorigin>
+</head>
+<body>
+<nav class="nav">
+  <a href="../" class="nav-brand"><img src="https://fliimedia.github.io/Flii.nl/assets/img/d913cc3c069f.webp" alt="Flii Media" fetchpriority="high" decoding="async"></a>
+  <a href="../" class="nav-back">← Terug</a>
+</nav>
+
+<div class="page-hero">
+  <span class="eyebrow">Netwerk</span>
+  <h1>Webiz</h1>
+  <p class="lead">Tsjechisch webbureau dat maatwerk bouwt waar standaardplatformen tekortschieten.</p>
+  <a class="pt-visit" href="https://webiz.cz" target="_blank" rel="noopener">webiz.cz &rarr;</a>
+</div>
+<div class="pt-shot"><picture><source srcset="https://fliimedia.github.io/Flii.nl/assets/partners/webiz.webp" type="image/webp"><img src="https://fliimedia.github.io/Flii.nl/assets/partners/webiz.jpg" alt="Website van Webiz" loading="lazy" decoding="async"></picture></div>
+<p class="pt-shot-cap">webiz.cz</p>
+<div class="section-body">
+<h2>Wie ze zijn</h2>
+<p>Webiz is een Tsjechisch ontwikkelbureau waarmee we samenwerken op technisch complexe
+opdrachten. Waar een no-code platform tegen zijn grenzen aanloopt — bij eigen rekenlogica,
+koppelingen met bestaande systemen of toepassingen die op schaal moeten draaien — schuiven zij aan.</p>
+
+<h2>Waarom we met ze werken</h2>
+<p>Een compact team betekent dat we niet alles zelf in huis hoeven te hebben. Voor het bouwen van
+een portaal, een applicatie op maat of een integratie tussen systemen die niet uit zichzelf met
+elkaar praten, halen we specialisten erbij die dat dagelijks doen. Dat levert betere techniek op dan
+wanneer we het erbij zouden doen.</p>
+
+<p>De samenwerking loopt via ons: jij hebt één aanspreekpunt, wij regelen de afstemming. In de
+praktijk betekent dat dat je de voordelen van gespecialiseerde ontwikkeling krijgt zonder de
+coördinatielast.</p>
+
+<h2>Wanneer ze in beeld komen</h2>
+<ul>
+  <li>Maatwerkapplicaties en klantportalen</li>
+  <li>API-koppelingen tussen bestaande systemen</li>
+  <li>Platformen die verder moeten dan een standaardpakket aankan</li>
+  <li>Technische doorlichting van bestaande code</li>
+</ul>
+</div>
+
+<div id="cta-mount"><noscript><p style="text-align:center;padding:32px 24px"><a href="https://calendly.com/flii-media">Plan een gesprek &rarr;</a></p></noscript></div>
+<footer class="footer-mini">
+  <p><a href="../">Flii Media</a> · <a href="mailto:info@flii.nl">info@flii.nl</a> · © 2026</p>
+</footer>
+</body>
+</html>
