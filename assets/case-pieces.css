@@ -4,7 +4,7 @@
   overflow:hidden;border-radius:18px;}
 
 /* paneel met de fragmenten */
-.cp-paneel{position:relative;border-radius:18px;width:100%;aspect-ratio:1/1;}
+.cp-paneel{position:relative;border-radius:18px;width:100%;aspect-ratio:3/2;}
 .cp-pieces{position:absolute;inset:0;border-radius:18px;overflow:hidden;}
 .cp-stuk{position:absolute;background-repeat:no-repeat;pointer-events:none;
   will-change:transform,opacity;filter:grayscale(.32) contrast(1.06) saturate(1.14);}
