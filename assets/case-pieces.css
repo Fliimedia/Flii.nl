@@ -4,7 +4,7 @@
 
 /* paneel met de fragmenten */
 .cp-paneel{position:relative;border-radius:18px;width:100%;aspect-ratio:1/1;}
-.cp-pieces{position:absolute;inset:0;border-radius:18px;}
+.cp-pieces{position:absolute;inset:0;border-radius:18px;overflow:hidden;}
 .cp-stuk{position:absolute;background-repeat:no-repeat;pointer-events:none;
   will-change:transform,opacity;filter:grayscale(.32) contrast(1.06) saturate(1.14);}
 .cp-tint{position:absolute;inset:0;border-radius:18px;pointer-events:none;z-index:2;
@@ -43,7 +43,7 @@
   line-height:1.24;color:rgba(15,14,12,.34);transition:color .2s ease;}
 .cp-item:hover{color:rgba(15,14,12,.72);}
 .cp-item.is-actief{color:#0F0E0C;}
-.cp-item:not(:last-child)::after{content:" // ";font-weight:400;letter-spacing:0;
+.cp-item:not(:last-child)::after{content:"\00a0//\00a0";font-weight:400;letter-spacing:0;
   color:rgba(15,14,12,.2);}
 .cp-item-c{font-weight:400;letter-spacing:-.2px;opacity:.55;margin-left:.32em;}
 .cp-item.is-actief .cp-item-c{opacity:.66;}
