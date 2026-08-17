@@ -4035,7 +4035,7 @@ window.chatbaseConfig={chatbotId:"xDWiHhLymvD2NuZKQ-bO_",hideBubble:true};
     swayX = Math.max(-22, Math.min(22, swayX));
     swayY = Math.max(-14, Math.min(14, swayY));
     if (innerEl) innerEl.style.transform = 'translate(' + swayX.toFixed(1) + 'px,' + swayY.toFixed(1) + 'px)';
-    requestAnimationFrame(animSway);
+    if (running) requestAnimationFrame(animSway);
   }
 
   // Expose to openMenu / closeMenu
@@ -4043,7 +4043,7 @@ window.chatbaseConfig={chatbotId:"xDWiHhLymvD2NuZKQ-bO_",hideBubble:true};
   window.matrixStop  = stopMatrix;
 
   document.addEventListener('DOMContentLoaded', function() {
-    initCanvas();
+    // Canvas niet vooraf opzetten; startMatrix() doet dat bij het openen van het menu.
     if (menuEl) {
       menuEl.addEventListener('mousemove', onMenuMove);
       menuEl.addEventListener('touchmove', onMenuMove, { passive: true });
