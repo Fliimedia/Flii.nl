@@ -2772,13 +2772,24 @@ details.faq-item[open] .faq-answer {
 </script>
 <!-- Google Tag Manager -->
 <script>
-  (function(w,d,s,l,i){
-    w[l]=w[l]||[];
-    w[l].push({'gtm.start':new Date().getTime(),event:'gtm.js'});
-    var f=d.getElementsByTagName(s)[0],j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';
-    j.async=true;j.src='https://www.googletagmanager.com/gtm.js?id='+i+dl;
-    f.parentNode.insertBefore(j,f);
-  })(window,document,'script','dataLayer','GTM-NTFZJ9D');
+/* GTM pas laden na de eerste interactie of na 3 s, zodat het de render niet ophoudt. */
+(function (w, d, s, l, i) {
+  w[l] = w[l] || [];
+  w[l].push({ 'gtm.start': new Date().getTime(), event: 'gtm.js' });
+  var geladen = false;
+  function laad() {
+    if (geladen) return; geladen = true;
+    var f = d.getElementsByTagName(s)[0], j = d.createElement(s),
+        dl = l != 'dataLayer' ? '&l=' + l : '';
+    j.async = true; j.src = 'https://www.googletagmanager.com/gtm.js?id=' + i + dl;
+    f.parentNode.insertBefore(j, f);
+  }
+  ['pointerdown', 'keydown', 'scroll'].forEach(function (e) {
+    w.addEventListener(e, laad, { once: true, passive: true });
+  });
+  if (d.readyState === 'complete') setTimeout(laad, 3000);
+  else w.addEventListener('load', function () { setTimeout(laad, 3000); });
+})(window, document, 'script', 'dataLayer', 'GTM-NTFZJ9D');
 </script>
 <style>a.case-card{contain:layout size}a.case-card .case-card-img{opacity:0;transition:opacity .3s}</style>
 <script type="application/ld+json">
