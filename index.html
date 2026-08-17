@@ -5192,8 +5192,8 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 <section class="section">
   <div class="office-photo-wrap">
     <img src="https://fliimedia.github.io/Flii.nl/assets/img/0ea5bf0e28a9.jpg" alt="Flii Media kantoor Amstelveen" class="office-photo">
-    <video class="office-bg-video" id="office-bg-video" muted loop playsinline preload="auto"
-      src="https://fliimedia.github.io/Flii.nl/assets/260224_Flii_DEF.mp4"></video>
+    <video class="office-bg-video" id="office-bg-video" muted loop playsinline preload="none"
+      data-src="https://fliimedia.github.io/Flii.nl/assets/260224_Flii_DEF.mp4"></video>
     <div class="office-video-overlay"></div>
     <button class="office-mute-btn" id="office-mute-btn" type="button" aria-label="Geluid aan" aria-pressed="true">
       <svg class="icon-off" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polygon points="11 5 6 9 2 9 2 15 6 15 11 19 11 5"/><line x1="23" y1="9" x2="17" y2="15"/><line x1="17" y1="9" x2="23" y2="15"/></svg>
@@ -7138,6 +7138,26 @@ document.addEventListener('DOMContentLoaded', function() {
     }
     wasOpen = open;
   }).observe(menu, { attributes: true, attributeFilter: ['class'] });
+})();
+</script>
+
+<script>
+/* Kantoorvideo (3 MB) pas ophalen als hij in beeld komt. */
+(function () {
+  var v = document.getElementById('office-bg-video');
+  if (!v || !v.dataset.src) return;
+  function laad() {
+    if (v.getAttribute('src')) return;
+    v.setAttribute('src', v.dataset.src);
+    v.load();
+    var pr = v.play(); if (pr && pr.catch) pr.catch(function () {});
+  }
+  if ('IntersectionObserver' in window) {
+    var io = new IntersectionObserver(function (es) {
+      if (es[0].isIntersecting) { io.disconnect(); laad(); }
+    }, { rootMargin: '300px' });
+    io.observe(v);
+  } else { laad(); }
 })();
 </script>
 </body>
