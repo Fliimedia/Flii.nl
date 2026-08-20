@@ -1,0 +1,91 @@
+<!doctype html>
+<html lang="nl">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex, nofollow, noarchive, nosnippet">
+<meta name="googlebot" content="noindex, nofollow">
+<title>Flii CRM</title>
+<link rel="icon" href="https://fliimedia.github.io/Flii.nl/assets/img/d913cc3c069f.png" type="image/png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter+Tight:wght@400;500;600;700&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+  html,body{margin:0;padding:0;background:#FBFBFA;}
+  *{box-sizing:border-box;}
+  .poort{position:fixed;inset:0;z-index:9999;display:flex;align-items:center;
+    justify-content:center;background:#0F0E0C;
+    font-family:'Inter Tight',system-ui,sans-serif;}
+  .poort-kaart{width:min(340px,90vw);text-align:center;color:#fff;}
+  .poort-slot{width:46px;height:46px;margin:0 auto 18px;display:flex;align-items:center;
+    justify-content:center;border-radius:50%;border:1.5px solid rgba(255,255,255,.28);}
+  .poort-slot svg{width:20px;height:20px;stroke:#fff;fill:none;stroke-width:1.7;}
+  .poort h1{font-size:17px;font-weight:600;margin:0 0 4px;letter-spacing:-.2px;}
+  .poort p{font-size:12.5px;color:rgba(255,255,255,.5);margin:0 0 22px;}
+  .poort input{width:100%;padding:13px 16px;border-radius:10px;text-align:center;
+    background:rgba(255,255,255,.07);border:1px solid rgba(255,255,255,.18);
+    color:#fff;font:inherit;font-size:22px;letter-spacing:.5em;text-indent:.5em;
+    font-family:'IBM Plex Mono',monospace;outline:none;}
+  .poort input:focus{border-color:#E8294A;}
+  .poort input.fout{border-color:#E8294A;animation:schud .32s;}
+  @keyframes schud{0%,100%{transform:translateX(0)}25%{transform:translateX(-7px)}
+    75%{transform:translateX(7px)}}
+  .poort-fout{font-size:12px;color:#E8294A;margin-top:12px;min-height:16px;}
+  .poort-terug{display:inline-block;margin-top:22px;font-size:12px;
+    color:rgba(255,255,255,.45);text-decoration:none;}
+  .poort-terug:hover{color:#fff;}
+  #root{min-height:100vh;}
+  .verborgen{display:none;}
+</style>
+</head>
+<body>
+<div class="poort" id="poort">
+  <div class="poort-kaart">
+    <div class="poort-slot"><svg viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round">
+      <rect x="4" y="10.5" width="16" height="10" rx="2"/><path d="M8 10.5V7a4 4 0 0 1 8 0v3.5"/></svg></div>
+    <h1>Flii CRM</h1>
+    <p>Voer je pincode in</p>
+    <input id="pin" type="password" inputmode="numeric" maxlength="4"
+           autocomplete="off" aria-label="Pincode">
+    <div class="poort-fout" id="fout"></div>
+    <a class="poort-terug" href="/">&larr; Terug naar flii.nl</a>
+  </div>
+</div>
+<div id="root" class="verborgen"></div>
+<script src="https://fliimedia.github.io/Flii.nl/assets/vendor/react.min.js"></script>
+<script src="https://fliimedia.github.io/Flii.nl/assets/vendor/react-dom.min.js"></script>
+<script>
+/* Eenvoudige pincode-poort. Dit houdt meekijkers tegen, geen echte beveiliging:
+   de code staat in deze pagina en is voor iedereen leesbaar. */
+(function () {
+  var CODE = '8008', SLEUTEL = 'flii-crm-open';
+  var poort = document.getElementById('poort'), wortel = document.getElementById('root'),
+      veld = document.getElementById('pin'), fout = document.getElementById('fout');
+
+  function open() {
+    poort.remove();
+    wortel.classList.remove('verborgen');
+    var s = document.createElement('script');
+    s.src = 'flii-crm.js?v=1';
+    document.body.appendChild(s);
+  }
+  if (sessionStorage.getItem(SLEUTEL) === '1') { open(); return; }
+
+  veld.focus();
+  veld.addEventListener('input', function () {
+    fout.textContent = '';
+    veld.classList.remove('fout');
+    if (veld.value.length < 4) return;
+    if (veld.value === CODE) {
+      sessionStorage.setItem(SLEUTEL, '1');
+      open();
+    } else {
+      veld.classList.add('fout');
+      fout.textContent = 'Onjuiste code';
+      setTimeout(function () { veld.value = ''; }, 320);
+    }
+  });
+})();
+</script>
+</body>
+</html>
