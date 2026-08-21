@@ -1,5 +1,5 @@
 /* Cases als geanimeerde beeldfragmenten — opzet naar Codrops' Animated Image Pieces */
-.cp{--cp-kleur:#E8294A;position:relative;max-width:1180px;margin:0 auto;
+.cp{--cp-kleur:#E8294A;position:relative;max-width:1080px;margin:0 auto;
   display:flex;flex-direction:column-reverse;
   overflow:hidden;border-radius:18px;}
 
