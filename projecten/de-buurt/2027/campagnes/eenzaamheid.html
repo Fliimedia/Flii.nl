@@ -157,6 +157,19 @@ tr.total td:last-child{border-radius:0 0 8px 0}
   .page{transform:none!important}
   @page{size:328.08mm 232.10mm;margin:0}
 }
+
+.card.compact{padding:11px 14px}
+.card.compact .rows{margin-top:5px !important;justify-content:flex-start;flex:0 0 auto}
+.card.compact .tick{padding:3px 0;line-height:1.42}
+
+.bon-row .n.ok{color:#12A150;font-weight:700}
+.bon-row .n.wacht{color:var(--pink);font-weight:700}
+.bon-row .n.ok::before{content:"\2713 ";font-weight:800}
+.bon-row .n.wacht::before{content:"\25CB ";font-weight:800}
+.bon-legend{display:flex;gap:14px;margin-top:8px;font-size:9.5px;color:var(--muted-2)}
+.bon-legend b{font-weight:700}
+.bon-legend .g{color:#12A150}
+.bon-legend .p{color:var(--pink)}
 </style>
 </head>
 <body>
@@ -438,8 +451,8 @@ tr.total td:last-child{border-radius:0 0 8px 0}
       </tbody>
     </table>
 
-    <div class="cols grow">
-      <div class="card" style="flex:1">
+    <div class="cols" style="flex:0 0 auto">
+      <div class="card compact" style="flex:1">
         <div class="eyebrow">Spelregels van de Grant</div>
         <div class="rows" style="margin-top:7px">
           <div class="tick"><span>Geen zoekwoorden van één woord en geen te algemene termen.</span></div>
@@ -449,7 +462,7 @@ tr.total td:last-child{border-radius:0 0 8px 0}
         </div>
       </div>
 
-      <div class="card accent" style="flex:1">
+      <div class="card accent compact" style="flex:1">
         <div class="eyebrow">Nodig om te starten</div>
         <div class="rows" style="margin-top:7px">
           <div class="tick"><span><b>Toegang tot het Ad Grants-account</b> — of het startsein om het aan te vragen.</span></div>
@@ -496,18 +509,19 @@ tr.total td:last-child{border-radius:0 0 8px 0}
       <div class="card accent" style="flex:1">
         <div class="card-head" style="margin-bottom:10px;align-items:center">
           <div class="card-title">Beeld &amp; tekst</div>
-          <span class="chip">Aangeleverd maandag of dinsdag</span>
+          <span class="chip">Nog aan te leveren</span>
         </div>
         <div class="bon">
           <div class="bon-sec">Awareness &amp; conversie</div>
-          <div class="bon-row"><span class="t">Feed static 1:1 of 4:5</span><span class="n">3</span></div>
-          <div class="bon-row"><span class="t">Story / reel 9:16</span><span class="n">3</span></div>
-          <div class="bon-row"><span class="t">Caption per uiting</span><span class="n">3</span></div>
+          <div class="bon-row"><span class="t">Feed static 1:1 of 4:5</span><span class="n wacht">3</span></div>
+          <div class="bon-row"><span class="t">Story / reel 9:16</span><span class="n wacht">3</span></div>
+          <div class="bon-row"><span class="t">Caption per uiting</span><span class="n wacht">3</span></div>
           <div class="bon-sec">Remarketing</div>
-          <div class="bon-row"><span class="t">Feed static 1:1 of 4:5</span><span class="n">1</span></div>
-          <div class="bon-row"><span class="t">Story / reel 9:16</span><span class="n">1</span></div>
+          <div class="bon-row"><span class="t">Feed static 1:1 of 4:5</span><span class="n wacht">1</span></div>
+          <div class="bon-row"><span class="t">Story / reel 9:16</span><span class="n wacht">1</span></div>
           <div class="bon-sec">Basis</div>
-          <div class="bon-row"><span class="t">Logo de Buurt, PNG en SVG</span><span class="n">1 set</span></div>
+          <div class="bon-row"><span class="t">Logo de Buurt, PNG en SVG</span><span class="n ok">1 set</span></div>
+          <div class="bon-legend"><span><b class="g">&#10003;</b> aanwezig</span><span><b class="p">&#9675;</b> nog aan te leveren</span></div>
         </div>
       </div>
 
@@ -518,15 +532,15 @@ tr.total td:last-child{border-radius:0 0 8px 0}
         </div>
         <div class="bon">
           <div class="bon-sec">Meten</div>
-          <div class="bon-row"><span class="t">Bedankpagina na het formulier</span><span class="n">1</span></div>
-          <div class="bon-row"><span class="t">Meta pixel op de site</span><span class="n">check</span></div>
-          <div class="bon-row"><span class="t">Google Analytics op de site</span><span class="n">check</span></div>
+          <div class="bon-row"><span class="t">Bedankpagina na het formulier</span><span class="n ok">1</span></div>
+          <div class="bon-row"><span class="t">Meta pixel op de site</span><span class="n ok">check</span></div>
+          <div class="bon-row"><span class="t">Google Analytics op de site</span><span class="n ok">check</span></div>
           <div class="bon-sec">Toegang</div>
-          <div class="bon-row"><span class="t">Meta Business Manager</span><span class="n">beheer</span></div>
-          <div class="bon-row"><span class="t">Google Ad Grants-account</span><span class="n">beheer</span></div>
-          <div class="bon-row"><span class="t">Advertentiebudget van €350</span><span class="n">betaalmethode</span></div>
+          <div class="bon-row"><span class="t">Meta Business Manager</span><span class="n ok">beheer</span></div>
+          <div class="bon-row"><span class="t">Google Ad Grants-account</span><span class="n ok">beheer</span></div>
+          <div class="bon-row"><span class="t">Advertentiebudget van €350</span><span class="n ok">betaalmethode</span></div>
           <div class="bon-sec">Akkoord</div>
-          <div class="bon-row"><span class="t">Advertentieteksten Google</span><span class="n">1 ronde</span></div>
+          <div class="bon-row"><span class="t">Advertentieteksten Google</span><span class="n ok">1 ronde</span></div>
         </div>
       </div>
 
@@ -537,9 +551,9 @@ tr.total td:last-child{border-radius:0 0 8px 0}
         </div>
         <div class="bon">
           <div class="bon-sec">Social</div>
-          <div class="bon-row"><span class="t">Campagnes en advertentiesets</span><span class="n">2 / 2</span></div>
-          <div class="bon-row"><span class="t">Remarketingdoelgroepen</span><span class="n">3</span></div>
-          <div class="bon-row"><span class="t">UTM-tagging per uiting</span><span class="n">alle</span></div>
+          <div class="bon-row"><span class="t">Campagnes en advertentiesets</span><span class="n ok">2 / 2</span></div>
+          <div class="bon-row"><span class="t">Remarketingdoelgroepen</span><span class="n ok">3</span></div>
+          <div class="bon-row"><span class="t">UTM-tagging per uiting</span><span class="n ok">alle</span></div>
           <div class="bon-sec">Google Grant</div>
           <div class="bon-row"><span class="t">Advertentiegroepen</span><span class="n">4</span></div>
           <div class="bon-row"><span class="t">Zoekadvertenties</span><span class="n">8</span></div>
