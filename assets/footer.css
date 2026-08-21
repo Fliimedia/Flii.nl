@@ -212,7 +212,7 @@
 /* Footer staat los van pagina-CSS zodat hij overal identiek oogt. */
 footer.footer{padding:20px 16px 0;background:#fff;border-top:1px solid #E8E6E1;
   max-width:none;margin:0;box-sizing:border-box;}
-footer .footer-bento{max-width:632px;margin-left:auto;margin-right:auto;}
+footer .footer-bento{max-width:var(--paginabreedte,680px);margin-left:auto;margin-right:auto;}
 footer .social-icon{width:28px;height:28px;flex:none;}
 footer .social-icon svg{width:13px;height:13px;}
 footer .footer-nav-head{color:#0F0E0C;}
