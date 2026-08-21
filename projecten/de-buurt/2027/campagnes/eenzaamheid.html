@@ -268,6 +268,10 @@ body{padding:0 !important;background:#F4F4F7;min-height:100vh;
 .ss-t b{color:var(--ink);font-weight:700;}
 .slot-merk{margin-top:40px;justify-content:center;}
 .page.slot .kop-ic{display:none;}
+
+/* De resultaatstrook staat altijd onderaan de slide, ongeacht de inhoud erboven. */
+.body{justify-content:flex-start;}
+.body > .result{margin-top:auto;}
 </style>
 </head>
 <body>
@@ -477,8 +481,8 @@ body{padding:0 !important;background:#F4F4F7;min-height:100vh;
       </tbody>
     </table>
 
-    <div class="cols grow">
-      <div class="card" style="flex:1">
+    <div class="cols" style="flex:0 0 auto">
+      <div class="card compact" style="flex:1">
         <div class="eyebrow">Instellingen</div>
         <div class="rows" style="margin-top:7px">
           <div class="tick"><span><b>Doel: verkeer</b>, geoptimaliseerd op landingspaginaweergaven — bij dit budget haalt conversie-optimalisatie de leerfase niet.</span></div>
@@ -488,7 +492,7 @@ body{padding:0 !important;background:#F4F4F7;min-height:100vh;
         </div>
       </div>
 
-      <div class="card" style="flex:1">
+      <div class="card compact" style="flex:1">
         <div class="eyebrow">Sturen</div>
         <div class="rows" style="margin-top:7px">
           <div class="tick"><span><b>Remarketing draait vanaf dag 1</b> — er staat al een ruime bezoekerslijst klaar.</span></div>
@@ -712,7 +716,7 @@ body{padding:0 !important;background:#F4F4F7;min-height:100vh;
         </div>
       </div>
 
-      <div class="card" style="flex:1 1 auto">
+      <div class="card compact" style="flex:0 0 auto">
         <div class="eyebrow">Planning</div>
         <div class="rows spread" style="margin-top:7px">
           <div class="row"><span class="k">di 25 augustus</span><span class="v">Aanlevering materiaal</span></div>
