@@ -879,4 +879,13 @@
     <loc>https://flii.nl/platformen</loc>
     <priority>0.7</priority>
   </url>
+
+  <url>
+    <loc>https://flii.nl/diensten</loc>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://flii.nl/insight</loc>
+    <priority>0.8</priority>
+  </url>
 </urlset>
