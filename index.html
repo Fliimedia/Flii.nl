@@ -2780,11 +2780,13 @@ details.faq-item[open] .faq-answer {
 /* Menu op desktop: een paneel links, logo boven de items, slotje linksonder. */
 @media (min-width:900px){
   .nav-menu{--menu-breedte:min(460px,42vw);}
-  .nav-menu-inner{width:var(--menu-breedte);padding-left:56px;padding-right:24px;}
-  .menu-fm{left:56px;top:auto;bottom:auto;position:absolute;
-    top:calc(50% - 250px);}
+  .nav-menu-inner{width:var(--menu-breedte);padding-left:56px;padding-right:24px;
+    justify-content:flex-start;padding-top:132px;}
+  /* logo bovenaan, in dezelfde kolom als de items */
+  .menu-fm{position:absolute;left:88px;top:52px;bottom:auto;}
   .nav-menu-links{padding-top:0;}
-  .nav-slot{left:56px;bottom:40px;transform:none;}
+  /* slotje linksonder, uitgelijnd met de items */
+  .nav-slot{left:88px;bottom:44px;transform:none;}
   #matrix-canvas{width:var(--menu-breedte) !important;}
   .nav-menu::after{content:"";position:absolute;top:0;bottom:0;
     left:var(--menu-breedte);right:0;background:rgba(15,14,12,.55);
