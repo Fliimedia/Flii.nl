@@ -2759,6 +2759,23 @@ details.faq-item[open] .faq-answer {
 .nav-slot svg{width:16px;height:16px;display:block;}
 .nav-slot:hover{color:#fff;border-color:rgba(0,255,70,.55);background:rgba(0,255,70,.08);}
 .nav-slot:focus-visible{outline:2px solid #E8294A;outline-offset:3px;}
+
+/* Alle secties op dezelfde breedte als de reviews (1080px). */
+@media (min-width:1140px){
+  .section > .section-h,
+  .section > .section-p,
+  .team-list,
+  .faq-list,
+  .network-card,
+  .cta-card-wrap,
+  #cta-mount,
+  .section > .bento-grid,
+  .section > .pd-grid,
+  .contact-card{
+    max-width:1080px;margin-left:auto;margin-right:auto;
+  }
+  .cp{max-width:1080px;}
+}
 </style>
 <link rel="stylesheet" href="https://fliimedia.github.io/Flii.nl/assets/case-pieces.css?v=3">
 <script defer src="https://fliimedia.github.io/Flii.nl/assets/case-pieces.js?v=3"></script>
