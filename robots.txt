@@ -1,6 +1,5 @@
 User-agent: *
 Allow: /
 Disallow: /projecten/
-Disallow: /2027/
 
 Sitemap: https://flii.nl/sitemap.xml
