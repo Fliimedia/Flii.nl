@@ -888,4 +888,21 @@
     <loc>https://flii.nl/insight</loc>
     <priority>0.8</priority>
   </url>
+
+  <url>
+    <loc>https://flii.nl/diensten/zoekmachines/seo</loc>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://flii.nl/diensten/zoekmachines/sea</loc>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://flii.nl/diensten/zoekmachines/ai-search</loc>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://flii.nl/diensten/zoekmachines/linkbuilding</loc>
+    <priority>0.7</priority>
+  </url>
 </urlset>
