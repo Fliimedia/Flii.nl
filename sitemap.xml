@@ -905,4 +905,53 @@
     <loc>https://flii.nl/diensten/zoekmachines/linkbuilding</loc>
     <priority>0.7</priority>
   </url>
+
+  <url>
+    <loc>https://flii.nl/diensten/social-media/meta</loc>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://flii.nl/diensten/social-media/tiktok</loc>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://flii.nl/diensten/social-media/linkedin</loc>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://flii.nl/diensten/social-media/pinterest</loc>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://flii.nl/diensten/programmatic/dsp-inkoop</loc>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://flii.nl/diensten/programmatic/display</loc>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://flii.nl/diensten/programmatic/retargeting</loc>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://flii.nl/diensten/programmatic/native</loc>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://flii.nl/diensten/influencers/scouting</loc>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://flii.nl/diensten/influencers/briefing</loc>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://flii.nl/diensten/influencers/campagne</loc>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://flii.nl/diensten/influencers/rapportage</loc>
+    <priority>0.7</priority>
+  </url>
 </urlset>
