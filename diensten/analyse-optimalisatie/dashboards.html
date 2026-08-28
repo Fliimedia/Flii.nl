@@ -1,0 +1,428 @@
+<!DOCTYPE html>
+<html lang="nl">
+<head>
+<meta charset="UTF-8">
+<meta http-equiv="Cache-Control" content="max-age=300, must-revalidate">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Optimalisatiedashboards: sturen op wat beweegt | Flii Media</title>
+<meta property="og:type" content="website">
+<meta property="og:title" content="Optimalisatiedashboards: sturen op wat beweegt | Flii Media">
+<meta property="og:description" content="Overzichten die laten zien waar je moet ingrijpen, niet wat er allemaal gemeten wordt.">
+<meta property="og:url" content="https://flii.nl/diensten/analyse-optimalisatie/dashboards">
+<meta property="og:site_name" content="Flii Media">
+<meta name="twitter:card" content="summary_large_image">
+<meta property="og:image" content="https://fliimedia.github.io/Flii.nl/assets/og/diensten-analyse-optimalisatie-dashboards.jpg">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:locale" content="nl_NL">
+<meta name="twitter:image" content="https://fliimedia.github.io/Flii.nl/assets/og/diensten-analyse-optimalisatie-dashboards.jpg">
+
+<meta name="description" content="Overzichten die laten zien waar je moet ingrijpen, niet wat er allemaal gemeten wordt.">
+<style>
+@font-face{font-family:'Bricolage Grotesque';src:url('https://fliimedia.github.io/Flii.nl/assets/fonts/BricolageGrotesque.woff2') format('woff2-variations');
+  font-weight:200 800;font-display:swap;}
+@font-face{font-family:'JetBrains Mono';src:url('https://fliimedia.github.io/Flii.nl/assets/fonts/JetBrainsMono.woff2') format('woff2-variations');
+  font-weight:100 800;font-display:swap;}
+@font-face{font-family:'DM Sans';src:url('https://fliimedia.github.io/Flii.nl/assets/fonts/DMSans.woff2') format('woff2-variations');
+  font-weight:100 1000;font-display:swap;}
+
+:root{
+  --mag:#E8294A;--ink:#0F0E0C;--mid:#4A4840;--subtle:#9B9790;
+  --rule:#E8E6E1;--bg:#F3F1EB;--white:#fff;
+  --ff-disp:'Bricolage Grotesque','Inter',system-ui,sans-serif;
+  --ff-body:'DM Sans',system-ui,sans-serif;
+  --ff-mono:'JetBrains Mono',monospace;
+  --r:14px;
+}
+*{box-sizing:border-box;margin:0;padding:0;-webkit-font-smoothing:antialiased;}
+html,body{font-family:var(--ff-body);background:#fff;color:var(--ink);overflow-x:hidden;}
+a{color:inherit;text-decoration:none;}
+img{max-width:100%;display:block;}
+.nav{display:flex;align-items:center;justify-content:space-between;
+  padding:0 20px;height:56px;border-bottom:1px solid var(--rule);
+  position:sticky;top:0;background:rgba(255,255,255,.95);
+  backdrop-filter:blur(12px);z-index:100;}
+.nav-brand{display:flex;align-items:center;gap:8px;}
+.nav-brand img{height:28px;width:auto;}
+.nav-back{font-size:13px;color:#0F0E0C!important;font-weight:600;text-decoration:none;opacity:.85;}
+.nav-back:hover{color:var(--ink);}
+.eyebrow{font-family:var(--ff-mono);font-size:10px;font-weight:700;
+  letter-spacing:.14em;text-transform:uppercase;color:var(--ink);}
+.page-hero{padding:48px 24px 0;}
+.page-hero h1{font-family:var(--ff-disp);font-size:clamp(26px,7vw,40px);
+  font-weight:800;letter-spacing:-1px;line-height:1.08;margin-top:10px;}
+.page-hero .lead{font-size:15px;color:var(--mid);line-height:1.65;margin-top:14px;max-width:580px;}
+.hero-img{width:100%;height:280px;object-fit:cover;margin-top:32px;}
+.section-body{padding:36px 24px;max-width:680px;}
+.section-body p{font-size:15px;line-height:1.75;color:var(--ink);margin-bottom:18px;}
+.section-body ul{margin:0 0 18px 20px;}
+.section-body li{font-size:15px;line-height:1.75;color:var(--ink);margin-bottom:8px;}
+.section-body strong{font-weight:700;}
+.section-body h2{font-family:var(--ff-disp);font-size:22px;font-weight:800;
+  letter-spacing:-.4px;margin:36px 0 14px;}
+.results-box{background:#0F0E0C;border-radius:16px;padding:28px 24px;margin:48px 24px 0;}
+.results-box h3{font-family:var(--ff-disp);font-size:18px;font-weight:800;
+  color:#fff;margin-bottom:20px;}
+.result-row{display:grid;grid-template-columns:24px 1fr auto;
+  align-items:start;gap:10px 12px;padding:12px 0;
+  border-top:1px solid rgba(255,255,255,.07);}
+.result-row:first-of-type{border-top:none;}
+.result-icon{color:var(--mag);flex-shrink:0;margin-top:2px;}
+.result-label{font-size:13px;color:rgba(255,255,255,.75);line-height:1.5;}
+.result-value{font-family:var(--ff-mono);font-size:14px;font-weight:700;color:#fff;white-space:nowrap;text-align:right;}
+/* Legacy list fallback */
+.results-box ul{list-style:none;display:flex;flex-direction:column;gap:0;}
+.results-box li{font-size:14px;color:rgba(255,255,255,.75);line-height:1.5;
+  padding:12px 0 12px 20px;position:relative;border-top:1px solid rgba(255,255,255,.07);}
+.results-box li:first-child{border-top:none;}
+.results-box li::before{content:'→';color:var(--mag);position:absolute;left:0;}
+.results-box li strong{color:#fff;}
+.img-grid{display:grid;grid-template-columns:1fr 1fr;gap:10px;padding:0 24px;margin-bottom:36px;}
+.img-grid img{border-radius:10px;aspect-ratio:4/3;object-fit:cover;width:100%;height:auto;}
+.img-full{padding:0 24px;margin-bottom:36px;}
+.img-full img{border-radius:12px;width:100%;height:auto;}
+
+
+
+
+.footer-mini{padding:24px;text-align:center;border-top:1px solid var(--rule);
+  font-size:12px;color:var(--subtle);}
+.footer-mini a{color:var(--ink);font-weight:600;}
+/* Article specific */
+.article-meta{display:flex;align-items:center;gap:12px;margin-top:12px;flex-wrap:wrap;}
+.article-tag{font-size:11px;font-weight:600;background:linear-gradient(135deg,rgba(255,255,255,.15) 0%,rgba(255,255,255,.04) 100%);color:#fff;border:1px solid rgba(255,255,255,.35);padding:3px 10px;border-radius:100px;letter-spacing:.01em;white-space:nowrap;}
+.article-date-lbl{font-family:var(--ff-mono);font-size:10px;color:var(--subtle);letter-spacing:.06em;}
+.quote-block{border-left:3px solid var(--mag);padding:14px 18px;
+  margin:24px 0;background:#F9F8F6;border-radius:0 8px 8px 0;}
+.quote-block p{font-size:15px;font-style:italic;color:var(--mid);margin:0;}
+
+/* CTA section — home style */
+
+
+
+
+
+
+
+
+
+
+
+/* ══ SHARED CTA SECTION ══════════════════════════════════════════════ */
+
+
+
+
+
+
+
+
+
+
+
+.dienst-contact-link {
+  display: inline-flex; align-items: center; gap: 8px;
+  margin-top: 24px; margin-bottom: 4px;
+  font-family: var(--ff-body); font-size: 14px; font-weight: 600;
+  color: #E8294A; text-decoration: none; cursor: pointer;
+  background: none; border: none; padding: 0;
+  transition: gap .15s;
+}
+.dienst-contact-link:hover { gap: 12px; }
+.dienst-contact-link svg { flex-shrink: 0; }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+@keyframes sidebarPulse {
+  0%   { box-shadow: 0 2px 16px rgba(232,41,74,.15); transform: translateY(-50%) translateX(0) scale(1); }
+  25%  { box-shadow: 0 0 0 6px rgba(232,41,74,.25), 0 4px 24px rgba(232,41,74,.4); transform: translateY(-50%) translateX(0) scale(1.08); }
+}
+
+.svc-tags{display:flex;flex-wrap:wrap;gap:6px;margin-top:16px;margin-bottom:0;}
+.svc-tag{font-size:11px;font-weight:600;letter-spacing:.01em;white-space:nowrap;background:linear-gradient(135deg,rgba(0,0,0,.07) 0%,rgba(0,0,0,.02) 100%);color:#0F0E0C;border:1px solid rgba(0,0,0,.25);border-radius:100px;padding:3px 10px;}
+.dienst-photo{margin:24px 24px 0;max-width:632px;border-radius:14px;overflow:hidden;aspect-ratio:16/7;}
+.dienst-photo img{width:100%;height:100%;object-fit:cover;display:block;}
+/* width-align v1 */
+/* CTA card and hero image were unconstrained and spanned the full viewport.
+   Constrain them to the same column as .section-body (632px inner, 24px gutter). */
+
+@media (min-width:760px){
+  .hero-img{max-width:632px;width:calc(100% - 48px);margin-left:24px;margin-right:24px;}
+}
+
+/* content-width-cap v2 */
+/* Keep every block within the text column (680px outer / 632px inner). */
+.page-hero{max-width:680px;box-sizing:border-box;}
+.section-body{max-width:680px;box-sizing:border-box;}
+
+.dienst-photo{max-width:632px;margin:24px 24px 0;width:calc(100% - 48px);}
+@media (min-width:760px){
+  .hero-img{max-width:632px;width:calc(100% - 48px);margin-left:24px;margin-right:24px;}
+}
+
+.rel-cases{display:flex;flex-direction:column;gap:0;margin-top:6px;
+  border-top:1px solid var(--rule);}
+.rel-case{display:block;padding:16px 0;text-decoration:none;color:inherit;
+  border-bottom:1px solid var(--rule);transition:padding-left .18s ease;}
+.rel-case:hover{padding-left:6px;}
+.rel-name{display:flex;align-items:baseline;gap:7px;font-family:var(--ff-disp);
+  font-size:17px;font-weight:800;letter-spacing:-.3px;color:var(--ink);}
+.rel-arr{color:var(--mag);font-size:14px;}
+.rel-desc{display:block;font-size:13.5px;line-height:1.5;color:var(--mid);margin-top:5px;}
+.rel-tags{display:block;font-family:var(--ff-mono);font-size:10px;letter-spacing:.05em;
+  color:var(--subtle);margin-top:7px;}
+
+.footer-mini-links{display:flex;flex-wrap:wrap;justify-content:center;gap:6px 14px;
+  margin:0 auto 12px;max-width:640px;padding:0 24px;}
+.footer-mini-links a{font-size:11px;color:#6B6866;text-decoration:none;transition:color .12s;}
+.footer-mini-links a:hover{color:#0F0E0C;}
+
+/* Navigatiebalk overal gelijk. */
+nav.nav{background:#fff !important;color:#0F0E0C !important;max-width:none !important;margin:0 !important;}
+
+/* Footer volgt deze breedte. */
+:root{--paginabreedte:680px;}
+
+/* Inhoud in een gecentreerde kolom, gelijk aan de footer. */
+.page-hero,.section-body,.cta-section,.kb-related,body > picture,
+.topic-body,.topic-head,section.section{
+  max-width:var(--paginabreedte,680px);margin-left:auto;margin-right:auto;}
+body > picture{box-sizing:border-box;}
+</style>
+<script>
+(function(){
+  var clean = sessionStorage.getItem('cleanPath');
+  if (clean) { sessionStorage.removeItem('cleanPath'); history.replaceState(null,'',clean); return; }
+  var loc = window.location;
+  if (loc.pathname.endsWith('.html') && loc.pathname !== '/index.html') {
+    history.replaceState(null,'',loc.pathname.slice(0,-5)+loc.search+loc.hash);
+  }
+})();
+</script>
+<!-- cache:c1 -->
+<link rel="stylesheet" href="https://fliimedia.github.io/Flii.nl/assets/cta.css">
+<link rel="stylesheet" href="https://fliimedia.github.io/Flii.nl/assets/contact-bar.css">
+<script defer src="https://fliimedia.github.io/Flii.nl/assets/cta.js"></script>
+<script defer src="https://fliimedia.github.io/Flii.nl/assets/contact-bar.js"></script>
+<link rel="canonical" href="https://flii.nl/diensten/analyse-optimalisatie/dashboards">
+<link rel="stylesheet" href="https://fliimedia.github.io/Flii.nl/assets/reduced-motion.css">
+<script defer src="https://fliimedia.github.io/Flii.nl/assets/reduced-motion.js"></script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    {
+      "@type": "ListItem",
+      "position": 1,
+      "name": "Home",
+      "item": "https://flii.nl/"
+    },
+    {
+      "@type": "ListItem",
+      "position": 2,
+      "name": "Diensten",
+      "item": "https://flii.nl/diensten"
+    },
+    {
+      "@type": "ListItem",
+      "position": 3,
+      "name": "Analyse &amp; optimalisatie",
+      "item": "https://flii.nl/diensten/analyse-optimalisatie"
+    },
+    {
+      "@type": "ListItem",
+      "position": 4,
+      "name": "Dashboards",
+      "item": "https://flii.nl/diensten/analyse-optimalisatie/dashboards"
+    }
+  ]
+}
+</script>
+<link rel="icon" href="https://fliimedia.github.io/Flii.nl/assets/img/d913cc3c069f.webp" type="image/png">
+<link rel="apple-touch-icon" href="https://fliimedia.github.io/Flii.nl/assets/img/d913cc3c069f.webp">
+<meta name="theme-color" content="#0F0E0C">
+<link rel="preload" href="https://fliimedia.github.io/Flii.nl/assets/fonts/BricolageGrotesque.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="stylesheet" href="https://fliimedia.github.io/Flii.nl/assets/footer.css">
+<script defer src="https://fliimedia.github.io/Flii.nl/assets/footer.js"></script>
+</head>
+<body>
+<nav class="nav">
+  <a href="../../" class="nav-brand"><img src="https://fliimedia.github.io/Flii.nl/assets/img/d913cc3c069f.webp" alt="Flii Media" fetchpriority="high" decoding="async"></a>
+  <a href="../../" class="nav-back">← Terug</a>
+</nav>
+<div class="page-hero">
+  <span class="eyebrow"><a href="../analyse-optimalisatie">Analyse &amp; optimalisatie</a></span>
+  <h1>Dashboards</h1>
+  <p class="lead">Een dashboard dat alles toont, toont niets. De kunst is weglaten.</p>
+  <div class="svc-tags"><span class="svc-tag">Kernwaarden</span><span class="svc-tag">Signalen</span><span class="svc-tag">Verloop</span><span class="svc-tag">Acties</span></div>
+</div>
+<div class="dienst-photo"><picture><source srcset="https://fliimedia.github.io/Flii.nl/assets/media/24f289313844.webp" type="image/webp"><img decoding="async" fetchpriority="high" src="https://fliimedia.github.io/Flii.nl/assets/media/24f289313844.jpg" alt="Analyse &amp; optimalisatie bij Flii Media" loading="eager"></picture></div>
+<div class="section-body">
+<h2>Waar we mee beginnen</h2>
+<p>Niet bij de data maar bij de vraag: welke beslissingen neem je wekelijks, en welk getal helpt
+daarbij? Alles wat daar niet aan bijdraagt, laten we weg.</p>
+
+<h2>Wat erop staat</h2>
+<ul>
+  <li><strong>Kernwaarden</strong> &mdash; vijf tot acht, niet meer</li>
+  <li><strong>Verloop</strong> &mdash; tegenover vorige periode en vorig jaar</li>
+  <li><strong>Signalen</strong> &mdash; afwijkingen die aandacht vragen</li>
+  <li><strong>Context</strong> &mdash; wat er speelde, zodat een piek verklaarbaar is</li>
+</ul>
+
+<h2>Een getal zonder vergelijking zegt niets</h2>
+<p>Een conversieratio van twee procent is goed of slecht afhankelijk van vorige maand, van je
+branche en van welk kanaal het betreft. Elk cijfer op ons dashboard staat naast een referentie.</p>
+
+<h2>Voor wie is het</h2>
+<p>Een directie wil andere getallen zien dan wie dagelijks bijstuurt. Eén dashboard voor iedereen
+wordt door niemand gebruikt &mdash; zie ook <a href="../dashboards">dashboards</a>.</p>
+
+<p>Vraag of project over dit onderwerp? <button onclick="if(window.highlightSidebar)window.highlightSidebar();var sb=document.getElementById('float-sidebar');if(sb){sb.classList.add('visible');}" type="button" style="background:none;border:none;padding:0;cursor:pointer;font:inherit;color:inherit;"><strong>Neem contact op &rarr;</strong></button></p>
+</div>
+
+<div class="section-body">
+  <h2>Cases met deze dienst</h2>
+  <div class="rel-cases">
+      <a href="../../cases/royal-haskoning" class="rel-case">
+        <span class="rel-name">Royal HaskoningDHV<span class="rel-arr">&rarr;</span></span>
+        <span class="rel-desc">Voor een van &#x27;s werelds grootste ingenieursbureaus begonnen we met een gerichte Google Ads campagne…</span>
+        <span class="rel-tags">Campagne &middot; Zoekmachines &middot; Tracking</span>
+      </a>
+      <a href="../../cases/soest-machinery" class="rel-case">
+        <span class="rel-name">Soest Machinery<span class="rel-arr">&rarr;</span></span>
+        <span class="rel-desc">Soest Machinery is een Nederlandse producent van industriële afwerkingsapparatuur, waaronder machines…</span>
+        <span class="rel-tags">Zoekmachines &middot; Development &middot; Tracking</span>
+      </a>
+      <a href="../../cases/stichting-de-buurt" class="rel-case">
+        <span class="rel-name">Stichting De Buurt<span class="rel-arr">&rarr;</span></span>
+        <span class="rel-desc">Stichting De Buurt werkt aan buurten waarin mensen elkaar groeten, kennen en helpen. Via initiatieven…</span>
+        <span class="rel-tags">Campagne &middot; Social media &middot; Tracking</span>
+      </a>
+  </div>
+</div>
+
+<div id="cta-mount"><noscript><p style="text-align:center;padding:32px 24px"><a href="https://calendly.com/flii-media">Plan een gesprek &rarr;</a></p></noscript></div>
+<footer class="footer">
+  <div class="footer-bento">
+    <div class="footer-tile footer-tile-brand">
+      <div class="footer-social-row">
+        <a href="https://nl.linkedin.com/company/flii-media" class="social-icon" aria-label="LinkedIn"><svg viewBox="0 0 24 24" fill="none"><path d="M16 8a6 6 0 016 6v7h-4v-7a2 2 0 00-2-2 2 2 0 00-2 2v7h-4v-7a6 6 0 016-6zM2 9h4v12H2z" fill="#4A4840"/><circle cx="4" cy="4" r="2" fill="#4A4840"/></svg></a>
+        <a href="https://share.google/wEE1drPcTYlHW0Beo" target="_blank" class="social-icon" aria-label="Google"><svg viewBox="0 0 24 24"><path d="M21.8 12.2c0-.7-.1-1.4-.2-2H12v3.8h5.5c-.2 1.2-.9 2.2-2 2.9v2.4h3.2c1.9-1.7 3-4.3 3-7.1z" fill="#4285F4"/><path d="M12 22c2.7 0 5-.9 6.7-2.4l-3.2-2.4c-.9.6-2 1-3.5 1-2.7 0-4.9-1.8-5.7-4.2H3v2.5C4.7 19.9 8.1 22 12 22z" fill="#34A853"/><path d="M6.3 13.9c-.2-.6-.3-1.2-.3-1.9s.1-1.3.3-1.9V7.6H3C2.3 9 2 10.5 2 12s.3 3 1 4.4l3.3-2.5z" fill="#FBBC04"/><path d="M12 5.8c1.5 0 2.9.5 3.9 1.5l2.9-2.9C17 2.8 14.7 2 12 2 8.1 2 4.7 4.1 3 7.6l3.3 2.5C7.1 7.6 9.3 5.8 12 5.8z" fill="#EA4335"/></svg></a>
+        <a href="https://share.google/wEE1drPcTYlHW0Beo" target="_blank" rel="noopener" class="google-review-banner"><span class="grb-stars">&#9733;&#9733;&#9733;&#9733;&#9733;</span><span class="grb-text"><strong>5.0</strong> op Google &middot; 14 reviews</span></a>
+      </div>
+      <p class="footer-address">Handweg 159, Amstelveen &middot; info@flii.nl &middot; <a href="https://share.google/wEE1drPcTYlHW0Beo" target="_blank" rel="noopener" class="footer-hours-link">Openingstijden</a></p>
+    </div>
+    <div class="footer-tile footer-tile-nav">
+      <span class="footer-nav-head">Kennisbank</span>
+      <a href="../../kennisbank#kb-marketing" class="footer-nav-link">Marketing</a>
+      <a href="../../kennisbank#kb-merk" class="footer-nav-link">Merk</a>
+      <a href="../../kennisbank#kb-content" class="footer-nav-link">Content</a>
+      <a href="../../kennisbank#kb-media" class="footer-nav-link">Media</a>
+      <a href="../../kennisbank#kb-data" class="footer-nav-link">Data</a>
+      <a href="../../platformen" class="footer-nav-link">Platformen</a>
+
+    </div>
+    <div class="footer-tile footer-tile-nav">
+      <span class="footer-nav-head">Producten</span>
+      <a href="../../loop" class="footer-nav-link">Flii Loop</a>
+      <a href="../../diensten/ai-launchplan" class="footer-nav-link">Product launch</a>
+    </div>
+    <div class="footer-tile footer-tile-nav">
+      <span class="footer-nav-head">Diensten</span>
+      <a href="../../diensten/funnel-marketing" class="footer-nav-link">Marketing</a>
+      <a href="../../diensten/media-beheer" class="footer-nav-link">Media beheer</a>
+      <a href="../../diensten/content-creatie" class="footer-nav-link">Content creatie</a>
+      <a href="../../diensten/web-development" class="footer-nav-link">Web &amp; AI development</a>
+      <a href="../../diensten/data-analyse" class="footer-nav-link">Data &amp; analyse</a>
+    </div>
+    <div class="footer-tile footer-tile-nav footer-tile-zoek">
+      <span class="footer-nav-head">Waarvoor je ons zoekt</span>
+      <a href="../../google-ads-bureau" class="footer-nav-link"><svg class="fn-ic" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M3.9998 22.9291C1.7908 22.9291 0 21.1383 0 18.9293s1.7908-3.9998 3.9998-3.9998 3.9998 1.7908 3.9998 3.9998-1.7908 3.9998-3.9998 3.9998zm19.4643-6.0004L15.4632 3.072C14.3586 1.1587 11.9121.5028 9.9988 1.6074S7.4295 5.1585 8.5341 7.0718l8.0009 13.8567c1.1046 1.9133 3.5511 2.5679 5.4644 1.4646 1.9134-1.1046 2.568-3.5511 1.4647-5.4644zM7.5137 4.8438L1.5645 15.1484A4.5 4.5 0 0 1 4 14.4297c2.5597-.0075 4.6248 2.1585 4.4941 4.7148l3.2168-5.5723-3.6094-6.25c-.4499-.7793-.6322-1.6394-.5878-2.4784z"/></svg><span>Google Ads bureau</span></a>
+      <a href="../../social-media-uitbesteden" class="footer-nav-link"><svg class="fn-ic" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M7.0301.084c-1.2768.0602-2.1487.264-2.911.5634-.7888.3075-1.4575.72-2.1228 1.3877-.6652.6677-1.075 1.3368-1.3802 2.127-.2954.7638-.4956 1.6365-.552 2.914-.0564 1.2775-.0689 1.6882-.0626 4.947.0062 3.2586.0206 3.6671.0825 4.9473.061 1.2765.264 2.1482.5635 2.9107.308.7889.72 1.4573 1.388 2.1228.6679.6655 1.3365 1.0743 2.1285 1.38.7632.295 1.6361.4961 2.9134.552 1.2773.056 1.6884.069 4.9462.0627 3.2578-.0062 3.668-.0207 4.9478-.0814 1.28-.0607 2.147-.2652 2.9098-.5633.7889-.3086 1.4578-.72 2.1228-1.3881.665-.6682 1.0745-1.3378 1.3795-2.1284.2957-.7632.4966-1.636.552-2.9124.056-1.2809.0692-1.6898.063-4.948-.0063-3.2583-.021-3.6668-.0817-4.9465-.0607-1.2797-.264-2.1487-.5633-2.9117-.3084-.7889-.72-1.4568-1.3876-2.1228C21.2982 1.33 20.628.9208 19.8378.6165 19.074.321 18.2017.1197 16.9244.0645 15.6471.0093 15.236-.005 11.977.0014 8.718.0076 8.31.0215 7.0301.0839m.1402 21.6932c-1.17-.0509-1.8053-.2453-2.2287-.408-.5606-.216-.96-.4771-1.3819-.895-.422-.4178-.6811-.8186-.9-1.378-.1644-.4234-.3624-1.058-.4171-2.228-.0595-1.2645-.072-1.6442-.079-4.848-.007-3.2037.0053-3.583.0607-4.848.05-1.169.2456-1.805.408-2.2282.216-.5613.4762-.96.895-1.3816.4188-.4217.8184-.6814 1.3783-.9003.423-.1651 1.0575-.3614 2.227-.4171 1.2655-.06 1.6447-.072 4.848-.079 3.2033-.007 3.5835.005 4.8495.0608 1.169.0508 1.8053.2445 2.228.408.5608.216.96.4754 1.3816.895.4217.4194.6816.8176.9005 1.3787.1653.4217.3617 1.056.4169 2.2263.0602 1.2655.0739 1.645.0796 4.848.0058 3.203-.0055 3.5834-.061 4.848-.051 1.17-.245 1.8055-.408 2.2294-.216.5604-.4763.96-.8954 1.3814-.419.4215-.8181.6811-1.3783.9-.4224.1649-1.0577.3617-2.2262.4174-1.2656.0595-1.6448.072-4.8493.079-3.2045.007-3.5825-.006-4.848-.0608M16.953 5.5864A1.44 1.44 0 1 0 18.39 4.144a1.44 1.44 0 0 0-1.437 1.4424M5.8385 12.012c.0067 3.4032 2.7706 6.1557 6.173 6.1493 3.4026-.0065 6.157-2.7701 6.1506-6.1733-.0065-3.4032-2.771-6.1565-6.174-6.1498-3.403.0067-6.156 2.771-6.1496 6.1738M8 12.0077a4 4 0 1 1 4.008 3.9921A3.9996 3.9996 0 0 1 8 12.0077"/></svg><span>Social media uitbesteden</span></a>
+      <a href="../../videoproductie" class="footer-nav-link"><svg class="fn-ic" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M23.498 6.186a3.016 3.016 0 0 0-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 0 0 .502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 0 0 2.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 0 0 2.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z"/></svg><span>Videoproductie</span></a>
+      <a href="../../website-laten-maken" class="footer-nav-link"><svg class="fn-ic" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="m24 4.515-7.658 14.97H9.149l3.205-6.204h-.144C9.566 16.713 5.621 18.973 0 19.485v-6.118s3.596-.213 5.71-2.435H0V4.515h6.417v5.278l.144-.001 2.622-5.277h4.854v5.244h.144l2.72-5.244H24Z"/></svg><span>Website laten maken</span></a>
+      <a href="../../platform-app-development" class="footer-nav-link"><svg class="fn-ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="9 6 3.5 12 9 18"/><polyline points="15 6 20.5 12 15 18"/></svg><span>Platform &amp; app development</span></a>
+    </div>
+    <div class="footer-tile footer-tile-loop">
+      <a href="../../loop" class="ft-loop-card">
+    <span class="loopmark ft-loop-ring-mark" aria-hidden="true">
+        <svg class="loopmark-svg" viewBox="0 0 100 100">
+          <defs>
+            <linearGradient id="ftLmGrad" x1="0" y1="0" x2="1" y2="1">
+              <stop offset="0%" stop-color="#B14BFF"/>
+              <stop offset="28%" stop-color="#E7255A"/>
+              <stop offset="50%" stop-color="#FF5E9A"/>
+              <stop offset="64%" stop-color="#FFD2E4"/>
+              <stop offset="80%" stop-color="#FF3D8E"/>
+              <stop offset="100%" stop-color="#C04BFF"/>
+            </linearGradient>
+            <filter id="ftLmFire" x="-60%" y="-60%" width="220%" height="220%">
+              <feTurbulence type="fractalNoise" baseFrequency="0.022 0.04" numOctaves="2" seed="4" result="n">
+                <animate attributeName="baseFrequency" dur="6s" values="0.022 0.04;0.03 0.052;0.02 0.034;0.022 0.04" repeatCount="indefinite"/>
+              </feTurbulence>
+              <feDisplacementMap in="SourceGraphic" in2="n" scale="9" xChannelSelector="R" yChannelSelector="G">
+                <animate attributeName="scale" dur="5s" values="8;12.5;9;8" repeatCount="indefinite"/>
+              </feDisplacementMap>
+              <feGaussianBlur stdDeviation="0.5"/>
+            </filter>
+            <filter id="ftLmGlow" x="-60%" y="-60%" width="220%" height="220%"><feGaussianBlur stdDeviation="2.4"/></filter>
+          </defs>
+          <g class="lm-rot">
+            <circle cx="50" cy="50" r="35" fill="none" stroke="url(#ftLmGrad)" stroke-width="7" filter="url(#ftLmGlow)" opacity="0.5"/>
+            <circle cx="50" cy="50" r="35" fill="none" stroke="url(#ftLmGrad)" stroke-width="5" filter="url(#ftLmFire)"/>
+          </g>
+          <g class="lm-rot2">
+            <circle cx="50" cy="50" r="32" fill="none" stroke="url(#ftLmGrad)" stroke-width="3" filter="url(#ftLmFire)" opacity="0.85"/>
+          </g>
+        </svg>
+      </span>
+    <div class="ft-loop-text">
+      <div class="ft-loop-name">Flii Loop</div>
+      <div class="ft-loop-desc">Eén loop die blijft leren →</div>
+    </div>
+  </a>
+    </div>
+    <div class="footer-tile footer-tile-bottom">
+      <div class="footer-wordmark">FLII.<span>MEDIA</span></div>
+      <div class="footer-legal">
+        <a href="../../voorkeuren" class="footer-link">Voorkeuren</a>
+        <a href="../../cookies" class="footer-link">Cookies</a>
+        <a href="../../voorwaarden" class="footer-link">Voorwaarden</a>
+        <a href="../../privacy" class="footer-link">Privacy</a>
+        <button class="footer-contact-btn" id="footer-contact-btn" onclick="toggleContactPopup()">Contact</button>
+      </div>
+    </div>
+  </div>
+  <div class="contact-popup" id="contact-popup">
+    <div class="contact-popup-inner">
+      <p class="contact-popup-label">Direct contact</p>
+      <a href="tel:+31640881169" class="contact-popup-item">+31 6 40 88 11 69</a>
+      <a href="mailto:info@flii.nl" class="contact-popup-item">info@flii.nl</a>
+      <a href="https://calendly.com/flii-media" target="_blank" class="contact-popup-item">Plan een gesprek</a>
+    </div>
+  </div>
+</footer>
