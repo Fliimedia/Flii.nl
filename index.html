@@ -2798,6 +2798,27 @@ nav.nav{background:#fff !important;color:#0F0E0C !important;max-width:none !impo
 
 /* Footer volgt deze breedte. */
 :root{--paginabreedte:1080px;}
+
+/* ── Desktop: één kolom van 1080px voor de hele pagina ── */
+@media (min-width:1140px){
+  /* hero op dezelfde kolom als de secties eronder */
+  .hero-outer{max-width:1080px;margin-left:auto;margin-right:auto;
+    padding-left:0;padding-right:0;}
+
+  /* de hero stond 932px hoog met 227px lucht boven en onder de kop;
+     dat is teruggebracht tot een ritme dat bij de rest past */
+  .hero-headline{margin-top:92px !important;margin-bottom:84px !important;}
+  .hero-tagline{margin-top:24px;}
+  .flii-at-chip{margin-top:12px;}
+  .hero-eyebrow{margin-bottom:0;}
+
+  /* alle blokken binnen een sectie op dezelfde breedte */
+  section.section > *,
+  .section-label{max-width:1080px;margin-left:auto;margin-right:auto;}
+
+  /* de klantenbalk loopt bewust van rand tot rand */
+  .clients-ticker,.clients-row{max-width:none;}
+}
 </style>
 <link rel="stylesheet" href="https://fliimedia.github.io/Flii.nl/assets/case-pieces.css?v=3">
 <script defer src="https://fliimedia.github.io/Flii.nl/assets/case-pieces.js?v=3"></script>
