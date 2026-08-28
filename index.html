@@ -2816,7 +2816,9 @@ nav.nav{background:#fff !important;color:#0F0E0C !important;max-width:none !impo
      helft; 190px laat 'ambitions' bijna de volle kolom beslaan. */
   /* Schaalt op breedte én hoogte: op een laag venster paste 190px niet
      en viel de tekst onder de vouw. */
-  .hero-word{font-size:min(190px, 13vw, 19vh);letter-spacing:-.032em;line-height:.88;}
+  .hero-word{font-size:min(190px, 13vw, 16.5vh);letter-spacing:-.032em;line-height:.88;}
+  /* op lage vensters minder lucht onderaan, zodat de zin nog in beeld valt */
+  .hero-outer{padding-bottom:clamp(32px, 6vh, 80px);}
   .hero-headline{margin-top:52px !important;margin-bottom:44px !important;}
   .hero-tagline{margin-top:24px;}
   .flii-at-chip{margin-top:12px;}
