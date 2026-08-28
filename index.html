@@ -2805,9 +2805,11 @@ nav.nav{background:#fff !important;color:#0F0E0C !important;max-width:none !impo
   .hero-outer{max-width:1080px;margin-left:auto;margin-right:auto;
     padding-left:0;padding-right:0;}
 
-  /* de hero stond 932px hoog met 227px lucht boven en onder de kop;
-     dat is teruggebracht tot een ritme dat bij de rest past */
-  .hero-headline{margin-top:92px !important;margin-bottom:84px !important;}
+  /* De kop was afgetopt op 99px, afgestemd op de oude volle breedte.
+     Op een kolom van 1080px vulde het langste woord daarmee nog geen
+     helft; 190px laat 'ambitions' bijna de volle kolom beslaan. */
+  .hero-word{font-size:190px;letter-spacing:-6px;line-height:.88;}
+  .hero-headline{margin-top:52px !important;margin-bottom:44px !important;}
   .hero-tagline{margin-top:24px;}
   .flii-at-chip{margin-top:12px;}
   .hero-eyebrow{margin-bottom:0;}
