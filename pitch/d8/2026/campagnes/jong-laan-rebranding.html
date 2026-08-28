@@ -510,10 +510,9 @@ body{padding:0 !important;background:#F4F4F7;min-height:100vh;
   function fit() {
     var w = document.documentElement.clientWidth;
     var h = document.documentElement.clientHeight - 128;
-    var pas = Math.min((w - 28) / 1240, h / 877);
-    /* Op desktop half formaat; op smalle schermen de volle breedte benutten. */
-    var s = w >= 900 ? pas * 0.5 : pas;
-    document.documentElement.style.setProperty('--scale', Math.min(0.7, Math.max(0.22, s)));
+    /* Passend maken volstaat: de hoogte begrenst al tot ruim onder ware grootte. */
+    var s = Math.min((w - 28) / 1240, h / 877);
+    document.documentElement.style.setProperty('--scale', Math.min(1, Math.max(0.22, s)));
   }
   fit(); window.addEventListener('resize', fit);
 })();
