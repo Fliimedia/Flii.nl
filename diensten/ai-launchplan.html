@@ -253,6 +253,11 @@ nav.nav{background:#fff !important;color:#0F0E0C !important;max-width:none !impo
 .topic-body,.topic-head,section.section{
   max-width:var(--paginabreedte,680px);margin-left:auto;margin-right:auto;}
 body > picture{box-sizing:border-box;}
+
+/* De donkere banden lopen bewust van rand tot rand, maar hun inhoud
+   hoort in dezelfde kolom te staan als de rest van de pagina. */
+.hero > *,.usp-strip > *{max-width:var(--paginabreedte,680px);
+  margin-left:auto;margin-right:auto;box-sizing:border-box;}
 </style>
 <script>
 (function(){
