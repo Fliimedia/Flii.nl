@@ -5,7 +5,6 @@
     '<section class="cta-section" id="contact">' +
     '  <div class="cta-card-wrap">' +
     '    <video class="cta-bg-video" muted loop playsinline preload="none" aria-hidden="true"></video>' +
-    '    <div class="cta-video-overlay"></div>' +
     '    <div class="cta-inner">' +
     '      <button type="button" class="cta-h" aria-pressed="false">' +
     "Let's ignite<br>ambitions</button>" +
