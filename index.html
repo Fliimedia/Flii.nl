@@ -1228,20 +1228,6 @@ img { display: block; max-width: 100%; }
   text-align: left;
   max-width: 65%;
 }
-.cta-h {
-  font-family: var(--ff-disp);
-  font-size: clamp(28px, 8vw, 38px);
-  font-weight: 900;
-  letter-spacing: -1.5px;
-  color: transparent;
-  background: linear-gradient(135deg, #fff 30%, rgba(255,255,255,.55) 100%);
-  -webkit-background-clip: text;
-  background-clip: text;
-  -webkit-text-fill-color: transparent;
-  line-height: 1.0;
-  margin-bottom: var(--sp-3);
-  text-align: left;
-}
 
 .btn-cta {
   display: inline-flex; align-items: center; gap: var(--sp-1);
@@ -1770,27 +1756,12 @@ details.faq-item[open] .faq-answer {
   color: #fff;
 }
 
-.cta-card-wrap {
-  position: relative;
-  border-radius: var(--r);
-  border: 1.5px solid rgba(232,41,74,.7);
-  overflow: hidden;
-  min-height: 220px;
-}
-
  
 
 /* ── CTA RUNNING BORDER ── */
 @property --cta-a { syntax: '<angle>'; inherits: false; initial-value: 0deg; }
 
 /* Remove overflow:hidden from wrapper - use inner card for bg clip */
-.cta-card-wrap {
-  position: relative;
-  border-radius: var(--r);
-  border: 1.5px solid rgba(232,41,74,.7);
-  overflow: hidden;
-  min-height: 220px;
-}
 
 @keyframes ctaRun { to { --cta-a: 360deg; } }
 
@@ -2300,54 +2271,7 @@ details.faq-item[open] .faq-answer {
 [data-chatbase="bubble"], chatbase-bubble-button { display: none !important; }
 
 /* ══ CTA VIDEO BACKGROUND ══ */
-.cta-card-wrap {
-  position: relative;
-  border-radius: var(--r);
-  border: 1.5px solid rgba(232,41,74,.7);
-  overflow: hidden;
-  min-height: 220px;
-}
-.cta-bg-video {
-  position: absolute;
-  top: 0; left: 0;
-  width: 100%; height: 100%;
-  object-fit: cover;
-  z-index: 0;
-  opacity: 1;
-}
 /* Gradient overlay: left half black, right half fades in video */
-.cta-video-overlay {
-  position: absolute;
-  inset: 0; z-index: 1;
-  background: linear-gradient(
-    135deg,
-    #0F0E0C 0%,
-    #0F0E0C 25%,
-    rgba(15,14,12,0.88) 38%,
-    rgba(15,14,12,0.5) 50%,
-    rgba(15,14,12,0) 65%
-  );
-}
-.cta-card-wrap.video-active .cta-bg-video {
-  position: absolute;
-  top: 0; left: 0;
-  width: 100%; height: 100%;
-  object-fit: cover;
-  z-index: 0;
-  opacity: 1;
-}
-.cta-card-wrap.video-active .cta-video-overlay {
-  position: absolute;
-  inset: 0; z-index: 1;
-  background: linear-gradient(
-    135deg,
-    #0F0E0C 0%,
-    #0F0E0C 25%,
-    rgba(15,14,12,0.88) 38%,
-    rgba(15,14,12,0.5) 50%,
-    rgba(15,14,12,0) 65%
-  );
-}
 
 /* The card content sits above the video */
 .cta-card {
@@ -2834,6 +2758,7 @@ nav.nav{background:#fff !important;color:#0F0E0C !important;max-width:none !impo
   .clients-ticker,.clients-row{max-width:none;}
 }
 </style>
+<link rel="stylesheet" href="https://fliimedia.github.io/Flii.nl/assets/cta.css">
 <link rel="stylesheet" href="https://fliimedia.github.io/Flii.nl/assets/case-pieces.css?v=3">
 <script defer src="https://fliimedia.github.io/Flii.nl/assets/case-pieces.js?v=3"></script>
 
@@ -4930,5 +4855,6 @@ document.addEventListener('DOMContentLoaded', function() {
   } else { laad(); }
 })();
 </script>
+<script defer src="https://fliimedia.github.io/Flii.nl/assets/cta.js"></script>
 </body>
 </html>
