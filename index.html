@@ -3504,24 +3504,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 </section>
 
 <!-- CTA -->
-<section class="section" id="contact">
-  <div class="cta-card-wrap" id="cta-card-wrap">
-  <video class="cta-bg-video" id="cta-bg-video"
-    src="https://fliimedia.github.io/Flii.nl/assets/eklipse-montage.mp4"
-    muted loop playsinline
-    preload="none">
-  </video>
-  <div class="cta-video-overlay" id="cta-video-overlay"></div>
-  <div class="cta-card">
-    <h2 class="cta-h">Let's ignite<br>ambitions</h2>
-    <button class="btn-cta" onclick="toggleContactPopup()">
-      Contact
-      <span class="btn-cta-arrow">
-        <svg viewBox="0 0 8 8"><path d="M1 4h6M4 1l3 3-3 3" stroke="#fff" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" fill="none"/></svg>
-      </span>
-    </a>
-  </div>
-</section>
+<div id="cta-mount"></div>
 
 <!-- FOOTER -->
 <footer class="footer">
@@ -4705,17 +4688,6 @@ a.bento-card { display: block !important; }
 
 <script>
 // ── CTA video: play on scroll into view ─────────────────────────────
-(function() {
-  var vid = document.getElementById('cta-bg-video');
-  if (!vid) return;
-  var obs = new IntersectionObserver(function(entries) {
-    entries.forEach(function(e) {
-      if (e.isIntersecting) { vid.play().catch(function(){}); }
-      else { vid.pause(); }
-    });
-  }, { threshold: 0.2 });
-  obs.observe(vid);
-})();
 </script>
 <script>
 document.addEventListener('DOMContentLoaded', function() {
