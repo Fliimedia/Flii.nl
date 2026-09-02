@@ -1,5 +1,6 @@
 /* CTA-kaart — één bron voor de hele site */
-.cta-section{max-width:680px;box-sizing:border-box;padding:0 24px 48px;margin-top:28px;}
+.cta-section{max-width:var(--paginabreedte,680px);box-sizing:border-box;
+  padding:0 24px 48px;margin-top:28px;margin-left:auto;margin-right:auto;}
 .cta-card-wrap{position:relative;border-radius:20px;overflow:hidden;min-height:220px;
   background:#fff;border:1.5px solid rgba(232,41,74,.7);
   animation:neon-pulse 3s ease-in-out infinite;}
