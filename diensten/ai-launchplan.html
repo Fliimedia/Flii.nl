@@ -256,8 +256,11 @@ body > picture{box-sizing:border-box;}
 
 /* De donkere banden lopen bewust van rand tot rand, maar hun inhoud
    hoort in dezelfde kolom te staan als de rest van de pagina. */
-.hero > *,.usp-strip > *{max-width:var(--paginabreedte,680px);
+.hero > *,.usp-strip > *,.deliv-overview > *,.calc-section > *{
+  max-width:var(--paginabreedte,680px);
   margin-left:auto;margin-right:auto;box-sizing:border-box;}
+.usp-strip{align-items:stretch;}
+.usp-strip > .usp-item{width:100%;}
 </style>
 <script>
 (function(){
