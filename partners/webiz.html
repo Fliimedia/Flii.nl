@@ -166,6 +166,15 @@ nav.nav{background:#fff !important;color:#0F0E0C !important;max-width:none !impo
 .topic-body,.topic-head,section.section{
   max-width:var(--paginabreedte,680px);margin-left:auto;margin-right:auto;}
 body > picture{box-sizing:border-box;}
+
+/* Header-foto gecentreerd in dezelfde kolom als de tekst.
+   Stond met een vaste marge van 24px links, terwijl de rest centreert. */
+@media (min-width:1140px){
+  .dienst-photo,body > picture,img.hero-img{
+    margin-left:auto !important;margin-right:auto !important;}
+  body > picture{display:block;max-width:var(--paginabreedte,680px);
+    padding:0 24px;box-sizing:border-box;}
+}
 </style>
 <link rel="stylesheet" href="https://fliimedia.github.io/Flii.nl/assets/contact-bar.css">
 <script defer src="https://fliimedia.github.io/Flii.nl/assets/contact-bar.js"></script>
