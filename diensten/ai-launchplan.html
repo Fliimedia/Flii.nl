@@ -207,6 +207,15 @@ body > picture{box-sizing:border-box;}
   margin-left:auto;margin-right:auto;box-sizing:border-box;}
 .usp-strip{align-items:stretch;}
 .usp-strip > .usp-item{width:100%;}
+
+/* Header-foto gecentreerd in dezelfde kolom als de tekst.
+   Stond met een vaste marge van 24px links, terwijl de rest centreert. */
+@media (min-width:1140px){
+  .dienst-photo,body > picture,img.hero-img{
+    margin-left:auto !important;margin-right:auto !important;}
+  body > picture{display:block;max-width:var(--paginabreedte,680px);
+    padding:0 24px;box-sizing:border-box;}
+}
 </style>
 <script>
 (function(){
