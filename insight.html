@@ -365,6 +365,15 @@ nav.nav{background:#fff !important;color:#0F0E0C !important;max-width:none !impo
 
 /* Footer volgt deze breedte. */
 :root{--paginabreedte:680px;}
+
+/* Logo en menuknop op dezelfde kolom als de rest van de pagina.
+   De balk zelf blijft van rand tot rand; alleen de inhoud springt in. */
+@media (min-width:1140px){
+  nav.nav{
+    padding-left:max(16px, calc((100% - var(--paginabreedte,680px)) / 2)) !important;
+    padding-right:max(16px, calc((100% - var(--paginabreedte,680px)) / 2)) !important;
+    box-sizing:border-box;}
+}
 </style>
 <script>
 (function(){
