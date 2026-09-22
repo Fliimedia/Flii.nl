@@ -85,7 +85,7 @@ body{font-family:var(--ff-body);background:#FFFFFF;color:var(--ink);}
 .loop-sub{font-size:14px;color:rgba(243,241,235,.45);line-height:1.6;margin-bottom:40px;}
 
 /* Ring */
-.loop-ring-stage{position:relative;width:min(440px,calc(100vw - 48px));margin:0 auto 8px;aspect-ratio:1;perspective:1200px;}
+.loop-ring-stage{position:relative;width:min(440px,100%);margin:0 auto 8px;aspect-ratio:1;perspective:1200px;}
 .loop-ring-tilt{position:absolute;inset:70px;transform-origin:center;transform-style:preserve-3d;
   transition:transform .7s cubic-bezier(.2,.7,.2,1),opacity .7s;}
 .loop-ring-stage.open .loop-ring-tilt.tilted{transform:rotateX(34deg) scale(.97);opacity:.9;}
