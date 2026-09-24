@@ -1,3 +1,6 @@
+# De CRM staat op /crm en is afgeschermd.
+Redirect 301 /projecten/crm /crm/
+
 Options -MultiViews
 RewriteEngine On
 
