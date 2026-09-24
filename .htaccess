@@ -1,5 +1,6 @@
-# De CRM staat op /crm en is afgeschermd.
-Redirect 301 /projecten/crm /crm/
+# De CRM is verhuisd naar flii.app.
+Redirect 301 /projecten/crm https://flii.app/crm
+Redirect 301 /crm https://flii.app/crm
 
 Options -MultiViews
 RewriteEngine On
