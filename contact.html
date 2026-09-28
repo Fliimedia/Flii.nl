@@ -244,6 +244,12 @@ body > picture{box-sizing:border-box;}
   :root{--paginabreedte:1000px;}
   .page-hero,.section-body{max-width:1000px;}
 }
+
+/* Honeypot: uit beeld gehaald zonder display:none, want sommige
+   bots slaan velden over die niet gerenderd worden. */
+.ct-hp{position:absolute;left:-9999px;width:1px;height:1px;overflow:hidden;}
+.ct-fijn.ok{color:#12A150;}
+.ct-fijn.fout{color:var(--mag,#E8294A);}
 </style>
 <script>
 (function(){
@@ -332,8 +338,12 @@ body > picture{box-sizing:border-box;}
     </div>
   </div>
 
-  <div class="ct-kolom">
-    <form class="ct-form" id="ct-form" novalidate>
+  <div class="ct-kolom" id="formulier">
+    <form class="ct-form" id="ct-form" method="post" action="/contact-verzenden.php">
+      <input type="hidden" name="geladen" id="ct-geladen" value="">
+      <div class="ct-hp" aria-hidden="true">
+        <label>Website<input type="text" name="website" tabindex="-1" autocomplete="off"></label>
+      </div>
       <div class="ct-kop">Stuur een bericht</div>
 
       <label class="ct-veld">
@@ -368,7 +378,7 @@ body > picture{box-sizing:border-box;}
       </label>
 
       <button type="submit" class="ct-knop">Versturen</button>
-      <p class="ct-fijn" id="ct-status">Je mailprogramma opent met het bericht klaargezet.</p>
+      <p class="ct-fijn" id="ct-status" role="status">We reageren doorgaans binnen een werkdag.</p>
     </form>
   </div>
 
@@ -477,39 +487,33 @@ body > picture{box-sizing:border-box;}
 </footer>
 
 <script>
-/* Zet het formulier om in een mailbericht. De site is statisch,
-   dus er is geen server die de inzending kan verwerken. */
+/* Zet het laadmoment, zodat de server een inzending binnen enkele
+   seconden kan weigeren. En toon de melding na terugkeer. */
 (function () {
-  var form = document.getElementById('ct-form');
-  if (!form) return;
+  var stempel = document.getElementById('ct-geladen');
+  if (stempel) stempel.value = Math.floor(Date.now() / 1000);
+
   var status = document.getElementById('ct-status');
+  if (!status) return;
+  var m = location.search.match(/[?&]status=([a-z]+)/);
+  if (!m) return;
 
-  form.addEventListener('submit', function (e) {
-    e.preventDefault();
-    var naam = document.getElementById('ct-naam').value.trim();
-    var email = document.getElementById('ct-email').value.trim();
-    var bedrijf = document.getElementById('ct-bedrijf').value.trim();
-    var onderwerp = document.getElementById('ct-onderwerp').value;
-    var bericht = document.getElementById('ct-bericht').value.trim();
-
-    if (!naam || !email || !bericht) {
-      status.textContent = 'Vul je naam, e-mailadres en bericht in.';
-      status.classList.add('fout');
-      return;
-    }
-    status.classList.remove('fout');
-
-    var regels = [
-      'Naam: ' + naam,
-      'E-mail: ' + email,
-      bedrijf ? 'Bedrijf: ' + bedrijf : null,
-      '',
-      bericht
-    ].filter(Boolean).join('\n');
-
-    window.location.href = 'mailto:info@flii.nl'
-      + '?subject=' + encodeURIComponent(onderwerp + ' — ' + naam)
-      + '&body=' + encodeURIComponent(regels);
-  });
+  var teksten = {
+    ok: ['Bedankt, je bericht is verstuurd. We reageren doorgaans binnen een werkdag.', 'ok'],
+    onvolledig: ['Vul je naam, een geldig e-mailadres en een bericht in.', 'fout'],
+    teveel: ['Je hebt net al een bericht gestuurd. Probeer het over een uur opnieuw.', 'fout'],
+    verlopen: ['Het formulier stond te lang open. Vul het opnieuw in.', 'fout'],
+    mislukt: ['Verzenden lukte niet. Mail ons rechtstreeks op info@flii.nl.', 'fout'],
+    fout: ['Er ging iets mis. Mail ons rechtstreeks op info@flii.nl.', 'fout']
+  };
+  var t = teksten[m[1]];
+  if (!t) return;
+  status.textContent = t[0];
+  status.classList.add(t[1]);
+  if (m[1] === 'ok') {
+    var f = document.getElementById('ct-form');
+    if (f) f.reset();
+    if (stempel) stempel.value = Math.floor(Date.now() / 1000);
+  }
 })();
 </script>
