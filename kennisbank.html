@@ -110,19 +110,25 @@ nav.nav{background:#fff !important;color:#0F0E0C !important;max-width:none !impo
     box-sizing:border-box;}
 }
 
-/* Navigatie op dezelfde marges als de homepage: 180px opzij,
-   logo op 56px. Stond op 380px met een logo van 26px. */
+
+
+/* Zelfde kolom als de homepage: 1080px, met de marge berekend uit de
+   schermbreedte in plaats van vastgezet. De marge staat op de
+   containers, niet op de losse kinderen — anders blijft een element
+   dat inline is, zoals de dienstchip, tegen de linkerrand plakken. */
 @media (min-width:1140px){
-  nav.nav{padding-left:180px !important;padding-right:180px !important;}
+  nav.nav{padding-left:calc((100vw - 1080px) / 2) !important;
+          padding-right:calc((100vw - 1080px) / 2) !important;}
+
+  .kb-hero,.hero,.kb-body,.kb-related,body > section{
+    padding-left:calc((100% - 1080px) / 2) !important;
+    padding-right:calc((100% - 1080px) / 2) !important;
+    box-sizing:border-box;}
+
+  .kb-hero > *,.hero > *,.kb-body > *,.kb-related > *,body > section > *{
+    max-width:none;margin-left:0;margin-right:0;}
 }
 nav.nav img{width:56px !important;height:auto !important;}
-nav.nav .nav-brand img,nav.nav > a:first-child img{width:56px !important;}
-
-/* Inhoud in dezelfde kolom als de secties op de homepage (1080px),
-   in plaats van van rand tot rand. */
-@media (min-width:1140px){
-  .kb-hero > *,.kb-body,.kb-cat-group{max-width:1080px;margin-left:auto;margin-right:auto;}
-}
 </style>
 <link rel="stylesheet" href="https://fliimedia.github.io/Flii.nl/assets/footer.css">
 <script defer src="https://fliimedia.github.io/Flii.nl/assets/footer.js"></script>
