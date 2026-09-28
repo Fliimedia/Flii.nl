@@ -237,6 +237,13 @@ body > picture{box-sizing:border-box;}
   .ct-form{position:static;padding:18px;}
   .ct-kaart{aspect-ratio:4/3;}
 }
+
+/* Deze pagina heeft twee kolommen nodig; vandaar een bredere maat
+   dan de 680px van de andere subpagina's. */
+@media (min-width:1140px){
+  :root{--paginabreedte:1000px;}
+  .page-hero,.section-body{max-width:1000px;}
+}
 </style>
 <script>
 (function(){
