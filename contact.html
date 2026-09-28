@@ -237,28 +237,78 @@ body > picture{box-sizing:border-box;}
 </div>
 </div>
 <div class="section-body">
-<div class="ct-blokken">
-  <div class="ct-blok">
-    <div class="ct-kop">Bereikbaar</div>
-    <div class="ct-rij"><span class="ct-l">E-mail</span><span class="ct-v"><a href="mailto:info@flii.nl">info@flii.nl</a></span></div>
-    <div class="ct-rij"><span class="ct-l">Facturen</span><span class="ct-v"><a href="mailto:invoice@flii.nl">invoice@flii.nl</a></span></div>
-    <div class="ct-rij"><span class="ct-l">Telefoon</span><span class="ct-v"><a href="tel:+31640881169">+31 6 40 88 11 69</a></span></div>
+
+<div class="ct-grid">
+
+  <div class="ct-kolom">
+    <div class="ct-kaart">
+      <iframe title="Kaart met de locatie van Flii Media aan de Handweg 159 in Amstelveen"
+        src="https://www.google.com/maps?q=Handweg+159,+1185+TX+Amstelveen&hl=nl&z=15&output=embed" loading="lazy" referrerpolicy="no-referrer-when-downgrade"
+        allowfullscreen></iframe>
+    </div>
+
+    <div class="ct-blok">
+      <div class="ct-kop">Bezoekadres</div>
+      <p class="ct-adres">Handweg 159<br>1185 TX Amstelveen</p>
+      <a class="ct-route" href="https://share.google/wEE1drPcTYlHW0Beo" target="_blank" rel="noopener">Route en openingstijden &rarr;</a>
+    </div>
+
+    <div class="ct-blok">
+      <div class="ct-kop">Direct contact</div>
+      <a class="ct-groot" href="mailto:info@flii.nl">info@flii.nl</a>
+      <a class="ct-groot" href="tel:+31640881169">+31 6 40 88 11 69</a>
+      <div class="ct-rij"><span class="ct-l">Facturen</span><span class="ct-v"><a href="mailto:invoice@flii.nl">invoice@flii.nl</a></span></div>
+    </div>
+
+    <div class="ct-blok ct-zakelijk">
+      <div class="ct-kop">Bedrijfsgegevens</div>
+      <div class="ct-rij"><span class="ct-l">Statutaire naam</span><span class="ct-v">Flii Media BV</span></div>
+      <div class="ct-rij"><span class="ct-l">KvK</span><span class="ct-v">82567336</span></div>
+      <div class="ct-rij"><span class="ct-l">Btw-nummer</span><span class="ct-v">NL862.521.476B.01</span></div>
+      <div class="ct-rij"><span class="ct-l">IBAN</span><span class="ct-v">NL23 BUNQ 2060 7890 95</span></div>
+    </div>
   </div>
 
-  <div class="ct-blok">
-    <div class="ct-kop">Bezoekadres</div>
-    <div class="ct-rij"><span class="ct-l">Adres</span><span class="ct-v">Handweg 159</span></div>
-    <div class="ct-rij"><span class="ct-l">Postcode</span><span class="ct-v">1185 TX</span></div>
-    <div class="ct-rij"><span class="ct-l">Plaats</span><span class="ct-v">Amstelveen</span></div>
+  <div class="ct-kolom">
+    <form class="ct-form" id="ct-form" novalidate>
+      <div class="ct-kop">Stuur een bericht</div>
+
+      <label class="ct-veld">
+        <span>Naam</span>
+        <input type="text" name="naam" id="ct-naam" autocomplete="name" required>
+      </label>
+
+      <label class="ct-veld">
+        <span>E-mail</span>
+        <input type="email" name="email" id="ct-email" autocomplete="email" required>
+      </label>
+
+      <label class="ct-veld">
+        <span>Bedrijf <em>optioneel</em></span>
+        <input type="text" name="bedrijf" id="ct-bedrijf" autocomplete="organization">
+      </label>
+
+      <label class="ct-veld">
+        <span>Waar gaat het over?</span>
+        <select name="onderwerp" id="ct-onderwerp">
+          <option>Nieuwe samenwerking</option>
+          <option>Campagne of mediaplan</option>
+          <option>Website of platform</option>
+          <option>AI en automatisering</option>
+          <option>Iets anders</option>
+        </select>
+      </label>
+
+      <label class="ct-veld">
+        <span>Bericht</span>
+        <textarea name="bericht" id="ct-bericht" rows="5" required></textarea>
+      </label>
+
+      <button type="submit" class="ct-knop">Versturen</button>
+      <p class="ct-fijn" id="ct-status">Je mailprogramma opent met het bericht klaargezet.</p>
+    </form>
   </div>
 
-  <div class="ct-blok">
-    <div class="ct-kop">Bedrijfsgegevens</div>
-    <div class="ct-rij"><span class="ct-l">Statutaire naam</span><span class="ct-v">Flii Media BV</span></div>
-    <div class="ct-rij"><span class="ct-l">KvK</span><span class="ct-v">82567336</span></div>
-    <div class="ct-rij"><span class="ct-l">Btw-nummer</span><span class="ct-v">NL862.521.476B.01</span></div>
-    <div class="ct-rij"><span class="ct-l">IBAN</span><span class="ct-v">NL23 BUNQ 2060 7890 95</span></div>
-  </div>
 </div>
 </div>
 
