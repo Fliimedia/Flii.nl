@@ -10,3 +10,11 @@
 .float-icon svg { width: 20px; height: 20px; }
 @keyframes sidebarPulse { 0% { box-shadow: 0 2px 16px rgba(232,41,74,.15); transform: translateY(-50%) translateX(0) scale(1); }
 25% { box-shadow: 0 0 0 6px rgba(232,41,74,.25), 0 4px 24px rgba(232,41,74,.4); transform: translateY(-50%) translateX(0) scale(1.08); }
+}
+
+/* Geklikt of aangetikt: het icoon wordt zwart, de achtergrond blijft zoals hij was.
+   Zonder dit stond er een wit icoon op de witte achtergrond van de hoverstatus. */
+.float-icon:hover,
+.float-icon:active,
+.float-icon:focus,
+.float-icon:focus-visible { color: #0F0E0C; }
