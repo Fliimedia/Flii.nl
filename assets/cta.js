@@ -1,6 +1,6 @@
 /* CTA-kaart — één bron voor elke pagina met <div id="cta-mount">. */
 (function () {
-  var BRON = "https://fliimedia.github.io/Flii.nl/assets/eklipse-montage.mp4";
+  var BRON = "/assets/eklipse-montage.mp4";
   var HTML =
     '<section class="cta-section" id="contact">' +
     '  <div class="cta-card-wrap">' +

@@ -1,6 +1,6 @@
 /* Renders a YouTube-style playlist into <div class="yt-pl" data-playlist="name">. */
 (function () {
-  var BASE = 'https://fliimedia.github.io/Flii.nl/assets/playlists/';
+  var BASE = '/assets/playlists/';
 
   function build(host, data) {
     var vids = (data.videos || []).filter(function (v) { return v && v.id; });
