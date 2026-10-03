@@ -64,11 +64,18 @@ nav.nav{background:#fff !important;color:#0F0E0C !important;max-width:none !impo
 /* Logo en menuknop op dezelfde kolom als de rest van de pagina.
    De balk zelf blijft van rand tot rand; alleen de inhoud springt in. */
 @media (min-width:1140px){
-  nav.nav{
-    padding-left:max(16px, calc((100% - var(--paginabreedte,680px)) / 2)) !important;
-    padding-right:max(16px, calc((100% - var(--paginabreedte,680px)) / 2)) !important;
-    box-sizing:border-box;}
+  
 }
+
+/* Navigatie: logo links, terugknop rechts, op de rand van de tekstkolom.
+   De pagina had de homepage-navigatie zonder de bijbehorende opmaak. */
+.nav{display:flex;align-items:center;justify-content:space-between;height:56px;
+  box-sizing:border-box;padding:0 max(24px, calc((100% - 672px) / 2));
+  border-bottom:1px solid var(--c-rule,#E8E6E1);position:sticky;top:0;z-index:100;}
+.nav-brand{display:flex;align-items:center;}
+.nav-brand img{width:56px;height:56px;display:block;margin-left:-16px;object-fit:contain;}
+.nav-back{font-size:13px;font-weight:600;color:#0F0E0C;text-decoration:none;opacity:.85;}
+.nav-back:hover{opacity:1;}
 </style>
 
 <script>
@@ -113,15 +120,8 @@ nav.nav{background:#fff !important;color:#0F0E0C !important;max-width:none !impo
 </head>
 <body>
 <nav class="nav">
-  <div class="nav-logo">
-    <a href="#" class="nav-mark" id="nav-mark">
-      <img src="/assets/img/d913cc3c069f.webp" alt="Flii" style="width:auto;height:56px;display:block;margin-left:-16px" fetchpriority="high" decoding="async">
-    </a>
-    <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAJMAAAAcCAAAAABAaNLEAAAAUUlEQVR42u3OQQrAIAwF0aH3v/N0EZX2BoWOKD+IiQ9EVARXzt3JXYHoqp3jO3U9cQ99JHvv76aafjizL763MmXKlClTpkyZMmXKlClTpj+ZbirlTOq9jJTgAAAAAElFTkSuQmCC" alt="Flii Media" id="nav-wordmark" class="nav-wordmark" style="height:18px;width:auto;opacity:.7;display:none">
-  </div>
-  <button class="nav-burger" aria-label="Menu">
-    <span></span><span></span>
-  </button>
+  <a href="/" class="nav-brand"><img src="/assets/img/d913cc3c069f.webp" alt="Flii Media" width="56" height="56" fetchpriority="high" decoding="async"></a>
+  <a href="/" class="nav-back">← Terug</a>
 </nav>
 <main>
   <div class="legal-page">
