@@ -30,38 +30,51 @@
       "date": "2026-10-12",
       "category": "Research",
       "template": "research",
-      "topic": "Waar je mediabudget in Q4 blijft: stijgende CPM's richting Black Friday",
-      "slug": "mediabudget-q4-stijgende-cpms",
-      "path": "/insight/mediabudget-q4-stijgende-cpms",
+      "topic": "Nationale Social Media Onderzoek 2026 (Newcom)",
+      "slug": "social-media-onderzoek-2026-newcom",
+      "path": "/insight/social-media-onderzoek-2026-newcom",
       "existingPage": false,
-      "title": "Waarom je Q4-budget minder ver komt",
+      "title": "Meer gebruikers, meer twijfel: social media in 2026",
       "hook": {
-        "linkedin": "Dezelfde euro levert in november minder bereik op dan in september. Waar je Q4-budget blijft, en hoe je slimmer inkoopt.",
-        "instagram": "Zelfde budget, minder bereik. Zo werkt Q4, en zo werk je eromheen."
+        "linkedin": "14,6 miljoen Nederlanders gebruiken social media, gemiddeld twee uur per dag. Tegelijk wil 5,5 miljoen er minder tijd aan besteden. Wat betekent dat voor merken?",
+        "instagram": "Nog nooit zoveel gebruikers. Nog nooit zoveel twijfel."
       },
-      "pageText": null,
-      "socialCopy": null,
+      "pageText": "/insight/social-media-onderzoek-2026-newcom",
+      "socialCopy": {
+        "linkedin": "14,6 miljoen Nederlanders gebruiken social media, gemiddeld twee uur per dag. Tegelijk wil 5,5 miljoen er minder tijd aan besteden. Wat betekent dat voor merken?\n\nHet Nationale Social Media Onderzoek 2026 van Newcom laat een markt zien die nog groeit, maar waarin het sentiment kantelt:\n→ Instagram groeit het hardst: +640.000 gebruikers\n→ Het dagelijks gebruik van LinkedIn stijgt met 17%\n→ 7,2 miljoen Nederlanders zien social media als gevaar voor het mentaal welzijn\n\nOnze lezing van de cijfers, en wat je ermee doet:\nhttps://flii.nl/insight/social-media-onderzoek-2026-newcom\n\nBron: Newcom.nl\n#socialmedia #onderzoek #marketing #linkedin",
+        "instagram": "Nog nooit zoveel gebruikers. Nog nooit zoveel twijfel.\n\n14,6 miljoen Nederlanders zitten op social media, gemiddeld twee uur per dag. Maar 5,5 miljoen van hen proberen juist minder te scrollen. Swipe voor de cijfers.\n\nWat dit betekent voor merken lees je op flii.nl. Link in bio.\n\nBron: Nationale Social Media Onderzoek 2026, Newcom.nl\n#socialmedia #onderzoek #marketing #instagram"
+      },
       "imagePrompt": null,
-      "status": "hook ter goedkeuring"
+      "status": "live, nog inplannen",
+      "socialImage": [
+        "/assets/social/social-media-onderzoek-2026-newcom-1.jpg",
+        "/assets/social/social-media-onderzoek-2026-newcom-2.jpg",
+        "/assets/social/social-media-onderzoek-2026-newcom-3.jpg",
+        "/assets/social/social-media-onderzoek-2026-newcom-4.jpg"
+      ]
     },
     {
       "id": 4,
       "date": "2026-10-14",
       "category": "Behind the scenes",
       "template": "behind",
-      "topic": "Zo bouwen we: AI-gestuurd van briefing tot livegang",
-      "slug": "ai-gestuurd-van-briefing-tot-livegang",
-      "path": "/insight/ai-gestuurd-van-briefing-tot-livegang",
+      "topic": "Terug naar de basis",
+      "slug": "terug-naar-de-basis",
+      "path": "/insight/terug-naar-de-basis",
       "existingPage": false,
-      "title": "Van briefing tot livegang, met AI aan het stuur",
+      "title": "Terug naar de basis",
       "hook": {
-        "linkedin": "Wij bouwen websites zonder zelf één regel code te typen. Hoe dat werkt, en waarom de mens nog steeds de keuzes maakt.",
-        "instagram": "Van briefing tot live, zonder zelf te coderen. Een kijkje achter de schermen."
+        "linkedin": "Even geen algoritme, dashboard of tool. Soms is ouderwets schrijven nog steeds de beste manier.",
+        "instagram": "Even geen algoritme, dashboard of tool. Soms is ouderwets schrijven nog steeds de beste manier."
       },
-      "pageText": null,
-      "socialCopy": null,
+      "pageText": "/insight/terug-naar-de-basis",
+      "socialCopy": {
+        "linkedin": "Terug naar de basis.\n\nEven geen algoritme, dashboard of tool. Soms is ouderwets schrijven nog steeds de beste manier.\n\nhttps://flii.nl/insight/terug-naar-de-basis\n\n#behindthescenes #fliimedia",
+        "instagram": "Terug naar de basis.\n\nEven geen algoritme, dashboard of tool. Soms is ouderwets schrijven nog steeds de beste manier.\n\n#behindthescenes #fliimedia #bureauleven"
+      },
       "imagePrompt": null,
-      "status": "hook ter goedkeuring"
+      "status": "live, nog inplannen",
+      "socialImage": "/assets/social/terug-naar-de-basis.jpg"
     },
     {
       "id": 5,
@@ -96,65 +109,82 @@
       "pageText": null,
       "socialCopy": null,
       "imagePrompt": null,
-      "status": "hook ter goedkeuring"
+      "status": "wacht op resultaten"
     },
     {
       "id": 7,
       "date": "2026-10-21",
       "category": "Blog",
       "template": "blog",
-      "topic": "Waarom elke social post een eigen landingspagina verdient",
-      "slug": "elke-social-post-een-eigen-landingspagina",
-      "path": "/insight/elke-social-post-een-eigen-landingspagina",
-      "existingPage": false,
-      "title": "Waarom elke post een eigen landingspagina verdient",
+      "topic": "Bestaande blog: Branding vs. Performance",
+      "slug": "branding-versus-performance-marketing",
+      "path": "/insight/branding-versus-performance-marketing",
+      "existingPage": true,
+      "title": "Branding vs. Performance: wat werkt?",
       "hook": {
-        "linkedin": "Een like is geen klant. Daarom krijgt elke post van ons een eigen landingspagina: zo wordt elke klik meetbaar en vindbaar in Google.",
-        "instagram": "Een like is geen klant. Waarom achter elke post van ons een eigen pagina zit."
+        "linkedin": "Merkbouw of direct resultaat? De vraag is verkeerd gesteld. Waarom de beste campagnes allebei doen, en hoe je de balans vindt.",
+        "instagram": "Branding of performance? Het antwoord is: allebei."
       },
-      "pageText": null,
-      "socialCopy": null,
+      "pageText": "/insight/branding-versus-performance-marketing",
+      "socialCopy": {
+        "linkedin": "Merkbouw of direct resultaat? De vraag is verkeerd gesteld. Waarom de beste campagnes allebei doen, en hoe je de balans vindt.\n\nPerformance marketing maakt elke euro meetbaar. Maar zonder merk ontbreekt de reden waarom klanten terugkomen, ook als er een goedkoper alternatief is.\n\nWat onderzoek zegt over de 60/40-verdeling:\nhttps://flii.nl/insight/branding-versus-performance-marketing\n\n#branding #performancemarketing #marketing #strategie",
+        "instagram": "Branding of performance? Het antwoord is: allebei.\n\nPerformance levert vandaag resultaat op. Branding zorgt dat klanten morgen terugkomen. Hoe je de balans vindt, lees je op flii.nl. Link in bio.\n\n#branding #performancemarketing #marketing #strategie"
+      },
       "imagePrompt": null,
-      "status": "hook ter goedkeuring"
+      "status": "live, nog inplannen",
+      "socialImage": "/assets/social/branding-versus-performance-marketing.jpg"
     },
     {
       "id": 9,
       "date": "2026-10-26",
       "category": "New project",
       "template": "newProject",
-      "topic": "MKB Fonds: van website naar web-app",
-      "slug": "mkb-fonds",
-      "path": "/cases/mkb-fonds",
+      "topic": "Theatertijd",
+      "slug": "theatertijd",
+      "path": "/cases/theatertijd",
       "existingPage": false,
-      "title": "MKB Fonds: van website naar web-app",
+      "title": "Nieuw project: Theatertijd",
       "hook": {
-        "linkedin": "Een website die informeert, of een website die werkt? Voor MKB Fonds bouwen we mkb-fonds.nl om tot web-app.",
-        "instagram": "Van website naar web-app. Nieuw project: MKB Fonds."
+        "linkedin": "Nieuw project: Theatertijd, het televisieprogramma dat Nederland weer naar het theater brengt. Wij verzorgen de social media.",
+        "instagram": "Het doek gaat bijna open. Nieuw project: Theatertijd."
       },
-      "pageText": null,
-      "socialCopy": null,
+      "pageText": "/cases/theatertijd",
+      "socialCopy": {
+        "linkedin": "Nieuw project: Theatertijd, het televisieprogramma dat Nederland weer naar het theater brengt. Wij verzorgen de social media.\n\nVan cabaret en toneel tot musicals, in lokale zalen en de grote theaters van het land. Wij bouwen de kanalen op en maken de content rond elke aflevering.\n\nStay tuned.\nhttps://flii.nl/cases/theatertijd\n\n#theater #socialmedia #nieuwproject #fliimedia",
+        "instagram": "Het doek gaat bijna open. Nieuw project: Theatertijd.\n\nHet televisieprogramma dat Nederland weer naar het theater brengt. Wij verzorgen de social media. Stay tuned.\n\n#theatertijd #theater #socialmedia #nieuwproject"
+      },
       "imagePrompt": null,
-      "status": "hook ter goedkeuring"
+      "status": "live, nog inplannen",
+      "socialImage": "/assets/social/theatertijd.jpg"
     },
     {
       "id": 10,
       "date": "2026-10-28",
       "category": "Research",
       "template": "research",
-      "topic": "Wat zzp'ers online zoeken: inzichten uit zelfstandigondernemers.nl",
-      "slug": "wat-zzpers-online-zoeken",
-      "path": "/insight/wat-zzpers-online-zoeken",
+      "topic": "Google I/O 2026",
+      "slug": "google-io-2026-wat-marketeers-moeten-weten",
+      "path": "/insight/google-io-2026-wat-marketeers-moeten-weten",
       "existingPage": false,
-      "title": "Wat zzp'ers echt zoeken",
+      "title": "Google I/O 2026: wat marketeers moeten weten",
       "hook": {
-        "linkedin": "Wat typen zzp'ers in als ze hulp zoeken? We doken in de zoekdata van zelfstandigondernemers.nl. Dit zijn de uitkomsten.",
-        "instagram": "Wat zoekt een zzp'er online? De data van zelfstandigondernemers.nl geeft antwoord."
+        "linkedin": "Google zoekt straks ook als jij niet zoekt. Met information agents scant Search 24/7 het web voor zijn gebruikers. Wat Google I/O 2026 betekent voor je vindbaarheid.",
+        "instagram": "Google zoekt straks voor je. Ook als je slaapt."
       },
-      "pageText": null,
-      "socialCopy": null,
+      "pageText": "/insight/google-io-2026-wat-marketeers-moeten-weten",
+      "socialCopy": {
+        "linkedin": "Google zoekt straks ook als jij niet zoekt. Met information agents scant Search 24/7 het web voor zijn gebruikers. Wat Google I/O 2026 betekent voor je vindbaarheid.\n\nDe drie aankondigingen die marketeers moeten kennen:\n→ Het zoekvak kreeg de grootste update in 25 jaar\n→ Information agents houden onderwerpen en prijzen op de achtergrond in de gaten\n→ Universal Cart brengt de winkelwagen naar Search, Gemini, YouTube en Gmail\n\nWat je nu al kunt doen:\nhttps://flii.nl/insight/google-io-2026-wat-marketeers-moeten-weten\n\n#Google #SEO #AI #marketing",
+        "instagram": "Google zoekt straks voor je. Ook als je slaapt.\n\nOp Google I/O 2026 kondigde Google agents aan die 24/7 het web scannen, en een winkelwagen die met je meereist door Search, YouTube en Gmail. Swipe voor wat dit betekent voor je merk.\n\nHet hele verhaal lees je op flii.nl. Link in bio.\n\n#google #seo #ai #marketing"
+      },
       "imagePrompt": null,
-      "status": "hook ter goedkeuring",
-      "dataApproved": true
+      "status": "live, nog inplannen",
+      "dataApproved": true,
+      "socialImage": [
+        "/assets/social/google-io-2026-wat-marketeers-moeten-weten-1.jpg",
+        "/assets/social/google-io-2026-wat-marketeers-moeten-weten-2.jpg",
+        "/assets/social/google-io-2026-wat-marketeers-moeten-weten-3.jpg",
+        "/assets/social/google-io-2026-wat-marketeers-moeten-weten-4.jpg"
+      ]
     },
     {
       "id": 11,
