@@ -10,28 +10,16 @@
       "slug": "ai-nieuwscrawlers-en-je-merk",
       "path": "/insight/ai-nieuwscrawlers-en-je-merk",
       "existingPage": false,
-      "title": null,
-      "hook": null,
+      "title": "Moet AI ook een krantenabonnement hebben?",
+      "hook": {
+        "linkedin": "ChatGPT vertelt dagelijks wat er over jouw merk in het nieuws staat. Maar welke bronnen leest het eigenlijk, en betaalt het daarvoor?",
+        "instagram": "AI leest de krant. Ook over jouw merk. Wat het daar vindt, vertelt het door."
+      },
       "pageText": null,
       "socialCopy": null,
       "imagePrompt": null,
-      "status": "onderwerp"
-    },
-    {
-      "id": 2,
-      "date": "2026-10-09",
-      "category": "Project case",
-      "template": "projectCase",
-      "topic": "Week tegen Eenzaamheid met Stichting de Buurt: aanpak en resultaten",
-      "slug": "stichting-de-buurt",
-      "path": "/cases/stichting-de-buurt",
-      "existingPage": true,
-      "title": null,
-      "hook": null,
-      "pageText": null,
-      "socialCopy": null,
-      "imagePrompt": null,
-      "status": "onderwerp"
+      "status": "hook ter goedkeuring",
+      "headerImage": "/assets/insight/ai-nieuwscrawlers-en-je-merk.jpg"
     },
     {
       "id": 3,
@@ -42,12 +30,15 @@
       "slug": "mediabudget-q4-stijgende-cpms",
       "path": "/insight/mediabudget-q4-stijgende-cpms",
       "existingPage": false,
-      "title": null,
-      "hook": null,
+      "title": "Waarom je Q4-budget minder ver komt",
+      "hook": {
+        "linkedin": "Dezelfde euro levert in november minder bereik op dan in september. Waar je Q4-budget blijft, en hoe je slimmer inkoopt.",
+        "instagram": "Zelfde budget, minder bereik. Zo werkt Q4, en zo werk je eromheen."
+      },
       "pageText": null,
       "socialCopy": null,
       "imagePrompt": null,
-      "status": "onderwerp"
+      "status": "hook ter goedkeuring"
     },
     {
       "id": 4,
@@ -58,12 +49,15 @@
       "slug": "ai-gestuurd-van-briefing-tot-livegang",
       "path": "/insight/ai-gestuurd-van-briefing-tot-livegang",
       "existingPage": false,
-      "title": null,
-      "hook": null,
+      "title": "Van briefing tot livegang, met AI aan het stuur",
+      "hook": {
+        "linkedin": "Wij bouwen websites zonder zelf één regel code te typen. Hoe dat werkt, en waarom de mens nog steeds de keuzes maakt.",
+        "instagram": "Van briefing tot live, zonder zelf te coderen. Een kijkje achter de schermen."
+      },
       "pageText": null,
       "socialCopy": null,
       "imagePrompt": null,
-      "status": "onderwerp"
+      "status": "hook ter goedkeuring"
     },
     {
       "id": 5,
@@ -90,12 +84,15 @@
       "slug": "onelane",
       "path": "/cases/onelane",
       "existingPage": false,
-      "title": null,
-      "hook": null,
+      "title": "OneLane: op straat en op de radio tegelijk",
+      "hook": {
+        "linkedin": "Een campagne die je ziet op straat en hoort in de auto. Voor OneLane combineerden we digital out of home en radio. Dit is de aanpak.",
+        "instagram": "Op straat gezien, op de radio gehoord. Onze campagne voor OneLane."
+      },
       "pageText": null,
       "socialCopy": null,
       "imagePrompt": null,
-      "status": "onderwerp"
+      "status": "hook ter goedkeuring"
     },
     {
       "id": 7,
@@ -106,28 +103,15 @@
       "slug": "elke-social-post-een-eigen-landingspagina",
       "path": "/insight/elke-social-post-een-eigen-landingspagina",
       "existingPage": false,
-      "title": null,
-      "hook": null,
+      "title": "Waarom elke post een eigen landingspagina verdient",
+      "hook": {
+        "linkedin": "Een like is geen klant. Daarom krijgt elke post van ons een eigen landingspagina: zo wordt elke klik meetbaar en vindbaar in Google.",
+        "instagram": "Een like is geen klant. Waarom achter elke post van ons een eigen pagina zit."
+      },
       "pageText": null,
       "socialCopy": null,
       "imagePrompt": null,
-      "status": "onderwerp"
-    },
-    {
-      "id": 8,
-      "date": "2026-10-23",
-      "category": "Interview",
-      "template": "interview",
-      "topic": "Teamlid over mediainkoop: wat een goed mediaplan onderscheidt",
-      "slug": "interview-mediainkoop-goed-mediaplan",
-      "path": "/insight/interview-mediainkoop-goed-mediaplan",
-      "existingPage": false,
-      "title": null,
-      "hook": null,
-      "pageText": null,
-      "socialCopy": null,
-      "imagePrompt": null,
-      "status": "onderwerp"
+      "status": "hook ter goedkeuring"
     },
     {
       "id": 9,
@@ -138,12 +122,15 @@
       "slug": "mkb-fonds",
       "path": "/cases/mkb-fonds",
       "existingPage": false,
-      "title": null,
-      "hook": null,
+      "title": "MKB Fonds: van website naar web-app",
+      "hook": {
+        "linkedin": "Een website die informeert, of een website die werkt? Voor MKB Fonds bouwen we mkb-fonds.nl om tot web-app.",
+        "instagram": "Van website naar web-app. Nieuw project: MKB Fonds."
+      },
       "pageText": null,
       "socialCopy": null,
       "imagePrompt": null,
-      "status": "onderwerp"
+      "status": "hook ter goedkeuring"
     },
     {
       "id": 10,
@@ -154,12 +141,16 @@
       "slug": "wat-zzpers-online-zoeken",
       "path": "/insight/wat-zzpers-online-zoeken",
       "existingPage": false,
-      "title": null,
-      "hook": null,
+      "title": "Wat zzp'ers echt zoeken",
+      "hook": {
+        "linkedin": "Wat typen zzp'ers in als ze hulp zoeken? We doken in de zoekdata van zelfstandigondernemers.nl. Dit zijn de uitkomsten.",
+        "instagram": "Wat zoekt een zzp'er online? De data van zelfstandigondernemers.nl geeft antwoord."
+      },
       "pageText": null,
       "socialCopy": null,
       "imagePrompt": null,
-      "status": "onderwerp"
+      "status": "hook ter goedkeuring",
+      "dataApproved": true
     },
     {
       "id": 11,
@@ -593,5 +584,9 @@
       "imagePrompt": null,
       "status": "onderwerp"
     }
+  ],
+  "platforms": [
+    "linkedin",
+    "instagram"
   ]
 }
