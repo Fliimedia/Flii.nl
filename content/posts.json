@@ -24,7 +24,8 @@
       "status": "live, nog inplannen",
       "headerImage": "/assets/insight/ai-nieuwscrawlers-en-je-merk.jpg",
       "socialImage": "/assets/social/ai-nieuwscrawlers-en-je-merk.jpg",
-      "author": "Ysée Pagesy"
+      "author": "Ysée Pagesy",
+      "socialImage4x5": "/assets/social/ai-nieuwscrawlers-en-je-merk-ig.jpg"
     },
     {
       "id": 3,
@@ -42,7 +43,7 @@
       },
       "pageText": "/insight/social-media-onderzoek-2026-newcom",
       "socialCopy": {
-        "linkedin": "14,6 miljoen Nederlanders gebruiken social media, gemiddeld twee uur per dag. Tegelijk wil 5,5 miljoen er minder tijd aan besteden. Wat betekent dat voor merken?\n\nHet Nationale Social Media Onderzoek 2026 van Newcom laat een markt zien die nog groeit, maar waarin het sentiment kantelt:\n→ Instagram groeit het hardst: +640.000 gebruikers\n→ Het dagelijks gebruik van LinkedIn stijgt met 17%\n→ 7,2 miljoen Nederlanders zien social media als gevaar voor het mentaal welzijn\n\nOnze lezing van de cijfers, en wat je ermee doet:\nhttps://flii.nl/insight/social-media-onderzoek-2026-newcom\n\nBron: Newcom.nl\n#socialmedia #onderzoek #marketing #linkedin",
+        "linkedin": "14,6 miljoen Nederlanders gebruiken social media, gemiddeld twee uur per dag. Tegelijk wil 5,5 miljoen er minder tijd aan besteden. Wat betekent dat voor merken?\n\nHet Nationale Social Media Onderzoek 2026 van Newcom laat een markt zien die nog groeit, maar waarin het sentiment kantelt:\n→ Instagram groeit het hardst: +640.000 gebruikers\n→ Het dagelijks gebruik van LinkedIn stijgt met 17%\n→ 7,2 miljoen Nederlanders zien social media als gevaar voor het mentaal welzijn\n\nOnze lezing van de cijfers lees je in de eerste reactie.\n\nBron: Newcom.nl\n#socialmedia #onderzoek #marketing #linkedin",
         "instagram": "Nog nooit zoveel gebruikers. Nog nooit zoveel twijfel.\n\n14,6 miljoen Nederlanders zitten op social media, gemiddeld twee uur per dag. Maar 5,5 miljoen van hen proberen juist minder te scrollen. Swipe voor de cijfers.\n\nWat dit betekent voor merken lees je op flii.nl. Link in bio.\n\nBron: Nationale Social Media Onderzoek 2026, Newcom.nl\n#socialmedia #onderzoek #marketing #instagram"
       },
       "imagePrompt": null,
@@ -52,6 +53,13 @@
         "/assets/social/social-media-onderzoek-2026-newcom-2.jpg",
         "/assets/social/social-media-onderzoek-2026-newcom-3.jpg",
         "/assets/social/social-media-onderzoek-2026-newcom-4.jpg"
+      ],
+      "linkedinFirstComment": "Wat de cijfers van Newcom betekenen voor merken, en hoe je er slim op inspeelt. Lees verder op flii.nl → https://flii.nl/insight/social-media-onderzoek-2026-newcom",
+      "socialImage4x5": [
+        "/assets/social/social-media-onderzoek-2026-newcom-1-ig.jpg",
+        "/assets/social/social-media-onderzoek-2026-newcom-2-ig.jpg",
+        "/assets/social/social-media-onderzoek-2026-newcom-3-ig.jpg",
+        "/assets/social/social-media-onderzoek-2026-newcom-4-ig.jpg"
       ]
     },
     {
@@ -76,7 +84,8 @@
       "imagePrompt": null,
       "status": "live, nog inplannen",
       "socialImage": "/assets/social/terug-naar-de-basis.jpg",
-      "landingPage": false
+      "landingPage": false,
+      "socialImage4x5": "/assets/social/terug-naar-de-basis-ig.jpg"
     },
     {
       "id": 5,
@@ -129,12 +138,14 @@
       },
       "pageText": "/insight/branding-versus-performance-marketing",
       "socialCopy": {
-        "linkedin": "Merkbouw of direct resultaat? De vraag is verkeerd gesteld. Waarom de beste campagnes allebei doen, en hoe je de balans vindt.\n\nPerformance marketing maakt elke euro meetbaar. Maar zonder merk ontbreekt de reden waarom klanten terugkomen, ook als er een goedkoper alternatief is.\n\nWat onderzoek zegt over de 60/40-verdeling:\nhttps://flii.nl/insight/branding-versus-performance-marketing\n\n#branding #performancemarketing #marketing #strategie",
+        "linkedin": "Merkbouw of direct resultaat? De vraag is verkeerd gesteld. Waarom de beste campagnes allebei doen, en hoe je de balans vindt.\n\nPerformance marketing maakt elke euro meetbaar. Maar zonder merk ontbreekt de reden waarom klanten terugkomen, ook als er een goedkoper alternatief is.\n\nWat onderzoek zegt over de 60/40-verdeling lees je in de eerste reactie.\n\n#branding #performancemarketing #marketing #strategie",
         "instagram": "Branding of performance? Het antwoord is: allebei.\n\nPerformance levert vandaag resultaat op. Branding zorgt dat klanten morgen terugkomen. Hoe je de balans vindt, lees je op flii.nl. Link in bio.\n\n#branding #performancemarketing #marketing #strategie"
       },
       "imagePrompt": null,
       "status": "live, nog inplannen",
-      "socialImage": "/assets/social/branding-versus-performance-marketing.jpg"
+      "socialImage": "/assets/social/branding-versus-performance-marketing.jpg",
+      "linkedinFirstComment": "Waarom de beste campagnes branding én performance combineren, en wat onderzoek zegt over de 60/40-verdeling. Lees verder op flii.nl → https://flii.nl/insight/branding-versus-performance-marketing",
+      "socialImage4x5": "/assets/social/branding-versus-performance-marketing-ig.jpg"
     },
     {
       "id": 9,
@@ -152,12 +163,14 @@
       },
       "pageText": "/cases/theatertijd",
       "socialCopy": {
-        "linkedin": "Nieuw project: TheaterTijd. Wij maken de social media strategie voor het tv-programma op RTL4 en Videoland dat Nederland terugbrengt naar de theaters.\n\nhttps://flii.nl/cases/theatertijd\n\n#theater #socialmedia #RTL4 #Videoland #nieuwproject",
+        "linkedin": "Nieuw project: TheaterTijd. Wij maken de social media strategie voor het tv-programma op RTL4 en Videoland dat Nederland terugbrengt naar de theaters.\n\n#theater #socialmedia #RTL4 #Videoland #nieuwproject",
         "instagram": "Het doek gaat bijna open. Nieuw project: TheaterTijd.\n\nWij maken de social media strategie voor het tv-programma op RTL4 en Videoland dat Nederland terugbrengt naar de theaters. Link in bio.\n\n#theatertijd #theater #socialmedia #rtl4 #videoland"
       },
       "imagePrompt": null,
       "status": "live, nog inplannen",
-      "socialImage": "/assets/social/theatertijd.jpg"
+      "socialImage": "/assets/social/theatertijd.jpg",
+      "linkedinFirstComment": "Benieuwd hoe we TheaterTijd op social media lanceren? Lees verder op flii.nl → https://flii.nl/cases/theatertijd",
+      "socialImage4x5": "/assets/social/theatertijd-ig.jpg"
     },
     {
       "id": 10,
@@ -175,7 +188,7 @@
       },
       "pageText": "/insight/google-io-2026-wat-marketeers-moeten-weten",
       "socialCopy": {
-        "linkedin": "Elke maand gebruiken 2,5 miljard mensen AI Overviews in Google, en AI Mode haalde binnen een jaar 1 miljard gebruikers. Wat Google I/O 2026 betekent voor je vindbaarheid.\n\nWat marketeers moeten weten uit de keynote:\n→ Zoeken groeit door: het aantal zoekopdrachten bereikte een recordhoogte, maar steeds vaker eindigt een zoektocht in een AI-antwoord\n→ Information agents volgen 24/7 onderwerpen, prijzen en nieuws voor hun gebruikers\n→ Universal Cart brengt de winkelwagen naar Search, Gemini, YouTube en Gmail\n\nWat je nu al kunt doen:\nhttps://flii.nl/insight/google-io-2026-wat-marketeers-moeten-weten\n\n#Google #SEO #AI #marketing",
+        "linkedin": "Elke maand gebruiken 2,5 miljard mensen AI Overviews in Google, en AI Mode haalde binnen een jaar 1 miljard gebruikers. Wat Google I/O 2026 betekent voor je vindbaarheid.\n\nWat marketeers moeten weten uit de keynote:\n→ Zoeken groeit door: het aantal zoekopdrachten bereikte een recordhoogte, maar steeds vaker eindigt een zoektocht in een AI-antwoord\n→ Information agents volgen 24/7 onderwerpen, prijzen en nieuws voor hun gebruikers\n→ Universal Cart brengt de winkelwagen naar Search, Gemini, YouTube en Gmail\n\nWat je nu al kunt doen, lees je in de eerste reactie.\n\n#Google #SEO #AI #marketing",
         "instagram": "2,5 miljard mensen krijgen hun antwoord al van Google's AI.\n\nAI Mode haalde binnen een jaar 1 miljard gebruikers, en Google bouwt agents die 24/7 voor je blijven zoeken. Swipe voor wat dit betekent voor je merk.\n\nHet hele verhaal lees je op flii.nl. Link in bio.\n\n#google #seo #ai #marketing"
       },
       "imagePrompt": null,
@@ -186,6 +199,13 @@
         "/assets/social/google-io-2026-wat-marketeers-moeten-weten-2.jpg",
         "/assets/social/google-io-2026-wat-marketeers-moeten-weten-3.jpg",
         "/assets/social/google-io-2026-wat-marketeers-moeten-weten-4.jpg"
+      ],
+      "linkedinFirstComment": "Wat Google I/O 2026 betekent voor je vindbaarheid, en wat je nu al kunt doen. Lees verder op flii.nl → https://flii.nl/insight/google-io-2026-wat-marketeers-moeten-weten",
+      "socialImage4x5": [
+        "/assets/social/google-io-2026-wat-marketeers-moeten-weten-1-ig.jpg",
+        "/assets/social/google-io-2026-wat-marketeers-moeten-weten-2-ig.jpg",
+        "/assets/social/google-io-2026-wat-marketeers-moeten-weten-3-ig.jpg",
+        "/assets/social/google-io-2026-wat-marketeers-moeten-weten-4-ig.jpg"
       ]
     },
     {
@@ -624,5 +644,6 @@
   "platforms": [
     "linkedin",
     "instagram"
-  ]
+  ],
+  "linkedinRules": "Geen links in de posttekst; link als eerste reactie met 'Lees verder op flii.nl →'. Beelden 4:5."
 }
