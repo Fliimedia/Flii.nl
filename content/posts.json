@@ -61,21 +61,22 @@
       "template": "behind",
       "topic": "Het Halloween-seizoen is begonnen",
       "slug": "terug-naar-de-basis",
-      "path": "/insight/terug-naar-de-basis",
+      "path": null,
       "existingPage": false,
       "title": "Het Halloween-seizoen is begonnen",
       "hook": {
         "linkedin": "Een cadeautje van de meiden. Om slechte klanten af te schrikken.",
         "instagram": "Een cadeautje van de meiden. Om slechte klanten af te schrikken."
       },
-      "pageText": "/insight/terug-naar-de-basis",
+      "pageText": null,
       "socialCopy": {
-        "linkedin": "Het Halloween-seizoen is begonnen.\n\nEen cadeautje van de meiden. Om slechte klanten af te schrikken.\n\nhttps://flii.nl/insight/terug-naar-de-basis\n\n#behindthescenes #fliimedia",
+        "linkedin": "Het Halloween-seizoen is begonnen.\n\nEen cadeautje van de meiden. Om slechte klanten af te schrikken.\n\n#behindthescenes #fliimedia",
         "instagram": "Het Halloween-seizoen is begonnen.\n\nEen cadeautje van de meiden. Om slechte klanten af te schrikken.\n\n#behindthescenes #fliimedia #bureauleven"
       },
       "imagePrompt": null,
       "status": "live, nog inplannen",
-      "socialImage": "/assets/social/terug-naar-de-basis.jpg"
+      "socialImage": "/assets/social/terug-naar-de-basis.jpg",
+      "landingPage": false
     },
     {
       "id": 5,
