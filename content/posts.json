@@ -10,20 +10,21 @@
       "slug": "ai-nieuwscrawlers-en-je-merk",
       "path": "/insight/ai-nieuwscrawlers-en-je-merk",
       "existingPage": false,
-      "title": "Moet AI ook een krantenabonnement hebben?",
+      "title": "Zou AI ook een krantenabonnement moeten hebben?",
       "hook": {
-        "linkedin": "ChatGPT vertelt dagelijks wat er over jouw merk in het nieuws staat. Maar welke bronnen leest het eigenlijk, en betaalt het daarvoor?",
-        "instagram": "AI leest de krant. Ook over jouw merk. Wat het daar vindt, vertelt het door."
+        "linkedin": "Steeds meer mensen laten AI het nieuws samenvatten, in plaats van zelf de krant te lezen. Zou AI dan een abonnement moeten hebben op de kranten waar het zijn informatie vandaan haalt?",
+        "instagram": "AI leest de krant. Maar betaalt het ook?"
       },
       "pageText": "insight/ai-nieuwscrawlers-en-je-merk.html",
       "socialCopy": {
-        "linkedin": "ChatGPT vertelt dagelijks wat er over jouw merk in het nieuws staat. Maar welke bronnen leest het eigenlijk, en betaalt het daarvoor?\n\nSteeds meer uitgevers houden AI-crawlers buiten, of laten ze alleen binnen na een licentiedeal. Van 70 grote nieuwsuitgevers weren er 60 minstens één AI-crawler.\n\nHet gevolg: AI kan alleen navertellen wat het mag lezen. Staat jouw beste publicatie achter een gesloten deur, dan bestaat die voor ChatGPT niet.\n\nWat dit betekent voor je PR, je website en hoe je je zichtbaarheid meet:\nhttps://flii.nl/insight/ai-nieuwscrawlers-en-je-merk\n\n#AI #PR #GEO #contentmarketing",
-        "instagram": "AI leest de krant. Ook over jouw merk. Wat het daar vindt, vertelt het door.\n\nMaar steeds meer kranten houden AI buiten de deur, tenzij er betaald wordt. Wat AI niet mag lezen, bestaat voor AI niet.\n\nWat dit betekent voor je merk lees je op flii.nl. Link in bio.\n\n#ai #marketing #pr #chatgpt #contentmarketing"
+        "linkedin": "Steeds meer mensen laten AI het nieuws samenvatten, in plaats van zelf de krant te lezen. Zou AI dan een abonnement moeten hebben op de kranten waar het zijn informatie vandaan haalt?\n\nUitgevers zoeken naar antwoorden: pay-per-crawl, pay-per-use, licentieovereenkomsten, collectieve licenties en bundelabonnementen.\n\nYsée zocht uit hoe dat werkt, en wat het betekent voor de journalistiek:\nhttps://flii.nl/insight/ai-nieuwscrawlers-en-je-merk\n\n#AI #journalistiek #media #uitgevers",
+        "instagram": "AI leest de krant. Maar betaalt het ook?\n\nSteeds meer mensen laten AI het nieuws samenvatten, zonder de krant zelf te bezoeken. Hoe uitgevers daarop reageren, lees je op flii.nl. Link in bio.\n\n#ai #journalistiek #media #nieuws"
       },
       "imagePrompt": "Photorealistic editorial photograph: humanoid robot reading a newspaper at a wooden breakfast table, morning light",
       "status": "live, nog inplannen",
       "headerImage": "/assets/insight/ai-nieuwscrawlers-en-je-merk.jpg",
-      "socialImage": "/assets/social/ai-nieuwscrawlers-en-je-merk.jpg"
+      "socialImage": "/assets/social/ai-nieuwscrawlers-en-je-merk.jpg",
+      "author": "Ysée Pagesy"
     },
     {
       "id": 3,
