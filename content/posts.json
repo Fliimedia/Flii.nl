@@ -154,22 +154,21 @@
       "template": "newProject",
       "topic": "Theatertijd",
       "slug": "theatertijd",
-      "path": "/cases/theatertijd",
+      "path": null,
       "existingPage": false,
       "title": "Nieuw project: TheaterTijd",
       "hook": {
         "linkedin": "Nieuw project: TheaterTijd. Wij maken de social media strategie voor het tv-programma op RTL4 en Videoland dat Nederland terugbrengt naar de theaters.",
         "instagram": "Het doek gaat bijna open. Nieuw project: TheaterTijd."
       },
-      "pageText": "/cases/theatertijd",
+      "pageText": null,
       "socialCopy": {
         "linkedin": "Nieuw project: TheaterTijd. Wij maken de social media strategie voor het tv-programma op RTL4 en Videoland dat Nederland terugbrengt naar de theaters.\n\n#theater #socialmedia #RTL4 #Videoland #nieuwproject",
-        "instagram": "Het doek gaat bijna open. Nieuw project: TheaterTijd.\n\nWij maken de social media strategie voor het tv-programma op RTL4 en Videoland dat Nederland terugbrengt naar de theaters. Link in bio.\n\n#theatertijd #theater #socialmedia #rtl4 #videoland"
+        "instagram": "Het doek gaat bijna open. Nieuw project: TheaterTijd.\n\nWij maken de social media strategie voor het tv-programma op RTL4 en Videoland dat Nederland terugbrengt naar de theaters.\n\n#theatertijd #theater #socialmedia #rtl4 #videoland"
       },
       "imagePrompt": null,
       "status": "live, nog inplannen",
       "socialImage": "/assets/social/theatertijd.jpg",
-      "linkedinFirstComment": "Benieuwd hoe we TheaterTijd op social media lanceren? Lees verder op flii.nl → https://flii.nl/cases/theatertijd",
       "socialImage4x5": "/assets/social/theatertijd-ig.jpg"
     },
     {
