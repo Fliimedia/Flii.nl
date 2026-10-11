@@ -326,22 +326,6 @@
       "status": "onderwerp"
     },
     {
-      "id": 18,
-      "date": "2026-11-16",
-      "category": "New project",
-      "template": "newProject",
-      "topic": "Uitvaart-portret.nl: nieuw website-ontwerp",
-      "slug": "uitvaart-portret",
-      "path": null,
-      "existingPage": false,
-      "title": null,
-      "hook": null,
-      "pageText": null,
-      "socialCopy": null,
-      "imagePrompt": null,
-      "status": "onderwerp"
-    },
-    {
       "id": 19,
       "date": "2026-11-18",
       "category": "Blog",
@@ -557,22 +541,6 @@
       "imagePrompt": null,
       "status": "onderwerp",
       "linkedinFirstComment": "Verder lezen → https://flii.nl/insight/mediaplan-2027-in-vijf-stappen"
-    },
-    {
-      "id": 32,
-      "date": "2026-12-18",
-      "category": "New project",
-      "template": "newProject",
-      "topic": "Parkeervergunningen.info: SEO-platform op geverifieerde data",
-      "slug": "parkeervergunningen-info",
-      "path": null,
-      "existingPage": false,
-      "title": null,
-      "hook": null,
-      "pageText": null,
-      "socialCopy": null,
-      "imagePrompt": null,
-      "status": "onderwerp"
     },
     {
       "id": 33,
