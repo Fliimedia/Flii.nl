@@ -185,6 +185,14 @@ nav.nav{background:#fff !important;color:#0F0E0C !important;max-width:none !impo
 .case-slot .rc-row{border-bottom:1px solid rgba(0,0,0,.08);}
 .case-slot .rc-num{color:#0F0E0C;}
 .case-slot .rc-desc,.case-slot .rc-label{color:#5A6068;}
+/* Inhoud in een gecentreerde kolom, gelijk aan de footer. */
+.page-hero,.section-body,body > picture{
+  max-width:var(--paginabreedte,680px);margin-left:auto;margin-right:auto;}
+body > picture{box-sizing:border-box;}
+
+/* Notitieregels in de slotkaart: donkere tekst op de witte kaart. */
+.case-slot .rc-row--note .rc-desc{color:#5A6068;}
+
 .case-slot .rc-icon{border-color:rgba(0,0,0,.14);color:#0F0E0C;}
 
 /* Logo en menuknop op dezelfde kolom als de rest van de pagina.
@@ -295,9 +303,10 @@ nav.nav{background:#fff !important;color:#0F0E0C !important;max-width:none !impo
 <div class="section-body case-outro">
 <div class="case-slot">
 <div class="result-card">
-  <div class="rc-row"><span class="rc-icon"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="rgba(232,41,74,.9)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="22 7 13.5 15.5 8.5 10.5 2 17"/><polyline points="16 7 22 7 22 13"/></svg></span><span class="rc-desc">groei vertoningen Google Search</span><span class="rc-num">3K→18K</span></div>
-  <div class="rc-row"><span class="rc-icon"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="rgba(232,41,74,.9)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"/></svg></span><span class="rc-desc">groei organische klikken per maand</span><span class="rc-num">100→250</span></div>
-  <div class="rc-row"><span class="rc-icon"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="rgba(232,41,74,.9)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg></span><span class="rc-desc">internationale markten bereikt</span><span class="rc-num">3</span></div>
+  <div class="rc-row"><span class="rc-icon"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="rgba(232,41,74,.9)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="22 7 13.5 15.5 8.5 10.5 2 17"/><polyline points="16 7 22 7 22 13"/></svg></span><span class="rc-desc">vertoningen per maand in Google Search</span><span class="rc-num">3K&#8594;18K</span></div>
+  <div class="rc-row"><span class="rc-icon"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="rgba(232,41,74,.9)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="22 7 13.5 15.5 8.5 10.5 2 17"/><polyline points="16 7 22 7 22 13"/></svg></span><span class="rc-desc">organische klikken per maand</span><span class="rc-num">100&#8594;250</span></div>
+  <div class="rc-row rc-row--note"><span class="rc-icon"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="rgba(232,41,74,.9)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="22 7 13.5 15.5 8.5 10.5 2 17"/><polyline points="16 7 22 7 22 13"/></svg></span><span class="rc-desc">Domeinmigratie met 301-redirects op alle oude URL's, zonder terugval in vindbaarheid</span></div>
+</div>
 </div>
 </div>
 </div>

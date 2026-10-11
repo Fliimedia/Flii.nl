@@ -177,6 +177,14 @@ nav.nav{background:#fff !important;color:#0F0E0C !important;max-width:none !impo
 .case-slot .rc-row{border-bottom:1px solid rgba(0,0,0,.08);}
 .case-slot .rc-num{color:#0F0E0C;}
 .case-slot .rc-desc,.case-slot .rc-label{color:#5A6068;}
+/* Inhoud in een gecentreerde kolom, gelijk aan de footer. */
+.page-hero,.section-body,body > picture{
+  max-width:var(--paginabreedte,680px);margin-left:auto;margin-right:auto;}
+body > picture{box-sizing:border-box;}
+
+/* Notitieregels in de slotkaart: donkere tekst op de witte kaart. */
+.case-slot .rc-row--note .rc-desc{color:#5A6068;}
+
 .case-slot .rc-icon{border-color:rgba(0,0,0,.14);color:#0F0E0C;}
 
 /* Logo en menuknop op dezelfde kolom als de rest van de pagina.
@@ -284,9 +292,10 @@ nav.nav{background:#fff !important;color:#0F0E0C !important;max-width:none !impo
 <div class="section-body case-outro">
 <div class="case-slot">
 <div class="result-card">
-  <div class="rc-row"><span class="rc-icon"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="rgba(232,41,74,.9)" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg></span><span class="rc-desc">kanalen gecombineerd: Search, Shopping en Meta</span><span class="rc-num">3</span></div>
   <div class="rc-row rc-row--note"><span class="rc-icon"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="rgba(232,41,74,.9)" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg></span><span class="rc-desc">ROAS structureel boven de afgesproken benchmark</span></div>
-  <div class="rc-row rc-row--note"><span class="rc-icon"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="rgba(232,41,74,.9)" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg></span><span class="rc-desc">Zoekintentie in kaart van oriënterend tot koopklaar, als basis voor campagne én landingspagina</span></div>
+  <div class="rc-row rc-row--note"><span class="rc-icon"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="rgba(232,41,74,.9)" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg></span><span class="rc-desc">Shopping ingericht met bidding per categorie en marge, via Performance Max uitgebreid naar Display, YouTube en Gmail</span></div>
+  <div class="rc-row rc-row--note"><span class="rc-icon"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="rgba(232,41,74,.9)" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg></span><span class="rc-desc">Zoekintentie in kaart van ori&euml;nterend tot koopklaar, als basis voor campagnes &eacute;n landingspagina's</span></div>
+</div>
 </div>
 </div>
 </div>

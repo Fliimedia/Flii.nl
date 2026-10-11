@@ -146,6 +146,14 @@ nav.nav{background:#fff !important;color:#0F0E0C !important;max-width:none !impo
 .case-slot .rc-row{border-bottom:1px solid rgba(0,0,0,.08);}
 .case-slot .rc-num{color:#0F0E0C;}
 .case-slot .rc-desc,.case-slot .rc-label{color:#5A6068;}
+/* Inhoud in een gecentreerde kolom, gelijk aan de footer. */
+.page-hero,.section-body,body > picture{
+  max-width:var(--paginabreedte,680px);margin-left:auto;margin-right:auto;}
+body > picture{box-sizing:border-box;}
+
+/* Notitieregels in de slotkaart: donkere tekst op de witte kaart. */
+.case-slot .rc-row--note .rc-desc{color:#5A6068;}
+
 .case-slot .rc-icon{border-color:rgba(0,0,0,.14);color:#0F0E0C;}
 
 /* Logo en menuknop op dezelfde kolom als de rest van de pagina.
@@ -266,9 +274,10 @@ nav.nav{background:#fff !important;color:#0F0E0C !important;max-width:none !impo
 <div class="section-body case-outro">
 <div class="case-slot">
 <div class="result-card">
-  <div class="rc-row"><span class="rc-icon"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="rgba(232,41,74,.9)" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg></span><span class="rc-desc">kanalen bespeeld: YouTube, LinkedIn en Instagram</span><span class="rc-num">3</span></div>
-  <div class="rc-row rc-row--note"><span class="rc-icon"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="rgba(232,41,74,.9)" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg></span><span class="rc-desc">Vaste tone of voice ontwikkeld en per bericht geautomatiseerd</span></div>
-  <div class="rc-row rc-row--note"><span class="rc-icon"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="rgba(232,41,74,.9)" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg></span><span class="rc-desc">KPI-framework gebouwd waar meetbare doelen tot dan toe ontbraken</span></div>
+  <div class="rc-row rc-row--note"><span class="rc-icon"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="rgba(232,41,74,.9)" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg></span><span class="rc-desc">Ad hoc posts op nieuws en wetswijzigingen haalden consistent meer engagement dan geplande content</span></div>
+  <div class="rc-row rc-row--note"><span class="rc-icon"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="rgba(232,41,74,.9)" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg></span><span class="rc-desc">Vaste tone of voice ontwikkeld en per platform automatisch toegepast op elke post</span></div>
+  <div class="rc-row rc-row--note"><span class="rc-icon"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="rgba(232,41,74,.9)" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg></span><span class="rc-desc">KPI-framework opgeleverd waar meetbare doelen tot dan toe ontbraken</span></div>
+</div>
 </div>
 </div>
 </div>
