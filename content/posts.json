@@ -25,7 +25,8 @@
       "headerImage": "/assets/insight/ai-nieuwscrawlers-en-je-merk.jpg",
       "socialImage": "/assets/social/ai-nieuwscrawlers-en-je-merk.jpg",
       "author": "Ysée Pagesy",
-      "socialImage4x5": "/assets/social/ai-nieuwscrawlers-en-je-merk-ig.jpg"
+      "socialImage4x5": "/assets/social/ai-nieuwscrawlers-en-je-merk-ig.jpg",
+      "linkedinFirstComment": "Verder lezen → https://flii.nl/insight/ai-nieuwscrawlers-en-je-merk"
     },
     {
       "id": 3,
@@ -54,7 +55,7 @@
         "/assets/social/social-media-onderzoek-2026-newcom-3.jpg",
         "/assets/social/social-media-onderzoek-2026-newcom-4.jpg"
       ],
-      "linkedinFirstComment": "Wat de cijfers van Newcom betekenen voor merken, en hoe je er slim op inspeelt. Lees verder op flii.nl → https://flii.nl/insight/social-media-onderzoek-2026-newcom",
+      "linkedinFirstComment": "Verder lezen → https://flii.nl/insight/social-media-onderzoek-2026-newcom",
       "socialImage4x5": [
         "/assets/social/social-media-onderzoek-2026-newcom-1-ig.jpg",
         "/assets/social/social-media-onderzoek-2026-newcom-2-ig.jpg",
@@ -120,7 +121,8 @@
       "pageText": null,
       "socialCopy": null,
       "imagePrompt": null,
-      "status": "wacht op resultaten"
+      "status": "wacht op resultaten",
+      "linkedinFirstComment": "Verder lezen → https://flii.nl/cases/onelane"
     },
     {
       "id": 7,
@@ -144,7 +146,7 @@
       "imagePrompt": null,
       "status": "live, nog inplannen",
       "socialImage": "/assets/social/branding-versus-performance-marketing.jpg",
-      "linkedinFirstComment": "Waarom de beste campagnes branding én performance combineren, en wat onderzoek zegt over de 60/40-verdeling. Lees verder op flii.nl → https://flii.nl/insight/branding-versus-performance-marketing",
+      "linkedinFirstComment": "Verder lezen → https://flii.nl/insight/branding-versus-performance-marketing",
       "socialImage4x5": "/assets/social/branding-versus-performance-marketing-ig.jpg"
     },
     {
@@ -199,7 +201,7 @@
         "/assets/social/google-io-2026-wat-marketeers-moeten-weten-3.jpg",
         "/assets/social/google-io-2026-wat-marketeers-moeten-weten-4.jpg"
       ],
-      "linkedinFirstComment": "Wat Google I/O 2026 betekent voor je vindbaarheid, en wat je nu al kunt doen. Lees verder op flii.nl → https://flii.nl/insight/google-io-2026-wat-marketeers-moeten-weten",
+      "linkedinFirstComment": "Verder lezen → https://flii.nl/insight/google-io-2026-wat-marketeers-moeten-weten",
       "socialImage4x5": [
         "/assets/social/google-io-2026-wat-marketeers-moeten-weten-1-ig.jpg",
         "/assets/social/google-io-2026-wat-marketeers-moeten-weten-2-ig.jpg",
@@ -230,7 +232,7 @@
       "template": "behind",
       "topic": "Een week bij Flii Media: van mediaplan tot rapportage",
       "slug": "een-week-bij-flii-media",
-      "path": "/insight/een-week-bij-flii-media",
+      "path": null,
       "existingPage": false,
       "title": null,
       "hook": null,
@@ -253,7 +255,8 @@
       "pageText": null,
       "socialCopy": null,
       "imagePrompt": null,
-      "status": "onderwerp"
+      "status": "onderwerp",
+      "linkedinFirstComment": "Verder lezen → https://flii.nl/cases/performance-os"
     },
     {
       "id": 14,
@@ -269,7 +272,8 @@
       "pageText": null,
       "socialCopy": null,
       "imagePrompt": null,
-      "status": "onderwerp"
+      "status": "onderwerp",
+      "linkedinFirstComment": "Verder lezen → https://flii.nl/insight/black-friday-checklist-campagnes"
     },
     {
       "id": 15,
@@ -285,7 +289,8 @@
       "pageText": null,
       "socialCopy": null,
       "imagePrompt": null,
-      "status": "onderwerp"
+      "status": "onderwerp",
+      "linkedinFirstComment": "Verder lezen → https://flii.nl/insight/interview-stichting-de-buurt"
     },
     {
       "id": 16,
@@ -301,7 +306,8 @@
       "pageText": null,
       "socialCopy": null,
       "imagePrompt": null,
-      "status": "onderwerp"
+      "status": "onderwerp",
+      "linkedinFirstComment": "Verder lezen → https://flii.nl/insight/awareness-of-conversie-mediabudget-verdelen"
     },
     {
       "id": 17,
@@ -326,7 +332,7 @@
       "template": "newProject",
       "topic": "Uitvaart-portret.nl: nieuw website-ontwerp",
       "slug": "uitvaart-portret",
-      "path": "/cases/uitvaart-portret",
+      "path": null,
       "existingPage": false,
       "title": null,
       "hook": null,
@@ -349,7 +355,8 @@
       "pageText": null,
       "socialCopy": null,
       "imagePrompt": null,
-      "status": "onderwerp"
+      "status": "onderwerp",
+      "linkedinFirstComment": "Verder lezen → https://flii.nl/insight/founder-as-a-brand"
     },
     {
       "id": 20,
@@ -358,7 +365,7 @@
       "template": "behind",
       "topic": "Onze contentmotor: van één onderwerp naar post, beeld en landingspagina",
       "slug": "onze-contentmotor",
-      "path": "/insight/onze-contentmotor",
+      "path": null,
       "existingPage": false,
       "title": null,
       "hook": null,
@@ -381,7 +388,8 @@
       "pageText": null,
       "socialCopy": null,
       "imagePrompt": null,
-      "status": "onderwerp"
+      "status": "onderwerp",
+      "linkedinFirstComment": "Verder lezen → https://flii.nl/cases/bikefair"
     },
     {
       "id": 22,
@@ -397,7 +405,8 @@
       "pageText": null,
       "socialCopy": null,
       "imagePrompt": null,
-      "status": "onderwerp"
+      "status": "onderwerp",
+      "linkedinFirstComment": "Verder lezen → https://flii.nl/insight/black-friday-per-kanaal"
     },
     {
       "id": 23,
@@ -429,7 +438,8 @@
       "pageText": null,
       "socialCopy": null,
       "imagePrompt": null,
-      "status": "onderwerp"
+      "status": "onderwerp",
+      "linkedinFirstComment": "Verder lezen → https://flii.nl/insight/na-black-friday-retargeting-decemberpiek"
     },
     {
       "id": 25,
@@ -445,7 +455,8 @@
       "pageText": null,
       "socialCopy": null,
       "imagePrompt": null,
-      "status": "onderwerp"
+      "status": "onderwerp",
+      "linkedinFirstComment": "Verder lezen → https://flii.nl/cases/fc-klap"
     },
     {
       "id": 26,
@@ -461,7 +472,8 @@
       "pageText": null,
       "socialCopy": null,
       "imagePrompt": null,
-      "status": "onderwerp"
+      "status": "onderwerp",
+      "linkedinFirstComment": "Verder lezen → https://flii.nl/insight/interview-ai-in-bureauwerk"
     },
     {
       "id": 27,
@@ -477,7 +489,8 @@
       "pageText": null,
       "socialCopy": null,
       "imagePrompt": null,
-      "status": "onderwerp"
+      "status": "onderwerp",
+      "linkedinFirstComment": "Verder lezen → https://flii.nl/insight/mediaprijzen-2027"
     },
     {
       "id": 28,
@@ -486,7 +499,7 @@
       "template": "behind",
       "topic": "flii.labs: hoe eigen experimenten zoals FC Data en het WK-model klantwerk beter maken",
       "slug": "flii-labs-eigen-experimenten",
-      "path": "/insight/flii-labs-eigen-experimenten",
+      "path": null,
       "existingPage": false,
       "title": null,
       "hook": null,
@@ -525,7 +538,8 @@
       "pageText": null,
       "socialCopy": null,
       "imagePrompt": null,
-      "status": "onderwerp"
+      "status": "onderwerp",
+      "linkedinFirstComment": "Verder lezen → https://flii.nl/cases/theaterthuis"
     },
     {
       "id": 31,
@@ -541,7 +555,8 @@
       "pageText": null,
       "socialCopy": null,
       "imagePrompt": null,
-      "status": "onderwerp"
+      "status": "onderwerp",
+      "linkedinFirstComment": "Verder lezen → https://flii.nl/insight/mediaplan-2027-in-vijf-stappen"
     },
     {
       "id": 32,
@@ -550,7 +565,7 @@
       "template": "newProject",
       "topic": "Parkeervergunningen.info: SEO-platform op geverifieerde data",
       "slug": "parkeervergunningen-info",
-      "path": "/cases/parkeervergunningen-info",
+      "path": null,
       "existingPage": false,
       "title": null,
       "hook": null,
@@ -573,7 +588,8 @@
       "pageText": null,
       "socialCopy": null,
       "imagePrompt": null,
-      "status": "onderwerp"
+      "status": "onderwerp",
+      "linkedinFirstComment": "Verder lezen → https://flii.nl/insight/terugblik-2026-kanalen"
     },
     {
       "id": 34,
@@ -589,7 +605,8 @@
       "pageText": null,
       "socialCopy": null,
       "imagePrompt": null,
-      "status": "onderwerp"
+      "status": "onderwerp",
+      "linkedinFirstComment": "Verder lezen → https://flii.nl/insight/interview-oprichter-2026-2027"
     },
     {
       "id": 35,
@@ -598,7 +615,7 @@
       "template": "behind",
       "topic": "Kerstgroet van het team",
       "slug": "kerstgroet-2026",
-      "path": "/insight/kerstgroet-2026",
+      "path": null,
       "existingPage": false,
       "title": null,
       "hook": null,
@@ -621,7 +638,8 @@
       "pageText": null,
       "socialCopy": null,
       "imagePrompt": null,
-      "status": "onderwerp"
+      "status": "onderwerp",
+      "linkedinFirstComment": "Verder lezen → https://flii.nl/insight/mediaontwikkelingen-2026"
     },
     {
       "id": 37,
@@ -637,12 +655,13 @@
       "pageText": null,
       "socialCopy": null,
       "imagePrompt": null,
-      "status": "onderwerp"
+      "status": "onderwerp",
+      "linkedinFirstComment": "Verder lezen → https://flii.nl/insight/vijf-trends-voor-2027"
     }
   ],
   "platforms": [
     "linkedin",
     "instagram"
   ],
-  "linkedinRules": "Geen links in de posttekst; link als eerste reactie met 'Lees verder op flii.nl →'. Beelden 4:5."
+  "linkedinRules": "Geen links in de posttekst; link als eerste reactie, standaard 'Verder lezen → ' gevolgd door de URL van de landingspagina. Geen landingspagina en geen eerste reactie bij New project en Behind the scenes. Beelden 4:5."
 }
