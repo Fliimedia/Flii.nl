@@ -4434,5 +4434,19 @@ document.addEventListener('DOMContentLoaded', function() {
   } else { laad(); }
 })();
 </script>
+<script>
+/* Hero: 'Campagnes · Platformen · AI' komt woord voor woord in beeld. */
+(function () {
+  var delen = Array.prototype.slice.call(document.querySelectorAll('.hero-tagline .tl-part'));
+  if (!delen.length) return;
+  var rustig = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  function toon(el) { el.classList.add('is-in'); }
+  if (rustig) { delen.forEach(toon); return; }
+  var start = 350;
+  delen.forEach(function (el, i) { setTimeout(function () { toon(el); }, start + i * 420); });
+  // vangnet: de regel blijft nooit onzichtbaar
+  setTimeout(function () { delen.forEach(toon); }, start + delen.length * 420 + 2000);
+})();
+</script>
 </body>
 </html>
