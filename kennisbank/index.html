@@ -4,377 +4,472 @@
 <meta charset="UTF-8">
 <meta http-equiv="Cache-Control" content="max-age=300, must-revalidate">
 <meta name="viewport" content="width=device-width,initial-scale=1">
-<title>Kennisbank marketing &amp; media: 135 begrippen | Flii Media</title>
-<meta property="og:type" content="website">
-<meta property="og:title" content="Kennisbank marketing &amp; media: 135 begrippen | Flii Media">
-<meta property="og:description" content="Ruim 135 begrippen uit marketing en media, helder uitgelegd met een praktijkvoorbeeld. Van attributie tot ROAS, van funnel tot programmatic.">
-<meta property="og:url" content="https://flii.nl/kennisbank">
-<meta property="og:image" content="https://flii.nl/assets/og/kennisbank-index.jpg">
-<meta property="og:image:width" content="1200">
-<meta property="og:image:height" content="630">
-<meta property="og:locale" content="nl_NL">
-<meta name="twitter:image" content="https://flii.nl/assets/og/kennisbank-index.jpg">
-<meta property="og:site_name" content="Flii Media">
-<meta name="twitter:card" content="summary_large_image">
-
-<meta name="description" content="Ruim 135 begrippen uit marketing en media, helder uitgelegd met een praktijkvoorbeeld. Van attributie tot ROAS, van funnel tot programmatic.">
-<style>
-@font-face{font-family:'Bricolage Grotesque';src:url('/assets/fonts/BricolageGrotesque.woff2') format('woff2-variations');
-  font-weight:200 800;font-display:swap;}
-@font-face{font-family:'JetBrains Mono';src:url('/assets/fonts/JetBrainsMono.woff2') format('woff2-variations');
-  font-weight:100 800;font-display:swap;}
-@font-face{font-family:'DM Sans';src:url('/assets/fonts/DMSans.woff2') format('woff2-variations');
-  font-weight:100 1000;font-display:swap;}
-:root{--mag:#E8294A;--ink:#0F0E0C;--mid:#4A4840;--subtle:#9B9790;--rule:#E8E6E1;--bg:#F3F1EB;--white:#fff;
-  --ff-disp:'Bricolage Grotesque','Inter',system-ui,sans-serif;
-  --ff-body:'DM Sans',system-ui,sans-serif;--ff-mono:'JetBrains Mono',monospace;}
-*{box-sizing:border-box;margin:0;padding:0;-webkit-font-smoothing:antialiased;}
-body{font-family:var(--ff-body);background:#fff;color:var(--ink);}
-a{color:inherit;text-decoration:none;}
-.nav{display:flex;align-items:center;justify-content:space-between;padding:0 20px;height:56px;
-  border-bottom:1px solid var(--rule);position:sticky;top:0;
-  background:#fff;backdrop-filter:blur(12px);z-index:100;}
-.nav-brand{display:flex;align-items:center;gap:8px;font-family:var(--ff-disp);font-size:15px;font-weight:800;color:var(--ink);}
-.nav-brand img{height:26px;width:auto;}
-.nav-back{font-size:13px;color:#0F0E0C!important;font-weight:600;text-decoration:none;opacity:.85;}
-.nav-back:hover{color:var(--ink);}
-.kb-hero{padding:36px 20px 24px;border-bottom:1px solid var(--rule);background:#fff;}
-.eyebrow{
-  font-family:'Bricolage Grotesque',system-ui,sans-serif;
-  font-size:11px;font-weight:700;letter-spacing:.12em;
-  text-transform:uppercase;color:#E8294A;display:block;margin-bottom:10px;
-}
-.kb-hero h1{font-family:var(--ff-disp);font-size:clamp(22px,6vw,32px);font-weight:800;
-  letter-spacing:-1px;line-height:1.05;margin-bottom:5px;}
-.kb-hero p{font-size:13px;color:var(--mid);line-height:1.5;}
-.kb-body{padding:0 0 64px;}
-/* Category header */
-.kb-cat-label{display:flex;align-items:center;gap:10px;font-family:var(--ff-mono);font-size:11px;font-weight:700;letter-spacing:.08em;text-transform:uppercase;color:#6B6866;padding:10px 0 8px;border-bottom:1px solid #E8E6E1;background:#FAF8F4;border-radius:6px;padding:8px 12px;margin-bottom:4px;}
-.kb-cat-num{font-family:var(--ff-mono);font-size:10px;color:var(--mag);min-width:22px;font-weight:700;}
-/* Main topic rows */
-.kb-row{
-  display:flex;align-items:center;
-  padding:0 20px;
-  border-bottom:1px solid rgba(232,230,225,.6);
-  text-decoration:none;color:var(--ink);
-  transition:background .1s;
-  min-height:52px;
-}
-.kb-row:hover{background:rgba(232,41,74,.04);}
-.kb-row-left{display:flex;flex-direction:column;justify-content:center;flex:1;min-width:0;padding:10px 10px 10px 0;}
-.kb-term{font-size:14px;font-weight:700;color:var(--ink);line-height:1.2;}
-.kb-def{font-size:12px;color:var(--subtle);line-height:1.3;margin-top:2px;}
-.kb-row-arrow{
-  display:inline-flex;align-items:center;gap:4px;flex-shrink:0;
-  color:var(--subtle);font-size:11px;font-weight:600;font-family:var(--ff-body);
-  white-space:nowrap;padding-left:8px;transition:color .15s,transform .15s;
-}
-.kb-row:hover .kb-row-arrow{color:var(--mag);transform:translateX(3px);}
-.kb-row-arrow svg{width:13px;height:13px;flex-shrink:0;}
-/* Sub-topics */
-.kb-subs{background:rgba(232,230,225,.18);}
-.kb-sub-row{
-  display:flex;align-items:center;
-  padding:0 20px 0 32px;
-  border-bottom:1px solid rgba(232,230,225,.4);
-  text-decoration:none;color:var(--ink);
-  transition:background .1s;
-  min-height:40px;
-}
-.kb-sub-row:last-child{border-bottom:none;}
-.kb-sub-row:hover{background:rgba(232,41,74,.04);}
-.kb-sub-left{display:flex;flex-direction:column;justify-content:center;flex:1;min-width:0;padding:7px 8px 7px 0;}
-.kb-sub-term{font-size:13px;font-weight:600;color:var(--mid);}
-.kb-sub-def{font-size:11px;color:var(--subtle);line-height:1.3;margin-top:1px;}
-.kb-sub-arr{display:inline-flex;align-items:center;gap:3px;flex-shrink:0;
-  color:rgba(155,151,144,.5);font-size:10px;font-weight:600;white-space:nowrap;padding-left:6px;
-  transition:color .15s;}
-.kb-sub-row:hover .kb-sub-arr{color:var(--mag);}
-.kb-sub-arr svg{width:11px;height:11px;}
-.page-footer{padding:28px 24px;text-align:center;font-size:12px;color:var(--subtle);
-  border-top:1px solid var(--rule);background:var(--white);}
-.page-footer a{color:var(--ink);font-weight:600;}
-
-/* Navigatiebalk overal gelijk. */
-nav.nav{background:#fff !important;color:#0F0E0C !important;max-width:none !important;margin:0 !important;}
-
-/* Footer volgt deze breedte. */
-:root{--paginabreedte:680px;}
-
-/* Inhoud in een gecentreerde kolom, gelijk aan de footer. */
-.page-hero,.section-body,.cta-section,.kb-related,body > picture,
-.topic-body,.topic-head,section.section{
-  max-width:var(--paginabreedte,680px);margin-left:auto;margin-right:auto;}
-body > picture{box-sizing:border-box;}
-
-/* Logo en menuknop op dezelfde kolom als de rest van de pagina.
-   De balk zelf blijft van rand tot rand; alleen de inhoud springt in. */
-@media (min-width:1140px){
-  nav.nav{
-    padding-left:max(16px, calc((100% - var(--paginabreedte,680px)) / 2)) !important;
-    padding-right:max(16px, calc((100% - var(--paginabreedte,680px)) / 2)) !important;
-    box-sizing:border-box;}
-}
-
-
-
-/* Zelfde kolom als de homepage: 1080px, met de marge berekend uit de
-   schermbreedte in plaats van vastgezet. De marge staat op de
-   containers, niet op de losse kinderen — anders blijft een element
-   dat inline is, zoals de dienstchip, tegen de linkerrand plakken. */
-@media (min-width:1140px){
-  nav.nav{padding-left:calc((100vw - 1080px) / 2) !important;
-          padding-right:calc((100vw - 1080px) / 2) !important;}
-
-  .kb-hero,.hero,.kb-body,.kb-related,body > section{
-    padding-left:calc((100% - 1080px) / 2) !important;
-    padding-right:calc((100% - 1080px) / 2) !important;
-    box-sizing:border-box;}
-
-  .kb-hero > *,.hero > *,.kb-body > *,.kb-related > *,body > section > *{
-    max-width:none;margin-left:0;margin-right:0;}
-}
-nav.nav img{width:56px !important;height:auto !important;}
-</style>
-<link rel="stylesheet" href="/assets/footer.css">
-<script defer src="/assets/footer.js"></script>
-
-
-<script>
-// Clean URL: remove .html extension from address bar
-(function(){
-  var loc = window.location;
-  if (loc.pathname.endsWith('.html') && loc.pathname !== '/index.html') {
-    var clean = loc.pathname.slice(0, -5);
-    history.replaceState(null, '', clean + loc.search + loc.hash);
-  }
-})();
-</script>
+<title>Kennisbank: marketingbegrippen uitgelegd | Flii Media</title>
+<meta name="description" content="41 begrippen uit marketing, merk, content, media en data. Met definitie, uitleg en een voorbeeld uit de praktijk.">
 <link rel="canonical" href="https://flii.nl/kennisbank">
+<meta property="og:type" content="website">
+<meta property="og:title" content="Kennisbank: marketingbegrippen uitgelegd | Flii Media">
+<meta property="og:description" content="41 begrippen uit marketing, merk, content, media en data. Met definitie, uitleg en een voorbeeld uit de praktijk.">
+<meta property="og:url" content="https://flii.nl/kennisbank">
+<meta property="og:site_name" content="Flii Media">
+<meta property="og:locale" content="nl_NL">
+<meta name="twitter:card" content="summary_large_image">
+<style>
+@font-face{font-family:'Bricolage Grotesque';src:url('/assets/fonts/BricolageGrotesque.woff2') format('woff2-variations');font-weight:200 800;font-display:swap;}
+@font-face{font-family:'JetBrains Mono';src:url('/assets/fonts/JetBrainsMono.woff2') format('woff2-variations');font-weight:100 800;font-display:swap;}
+@font-face{font-family:'DM Sans';src:url('/assets/fonts/DMSans.woff2') format('woff2-variations');font-weight:100 1000;font-display:swap;}
+:root{
+  --mag:#E8294A;--ink:#0F0E0C;--mid:#4A4840;--subtle:#9B9790;
+  --rule:#E8E6E1;--bg:#F3F1EB;--white:#fff;
+  --ff-disp:'Bricolage Grotesque','Inter',system-ui,sans-serif;
+  --ff-body:'DM Sans',system-ui,sans-serif;
+  --ff-mono:'JetBrains Mono',monospace;
+}
+*{box-sizing:border-box;margin:0;padding:0;-webkit-font-smoothing:antialiased;}
+html,body{font-family:var(--ff-body);background:#fff;color:var(--ink);overflow-x:hidden;}
+a{color:inherit;text-decoration:none;}
+img{max-width:100%;display:block;}
+.nav{display:flex;align-items:center;justify-content:space-between;padding:0 20px;height:56px;
+  border-bottom:1px solid var(--rule);position:sticky;top:0;background:rgba(255,255,255,.95);
+  backdrop-filter:blur(12px);z-index:100;}
+.nav-brand{display:flex;align-items:center;gap:8px;}
+.nav-brand img{height:28px;width:auto;}
+.nav-back{font-size:13px;color:var(--subtle);font-weight:500;}
+.nav-back:hover{color:var(--ink);}
+</style>
+<link rel="stylesheet" href="/assets/lp-term.css">
 <link rel="stylesheet" href="/assets/reduced-motion.css">
 <script defer src="/assets/reduced-motion.js"></script>
+<link rel="stylesheet" href="/assets/contact-bar.css">
+<script defer src="/assets/contact-bar.js"></script>
+<link rel="stylesheet" href="/assets/footer.css">
+<script defer src="/assets/footer.js"></script>
+<link rel="icon" href="/assets/img/d913cc3c069f.webp" type="image/png">
+<link rel="apple-touch-icon" href="/assets/img/d913cc3c069f.webp">
+<meta name="theme-color" content="#0F0E0C">
+<link rel="preload" href="/assets/fonts/BricolageGrotesque.woff2" as="font" type="font/woff2" crossorigin>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "DefinedTermSet",
+  "name": "Kennisbank Flii Media",
+  "url": "https://flii.nl/kennisbank",
+  "hasDefinedTerm": [
+    {
+      "@type": "DefinedTerm",
+      "name": "Doelgroep",
+      "url": "https://flii.nl/kennisbank/doelgroep"
+    },
+    {
+      "@type": "DefinedTerm",
+      "name": "Segmentatie",
+      "url": "https://flii.nl/kennisbank/segmentatie"
+    },
+    {
+      "@type": "DefinedTerm",
+      "name": "Positionering",
+      "url": "https://flii.nl/kennisbank/positionering"
+    },
+    {
+      "@type": "DefinedTerm",
+      "name": "SWOT",
+      "url": "https://flii.nl/kennisbank/swot"
+    },
+    {
+      "@type": "DefinedTerm",
+      "name": "Benchmark",
+      "url": "https://flii.nl/kennisbank/benchmark"
+    },
+    {
+      "@type": "DefinedTerm",
+      "name": "Funnel",
+      "url": "https://flii.nl/kennisbank/funnel"
+    },
+    {
+      "@type": "DefinedTerm",
+      "name": "CTR",
+      "url": "https://flii.nl/kennisbank/ctr"
+    },
+    {
+      "@type": "DefinedTerm",
+      "name": "CPC",
+      "url": "https://flii.nl/kennisbank/cpc"
+    },
+    {
+      "@type": "DefinedTerm",
+      "name": "CPL",
+      "url": "https://flii.nl/kennisbank/cpl"
+    },
+    {
+      "@type": "DefinedTerm",
+      "name": "ROAS",
+      "url": "https://flii.nl/kennisbank/roas"
+    },
+    {
+      "@type": "DefinedTerm",
+      "name": "ROI",
+      "url": "https://flii.nl/kennisbank/roi"
+    },
+    {
+      "@type": "DefinedTerm",
+      "name": "Conversie",
+      "url": "https://flii.nl/kennisbank/conversie"
+    },
+    {
+      "@type": "DefinedTerm",
+      "name": "Retargeting",
+      "url": "https://flii.nl/kennisbank/retargeting"
+    },
+    {
+      "@type": "DefinedTerm",
+      "name": "KPI",
+      "url": "https://flii.nl/kennisbank/kpi"
+    },
+    {
+      "@type": "DefinedTerm",
+      "name": "Lookalike audiences",
+      "url": "https://flii.nl/kennisbank/lookalike"
+    },
+    {
+      "@type": "DefinedTerm",
+      "name": "Affiliate Marketing",
+      "url": "https://flii.nl/kennisbank/affiliate-marketing"
+    },
+    {
+      "@type": "DefinedTerm",
+      "name": "B2C Marketing",
+      "url": "https://flii.nl/kennisbank/b2c-marketing"
+    },
+    {
+      "@type": "DefinedTerm",
+      "name": "E-commerce",
+      "url": "https://flii.nl/kennisbank/e-commerce"
+    },
+    {
+      "@type": "DefinedTerm",
+      "name": "Budgettering",
+      "url": "https://flii.nl/kennisbank/budgettering"
+    },
+    {
+      "@type": "DefinedTerm",
+      "name": "Projectmanagement",
+      "url": "https://flii.nl/kennisbank/projectmanagement"
+    },
+    {
+      "@type": "DefinedTerm",
+      "name": "Governance",
+      "url": "https://flii.nl/kennisbank/governance"
+    },
+    {
+      "@type": "DefinedTerm",
+      "name": "CRM",
+      "url": "https://flii.nl/kennisbank/crm"
+    },
+    {
+      "@type": "DefinedTerm",
+      "name": "Merkidentiteit",
+      "url": "https://flii.nl/kennisbank/merkidentiteit"
+    },
+    {
+      "@type": "DefinedTerm",
+      "name": "Tone of voice",
+      "url": "https://flii.nl/kennisbank/tone-of-voice"
+    },
+    {
+      "@type": "DefinedTerm",
+      "name": "Brand Experience",
+      "url": "https://flii.nl/kennisbank/brand-experience"
+    },
+    {
+      "@type": "DefinedTerm",
+      "name": "Employer Branding",
+      "url": "https://flii.nl/kennisbank/employer-branding"
+    },
+    {
+      "@type": "DefinedTerm",
+      "name": "SEO",
+      "url": "https://flii.nl/kennisbank/seo"
+    },
+    {
+      "@type": "DefinedTerm",
+      "name": "UGC",
+      "url": "https://flii.nl/kennisbank/ugc"
+    },
+    {
+      "@type": "DefinedTerm",
+      "name": "Contentstrategie",
+      "url": "https://flii.nl/kennisbank/contentstrategie"
+    },
+    {
+      "@type": "DefinedTerm",
+      "name": "Copyright",
+      "url": "https://flii.nl/kennisbank/copyright"
+    },
+    {
+      "@type": "DefinedTerm",
+      "name": "Accessibility",
+      "url": "https://flii.nl/kennisbank/accessibility"
+    },
+    {
+      "@type": "DefinedTerm",
+      "name": "E-mailmarketing",
+      "url": "https://flii.nl/kennisbank/email-marketing"
+    },
+    {
+      "@type": "DefinedTerm",
+      "name": "Display Advertising",
+      "url": "https://flii.nl/kennisbank/display-advertising"
+    },
+    {
+      "@type": "DefinedTerm",
+      "name": "Mobile Marketing",
+      "url": "https://flii.nl/kennisbank/mobile-marketing"
+    },
+    {
+      "@type": "DefinedTerm",
+      "name": "Retail Media",
+      "url": "https://flii.nl/kennisbank/retail-media"
+    },
+    {
+      "@type": "DefinedTerm",
+      "name": "Digitale Media",
+      "url": "https://flii.nl/kennisbank/digitale-media"
+    },
+    {
+      "@type": "DefinedTerm",
+      "name": "Attributie",
+      "url": "https://flii.nl/kennisbank/attributie"
+    },
+    {
+      "@type": "DefinedTerm",
+      "name": "First-party data",
+      "url": "https://flii.nl/kennisbank/first-party-data"
+    },
+    {
+      "@type": "DefinedTerm",
+      "name": "GDPR / AVG",
+      "url": "https://flii.nl/kennisbank/gdpr"
+    },
+    {
+      "@type": "DefinedTerm",
+      "name": "AVG/GDPR",
+      "url": "https://flii.nl/kennisbank/avg-gdpr"
+    },
+    {
+      "@type": "DefinedTerm",
+      "name": "Privacy & Consent",
+      "url": "https://flii.nl/kennisbank/privacy-consent"
+    }
+  ]
+}
+</script>
 <script type="application/ld+json">
 {
   "@context": "https://schema.org",
   "@type": "BreadcrumbList",
   "itemListElement": [
-    {
-      "@type": "ListItem",
-      "position": 1,
-      "name": "Home",
-      "item": "https://flii.nl/"
-    },
-    {
-      "@type": "ListItem",
-      "position": 2,
-      "name": "Kennisbank",
-      "item": "https://flii.nl/kennisbank"
-    },
-    {
-      "@type": "ListItem",
-      "position": 3,
-      "name": "Marketing & Media",
-      "item": "https://flii.nl/kennisbank/index"
-    }
+    { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://flii.nl/" },
+    { "@type": "ListItem", "position": 2, "name": "Kennisbank", "item": "https://flii.nl/kennisbank" }
   ]
 }
 </script>
-<link rel="icon" href="/assets/img/d913cc3c069f.webp" type="image/png">
-<link rel="apple-touch-icon" href="/assets/img/d913cc3c069f.webp">
-<meta name="theme-color" content="#0F0E0C">
-<link rel="preload" href="/assets/fonts/BricolageGrotesque.woff2" as="font" type="font/woff2" crossorigin>
 </head>
 <body>
 <nav class="nav">
-  <a href="../" class="nav-brand"><img src="/assets/img/d913cc3c069f.webp" alt="Flii" fetchpriority="high" decoding="async"></a>
-  <a href="../" class="nav-back">← Terug naar home</a>
+  <a href="/" class="nav-brand"><img src="/assets/img/d913cc3c069f.webp" alt="Flii Media" fetchpriority="high" decoding="async"></a>
+  <a href="/" class="nav-back">&larr; Terug</a>
 </nav>
-<div class="kb-hero">
-  <span class="eyebrow">Kennisbank</span>
-  <h1>Marketing & Media</h1>
-  <p>41 gangbare begrippen — helder en praktisch uitgelegd. Met definitie, uitleg en praktisch voorbeeld.</p>
-</div>
-<div class="kb-body">
-  <div class="kb-cat-group" id="kb-marketing">
-    <div class="kb-cat-label"><span class="kb-cat-num">01</span>Marketing</div>
-    <a href="doelgroep" class="kb-row">
-      <div class="kb-row-left"><span class="kb-term">Doelgroep</span><span class="kb-def">De specifieke groep mensen die je wilt bereiken.</span></div>
-      <span class="kb-row-arrow">Meer<svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 8h10M9 4l4 4-4 4"/></svg></span>
+
+<main class="lt">
+
+  <header class="lt-head">
+    <nav class="lt-crumb" aria-label="Kruimelpad"><a href="/">Flii Media</a><span class="lt-crumb-sep" aria-hidden="true">/</span><span>Kennisbank</span></nav>
+    <h1>Kennisbank</h1>
+    <p class="lt-lead">41 begrippen uit marketing, merk, content, media en data. Met een definitie, uitleg en een voorbeeld uit de praktijk.</p>
+  </header>
+
+  <section class="lt-kb-groep" id="kb-marketing">
+    <p class="lt-kb-label"><span class="lt-kb-nr">01</span>Marketing</p>
+    <a class="lt-kb-rij" href="doelgroep">
+      <span class="lt-kb-tekst"><span class="lt-kb-term">Doelgroep</span><span class="lt-kb-def">De specifieke groep mensen of organisaties die je wilt bereiken met je marketing en communicatie.</span></span>
+      <span class="lt-kb-pijl" aria-hidden="true">&rarr;</span>
     </a>
-    <a href="segmentatie" class="kb-row">
-      <div class="kb-row-left"><span class="kb-term">Segmentatie</span><span class="kb-def">Je markt opdelen in groepen met gedeelde kenmerken.</span></div>
-      <span class="kb-row-arrow">Meer<svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 8h10M9 4l4 4-4 4"/></svg></span>
+    <a class="lt-kb-rij" href="segmentatie">
+      <span class="lt-kb-tekst"><span class="lt-kb-term">Segmentatie</span><span class="lt-kb-def">Het opdelen van een markt in onderscheidende groepen met gedeelde kenmerken, zodat je elke groep gericht kunt benaderen.</span></span>
+      <span class="lt-kb-pijl" aria-hidden="true">&rarr;</span>
     </a>
-    <a href="positionering" class="kb-row">
-      <div class="kb-row-left"><span class="kb-term">Positionering</span><span class="kb-def">De plek die jouw merk inneemt in het hoofd van de klant.</span></div>
-      <span class="kb-row-arrow">Meer<svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 8h10M9 4l4 4-4 4"/></svg></span>
+    <a class="lt-kb-rij" href="positionering">
+      <span class="lt-kb-tekst"><span class="lt-kb-term">Positionering</span><span class="lt-kb-def">De mentale plek die jouw merk inneemt in het hoofd van de doelgroep ten opzichte van concurrenten.</span></span>
+      <span class="lt-kb-pijl" aria-hidden="true">&rarr;</span>
     </a>
-    <a href="swot" class="kb-row">
-      <div class="kb-row-left"><span class="kb-term">SWOT</span><span class="kb-def">Sterktes, zwaktes, kansen en bedreigingen in kaart brengen.</span></div>
-      <span class="kb-row-arrow">Meer<svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 8h10M9 4l4 4-4 4"/></svg></span>
+    <a class="lt-kb-rij" href="swot">
+      <span class="lt-kb-tekst"><span class="lt-kb-term">SWOT</span><span class="lt-kb-def">Een analyseraamwerk voor Strengths (sterktes), Weaknesses (zwaktes), Opportunities (kansen) en Threats (bedreigingen).</span></span>
+      <span class="lt-kb-pijl" aria-hidden="true">&rarr;</span>
     </a>
-    <a href="benchmark" class="kb-row">
-      <div class="kb-row-left"><span class="kb-term">Benchmark</span><span class="kb-def">Je prestaties vergelijken met de marktstandaard.</span></div>
-      <span class="kb-row-arrow">Meer<svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 8h10M9 4l4 4-4 4"/></svg></span>
+    <a class="lt-kb-rij" href="benchmark">
+      <span class="lt-kb-tekst"><span class="lt-kb-term">Benchmark</span><span class="lt-kb-def">Een referentiepunt waaraan je eigen prestaties afmeet — vaak gebaseerd op branchegemiddelden of concurrenten.</span></span>
+      <span class="lt-kb-pijl" aria-hidden="true">&rarr;</span>
     </a>
-    <a href="funnel" class="kb-row">
-      <div class="kb-row-left"><span class="kb-term">Funnel</span><span class="kb-def">Het traject van onbekend naar koper in kaart gebracht.</span></div>
-      <span class="kb-row-arrow">Meer<svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 8h10M9 4l4 4-4 4"/></svg></span>
+    <a class="lt-kb-rij" href="funnel">
+      <span class="lt-kb-tekst"><span class="lt-kb-term">Funnel</span><span class="lt-kb-def">Het traject dat een potentiële klant aflegt van eerste kennismaking (awareness) tot aankoop en loyaliteit.</span></span>
+      <span class="lt-kb-pijl" aria-hidden="true">&rarr;</span>
     </a>
-    <a href="ctr" class="kb-row">
-      <div class="kb-row-left"><span class="kb-term">CTR</span><span class="kb-def">Het percentage mensen dat klikt op je advertentie.</span></div>
-      <span class="kb-row-arrow">Meer<svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 8h10M9 4l4 4-4 4"/></svg></span>
+    <a class="lt-kb-rij" href="ctr">
+      <span class="lt-kb-tekst"><span class="lt-kb-term">CTR</span><span class="lt-kb-def">Click-Through Rate — het percentage mensen dat klikt op je advertentie na het zien ervan.</span></span>
+      <span class="lt-kb-pijl" aria-hidden="true">&rarr;</span>
     </a>
-    <a href="cpc" class="kb-row">
-      <div class="kb-row-left"><span class="kb-term">CPC</span><span class="kb-def">Kosten per klik op een advertentie.</span></div>
-      <span class="kb-row-arrow">Meer<svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 8h10M9 4l4 4-4 4"/></svg></span>
+    <a class="lt-kb-rij" href="cpc">
+      <span class="lt-kb-tekst"><span class="lt-kb-term">CPC</span><span class="lt-kb-def">Cost Per Click — de kosten die je betaalt voor elke klik op je advertentie.</span></span>
+      <span class="lt-kb-pijl" aria-hidden="true">&rarr;</span>
     </a>
-    <a href="cpl" class="kb-row">
-      <div class="kb-row-left"><span class="kb-term">CPL</span><span class="kb-def">Kosten per lead die je genereert.</span></div>
-      <span class="kb-row-arrow">Meer<svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 8h10M9 4l4 4-4 4"/></svg></span>
+    <a class="lt-kb-rij" href="cpl">
+      <span class="lt-kb-tekst"><span class="lt-kb-term">CPL</span><span class="lt-kb-def">Cost Per Lead — de kosten voor het genereren van één gekwalificeerde lead.</span></span>
+      <span class="lt-kb-pijl" aria-hidden="true">&rarr;</span>
     </a>
-    <a href="roas" class="kb-row">
-      <div class="kb-row-left"><span class="kb-term">ROAS</span><span class="kb-def">Omzet per euro advertentiebudget.</span></div>
-      <span class="kb-row-arrow">Meer<svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 8h10M9 4l4 4-4 4"/></svg></span>
+    <a class="lt-kb-rij" href="roas">
+      <span class="lt-kb-tekst"><span class="lt-kb-term">ROAS</span><span class="lt-kb-def">Return On Ad Spend — de omzet die je genereert per euro die je uitgeeft aan advertenties.</span></span>
+      <span class="lt-kb-pijl" aria-hidden="true">&rarr;</span>
     </a>
-    <a href="roi" class="kb-row">
-      <div class="kb-row-left"><span class="kb-term">ROI</span><span class="kb-def">Het rendement op je totale investering.</span></div>
-      <span class="kb-row-arrow">Meer<svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 8h10M9 4l4 4-4 4"/></svg></span>
+    <a class="lt-kb-rij" href="roi">
+      <span class="lt-kb-tekst"><span class="lt-kb-term">ROI</span><span class="lt-kb-def">Return On Investment — het rendement op een investering, uitgedrukt als percentage van de totale kosten.</span></span>
+      <span class="lt-kb-pijl" aria-hidden="true">&rarr;</span>
     </a>
-    <a href="conversie" class="kb-row">
-      <div class="kb-row-left"><span class="kb-term">Conversie</span><span class="kb-def">Een bezoeker die de gewenste actie onderneemt.</span></div>
-      <span class="kb-row-arrow">Meer<svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 8h10M9 4l4 4-4 4"/></svg></span>
+    <a class="lt-kb-rij" href="conversie">
+      <span class="lt-kb-tekst"><span class="lt-kb-term">Conversie</span><span class="lt-kb-def">Het moment dat een bezoeker de gewenste actie onderneemt: een aankoop, aanmelding, aanvraag of download.</span></span>
+      <span class="lt-kb-pijl" aria-hidden="true">&rarr;</span>
     </a>
-    <a href="retargeting" class="kb-row">
-      <div class="kb-row-left"><span class="kb-term">Retargeting</span><span class="kb-def">Opnieuw adverteren aan eerdere websitebezoekers.</span></div>
-      <span class="kb-row-arrow">Meer<svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 8h10M9 4l4 4-4 4"/></svg></span>
+    <a class="lt-kb-rij" href="retargeting">
+      <span class="lt-kb-tekst"><span class="lt-kb-term">Retargeting</span><span class="lt-kb-def">Opnieuw adverteren aan mensen die eerder je website bezochten, maar nog niet geconverteerd zijn.</span></span>
+      <span class="lt-kb-pijl" aria-hidden="true">&rarr;</span>
     </a>
-    <a href="kpi" class="kb-row">
-      <div class="kb-row-left"><span class="kb-term">KPI</span><span class="kb-def">Meetbare doelstelling om voortgang te bewaken.</span></div>
-      <span class="kb-row-arrow">Meer<svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 8h10M9 4l4 4-4 4"/></svg></span>
+    <a class="lt-kb-rij" href="kpi">
+      <span class="lt-kb-tekst"><span class="lt-kb-term">KPI</span><span class="lt-kb-def">Key Performance Indicator — een meetbare indicator die aangeeft in hoeverre een doel bereikt wordt.</span></span>
+      <span class="lt-kb-pijl" aria-hidden="true">&rarr;</span>
     </a>
-    <a href="lookalike" class="kb-row">
-      <div class="kb-row-left"><span class="kb-term">Lookalike audiences</span><span class="kb-def">Nieuwe doelgroepen die lijken op je beste klanten.</span></div>
-      <span class="kb-row-arrow">Meer<svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 8h10M9 4l4 4-4 4"/></svg></span>
+    <a class="lt-kb-rij" href="lookalike">
+      <span class="lt-kb-tekst"><span class="lt-kb-term">Lookalike audiences</span><span class="lt-kb-def">Doelgroepen die door Meta of Google worden samengesteld op basis van gelijkenis met je bestaande klanten.</span></span>
+      <span class="lt-kb-pijl" aria-hidden="true">&rarr;</span>
     </a>
-    <a href="affiliate-marketing" class="kb-row">
-      <div class="kb-row-left"><span class="kb-term">Wat is Affiliate Marketing?</span><span class="kb-def">Een prestatiegerichte marketingvorm waarbij externe partners commissie verdienen door verkeer of klanten naar een adverteerder te sturen via trackinglinks.</span></div>
-      <span class="kb-row-arrow">Meer<svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 8h10M9 4l4 4-4 4"/></svg></span>
+    <a class="lt-kb-rij" href="affiliate-marketing">
+      <span class="lt-kb-tekst"><span class="lt-kb-term">Affiliate Marketing</span><span class="lt-kb-def">Een prestatiegerichte marketingvorm waarbij externe partners commissie verdienen door verkeer of klanten naar een adverteerder te sturen via trackinglinks.</span></span>
+      <span class="lt-kb-pijl" aria-hidden="true">&rarr;</span>
     </a>
-    <a href="b2c-marketing" class="kb-row">
-      <div class="kb-row-left"><span class="kb-term">Wat is B2C Marketing?</span><span class="kb-def">Marketing gericht op het bereiken en overtuigen van individuele consumenten voor de aankoop van producten voor persoonlijk gebruik.</span></div>
-      <span class="kb-row-arrow">Meer<svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 8h10M9 4l4 4-4 4"/></svg></span>
+    <a class="lt-kb-rij" href="b2c-marketing">
+      <span class="lt-kb-tekst"><span class="lt-kb-term">B2C Marketing</span><span class="lt-kb-def">Marketing gericht op het bereiken en overtuigen van individuele consumenten voor de aankoop van producten voor persoonlijk gebruik.</span></span>
+      <span class="lt-kb-pijl" aria-hidden="true">&rarr;</span>
     </a>
-    <a href="e-commerce" class="kb-row">
-      <div class="kb-row-left"><span class="kb-term">Wat is E-commerce?</span><span class="kb-def">Het online verkopen en kopen van producten of diensten via websites, apps en digitale marktplaatsen.</span></div>
-      <span class="kb-row-arrow">Meer<svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 8h10M9 4l4 4-4 4"/></svg></span>
+    <a class="lt-kb-rij" href="e-commerce">
+      <span class="lt-kb-tekst"><span class="lt-kb-term">E-commerce</span><span class="lt-kb-def">Het online verkopen en kopen van producten of diensten via websites, apps en digitale marktplaatsen.</span></span>
+      <span class="lt-kb-pijl" aria-hidden="true">&rarr;</span>
     </a>
-    <a href="budgettering" class="kb-row">
-      <div class="kb-row-left"><span class="kb-term">Wat is Budgettering?</span><span class="kb-def">Het plannen, alloceren en bewaken van financiële middelen voor marketingactiviteiten gedurende een bepaalde periode.</span></div>
-      <span class="kb-row-arrow">Meer<svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 8h10M9 4l4 4-4 4"/></svg></span>
+    <a class="lt-kb-rij" href="budgettering">
+      <span class="lt-kb-tekst"><span class="lt-kb-term">Budgettering</span><span class="lt-kb-def">Het plannen, alloceren en bewaken van financiële middelen voor marketingactiviteiten gedurende een bepaalde periode.</span></span>
+      <span class="lt-kb-pijl" aria-hidden="true">&rarr;</span>
     </a>
-    <a href="projectmanagement" class="kb-row">
-      <div class="kb-row-left"><span class="kb-term">Wat is Projectmanagement?</span><span class="kb-def">Het plannen, organiseren, uitvoeren en controleren van projecten om marketingdoelstellingen te bereiken binnen tijd, budget en kwaliteitsparameters.</span></div>
-      <span class="kb-row-arrow">Meer<svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 8h10M9 4l4 4-4 4"/></svg></span>
+    <a class="lt-kb-rij" href="projectmanagement">
+      <span class="lt-kb-tekst"><span class="lt-kb-term">Projectmanagement</span><span class="lt-kb-def">Het plannen, organiseren, uitvoeren en controleren van projecten om marketingdoelstellingen te bereiken binnen tijd, budget en kwaliteitsparameters.</span></span>
+      <span class="lt-kb-pijl" aria-hidden="true">&rarr;</span>
     </a>
-    <a href="governance" class="kb-row">
-      <div class="kb-row-left"><span class="kb-term">Wat is Governance?</span><span class="kb-def">De structuren, beleidsregels en verantwoordelijkheden waarmee een organisatie haar marketingactiviteiten beheert en verantwoordt.</span></div>
-      <span class="kb-row-arrow">Meer<svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 8h10M9 4l4 4-4 4"/></svg></span>
+    <a class="lt-kb-rij" href="governance">
+      <span class="lt-kb-tekst"><span class="lt-kb-term">Governance</span><span class="lt-kb-def">De structuren, beleidsregels en verantwoordelijkheden waarmee een organisatie haar marketingactiviteiten beheert en verantwoordt.</span></span>
+      <span class="lt-kb-pijl" aria-hidden="true">&rarr;</span>
     </a>
-    <a href="crm" class="kb-row">
-      <div class="kb-row-left"><span class="kb-term">Wat is CRM?</span><span class="kb-def">Customer Relationship Management — de combinatie van strategie, processen en technologie waarmee een organisatie klantrelaties beheert en optimaliseert.</span></div>
-      <span class="kb-row-arrow">Meer<svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 8h10M9 4l4 4-4 4"/></svg></span>
+    <a class="lt-kb-rij" href="crm">
+      <span class="lt-kb-tekst"><span class="lt-kb-term">CRM</span><span class="lt-kb-def">Customer Relationship Management — de combinatie van strategie, processen en technologie waarmee een organisatie klantrelaties beheert en optimaliseert.</span></span>
+      <span class="lt-kb-pijl" aria-hidden="true">&rarr;</span>
     </a>
-  </div>
-  <div class="kb-cat-group" id="kb-merk">
-    <div class="kb-cat-label"><span class="kb-cat-num">02</span>Merk</div>
-    <a href="merkidentiteit" class="kb-row">
-      <div class="kb-row-left"><span class="kb-term">Merkidentiteit</span><span class="kb-def">Logo, kleur, typografie en tone of voice als één geheel.</span></div>
-      <span class="kb-row-arrow">Meer<svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 8h10M9 4l4 4-4 4"/></svg></span>
+  </section>
+  <section class="lt-kb-groep" id="kb-merk">
+    <p class="lt-kb-label"><span class="lt-kb-nr">02</span>Merk</p>
+    <a class="lt-kb-rij" href="merkidentiteit">
+      <span class="lt-kb-tekst"><span class="lt-kb-term">Merkidentiteit</span><span class="lt-kb-def">De visuele en verbale uitdrukking van je merk: logo, kleurpalet, typografie, tone of voice en stijl.</span></span>
+      <span class="lt-kb-pijl" aria-hidden="true">&rarr;</span>
     </a>
-    <a href="tone-of-voice" class="kb-row">
-      <div class="kb-row-left"><span class="kb-term">Tone of voice</span><span class="kb-def">De manier waarop je merk communiceert in tekst.</span></div>
-      <span class="kb-row-arrow">Meer<svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 8h10M9 4l4 4-4 4"/></svg></span>
+    <a class="lt-kb-rij" href="tone-of-voice">
+      <span class="lt-kb-tekst"><span class="lt-kb-term">Tone of voice</span><span class="lt-kb-def">De consistente manier waarop een merk communiceert in tekst: de toon, de woordkeuze en de persoonlijkheid die doorschemert.</span></span>
+      <span class="lt-kb-pijl" aria-hidden="true">&rarr;</span>
     </a>
-    <a href="brand-experience" class="kb-row">
-      <div class="kb-row-left"><span class="kb-term">Wat is Brand Experience?</span><span class="kb-def">De totale indruk die een consument opdoet bij alle interacties met een merk — van eerste contactmoment tot post-purchase.</span></div>
-      <span class="kb-row-arrow">Meer<svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 8h10M9 4l4 4-4 4"/></svg></span>
+    <a class="lt-kb-rij" href="brand-experience">
+      <span class="lt-kb-tekst"><span class="lt-kb-term">Brand Experience</span><span class="lt-kb-def">De totale indruk die een consument opdoet bij alle interacties met een merk — van eerste contactmoment tot post-purchase.</span></span>
+      <span class="lt-kb-pijl" aria-hidden="true">&rarr;</span>
     </a>
-    <a href="employer-branding" class="kb-row">
-      <div class="kb-row-left"><span class="kb-term">Wat is Employer Branding?</span><span class="kb-def">Het strategisch positioneren van een organisatie als aantrekkelijke werkgever om talent aan te trekken, te binden en te behouden.</span></div>
-      <span class="kb-row-arrow">Meer<svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 8h10M9 4l4 4-4 4"/></svg></span>
+    <a class="lt-kb-rij" href="employer-branding">
+      <span class="lt-kb-tekst"><span class="lt-kb-term">Employer Branding</span><span class="lt-kb-def">Het strategisch positioneren van een organisatie als aantrekkelijke werkgever om talent aan te trekken, te binden en te behouden.</span></span>
+      <span class="lt-kb-pijl" aria-hidden="true">&rarr;</span>
     </a>
-  </div>
-  <div class="kb-cat-group" id="kb-content">
-    <div class="kb-cat-label"><span class="kb-cat-num">03</span>Content</div>
-    <a href="seo" class="kb-row">
-      <div class="kb-row-left"><span class="kb-term">SEO</span><span class="kb-def">Je website hoger laten ranken in onbetaalde zoekresultaten.</span></div>
-      <span class="kb-row-arrow">Meer<svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 8h10M9 4l4 4-4 4"/></svg></span>
+  </section>
+  <section class="lt-kb-groep" id="kb-content">
+    <p class="lt-kb-label"><span class="lt-kb-nr">03</span>Content</p>
+    <a class="lt-kb-rij" href="seo">
+      <span class="lt-kb-tekst"><span class="lt-kb-term">SEO</span><span class="lt-kb-def">Search Engine Optimization — het verbeteren van je website zodat je hoger rankt in onbetaalde zoekresultaten.</span></span>
+      <span class="lt-kb-pijl" aria-hidden="true">&rarr;</span>
     </a>
-    <a href="ugc" class="kb-row">
-      <div class="kb-row-left"><span class="kb-term">UGC</span><span class="kb-def">Content gemaakt door gebruikers in plaats van het merk.</span></div>
-      <span class="kb-row-arrow">Meer<svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 8h10M9 4l4 4-4 4"/></svg></span>
+    <a class="lt-kb-rij" href="ugc">
+      <span class="lt-kb-tekst"><span class="lt-kb-term">UGC</span><span class="lt-kb-def">User Generated Content — content gemaakt door gebruikers of klanten in plaats van door het merk zelf.</span></span>
+      <span class="lt-kb-pijl" aria-hidden="true">&rarr;</span>
     </a>
-    <a href="contentstrategie" class="kb-row">
-      <div class="kb-row-left"><span class="kb-term">Wat is Contentstrategie?</span><span class="kb-def">Het overkoepelende plan dat bepaalt hoe een organisatie content creëert, distribueert, beheert en meet om merk- en publieksdoelen te realiseren.</span></div>
-      <span class="kb-row-arrow">Meer<svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 8h10M9 4l4 4-4 4"/></svg></span>
+    <a class="lt-kb-rij" href="contentstrategie">
+      <span class="lt-kb-tekst"><span class="lt-kb-term">Contentstrategie</span><span class="lt-kb-def">Het overkoepelende plan dat bepaalt hoe een organisatie content creëert, distribueert, beheert en meet om merk- en publieksdoelen te realiseren.</span></span>
+      <span class="lt-kb-pijl" aria-hidden="true">&rarr;</span>
     </a>
-    <a href="copyright" class="kb-row">
-      <div class="kb-row-left"><span class="kb-term">Wat is Copyright?</span><span class="kb-def">Het exclusieve recht van de maker van een origineel werk om dat werk te reproduceren, distribueren en bewerken, en anderen toestemming te verlenen dit te doen.</span></div>
-      <span class="kb-row-arrow">Meer<svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 8h10M9 4l4 4-4 4"/></svg></span>
+    <a class="lt-kb-rij" href="copyright">
+      <span class="lt-kb-tekst"><span class="lt-kb-term">Copyright</span><span class="lt-kb-def">Het exclusieve recht van de maker van een origineel werk om dat werk te reproduceren, distribueren en bewerken, en anderen toestemming te verlenen dit te doen.</span></span>
+      <span class="lt-kb-pijl" aria-hidden="true">&rarr;</span>
     </a>
-    <a href="accessibility" class="kb-row">
-      <div class="kb-row-left"><span class="kb-term">Wat is Accessibility?</span><span class="kb-def">Het ontwerpen van digitale producten en communicatiemiddelen op zodanige wijze dat ze bruikbaar zijn voor mensen met diverse beperkingen.</span></div>
-      <span class="kb-row-arrow">Meer<svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 8h10M9 4l4 4-4 4"/></svg></span>
+    <a class="lt-kb-rij" href="accessibility">
+      <span class="lt-kb-tekst"><span class="lt-kb-term">Accessibility</span><span class="lt-kb-def">Het ontwerpen van digitale producten en communicatiemiddelen op zodanige wijze dat ze bruikbaar zijn voor mensen met diverse beperkingen.</span></span>
+      <span class="lt-kb-pijl" aria-hidden="true">&rarr;</span>
     </a>
-  </div>
-  <div class="kb-cat-group" id="kb-media">
-    <div class="kb-cat-label"><span class="kb-cat-num">04</span>Media</div>
-    <a href="email-marketing" class="kb-row">
-      <div class="kb-row-left"><span class="kb-term">E-mailmarketing</span><span class="kb-def">Klanten bereiken via gerichte e-mailcampagnes.</span></div>
-      <span class="kb-row-arrow">Meer<svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 8h10M9 4l4 4-4 4"/></svg></span>
+  </section>
+  <section class="lt-kb-groep" id="kb-media">
+    <p class="lt-kb-label"><span class="lt-kb-nr">04</span>Media</p>
+    <a class="lt-kb-rij" href="email-marketing">
+      <span class="lt-kb-tekst"><span class="lt-kb-term">E-mailmarketing</span><span class="lt-kb-def">Het inzetten van e-mail als eigen marketingkanaal om abonnees te informeren, activeren en converteren — van losse campagnes tot geautomatiseerde flows.</span></span>
+      <span class="lt-kb-pijl" aria-hidden="true">&rarr;</span>
     </a>
-    <a href="display-advertising" class="kb-row">
-      <div class="kb-row-left"><span class="kb-term">Wat is Display Advertising?</span><span class="kb-def">Visuele online advertenties — bestaande uit afbeeldingen, animaties of video — die worden getoond op websites, apps of platforms buiten de zoekmachine.</span></div>
-      <span class="kb-row-arrow">Meer<svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 8h10M9 4l4 4-4 4"/></svg></span>
+    <a class="lt-kb-rij" href="display-advertising">
+      <span class="lt-kb-tekst"><span class="lt-kb-term">Display Advertising</span><span class="lt-kb-def">Visuele online advertenties — bestaande uit afbeeldingen, animaties of video — die worden getoond op websites, apps of platforms buiten de zoekmachine.</span></span>
+      <span class="lt-kb-pijl" aria-hidden="true">&rarr;</span>
     </a>
-    <a href="mobile-marketing" class="kb-row">
-      <div class="kb-row-left"><span class="kb-term">Wat is Mobile Marketing?</span><span class="kb-def">Marketingactiviteiten specifiek gericht op gebruikers via mobiele apparaten, waarbij de mobiele context wordt benut voor relevantie en bereik.</span></div>
-      <span class="kb-row-arrow">Meer<svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 8h10M9 4l4 4-4 4"/></svg></span>
+    <a class="lt-kb-rij" href="mobile-marketing">
+      <span class="lt-kb-tekst"><span class="lt-kb-term">Mobile Marketing</span><span class="lt-kb-def">Marketingactiviteiten specifiek gericht op gebruikers via mobiele apparaten, waarbij de mobiele context wordt benut voor relevantie en bereik.</span></span>
+      <span class="lt-kb-pijl" aria-hidden="true">&rarr;</span>
     </a>
-    <a href="retail-media" class="kb-row">
-      <div class="kb-row-left"><span class="kb-term">Wat is Retail Media?</span><span class="kb-def">Advertentieruimte aangeboden door retailers aan merken om klanten te bereiken op het punt van aankoopintentie, op het platform van de retailer zelf.</span></div>
-      <span class="kb-row-arrow">Meer<svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 8h10M9 4l4 4-4 4"/></svg></span>
+    <a class="lt-kb-rij" href="retail-media">
+      <span class="lt-kb-tekst"><span class="lt-kb-term">Retail Media</span><span class="lt-kb-def">Advertentieruimte aangeboden door retailers aan merken om klanten te bereiken op het punt van aankoopintentie, op het platform van de retailer zelf.</span></span>
+      <span class="lt-kb-pijl" aria-hidden="true">&rarr;</span>
     </a>
-    <a href="digitale-media" class="kb-row">
-      <div class="kb-row-left"><span class="kb-term">Wat is Digitale Media?</span><span class="kb-def">Online mediakanalen en platforms waarmee merken doelgroepen bereiken via internet-connected apparaten.</span></div>
-      <span class="kb-row-arrow">Meer<svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 8h10M9 4l4 4-4 4"/></svg></span>
+    <a class="lt-kb-rij" href="digitale-media">
+      <span class="lt-kb-tekst"><span class="lt-kb-term">Digitale Media</span><span class="lt-kb-def">Online mediakanalen en platforms waarmee merken doelgroepen bereiken via internet-connected apparaten.</span></span>
+      <span class="lt-kb-pijl" aria-hidden="true">&rarr;</span>
     </a>
-  </div>
-  <div class="kb-cat-group" id="kb-data">
-    <div class="kb-cat-label"><span class="kb-cat-num">05</span>Data</div>
-    <a href="attributie" class="kb-row">
-      <div class="kb-row-left"><span class="kb-term">Attributie</span><span class="kb-def">Bepalen welk kanaal bijdraagt aan een conversie.</span></div>
-      <span class="kb-row-arrow">Meer<svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 8h10M9 4l4 4-4 4"/></svg></span>
+  </section>
+  <section class="lt-kb-groep" id="kb-data">
+    <p class="lt-kb-label"><span class="lt-kb-nr">05</span>Data</p>
+    <a class="lt-kb-rij" href="attributie">
+      <span class="lt-kb-tekst"><span class="lt-kb-term">Attributie</span><span class="lt-kb-def">Het toewijzen van waarde aan de kanalen en touchpoints die bijdragen aan een conversie.</span></span>
+      <span class="lt-kb-pijl" aria-hidden="true">&rarr;</span>
     </a>
-    <a href="first-party-data" class="kb-row">
-      <div class="kb-row-left"><span class="kb-term">First-party data</span><span class="kb-def">Data die je zelf verzamelt bij je eigen klanten.</span></div>
-      <span class="kb-row-arrow">Meer<svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 8h10M9 4l4 4-4 4"/></svg></span>
+    <a class="lt-kb-rij" href="first-party-data">
+      <span class="lt-kb-tekst"><span class="lt-kb-term">First-party data</span><span class="lt-kb-def">Data die je zelf verzamelt direct van je eigen klanten en bezoekers, zonder tussenkomst van derden.</span></span>
+      <span class="lt-kb-pijl" aria-hidden="true">&rarr;</span>
     </a>
-    <a href="gdpr" class="kb-row">
-      <div class="kb-row-left"><span class="kb-term">GDPR / AVG</span><span class="kb-def">Europese privacywetgeving voor dataverwerking.</span></div>
-      <span class="kb-row-arrow">Meer<svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 8h10M9 4l4 4-4 4"/></svg></span>
+    <a class="lt-kb-rij" href="gdpr">
+      <span class="lt-kb-tekst"><span class="lt-kb-term">GDPR / AVG</span><span class="lt-kb-def">De Europese privacywetgeving die de verwerking van persoonsgegevens reguleert voor alle organisaties die EU-inwoners bereiken.</span></span>
+      <span class="lt-kb-pijl" aria-hidden="true">&rarr;</span>
     </a>
-    <a href="avg-gdpr" class="kb-row">
-      <div class="kb-row-left"><span class="kb-term">Wat is AVG/GDPR?</span><span class="kb-def">De Algemene Verordening Gegevensbescherming — de Europese privacywetgeving die de rechten van EU-burgers op het gebied van persoonsdata beschermt.</span></div>
-      <span class="kb-row-arrow">Meer<svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 8h10M9 4l4 4-4 4"/></svg></span>
+    <a class="lt-kb-rij" href="avg-gdpr">
+      <span class="lt-kb-tekst"><span class="lt-kb-term">AVG/GDPR</span><span class="lt-kb-def">De Algemene Verordening Gegevensbescherming — de Europese privacywetgeving die de rechten van EU-burgers op het gebied van persoonsdata beschermt.</span></span>
+      <span class="lt-kb-pijl" aria-hidden="true">&rarr;</span>
     </a>
-    <a href="privacy-consent" class="kb-row">
-      <div class="kb-row-left"><span class="kb-term">Wat is Privacy & Consent?</span><span class="kb-def">De verplichting en strategie om persoonsdata van gebruikers te verzamelen en te verwerken in overeenstemming met privacywetgeving en met expliciete toestemming.</span></div>
-      <span class="kb-row-arrow">Meer<svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 8h10M9 4l4 4-4 4"/></svg></span>
+    <a class="lt-kb-rij" href="privacy-consent">
+      <span class="lt-kb-tekst"><span class="lt-kb-term">Privacy &amp; Consent</span><span class="lt-kb-def">De verplichting en strategie om persoonsdata van gebruikers te verzamelen en te verwerken in overeenstemming met privacywetgeving en met expliciete toestemming.</span></span>
+      <span class="lt-kb-pijl" aria-hidden="true">&rarr;</span>
     </a>
-  </div>
-</div>
+  </section>
+
+</main>
+
 <footer class="footer">
   <div class="footer-bento">
     <div class="footer-tile footer-tile-brand">
@@ -475,3 +570,5 @@ nav.nav img{width:56px !important;height:auto !important;}
     </div>
   </div>
 </footer>
+</body>
+</html>

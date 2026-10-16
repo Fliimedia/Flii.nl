@@ -260,3 +260,20 @@
   background:repeating-linear-gradient(135deg,transparent 0 10px,rgba(0,0,0,.025) 10px 20px);}
 .lt-portaal-bij{padding:14px 18px;background:#fff;border-top:1px solid var(--lt-rule);
   font-size:13.5px;line-height:1.55;color:var(--lt-mid);}
+
+/* ---------- Overzicht kennisbank ---------- */
+.lt-kb-groep{margin-top:40px;}
+.lt-kb-label{display:flex;align-items:baseline;gap:10px;font-family:var(--ff-mono);font-size:10px;
+  font-weight:700;letter-spacing:.12em;text-transform:uppercase;color:var(--lt-soft);
+  margin:0 0 4px;padding-bottom:10px;border-bottom:1px solid var(--lt-rule);}
+.lt-kb-nr{color:var(--lt-mag);}
+.lt-kb-rij{display:flex;align-items:baseline;gap:14px;padding:14px 2px;text-decoration:none;
+  border-bottom:1px solid var(--lt-rule);transition:padding-left .16s;}
+.lt-kb-rij:last-of-type{border-bottom:none;}
+.lt-kb-rij:hover{padding-left:5px;}
+.lt-kb-tekst{flex:1;min-width:0;}
+.lt-kb-term{display:block;font-family:var(--ff-disp);font-size:16px;font-weight:800;
+  letter-spacing:-.2px;color:var(--lt-ink);}
+.lt-kb-def{display:block;font-size:13.5px;line-height:1.5;color:var(--lt-soft);margin-top:3px;}
+.lt-kb-pijl{color:var(--lt-mag);font-size:15px;flex:none;}
+@media (prefers-reduced-motion:reduce){.lt-kb-rij:hover{padding-left:2px;}}
