@@ -1,0 +1,38 @@
+/* Resultaten onderaan een case: cijfers als losse kaarten naast elkaar,
+   bevindingen zonder getal als lijst eronder. */
+
+.cs-blok{margin-top:14px;}
+
+.cs-grid{display:grid;gap:12px;grid-template-columns:1fr;}
+@media (min-width:560px){
+  .cs-grid--2{grid-template-columns:repeat(2,minmax(0,1fr));}
+  .cs-grid--3{grid-template-columns:repeat(3,minmax(0,1fr));}
+}
+
+.cs-card{display:flex;align-items:center;gap:14px;
+  background:#fff;border:1px solid #E8E6E1;border-radius:16px;padding:15px 16px;}
+@media (min-width:560px){
+  .cs-card{flex-direction:column;align-items:flex-start;gap:14px;padding:18px 16px 16px;}
+}
+
+.cs-icon{width:36px;height:36px;border-radius:10px;flex:none;
+  display:flex;align-items:center;justify-content:center;
+  background:rgba(232,41,74,.08);color:#E8294A;}
+.cs-icon svg{width:18px;height:18px;display:block;}
+
+.cs-tekst{min-width:0;}
+.cs-num{display:block;font-family:var(--ff-disp,'Bricolage Grotesque',sans-serif);
+  font-size:clamp(23px,5.6vw,30px);font-weight:800;letter-spacing:-1.2px;line-height:1;
+  color:#0F0E0C;font-variant-numeric:tabular-nums;}
+.cs-label{display:block;font-size:12.5px;line-height:1.45;color:#5A6068;margin-top:6px;}
+
+.cs-noten{list-style:none;margin:20px 0 0;padding:0;}
+.cs-noten:first-child{margin-top:0;}
+.cs-noot{display:flex;gap:11px;align-items:flex-start;padding:7px 2px;
+  font-size:13.5px;line-height:1.5;color:#4A4840;}
+.cs-noten > .cs-noot:first-child{padding-top:0;}
+.cs-noot svg{width:16px;height:16px;flex:none;margin-top:2px;color:#E8294A;}
+
+@media (prefers-reduced-motion:reduce){
+  .cs-card{transition:none;}
+}

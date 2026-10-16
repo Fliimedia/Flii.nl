@@ -9,6 +9,9 @@ RewriteEngine On
 RewriteCond %{THE_REQUEST} /index\.html[\s?] [NC]
 RewriteRule ^index\.html$ / [R=301,L]
 
+# Opgeheven kennisbanktermen wijzen naar het overzicht.
+RewriteRule ^kennisbank/(ab-testen|agile-marketing|ai-governance|api-s|apps|artificial-intelligence|attribution|audio-podcasts|b2b-marketing|brand-architecture|brand-identity|brand-positioning|business-intelligence|campagnes|cdp|cms|community-management|concurrentieanalyse|content-operations|contentkalender|contentmarketing|conversieoptimalisatie-cro|cookiebanners|copywriting|corporate-communicatie|cpa|creative-direction|crm-systemen|customer-experience-cx|customer-journey|customer-success|dashboard|data-science|duurzaamheid-esg|earned-media|evenementen|experimentation-a-b-testing|fotografie|go-to-market|google-analytics|grafisch-ontwerp|growth-marketing|illustratie|influencer-marketing|interne-communicatie|klantonderzoek|kpi-management|landingspagina|lead-generation|leveranciersmanagement|loyalty|marketing-analytics|marketing-automation|marketing-ethics|marketing-management|marketing-stack|marketplace-marketing|marktanalyse|marktonderzoek|martech|merkstrategie|motion-design|owned-media|packaging|paid-media|performance-max|persona|personal-branding|predictive-analytics|pricing|processen|programmatic|programmatic-advertising|public-relations|reclamewetgeving|reputatiemanagement|retail-marketing|sales-enablement|sea|social-media|social-media-marketing|sponsoring|storytelling|targeting|trade-marketing|traditionele-media|ui-design|ux-design|video|video-advertising|visual-design|waardepropositie|web-analytics|websites)/?$ /kennisbank [R=301,L]
+
 # If the request is for an existing file or directory, serve it directly
 RewriteCond %{REQUEST_FILENAME} -f [OR]
 RewriteCond %{REQUEST_FILENAME} -d
