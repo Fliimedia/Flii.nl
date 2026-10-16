@@ -73,11 +73,15 @@ img{max-width:100%;display:block;}
   ]
 }
 </script>
+<link rel="stylesheet" href="/assets/nav.css">
+<script defer src="/assets/nav.js"></script>
 </head>
 <body>
 <nav class="nav">
-  <a href="/kennisbank" class="nav-brand"><img src="/assets/img/d913cc3c069f.webp" alt="Flii Media" fetchpriority="high" decoding="async"></a>
-  <a href="/kennisbank" class="nav-back">&larr; Kennisbank</a>
+  <div class="nav-logo">
+    <a href="/" class="nav-mark" aria-label="Flii Media, naar de homepage"><img src="/assets/img/d913cc3c069f.webp" alt="Flii Media" fetchpriority="high" decoding="async"></a>
+  </div>
+  <button class="nav-burger" type="button" aria-label="Menu" aria-controls="nav-menu" aria-haspopup="dialog"><span></span><span></span></button>
 </nav>
 
 <main class="lt lt--begrip">
