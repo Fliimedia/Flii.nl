@@ -11,7 +11,7 @@
 .lt{max-width:var(--lt-breedte);margin:0 auto;padding:0 24px 96px;box-sizing:border-box;}
 
 /* ---------- Kop ---------- */
-.lt-head{padding:40px 0 26px;border-bottom:1px solid var(--lt-rule);}
+.lt-head{padding:40px 0 26px;}
 .lt-crumb{display:flex;flex-wrap:wrap;align-items:center;gap:0 10px;
   font-family:var(--ff-body);font-size:14px;line-height:1.4;color:var(--lt-soft);}
 .lt-crumb a{color:var(--lt-soft);text-decoration:none;transition:color .15s;}
@@ -161,8 +161,7 @@
 /* ---------- Review ---------- */
 /* Geen kaart maar een citaat in de pagina zelf: de typografie draagt het,
    met alleen twee haarlijnen als begrenzing. */
-.lt-rev{margin-top:48px;padding:30px 0 26px;
-  border-top:1px solid var(--lt-rule);border-bottom:1px solid var(--lt-rule);}
+.lt-rev{margin-top:48px;padding:30px 0 26px;}
 .lt-rev blockquote{margin:0;font-family:var(--ff-disp);font-size:clamp(20px,4.6vw,25px);
   font-weight:700;line-height:1.38;letter-spacing:-.4px;color:var(--lt-ink);text-wrap:balance;}
 .lt-rev figcaption{display:flex;align-items:center;flex-wrap:wrap;gap:12px 14px;margin-top:22px;}

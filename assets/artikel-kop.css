@@ -1,7 +1,7 @@
 /* Kop van insight-artikelen: kruimelpad, titel, auteur, publicatiedatum,
    leestijd, herkomstlabel en de knoppen om samen te vatten met AI of
    Flii Media als voorkeursbron in Google te kiezen. */
-.ak{padding-top:40px;padding-bottom:26px;border-bottom:1px solid var(--rule,#E8E6E1);}
+.ak{padding-top:40px;padding-bottom:26px;}
 
 .ak-crumb{display:flex;flex-wrap:wrap;align-items:center;gap:0 10px;
   font-family:var(--ff-body);font-size:14px;line-height:1.4;color:#6B6866;}

@@ -40,18 +40,45 @@ nav.nav{display:flex;align-items:center;justify-content:space-between;
 .nav-burger:focus-visible{outline:2px solid #E8294A;outline-offset:3px;border-radius:4px;}
 
 /* ---------- Lade ---------- */
+/* Gelijk aan de lade op de homepage: matrix, spotlight, korrel en
+   scanlines, en op desktop een indeling die met de vensterhoogte schaalt. */
 .nav-menu{position:fixed;inset:0;background:#010d01;z-index:9000;display:flex;
   flex-direction:column;align-items:flex-start;justify-content:center;
   padding:var(--nav-sp6) var(--nav-sp4);opacity:0;pointer-events:none;
   transform:translateY(-8px);transition:opacity .3s ease,transform .3s ease;overflow:hidden;}
 .nav-menu.open{opacity:1;pointer-events:all;transform:translateY(0);}
+/* Zelfde tekstmaat en regelhoogte als op de homepage, los van de pagina eronder. */
+.nav-menu{font-size:15px;line-height:1.6;}
+/* CRT-korrel */
+.nav-menu::before{content:'';position:absolute;inset:0;pointer-events:none;z-index:1;
+  background-image:url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.04'/%3E%3C/svg%3E");
+  background-size:150px 150px;animation:navCrtNoise .08s steps(1) infinite;}
+@keyframes navCrtNoise{0%{background-position:0 0}25%{background-position:-10px 5px}
+  50%{background-position:5px -8px}75%{background-position:-3px 12px}100%{background-position:8px -4px}}
+/* scanlines */
+.nav-menu::after{content:'';position:absolute;inset:0;pointer-events:none;z-index:1;
+  background:repeating-linear-gradient(0deg,transparent,transparent 2px,rgba(0,255,70,.03) 2px,rgba(0,255,70,.03) 4px);}
+.nav-menu #matrix-canvas{position:absolute;inset:0;z-index:0;opacity:0;transition:opacity .3s ease;}
+.nav-menu .nav-spotlight{position:absolute;inset:0;z-index:2;background:rgba(0,0,0,.82);
+  pointer-events:none;transition:background 1.8s ease;}
+.nav-menu.matrix-on .nav-spotlight{opacity:.6 !important;}
+.nav-menu.matrix-on #matrix-canvas{opacity:.55 !important;}
+
 .nav-menu-inner{position:relative;z-index:3;display:flex;flex-direction:column;
-  align-items:flex-start;justify-content:center;width:100%;height:100%;}
+  align-items:flex-start;justify-content:center;width:100%;height:100%;
+  transition:transform .35s cubic-bezier(.25,.46,.45,.94);}
 .nav-menu-links{display:flex;flex-direction:column;gap:2px;}
 .nav-menu-link{font-family:var(--ff-mono,monospace);font-size:clamp(22px,7vw,36px);
   font-weight:400;color:rgba(255,255,255,.9);text-decoration:none;letter-spacing:.04em;
-  padding:6px 0;transition:color .15s,letter-spacing .15s;}
-.nav-menu-link:hover{color:#fff;letter-spacing:.08em;}
+  padding:6px 0;border-bottom:1px solid rgba(255,255,255,.06);position:relative;display:block;
+  text-transform:uppercase;transition:color .1s,letter-spacing .15s;}
+.nav-menu-link::before{content:'> ';color:rgba(0,255,70,0);transition:color .15s;font-size:.65em;}
+.nav-menu-link:hover{color:#fff;letter-spacing:.08em;animation:navPixelFlicker .3s steps(1) forwards;}
+.nav-menu-link:hover::before{color:rgba(0,255,70,.8);}
+.nav-menu-link:last-child{border-bottom:none;}
+@keyframes navPixelFlicker{0%,100%{text-shadow:none}
+  20%{text-shadow:1px 0 0 rgba(0,255,70,.4),-1px 0 0 rgba(255,0,80,.3)}40%{text-shadow:none}
+  60%{text-shadow:-1px 0 0 rgba(0,255,70,.3),1px 0 0 rgba(255,0,80,.2)}80%{text-shadow:none}}
 .nav-menu-close{position:absolute;top:var(--nav-sp3);right:var(--nav-sp3);z-index:10;
   background:none;border:none;font-size:24px;color:rgba(255,255,255,.35);cursor:pointer;
   padding:8px;font-family:var(--ff-mono,monospace);transition:color .15s;}
@@ -73,10 +100,28 @@ nav.nav{display:flex;align-items:center;justify-content:space-between;
 .nav-menu .lm-rot2{transform-box:view-box;transform-origin:50px 50px;animation:lmSpin 28s linear infinite reverse;}
 @keyframes lmSpin{to{transform-origin:50px 50px;transform:rotate(360deg);}}
 
-/* Merkteken linksboven in de lade. */
+/* Merkteken linksboven: een klik onthult de matrix, elke 3 seconden een korte storing. */
 .nav-menu .menu-fm{position:absolute;top:var(--nav-sp3);left:var(--nav-sp3);z-index:11;
-  line-height:0;filter:drop-shadow(0 0 10px rgba(232,41,74,.35));}
+  background:none;border:none;padding:6px;cursor:pointer;line-height:0;
+  filter:drop-shadow(0 0 10px rgba(232,41,74,.35));}
 .nav-menu .menu-fm img{width:34px;height:34px;display:block;}
+.nav-menu .menu-fm:focus-visible{outline:2px solid #E8294A;outline-offset:4px;border-radius:8px;}
+.nav-menu .menu-fm .fm-l{position:absolute;inset:6px;pointer-events:none;opacity:0;}
+.nav-menu .menu-fm .fm-l img{width:34px;height:34px;}
+.nav-menu .menu-fm .fm-a img{filter:hue-rotate(150deg) saturate(3);}
+.nav-menu .menu-fm .fm-b img{filter:hue-rotate(-90deg) saturate(3);}
+.nav-menu .menu-fm.glitch .fm-a{animation:navFmGlitchA .42s steps(2,end);}
+.nav-menu .menu-fm.glitch .fm-b{animation:navFmGlitchB .42s steps(2,end);}
+.nav-menu .menu-fm.glitch > img{animation:navFmGlitchMain .42s steps(3,end);}
+.nav-menu .menu-fm.on{filter:drop-shadow(0 0 16px rgba(0,255,70,.55));}
+@keyframes navFmGlitchMain{0%,100%{transform:translate(0,0);}
+  20%{transform:translate(-2px,1px);}40%{transform:translate(2px,-1px);}
+  60%{transform:translate(-1px,-2px);}80%{transform:translate(1px,2px);}}
+@keyframes navFmGlitchA{0%,100%{opacity:0;transform:translate(0,0);}
+  25%{opacity:.85;transform:translate(-3px,0);}55%{opacity:.6;transform:translate(3px,1px);}
+  75%{opacity:.4;transform:translate(-2px,-1px);}}
+@keyframes navFmGlitchB{0%,100%{opacity:0;transform:translate(0,0);}
+  30%{opacity:.7;transform:translate(3px,-1px);}60%{opacity:.5;transform:translate(-3px,1px);}}
 
 /* Slotje rechtsonder: toegang tot het CRM, achter een pincode. */
 .nav-menu .nav-slot{position:absolute;right:24px;bottom:26px;z-index:12;
@@ -89,14 +134,34 @@ nav.nav{display:flex;align-items:center;justify-content:space-between;
 .nav-menu .nav-slot:focus-visible{outline:2px solid #E8294A;outline-offset:3px;}
 
 /* Contactgegevens onder de menulinks. */
-.nav-menu-footer{margin-top:var(--nav-sp4);font-size:11px;
+.nav-menu-footer{margin-top:40px;font-size:11px;
   font-family:var(--ff-mono,monospace);color:rgba(255,255,255,.3);letter-spacing:.06em;}
 .nav-menu-footer a{color:rgba(255,255,255,.3);text-decoration:none;}
 .nav-menu-footer a:hover{color:rgba(255,255,255,.7);}
+
+/* Desktop: alles vult het scherm, zonder schuifbalk. De items staan in een
+   brede kolom en schalen op de hoogte, zodat ze nooit over het logo vallen. */
+@media (min-width:900px){
+  .nav-menu{background:#0A0A0A;}
+  .nav-menu-inner{max-width:none;max-height:none;overflow:visible;
+    padding:max(118px,12vh) 8vw max(82px,10vh);}
+  .nav-menu-links{padding-top:0;width:min(560px,52vw);}
+  .nav-menu .menu-fm{left:8vw;top:clamp(28px,4vh,48px);}
+  .nav-menu .nav-slot{right:8vw;bottom:clamp(26px,4vh,44px);}
+  .nav-menu-link{font-size:clamp(20px,3.6vh,38px);padding:clamp(6px,1.25vh,18px) 0;}
+}
+/* Lage vensters: compacter, zodat er nog steeds niets wegvalt. */
+@media (min-width:900px) and (max-height:720px){
+  .nav-menu-inner{padding-top:104px;padding-bottom:72px;}
+  .nav-menu .menu-fm img{height:30px;}
+  .nav-menu .nav-slot{width:32px;height:32px;}
+}
 
 body.nav-open{overflow:hidden;}
 
 @media (prefers-reduced-motion:reduce){
   .nav-menu,.nav-burger span,.nav-loop-card{transition:none;}
   .nav-menu .lm-rot,.nav-menu .lm-rot2{animation:none;}
+  .nav-menu::before,.nav-menu-link:hover,.nav-menu .menu-fm.glitch .fm-a,
+  .nav-menu .menu-fm.glitch .fm-b,.nav-menu .menu-fm.glitch > img{animation:none;}
 }

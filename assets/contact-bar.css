@@ -1,20 +1,34 @@
-/* Floating contact bar — shared across the site */
-.float-sidebar { position: fixed; right: 12px; top: 50%; transform: translateY(-50%) translateX(calc(100% + 20px)); display: flex; flex-direction: column; gap: 0; z-index: 995; border-radius: 12px; overflow: hidden; border: 1.5px solid rgba(232,41,74,.7); background: #0F0E0C; box-shadow: 0 2px 16px rgba(232,41,74,.15); transition: transform 0.4s cubic-bezier(0.23, 1, 0.32, 1); }
-.float-sidebar.visible { transform: translateY(-50%) translateX(0); }
-.float-sidebar.highlight { animation: sidebarPulse 0.9s cubic-bezier(.36,.07,.19,.97); }
-.float-icon { display: flex; align-items: center; justify-content: center; width: 44px; height: 44px; background: #0F0E0C; color: rgba(255,255,255,0.85); border-bottom: 0.5px solid rgba(255,255,255,.1); text-decoration: none; transition: background .15s, color .15s; }
-.float-icon:hover { background: #1a1917; color: #fff; }
-.float-icon:last-child { border-bottom: none; }
-.float-icon svg { width: 18px; height: 18px; }
-.float-icon:hover { transform: scale(1.1); background: #fff; }
-.float-icon svg { width: 20px; height: 20px; }
-@keyframes sidebarPulse { 0% { box-shadow: 0 2px 16px rgba(232,41,74,.15); transform: translateY(-50%) translateX(0) scale(1); }
-25% { box-shadow: 0 0 0 6px rgba(232,41,74,.25), 0 4px 24px rgba(232,41,74,.4); transform: translateY(-50%) translateX(0) scale(1.08); }
-}
+/* Zwevende contactbalk, op de hele site gelijk (homepage inbegrepen).
+   Wit, met dezelfde lichte rand en schaduw als de knoppen elders op de site.
+   De balk hangt aan de onderkant van het scherm (bottom: 50svh) in plaats van
+   aan top: 50%: op een telefoon verspringt hij dan niet wanneer de adresbalk
+   in- of uitklapt. */
+.float-sidebar{position:fixed;right:12px;top:auto;bottom:50vh;bottom:50svh;
+  transform:translateY(50%) translateX(calc(100% + 20px));
+  display:flex;flex-direction:column;gap:0;z-index:995;
+  border-radius:12px;overflow:hidden;background:#fff;border:1px solid #E2DFD9;
+  box-shadow:0 4px 18px rgba(15,14,12,.08);
+  transition:transform .4s cubic-bezier(.23,1,.32,1);}
+.float-sidebar.visible{transform:translateY(50%) translateX(0);}
+.float-sidebar.highlight{animation:sidebarPulse .9s cubic-bezier(.36,.07,.19,.97);}
 
-/* Geklikt of aangetikt: het icoon wordt zwart, de achtergrond blijft zoals hij was.
-   Zonder dit stond er een wit icoon op de witte achtergrond van de hoverstatus. */
-.float-icon:hover,
-.float-icon:active,
-.float-icon:focus,
-.float-icon:focus-visible { color: #0F0E0C; }
+.float-icon{display:flex;align-items:center;justify-content:center;width:44px;height:44px;
+  background:#fff;color:#0F0E0C;border:none;text-decoration:none;cursor:pointer;
+  transform:none;transition:background .15s,color .15s;-webkit-tap-highlight-color:transparent;}
+.float-icon svg{width:20px;height:20px;display:block;pointer-events:none;}
+.float-icon:hover,.float-icon:focus-visible{background:#F5F4F1;color:#0F0E0C;transform:none;}
+.float-icon:active{background:#ECEAE5;color:#0F0E0C;transform:none;}
+.float-icon:focus{color:#0F0E0C;}
+.float-icon:focus-visible{outline:2px solid #E8294A;outline-offset:-2px;}
+
+/* Na een klik op 'stel je vraag': de balk licht kort op. */
+@keyframes sidebarPulse{
+  0%  {box-shadow:0 4px 18px rgba(15,14,12,.08);transform:translateY(50%) translateX(0) scale(1);}
+  25% {box-shadow:0 0 0 6px rgba(232,41,74,.18),0 4px 24px rgba(232,41,74,.25);transform:translateY(50%) translateX(0) scale(1.06);}
+  60% {box-shadow:0 0 0 3px rgba(232,41,74,.10),0 4px 18px rgba(15,14,12,.08);transform:translateY(50%) translateX(0) scale(1.02);}
+  100%{box-shadow:0 4px 18px rgba(15,14,12,.08);transform:translateY(50%) translateX(0) scale(1);}
+}
+@media (prefers-reduced-motion:reduce){
+  .float-sidebar{transition:none;}
+  .float-sidebar.highlight{animation:none;}
+}

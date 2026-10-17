@@ -64,7 +64,6 @@
 .footer {
   padding: 20px 16px 0;
   background: #fff;
-  border-top: 1px solid #E8E6E1;
 }
 /* Bento grid: two tiles side by side on mobile */
 .footer-bento{display:grid;grid-template-columns:1fr 1fr 1fr;gap:10px;margin-bottom:10px;padding-bottom:80px;}
@@ -210,7 +209,7 @@
 }
 
 /* Footer staat los van pagina-CSS zodat hij overal identiek oogt. */
-footer.footer{padding:20px 16px 0;background:#fff;border-top:1px solid #E8E6E1;
+footer.footer{padding:20px 16px 0;background:#fff;border-top:none;
   max-width:none;margin:0;box-sizing:border-box;}
 footer .footer-bento{max-width:var(--paginabreedte,680px);margin-left:auto;margin-right:auto;}
 footer .social-icon{width:28px;height:28px;flex:none;}
