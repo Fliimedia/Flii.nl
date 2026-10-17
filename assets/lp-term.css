@@ -270,13 +270,6 @@
   font-size:12.5px;line-height:1.6;color:var(--lt-soft);}
 .lt-voet a{color:var(--lt-ink);font-weight:600;text-decoration:none;}
 
-/* ---------- Breder scherm ---------- */
-@media (min-width:1140px){
-  nav.nav{
-    padding-left:max(16px, calc((100% - var(--lt-breedte)) / 2 - 24px)) !important;
-    padding-right:max(16px, calc((100% - var(--lt-breedte)) / 2 - 24px)) !important;
-    box-sizing:border-box;}
-}
 
 @media (prefers-reduced-motion:reduce){
   .lt-case:hover{padding-left:0;}
