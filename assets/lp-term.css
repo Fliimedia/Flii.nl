@@ -75,6 +75,14 @@
 .lt-btn.gekopieerd .lt-ic-link{display:none;}
 .lt-btn.gekopieerd .lt-ic-ok{display:block;}
 .lt-ic-link svg,.lt-ic-ok svg{width:18px;height:18px;display:block;}
+/* Op smalle schermen passen samenvatten en delen op één rij door de
+   knoppen iets kleiner te maken. */
+@media (max-width:620px){
+  .lt-acties{gap:14px 16px;}
+  .lt-acties .lt-knoppen{flex-wrap:nowrap;gap:6px;}
+  .lt-acties .lt-btn--icoon{width:36px;height:36px;}
+  .lt-acties .lt-btn svg,.lt-ic-link svg,.lt-ic-ok svg{width:17px;height:17px;}
+}
 .lt-btn--vol{background:var(--lt-ink);color:#fff;border-color:var(--lt-ink);}
 .lt-btn--vol:hover{background:var(--lt-mag);border-color:var(--lt-mag);box-shadow:none;}
 .lt-btn:focus-visible,.lt-crumb a:focus-visible{outline:2px solid var(--lt-mag);outline-offset:2px;}

@@ -56,3 +56,14 @@
 .ak-btn.gekopieerd .ak-ic-link{display:none;}
 .ak-btn.gekopieerd .ak-ic-ok{display:block;}
 .ak-ic-link svg,.ak-ic-ok svg{width:20px;height:20px;display:block;}
+
+/* Op smalle schermen passen beide groepen op één rij door de knoppen
+   iets kleiner te maken; de voorkeursbronknop zakt eronder. */
+@media (max-width:620px){
+  .ak-sam{gap:14px 16px;}
+  .ak-knoppen{flex-wrap:nowrap;gap:6px;}
+  .ak-btn{width:36px;height:36px;}
+  .ak-btn svg,.ak-ic-link svg,.ak-ic-ok svg{width:17px;height:17px;}
+  .ak-google{height:36px;padding:0 12px;font-size:13px;}
+  .ak-google svg{width:17px;height:17px;}
+}
