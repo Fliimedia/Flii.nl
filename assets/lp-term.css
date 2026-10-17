@@ -230,10 +230,18 @@
 
 /* ---------- Afsluitende call to action met de specialist ---------- */
 .lt-cta{margin-top:48px;border:1.5px solid var(--lt-ink);border-radius:20px;overflow:hidden;}
-.lt-cta-kop{display:flex;align-items:center;gap:16px;padding:24px;}
+.lt-cta-kop{display:flex;flex-wrap:wrap;align-items:center;gap:16px;padding:24px;}
 .lt-cta-foto{width:72px;height:72px;border-radius:50%;object-fit:cover;flex:none;
   background:var(--lt-tint);}
-.lt-cta-wie{min-width:0;}
+.lt-cta-wie{min-width:0;flex:1 1 auto;}
+/* Direct bellen, appen of mailen staat bij de persoon, niet bij het
+   formulier: het zijn andere routes, geen knoppen die het bericht
+   versturen. Op smalle schermen zakken ze onder de naam. */
+.lt-cta-direct{display:flex;gap:8px;flex:none;margin-left:auto;}
+@media (max-width:560px){
+  .lt-cta-kop{gap:14px 16px;}
+  .lt-cta-direct{margin-left:0;width:100%;}
+}
 .lt-cta-titel{font-family:var(--ff-disp);font-size:22px;font-weight:800;letter-spacing:-.5px;
   line-height:1.15;color:var(--lt-ink);}
 .lt-cta-naam{font-size:15px;font-weight:600;line-height:1.35;color:var(--lt-ink);margin-top:6px;}
