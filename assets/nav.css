@@ -19,13 +19,17 @@ nav.nav{display:flex;align-items:center;justify-content:space-between;
   box-sizing:border-box;
   position:static;height:auto;border-bottom:none;backdrop-filter:none;}
 .nav-logo{display:flex;align-items:center;gap:var(--nav-sp1);}
-.nav-mark{width:auto;height:80px;display:flex;align-items:center;justify-content:flex-start;
-  background:transparent;overflow:visible;flex-shrink:0;}
-/* Het logobestand heeft aan weerszijden 28,2% doorzichtige rand. Bij een
-   hoogte van 56px wordt het beeld 40,2px breed, dus die rand is ruim 12px.
-   De negatieve marge schuift de rand weg, niet het merkteken zelf, zodat
-   het merkteken op dezelfde kantlijn staat als de tekst eronder. */
-.nav-mark img{width:auto;height:56px;display:block;margin-left:-12.3px;}
+/* Een vaste breedte is nodig: zonder dat knijpt de flexbox het beeld
+   smaller dan het hoort, want max-width:100% rekent dan tegen een
+   breedte die het beeld zelf moet bepalen. */
+.nav-mark{width:56px;height:80px;display:flex;align-items:center;justify-content:center;
+  background:transparent;overflow:visible;flex-shrink:0;margin-left:-15.79px;}
+/* Vierkant en onvervormd, net als op de homepage. Het bestand is 500x500
+   met aan weerszijden 28,2% doorzichtige rand, dus bij 56px is die rand
+   15,8px breed; de negatieve marge hierboven schuift die rand weg, niet
+   het merkteken zelf, zodat het merkteken op dezelfde kantlijn staat als
+   de tekst eronder. */
+.nav-mark img{width:100%;height:56px;flex:none;object-fit:contain;display:block;}
 .nav-burger{display:flex;flex-direction:column;gap:5px;cursor:pointer;
   padding:var(--nav-sp1) 0;background:none;border:none;}
 .nav-burger span{display:block;height:1.5px;background:var(--nav-ink);border-radius:2px;
