@@ -44,7 +44,7 @@
 
 /* Actierij in de kop. Lokaal: een contactkaart met de specialist ernaast.
    Begrip: de knoppen om samen te vatten met AI. */
-.lt-acties{margin-top:22px;}
+.lt-acties{margin-top:22px;display:flex;flex-wrap:wrap;align-items:flex-end;gap:16px 28px;}
 .lt-contact{display:flex;align-items:center;gap:14px;margin-top:24px;padding:14px 16px;
   border:1px solid var(--lt-line);border-radius:14px;background:#fff;}
 .lt-contact-foto{width:52px;height:52px;border-radius:50%;object-fit:cover;flex:none;
@@ -67,7 +67,14 @@
   transition:border-color .15s,box-shadow .15s;}
 .lt-btn svg{width:18px;height:18px;flex:none;}
 .lt-btn:hover{border-color:#C9C5BE;box-shadow:0 2px 8px rgba(0,0,0,.06);}
-.lt-btn--icoon{width:42px;padding:0;}
+.lt-btn--icoon{width:42px;padding:0;cursor:pointer;}
+/* Kopieerknop: het vinkje neemt de plaats van het schakeltje in zodra
+   de link op het klembord staat. */
+.lt-ic-ok{display:none;}
+.lt-btn.gekopieerd{border-color:#14794A;color:#14794A;}
+.lt-btn.gekopieerd .lt-ic-link{display:none;}
+.lt-btn.gekopieerd .lt-ic-ok{display:block;}
+.lt-ic-link svg,.lt-ic-ok svg{width:18px;height:18px;display:block;}
 .lt-btn--vol{background:var(--lt-ink);color:#fff;border-color:var(--lt-ink);}
 .lt-btn--vol:hover{background:var(--lt-mag);border-color:var(--lt-mag);box-shadow:none;}
 .lt-btn:focus-visible,.lt-crumb a:focus-visible{outline:2px solid var(--lt-mag);outline-offset:2px;}
@@ -219,18 +226,34 @@
 .lt-cta-foto{width:72px;height:72px;border-radius:50%;object-fit:cover;flex:none;
   background:var(--lt-tint);}
 .lt-cta-wie{min-width:0;}
-.lt-cta-label{font-family:var(--ff-mono);font-size:10px;font-weight:700;letter-spacing:.12em;
-  text-transform:uppercase;color:var(--lt-soft);margin:0 0 6px;}
-.lt-cta-naam{font-family:var(--ff-disp);font-size:20px;font-weight:800;letter-spacing:-.4px;
-  line-height:1.2;color:var(--lt-ink);}
-.lt-cta-rol{font-size:14px;line-height:1.4;color:var(--lt-soft);margin-top:3px;}
-.lt-cta-tekst{padding:0 24px;}
-.lt-cta-tekst p{font-size:15.5px;line-height:1.68;color:var(--lt-ink);margin:0 0 18px;}
-.lt-cta-balk{display:flex;flex-wrap:wrap;gap:10px;padding:0 24px 24px;}
+.lt-cta-titel{font-family:var(--ff-disp);font-size:22px;font-weight:800;letter-spacing:-.5px;
+  line-height:1.15;color:var(--lt-ink);}
+.lt-cta-naam{font-size:15px;font-weight:600;line-height:1.35;color:var(--lt-ink);margin-top:6px;}
+.lt-cta-rol{font-size:13.5px;line-height:1.4;color:var(--lt-soft);margin-top:1px;}
+
+.lt-cta-form{padding:0 24px 24px;}
+.lt-cta-zin{font-size:15.5px;line-height:1.68;color:var(--lt-ink);margin:0 0 16px;}
+.lt-hp{position:absolute;left:-9999px;width:1px;height:1px;overflow:hidden;}
+.lt-veld{display:block;margin-bottom:12px;}
+.lt-veld-l{display:block;font-family:var(--ff-mono);font-size:10px;font-weight:700;
+  letter-spacing:.12em;text-transform:uppercase;color:var(--lt-soft);margin-bottom:6px;}
+.lt-veld input,.lt-veld textarea{display:block;width:100%;box-sizing:border-box;
+  font-family:var(--ff-body);font-size:15px;line-height:1.5;color:var(--lt-ink);
+  background:var(--lt-tint);border:1px solid var(--lt-rule);border-radius:10px;
+  padding:11px 13px;transition:border-color .14s,background .14s;}
+.lt-veld textarea{resize:vertical;min-height:84px;}
+.lt-veld input:focus,.lt-veld textarea:focus{outline:none;background:#fff;
+  border-color:var(--lt-ink);}
+
+.lt-cta-balk{display:flex;flex-wrap:wrap;gap:10px;margin-top:16px;}
 .lt-cta-balk .lt-btn{flex:none;}
-@media (max-width:420px){
-  .lt-cta-balk .lt-btn--vol{width:100%;}
-}
+.lt-cta-balk .lt-btn--rest{flex:1 1 160px;min-width:0;background:var(--lt-ink);color:#fff;
+  border-color:var(--lt-ink);cursor:pointer;}
+.lt-btn--rest:hover{background:var(--lt-mag);border-color:var(--lt-mag);box-shadow:none;}
+.lt-cta-status{font-size:13px;line-height:1.5;color:var(--lt-soft);margin:12px 0 0;}
+.lt-cta-status.ok{color:#14794A;}
+.lt-cta-status.fout{color:var(--lt-mag);}
+.lt-cta-status:empty{display:none;}
 
 /* ---------- Voet ---------- */
 .lt-voet{margin-top:40px;padding-top:20px;border-top:1px solid var(--lt-rule);

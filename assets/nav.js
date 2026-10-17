@@ -34,13 +34,22 @@
     d.setAttribute('role', 'dialog');
     d.setAttribute('aria-modal', 'true');
     d.innerHTML =
+      '<span class="menu-fm" aria-hidden="true">' +
+        '<img loading="lazy" decoding="async" src="/assets/img/d913cc3c069f.webp" alt=""></span>' +
       '<button class="nav-menu-close" id="nav-menu-close" aria-label="Sluiten">×</button>' +
+      '<a href="/projecten/crm/" class="nav-slot" aria-label="Flii CRM, met pincode">' +
+        '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" ' +
+        'stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">' +
+        '<rect x="4" y="10.5" width="16" height="10" rx="2"/>' +
+        '<path d="M8 10.5V7a4 4 0 0 1 8 0v3.5"/></svg></a>' +
       '<div class="nav-menu-inner">' +
         '<nav class="nav-menu-links" aria-label="Hoofdmenu">' +
           LINKS.map(function (l) {
             return '<a href="' + l[0] + '" class="nav-menu-link">' + l[1] + '</a>';
           }).join('') +
         '</nav>' + loopKaart() +
+        '<p class="nav-menu-footer"><a href="mailto:info@flii.nl">info@flii.nl</a> · ' +
+        '<a href="tel:+31640881169">+31 6 40 88 11 69</a></p>' +
       '</div>';
     document.body.appendChild(d);
     return d;

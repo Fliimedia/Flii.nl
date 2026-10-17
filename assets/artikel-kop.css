@@ -30,13 +30,13 @@
   color:var(--ink,#0F0E0C);background:#fff;border:1px solid #E2DFD9;border-radius:8px;
   white-space:nowrap;}
 
-.ak-sam{margin-top:22px;}
+.ak-sam{margin-top:22px;display:flex;flex-wrap:wrap;align-items:flex-end;gap:16px 28px;}
 .ak-sam-label{display:block;font-family:var(--ff-body);font-size:14px;
   color:var(--mid,#4A4840);margin-bottom:10px;}
 .ak-knoppen{display:flex;flex-wrap:wrap;gap:10px;}
 .ak-btn{display:inline-flex;align-items:center;justify-content:center;
   width:42px;height:42px;background:#fff;border:1px solid #E2DFD9;border-radius:10px;
-  text-decoration:none;color:var(--ink,#0F0E0C);
+  text-decoration:none;color:var(--ink,#0F0E0C);padding:0;cursor:pointer;
   transition:border-color .15s,box-shadow .15s;}
 .ak-btn svg{width:20px;height:20px;display:block;}
 .ak-btn:hover{border-color:#C9C5BE;box-shadow:0 2px 8px rgba(0,0,0,.06);}
@@ -48,3 +48,11 @@
 .ak-google:hover{border-color:#C9C5BE;box-shadow:0 2px 8px rgba(0,0,0,.06);}
 .ak-btn:focus-visible,.ak-google:focus-visible,.ak-crumb a:focus-visible{
   outline:2px solid var(--mag,#E8294A);outline-offset:2px;}
+
+/* Kopieerknop: het vinkje neemt de plaats van het schakeltje in zodra
+   de link op het klembord staat. */
+.ak-ic-ok{display:none;}
+.ak-btn.gekopieerd{border-color:#14794A;color:#14794A;}
+.ak-btn.gekopieerd .ak-ic-link{display:none;}
+.ak-btn.gekopieerd .ak-ic-ok{display:block;}
+.ak-ic-link svg,.ak-ic-ok svg{width:20px;height:20px;display:block;}
