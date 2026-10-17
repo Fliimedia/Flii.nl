@@ -100,6 +100,8 @@
 .lt-antwoord p{font-family:var(--ff-body);font-size:17px;line-height:1.6;
   color:var(--lt-ink);margin:0;}
 .lt-antwoord p+p{margin-top:12px;}
+.lt-antwoord-kop{font-family:var(--ff-disp);font-size:19px;font-weight:800;letter-spacing:-.3px;
+  line-height:1.25;margin:0 0 10px;color:var(--lt-ink);}
 .lt-antwoord strong{font-weight:700;}
 
 /* ---------- Tekstsecties ---------- */
