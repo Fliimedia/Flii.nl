@@ -8,7 +8,7 @@
     '    <div class="cta-inner">' +
     '      <button type="button" class="cta-h" aria-pressed="false">' +
     "Let's ignite<br>ambitions</button>" +
-    '      <a href="https://calendly.com/flii-media" target="_blank" rel="noopener" class="cta-btn">' +
+    '      <a href="https://calendar.google.com/calendar/appointments/schedules/AcZssZ1Dfb1ZunCYFgPNrvuYKMIgVBy9Qgv9xlcxkSOnEbvnaWWSUeKQ_fTzv4gSHQfmkJm3LmL93Tk7" target="_blank" rel="noopener" class="cta-btn">' +
     '        Plan een gesprek' +
     '        <span class="cta-btn-arrow">' +
     '<svg viewBox="0 0 8 8" width="14" height="14" aria-hidden="true">' +
