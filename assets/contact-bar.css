@@ -32,3 +32,40 @@
   .float-sidebar{transition:none;}
   .float-sidebar.highlight{animation:none;}
 }
+
+/* Knop-element (chat) zonder browseropmaak. */
+button.float-icon{padding:0;margin:0;font:inherit;appearance:none;-webkit-appearance:none;}
+
+/* Chatbase: alleen het chatvenster, niet de eigen zwevende bel. */
+#chatbase-bubble-button,.chatbase-bubble-button,[data-chatbase="bubble"],
+chatbase-bubble-button{display:none !important;}
+
+/* ---------- Plannervenster ---------- */
+.afspraak{position:fixed;inset:0;z-index:9500;display:flex;align-items:center;justify-content:center;
+  padding:24px;background:rgba(15,14,12,.42);opacity:0;pointer-events:none;
+  transition:opacity .2s ease;}
+.afspraak.open{opacity:1;pointer-events:auto;}
+.afspraak-paneel{width:100%;max-width:640px;height:min(760px,calc(100vh - 48px));height:min(760px,calc(100dvh - 48px));
+  display:flex;flex-direction:column;background:#fff;border:1px solid #E2DFD9;border-radius:16px;
+  box-shadow:0 18px 50px rgba(15,14,12,.18);overflow:hidden;
+  transform:translateY(8px);transition:transform .2s ease;}
+.afspraak.open .afspraak-paneel{transform:none;}
+.afspraak-kop{display:flex;align-items:center;justify-content:space-between;gap:12px;
+  padding:14px 14px 12px 20px;}
+.afspraak-titel{font-family:var(--ff-disp,'Bricolage Grotesque',sans-serif);font-size:17px;
+  font-weight:800;letter-spacing:-.3px;color:#0F0E0C;}
+.afspraak-dicht{width:36px;height:36px;display:inline-flex;align-items:center;justify-content:center;
+  background:#fff;border:1px solid #E2DFD9;border-radius:10px;color:#0F0E0C;cursor:pointer;padding:0;}
+.afspraak-dicht svg{width:18px;height:18px;display:block;}
+.afspraak-dicht:hover{background:#F5F4F1;}
+.afspraak-dicht:focus-visible{outline:2px solid #E8294A;outline-offset:2px;}
+.afspraak-frame{flex:1;width:100%;border:0;display:block;background:#fff;}
+html.afspraak-open,html.afspraak-open body{overflow:hidden;}
+@media (max-width:560px){
+  .afspraak{padding:0;align-items:flex-end;}
+  .afspraak-paneel{max-width:none;height:calc(100vh - 24px);height:calc(100dvh - 24px);
+    border-radius:16px 16px 0 0;border-bottom:none;}
+}
+@media (prefers-reduced-motion:reduce){
+  .afspraak,.afspraak-paneel{transition:none;}
+}

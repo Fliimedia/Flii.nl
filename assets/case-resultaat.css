@@ -1,5 +1,6 @@
-/* Resultaten onderaan een case: cijfers als losse kaarten naast elkaar,
-   bevindingen zonder getal als lijst eronder. */
+/* Resultaten onderaan een case: elk resultaat een eigen kaart, naast elkaar.
+   Kaarten met een getal tonen dat groot; bevindingen zonder getal tonen
+   alleen de tekst, iets groter en donkerder. */
 
 .cs-blok{margin-top:14px;}
 
@@ -25,6 +26,7 @@
   font-size:clamp(23px,5.6vw,30px);font-weight:800;letter-spacing:-1.2px;line-height:1;
   color:#0F0E0C;font-variant-numeric:tabular-nums;}
 .cs-label{display:block;font-size:12.5px;line-height:1.45;color:#5A6068;margin-top:6px;}
+.cs-card--tekst .cs-label{font-size:14px;line-height:1.5;color:#0F0E0C;margin-top:0;}
 
 .cs-noten{list-style:none;margin:20px 0 0;padding:0;}
 .cs-noten:first-child{margin-top:0;}
