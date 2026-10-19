@@ -40,7 +40,9 @@
   transition:border-color .15s,box-shadow .15s;}
 .ak-btn svg{width:20px;height:20px;display:block;}
 .ak-btn:hover{border-color:#C9C5BE;box-shadow:0 2px 8px rgba(0,0,0,.06);}
-.ak-google{display:inline-flex;align-items:center;gap:8px;height:42px;padding:0 14px;
+/* Even breed als de drie samenvatknoppen samen: 3 knoppen plus 2 tussenruimtes. */
+.ak-google{display:inline-flex;align-items:center;justify-content:center;gap:8px;height:42px;padding:0 8px;
+  width:calc(3 * 42px + 2 * 10px);box-sizing:border-box;white-space:nowrap;
   background:#F5F4F1;border:1px solid #E2DFD9;border-radius:10px;text-decoration:none;
   font-family:var(--ff-body);font-size:14px;font-weight:600;color:var(--ink,#0F0E0C);
   transition:border-color .15s,box-shadow .15s;cursor:pointer;}
@@ -64,6 +66,6 @@
   .ak-knoppen{flex-wrap:nowrap;gap:6px;}
   .ak-btn{width:36px;height:36px;}
   .ak-btn svg,.ak-ic-link svg,.ak-ic-ok svg{width:17px;height:17px;}
-  .ak-google{height:36px;padding:0 12px;font-size:13px;}
+  .ak-google{height:36px;padding:0 6px;font-size:13px;gap:7px;width:calc(3 * 36px + 2 * 6px);}
   .ak-google svg{width:17px;height:17px;}
 }
