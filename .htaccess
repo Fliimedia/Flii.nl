@@ -2,6 +2,9 @@
 Redirect 301 /projecten/crm https://flii.app/crm
 Redirect 301 /crm https://flii.app/crm
 
+# Korte link naar de case Week tegen Eenzaamheid.
+Redirect 301 /case/de-buurt/week-tegen-eenzaamheid https://flii.nl/cases/de-buurt/week-tegen-eenzaamheid
+
 Options -MultiViews
 RewriteEngine On
 
