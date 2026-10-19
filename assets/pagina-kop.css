@@ -51,3 +51,16 @@ a.pk-chip:focus-visible,.pk-crumb a:focus-visible{outline:2px solid #E8294A;outl
 .pk ~ .section-body p{font-size:15.5px;line-height:1.72;color:#0F0E0C;margin:0 0 15px;}
 .pk ~ .section-body li{font-size:15.5px;line-height:1.72;color:#0F0E0C;}
 .pk ~ .section-body strong{font-weight:700;}
+
+/* ---------- Contactblok onder de tekst (dienstpagina's) ----------
+   Het blok zelf komt uit de kennisbank (/assets/lp-term.css, .lt-cta). */
+.pk-cta{max-width:var(--paginabreedte,680px);margin:0 auto;padding:0 24px;box-sizing:border-box;}
+.pk-cta .lt-cta{margin-top:12px;}
+
+/* ---------- Dienstpagina's iets compacter ---------- */
+.pk ~ .dienst-photo{aspect-ratio:2/1;}
+.pk ~ .dienst-photo ~ .section-body h2{margin-top:32px;}
+.pk ~ .dienst-photo ~ .section-body h2:first-child{margin-top:0;}
+.pk ~ .dienst-photo ~ .section-body p{margin-bottom:12px;}
+.pk ~ .dienst-photo ~ .section-body li{line-height:1.65;}
+.pk ~ .dienst-photo ~ .section-body{padding-top:28px;padding-bottom:28px;}

@@ -98,10 +98,10 @@ nav.nav{display:flex;align-items:center;justify-content:space-between;
 .nav-menu .menu-fm{position:absolute;top:var(--nav-sp3);left:var(--nav-sp3);z-index:11;
   background:none;border:none;padding:6px;cursor:pointer;line-height:0;
   filter:drop-shadow(0 0 10px rgba(232,41,74,.35));}
-.nav-menu .menu-fm img{width:34px;height:34px;display:block;}
+.nav-menu .menu-fm img{width:56px;height:56px;display:block;}
 .nav-menu .menu-fm:focus-visible{outline:2px solid #E8294A;outline-offset:4px;border-radius:8px;}
 .nav-menu .menu-fm .fm-l{position:absolute;inset:6px;pointer-events:none;opacity:0;}
-.nav-menu .menu-fm .fm-l img{width:34px;height:34px;}
+.nav-menu .menu-fm .fm-l img{width:56px;height:56px;}
 .nav-menu .menu-fm .fm-a img{filter:hue-rotate(150deg) saturate(3);}
 .nav-menu .menu-fm .fm-b img{filter:hue-rotate(-90deg) saturate(3);}
 .nav-menu .menu-fm.glitch .fm-a{animation:navFmGlitchA .42s steps(2,end);}
@@ -146,8 +146,7 @@ nav.nav{display:flex;align-items:center;justify-content:space-between;
 }
 /* Lage vensters: compacter, zodat er nog steeds niets wegvalt. */
 @media (min-width:900px) and (max-height:720px){
-  .nav-menu-inner{padding-top:104px;padding-bottom:72px;}
-  .nav-menu .menu-fm img{height:30px;}
+  .nav-menu-inner{padding-top:116px;padding-bottom:72px;}
   .nav-menu .nav-slot{width:32px;height:32px;}
 }
 
