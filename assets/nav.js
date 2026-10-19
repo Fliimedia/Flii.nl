@@ -92,15 +92,15 @@
 
     function draw() {
       if (!ctx || !running) return;
-      ctx.fillStyle = 'rgba(0,0,0,0.06)';
+      ctx.fillStyle = 'rgba(255,255,255,0.06)';
       ctx.fillRect(0, 0, canvas.width, canvas.height);
       for (var i = 0; i < cols; i++) {
         var ch = CHARS[(Math.random() * CHARS.length) | 0];
         var x = i * 14, y = drops[i] * 14;
         ctx.font = (9 + (Math.random() * 4 | 0)) + 'px monospace';
-        ctx.fillStyle = 'rgba(0,255,70,' + (0.35 + Math.random() * 0.65) + ')';
+        ctx.fillStyle = 'rgba(15,14,12,' + (0.35 + Math.random() * 0.65).toFixed(2) + ')';
         ctx.fillText(ch, x, y);
-        if (Math.random() > 0.97) { ctx.fillStyle = 'rgba(200,255,210,0.95)'; ctx.fillText(ch, x, y); }
+        if (Math.random() > 0.97) { ctx.fillStyle = 'rgba(15,14,12,0.95)'; ctx.fillText(ch, x, y); }
         if (y > canvas.height && Math.random() > 0.975) drops[i] = 0;
         drops[i]++;
       }
@@ -111,7 +111,7 @@
       if (!spotlight) return;
       spotlight.style.background =
         'radial-gradient(circle ' + (r === undefined ? 140 : r) + 'px at ' + x + 'px ' + y + 'px, ' +
-        'transparent 0%, transparent 30%, rgba(0,0,0,0.70) 65%, rgba(0,0,0,0.95) 100%)';
+        'rgba(255,255,255,0) 0%, rgba(255,255,255,0) 30%, rgba(255,255,255,0.72) 65%, rgba(255,255,255,0.95) 100%)';
     }
 
     function spotUit() {
@@ -131,8 +131,8 @@
       swayVX *= 0.76; swayVY *= 0.76;
       swayX += swayVX; swayY += swayVY;
       swayX *= 0.87; swayY *= 0.87;
-      swayX = Math.max(-22, Math.min(22, swayX));
-      swayY = Math.max(-14, Math.min(14, swayY));
+      swayX = Math.max(-4, Math.min(4, swayX));
+      swayY = Math.max(-3, Math.min(3, swayY));
       if (innerEl) innerEl.style.transform = 'translate(' + swayX.toFixed(1) + 'px,' + swayY.toFixed(1) + 'px)';
       if (running) requestAnimationFrame(sway);
     }
@@ -173,10 +173,10 @@
       if (!spotActive) {
         spotActive = true;
         if (spotlight) spotlight.style.opacity = '1';
-        if (canvas) canvas.style.opacity = '0.42';
+        if (canvas) canvas.style.opacity = '0.9';
       }
       spot(cx, cy);
-      if (snelheid > 28 && !rustig) { swayVX += dx * 0.11; swayVY += dy * 0.11; }
+      if (snelheid > 28 && !rustig) { swayVX += dx * 0.03; swayVY += dy * 0.03; }
       clearTimeout(moveTimeout);
       moveTimeout = setTimeout(function () {
         spotUit();

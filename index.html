@@ -2671,6 +2671,27 @@ details.faq-item[open] .faq-answer {
   .nav-slot{width:32px;height:32px;}
 }
 
+/* Menu wit en rustig: witte achtergrond, de spotlight laat een grijs-zwarte
+   matrixregen zien, geen groene pijltjes en geen verspringende letters. */
+.nav-menu{background:#fff !important;color:#0F0E0C;}
+.nav-menu::after{background:repeating-linear-gradient(0deg,transparent,transparent 2px,rgba(15,14,12,.018) 2px,rgba(15,14,12,.018) 4px);}
+.nav-spotlight{background:rgba(255,255,255,.88);}
+.nav-menu-link{color:#0F0E0C;border-bottom-color:rgba(15,14,12,.07);transition:color .15s;}
+.nav-menu-link::before{content:none;display:none;}
+.nav-menu-link:hover{color:#E8294A;letter-spacing:.04em;animation:none;text-shadow:none;}
+.nav-menu-close{color:rgba(15,14,12,.45);}
+.nav-menu-close:hover{color:#0F0E0C;}
+.nav-loop-card{background:#fff;border:1px solid #E2DFD9;}
+.nav-loop-card:hover{background:#F5F4F1;border-color:#C9C5BE;-webkit-backdrop-filter:none;backdrop-filter:none;
+  box-shadow:0 4px 14px rgba(15,14,12,.06);}
+.nav-loop-name{color:#0F0E0C;}
+.nav-loop-desc{color:#6B6866;}
+.nav-menu-footer,.nav-menu-footer a{color:#6B6866;}
+.nav-menu-footer a:hover{color:#0F0E0C;}
+.nav-slot{border-color:#E2DFD9;background:#fff;color:#6B6866;}
+.nav-slot:hover{color:#0F0E0C;border-color:#C9C5BE;background:#F5F4F1;}
+.menu-fm.on{filter:drop-shadow(0 0 14px rgba(232,41,74,.35));}
+
 /* Navigatiebalk overal gelijk. */
 nav.nav{background:#fff !important;color:#0F0E0C !important;max-width:none !important;margin:0 !important;}
 
@@ -3904,7 +3925,7 @@ window.chatbaseConfig={chatbotId:"xDWiHhLymvD2NuZKQ-bO_",hideBubble:true};
 
   function drawMatrix() {
     if (!ctx || !running) return;
-    ctx.fillStyle = 'rgba(0,0,0,0.06)';
+    ctx.fillStyle = 'rgba(255,255,255,0.06)';
     ctx.fillRect(0, 0, canvas.width, canvas.height);
     for (var i = 0; i < cols; i++) {
       var ch = CHARS[(Math.random() * CHARS.length) | 0];
@@ -3912,10 +3933,10 @@ window.chatbaseConfig={chatbotId:"xDWiHhLymvD2NuZKQ-bO_",hideBubble:true};
       var y  = drops[i] * 14;
       var br = 0.35 + Math.random() * 0.65;
       ctx.font = (9 + (Math.random() * 4 | 0)) + 'px monospace';
-      ctx.fillStyle = 'rgba(0,255,70,' + br + ')';
+      ctx.fillStyle = 'rgba(15,14,12,' + br.toFixed(2) + ')';
       ctx.fillText(ch, x, y);
       if (Math.random() > 0.97) {
-        ctx.fillStyle = 'rgba(200,255,210,0.95)';
+        ctx.fillStyle = 'rgba(15,14,12,0.95)';
         ctx.fillText(ch, x, y);
       }
       if (y > canvas.height && Math.random() > 0.975) drops[i] = 0;
@@ -3953,7 +3974,7 @@ window.chatbaseConfig={chatbotId:"xDWiHhLymvD2NuZKQ-bO_",hideBubble:true};
     var r = (radius !== undefined) ? radius : 140;
     spotlight.style.background =
       'radial-gradient(circle ' + r + 'px at ' + x + 'px ' + y + 'px, ' +
-      'transparent 0%, transparent 30%, rgba(0,0,0,0.70) 65%, rgba(0,0,0,0.95) 100%)';
+      'rgba(255,255,255,0) 0%, rgba(255,255,255,0) 30%, rgba(255,255,255,0.72) 65%, rgba(255,255,255,0.95) 100%)';
   }
 
   var _lastSpotX = -9999, _lastSpotY = -9999;
@@ -3999,10 +4020,10 @@ window.chatbaseConfig={chatbotId:"xDWiHhLymvD2NuZKQ-bO_",hideBubble:true};
     if (!spotActive) {
       spotActive = true;
       if (spotlight) spotlight.style.opacity = '1';
-      if (canvas) canvas.style.opacity = '0.42';  // brighter when spotlight active
+      if (canvas) canvas.style.opacity = '0.9';  // brighter when spotlight active
     }
     updateSpotlight(cx, cy);
-    if (speed > 28) { swayVX += dx * 0.11; swayVY += dy * 0.11; }
+    if (speed > 28) { swayVX += dx * 0.03; swayVY += dy * 0.03; }
     clearTimeout(moveTimeout);
     moveTimeout = setTimeout(function() {
       /* spotlight stays dark always */
@@ -4016,8 +4037,8 @@ window.chatbaseConfig={chatbotId:"xDWiHhLymvD2NuZKQ-bO_",hideBubble:true};
     swayVX *= 0.76; swayVY *= 0.76;
     swayX  += swayVX; swayY  += swayVY;
     swayX  *= 0.87;   swayY  *= 0.87;
-    swayX = Math.max(-22, Math.min(22, swayX));
-    swayY = Math.max(-14, Math.min(14, swayY));
+    swayX = Math.max(-4, Math.min(4, swayX));
+    swayY = Math.max(-3, Math.min(3, swayY));
     if (innerEl) innerEl.style.transform = 'translate(' + swayX.toFixed(1) + 'px,' + swayY.toFixed(1) + 'px)';
     if (running) requestAnimationFrame(animSway);
   }
