@@ -150,6 +150,25 @@
       "socialImage4x5": "/assets/social/branding-versus-performance-marketing-ig.jpg"
     },
     {
+      "id": 8,
+      "date": "2026-10-23",
+      "category": "New project",
+      "template": "newProject",
+      "topic": "OneLane: mediacampagne voor de nieuwe merknaam van Jong & Laan",
+      "slug": "onelane",
+      "path": null,
+      "existingPage": false,
+      "title": "Nieuw project: OneLane",
+      "hook": {
+        "linkedin": "Nieuw project: OneLane. Jong & Laan gaat verder onder een nieuwe naam, en wij verzorgen de mediacampagne: digital out of home, radio, social en Spotify.",
+        "instagram": "Op straat en op de radio: nieuw project voor OneLane."
+      },
+      "pageText": null,
+      "socialCopy": null,
+      "imagePrompt": null,
+      "status": "hooks goedgekeurd"
+    },
+    {
       "id": 9,
       "date": "2026-10-26",
       "category": "New project",
@@ -228,35 +247,42 @@
     {
       "id": 12,
       "date": "2026-11-02",
-      "category": "Behind the scenes",
-      "template": "behind",
-      "topic": "Een week bij Flii Media: van mediaplan tot rapportage",
-      "slug": "een-week-bij-flii-media",
-      "path": null,
-      "existingPage": false,
-      "title": null,
-      "hook": null,
+      "category": "Service",
+      "template": "service",
+      "topic": "Dienst: platform & app development",
+      "slug": "platform-app-development",
+      "path": "/platform-app-development",
+      "existingPage": true,
+      "title": "Platform & app development",
+      "hook": {
+        "linkedin": "Doe je elke dag nog iets met de hand dat een computer beter kan? Een handmatige stap van een uur per dag verdien je binnen een jaar terug met een platform op maat.",
+        "instagram": "Een uur per dag handwerk? Dat bouwen we weg."
+      },
       "pageText": null,
       "socialCopy": null,
       "imagePrompt": null,
-      "status": "onderwerp"
+      "status": "hooks goedgekeurd",
+      "linkedinFirstComment": "Verder lezen → https://flii.nl/platform-app-development"
     },
     {
       "id": 13,
       "date": "2026-11-04",
-      "category": "Project case",
-      "template": "projectCase",
-      "topic": "Performance OS: realtime GA4-dashboard voor zelfstandigondernemers.nl",
-      "slug": "performance-os",
-      "path": "/cases/performance-os",
-      "existingPage": false,
-      "title": null,
-      "hook": null,
+      "category": "Product demo",
+      "template": "demo",
+      "topic": "Demo-dashboard op flii.app/demo",
+      "slug": "demo-dashboard",
+      "path": "https://flii.app/demo",
+      "existingPage": true,
+      "title": "Zo ziet een live marketingdashboard eruit",
+      "hook": {
+        "linkedin": "Geen losse exports en spreadsheets meer, maar één dashboard waarin je ziet wat je campagnes opleveren. Klik zelf door onze demo.",
+        "instagram": "Al je marketingdata in één scherm. Probeer de demo."
+      },
       "pageText": null,
       "socialCopy": null,
       "imagePrompt": null,
-      "status": "onderwerp",
-      "linkedinFirstComment": "Verder lezen → https://flii.nl/cases/performance-os"
+      "status": "hooks goedgekeurd",
+      "linkedinFirstComment": "Verder lezen → https://flii.app/demo"
     },
     {
       "id": 14,
@@ -267,63 +293,96 @@
       "slug": "black-friday-checklist-campagnes",
       "path": "/insight/black-friday-checklist-campagnes",
       "existingPage": false,
-      "title": null,
-      "hook": null,
+      "title": "Black Friday-checklist: wat je nu al regelt",
+      "hook": {
+        "linkedin": "Black Friday is over drie weken. Wie nu pas campagnes bouwt, betaalt straks de hoofdprijs per klik. Dit regel je deze week al.",
+        "instagram": "Nog drie weken tot Black Friday. Dit regel je nu al."
+      },
       "pageText": null,
       "socialCopy": null,
       "imagePrompt": null,
-      "status": "onderwerp",
+      "status": "hooks goedgekeurd",
       "linkedinFirstComment": "Verder lezen → https://flii.nl/insight/black-friday-checklist-campagnes"
     },
     {
       "id": 15,
       "date": "2026-11-09",
-      "category": "Interview",
-      "template": "interview",
-      "topic": "Stichting de Buurt over campagnevoeren met een maatschappelijk doel",
-      "slug": "interview-stichting-de-buurt",
-      "path": "/insight/interview-stichting-de-buurt",
-      "existingPage": false,
-      "title": null,
-      "hook": null,
+      "category": "Project case",
+      "template": "projectCase",
+      "topic": "Week tegen Eenzaamheid: campagne voor Stichting de Buurt",
+      "slug": "de-buurt/week-tegen-eenzaamheid",
+      "path": "/cases/de-buurt/week-tegen-eenzaamheid",
+      "existingPage": true,
+      "title": "Week tegen Eenzaamheid voor Stichting de Buurt",
+      "hook": {
+        "linkedin": "Eenzaamheid is een lastig onderwerp om aandacht voor te vragen. Voor de Week tegen Eenzaamheid zetten we voor Stichting de Buurt een Meta-campagne op met één simpele vraag: zet een bankje buiten en nodig je buur uit. Dit is de aanpak en wat het opleverde.",
+        "instagram": "Een campagne tegen eenzaamheid. Zo pakten we het aan."
+      },
       "pageText": null,
       "socialCopy": null,
       "imagePrompt": null,
-      "status": "onderwerp",
-      "linkedinFirstComment": "Verder lezen → https://flii.nl/insight/interview-stichting-de-buurt"
+      "status": "hooks goedgekeurd",
+      "linkedinFirstComment": "Verder lezen → https://flii.nl/cases/de-buurt/week-tegen-eenzaamheid"
     },
     {
       "id": 16,
       "date": "2026-11-11",
-      "category": "Research",
-      "template": "research",
-      "topic": "Awareness of conversie: hoe je mediabudget verdeelt over S, M en XL",
-      "slug": "awareness-of-conversie-mediabudget-verdelen",
-      "path": "/insight/awareness-of-conversie-mediabudget-verdelen",
+      "category": "Blog",
+      "template": "blog",
+      "topic": "Zo verdeel je je mediabudget optimaal (generiek, geen klant)",
+      "slug": "mediabudget-optimaal-verdelen",
+      "path": "/insight/mediabudget-optimaal-verdelen",
       "existingPage": false,
-      "title": null,
-      "hook": null,
+      "title": "Zo verdeel je je mediabudget optimaal",
+      "hook": {
+        "linkedin": "Meer budget betekent niet automatisch meer kanalen. Zo verdeel je je mediabudget tussen bereik en conversie, en zo zie je wanneer een extra kanaal wél loont.",
+        "instagram": "Waar laat je je mediabudget landen?"
+      },
       "pageText": null,
       "socialCopy": null,
       "imagePrompt": null,
-      "status": "onderwerp",
-      "linkedinFirstComment": "Verder lezen → https://flii.nl/insight/awareness-of-conversie-mediabudget-verdelen"
+      "status": "hooks goedgekeurd",
+      "linkedinFirstComment": "Verder lezen → https://flii.nl/insight/mediabudget-optimaal-verdelen"
     },
     {
       "id": 17,
       "date": "2026-11-13",
-      "category": "News Article",
-      "template": "news",
-      "topic": "Ontwikkeling in AI-advertising (actueel invullen)",
-      "slug": null,
+      "category": "Behind the scenes",
+      "template": "behind",
+      "topic": "Vrijdag de 13e: jumpscare-video",
+      "slug": "vrijdag-de-13e",
       "path": null,
       "existingPage": false,
-      "title": null,
-      "hook": null,
+      "title": "Vrijdag de 13e",
+      "hook": {
+        "linkedin": "Vrijdag de 13e. Even een rustig momentje tussen de campagnes door.",
+        "instagram": "Vrijdag de 13e. Even ontspannen, geluid aan."
+      },
       "pageText": null,
       "socialCopy": null,
       "imagePrompt": null,
-      "status": "onderwerp"
+      "status": "hooks goedgekeurd",
+      "video": "/assets/social/vrijdag-de-13e.mp4"
+    },
+    {
+      "id": 18,
+      "date": "2026-11-16",
+      "category": "Kennisbank",
+      "template": "kennisbank",
+      "topic": "Vernieuwde kennisbank op flii.nl",
+      "slug": "kennisbank",
+      "path": "/kennisbank",
+      "existingPage": true,
+      "title": "Onze kennisbank is vernieuwd",
+      "hook": {
+        "linkedin": "ROAS, CPL, funnel, lookalike audiences: marketing zit vol jargon. In onze vernieuwde kennisbank leggen we 41 begrippen uit, elk met een voorbeeld uit de praktijk.",
+        "instagram": "41 marketingbegrippen, helder uitgelegd."
+      },
+      "pageText": null,
+      "socialCopy": null,
+      "imagePrompt": null,
+      "status": "hooks goedgekeurd",
+      "linkedinFirstComment": "Verder lezen → https://flii.nl/kennisbank"
     },
     {
       "id": 19,
@@ -334,12 +393,15 @@
       "slug": "founder-as-a-brand",
       "path": "/insight/founder-as-a-brand",
       "existingPage": false,
-      "title": null,
-      "hook": null,
+      "title": "Founder as a Brand: waarom de oprichter je sterkste kanaal is",
+      "hook": {
+        "linkedin": "Mensen volgen mensen, geen logo's. Op LinkedIn bereikt een oprichter vaak meer dan de bedrijfspagina. Waarom de founder je sterkste kanaal is, en hoe je dat volhoudt.",
+        "instagram": "Mensen volgen mensen, geen logo's."
+      },
       "pageText": null,
       "socialCopy": null,
       "imagePrompt": null,
-      "status": "onderwerp",
+      "status": "hooks goedgekeurd",
       "linkedinFirstComment": "Verder lezen → https://flii.nl/insight/founder-as-a-brand"
     },
     {
@@ -347,16 +409,19 @@
       "date": "2026-11-20",
       "category": "Behind the scenes",
       "template": "behind",
-      "topic": "Onze contentmotor: van één onderwerp naar post, beeld en landingspagina",
-      "slug": "onze-contentmotor",
+      "topic": "Carrousel: onze social media automatisering in 4 stappen, van input tot post",
+      "slug": "social-media-automatisering",
       "path": null,
       "existingPage": false,
-      "title": null,
-      "hook": null,
+      "title": "Onze social media automatisering in 4 stappen",
+      "hook": {
+        "linkedin": "Deze post is gemaakt met onze eigen contentmotor. Van onderwerp tot ingeplande post in vier stappen.",
+        "instagram": "Van idee tot post in 4 stappen. Swipe."
+      },
       "pageText": null,
       "socialCopy": null,
       "imagePrompt": null,
-      "status": "onderwerp"
+      "status": "hooks goedgekeurd"
     },
     {
       "id": 21,
@@ -367,12 +432,15 @@
       "slug": "bikefair",
       "path": "/cases/bikefair",
       "existingPage": true,
-      "title": null,
-      "hook": null,
+      "title": "BikeFair: van expatfavoriet naar landelijk merk",
+      "hook": {
+        "linkedin": "Een tweedehands fietsplatform dat vooral expats kenden. Inmiddels hebben we 800.000+ Nederlanders bereikt en groeide het organische verkeer met 750%. Zo hebben we dat gedaan.",
+        "instagram": "750% meer organisch verkeer voor BikeFair."
+      },
       "pageText": null,
       "socialCopy": null,
       "imagePrompt": null,
-      "status": "onderwerp",
+      "status": "hooks goedgekeurd",
       "linkedinFirstComment": "Verder lezen → https://flii.nl/cases/bikefair"
     },
     {
@@ -380,24 +448,27 @@
       "date": "2026-11-25",
       "category": "Research",
       "template": "research",
-      "topic": "Black Friday per kanaal: wat werkte vorig jaar",
-      "slug": "black-friday-per-kanaal",
-      "path": "/insight/black-friday-per-kanaal",
+      "topic": "LinkedIn of Meta: waar bereik je B2B-beslissers?",
+      "slug": "linkedin-of-meta-b2b",
+      "path": "/insight/linkedin-of-meta-b2b",
       "existingPage": false,
-      "title": null,
-      "hook": null,
+      "title": "LinkedIn of Meta: waar bereik je B2B-beslissers?",
+      "hook": {
+        "linkedin": "Je B2B-doelgroep zit op LinkedIn, maar is daar ook het duurst. Wat de cijfers zeggen over bereik en kosten op LinkedIn en Meta.",
+        "instagram": "LinkedIn of Meta voor B2B? De cijfers."
+      },
       "pageText": null,
       "socialCopy": null,
       "imagePrompt": null,
-      "status": "onderwerp",
-      "linkedinFirstComment": "Verder lezen → https://flii.nl/insight/black-friday-per-kanaal"
+      "status": "hooks goedgekeurd",
+      "linkedinFirstComment": "Verder lezen → https://flii.nl/insight/linkedin-of-meta-b2b"
     },
     {
       "id": 23,
       "date": "2026-11-27",
       "category": "News Article",
       "template": "news",
-      "topic": "Black Friday live: wat we vandaag in de campagnes zien",
+      "topic": "Actueel nieuws (in de week zelf invullen)",
       "slug": null,
       "path": null,
       "existingPage": false,
@@ -413,17 +484,20 @@
       "date": "2026-11-30",
       "category": "Blog",
       "template": "blog",
-      "topic": "Na Black Friday: retargeting en de decemberpiek benutten",
-      "slug": "na-black-friday-retargeting-decemberpiek",
-      "path": "/insight/na-black-friday-retargeting-decemberpiek",
+      "topic": "Server-side tracking: waarom je data niet meer klopt",
+      "slug": "server-side-tracking",
+      "path": "/insight/server-side-tracking",
       "existingPage": false,
-      "title": null,
-      "hook": null,
+      "title": "Server-side tracking: waarom je data niet meer klopt",
+      "hook": {
+        "linkedin": "Adblockers, cookiebanners en browserbeperkingen kosten je een flink deel van je meetdata. Met server-side tracking haal je dat grotendeels terug.",
+        "instagram": "Klopt je data nog? Waarschijnlijk niet helemaal."
+      },
       "pageText": null,
       "socialCopy": null,
       "imagePrompt": null,
-      "status": "onderwerp",
-      "linkedinFirstComment": "Verder lezen → https://flii.nl/insight/na-black-friday-retargeting-decemberpiek"
+      "status": "hooks goedgekeurd",
+      "linkedinFirstComment": "Verder lezen → https://flii.nl/insight/server-side-tracking"
     },
     {
       "id": 25,
