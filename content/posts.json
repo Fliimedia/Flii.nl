@@ -169,7 +169,9 @@
         "instagram": "Op straat en op de radio: nieuw project voor OneLane.\n\nJong & Laan gaat verder als OneLane. Wij verzorgen de mediacampagne op abri's, snelwegmasten, radio, social en Spotify. Creatie door D8.\n\n#onelane #mediacampagne #dooh #radio #nieuwproject"
       },
       "imagePrompt": null,
-      "status": "copy klaar"
+      "status": "ingepland",
+      "socialImage": "/assets/social/onelane.jpg",
+      "socialImage4x5": "/assets/social/onelane.jpg"
     },
     {
       "id": 9,
@@ -267,8 +269,10 @@
         "instagram": "Een uur per dag handwerk? Dat bouwen we weg.\n\nWebapps, klantportalen en koppelingen op maat. Klein beginnen, uitbouwen op wat werkt. Meer op flii.nl, link in bio.\n\n#platformdevelopment #maatwerk #automatisering #webapp"
       },
       "imagePrompt": null,
-      "status": "copy klaar",
-      "linkedinFirstComment": "Verder lezen → https://flii.nl/platform-app-development"
+      "status": "inplannen",
+      "linkedinFirstComment": "Verder lezen → https://flii.nl/platform-app-development",
+      "socialImage": "/assets/social/platform-app-development.jpg",
+      "socialImage4x5": "/assets/social/platform-app-development.jpg"
     },
     {
       "id": 13,
@@ -290,8 +294,10 @@
         "instagram": "Al je marketingdata in één scherm. Probeer de demo.\n\nAdvertenties, website en social in één dashboard dat zichzelf bijwerkt. Klik zelf rond via de link in bio.\n\n#dashboard #marketingdata #analytics #rapportage"
       },
       "imagePrompt": null,
-      "status": "copy klaar",
-      "linkedinFirstComment": "Verder lezen → https://flii.app/demo"
+      "status": "ingepland",
+      "linkedinFirstComment": "Verder lezen → https://flii.app/demo",
+      "socialImage": "/assets/social/demo-dashboard.jpg",
+      "socialImage4x5": "/assets/social/demo-dashboard.jpg"
     },
     {
       "id": 14,
@@ -312,9 +318,11 @@
         "linkedin": "Black Friday is over drie weken. Wie nu pas campagnes bouwt, betaalt straks de hoofdprijs per klik. Dit regel je deze week al.\n\nVorig jaar was Black Friday de drukste dag van de hele actieperiode, met 6,25 miljoen iDEAL-betalingen. Die drukte zie je ook terug in de advertentieveilingen.\n\nZeven dingen die je nu al regelt:\n→ Tracking controleren\n→ Productfeed op orde\n→ Doelgroepen opbouwen\n→ Creatives klaarzetten en testen\n→ Algoritmes de tijd geven om te leren\n→ Je site testen onder druk\n→ Verder plannen dan vrijdag\n\nDe hele checklist lees je in de eerste reactie.\n\nBron: iDEAL\n#blackfriday #ecommerce #googleads #metaads",
         "instagram": "Nog drie weken tot Black Friday. Dit regel je nu al.\n\nTracking, feed, doelgroepen, creatives: wie nu begint, betaalt straks minder per klik. De hele checklist staat op flii.nl. Link in bio.\n\n#blackfriday #ecommerce #marketing #onlineadverteren"
       },
-      "imagePrompt": null,
-      "status": "copy klaar",
-      "linkedinFirstComment": "Verder lezen → https://flii.nl/insight/black-friday-checklist-campagnes"
+      "imagePrompt": "Higgsfield Nano Banana 2, header 16:9",
+      "status": "live, inplannen",
+      "linkedinFirstComment": "Verder lezen → https://flii.nl/insight/black-friday-checklist-campagnes",
+      "socialImage": "/assets/social/black-friday-checklist-campagnes.jpg",
+      "socialImage4x5": "/assets/social/black-friday-checklist-campagnes.jpg"
     },
     {
       "id": 15,
@@ -336,8 +344,10 @@
         "instagram": "Een campagne tegen eenzaamheid. Zo pakten we het aan.\n\nVoor Stichting De Buurt vroegen we mensen om een bankje buiten te zetten en hun buur uit te nodigen voor koffie. Ruim 102.000 mensen bereikt, 125 aanmeldingen. De hele case staat op flii.nl. Link in bio.\n\n#weektegeneenzaamheid #stichtingdebuurt #campagne #socialmedia"
       },
       "imagePrompt": null,
-      "status": "copy klaar",
-      "linkedinFirstComment": "Verder lezen → https://flii.nl/cases/de-buurt/week-tegen-eenzaamheid"
+      "status": "ingepland",
+      "linkedinFirstComment": "Verder lezen → https://flii.nl/cases/de-buurt/week-tegen-eenzaamheid",
+      "socialImage": "/assets/social/week-tegen-eenzaamheid.jpg",
+      "socialImage4x5": "/assets/social/week-tegen-eenzaamheid.jpg"
     },
     {
       "id": 16,
@@ -358,9 +368,11 @@
         "linkedin": "Meer budget betekent niet automatisch meer kanalen. Zo verdeel je je mediabudget tussen bereik en conversie, en zo zie je wanneer een extra kanaal wél loont.\n\nDe valkuil die we het vaakst zien: overal een beetje aanwezig zijn. Een kanaal werkt pas als je er genoeg mensen vaak genoeg mee raakt. Wie zijn budget te dun verdeelt, ziet nergens effect.\n\n→ Begin bij het doel: bereik of conversie\n→ Bepaal per kanaal de ondergrens\n→ Houd zo'n 10% vrij om te testen\n→ Breid pas uit als een kanaal verzadigd raakt\n\nHoe je de verdeling opbouwt lees je in de eerste reactie.\n\n#mediaplanning #mediabudget #marketing #strategie",
         "instagram": "Waar laat je je mediabudget landen?\n\nTwee kanalen goed gevuld levert meestal meer op dan zes half gevuld. Hoe je je budget verdeelt tussen bereik en conversie, lees je op flii.nl. Link in bio.\n\n#mediaplanning #mediabudget #marketing #strategie"
       },
-      "imagePrompt": null,
-      "status": "copy klaar",
-      "linkedinFirstComment": "Verder lezen → https://flii.nl/insight/mediabudget-optimaal-verdelen"
+      "imagePrompt": "Higgsfield Nano Banana 2, header 16:9",
+      "status": "live, inplannen",
+      "linkedinFirstComment": "Verder lezen → https://flii.nl/insight/mediabudget-optimaal-verdelen",
+      "socialImage": "/assets/social/mediabudget-optimaal-verdelen.jpg",
+      "socialImage4x5": "/assets/social/mediabudget-optimaal-verdelen.jpg"
     },
     {
       "id": 17,
@@ -382,8 +394,10 @@
         "instagram": "Vrijdag de 13e. Even ontspannen, geluid aan.\n\n#vrijdagde13e #fliimedia #jumpscare"
       },
       "imagePrompt": null,
-      "status": "copy klaar",
-      "video": "/assets/social/vrijdag-de-13e.mp4"
+      "status": "ingepland",
+      "video": "/assets/social/vrijdag-de-13e.mp4",
+      "socialImage": "/assets/social/vrijdag-de-13e.mp4",
+      "socialImage4x5": "/assets/social/vrijdag-de-13e.mp4"
     },
     {
       "id": 18,
@@ -405,8 +419,10 @@
         "instagram": "41 marketingbegrippen, helder uitgelegd.\n\nVan ROAS tot retargeting: onze vernieuwde kennisbank legt elk begrip uit met een voorbeeld uit de praktijk. Link in bio.\n\n#marketing #kennisbank #onlinemarketing #marketingtips"
       },
       "imagePrompt": null,
-      "status": "copy klaar",
-      "linkedinFirstComment": "Verder lezen → https://flii.nl/kennisbank"
+      "status": "ingepland",
+      "linkedinFirstComment": "Verder lezen → https://flii.nl/kennisbank",
+      "socialImage": "/assets/social/kennisbank.jpg",
+      "socialImage4x5": "/assets/social/kennisbank.jpg"
     },
     {
       "id": 19,
@@ -427,9 +443,11 @@
         "linkedin": "Mensen volgen mensen, geen logo's. Op LinkedIn bereikt een oprichter vaak meer dan de bedrijfspagina. Waarom de founder je sterkste kanaal is, en hoe je dat volhoudt.\n\nEen bedrijfspagina vertelt wat je doet. Een oprichter vertelt waarom. Mensen kopen van mensen die ze vertrouwen, en dat vertrouwen bouw je op door te laten zien hoe je denkt en werkt.\n\nHet moeilijkste is niet beginnen, maar volhouden. Wat helpt:\n→ Een vast ritme van twee of drie posts per week\n→ Een lijst met onderwerpen, zodat je nooit bij nul begint\n→ Hulp bij de planning, maar de inhoud in je eigen stem\n\nHet hele artikel lees je in de eerste reactie.\n\n#founderasabrand #personalbranding #linkedin #ondernemen",
         "instagram": "Mensen volgen mensen, geen logo's.\n\nWaarom de oprichter vaak het sterkste kanaal van een bedrijf is, en hoe je dat volhoudt. Lees het op flii.nl. Link in bio.\n\n#founderasabrand #personalbranding #ondernemen #marketing"
       },
-      "imagePrompt": null,
-      "status": "copy klaar",
-      "linkedinFirstComment": "Verder lezen → https://flii.nl/insight/founder-as-a-brand"
+      "imagePrompt": "Higgsfield Nano Banana 2, header 16:9",
+      "status": "live, inplannen",
+      "linkedinFirstComment": "Verder lezen → https://flii.nl/insight/founder-as-a-brand",
+      "socialImage": "/assets/social/founder-as-a-brand.jpg",
+      "socialImage4x5": "/assets/social/founder-as-a-brand.jpg"
     },
     {
       "id": 20,
@@ -451,7 +469,21 @@
         "instagram": "Van idee tot post in 4 stappen. Swipe.\n\nZo maken we onze eigen content: van onderwerp tot ingeplande post, met AI en onze vaste templates. Wij kiezen en keuren goed, de rest loopt vanzelf.\n\n#contentmarketing #automatisering #socialmedia #ai"
       },
       "imagePrompt": null,
-      "status": "copy klaar"
+      "status": "ingepland",
+      "socialImage": [
+        "/assets/social/social-media-automatisering-1.jpg",
+        "/assets/social/social-media-automatisering-2.jpg",
+        "/assets/social/social-media-automatisering-3.jpg",
+        "/assets/social/social-media-automatisering-4.jpg",
+        "/assets/social/social-media-automatisering-5.jpg"
+      ],
+      "socialImage4x5": [
+        "/assets/social/social-media-automatisering-1.jpg",
+        "/assets/social/social-media-automatisering-2.jpg",
+        "/assets/social/social-media-automatisering-3.jpg",
+        "/assets/social/social-media-automatisering-4.jpg",
+        "/assets/social/social-media-automatisering-5.jpg"
+      ]
     },
     {
       "id": 21,
@@ -473,8 +505,10 @@
         "instagram": "750% meer organisch verkeer voor BikeFair.\n\nVan expatfavoriet naar landelijk merk: met Google Shopping, een awarenesscampagne en SEO die meebeweegt met de voorraad. De hele case staat op flii.nl. Link in bio.\n\n#bikefair #seo #ecommerce #fietsen"
       },
       "imagePrompt": null,
-      "status": "copy klaar",
-      "linkedinFirstComment": "Verder lezen → https://flii.nl/cases/bikefair"
+      "status": "ingepland",
+      "linkedinFirstComment": "Verder lezen → https://flii.nl/cases/bikefair",
+      "socialImage": "/assets/social/bikefair.jpg",
+      "socialImage4x5": "/assets/social/bikefair.jpg"
     },
     {
       "id": 22,
@@ -495,9 +529,21 @@
         "linkedin": "Je B2B-doelgroep zit op LinkedIn, maar is daar ook het duurst. Wat de cijfers zeggen over bereik en kosten op LinkedIn en Meta.\n\nDe cijfers van 153 B2B-adverteerders over 2025:\n→ Per 1.000 vertoningen: $63 op LinkedIn, $16 op Facebook\n→ Per klik: $9,39 op LinkedIn, $1,95 op Facebook\n→ Per lead: $202 op LinkedIn, $145 op Facebook\n\nVier keer zo duur per vertoning, maar nog geen anderhalf keer zo duur per lead. En op LinkedIn weet je precies wie je bereikt.\n\nWanneer je wat kiest, lees je in de eerste reactie.\n\nBron: Metadata.io\n#B2B #linkedinads #metaads #onlineadverteren",
         "instagram": "LinkedIn of Meta voor B2B? De cijfers.\n\nLinkedIn is vier keer zo duur per vertoning, maar per lead is het verschil veel kleiner. Swipe voor de cijfers.\n\nWanneer je wat kiest, lees je op flii.nl. Link in bio.\n\nBron: Metadata.io\n#b2b #linkedin #metaads #marketing"
       },
-      "imagePrompt": null,
-      "status": "copy klaar",
-      "linkedinFirstComment": "Verder lezen → https://flii.nl/insight/linkedin-of-meta-b2b"
+      "imagePrompt": "Higgsfield Nano Banana 2, header 16:9",
+      "status": "live, inplannen",
+      "linkedinFirstComment": "Verder lezen → https://flii.nl/insight/linkedin-of-meta-b2b",
+      "socialImage": [
+        "/assets/social/linkedin-of-meta-b2b-1.jpg",
+        "/assets/social/linkedin-of-meta-b2b-2.jpg",
+        "/assets/social/linkedin-of-meta-b2b-3.jpg",
+        "/assets/social/linkedin-of-meta-b2b-4.jpg"
+      ],
+      "socialImage4x5": [
+        "/assets/social/linkedin-of-meta-b2b-1.jpg",
+        "/assets/social/linkedin-of-meta-b2b-2.jpg",
+        "/assets/social/linkedin-of-meta-b2b-3.jpg",
+        "/assets/social/linkedin-of-meta-b2b-4.jpg"
+      ]
     },
     {
       "id": 23,
@@ -534,9 +580,11 @@
         "linkedin": "Adblockers, cookiebanners en browserbeperkingen kosten je een flink deel van je meetdata. Met server-side tracking haal je dat grotendeels terug.\n\nJe advertentieplatform meldt twintig verkopen, je webshop telt er dertig. Herkenbaar? Je meting lekt op drie plekken:\n→ Adblockers blokkeren meetscripts\n→ Safari beperkt cookies tot zeven dagen\n→ Bezoekers zonder toestemming meet je niet volledig\n\nServer-side tracking haalt een groot deel terug, binnen de regels van privacy. Hoe dat werkt lees je in de eerste reactie.\n\n#serversidetracking #data #analytics #googleads",
         "instagram": "Klopt je data nog? Waarschijnlijk niet helemaal.\n\nAdblockers, cookiebanners en Safari kosten je meetdata. Hoe je dat terughaalt met server-side tracking, lees je op flii.nl. Link in bio.\n\n#serversidetracking #data #analytics #marketing"
       },
-      "imagePrompt": null,
-      "status": "copy klaar",
-      "linkedinFirstComment": "Verder lezen → https://flii.nl/insight/server-side-tracking"
+      "imagePrompt": "Higgsfield Nano Banana 2, header 16:9",
+      "status": "live, inplannen",
+      "linkedinFirstComment": "Verder lezen → https://flii.nl/insight/server-side-tracking",
+      "socialImage": "/assets/social/server-side-tracking.jpg",
+      "socialImage4x5": "/assets/social/server-side-tracking.jpg"
     },
     {
       "id": 25,
