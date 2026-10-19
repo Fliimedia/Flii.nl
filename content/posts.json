@@ -271,8 +271,8 @@
       "imagePrompt": null,
       "status": "inplannen",
       "linkedinFirstComment": "Verder lezen → https://flii.nl/platform-app-development",
-      "socialImage": "/assets/social/platform-app-development.jpg",
-      "socialImage4x5": "/assets/social/platform-app-development.jpg"
+      "socialImage": "/assets/social/platform-app-development-v2.jpg",
+      "socialImage4x5": "/assets/social/platform-app-development-v2.jpg"
     },
     {
       "id": 13,
@@ -296,8 +296,8 @@
       "imagePrompt": null,
       "status": "ingepland",
       "linkedinFirstComment": "Verder lezen → https://flii.app/demo",
-      "socialImage": "/assets/social/demo-dashboard.jpg",
-      "socialImage4x5": "/assets/social/demo-dashboard.jpg"
+      "socialImage": "/assets/social/demo-dashboard-v2.jpg",
+      "socialImage4x5": "/assets/social/demo-dashboard-v2.jpg"
     },
     {
       "id": 14,
@@ -398,7 +398,7 @@
       "video": "/assets/social/vrijdag-de-13e.mp4",
       "socialImage": "/assets/social/vrijdag-de-13e.mp4",
       "socialImage4x5": "/assets/social/vrijdag-de-13e.mp4",
-      "videoCover": "/assets/social/vrijdag-de-13e-cover.jpg"
+      "videoCover": "/assets/social/vrijdag-de-13e-cover-v2.jpg"
     },
     {
       "id": 18,
@@ -422,8 +422,8 @@
       "imagePrompt": null,
       "status": "ingepland",
       "linkedinFirstComment": "Verder lezen → https://flii.nl/kennisbank",
-      "socialImage": "/assets/social/kennisbank.jpg",
-      "socialImage4x5": "/assets/social/kennisbank.jpg"
+      "socialImage": "/assets/social/kennisbank-v2.jpg",
+      "socialImage4x5": "/assets/social/kennisbank-v2.jpg"
     },
     {
       "id": 19,
@@ -472,18 +472,18 @@
       "imagePrompt": null,
       "status": "ingepland",
       "socialImage": [
-        "/assets/social/social-media-automatisering-1.jpg",
-        "/assets/social/social-media-automatisering-2.jpg",
-        "/assets/social/social-media-automatisering-3.jpg",
-        "/assets/social/social-media-automatisering-4.jpg",
-        "/assets/social/social-media-automatisering-5.jpg"
+        "/assets/social/social-media-automatisering-1-v2.jpg",
+        "/assets/social/social-media-automatisering-2-v2.jpg",
+        "/assets/social/social-media-automatisering-3-v2.jpg",
+        "/assets/social/social-media-automatisering-4-v2.jpg",
+        "/assets/social/social-media-automatisering-5-v2.jpg"
       ],
       "socialImage4x5": [
-        "/assets/social/social-media-automatisering-1.jpg",
-        "/assets/social/social-media-automatisering-2.jpg",
-        "/assets/social/social-media-automatisering-3.jpg",
-        "/assets/social/social-media-automatisering-4.jpg",
-        "/assets/social/social-media-automatisering-5.jpg"
+        "/assets/social/social-media-automatisering-1-v2.jpg",
+        "/assets/social/social-media-automatisering-2-v2.jpg",
+        "/assets/social/social-media-automatisering-3-v2.jpg",
+        "/assets/social/social-media-automatisering-4-v2.jpg",
+        "/assets/social/social-media-automatisering-5-v2.jpg"
       ]
     },
     {
