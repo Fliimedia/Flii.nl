@@ -2544,11 +2544,7 @@ details.faq-item[open] .faq-answer {
 .eb-dot{display:inline-block;width:3px;height:3px;border-radius:50%;
   background:var(--c-ink);opacity:.55;margin:0 7px;vertical-align:middle;}
 
-.hero-tagline{align-self:flex-start;font-size:var(--t-sm);color:var(--c-muted);font-weight:400;white-space:nowrap;margin-top:var(--sp-2);margin-bottom:6px;}
-
-.hero-tagline .tl-part{display:inline-block;opacity:0;transform:translateY(9px);
-  transition:opacity .52s ease, transform .72s cubic-bezier(.22,1,.36,1);}
-.hero-tagline .tl-part.is-in{opacity:1;transform:translateY(0);}
+.flii-at-chip{margin-top:var(--sp-2);}
 
 /* Article provenance chip — services-section chip shape, mono face */
 .article-chip{display:inline-flex;align-items:center;margin-top:8px;
@@ -2712,8 +2708,7 @@ nav.nav{background:#fff !important;color:#0F0E0C !important;max-width:none !impo
   /* op lage vensters minder lucht onderaan, zodat de zin nog in beeld valt */
   .hero-outer{padding-bottom:clamp(32px, 6vh, 80px);}
   .hero-headline{margin-top:52px !important;margin-bottom:44px !important;}
-  .hero-tagline{margin-top:24px;}
-  .flii-at-chip{margin-top:12px;}
+  .flii-at-chip{margin-top:24px;}
   .hero-eyebrow{margin-bottom:0;}
 
   /* alle blokken binnen een sectie op dezelfde breedte.
@@ -2946,8 +2941,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
     <span class="hero-word hero-word--solid">impact</span>
     </h1>
   
-    <span class="hero-tagline"><span class="tl-part">Voor digitale media &amp; adverteren</span></span>
-    <a href="#over-ons" class="flii-at-chip" id="flii-at-chip"><span class="chip-at">@</span>fliimedia</a>
+    <a href="/contact" class="flii-at-chip" id="flii-at-chip"><span class="chip-at">@</span>fliimedia</a>
   </div>
 
   <!-- Description + CTA -->
@@ -4438,20 +4432,6 @@ document.addEventListener('DOMContentLoaded', function() {
     }, { rootMargin: '300px' });
     io.observe(v);
   } else { laad(); }
-})();
-</script>
-<script>
-/* Hero: de regel onder de slogan komt zacht in beeld. */
-(function () {
-  var delen = Array.prototype.slice.call(document.querySelectorAll('.hero-tagline .tl-part'));
-  if (!delen.length) return;
-  var rustig = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
-  function toon(el) { el.classList.add('is-in'); }
-  if (rustig) { delen.forEach(toon); return; }
-  var start = 350;
-  delen.forEach(function (el, i) { setTimeout(function () { toon(el); }, start + i * 420); });
-  // vangnet: de regel blijft nooit onzichtbaar
-  setTimeout(function () { delen.forEach(toon); }, start + delen.length * 420 + 2000);
 })();
 </script>
 </body>
