@@ -8,6 +8,7 @@
     ['/#diensten', 'Diensten'],
     ['/#cases', 'Cases'],
     ['/kennisbank', 'Kennisbank'],
+    ['/insight', 'Insight'],
     ['/#faq', 'FAQ'],
     ['/contact', 'Contact']
   ];
