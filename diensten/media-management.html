@@ -4,20 +4,20 @@
 <meta charset="UTF-8">
 <meta http-equiv="Cache-Control" content="max-age=300, must-revalidate">
 <meta name="viewport" content="width=device-width,initial-scale=1">
-<title>Contentstrategie per funnelfase | Flii Media</title>
+<title>Media management: tracking, attributie &amp; dashboards | Flii Media</title>
 <meta property="og:type" content="website">
-<meta property="og:title" content="Contentstrategie per funnelfase | Flii Media">
-<meta property="og:description" content="Welke content welke fase van de klantreis bedient. Van aandacht trekken tot de laatste twijfel wegnemen.">
-<meta property="og:url" content="https://flii.nl/diensten/content-fm">
+<meta property="og:title" content="Media management: tracking, attributie &amp; dashboards | Flii Media">
+<meta property="og:description" content="Meetplan, tracking, attributie en dashboards. Wij zorgen dat je cijfers kloppen én dat je weet welke beslissing eruit volgt.">
+<meta property="og:url" content="https://flii.nl/diensten/media-management">
 <meta property="og:site_name" content="Flii Media">
 <meta name="twitter:card" content="summary_large_image">
-<meta property="og:image" content="https://flii.nl/assets/og/diensten-content-fm.jpg">
+<meta property="og:image" content="https://flii.nl/assets/og/diensten-media-management.jpg">
 <meta property="og:image:width" content="1200">
 <meta property="og:image:height" content="630">
 <meta property="og:locale" content="nl_NL">
-<meta name="twitter:image" content="https://flii.nl/assets/og/diensten-content-fm.jpg">
+<meta name="twitter:image" content="https://flii.nl/assets/og/diensten-media-management.jpg">
 
-<meta name="description" content="Welke content welke fase van de klantreis bedient. Van aandacht trekken tot de laatste twijfel wegnemen.">
+<meta name="description" content="Meetplan, tracking, attributie en dashboards. Wij zorgen dat je cijfers kloppen én dat je weet welke beslissing eruit volgt.">
 <style>
 @font-face{font-family:'Bricolage Grotesque';src:url('/assets/fonts/BricolageGrotesque.woff2') format('woff2-variations');
   font-weight:200 800;font-display:swap;}
@@ -25,73 +25,54 @@
   font-weight:100 800;font-display:swap;}
 @font-face{font-family:'DM Sans';src:url('/assets/fonts/DMSans.woff2') format('woff2-variations');
   font-weight:100 1000;font-display:swap;}
-
-:root{
-  --mag:#E8294A;--ink:#0F0E0C;--mid:#4A4840;--subtle:#9B9790;
-  --rule:#E8E6E1;--bg:#F3F1EB;--white:#fff;
+:root{--mag:#E8294A;--ink:#0F0E0C;--mid:#4A4840;--subtle:#9B9790;--rule:#E8E6E1;--bg:#F3F1EB;--white:#fff;
   --ff-disp:'Bricolage Grotesque','Inter',system-ui,sans-serif;
-  --ff-body:'DM Sans',system-ui,sans-serif;
-  --ff-mono:'JetBrains Mono',monospace;
-  --r:14px;
-}
+  --ff-body:'DM Sans',system-ui,sans-serif;--ff-mono:'JetBrains Mono',monospace;--r:14px;}
 *{box-sizing:border-box;margin:0;padding:0;-webkit-font-smoothing:antialiased;}
-html,body{font-family:var(--ff-body);background:#fff;color:var(--ink);overflow-x:hidden;}
+body{font-family:var(--ff-body);background:#fff;color:var(--ink);}
 a{color:inherit;text-decoration:none;}
-img{max-width:100%;display:block;}
-.nav{display:flex;align-items:center;justify-content:space-between;
-  padding:0 20px;height:56px;border-bottom:1px solid var(--rule);
-  position:sticky;top:0;background:rgba(255,255,255,.95);
-  backdrop-filter:blur(12px);z-index:100;}
-.nav-brand{display:flex;align-items:center;gap:8px;}
-.nav-brand img{height:28px;width:auto;}
+.nav{display:flex;align-items:center;justify-content:space-between;padding:0 20px;height:56px;
+  border-bottom:1px solid var(--rule);position:sticky;top:0;
+  background:rgba(243,241,235,.93);backdrop-filter:blur(12px);z-index:100;}
+.nav-brand{display:flex;align-items:center;gap:8px;font-family:var(--ff-disp);font-size:15px;font-weight:800;color:var(--ink);}
+.nav-brand img{height:26px;width:auto;}
 .nav-back{font-size:13px;color:#0F0E0C!important;font-weight:600;text-decoration:none;opacity:.85;}
 .nav-back:hover{color:var(--ink);}
-.eyebrow{font-family:var(--ff-mono);font-size:10px;font-weight:700;
-  letter-spacing:.14em;text-transform:uppercase;color:var(--ink);}
-.page-hero{padding:48px 24px 0;}
-.page-hero h1{font-family:var(--ff-disp);font-size:clamp(26px,7vw,40px);
-  font-weight:800;letter-spacing:-1px;line-height:1.08;margin-top:10px;}
-.page-hero .lead{font-size:15px;color:var(--mid);line-height:1.65;margin-top:14px;max-width:580px;}
-.hero-img{width:100%;height:280px;object-fit:cover;margin-top:32px;}
-.section-body{padding:36px 24px;max-width:680px;}
-.section-body p{font-size:15px;line-height:1.75;color:var(--ink);margin-bottom:18px;}
-.section-body ul{margin:0 0 18px 20px;}
-.section-body li{font-size:15px;line-height:1.75;color:var(--ink);margin-bottom:8px;}
-.section-body strong{font-weight:700;}
-.section-body h2{font-family:var(--ff-disp);font-size:22px;font-weight:800;
-  letter-spacing:-.4px;margin:36px 0 14px;}
-.results-box{background:#0F0E0C;border-radius:16px;padding:28px 24px;margin:48px 24px 0;}
-.results-box h3{font-family:var(--ff-disp);font-size:18px;font-weight:800;
-  color:#fff;margin-bottom:20px;}
-.result-row{display:grid;grid-template-columns:24px 1fr auto;
-  align-items:start;gap:10px 12px;padding:12px 0;
-  border-top:1px solid rgba(255,255,255,.07);}
-.result-row:first-of-type{border-top:none;}
-.result-icon{color:var(--mag);flex-shrink:0;margin-top:2px;}
-.result-label{font-size:13px;color:rgba(255,255,255,.75);line-height:1.5;}
-.result-value{font-family:var(--ff-mono);font-size:14px;font-weight:700;color:#fff;white-space:nowrap;text-align:right;}
-/* Legacy list fallback */
-.results-box ul{list-style:none;display:flex;flex-direction:column;gap:0;}
-.results-box li{font-size:14px;color:rgba(255,255,255,.75);line-height:1.5;
-  padding:12px 0 12px 20px;position:relative;border-top:1px solid rgba(255,255,255,.07);}
-.results-box li:first-child{border-top:none;}
-.results-box li::before{content:'→';color:var(--mag);position:absolute;left:0;}
-.results-box li strong{color:#fff;}
-.img-grid{display:grid;grid-template-columns:1fr 1fr;gap:10px;padding:0 24px;margin-bottom:36px;}
-.img-grid img{border-radius:10px;aspect-ratio:4/3;object-fit:cover;width:100%;height:auto;}
-.img-full{padding:0 24px;margin-bottom:36px;}
-.img-full img{border-radius:12px;width:100%;height:auto;}
-
-.footer-mini{padding:24px;text-align:center;border-top:1px solid var(--rule);
-  font-size:12px;color:var(--subtle);}
-.footer-mini a{color:var(--ink);font-weight:600;}
-/* Article specific */
-.article-meta{display:flex;align-items:center;gap:12px;margin-top:12px;flex-wrap:wrap;}
-.article-tag{font-size:11px;font-weight:600;background:linear-gradient(135deg,rgba(255,255,255,.15) 0%,rgba(255,255,255,.04) 100%);color:#fff;border:1px solid rgba(255,255,255,.35);padding:3px 10px;border-radius:100px;letter-spacing:.01em;white-space:nowrap;}
-.article-date-lbl{font-family:var(--ff-mono);font-size:10px;color:var(--subtle);letter-spacing:.06em;}
-.quote-block{border-left:3px solid var(--mag);padding:14px 18px;
-  margin:24px 0;background:#F9F8F6;border-radius:0 8px 8px 0;}
-.quote-block p{font-size:15px;font-style:italic;color:var(--mid);margin:0;}
+/* Hero */
+.svc-hero{padding:40px 24px 32px;max-width:640px;margin:0 auto;}
+.eyebrow{font-family:var(--ff-mono);font-size:10px;font-weight:600;letter-spacing:.16em;
+  text-transform:uppercase;color:var(--mag);margin-bottom:10px;display:block;}
+.svc-num{font-family:var(--ff-mono);font-size:10px;color:var(--subtle);margin-bottom:6px;display:block;}
+.svc-h1{font-family:var(--ff-disp);font-size:clamp(28px,8vw,44px);font-weight:800;
+  letter-spacing:-1.2px;line-height:1.04;margin-bottom:12px;}
+.svc-desc{font-size:16px;color:var(--mid);line-height:1.6;margin-bottom:20px;}
+/* Photo */
+.svc-photo{width:100%;height:240px;object-fit:cover;display:block;}
+/* Body */
+.svc-body{max-width:640px;margin:0 auto;padding:32px 24px;}
+.svc-intro{font-size:16px;font-weight:600;color:var(--ink);line-height:1.55;
+  padding-left:16px;border-left:3px solid var(--mag);margin-bottom:24px;}
+.svc-text{font-size:15px;line-height:1.72;color:var(--ink);margin-bottom:20px;}
+.svc-benefit{background:var(--white);border:1px solid var(--rule);border-radius:12px;
+  padding:18px 20px;margin-bottom:24px;}
+.svc-benefit-label{font-family:var(--ff-mono);font-size:9px;font-weight:700;
+  letter-spacing:.14em;text-transform:uppercase;color:var(--mag);margin-bottom:6px;}
+.svc-benefit-text{font-size:14px;color:var(--mid);line-height:1.55;}
+.svc-sub{font-size:13px;color:var(--subtle);line-height:1.7;margin-bottom:0;}
+/* CTA */
+.svc-cta{margin:0 24px 48px;background:#0F0E0C;border-radius:14px;
+  padding:28px 24px;text-align:center;}
+.svc-cta-h{font-family:var(--ff-disp);font-size:20px;font-weight:800;
+  color:#fff;letter-spacing:-.5px;margin-bottom:8px;}
+.svc-cta-sub{font-size:13px;color:rgba(255,255,255,.5);line-height:1.5;margin-bottom:20px;}
+.svc-cta-btn{display:inline-flex;align-items:center;gap:6px;
+  background:var(--mag);color:#fff;border-radius:100px;
+  padding:12px 24px;font-size:14px;font-weight:700;font-family:var(--ff-body);
+  text-decoration:none;transition:background .15s;}
+.svc-cta-btn:hover{background:#C2173A;}
+.page-footer{padding:24px;text-align:center;font-size:12px;color:var(--subtle);
+  border-top:1px solid var(--rule);background:var(--white);}
+.page-footer a{color:var(--ink);font-weight:600;}
 
 /* CTA section — home style */
 
@@ -114,12 +95,10 @@ img{max-width:100%;display:block;}
 .dienst-photo{margin:24px 24px 0;max-width:632px;border-radius:14px;overflow:hidden;aspect-ratio:16/7;}
 .dienst-photo img{width:100%;height:100%;object-fit:cover;display:block;}
 /* width-align v1 */
-/* CTA card and hero image were unconstrained and spanned the full viewport.
-   Constrain them to the same column as .section-body (632px inner, 24px gutter). */
+/* CTA card spanned the full viewport; centre it on the 640px .svc-hero column. */
 
-@media (min-width:760px){
-  .hero-img{max-width:632px;width:calc(100% - 48px);margin-left:24px;margin-right:24px;}
-}
+/* width-align v1-photo */
+/* .svc-hero already provides the 24px gutter; drop the photo's own margin. */
 
 /* content-width-cap v2 */
 /* Keep every block within the text column (680px outer / 632px inner). */
@@ -128,7 +107,7 @@ img{max-width:100%;display:block;}
 
 .dienst-photo{max-width:632px;margin:24px 24px 0;width:calc(100% - 48px);}
 @media (min-width:760px){
-  .hero-img{max-width:632px;width:calc(100% - 48px);margin-left:24px;margin-right:24px;}
+  .hero-img{max-width:632px;width:calc(100% - 48px);margin-left:auto;margin-right:auto;}
 }
 
 .rel-cases{display:flex;flex-direction:column;gap:0;margin-top:6px;
@@ -142,6 +121,23 @@ img{max-width:100%;display:block;}
 .rel-desc{display:block;font-size:13.5px;line-height:1.5;color:var(--mid);margin-top:5px;}
 .rel-tags{display:block;font-family:var(--ff-mono);font-size:10px;letter-spacing:.05em;
   color:var(--subtle);margin-top:7px;}
+.lead{font-size:15px;color:var(--mid);line-height:1.65;margin-top:14px;max-width:580px;}
+.page-hero{padding:48px 24px 0;}
+.page-hero h1{font-family:var(--ff-disp);font-size:clamp(26px,7vw,40px);
+  font-weight:800;letter-spacing:-1px;line-height:1.08;margin-top:10px;}
+.section-body{padding:36px 24px;max-width:680px;}
+.section-body p{font-size:15px;line-height:1.75;color:var(--ink);margin-bottom:18px;}
+.section-body ul{margin:0 0 18px 20px;}
+.section-body li{font-size:15px;line-height:1.75;color:var(--ink);margin-bottom:8px;}
+.section-body strong{font-weight:700;}
+.section-body h2{font-family:var(--ff-disp);font-size:22px;font-weight:800; letter-spacing:-.4px;margin:36px 0 14px;}
+a.svc-tag{text-decoration:none;cursor:pointer;transition:background .15s,border-color .15s,color .15s;}
+a.svc-tag:hover{background:var(--ink);border-color:var(--ink);color:#fff;}
+
+/* Chips op een hoofddienstpagina zijn links: laat dat ook zonder hover zien. */
+a.svc-tag{padding-right:7px;}
+a.svc-tag::after{content:"\203A";margin-left:5px;opacity:.45;font-weight:700;}
+a.svc-tag:hover::after{opacity:.9;}
 
 .footer-mini-links{display:flex;flex-wrap:wrap;justify-content:center;gap:6px 14px;
   margin:0 auto 12px;max-width:640px;padding:0 24px;}
@@ -185,16 +181,16 @@ body > picture{box-sizing:border-box;}
 <!-- cache:c1 -->
 <link rel="stylesheet" href="/assets/contact-bar.css?v=20261018a">
 <script defer src="/assets/contact-bar.js?v=20261018b"></script>
-<link rel="canonical" href="https://flii.nl/diensten/content-fm">
+<link rel="canonical" href="https://flii.nl/diensten/media-management">
 <link rel="stylesheet" href="/assets/reduced-motion.css">
 <script defer src="/assets/reduced-motion.js"></script>
 <script type="application/ld+json">
 {
   "@context": "https://schema.org",
   "@type": "Service",
-  "name": "Content",
-  "description": "Content die de funnel voedt: van awareness-video's tot conversiegerichte landingspagina's. Data-gedreven en creatief.",
-  "url": "https://flii.nl/diensten/content-fm",
+  "name": "Media management",
+  "description": "Zonder goede tracking weet je eigenlijk niet wat werkt. Wij zorgen dat je precies ziet wat bezoekers doen, waar ze afhaken en wat converteert — en optimali",
+  "url": "https://flii.nl/diensten/media-management",
   "provider": {
     "@type": "Organization",
     "name": "Flii Media",
@@ -221,13 +217,13 @@ body > picture{box-sizing:border-box;}
       "@type": "ListItem",
       "position": 2,
       "name": "Diensten",
-      "item": "https://flii.nl/diensten/funnel-marketing"
+      "item": "https://flii.nl/diensten"
     },
     {
       "@type": "ListItem",
       "position": 3,
-      "name": "Content",
-      "item": "https://flii.nl/diensten/content-fm"
+      "name": "Media management",
+      "item": "https://flii.nl/diensten/media-management"
     }
   ]
 }
@@ -252,36 +248,48 @@ body > picture{box-sizing:border-box;}
   <button class="nav-burger" type="button" aria-label="Menu" aria-controls="nav-menu" aria-haspopup="dialog"><span></span><span></span></button>
 </nav>
 <div class="page-hero pk">
-  <nav class="pk-crumb" aria-label="Kruimelpad"><a href="/diensten">Diensten</a><span class="pk-crumb-sep" aria-hidden="true">/</span><a href="/diensten/funnel-marketing">Funnel marketing</a></nav>
-  <h1>Content</h1>
-  <p class="lead">Content die de funnel voedt: van awareness-video's tot conversiegerichte landingspagina's. Data-gedreven en creatief.</p>
-  <div class="pk-meta"><a class="pk-chip" href="editorial">Editorial</a><a class="pk-chip" href="copywriting">Copywriting</a><a class="pk-chip" href="seo-content">SEO content</a><a class="pk-chip" href="distributie">Distributie</a></div>
+  <nav class="pk-crumb" aria-label="Kruimelpad"><a href="/diensten">Diensten</a></nav>
+  <h1>Media management</h1>
+  <p class="lead">Planning, inkoop en platform management: van meting tot optimalisatie.</p>
+  <div class="pk-meta"><a href="tracking" class="pk-chip">Tracking</a><a href="attributie" class="pk-chip">Attributie</a><a href="analyse-optimalisatie" class="pk-chip">Analyse &amp; optimalisatie</a><a href="dashboards" class="pk-chip">Dashboards</a></div>
 </div>
-<div class="dienst-photo"><picture><source srcset="/assets/media/2d1d155eab49.webp" type="image/webp"><img decoding="async" fetchpriority="high" src="/assets/media/2d1d155eab49.jpg" alt="Content bij Flii Media" loading="eager"></picture></div>
-<div class="section-body">
-<p>Content werkt alleen als hij past bij waar iemand staat. Iemand die je merk niet kent, heeft
-geen prijslijst nodig. Iemand die al drie keer terugkwam, heeft geen introductie meer nodig. Wij
-bepalen welke content welke fase bedient.</p>
 
-<h2>Content per fase</h2>
+<div class="dienst-photo"><picture><source srcset="/assets/media/4c3a086b0f79.webp" type="image/webp"><img decoding="async" fetchpriority="high" src="/assets/media/4c3a086b0f79.jpg" alt="Media management bij Flii Media" loading="eager"></picture></div>
+
+
+<div class="section-body">
+<p>Data zonder interpretatie is ruis. De vraag is niet hoeveel je meet, maar of je meting klopt
+en of er een beslissing uit volgt. Wij richten de meting in, controleren of hij betrouwbaar is, en
+vertalen de uitkomst naar wat je ermee moet.</p>
+
+<h2>Wat we doen</h2>
 <ul>
-  <li><strong>Aandacht</strong> — artikelen, video en social die een probleem herkenbaar maken</li>
-  <li><strong>Overweging</strong> — vergelijkingen, uitleg en antwoorden op praktische vragen</li>
-  <li><strong>Beslissing</strong> — cases, reviews, prijsindicaties en garanties</li>
-  <li><strong>Na de aankoop</strong> — onboarding, tips en redenen om terug te komen</li>
+  <li><a href="tracking">Tracking</a> — meetplan, implementatie en controle</li>
+  <li><a href="attributie">Attributie</a> — bepalen welk kanaal welke bijdrage levert</li>
+  <li><a href="analyse-optimalisatie">Analyse &amp; optimalisatie</a> — van cijfer naar verbetering</li>
+  <li><a href="dashboards">Dashboards</a> — één plek waar alles samenkomt</li>
 </ul>
 
-<h2>De middelste fase wordt het vaakst overgeslagen</h2>
-<p>De meeste merken maken content om op te vallen en content om te verkopen. Wat ertussenin zit —
-het materiaal dat twijfel wegneemt — ontbreekt vaak. Terwijl juist daar de meeste kopers afhaken.
-Een goede vergelijking, een eerlijk antwoord op de vraag wat het kost, of een case die lijkt op de
-situatie van de lezer doet meer dan nog een advertentie.</p>
+<h2>Eerst de meting, dan de conclusie</h2>
+<p>In de praktijk blijkt de meting vaker stuk dan men denkt. Dubbel getelde conversies, ontbrekende
+gebeurtenissen, een cookiebanner die de helft van het verkeer onzichtbaar maakt. Wie daarop stuurt,
+stuurt op ruis. Daarom beginnen we altijd met een controle van wat er nu binnenkomt voordat we
+ergens een conclusie aan verbinden.</p>
 
-<h2>Vindbaar en herbruikbaar</h2>
-<p>Content die op zoekintentie is gebouwd, blijft verkeer opleveren lang nadat de campagne is
-gestopt. Dat maakt het een van de weinige marketinginvesteringen die niet verdampt zodra je stopt
-met betalen. Wij bouwen daarom liefst materiaal dat blijft staan, en zetten campagnes in om het
-vliegwiel op gang te brengen.</p>
+<p>Sinds de invoering van privacywetgeving en de afbouw van third-party cookies is dat belangrijker
+geworden. Server-side meting, first-party data en modellering vullen op wat directe meting niet meer
+oppikt.</p>
+
+<h2>Van rapport naar beslissing</h2>
+<p>Een rapportage die alleen laat zien wát er gebeurde, is een geschiedenisles. Wij zetten er altijd
+bij wat het betekent en wat we voorstellen. Soms is dat budget verschuiven, soms een landingspagina
+aanpassen, soms niets doen omdat de afwijking binnen de ruis valt — ook dat is een conclusie.</p>
+
+<h2>Verder kijken dan conversies</h2>
+<p>Niet alle waarde is direct zichtbaar. Merkbekendheid, voorkeur en mentale beschikbaarheid
+ontwikkelen zich over langere tijd, terwijl ze bepalend zijn voor toekomstige groei. Naast conversies
+kijken we daarom naar signalen als zoekopdrachten op je merknaam, direct verkeer en terugkerende
+bezoekers.</p>
 
 </div>
 
@@ -301,7 +309,7 @@ vliegwiel op gang te brengen.</p>
       </div>
     </div>
     <form class="lt-cta-form" method="post" action="/bericht-verzenden.php">
-      <input type="hidden" name="herkomst" value="/diensten/content-fm/">
+      <input type="hidden" name="herkomst" value="/diensten/media-management">
       <input type="hidden" name="geladen" value="" data-lt-stempel>
       <p class="lt-cta-zin">Stel je vraag of start een project.</p>
       <label class="lt-veld">
@@ -321,23 +329,24 @@ vliegwiel op gang te brengen.</p>
 <div class="section-body">
   <h2>Cases met deze dienst</h2>
   <div class="rel-cases">
-      <a href="../../cases/royal-haskoning" class="rel-case">
+      <a href="../cases/royal-haskoning" class="rel-case">
         <span class="rel-name">Royal HaskoningDHV<span class="rel-arr">&rarr;</span></span>
         <span class="rel-desc">Voor een van &#x27;s werelds grootste ingenieursbureaus begonnen we met een gerichte Google Ads campagne…</span>
-        <span class="rel-tags">Campagne &middot; Zoekmachines &middot; Tracking</span>
+        <span class="rel-tags">Zoekmachines &middot; Tracking</span>
       </a>
-      <a href="../../cases/bikefair" class="rel-case">
+      <a href="../cases/de-nieuwe-yogaschool" class="rel-case">
+        <span class="rel-name">De Nieuwe Yogaschool<span class="rel-arr">&rarr;</span></span>
+        <span class="rel-desc">De Nieuwe Yogaschool is een groeiende yogaorganisatie met een uitgebreid online aanbod aan opleidingen…</span>
+        <span class="rel-tags">Zoekmachines &middot; Tracking &middot; Attributie</span>
+      </a>
+      <a href="../cases/bikefair" class="rel-case">
         <span class="rel-name">BikeFair<span class="rel-arr">&rarr;</span></span>
         <span class="rel-desc">BikeFair is een snelgroeiende online marktplaats voor tweedehands fietsen. Het platform had al een…</span>
-        <span class="rel-tags">Campagne &middot; Zoekmachines &middot; Social media</span>
-      </a>
-      <a href="../../cases/digitale-strategie-voor-zzpers" class="rel-case">
-        <span class="rel-name">Zelfstandig Ondernemers<span class="rel-arr">&rarr;</span></span>
-        <span class="rel-desc">Voor een snelgroeiende start-up, gericht op zelfstandige ondernemers, lag er een duidelijke uitdaging…</span>
-        <span class="rel-tags">Campagne &middot; Content creatie &middot; Social media</span>
+        <span class="rel-tags">Zoekmachines &middot; Social media</span>
       </a>
   </div>
 </div>
+
 
 <footer class="footer">
   <div class="footer-bento">
@@ -351,37 +360,35 @@ vliegwiel op gang te brengen.</p>
     </div>
     <div class="footer-tile footer-tile-nav">
       <span class="footer-nav-head">Kennisbank</span>
-      <a href="../../kennisbank#kb-marketing" class="footer-nav-link">Marketing</a>
-      <a href="../../kennisbank#kb-merk" class="footer-nav-link">Merk</a>
-      <a href="../../kennisbank#kb-content" class="footer-nav-link">Content</a>
-      <a href="../../kennisbank#kb-media" class="footer-nav-link">Media</a>
-      <a href="../../kennisbank#kb-data" class="footer-nav-link">Data</a>
-      <a href="../../platformen" class="footer-nav-link">Platformen</a>
+      <a href="../kennisbank#kb-marketing" class="footer-nav-link">Marketing</a>
+      <a href="../kennisbank#kb-merk" class="footer-nav-link">Merk</a>
+      <a href="../kennisbank#kb-content" class="footer-nav-link">Content</a>
+      <a href="../kennisbank#kb-media" class="footer-nav-link">Media</a>
+      <a href="../kennisbank#kb-data" class="footer-nav-link">Data</a>
+      <a href="../platformen" class="footer-nav-link">Platformen</a>
 
     </div>
     <div class="footer-tile footer-tile-nav">
       <span class="footer-nav-head">Producten</span>
-      <a href="../../loop" class="footer-nav-link">Flii Loop</a>
-      <a href="../../diensten/ai-launchplan" class="footer-nav-link">Product launch</a>
+      <a href="../loop" class="footer-nav-link">Flii Loop</a>
+      <a href="../diensten/ai-launchplan" class="footer-nav-link">Product launch</a>
     </div>
     <div class="footer-tile footer-tile-nav">
       <span class="footer-nav-head">Diensten</span>
-      <a href="../../diensten/funnel-marketing" class="footer-nav-link">Marketing</a>
-      <a href="../../diensten/media-beheer" class="footer-nav-link">Media beheer</a>
-      <a href="../../diensten/content-creatie" class="footer-nav-link">Content creatie</a>
-      <a href="../../diensten/web-development" class="footer-nav-link">Web &amp; AI development</a>
-      <a href="../../diensten/data-analyse" class="footer-nav-link">Data &amp; analyse</a>
+      <a href="../diensten/digital-advertising" class="footer-nav-link">Digital advertising</a>
+      <a href="../diensten/media-management" class="footer-nav-link">Media management</a>
+      <a href="../diensten/research-development" class="footer-nav-link">Research &amp; development</a>
     </div>
     <div class="footer-tile footer-tile-nav footer-tile-zoek">
       <span class="footer-nav-head">Waarvoor je ons zoekt</span>
-      <a href="../../google-ads-bureau" class="footer-nav-link"><svg class="fn-ic" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M3.9998 22.9291C1.7908 22.9291 0 21.1383 0 18.9293s1.7908-3.9998 3.9998-3.9998 3.9998 1.7908 3.9998 3.9998-1.7908 3.9998-3.9998 3.9998zm19.4643-6.0004L15.4632 3.072C14.3586 1.1587 11.9121.5028 9.9988 1.6074S7.4295 5.1585 8.5341 7.0718l8.0009 13.8567c1.1046 1.9133 3.5511 2.5679 5.4644 1.4646 1.9134-1.1046 2.568-3.5511 1.4647-5.4644zM7.5137 4.8438L1.5645 15.1484A4.5 4.5 0 0 1 4 14.4297c2.5597-.0075 4.6248 2.1585 4.4941 4.7148l3.2168-5.5723-3.6094-6.25c-.4499-.7793-.6322-1.6394-.5878-2.4784z"/></svg><span>Google Ads bureau</span></a>
-      <a href="../../social-media-uitbesteden" class="footer-nav-link"><svg class="fn-ic" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M7.0301.084c-1.2768.0602-2.1487.264-2.911.5634-.7888.3075-1.4575.72-2.1228 1.3877-.6652.6677-1.075 1.3368-1.3802 2.127-.2954.7638-.4956 1.6365-.552 2.914-.0564 1.2775-.0689 1.6882-.0626 4.947.0062 3.2586.0206 3.6671.0825 4.9473.061 1.2765.264 2.1482.5635 2.9107.308.7889.72 1.4573 1.388 2.1228.6679.6655 1.3365 1.0743 2.1285 1.38.7632.295 1.6361.4961 2.9134.552 1.2773.056 1.6884.069 4.9462.0627 3.2578-.0062 3.668-.0207 4.9478-.0814 1.28-.0607 2.147-.2652 2.9098-.5633.7889-.3086 1.4578-.72 2.1228-1.3881.665-.6682 1.0745-1.3378 1.3795-2.1284.2957-.7632.4966-1.636.552-2.9124.056-1.2809.0692-1.6898.063-4.948-.0063-3.2583-.021-3.6668-.0817-4.9465-.0607-1.2797-.264-2.1487-.5633-2.9117-.3084-.7889-.72-1.4568-1.3876-2.1228C21.2982 1.33 20.628.9208 19.8378.6165 19.074.321 18.2017.1197 16.9244.0645 15.6471.0093 15.236-.005 11.977.0014 8.718.0076 8.31.0215 7.0301.0839m.1402 21.6932c-1.17-.0509-1.8053-.2453-2.2287-.408-.5606-.216-.96-.4771-1.3819-.895-.422-.4178-.6811-.8186-.9-1.378-.1644-.4234-.3624-1.058-.4171-2.228-.0595-1.2645-.072-1.6442-.079-4.848-.007-3.2037.0053-3.583.0607-4.848.05-1.169.2456-1.805.408-2.2282.216-.5613.4762-.96.895-1.3816.4188-.4217.8184-.6814 1.3783-.9003.423-.1651 1.0575-.3614 2.227-.4171 1.2655-.06 1.6447-.072 4.848-.079 3.2033-.007 3.5835.005 4.8495.0608 1.169.0508 1.8053.2445 2.228.408.5608.216.96.4754 1.3816.895.4217.4194.6816.8176.9005 1.3787.1653.4217.3617 1.056.4169 2.2263.0602 1.2655.0739 1.645.0796 4.848.0058 3.203-.0055 3.5834-.061 4.848-.051 1.17-.245 1.8055-.408 2.2294-.216.5604-.4763.96-.8954 1.3814-.419.4215-.8181.6811-1.3783.9-.4224.1649-1.0577.3617-2.2262.4174-1.2656.0595-1.6448.072-4.8493.079-3.2045.007-3.5825-.006-4.848-.0608M16.953 5.5864A1.44 1.44 0 1 0 18.39 4.144a1.44 1.44 0 0 0-1.437 1.4424M5.8385 12.012c.0067 3.4032 2.7706 6.1557 6.173 6.1493 3.4026-.0065 6.157-2.7701 6.1506-6.1733-.0065-3.4032-2.771-6.1565-6.174-6.1498-3.403.0067-6.156 2.771-6.1496 6.1738M8 12.0077a4 4 0 1 1 4.008 3.9921A3.9996 3.9996 0 0 1 8 12.0077"/></svg><span>Social media uitbesteden</span></a>
-      <a href="../../videoproductie" class="footer-nav-link"><svg class="fn-ic" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M23.498 6.186a3.016 3.016 0 0 0-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 0 0 .502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 0 0 2.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 0 0 2.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z"/></svg><span>Videoproductie</span></a>
-      <a href="../../website-laten-maken" class="footer-nav-link"><svg class="fn-ic" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="m24 4.515-7.658 14.97H9.149l3.205-6.204h-.144C9.566 16.713 5.621 18.973 0 19.485v-6.118s3.596-.213 5.71-2.435H0V4.515h6.417v5.278l.144-.001 2.622-5.277h4.854v5.244h.144l2.72-5.244H24Z"/></svg><span>Website laten maken</span></a>
-      <a href="../../platform-app-development" class="footer-nav-link"><svg class="fn-ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="9 6 3.5 12 9 18"/><polyline points="15 6 20.5 12 15 18"/></svg><span>Platform &amp; app development</span></a>
+      <a href="../google-ads-bureau" class="footer-nav-link"><svg class="fn-ic" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M3.9998 22.9291C1.7908 22.9291 0 21.1383 0 18.9293s1.7908-3.9998 3.9998-3.9998 3.9998 1.7908 3.9998 3.9998-1.7908 3.9998-3.9998 3.9998zm19.4643-6.0004L15.4632 3.072C14.3586 1.1587 11.9121.5028 9.9988 1.6074S7.4295 5.1585 8.5341 7.0718l8.0009 13.8567c1.1046 1.9133 3.5511 2.5679 5.4644 1.4646 1.9134-1.1046 2.568-3.5511 1.4647-5.4644zM7.5137 4.8438L1.5645 15.1484A4.5 4.5 0 0 1 4 14.4297c2.5597-.0075 4.6248 2.1585 4.4941 4.7148l3.2168-5.5723-3.6094-6.25c-.4499-.7793-.6322-1.6394-.5878-2.4784z"/></svg><span>Google Ads bureau</span></a>
+      <a href="../social-media-uitbesteden" class="footer-nav-link"><svg class="fn-ic" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M7.0301.084c-1.2768.0602-2.1487.264-2.911.5634-.7888.3075-1.4575.72-2.1228 1.3877-.6652.6677-1.075 1.3368-1.3802 2.127-.2954.7638-.4956 1.6365-.552 2.914-.0564 1.2775-.0689 1.6882-.0626 4.947.0062 3.2586.0206 3.6671.0825 4.9473.061 1.2765.264 2.1482.5635 2.9107.308.7889.72 1.4573 1.388 2.1228.6679.6655 1.3365 1.0743 2.1285 1.38.7632.295 1.6361.4961 2.9134.552 1.2773.056 1.6884.069 4.9462.0627 3.2578-.0062 3.668-.0207 4.9478-.0814 1.28-.0607 2.147-.2652 2.9098-.5633.7889-.3086 1.4578-.72 2.1228-1.3881.665-.6682 1.0745-1.3378 1.3795-2.1284.2957-.7632.4966-1.636.552-2.9124.056-1.2809.0692-1.6898.063-4.948-.0063-3.2583-.021-3.6668-.0817-4.9465-.0607-1.2797-.264-2.1487-.5633-2.9117-.3084-.7889-.72-1.4568-1.3876-2.1228C21.2982 1.33 20.628.9208 19.8378.6165 19.074.321 18.2017.1197 16.9244.0645 15.6471.0093 15.236-.005 11.977.0014 8.718.0076 8.31.0215 7.0301.0839m.1402 21.6932c-1.17-.0509-1.8053-.2453-2.2287-.408-.5606-.216-.96-.4771-1.3819-.895-.422-.4178-.6811-.8186-.9-1.378-.1644-.4234-.3624-1.058-.4171-2.228-.0595-1.2645-.072-1.6442-.079-4.848-.007-3.2037.0053-3.583.0607-4.848.05-1.169.2456-1.805.408-2.2282.216-.5613.4762-.96.895-1.3816.4188-.4217.8184-.6814 1.3783-.9003.423-.1651 1.0575-.3614 2.227-.4171 1.2655-.06 1.6447-.072 4.848-.079 3.2033-.007 3.5835.005 4.8495.0608 1.169.0508 1.8053.2445 2.228.408.5608.216.96.4754 1.3816.895.4217.4194.6816.8176.9005 1.3787.1653.4217.3617 1.056.4169 2.2263.0602 1.2655.0739 1.645.0796 4.848.0058 3.203-.0055 3.5834-.061 4.848-.051 1.17-.245 1.8055-.408 2.2294-.216.5604-.4763.96-.8954 1.3814-.419.4215-.8181.6811-1.3783.9-.4224.1649-1.0577.3617-2.2262.4174-1.2656.0595-1.6448.072-4.8493.079-3.2045.007-3.5825-.006-4.848-.0608M16.953 5.5864A1.44 1.44 0 1 0 18.39 4.144a1.44 1.44 0 0 0-1.437 1.4424M5.8385 12.012c.0067 3.4032 2.7706 6.1557 6.173 6.1493 3.4026-.0065 6.157-2.7701 6.1506-6.1733-.0065-3.4032-2.771-6.1565-6.174-6.1498-3.403.0067-6.156 2.771-6.1496 6.1738M8 12.0077a4 4 0 1 1 4.008 3.9921A3.9996 3.9996 0 0 1 8 12.0077"/></svg><span>Social media uitbesteden</span></a>
+      <a href="../videoproductie" class="footer-nav-link"><svg class="fn-ic" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M23.498 6.186a3.016 3.016 0 0 0-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 0 0 .502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 0 0 2.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 0 0 2.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z"/></svg><span>Videoproductie</span></a>
+      <a href="../website-laten-maken" class="footer-nav-link"><svg class="fn-ic" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="m24 4.515-7.658 14.97H9.149l3.205-6.204h-.144C9.566 16.713 5.621 18.973 0 19.485v-6.118s3.596-.213 5.71-2.435H0V4.515h6.417v5.278l.144-.001 2.622-5.277h4.854v5.244h.144l2.72-5.244H24Z"/></svg><span>Website laten maken</span></a>
+      <a href="../platform-app-development" class="footer-nav-link"><svg class="fn-ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="9 6 3.5 12 9 18"/><polyline points="15 6 20.5 12 15 18"/></svg><span>Platform &amp; app development</span></a>
     </div>
     <div class="footer-tile footer-tile-loop">
-      <a href="../../loop" class="ft-loop-card">
+      <a href="../loop" class="ft-loop-card">
     <span class="loopmark ft-loop-ring-mark" aria-hidden="true">
         <svg class="loopmark-svg" viewBox="0 0 100 100">
           <defs>
@@ -422,10 +429,10 @@ vliegwiel op gang te brengen.</p>
     <div class="footer-tile footer-tile-bottom">
       <div class="footer-wordmark">FLII.<span>MEDIA</span></div>
       <div class="footer-legal">
-        <a href="../../voorkeuren" class="footer-link">Voorkeuren</a>
-        <a href="../../cookies" class="footer-link">Cookies</a>
-        <a href="../../voorwaarden" class="footer-link">Voorwaarden</a>
-        <a href="../../privacy" class="footer-link">Privacy</a>
+        <a href="../voorkeuren" class="footer-link">Voorkeuren</a>
+        <a href="../cookies" class="footer-link">Cookies</a>
+        <a href="../voorwaarden" class="footer-link">Voorwaarden</a>
+        <a href="../privacy" class="footer-link">Privacy</a>
         <button class="footer-contact-btn" id="footer-contact-btn" onclick="toggleContactPopup()">Contact</button>
       </div>
     </div>

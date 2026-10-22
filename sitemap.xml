@@ -81,18 +81,6 @@
     <priority>0.6</priority>
   </url>
   <url>
-    <loc>https://flii.nl/diensten/campagne</loc>
-    <priority>0.6</priority>
-  </url>
-  <url>
-    <loc>https://flii.nl/diensten/content-creatie</loc>
-    <priority>0.6</priority>
-  </url>
-  <url>
-    <loc>https://flii.nl/diensten/content-fm</loc>
-    <priority>0.6</priority>
-  </url>
-  <url>
     <loc>https://flii.nl/diensten/custom-code</loc>
     <priority>0.6</priority>
   </url>
@@ -101,7 +89,15 @@
     <priority>0.6</priority>
   </url>
   <url>
-    <loc>https://flii.nl/diensten/data-analyse</loc>
+    <loc>https://flii.nl/diensten/digital-advertising</loc>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://flii.nl/diensten/media-management</loc>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://flii.nl/diensten/research-development</loc>
     <priority>0.6</priority>
   </url>
   <url>
@@ -113,35 +109,11 @@
     <priority>0.6</priority>
   </url>
   <url>
-    <loc>https://flii.nl/diensten/editorial</loc>
-    <priority>0.6</priority>
-  </url>
-  <url>
-    <loc>https://flii.nl/diensten/fotografie</loc>
-    <priority>0.6</priority>
-  </url>
-  <url>
-    <loc>https://flii.nl/diensten/funnel-marketing</loc>
-    <priority>0.6</priority>
-  </url>
-  <url>
     <loc>https://flii.nl/diensten/influencers</loc>
     <priority>0.6</priority>
   </url>
   <url>
-    <loc>https://flii.nl/diensten/media</loc>
-    <priority>0.6</priority>
-  </url>
-  <url>
-    <loc>https://flii.nl/diensten/media-beheer</loc>
-    <priority>0.6</priority>
-  </url>
-  <url>
     <loc>https://flii.nl/diensten/no-code</loc>
-    <priority>0.6</priority>
-  </url>
-  <url>
-    <loc>https://flii.nl/diensten/platform</loc>
     <priority>0.6</priority>
   </url>
   <url>
@@ -153,23 +125,11 @@
     <priority>0.6</priority>
   </url>
   <url>
-    <loc>https://flii.nl/diensten/social-content</loc>
-    <priority>0.6</priority>
-  </url>
-  <url>
     <loc>https://flii.nl/diensten/social-media</loc>
     <priority>0.6</priority>
   </url>
   <url>
     <loc>https://flii.nl/diensten/tracking</loc>
-    <priority>0.6</priority>
-  </url>
-  <url>
-    <loc>https://flii.nl/diensten/video</loc>
-    <priority>0.6</priority>
-  </url>
-  <url>
-    <loc>https://flii.nl/diensten/web-development</loc>
     <priority>0.6</priority>
   </url>
   <url>
@@ -588,70 +548,6 @@
     <priority>0.7</priority>
   </url>
 
-  <url>
-    <loc>https://flii.nl/diensten/video/concept</loc>
-    <priority>0.7</priority>
-  </url>
-  <url>
-    <loc>https://flii.nl/diensten/video/productie</loc>
-    <priority>0.7</priority>
-  </url>
-  <url>
-    <loc>https://flii.nl/diensten/video/montage</loc>
-    <priority>0.7</priority>
-  </url>
-  <url>
-    <loc>https://flii.nl/diensten/video/social-video</loc>
-    <priority>0.7</priority>
-  </url>
-  <url>
-    <loc>https://flii.nl/diensten/social-content/reels</loc>
-    <priority>0.7</priority>
-  </url>
-  <url>
-    <loc>https://flii.nl/diensten/social-content/stories</loc>
-    <priority>0.7</priority>
-  </url>
-  <url>
-    <loc>https://flii.nl/diensten/social-content/carrousels</loc>
-    <priority>0.7</priority>
-  </url>
-  <url>
-    <loc>https://flii.nl/diensten/social-content/ugc</loc>
-    <priority>0.7</priority>
-  </url>
-  <url>
-    <loc>https://flii.nl/diensten/fotografie/product</loc>
-    <priority>0.7</priority>
-  </url>
-  <url>
-    <loc>https://flii.nl/diensten/fotografie/lifestyle</loc>
-    <priority>0.7</priority>
-  </url>
-  <url>
-    <loc>https://flii.nl/diensten/fotografie/editorial</loc>
-    <priority>0.7</priority>
-  </url>
-  <url>
-    <loc>https://flii.nl/diensten/fotografie/social</loc>
-    <priority>0.7</priority>
-  </url>
-  <url>
-    <loc>https://flii.nl/diensten/editorial/artikelen</loc>
-    <priority>0.7</priority>
-  </url>
-  <url>
-    <loc>https://flii.nl/diensten/editorial/whitepapers</loc>
-    <priority>0.7</priority>
-  </url>
-  <url>
-    <loc>https://flii.nl/diensten/editorial/nieuwsbrieven</loc>
-    <priority>0.7</priority>
-  </url>
-  <url>
-    <loc>https://flii.nl/diensten/editorial/seo</loc>
-    <priority>0.7</priority>
-  </url>
 
   <url>
     <loc>https://flii.nl/diensten/design/ui-design</loc>
@@ -715,22 +611,6 @@
   </url>
   <url>
     <loc>https://flii.nl/diensten/custom-code/integraties</loc>
-    <priority>0.7</priority>
-  </url>
-  <url>
-    <loc>https://flii.nl/diensten/platform/website</loc>
-    <priority>0.7</priority>
-  </url>
-  <url>
-    <loc>https://flii.nl/diensten/platform/webshop</loc>
-    <priority>0.7</priority>
-  </url>
-  <url>
-    <loc>https://flii.nl/diensten/platform/portaal</loc>
-    <priority>0.7</priority>
-  </url>
-  <url>
-    <loc>https://flii.nl/diensten/platform/cms</loc>
     <priority>0.7</priority>
   </url>
 
@@ -812,54 +692,6 @@
   </url>
   <url>
     <loc>https://flii.nl/diensten/dashboards/custom-dashboards</loc>
-    <priority>0.7</priority>
-  </url>
-  <url>
-    <loc>https://flii.nl/diensten/campagne/strategie</loc>
-    <priority>0.7</priority>
-  </url>
-  <url>
-    <loc>https://flii.nl/diensten/campagne/creatie</loc>
-    <priority>0.7</priority>
-  </url>
-  <url>
-    <loc>https://flii.nl/diensten/campagne/media</loc>
-    <priority>0.7</priority>
-  </url>
-  <url>
-    <loc>https://flii.nl/diensten/campagne/optimalisatie</loc>
-    <priority>0.7</priority>
-  </url>
-  <url>
-    <loc>https://flii.nl/diensten/content-fm/editorial</loc>
-    <priority>0.7</priority>
-  </url>
-  <url>
-    <loc>https://flii.nl/diensten/content-fm/copywriting</loc>
-    <priority>0.7</priority>
-  </url>
-  <url>
-    <loc>https://flii.nl/diensten/content-fm/seo-content</loc>
-    <priority>0.7</priority>
-  </url>
-  <url>
-    <loc>https://flii.nl/diensten/content-fm/distributie</loc>
-    <priority>0.7</priority>
-  </url>
-  <url>
-    <loc>https://flii.nl/diensten/media/display</loc>
-    <priority>0.7</priority>
-  </url>
-  <url>
-    <loc>https://flii.nl/diensten/media/video</loc>
-    <priority>0.7</priority>
-  </url>
-  <url>
-    <loc>https://flii.nl/diensten/media/social</loc>
-    <priority>0.7</priority>
-  </url>
-  <url>
-    <loc>https://flii.nl/diensten/media/programmatic</loc>
     <priority>0.7</priority>
   </url>
 

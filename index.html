@@ -977,7 +977,7 @@ img { display: block; max-width: 100%; }
   border-bottom: 1px solid rgba(255,255,255,.07);
 }
 .service:last-child { border-bottom: none; }
-.service:hover { background: rgba(255,255,255,.03); }
+.service:hover { background: rgba(255,255,255,.07); }
 .service-header {
   display: flex; align-items: center;
   gap: var(--sp-2); margin-bottom: 6px;
@@ -1673,7 +1673,7 @@ img { display: block; max-width: 100%; }
 .service-name-link:hover { opacity: .8; }
 .svc-link-arr { font-size:14px; opacity:0; transition:opacity .15s,transform .15s; }
 .service-name-link:hover .svc-link-arr { opacity:1; transform:translateX(2px); }
-.service-name-link:hover { color: var(--c-red); }
+.service-name-link:hover { color: #fff; opacity: 1; }
 .svc-link-arr { font-size:14px;opacity:0;transition:opacity .15s,transform .15s; }
 .service-name-link:hover .svc-link-arr { opacity:1;transform:translateX(2px); }
 .service-tag-link {
@@ -1682,9 +1682,9 @@ img { display: block; max-width: 100%; }
   transition: background .15s, border-color .15s, color .15s;
 }
 .service-tag-link:hover {
-  background: linear-gradient(135deg,rgba(255,255,255,.22) 0%,rgba(255,255,255,.08) 100%);
+  background: linear-gradient(135deg,rgba(255,255,255,.34) 0%,rgba(255,255,255,.16) 100%);
   color: #fff;
-  border-color: rgba(255,255,255,.55);
+  border-color: rgba(255,255,255,.75);
 }
 .service-tag-link--fliiapp {
   background: #0F0E0C !important;
@@ -3073,42 +3073,26 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
       <div class="service">
         <div class="service-header">
           <div class="service-num">1</div>
-          <a href="diensten/funnel-marketing" class="service-name service-name-link">Marketing <span class="svc-link-arr">→</span></a>
+          <a href="diensten/digital-advertising" class="service-name service-name-link">Digital advertising <span class="svc-link-arr">→</span></a>
         </div>
-        <p class="service-desc">Een doordacht plan voor jouw merk doelstelling.</p>
-        <div class="service-tags"><a href="diensten/media" class="service-tag service-tag-link">Media</a> <a href="diensten/campagne" class="service-tag service-tag-link">Campagne</a> <a href="diensten/content-creatie" class="service-tag service-tag-link">Content</a> <a href="diensten/platform" class="service-tag service-tag-link">Platform</a></div>
-      </div>
-      <div class="service">
-        <div class="service-header">
-          <div class="service-num">2</div>
-          <a href="diensten/media-beheer" class="service-name service-name-link">Media beheer <span class="svc-link-arr">→</span></a>
-        </div>
-        <p class="service-desc">Planning, inkoop, platform management & adverteren op 20+ media kanalen.</p>
+        <p class="service-desc">Adverteren op 20+ media kanalen.</p>
         <div class="service-tags"><a href="diensten/zoekmachines" class="service-tag service-tag-link">Zoekmachines</a> <a href="diensten/social-media" class="service-tag service-tag-link">Social Media</a> <a href="diensten/programmatic" class="service-tag service-tag-link">Programmatic</a> <a href="diensten/influencers" class="service-tag service-tag-link">Influencers</a></div>
       </div>
       <div class="service">
         <div class="service-header">
+          <div class="service-num">2</div>
+          <a href="diensten/media-management" class="service-name service-name-link">Media management <span class="svc-link-arr">→</span></a>
+        </div>
+        <p class="service-desc">Planning, inkoop en platform management: van meting tot optimalisatie.</p>
+        <div class="service-tags"><a href="diensten/tracking" class="service-tag service-tag-link">Tracking</a> <a href="diensten/attributie" class="service-tag service-tag-link">Attributie</a> <a href="diensten/analyse-optimalisatie" class="service-tag service-tag-link">Analyse &amp; optimalisatie</a> <a href="diensten/dashboards" class="service-tag service-tag-link">Dashboards</a></div>
+      </div>
+      <div class="service">
+        <div class="service-header">
           <div class="service-num">3</div>
-          <a href="diensten/content-creatie" class="service-name service-name-link">Content creatie <span class="svc-link-arr">→</span></a>
+          <a href="diensten/research-development" class="service-name service-name-link">Research &amp; development <span class="svc-link-arr">→</span></a>
         </div>
-        <p class="service-desc">Voor creatief concept, ontwikkeling en data-gedreven verbetering van content.</p>
-        <div class="service-tags"><a href="diensten/video" class="service-tag service-tag-link">Video</a> <a href="diensten/social-content" class="service-tag service-tag-link">Social content</a> <a href="diensten/fotografie" class="service-tag service-tag-link">Fotografie</a> <a href="diensten/editorial" class="service-tag service-tag-link">Editorial</a></div>
-      </div>
-      <div class="service">
-        <div class="service-header">
-          <div class="service-num">4</div>
-          <a href="diensten/web-development" class="service-name service-name-link">Web & AI development <span class="svc-link-arr">→</span></a>
-        </div>
-        <p class="service-desc">Van website tot platform: wij bieden no-code, custom code en integratie oplossingen op maat.</p>
-        <div class="service-tags"><a href="diensten/design" class="service-tag service-tag-link">Design</a> <a href="diensten/development" class="service-tag service-tag-link">Development</a> <a href="diensten/no-code" class="service-tag service-tag-link">No-code</a> <a href="diensten/custom-code" class="service-tag service-tag-link">Custom code</a> <a href="https://flii.app" class="service-tag service-tag-link service-tag-link--fliiapp" target="_blank">flii.app ↗</a></div>
-      </div>
-      <div class="service">
-        <div class="service-header">
-          <div class="service-num">5</div>
-          <a href="diensten/data-analyse" class="service-name service-name-link">Data & analyse <span class="svc-link-arr">→</span></a>
-        </div>
-        <p class="service-desc">Van meting tot marktonderzoek, van testing tot trend spotting. We zorgen voor inzichten waar geen speld meer tussen past.</p>
-        <div class="service-tags"><a href="diensten/research" class="service-tag service-tag-link">Research</a> <a href="diensten/tracking" class="service-tag service-tag-link">Tracking</a> <a href="diensten/attributie" class="service-tag service-tag-link">Attributie</a> <a href="diensten/analyse-optimalisatie" class="service-tag service-tag-link">Analyse & optimalisatie</a> <a href="diensten/dashboards" class="service-tag service-tag-link">Dashboards</a></div>
+        <p class="service-desc">Van marktonderzoek tot website en platform: no-code, custom code en integratie oplossingen op maat.</p>
+        <div class="service-tags"><a href="diensten/research" class="service-tag service-tag-link">Research</a> <a href="diensten/design" class="service-tag service-tag-link">Design</a> <a href="diensten/development" class="service-tag service-tag-link">Development</a> <a href="diensten/no-code" class="service-tag service-tag-link">No-code</a> <a href="diensten/custom-code" class="service-tag service-tag-link">Custom code</a> <a href="https://flii.app" class="service-tag service-tag-link service-tag-link--fliiapp" target="_blank">flii.app ↗</a></div>
       </div>
   
 <!-- Flii Loop card -->
@@ -3608,11 +3592,9 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
     </div>
     <div class="footer-tile footer-tile-nav">
       <span class="footer-nav-head">Diensten</span>
-      <a href="diensten/funnel-marketing" class="footer-nav-link">Marketing</a>
-      <a href="diensten/media-beheer" class="footer-nav-link">Media beheer</a>
-      <a href="diensten/content-creatie" class="footer-nav-link">Content creatie</a>
-      <a href="diensten/web-development" class="footer-nav-link">Web &amp; AI development</a>
-      <a href="diensten/data-analyse" class="footer-nav-link">Data &amp; analyse</a>
+      <a href="diensten/digital-advertising" class="footer-nav-link">Digital advertising</a>
+      <a href="diensten/media-management" class="footer-nav-link">Media management</a>
+      <a href="diensten/research-development" class="footer-nav-link">Research &amp; development</a>
     </div>
     <div class="footer-tile footer-tile-nav footer-tile-zoek">
       <span class="footer-nav-head">Waarvoor je ons zoekt</span>
