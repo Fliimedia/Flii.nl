@@ -81,6 +81,22 @@
     <priority>0.6</priority>
   </url>
   <url>
+    <loc>https://flii.nl/diensten/campagne</loc>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://flii.nl/diensten/campagnes-media</loc>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://flii.nl/diensten/content-social</loc>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://flii.nl/diensten/data-analyse-research</loc>
+    <priority>0.6</priority>
+  </url>
+  <url>
     <loc>https://flii.nl/diensten/custom-code</loc>
     <priority>0.6</priority>
   </url>
@@ -89,23 +105,7 @@
     <priority>0.6</priority>
   </url>
   <url>
-    <loc>https://flii.nl/diensten/digital-advertising</loc>
-    <priority>0.6</priority>
-  </url>
-  <url>
-    <loc>https://flii.nl/diensten/media-management</loc>
-    <priority>0.6</priority>
-  </url>
-  <url>
-    <loc>https://flii.nl/diensten/research-development</loc>
-    <priority>0.6</priority>
-  </url>
-  <url>
     <loc>https://flii.nl/diensten/design</loc>
-    <priority>0.6</priority>
-  </url>
-  <url>
-    <loc>https://flii.nl/diensten/development</loc>
     <priority>0.6</priority>
   </url>
   <url>
@@ -125,11 +125,23 @@
     <priority>0.6</priority>
   </url>
   <url>
+    <loc>https://flii.nl/diensten/social-content</loc>
+    <priority>0.6</priority>
+  </url>
+  <url>
     <loc>https://flii.nl/diensten/social-media</loc>
     <priority>0.6</priority>
   </url>
   <url>
     <loc>https://flii.nl/diensten/tracking</loc>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://flii.nl/diensten/video</loc>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://flii.nl/diensten/web-apps-ai</loc>
     <priority>0.6</priority>
   </url>
   <url>
@@ -548,6 +560,38 @@
     <priority>0.7</priority>
   </url>
 
+  <url>
+    <loc>https://flii.nl/diensten/video/concept</loc>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://flii.nl/diensten/video/productie</loc>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://flii.nl/diensten/video/montage</loc>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://flii.nl/diensten/video/social-video</loc>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://flii.nl/diensten/social-content/reels</loc>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://flii.nl/diensten/social-content/stories</loc>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://flii.nl/diensten/social-content/carrousels</loc>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://flii.nl/diensten/social-content/ugc</loc>
+    <priority>0.7</priority>
+  </url>
 
   <url>
     <loc>https://flii.nl/diensten/design/ui-design</loc>
@@ -563,22 +607,6 @@
   </url>
   <url>
     <loc>https://flii.nl/diensten/design/designsysteem</loc>
-    <priority>0.7</priority>
-  </url>
-  <url>
-    <loc>https://flii.nl/diensten/development/frontend</loc>
-    <priority>0.7</priority>
-  </url>
-  <url>
-    <loc>https://flii.nl/diensten/development/backend</loc>
-    <priority>0.7</priority>
-  </url>
-  <url>
-    <loc>https://flii.nl/diensten/development/no-code</loc>
-    <priority>0.7</priority>
-  </url>
-  <url>
-    <loc>https://flii.nl/diensten/development/custom-code</loc>
     <priority>0.7</priority>
   </url>
   <url>
@@ -655,10 +683,6 @@
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://flii.nl/diensten/attributie/dashboards</loc>
-    <priority>0.7</priority>
-  </url>
-  <url>
     <loc>https://flii.nl/diensten/attributie/modellering</loc>
     <priority>0.7</priority>
   </url>
@@ -671,10 +695,6 @@
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://flii.nl/diensten/analyse-optimalisatie/dashboards</loc>
-    <priority>0.7</priority>
-  </url>
-  <url>
     <loc>https://flii.nl/diensten/analyse-optimalisatie/cro</loc>
     <priority>0.7</priority>
   </url>
@@ -683,15 +703,27 @@
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://flii.nl/diensten/dashboards/looker</loc>
-    <priority>0.7</priority>
-  </url>
-  <url>
     <loc>https://flii.nl/diensten/dashboards/ga4</loc>
     <priority>0.7</priority>
   </url>
   <url>
     <loc>https://flii.nl/diensten/dashboards/custom-dashboards</loc>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://flii.nl/diensten/campagne/strategie</loc>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://flii.nl/diensten/campagne/creatie</loc>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://flii.nl/diensten/campagne/media</loc>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://flii.nl/diensten/campagne/optimalisatie</loc>
     <priority>0.7</priority>
   </url>
 

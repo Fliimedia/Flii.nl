@@ -4,20 +4,20 @@
 <meta charset="UTF-8">
 <meta http-equiv="Cache-Control" content="max-age=300, must-revalidate">
 <meta name="viewport" content="width=device-width,initial-scale=1">
-<title>Research &amp; development: onderzoek, webdevelopment &amp; AI | Flii Media</title>
+<title>Campagne ontwikkelen &amp; uitvoeren | Flii Media</title>
 <meta property="og:type" content="website">
-<meta property="og:title" content="Research &amp; development: onderzoek, webdevelopment &amp; AI | Flii Media">
-<meta property="og:description" content="Websites, webshops en platformen — no-code of volledig op maat. Plus AI-integraties, API-koppelingen en dashboards die met je systemen praten.">
-<meta property="og:url" content="https://flii.nl/diensten/research-development">
+<meta property="og:title" content="Campagne ontwikkelen &amp; uitvoeren | Flii Media">
+<meta property="og:description" content="Van inzicht en concept tot mediaplan en optimalisatie. Campagnes die opvallen omdat ze ergens over gaan, niet omdat ze hard roepen.">
+<meta property="og:url" content="https://flii.nl/diensten/campagne">
 <meta property="og:site_name" content="Flii Media">
 <meta name="twitter:card" content="summary_large_image">
-<meta property="og:image" content="https://flii.nl/assets/og/diensten-research-development.jpg">
+<meta property="og:image" content="https://flii.nl/assets/og/diensten-campagne.jpg">
 <meta property="og:image:width" content="1200">
 <meta property="og:image:height" content="630">
 <meta property="og:locale" content="nl_NL">
-<meta name="twitter:image" content="https://flii.nl/assets/og/diensten-research-development.jpg">
+<meta name="twitter:image" content="https://flii.nl/assets/og/diensten-campagne.jpg">
 
-<meta name="description" content="Websites, webshops en platformen — no-code of volledig op maat. Plus AI-integraties, API-koppelingen en dashboards die met je systemen praten.">
+<meta name="description" content="Van inzicht en concept tot mediaplan en optimalisatie. Campagnes die opvallen omdat ze ergens over gaan, niet omdat ze hard roepen.">
 <style>
 @font-face{font-family:'Bricolage Grotesque';src:url('/assets/fonts/BricolageGrotesque.woff2') format('woff2-variations');
   font-weight:200 800;font-display:swap;}
@@ -25,54 +25,73 @@
   font-weight:100 800;font-display:swap;}
 @font-face{font-family:'DM Sans';src:url('/assets/fonts/DMSans.woff2') format('woff2-variations');
   font-weight:100 1000;font-display:swap;}
-:root{--mag:#E8294A;--ink:#0F0E0C;--mid:#4A4840;--subtle:#9B9790;--rule:#E8E6E1;--bg:#F3F1EB;--white:#fff;
+
+:root{
+  --mag:#E8294A;--ink:#0F0E0C;--mid:#4A4840;--subtle:#9B9790;
+  --rule:#E8E6E1;--bg:#F3F1EB;--white:#fff;
   --ff-disp:'Bricolage Grotesque','Inter',system-ui,sans-serif;
-  --ff-body:'DM Sans',system-ui,sans-serif;--ff-mono:'JetBrains Mono',monospace;--r:14px;}
+  --ff-body:'DM Sans',system-ui,sans-serif;
+  --ff-mono:'JetBrains Mono',monospace;
+  --r:14px;
+}
 *{box-sizing:border-box;margin:0;padding:0;-webkit-font-smoothing:antialiased;}
-body{font-family:var(--ff-body);background:#fff;color:var(--ink);}
+html,body{font-family:var(--ff-body);background:#fff;color:var(--ink);overflow-x:hidden;}
 a{color:inherit;text-decoration:none;}
-.nav{display:flex;align-items:center;justify-content:space-between;padding:0 20px;height:56px;
-  border-bottom:1px solid var(--rule);position:sticky;top:0;
-  background:rgba(243,241,235,.93);backdrop-filter:blur(12px);z-index:100;}
-.nav-brand{display:flex;align-items:center;gap:8px;font-family:var(--ff-disp);font-size:15px;font-weight:800;color:var(--ink);}
-.nav-brand img{height:26px;width:auto;}
+img{max-width:100%;display:block;}
+.nav{display:flex;align-items:center;justify-content:space-between;
+  padding:0 20px;height:56px;border-bottom:1px solid var(--rule);
+  position:sticky;top:0;background:rgba(255,255,255,.95);
+  backdrop-filter:blur(12px);z-index:100;}
+.nav-brand{display:flex;align-items:center;gap:8px;}
+.nav-brand img{height:28px;width:auto;}
 .nav-back{font-size:13px;color:#0F0E0C!important;font-weight:600;text-decoration:none;opacity:.85;}
 .nav-back:hover{color:var(--ink);}
-/* Hero */
-.svc-hero{padding:40px 24px 32px;max-width:640px;margin:0 auto;}
-.eyebrow{font-family:var(--ff-mono);font-size:10px;font-weight:600;letter-spacing:.16em;
-  text-transform:uppercase;color:var(--mag);margin-bottom:10px;display:block;}
-.svc-num{font-family:var(--ff-mono);font-size:10px;color:var(--subtle);margin-bottom:6px;display:block;}
-.svc-h1{font-family:var(--ff-disp);font-size:clamp(28px,8vw,44px);font-weight:800;
-  letter-spacing:-1.2px;line-height:1.04;margin-bottom:12px;}
-.svc-desc{font-size:16px;color:var(--mid);line-height:1.6;margin-bottom:20px;}
-/* Photo */
-.svc-photo{width:100%;height:240px;object-fit:cover;display:block;}
-/* Body */
-.svc-body{max-width:640px;margin:0 auto;padding:32px 24px;}
-.svc-intro{font-size:16px;font-weight:600;color:var(--ink);line-height:1.55;
-  padding-left:16px;border-left:3px solid var(--mag);margin-bottom:24px;}
-.svc-text{font-size:15px;line-height:1.72;color:var(--ink);margin-bottom:20px;}
-.svc-benefit{background:var(--white);border:1px solid var(--rule);border-radius:12px;
-  padding:18px 20px;margin-bottom:24px;}
-.svc-benefit-label{font-family:var(--ff-mono);font-size:9px;font-weight:700;
-  letter-spacing:.14em;text-transform:uppercase;color:var(--mag);margin-bottom:6px;}
-.svc-benefit-text{font-size:14px;color:var(--mid);line-height:1.55;}
-.svc-sub{font-size:13px;color:var(--subtle);line-height:1.7;margin-bottom:0;}
-/* CTA */
-.svc-cta{margin:0 24px 48px;background:#0F0E0C;border-radius:14px;
-  padding:28px 24px;text-align:center;}
-.svc-cta-h{font-family:var(--ff-disp);font-size:20px;font-weight:800;
-  color:#fff;letter-spacing:-.5px;margin-bottom:8px;}
-.svc-cta-sub{font-size:13px;color:rgba(255,255,255,.5);line-height:1.5;margin-bottom:20px;}
-.svc-cta-btn{display:inline-flex;align-items:center;gap:6px;
-  background:var(--mag);color:#fff;border-radius:100px;
-  padding:12px 24px;font-size:14px;font-weight:700;font-family:var(--ff-body);
-  text-decoration:none;transition:background .15s;}
-.svc-cta-btn:hover{background:#C2173A;}
-.page-footer{padding:24px;text-align:center;font-size:12px;color:var(--subtle);
-  border-top:1px solid var(--rule);background:var(--white);}
-.page-footer a{color:var(--ink);font-weight:600;}
+.eyebrow{font-family:var(--ff-mono);font-size:10px;font-weight:700;
+  letter-spacing:.14em;text-transform:uppercase;color:var(--ink);}
+.page-hero{padding:48px 24px 0;}
+.page-hero h1{font-family:var(--ff-disp);font-size:clamp(26px,7vw,40px);
+  font-weight:800;letter-spacing:-1px;line-height:1.08;margin-top:10px;}
+.page-hero .lead{font-size:15px;color:var(--mid);line-height:1.65;margin-top:14px;max-width:580px;}
+.hero-img{width:100%;height:280px;object-fit:cover;margin-top:32px;}
+.section-body{padding:36px 24px;max-width:680px;}
+.section-body p{font-size:15px;line-height:1.75;color:var(--ink);margin-bottom:18px;}
+.section-body ul{margin:0 0 18px 20px;}
+.section-body li{font-size:15px;line-height:1.75;color:var(--ink);margin-bottom:8px;}
+.section-body strong{font-weight:700;}
+.section-body h2{font-family:var(--ff-disp);font-size:22px;font-weight:800;
+  letter-spacing:-.4px;margin:36px 0 14px;}
+.results-box{background:#0F0E0C;border-radius:16px;padding:28px 24px;margin:48px 24px 0;}
+.results-box h3{font-family:var(--ff-disp);font-size:18px;font-weight:800;
+  color:#fff;margin-bottom:20px;}
+.result-row{display:grid;grid-template-columns:24px 1fr auto;
+  align-items:start;gap:10px 12px;padding:12px 0;
+  border-top:1px solid rgba(255,255,255,.07);}
+.result-row:first-of-type{border-top:none;}
+.result-icon{color:var(--mag);flex-shrink:0;margin-top:2px;}
+.result-label{font-size:13px;color:rgba(255,255,255,.75);line-height:1.5;}
+.result-value{font-family:var(--ff-mono);font-size:14px;font-weight:700;color:#fff;white-space:nowrap;text-align:right;}
+/* Legacy list fallback */
+.results-box ul{list-style:none;display:flex;flex-direction:column;gap:0;}
+.results-box li{font-size:14px;color:rgba(255,255,255,.75);line-height:1.5;
+  padding:12px 0 12px 20px;position:relative;border-top:1px solid rgba(255,255,255,.07);}
+.results-box li:first-child{border-top:none;}
+.results-box li::before{content:'→';color:var(--mag);position:absolute;left:0;}
+.results-box li strong{color:#fff;}
+.img-grid{display:grid;grid-template-columns:1fr 1fr;gap:10px;padding:0 24px;margin-bottom:36px;}
+.img-grid img{border-radius:10px;aspect-ratio:4/3;object-fit:cover;width:100%;height:auto;}
+.img-full{padding:0 24px;margin-bottom:36px;}
+.img-full img{border-radius:12px;width:100%;height:auto;}
+
+.footer-mini{padding:24px;text-align:center;border-top:1px solid var(--rule);
+  font-size:12px;color:var(--subtle);}
+.footer-mini a{color:var(--ink);font-weight:600;}
+/* Article specific */
+.article-meta{display:flex;align-items:center;gap:12px;margin-top:12px;flex-wrap:wrap;}
+.article-tag{font-size:11px;font-weight:600;background:linear-gradient(135deg,rgba(255,255,255,.15) 0%,rgba(255,255,255,.04) 100%);color:#fff;border:1px solid rgba(255,255,255,.35);padding:3px 10px;border-radius:100px;letter-spacing:.01em;white-space:nowrap;}
+.article-date-lbl{font-family:var(--ff-mono);font-size:10px;color:var(--subtle);letter-spacing:.06em;}
+.quote-block{border-left:3px solid var(--mag);padding:14px 18px;
+  margin:24px 0;background:#F9F8F6;border-radius:0 8px 8px 0;}
+.quote-block p{font-size:15px;font-style:italic;color:var(--mid);margin:0;}
 
 /* CTA section — home style */
 
@@ -95,10 +114,12 @@ a{color:inherit;text-decoration:none;}
 .dienst-photo{margin:24px 24px 0;max-width:632px;border-radius:14px;overflow:hidden;aspect-ratio:16/7;}
 .dienst-photo img{width:100%;height:100%;object-fit:cover;display:block;}
 /* width-align v1 */
-/* CTA card spanned the full viewport; centre it on the 640px .svc-hero column. */
+/* CTA card and hero image were unconstrained and spanned the full viewport.
+   Constrain them to the same column as .section-body (632px inner, 24px gutter). */
 
-/* width-align v1-photo */
-/* .svc-hero already provides the 24px gutter; drop the photo's own margin. */
+@media (min-width:760px){
+  .hero-img{max-width:632px;width:calc(100% - 48px);margin-left:24px;margin-right:24px;}
+}
 
 /* content-width-cap v2 */
 /* Keep every block within the text column (680px outer / 632px inner). */
@@ -107,7 +128,7 @@ a{color:inherit;text-decoration:none;}
 
 .dienst-photo{max-width:632px;margin:24px 24px 0;width:calc(100% - 48px);}
 @media (min-width:760px){
-  .hero-img{max-width:632px;width:calc(100% - 48px);margin-left:auto;margin-right:auto;}
+  .hero-img{max-width:632px;width:calc(100% - 48px);margin-left:24px;margin-right:24px;}
 }
 
 .rel-cases{display:flex;flex-direction:column;gap:0;margin-top:6px;
@@ -121,23 +142,6 @@ a{color:inherit;text-decoration:none;}
 .rel-desc{display:block;font-size:13.5px;line-height:1.5;color:var(--mid);margin-top:5px;}
 .rel-tags{display:block;font-family:var(--ff-mono);font-size:10px;letter-spacing:.05em;
   color:var(--subtle);margin-top:7px;}
-.lead{font-size:15px;color:var(--mid);line-height:1.65;margin-top:14px;max-width:580px;}
-.page-hero{padding:48px 24px 0;}
-.page-hero h1{font-family:var(--ff-disp);font-size:clamp(26px,7vw,40px);
-  font-weight:800;letter-spacing:-1px;line-height:1.08;margin-top:10px;}
-.section-body{padding:36px 24px;max-width:680px;}
-.section-body p{font-size:15px;line-height:1.75;color:var(--ink);margin-bottom:18px;}
-.section-body ul{margin:0 0 18px 20px;}
-.section-body li{font-size:15px;line-height:1.75;color:var(--ink);margin-bottom:8px;}
-.section-body strong{font-weight:700;}
-.section-body h2{font-family:var(--ff-disp);font-size:22px;font-weight:800; letter-spacing:-.4px;margin:36px 0 14px;}
-a.svc-tag{text-decoration:none;cursor:pointer;transition:background .15s,border-color .15s,color .15s;}
-a.svc-tag:hover{background:var(--ink);border-color:var(--ink);color:#fff;}
-
-/* Chips op een hoofddienstpagina zijn links: laat dat ook zonder hover zien. */
-a.svc-tag{padding-right:7px;}
-a.svc-tag::after{content:"\203A";margin-left:5px;opacity:.45;font-weight:700;}
-a.svc-tag:hover::after{opacity:.9;}
 
 .footer-mini-links{display:flex;flex-wrap:wrap;justify-content:center;gap:6px 14px;
   margin:0 auto 12px;max-width:640px;padding:0 24px;}
@@ -181,16 +185,16 @@ body > picture{box-sizing:border-box;}
 <!-- cache:c1 -->
 <link rel="stylesheet" href="/assets/contact-bar.css?v=20261018a">
 <script defer src="/assets/contact-bar.js?v=20261018b"></script>
-<link rel="canonical" href="https://flii.nl/diensten/research-development">
+<link rel="canonical" href="https://flii.nl/diensten/campagne">
 <link rel="stylesheet" href="/assets/reduced-motion.css">
 <script defer src="/assets/reduced-motion.js"></script>
 <script type="application/ld+json">
 {
   "@context": "https://schema.org",
   "@type": "Service",
-  "name": "Research & development",
-  "description": "Je website is vaak het eerste contact met je merk. Wij ontwerpen en bouwen websites en platformen die er goed uitzien én technisch sterk zijn — klaar voor",
-  "url": "https://flii.nl/diensten/research-development",
+  "name": "Campagne",
+  "description": "Van idee tot lancering: campagnes die opvallen, raken en converteren. Wij begeleiden het volledige creatieve en media-proces.",
+  "url": "https://flii.nl/diensten/campagne",
   "provider": {
     "@type": "Organization",
     "name": "Flii Media",
@@ -217,13 +221,13 @@ body > picture{box-sizing:border-box;}
       "@type": "ListItem",
       "position": 2,
       "name": "Diensten",
-      "item": "https://flii.nl/diensten"
+      "item": "https://flii.nl/diensten/campagnes-media"
     },
     {
       "@type": "ListItem",
       "position": 3,
-      "name": "Research & development",
-      "item": "https://flii.nl/diensten/research-development"
+      "name": "Campagne",
+      "item": "https://flii.nl/diensten/campagne"
     }
   ]
 }
@@ -248,48 +252,42 @@ body > picture{box-sizing:border-box;}
   <button class="nav-burger" type="button" aria-label="Menu" aria-controls="nav-menu" aria-haspopup="dialog"><span></span><span></span></button>
 </nav>
 <div class="page-hero pk">
-  <nav class="pk-crumb" aria-label="Kruimelpad"><a href="/diensten">Diensten</a></nav>
-  <h1>Research &amp; development</h1>
-  <p class="lead">Van marktonderzoek tot website en platform: no-code, custom code en integratie oplossingen op maat.</p>
-  <div class="pk-meta"><a href="research" class="pk-chip">Research</a><a href="design" class="pk-chip">Design</a><a href="development" class="pk-chip">Development</a><a href="no-code" class="pk-chip">No-code</a><a href="custom-code" class="pk-chip">Custom code</a></div>
+  <nav class="pk-crumb" aria-label="Kruimelpad"><a href="/diensten">Diensten</a><span class="pk-crumb-sep" aria-hidden="true">/</span><a href="/diensten/campagnes-media">Campagnes &amp; media</a></nav>
+  <h1>Campagne</h1>
+  <p class="lead">Van idee tot lancering: campagnes die opvallen, raken en converteren. Wij begeleiden het volledige creatieve en media-proces.</p>
+  <div class="pk-meta"><a class="pk-chip" href="campagne/strategie">Strategie</a><a class="pk-chip" href="campagne/creatie">Creatie</a><a class="pk-chip" href="campagne/media">Media</a><a class="pk-chip" href="campagne/optimalisatie">Optimalisatie</a></div>
 </div>
-
-<div class="dienst-photo"><picture><source srcset="/assets/media/ed382d8b559a.webp" type="image/webp"><img decoding="async" fetchpriority="high" src="/assets/media/ed382d8b559a.jpg" alt="Research &amp; development bij Flii Media" loading="eager"></picture></div>
-
-
+<div class="dienst-photo"><picture><source srcset="/assets/media/16b7bb6ff3cb.webp" type="image/webp"><img decoding="async" fetchpriority="high" src="/assets/media/16b7bb6ff3cb.jpg" alt="Campagne bij Flii Media" loading="eager"></picture></div>
 <div class="section-body">
-<p>Een website is geen visitekaartje maar een instrument. Hij moet snel laden, goed vindbaar
-zijn, en bezoekers naar een volgende stap leiden. Wij bouwen platformen die dat doen — en die je
-zelf kunt beheren zonder dat je ons daarvoor nodig hebt.</p>
+<p>Een sterke campagne begint bij een inzicht, niet bij een kanaal. Wat beweegt je doelgroep,
+waar loopt die tegenaan, en wat kun jij zeggen dat een ander niet kan? Pas als dat scherp is, heeft
+het zin om over media te praten.</p>
 
-<h2>Wat we bouwen</h2>
+<h2>Van strategie tot uitvoering</h2>
 <ul>
-  <li><a href="research">Research</a> — markt-, doelgroep- en concurrentieonderzoek</li>
-  <li><a href="design">Design</a> — ontwerp, gebruikersstromen en visuele richting</li>
-  <li><a href="development">Development</a> — realisatie, techniek en performance</li>
-  <li><a href="no-code">No-code</a> — Webflow, WordPress en Shopify voor snelheid en zelfbeheer</li>
-  <li><a href="custom-code">Custom code</a> — maatwerk waar standaardoplossingen tekortschieten</li>
+  <li>Campagnestrategie: doelstelling, doelgroep en kernboodschap</li>
+  <li>Concept en creatieve richting</li>
+  <li>Productie van beeld, video en teksten</li>
+  <li>Mediaplan: welk kanaal, welk budget, welk moment</li>
+  <li>Doorlopende optimalisatie en eindevaluatie</li>
 </ul>
 
-<h2>No-code of maatwerk?</h2>
-<p>De eerlijke vraag is niet welke techniek beter is, maar wat je nodig hebt. Een no-code platform
-staat sneller live, kost minder en je kunt zelf pagina's aanpassen. Voor de meeste zakelijke sites
-en webshops is dat de verstandige keuze.</p>
+<h2>Waarom sommige campagnes blijven hangen</h2>
+<p>De campagnes die mensen zich jaren later herinneren, begonnen zelden bij een medium. Ze begonnen
+bij een gedeeld gevoel — een herkenbare frustratie, een culturele verschuiving, een grap die
+iedereen snapte. Nu consumenten dagelijks duizenden commerciële uitingen zien, is dat onderscheid
+belangrijker geworden, niet minder.</p>
 
-<p>Maatwerk wordt interessant zodra je iets wilt dat buiten de gebaande paden valt: een klantportaal,
-een berekening met eigen logica, koppelingen met je voorraad- of boekhoudsysteem. Dan is de hogere
-investering terugverdiend omdat het werk dat het bespaart structureel is.</p>
+<h2>Merk en resultaat tegelijk</h2>
+<p>Campagnes worden vaak afgerekend op directe conversies alleen. Dat is begrijpelijk maar
+kortzichtig: prestatiecampagnes benutten bestaande vraag, ze creëren die zelden. Onderzoek naar
+langetermijneffectiviteit wijst consistent op een verdeling rond zestig procent merkopbouw en
+veertig procent activatie als het meest rendabel. Wij houden die verhouding in het oog.</p>
 
-<h2>Techniek als fundament</h2>
-<p>Snelheid, structuur en meetbaarheid bouwen we vanaf de eerste dag in. Dat is geen luxe: laadtijd
-weegt mee in je vindbaarheid, en een site zonder correcte meting maakt elke campagne erna een gok.
-Wij leveren daarom altijd op met werkende tracking, een leesbare URL-structuur en de technische
-basis voor vindbaarheid op orde.</p>
-
-<h2>AI in je eigen processen</h2>
-<p>Naast websites bouwen we AI in bestaande werkstromen: koppelingen met je systemen, automatisering
-van terugkerend werk, of een toepassing op maat. Zie <a href="ai-launchplan">AI launchplan</a> voor
-hoe zo'n traject verloopt.</p>
+<h2>Meten wat telt</h2>
+<p>Naast conversies kijken we naar signalen die pas later zichtbaar worden: zoekopdrachten op je
+merknaam, direct verkeer en terugkerende bezoekers. Die vertellen of een campagne niet alleen
+verkocht heeft, maar ook iets heeft achtergelaten.</p>
 
 </div>
 
@@ -309,7 +307,7 @@ hoe zo'n traject verloopt.</p>
       </div>
     </div>
     <form class="lt-cta-form" method="post" action="/bericht-verzenden.php">
-      <input type="hidden" name="herkomst" value="/diensten/research-development">
+      <input type="hidden" name="herkomst" value="/diensten/campagne">
       <input type="hidden" name="geladen" value="" data-lt-stempel>
       <p class="lt-cta-zin">Stel je vraag of start een project.</p>
       <label class="lt-veld">
@@ -329,24 +327,23 @@ hoe zo'n traject verloopt.</p>
 <div class="section-body">
   <h2>Cases met deze dienst</h2>
   <div class="rel-cases">
-      <a href="../cases/plant-e" class="rel-case">
-        <span class="rel-name">Plant-E<span class="rel-arr">&rarr;</span></span>
-        <span class="rel-desc">Webdesign en development voor Plant-E — het Nederlandse bedrijf dat elektrische energie opwekt uit…</span>
-        <span class="rel-tags">Web development &middot; Development</span>
-      </a>
-      <a href="../cases/soest-machinery" class="rel-case">
-        <span class="rel-name">Soest Machinery<span class="rel-arr">&rarr;</span></span>
-        <span class="rel-desc">Soest Machinery is een Nederlandse producent van industriële afwerkingsapparatuur, waaronder machines…</span>
-        <span class="rel-tags">Zoekmachines &middot; Development &middot; Tracking</span>
-      </a>
       <a href="../cases/royal-haskoning" class="rel-case">
         <span class="rel-name">Royal HaskoningDHV<span class="rel-arr">&rarr;</span></span>
         <span class="rel-desc">Voor een van &#x27;s werelds grootste ingenieursbureaus begonnen we met een gerichte Google Ads campagne…</span>
-        <span class="rel-tags">Zoekmachines &middot; Tracking</span>
+        <span class="rel-tags">Campagne &middot; Zoekmachines &middot; Tracking</span>
+      </a>
+      <a href="../cases/bikefair" class="rel-case">
+        <span class="rel-name">BikeFair<span class="rel-arr">&rarr;</span></span>
+        <span class="rel-desc">BikeFair is een snelgroeiende online marktplaats voor tweedehands fietsen. Het platform had al een…</span>
+        <span class="rel-tags">Campagne &middot; Zoekmachines &middot; Social media</span>
+      </a>
+      <a href="../cases/digitale-strategie-voor-zzpers" class="rel-case">
+        <span class="rel-name">Zelfstandig Ondernemers<span class="rel-arr">&rarr;</span></span>
+        <span class="rel-desc">Voor een snelgroeiende start-up, gericht op zelfstandige ondernemers, lag er een duidelijke uitdaging…</span>
+        <span class="rel-tags">Campagne &middot; Content creatie &middot; Social media</span>
       </a>
   </div>
 </div>
-
 
 <footer class="footer">
   <div class="footer-bento">
@@ -375,9 +372,10 @@ hoe zo'n traject verloopt.</p>
     </div>
     <div class="footer-tile footer-tile-nav">
       <span class="footer-nav-head">Diensten</span>
-      <a href="../diensten/digital-advertising" class="footer-nav-link">Digital advertising</a>
-      <a href="../diensten/media-management" class="footer-nav-link">Media management</a>
-      <a href="../diensten/research-development" class="footer-nav-link">Research &amp; development</a>
+      <a href="../diensten/campagnes-media" class="footer-nav-link">Campagnes &amp; media</a>
+      <a href="../diensten/content-social" class="footer-nav-link">Content &amp; social</a>
+      <a href="../diensten/web-apps-ai" class="footer-nav-link">Web, apps &amp; AI</a>
+      <a href="../diensten/data-analyse-research" class="footer-nav-link">Data analyse &amp; research</a>
     </div>
     <div class="footer-tile footer-tile-nav footer-tile-zoek">
       <span class="footer-nav-head">Waarvoor je ons zoekt</span>
