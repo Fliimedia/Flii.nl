@@ -4,12 +4,10 @@
    dezelfde klassenamen; die laten we met rust. */
 (function () {
   var LINKS = [
-    ['/#over-ons', 'Over ons'],
     ['/#diensten', 'Diensten'],
     ['/#cases', 'Cases'],
     ['/kennisbank', 'Kennisbank'],
     ['/insight', 'Insight'],
-    ['/#faq', 'FAQ'],
     ['/contact', 'Contact']
   ];
   var LOGO = '/assets/img/d913cc3c069f.webp';
