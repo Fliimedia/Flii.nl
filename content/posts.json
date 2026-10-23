@@ -154,24 +154,24 @@
       "date": "2026-10-23",
       "category": "New project",
       "template": "newProject",
-      "topic": "OneLane: mediacampagne voor de nieuwe merknaam van Jong & Laan",
+      "topic": "OneLane: mediacampagne voor de nieuwe merknaam van De Jong & Laan",
       "slug": "onelane",
       "path": null,
       "existingPage": false,
       "title": "Nieuw project: OneLane",
       "hook": {
-        "linkedin": "Nieuw project: OneLane. Jong & Laan gaat verder onder een nieuwe naam, en wij verzorgen de mediacampagne: digital out of home, radio, social en Spotify.",
+        "linkedin": "Nieuw project: OneLane. De Jong & Laan gaat verder onder een nieuwe naam, en wij verzorgen de mediacampagne: digital out of home, radio, social en Spotify.",
         "instagram": "Op straat en op de radio: nieuw project voor OneLane."
       },
       "pageText": null,
       "socialCopy": {
-        "linkedin": "Nieuw project: OneLane. Jong & Laan gaat verder onder een nieuwe naam, en wij verzorgen de mediacampagne: digital out of home, radio, social en Spotify.\n\nDe creatie komt van D8, wij doen de mediastrategie en de inkoop. Op abri's, snelwegmasten en de radio: OneLane is de komende tijd overal te zien en te horen.\n\n#OneLane #mediacampagne #DOOH #radio #nieuwproject",
-        "instagram": "Op straat en op de radio: nieuw project voor OneLane.\n\nJong & Laan gaat verder als OneLane. Wij verzorgen de mediacampagne op abri's, snelwegmasten, radio, social en Spotify. Creatie door D8.\n\n#onelane #mediacampagne #dooh #radio #nieuwproject"
+        "linkedin": "Nieuw project: OneLane. De Jong & Laan gaat verder onder een nieuwe naam, en wij verzorgen de mediacampagne: digital out of home, radio, social en Spotify.\n\nDe creatie komt van D8, wij doen de mediastrategie en de inkoop. Op abri's, snelwegmasten en de radio: OneLane is de komende tijd overal te zien en te horen.\n\n#OneLane #mediacampagne #DOOH #radio #nieuwproject",
+        "instagram": "Op straat en op de radio: nieuw project voor OneLane.\n\nDe Jong & Laan gaat verder als OneLane. Wij verzorgen de mediacampagne op abri's, snelwegmasten, radio, social en Spotify. Creatie door D8.\n\n#onelane #mediacampagne #dooh #radio #nieuwproject"
       },
       "imagePrompt": null,
       "status": "ingepland",
-      "socialImage": "/assets/social/onelane.jpg",
-      "socialImage4x5": "/assets/social/onelane.jpg"
+      "socialImage": "/assets/social/onelane-v2.jpg",
+      "socialImage4x5": "/assets/social/onelane-v2.jpg"
     },
     {
       "id": 9,
