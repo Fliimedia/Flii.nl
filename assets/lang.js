@@ -16,12 +16,23 @@
 
   var pad = schoon(location.pathname);
   var isEN = pad === '/en' || pad.indexOf('/en/') === 0;
-  var naarNL = '/', naarEN = '/en/';
+  var naarNL = '/', naarEN = '/en/', heeftPaar = false;
   PAREN.forEach(function (paar) {
-    if (schoon(paar[0]) === pad) { naarEN = paar[1]; naarNL = paar[0]; }
-    if (schoon(paar[1]) === pad) { naarNL = paar[0]; naarEN = paar[1]; }
+    if (schoon(paar[0]) === pad) { naarEN = paar[1]; naarNL = paar[0]; heeftPaar = true; }
+    if (schoon(paar[1]) === pad) { naarNL = paar[0]; naarEN = paar[1]; heeftPaar = true; }
   });
   if (!isEN) naarNL = location.pathname;
+
+  /* De gekozen taal blijft bewaard. Wie Engels koos en op een Nederlandse
+     pagina met een Engelse versie komt, gaat direct naar die versie. */
+  var SLEUTEL = 'flii-taal';
+  function lees() { try { return localStorage.getItem(SLEUTEL); } catch (e) { return null; } }
+  function bewaar(t) { try { localStorage.setItem(SLEUTEL, t); } catch (e) {} }
+  var keuze = lees();
+  if (!isEN && keuze === 'en' && heeftPaar) {
+    location.replace(naarEN + location.search + location.hash);
+    return;
+  }
 
   var VLAG = {
     nl: '<svg viewBox="0 0 30 30" aria-hidden="true"><rect width="30" height="10" fill="#AE1C28"/><rect y="10" width="30" height="10" fill="#fff"/><rect y="20" width="30" height="10" fill="#21468B"/></svg>',
@@ -68,21 +79,21 @@
   function bouw() {
     var nav = document.querySelector('nav.nav');
     if (!nav || nav.querySelector('.lang')) return;
-    var huidig = isEN ? 'en' : 'nl';
+    var huidig = isEN || keuze === 'en' ? 'en' : 'nl';
     var w = document.createElement('div');
     w.className = 'lang';
     w.innerHTML =
       '<button type="button" class="lang-btn" aria-haspopup="true" aria-expanded="false" aria-label="' +
-        (isEN ? 'Language: English' : 'Taal: Nederlands') + '">' +
+        (huidig === 'en' ? 'Language: English' : 'Taal: Nederlands') + '">' +
         '<span class="lang-flag">' + vlag(huidig) + '</span>' +
         '<span class="lang-code">' + huidig.toUpperCase() + '</span>' +
         '<svg class="lang-chev" viewBox="0 0 10 10" fill="none" stroke="currentColor" stroke-width="1.6" ' +
         'stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M2 3.5l3 3 3-3"/></svg>' +
       '</button>' +
       '<div class="lang-menu">' +
-        '<a class="lang-opt" href="' + naarNL + '" hreflang="nl" lang="nl"' + (isEN ? '' : ' aria-current="true"') + '>' +
+        '<a class="lang-opt" href="' + naarNL + '" hreflang="nl" lang="nl" data-taal="nl"' + (huidig === 'en' ? '' : ' aria-current="true"') + '>' +
           '<span class="lang-flag">' + vlag('nl') + '</span>Nederlands</a>' +
-        '<a class="lang-opt" href="' + naarEN + '" hreflang="en" lang="en"' + (isEN ? ' aria-current="true"' : '') + '>' +
+        '<a class="lang-opt" href="' + naarEN + '" hreflang="en" lang="en" data-taal="en"' + (huidig === 'en' ? ' aria-current="true"' : '') + '>' +
           '<span class="lang-flag">' + vlag('en') + '</span>English</a>' +
       '</div>';
     var burger = nav.querySelector('.nav-burger');
@@ -96,6 +107,9 @@
     knop.addEventListener('click', function (e) { e.stopPropagation(); zet(!w.classList.contains('open')); });
     document.addEventListener('click', function (e) { if (!w.contains(e.target)) zet(false); });
     document.addEventListener('keydown', function (e) { if (e.key === 'Escape') zet(false); });
+    [].forEach.call(w.querySelectorAll('[data-taal]'), function (a) {
+      a.addEventListener('click', function () { bewaar(a.getAttribute('data-taal')); });
+    });
   }
 
   css();
