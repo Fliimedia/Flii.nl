@@ -237,6 +237,16 @@ body > picture{box-sizing:border-box;}
    erboven. Nu dezelfde ruimte als de andere secties: 36px boven en onder,
    24px opzij. */
 .section-body{padding:36px 24px;}
+
+/* Lichte hero, alles in de kolombreedte */
+.hero{background:var(--bg)!important}
+.hero::before{display:none}
+.hero h1{color:var(--ink)}
+.hero .lead{color:var(--mid)}
+.btn-ghost{color:var(--ink);border-color:rgba(15,14,12,.2)}
+.btn-ghost:hover{color:var(--ink);border-color:rgba(15,14,12,.5)}
+.phase-nav{max-width:632px;width:calc(100% - 48px);margin:0 auto}
+.hero > *{max-width:632px}
 </style>
 <script>
 (function(){
@@ -326,7 +336,6 @@ body > picture{box-sizing:border-box;}
     <a href="https://calendar.google.com/calendar/appointments/schedules/AcZssZ1Dfb1ZunCYFgPNrvuYKMIgVBy9Qgv9xlcxkSOnEbvnaWWSUeKQ_fTzv4gSHQfmkJm3LmL93Tk7" target="_blank" class="btn-ghost">Plan een gesprek</a>
   </div>
   <div class="svc-tags"><span class="svc-tag">Branding</span><span class="svc-tag">Creative</span><span class="svc-tag">Web</span><span class="svc-tag">Data</span></div>
-  <div class="dienst-photo"><picture><source srcset="/assets/media/bde27b087087.webp" type="image/webp"><img decoding="async" fetchpriority="high" src="/assets/media/bde27b087087.jpg" alt="Product launch bij Flii Media" loading="eager"></picture></div>
 </section>
 
 <!-- PHASE NAV -->
@@ -573,15 +582,6 @@ body > picture{box-sizing:border-box;}
   </div>
 </section>
 
-<!-- CALCULATOR -->
-<section class="calc-section" id="prijsindicatie">
-  <span class="eyebrow">Prijs indicatie</span>
-  <h2>Bereken je lancering.</h2>
-  <p>Kies je kanalen of vraag om een mediaplan. Ons team bouwt en onderhoudt je campagnes.</p>
-  <div id="ai-calc-dots" style="display:flex;gap:6px;margin-bottom:24px;padding-bottom:16px;border-bottom:1px solid var(--rule)"></div>
-  <div id="ai-calc-body"></div>
-</section>
-
 <div class="section-body">
   <h2>Cases met deze dienst</h2>
   <div class="rel-cases">
@@ -733,99 +733,5 @@ function scrollToPhase(n) {
   }, {passive:true});
 })();
 
-// Calculator
-(function() {
-  var CHANNELS = [
-    {key:'search',   label:'Google Search',       price:'v.a. €850/mnd'},
-    {key:'linkedin', label:'LinkedIn Ads',         price:'v.a. €950/mnd'},
-    {key:'meta',     label:'Meta Ads',             price:'v.a. €750/mnd'},
-    {key:'youtube',  label:'YouTube Ads',          price:'v.a. €850/mnd'},
-    {key:'display',  label:'Programmatic Display', price:'v.a. €650/mnd'},
-    {key:'email',    label:'E-mail automation',    price:'v.a. €550/mnd'},
-  ];
-  var PACKAGES = [
-    {key:'plan',  label:'Research + Plan',   desc:'Analyse, positionering en go-to-market strategie.',    price:'v.a. €2.950'},
-    {key:'build', label:'Productie',         desc:'Branding, creatie, landingspagina en tracking-setup.', price:'v.a. €3.950'},
-    {key:'run',   label:'Lancering + Beheer',desc:'Campagnebeheer en optimalisatie per maand.',           price:'v.a. €1.450/mnd'},
-  ];
-  var state = {step:0, channels:{}, package:null};
-  var STEPS = ['Kanalen','Pakket','Indicatie'];
 
-  function dots() {
-    return STEPS.map(function(s,i){
-      var on=i===state.step, done=i<state.step;
-      return '<button onclick="goCalcStep('+i+')" style="display:flex;align-items:center;gap:6px;background:none;border:none;cursor:pointer;padding:4px 8px 4px 0;font:inherit">'
-        +'<span style="width:22px;height:22px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:10px;font-weight:800;'
-        +(on?'background:#E8294A;color:#fff':done?'background:#0F0E0C;color:#fff':'background:#E8E6E1;color:#9B9790')
-        +'">'+( done?'&#10003;':(i+1) )+'</span>'
-        +'<span style="font-size:11px;font-weight:600;color:'+(on?'#0F0E0C':'#9B9790')+'">'+s+'</span>'
-        +'</button>'
-        +(i<STEPS.length-1?'<span style="flex:1;height:1px;background:#E8E6E1;margin:0 4px;align-self:center"></span>':'');
-    }).join('');
-  }
-
-  function renderCalc() {
-    var d=document.getElementById('ai-calc-dots'), b=document.getElementById('ai-calc-body');
-    if(!d||!b) return;
-    d.innerHTML=dots();
-    var html='';
-    if (state.step===0) {
-      html+='<div style="font-size:13px;font-weight:700;color:#0F0E0C;margin-bottom:14px">Welke kanalen wil je inzetten?</div><div style="display:flex;flex-direction:column;gap:8px">';
-      CHANNELS.forEach(function(c){
-        var on=!!state.channels[c.key];
-        html+='<button onclick="toggleCalcCh(\''+c.key+'\')" style="display:flex;align-items:center;justify-content:space-between;padding:12px 14px;border:1.5px solid '+(on?'#E8294A':'#E8E6E1')+';border-radius:10px;background:'+(on?'rgba(232,41,74,.04)':'#fff')+';cursor:pointer;text-align:left;width:100%;font:inherit">'
-          +'<span style="font-size:13px;font-weight:600;color:#0F0E0C">'+c.label+'</span>'
-          +'<span style="font-size:11px;color:'+(on?'#E8294A':'#9B9790')+'">'+c.price+'</span>'
-          +'</button>';
-      });
-      html+='</div>'+nav(false,true);
-    } else if (state.step===1) {
-      html+='<div style="font-size:13px;font-weight:700;color:#0F0E0C;margin-bottom:14px">Kies een pakket.</div><div style="display:flex;flex-direction:column;gap:8px">';
-      PACKAGES.forEach(function(p){
-        var on=state.package===p.key;
-        html+='<button onclick="setCalcPkg(\''+p.key+'\')" style="display:flex;align-items:flex-start;justify-content:space-between;padding:14px;border:1.5px solid '+(on?'#E8294A':'#E8E6E1')+';border-radius:10px;background:'+(on?'rgba(232,41,74,.04)':'#fff')+';cursor:pointer;text-align:left;width:100%;font:inherit">'
-          +'<span style="display:flex;flex-direction:column;gap:3px"><span style="font-size:13px;font-weight:700;color:#0F0E0C">'+p.label+'</span><span style="font-size:11px;color:#9B9790">'+p.desc+'</span></span>'
-          +'<span style="font-size:11px;font-weight:600;color:'+(on?'#E8294A':'#9B9790')+';white-space:nowrap;margin-left:8px">'+p.price+'</span>'
-          +'</button>';
-      });
-      html+='</div>'+nav(true,true);
-    } else {
-      var hasCh=Object.keys(state.channels).filter(function(k){return state.channels[k];}).length;
-      html+='<div style="background:#fff;border:1px solid #E8E6E1;border-radius:14px;padding:20px 18px;margin-bottom:16px">';
-      if (!hasCh&&!state.package) {
-        html+='<p style="font-size:13px;color:#9B9790;margin:0">Geen selectie — vraag een maatwerk voorstel aan.</p>';
-      } else {
-        if (hasCh) {
-          html+='<div style="font-size:9px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:#9B9790;margin-bottom:10px">Kanalen</div>';
-          CHANNELS.forEach(function(c){if(state.channels[c.key]) html+='<div style="display:flex;justify-content:space-between;padding:8px 0;border-bottom:1px solid #E8E6E1;font-size:13px"><span style="color:#0F0E0C">'+c.label+'</span><span style="color:#9B9790;font-size:11px">'+c.price+'</span></div>';});
-        }
-        if (state.package) {
-          var pkg=PACKAGES.find(function(p){return p.key===state.package;});
-          if(pkg) {
-            html+='<div style="font-size:9px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:#9B9790;margin:14px 0 10px">Pakket</div>';
-            html+='<div style="display:flex;justify-content:space-between;padding:8px 0;font-size:13px"><span style="color:#0F0E0C">'+pkg.label+'</span><span style="color:#E8294A;font-weight:600">'+pkg.price+'</span></div>';
-          }
-        }
-        html+='<p style="font-size:11px;color:#9B9790;margin:12px 0 0;line-height:1.5">Indicatie excl. btw en mediabudget. Definitief voorstel op aanvraag.</p>';
-      }
-      html+='</div>';
-      html+='<a href="https://calendar.google.com/calendar/appointments/schedules/AcZssZ1Dfb1ZunCYFgPNrvuYKMIgVBy9Qgv9xlcxkSOnEbvnaWWSUeKQ_fTzv4gSHQfmkJm3LmL93Tk7" target="_blank" style="display:flex;align-items:center;justify-content:center;width:100%;background:#E8294A;color:#fff;border-radius:100px;padding:14px 24px;font-size:14px;font-weight:700;font-family:inherit;text-decoration:none;margin-bottom:8px">Plan een gesprek →</a>';
-      html+=nav(true,false);
-    }
-    b.innerHTML=html;
-  }
-
-  function nav(back,next) {
-    var h='<div style="display:flex;gap:10px;margin-top:20px">';
-    if(back) h+='<button onclick="goCalcStep('+(state.step-1)+')" style="flex:1;padding:11px;border:1.5px solid #E8E6E1;border-radius:100px;background:#fff;font:inherit;font-size:13px;font-weight:600;color:#9B9790;cursor:pointer">&#8592; Terug</button>';
-    if(next) h+='<button onclick="goCalcStep('+(state.step+1)+')" style="flex:2;padding:11px;border:none;border-radius:100px;background:#E8294A;color:#fff;font:inherit;font-size:13px;font-weight:700;cursor:pointer">Volgende &#8594;</button>';
-    if(!next&&state.step>0) h+='<button onclick="goCalcStep(0)" style="flex:1;padding:11px;border:1.5px solid #E8E6E1;border-radius:100px;background:#fff;font:inherit;font-size:13px;font-weight:600;color:#9B9790;cursor:pointer">Opnieuw</button>';
-    return h+'</div>';
-  }
-
-  window.goCalcStep=function(i){state.step=Math.max(0,Math.min(2,i));renderCalc();document.getElementById('prijsindicatie').scrollIntoView({behavior:'smooth',block:'start'});};
-  window.toggleCalcCh=function(k){state.channels[k]=!state.channels[k];renderCalc();};
-  window.setCalcPkg=function(k){state.package=state.package===k?null:k;renderCalc();};
-  renderCalc();
-})();
 </script>
