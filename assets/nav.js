@@ -3,7 +3,15 @@
    merkteken dat de matrix onthult. De homepage heeft een eigen lade met
    dezelfde klassenamen; die laten we met rust. */
 (function () {
-  var LINKS = [
+  /* Engelse pagina's staan onder /en/. */
+  var EN = /^\/en(\/|$)/.test(location.pathname);
+  var LINKS = EN ? [
+    ['/en/#diensten', 'Services'],
+    ['/en/#cases', 'Cases'],
+    ['/kennisbank', 'Knowledge base'],
+    ['/insight', 'Insight'],
+    ['/en/contact', 'Contact']
+  ] : [
     ['/#diensten', 'Diensten'],
     ['/#cases', 'Cases'],
     ['/kennisbank', 'Kennisbank'],
@@ -40,7 +48,7 @@
         '</svg>' +
       '</span>' +
       '<span class="nav-loop-text"><span class="nav-loop-name">Flii Loop</span>' +
-      '<span class="nav-loop-desc">Eén loop die blijft leren →</span></span></a>';
+      '<span class="nav-loop-desc">' + (EN ? 'One loop that keeps learning →' : 'Eén loop die blijft leren →') + '</span></span></a>';
   }
 
   function maakLade() {
@@ -52,19 +60,19 @@
     d.innerHTML =
       '<canvas id="matrix-canvas"></canvas>' +
       '<div class="nav-spotlight" id="nav-spotlight"></div>' +
-      '<button class="menu-fm" id="menu-fm" type="button" aria-pressed="false" aria-label="Onthul de matrix">' +
+      '<button class="menu-fm" id="menu-fm" type="button" aria-pressed="false" aria-label="' + (EN ? 'Reveal the matrix' : 'Onthul de matrix') + '">' +
         '<span class="fm-l fm-a"><img src="' + LOGO + '" alt="" aria-hidden="true"></span>' +
         '<span class="fm-l fm-b"><img src="' + LOGO + '" alt="" aria-hidden="true"></span>' +
         '<img src="' + LOGO + '" alt="Flii Media">' +
       '</button>' +
-      '<button class="nav-menu-close" id="nav-menu-close" aria-label="Sluiten">×</button>' +
-      '<a href="/projecten/crm/" class="nav-slot" aria-label="Flii CRM, met pincode">' +
+      '<button class="nav-menu-close" id="nav-menu-close" aria-label="' + (EN ? 'Close' : 'Sluiten') + '">×</button>' +
+      '<a href="/projecten/crm/" class="nav-slot" aria-label="' + (EN ? 'Flii CRM, with PIN' : 'Flii CRM, met pincode') + '">' +
         '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" ' +
         'stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">' +
         '<rect x="4" y="10.5" width="16" height="10" rx="2"/>' +
         '<path d="M8 10.5V7a4 4 0 0 1 8 0v3.5"/></svg></a>' +
       '<div class="nav-menu-inner" id="nav-menu-inner">' +
-        '<nav class="nav-menu-links" aria-label="Hoofdmenu">' +
+        '<nav class="nav-menu-links" aria-label="' + (EN ? 'Main menu' : 'Hoofdmenu') + '">' +
           LINKS.map(function (l) {
             return '<a href="' + l[0] + '" class="nav-menu-link">' + l[1] + '</a>';
           }).join('') +

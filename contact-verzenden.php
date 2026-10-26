@@ -21,7 +21,9 @@ const MAX_PER_UUR  = 3;
 
 function terug(string $status): void
 {
-    header('Location: ' . TERUG . '?status=' . urlencode($status) . '#formulier', true, 303);
+    // Het Engelse formulier (/en/contact) stuurt taal=en mee en krijgt de melding daar terug.
+    $doel = (($_POST['taal'] ?? '') === 'en') ? '/en/contact' : TERUG;
+    header('Location: ' . $doel . '?status=' . urlencode($status) . '#formulier', true, 303);
     exit;
 }
 

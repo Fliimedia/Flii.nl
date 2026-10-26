@@ -2,6 +2,10 @@
    De homepage heeft de balk al in de HTML staan; chat en planner werken daar
    via dit bestand ook. */
 (function () {
+  /* Engelse pagina's staan onder /en/. */
+  var EN = /^\/en(\/|$)/.test(location.pathname);
+  function T(nl, en) { return EN ? en : nl; }
+
   /* ---------- Afsprakenplanner ----------
      Google Agenda-afsprakenplanning van info@flii.nl (wo, do, vr 09:00–12:00).
      Google kijkt live naar de vrije tijden in die agenda en zet de afspraak er
@@ -61,12 +65,12 @@
     d.innerHTML =
       '<div class="afspraak-paneel">' +
         '<div class="afspraak-kop">' +
-          '<span class="afspraak-titel" id="afspraak-titel">Plan een gesprek</span>' +
-          '<button type="button" class="afspraak-dicht" aria-label="Sluiten">' +
+          '<span class="afspraak-titel" id="afspraak-titel">' + T('Plan een gesprek', 'Book a call') + '</span>' +
+          '<button type="button" class="afspraak-dicht" aria-label="' + T('Sluiten', 'Close') + '">' +
             '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><path d="M6 6l12 12M18 6L6 18"/></svg>' +
           '</button>' +
         '</div>' +
-        '<iframe class="afspraak-frame" title="Plan een gesprek met Flii Media" loading="lazy"></iframe>' +
+        '<iframe class="afspraak-frame" title="' + T('Plan een gesprek met Flii Media', 'Book a call with Flii Media') + '" loading="lazy"></iframe>' +
       '</div>';
     document.body.appendChild(d);
     d.addEventListener('click', function (e) { if (e.target === d) sluit(); });
@@ -111,13 +115,13 @@
       '<a href="mailto:info@flii.nl" class="float-icon" title="E-mail" aria-label="E-mail info@flii.nl">' +
         '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="M2 8l10 6 10-6"/></svg>' +
       '</a>' +
-      '<a href="tel:+31640881169" class="float-icon" title="Bel ons" aria-label="Bel +31 6 40 88 11 69">' +
+      '<a href="tel:+31640881169" class="float-icon" title="' + T('Bel ons', 'Call us') + '" aria-label="' + T('Bel', 'Call') + ' +31 6 40 88 11 69">' +
         '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07A19.5 19.5 0 014.72 11.5a19.79 19.79 0 01-3.07-8.67A2 2 0 013.62 1h3a2 2 0 012 1.72c.127.96.361 1.903.7 2.81a2 2 0 01-.45 2.11L7.91 8.59a16 16 0 006.29 6.29l.96-.96a2 2 0 012.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0122 16.92z"/></svg>' +
       '</a>' +
-      '<a href="https://calendar.google.com/calendar/appointments/schedules/AcZssZ1Dfb1ZunCYFgPNrvuYKMIgVBy9Qgv9xlcxkSOnEbvnaWWSUeKQ_fTzv4gSHQfmkJm3LmL93Tk7" target="_blank" rel="noopener" class="float-icon" data-afspraak title="Plan een gesprek" aria-label="Plan een gesprek">' +
+      '<a href="https://calendar.google.com/calendar/appointments/schedules/AcZssZ1Dfb1ZunCYFgPNrvuYKMIgVBy9Qgv9xlcxkSOnEbvnaWWSUeKQ_fTzv4gSHQfmkJm3LmL93Tk7" target="_blank" rel="noopener" class="float-icon" data-afspraak title="' + T('Plan een gesprek', 'Book a call') + '" aria-label="' + T('Plan een gesprek', 'Book a call') + '">' +
         '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="18" height="18" rx="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg>' +
       '</a>' +
-      '<button type="button" class="float-icon" data-chat title="Chat" aria-label="Open de chat">' +
+      '<button type="button" class="float-icon" data-chat title="Chat" aria-label="' + T('Open de chat', 'Open the chat') + '">' +
         '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"><path d="M21 15a2 2 0 01-2 2H7l-4 4V5a2 2 0 012-2h14a2 2 0 012 2z"/></svg>' +
       '</button>';
     document.body.appendChild(el);
