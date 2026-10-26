@@ -7,7 +7,7 @@
 <title>Product Launch Plan & Uitvoer — Flii Media</title>
 <meta property="og:type" content="website">
 <meta property="og:title" content="Product Launch Plan &amp; Uitvoer — Flii Media">
-<meta property="og:description" content="Eén plan voor je lancering: branding, creative, web &amp; data. Plus een bewezen lanceringscampagne op Search &amp; Social, reputatie-opbouw en retentiestrategie. Voor SaaS en fysieke producten.">
+<meta property="og:description" content="Een productlancering in vijf fases: positionering, branding, creative, web &amp; data, reputatie-opbouw, een bewezen campagne op Search &amp; Social en retentie. Voor SaaS en fysieke producten.">
 <meta property="og:url" content="https://flii.nl/diensten/ai-launchplan">
 <meta property="og:site_name" content="Flii Media">
 <meta name="twitter:card" content="summary_large_image">
@@ -17,7 +17,7 @@
 <meta property="og:locale" content="nl_NL">
 <meta name="twitter:image" content="https://flii.nl/assets/og/diensten-ai-launchplan.jpg">
 
-<meta name="description" content="Eén plan voor je lancering: branding, creative, web &amp; data. Plus een bewezen lanceringscampagne op Search &amp; Social, reputatie-opbouw en retentiestrategie. Voor SaaS en fysieke producten.">
+<meta name="description" content="Een productlancering in vijf fases: positionering, branding, creative, web &amp; data, reputatie-opbouw, een bewezen campagne op Search &amp; Social en retentie. Voor SaaS en fysieke producten.">
 <style>
 @font-face{font-family:'Bricolage Grotesque';src:url('/assets/fonts/BricolageGrotesque.woff2') format('woff2-variations');
   font-weight:200 800;font-display:swap;}
@@ -112,12 +112,22 @@ body{font-family:var(--ff-body);background:var(--bg);color:var(--ink);-webkit-fo
 .deliv-text{font-size:13px;color:var(--ink);line-height:1.5}
 .deliv-text strong{font-weight:700}
 
-/* LP BLOKKEN */
-.lp-blokken{display:grid;grid-template-columns:1fr;gap:10px;margin:18px 0}
-.lp-blok{background:var(--card);border:1px solid var(--rule);border-radius:12px;padding:16px;display:flex;flex-direction:column;gap:8px}
-.lp-blok-title{font-size:13px;font-weight:700;color:var(--ink)}
-.lp-blok-desc{font-size:12px;color:var(--sub);line-height:1.45}
-@media (min-width:760px){.lp-blokken{grid-template-columns:repeat(3,1fr)}}
+/* LP */
+.lp-week{margin-left:auto;color:var(--sub);font-weight:600;letter-spacing:.08em}
+.section p.lp-meet{font-size:12px;color:var(--sub);margin-top:-4px}
+.lp-meet strong{color:var(--ink);font-weight:700}
+.lp-cmp{border:1px solid var(--rule);border-radius:12px;overflow:hidden;margin:18px 0;background:var(--card)}
+.lp-cmp-head,.lp-cmp-row{display:grid;grid-template-columns:1fr 1fr;gap:6px 14px;padding:12px 14px;border-bottom:1px solid var(--rule)}
+.lp-cmp-row:last-child{border-bottom:none}
+.lp-cmp-head{font-family:var(--ff-mono);font-size:9px;font-weight:700;letter-spacing:.12em;text-transform:uppercase;color:var(--mag)}
+.lp-cmp-head span:first-child{display:none}
+.lp-cmp-row span{font-size:12px;color:var(--mid);line-height:1.45}
+.lp-cmp-row .lp-cmp-l{grid-column:1/-1;font-size:11px;font-weight:700;color:var(--ink)}
+@media (min-width:760px){
+  .lp-cmp-head,.lp-cmp-row{grid-template-columns:120px 1fr 1fr}
+  .lp-cmp-head span:first-child{display:block}
+  .lp-cmp-row .lp-cmp-l{grid-column:auto}
+}
 
 /* METRICS */
 .metrics{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin:18px 0}
@@ -249,7 +259,7 @@ body > picture{box-sizing:border-box;}
   "@context": "https://schema.org",
   "@type": "Service",
   "name": "Product launch plan & uitvoer",
-  "description": "Eén plan voor je lancering: branding, creative, web & data. Plus een bewezen lanceringscampagne op Search & Social, reputatie-opbouw en retentiestrategie. Voor SaaS en fysieke producten.",
+  "description": "Een productlancering in vijf fases: positionering, branding, creative, web & data, reputatie-opbouw, een bewezen campagne op Search & Social en retentie. Voor SaaS en fysieke producten.",
   "url": "https://flii.nl/diensten/ai-launchplan",
   "provider": {
     "@type": "Organization",
@@ -310,92 +320,256 @@ body > picture{box-sizing:border-box;}
 <section class="hero">
   <span class="eyebrow">Flii Media · Product launch</span>
   <h1>Product launch plan<br>&amp; <em>uitvoer.</em></h1>
-  <p class="lead">Eén plan voor je lancering: branding, creative, web &amp; data. Plus een bewezen lanceringscampagne op Search &amp; Social, reputatie-opbouw en een retentiestrategie.</p>
+  <p class="lead">Een productlancering in vijf fases: van positionering tot terugkerende klant. Branding, creative, web &amp; data, reputatie-opbouw, een bewezen campagne op Search &amp; Social en retentie. Voor SaaS en fysieke producten.</p>
   <div class="cta-row">
-    <a href="#plan" class="btn-mag">Bekijk het plan →</a>
+    <a href="#fase-1" class="btn-mag">Bekijk het plan →</a>
     <a href="https://calendar.google.com/calendar/appointments/schedules/AcZssZ1Dfb1ZunCYFgPNrvuYKMIgVBy9Qgv9xlcxkSOnEbvnaWWSUeKQ_fTzv4gSHQfmkJm3LmL93Tk7" target="_blank" class="btn-ghost">Plan een gesprek</a>
   </div>
   <div class="svc-tags"><span class="svc-tag">Branding</span><span class="svc-tag">Creative</span><span class="svc-tag">Web</span><span class="svc-tag">Data</span></div>
   <div class="dienst-photo"><picture><source srcset="/assets/media/bde27b087087.webp" type="image/webp"><img decoding="async" fetchpriority="high" src="/assets/media/bde27b087087.jpg" alt="Product launch bij Flii Media" loading="eager"></picture></div>
 </section>
 
-<!-- PLAN -->
-<section class="section" id="plan">
-  <div class="step-label"><span class="step-n">1</span>Het plan</div>
-  <h2>Vier onderdelen, één plan.</h2>
+<!-- PHASE NAV -->
+<nav class="phase-nav" id="phase-nav" aria-label="Fases">
+  <button class="phase-tab active" onclick="scrollToPhase(1)" aria-label="Fase 1">
+    <span class="phase-tab-n">1</span>
+    <span class="phase-tab-label">Fundament</span>
+  </button>
+  <button class="phase-tab" onclick="scrollToPhase(2)" aria-label="Fase 2">
+    <span class="phase-tab-n">2</span>
+    <span class="phase-tab-label">Bouwen</span>
+  </button>
+  <button class="phase-tab" onclick="scrollToPhase(3)" aria-label="Fase 3">
+    <span class="phase-tab-n">3</span>
+    <span class="phase-tab-label">Pre-launch</span>
+  </button>
+  <button class="phase-tab" onclick="scrollToPhase(4)" aria-label="Fase 4">
+    <span class="phase-tab-n">4</span>
+    <span class="phase-tab-label">Launch</span>
+  </button>
+  <button class="phase-tab" onclick="scrollToPhase(5)" aria-label="Fase 5">
+    <span class="phase-tab-n">5</span>
+    <span class="phase-tab-label">Retentie</span>
+  </button>
+</nav>
+
+<!-- FASE 1 -->
+<section class="section" id="fase-1">
+  <div class="step-label"><span class="step-n">1</span>Fundament<span class="lp-week">Week 1–3</span></div>
+  <h2>Voor wie, tegen wie en waarom.</h2>
+  <p>Een lancering valt zelden om door de media, meestal door de positionering. Daarom beginnen we met onderzoek, niet met advertenties.</p>
   <div class="dark-card">
-    <p class="card-label">Wat erin zit</p>
+    <p class="card-label">Wat we uitzoeken</p>
+    <div class="flow">
+      <div class="flow-step">
+        <div class="flow-dot"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="#E8294A" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M17 21v-2a4 4 0 00-4-4H5a4 4 0 00-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 00-3-3.87M16 3.13a4 4 0 010 7.75"/></svg></div>
+        <div class="flow-body">
+          <span class="flow-title">Doelgroep</span>
+          <span class="flow-desc">Wie koopt als eerste, welk probleem lost het op en wat houdt ze tegen?</span>
+        </div>
+      </div>
+      <div class="flow-step">
+        <div class="flow-dot"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="#E8294A" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><circle cx="12" cy="12" r="6"/><circle cx="12" cy="12" r="2"/></svg></div>
+        <div class="flow-body">
+          <span class="flow-title">Positioneringsonderzoek</span>
+          <span class="flow-desc">Concurrenten en alternatieven in kaart. Waar onderscheid je je echt?</span>
+        </div>
+      </div>
+      <div class="flow-step">
+        <div class="flow-dot"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="#E8294A" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"/><path d="M21 21l-4.35-4.35"/></svg></div>
+        <div class="flow-body">
+          <span class="flow-title">Zoekvraag</span>
+          <span class="flow-desc">Hoe en hoeveel er gezocht wordt op je categorie, het probleem en concurrenten.</span>
+        </div>
+      </div>
+      <div class="flow-step">
+        <div class="flow-dot"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="#E8294A" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="18" height="18" rx="2"/><path d="M8 7h8M8 12h6M8 17h4"/></svg></div>
+        <div class="flow-body">
+          <span class="flow-title">Propositie, doelen &amp; budget</span>
+          <span class="flow-desc">Eén kernbelofte met bewijs. KPI&#39;s en budget per fase.</span>
+        </div>
+      </div>
+    </div>
+  </div>
+  <p class="lp-meet"><strong>Oplevering:</strong> positioneringsdocument en een launchplan met tijdlijn en budget.</p>
+</section>
+
+<!-- FASE 2 -->
+<section class="section" id="fase-2">
+  <div class="step-label"><span class="step-n">2</span>Bouwen<span class="lp-week">Week 3–8</span></div>
+  <h2>Branding, creative, web &amp; data.</h2>
+  <p>Alles wat live moet, gebouwd op de keuzes uit fase 1. Door één team, zodat merk, campagne en meting op elkaar aansluiten.</p>
+  <div class="dark-card">
+    <p class="card-label">Wat we maken</p>
     <div class="flow">
       <div class="flow-step">
         <div class="flow-dot"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="#E8294A" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2L2 7l10 5 10-5-10-5z"/><path d="M2 17l10 5 10-5M2 12l10 5 10-5"/></svg></div>
         <div class="flow-body">
           <span class="flow-title">Branding</span>
-          <span class="flow-desc">Identiteit, tone of voice en positionering.</span>
+          <span class="flow-desc">Visuele identiteit en tone of voice, afgeleid van de positionering.</span>
         </div>
       </div>
       <div class="flow-step">
         <div class="flow-dot"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="#E8294A" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M12 20h9"/><path d="M16.5 3.5a2.121 2.121 0 013 3L7 19l-4 1 1-4L16.5 3.5z"/></svg></div>
         <div class="flow-body">
           <span class="flow-title">Creative</span>
-          <span class="flow-desc">Advertenties, video en social content.</span>
+          <span class="flow-desc">Launch-assets in meerdere invalshoeken en formats: video, statics, productbeeld.</span>
         </div>
       </div>
       <div class="flow-step">
         <div class="flow-dot"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="#E8294A" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><polyline points="16 18 22 12 16 6"/><polyline points="8 6 2 12 8 18"/></svg></div>
         <div class="flow-body">
           <span class="flow-title">Web</span>
-          <span class="flow-desc">Landingspagina&#39;s en conversie-flows.</span>
+          <span class="flow-desc">Landings- of productpagina met wachtlijst of pre-order. Voor e-commerce ook de productfeed.</span>
         </div>
       </div>
       <div class="flow-step">
         <div class="flow-dot"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="#E8294A" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><line x1="18" y1="20" x2="18" y2="10"/><line x1="12" y1="20" x2="12" y2="4"/><line x1="6" y1="20" x2="6" y2="14"/></svg></div>
         <div class="flow-body">
           <span class="flow-title">Data</span>
-          <span class="flow-desc">Tracking, pixels en dashboards.</span>
+          <span class="flow-desc">Tracking, conversies en dashboard. Werkend vóór de eerste euro media.</span>
         </div>
       </div>
     </div>
   </div>
+  <p class="lp-meet"><strong>Oplevering:</strong> merk, site, assets en meting klaar voor livegang.</p>
 </section>
 
-<!-- LANCERING, REPUTATIE, RETENTIE -->
-<section class="section" id="lancering">
-  <div class="step-label"><span class="step-n">2</span>Lancering &amp; groei</div>
-  <h2>Lanceren, vertrouwen opbouwen, klanten houden.</h2>
-  <div class="lp-blokken">
-    <div class="lp-blok">
-      <div class="metric-icon"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#E8294A" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M22 2L11 13M22 2L15 22l-4-9-9-4 20-7z"/></svg></div>
-      <span class="lp-blok-title">Lanceringscampagne</span>
-      <span class="lp-blok-desc">Een bewezen campagne-opbouw op Search &amp; Social: testen, bijsturen, opschalen.</span>
-    </div>
-    <div class="lp-blok">
-      <div class="metric-icon"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#E8294A" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg></div>
-      <span class="lp-blok-title">Reputatie-opbouw</span>
-      <span class="lp-blok-desc">Reviews verzamelen en positioneringsonderzoek, zodat er vanaf dag één vertrouwen is.</span>
-    </div>
-    <div class="lp-blok">
-      <div class="metric-icon"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#E8294A" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M17 1l4 4-4 4"/><path d="M3 11V9a4 4 0 014-4h14"/><path d="M7 23l-4-4 4-4"/><path d="M21 13v2a4 4 0 01-4 4H3"/></svg></div>
-      <span class="lp-blok-title">Retentiestrategie</span>
-      <span class="lp-blok-desc">E-mail, remarketing en onboarding die klanten laten terugkomen.</span>
+<!-- FASE 3 -->
+<section class="section" id="fase-3">
+  <div class="step-label"><span class="step-n">3</span>Pre-launch<span class="lp-week">Week 6–10</span></div>
+  <h2>Vraag en vertrouwen vóór de start.</h2>
+  <p>Op launchdag heb je al een publiek en de eerste reviews nodig. Een nieuw product zonder reviews converteert slechter, dus die bouwen we vooraf op.</p>
+  <div class="dark-card">
+    <p class="card-label">Reputatie-opbouw</p>
+    <div class="flow">
+      <div class="flow-step">
+        <div class="flow-dot"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="#E8294A" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="M22 6l-10 7L2 6"/></svg></div>
+        <div class="flow-body">
+          <span class="flow-title">Wachtlijst of pre-order</span>
+          <span class="flow-desc">Interesse vastleggen en warm houden met updates tot de lancering.</span>
+        </div>
+      </div>
+      <div class="flow-step">
+        <div class="flow-dot"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="#E8294A" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M17 21v-2a4 4 0 00-4-4H5a4 4 0 00-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 00-3-3.87M16 3.13a4 4 0 010 7.75"/></svg></div>
+        <div class="flow-body">
+          <span class="flow-title">Beta &amp; seeding</span>
+          <span class="flow-desc">Product bij early adopters, bestaande klanten en creators, in ruil voor feedback en eerlijke reviews.</span>
+        </div>
+      </div>
+      <div class="flow-step">
+        <div class="flow-dot"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="#E8294A" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg></div>
+        <div class="flow-body">
+          <span class="flow-title">Reviewplatform</span>
+          <span class="flow-desc">Trustpilot, Google of Kiyoh; voor SaaS G2 of Capterra. Reviewverzoeken geautomatiseerd.</span>
+        </div>
+      </div>
+      <div class="flow-step">
+        <div class="flow-dot"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="#E8294A" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><polygon points="23 7 16 12 23 17 23 7"/><rect x="1" y="5" width="15" height="14" rx="2"/></svg></div>
+        <div class="flow-body">
+          <span class="flow-title">Teasercontent</span>
+          <span class="flow-desc">Organisch op social: het probleem, het maakproces, de aftelling.</span>
+        </div>
+      </div>
     </div>
   </div>
+  <p class="lp-meet"><strong>Meetpunt:</strong> aanmeldingen, conversie van de landingspagina en aantal reviews.</p>
+</section>
+
+<!-- FASE 4 -->
+<section class="section" id="fase-4">
+  <div class="step-label"><span class="step-n">4</span>Launch<span class="lp-week">Week 10–14</span></div>
+  <h2>Een bewezen campagne-opbouw op Search &amp; Social.</h2>
+  <p>We lanceren in stappen: eerst testen, dan opschalen wat werkt. Zo gaat budget naar bewezen boodschappen in plaats van aannames.</p>
+  <div class="dark-card">
+    <p class="card-label">Lanceringscampagne</p>
+    <div class="flow">
+      <div class="flow-step">
+        <div class="flow-dot"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="#E8294A" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M13 2L3 14h9l-1 8 10-12h-9l1-8z"/></svg></div>
+        <div class="flow-body">
+          <span class="flow-title">Launchmoment</span>
+          <span class="flow-desc">Wachtlijst mailen, PR en creators op dezelfde dag. Voor SaaS ook Product Hunt en communities.</span>
+        </div>
+      </div>
+      <div class="flow-step">
+        <div class="flow-dot"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="#E8294A" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"/><path d="M21 21l-4.35-4.35"/></svg></div>
+        <div class="flow-body">
+          <span class="flow-title">Search</span>
+          <span class="flow-desc">Merk- en categoriezoekwoorden vanaf dag één. Voor e-commerce Shopping en Performance Max op de productfeed.</span>
+        </div>
+      </div>
+      <div class="flow-step">
+        <div class="flow-dot"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="#E8294A" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><circle cx="12" cy="12" r="6"/><circle cx="12" cy="12" r="2"/></svg></div>
+        <div class="flow-body">
+          <span class="flow-title">Social</span>
+          <span class="flow-desc">Drie tot vijf creatieve concepten met gelijk budget. Na ongeveer een week kiezen we op basis van data.</span>
+        </div>
+      </div>
+      <div class="flow-step">
+        <div class="flow-dot"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="#E8294A" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><polyline points="23 6 13.5 15.5 8.5 10.5 1 18"/><polyline points="17 6 23 6 23 12"/></svg></div>
+        <div class="flow-body">
+          <span class="flow-title">Opschalen &amp; retargeting</span>
+          <span class="flow-desc">Winnaars krijgen stapsgewijs meer budget. Retargeting met reviews als social proof.</span>
+        </div>
+      </div>
+    </div>
+  </div>
+  <p class="lp-meet"><strong>Meetpunt:</strong> kosten per aanmelding, trial of aankoop en ROAS.</p>
+</section>
+
+<!-- FASE 5 -->
+<section class="section" id="fase-5">
+  <div class="step-label"><span class="step-n">5</span>Retentie<span class="lp-week">Vanaf week 14</span></div>
+  <h2>Van eerste klant naar terugkerende klant.</h2>
+  <p>Een bestaande klant behouden is goedkoper dan een nieuwe werven. Retentie zit daarom in het plan, niet erachter.</p>
+  <div class="dark-card">
+    <p class="card-label">Retentiestrategie</p>
+    <div class="flow">
+      <div class="flow-step">
+        <div class="flow-dot"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="#E8294A" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M20.84 4.61a5.5 5.5 0 00-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 00-7.78 7.78L12 21.23l8.84-8.84a5.5 5.5 0 000-7.78z"/></svg></div>
+        <div class="flow-body">
+          <span class="flow-title">Onboarding</span>
+          <span class="flow-desc">Welkomst- en onboardingflows die nieuwe klanten snel naar het eerste succesmoment brengen.</span>
+        </div>
+      </div>
+      <div class="flow-step">
+        <div class="flow-dot"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="#E8294A" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg></div>
+        <div class="flow-body">
+          <span class="flow-title">Na aankoop</span>
+          <span class="flow-desc">Reviewverzoek na levering of gebruik, zodat de reputatie blijft groeien.</span>
+        </div>
+      </div>
+      <div class="flow-step">
+        <div class="flow-dot"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="#E8294A" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M17 1l4 4-4 4"/><path d="M3 11V9a4 4 0 014-4h14"/><path d="M7 23l-4-4 4-4"/><path d="M21 13v2a4 4 0 01-4 4H3"/></svg></div>
+        <div class="flow-body">
+          <span class="flow-title">Herhaling &amp; win-back</span>
+          <span class="flow-desc">Herhaalaankoop, upsell of heractivatie op basis van gedrag.</span>
+        </div>
+      </div>
+      <div class="flow-step">
+        <div class="flow-dot"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="#E8294A" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg></div>
+        <div class="flow-body">
+          <span class="flow-title">Optimalisatie</span>
+          <span class="flow-desc">Maandelijkse analyse en nieuwe creatives tegen advertentiemoeheid.</span>
+        </div>
+      </div>
+    </div>
+  </div>
+  <p class="lp-meet"><strong>Meetpunt:</strong> activatie, herhaalaankoop of churn en klantwaarde.</p>
 </section>
 
 <!-- SAAS VS FYSIEK -->
 <section class="section" id="producttype">
-  <div class="step-label"><span class="step-n">3</span>Per producttype</div>
-  <h2>SaaS of fysiek product.</h2>
-  <div class="metrics">
-    <div class="metric">
-      <div class="metric-icon"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#E8294A" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M18 10h-1.26A8 8 0 109 20h9a5 5 0 000-10z"/></svg></div>
-      <span class="metric-title">SaaS</span>
-      <span class="metric-desc">Vaak B2B of organische marketing: SEO, content, LinkedIn en een demo- of trialfunnel.</span>
-    </div>
-    <div class="metric">
-      <div class="metric-icon"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#E8294A" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M6 2L3 6v14a2 2 0 002 2h14a2 2 0 002-2V6l-3-4z"/><line x1="3" y1="6" x2="21" y2="6"/><path d="M16 10a4 4 0 01-8 0"/></svg></div>
-      <span class="metric-title">Fysiek (e-commerce)</span>
-      <span class="metric-desc">Gericht op online shopping advertenties: Google Shopping, Meta en een sterke productfeed.</span>
-    </div>
+  <div class="step-label"><span class="step-n" style="background:var(--ink)">&#8596;</span>Per producttype</div>
+  <h2>Dezelfde fases, andere accenten.</h2>
+  <p>SaaS is vaak B2B en groeit via zoekverkeer, content en vertrouwen. Fysieke producten draaien om online shopping advertenties en productreviews.</p>
+  <div class="lp-cmp">
+    <div class="lp-cmp-head"><span></span><span>SaaS</span><span>Fysiek (e-commerce)</span></div>
+    <div class="lp-cmp-row"><span class="lp-cmp-l">Conversie</span><span>Demo, trial of aanmelding</span><span>Aankoop of pre-order</span></div>
+    <div class="lp-cmp-row"><span class="lp-cmp-l">Search</span><span>Categorie-, probleem- en concurrentiezoekwoorden</span><span>Shopping en Performance Max op een sterke productfeed</span></div>
+    <div class="lp-cmp-row"><span class="lp-cmp-l">Social</span><span>LinkedIn en organische content, vaak vanuit de founder</span><span>Meta en TikTok met video en creators</span></div>
+    <div class="lp-cmp-row"><span class="lp-cmp-l">Reputatie</span><span>G2, Capterra en klantcases</span><span>Productreviews, Trustpilot of Kiyoh. Vanaf 100 reviews per jaar sterren in Google Ads</span></div>
+    <div class="lp-cmp-row"><span class="lp-cmp-l">Retentie</span><span>Onboarding, activatie en churn voorkomen</span><span>Na aankoop, herhaalaankoop en win-back</span></div>
   </div>
 </section>
 
@@ -549,7 +723,7 @@ function scrollToPhase(n) {
 
 // Active tab on scroll
 (function() {
-  var phases = [1,2,3,4].map(function(n){return document.getElementById('fase-'+n);});
+  var phases = [1,2,3,4,5].map(function(n){return document.getElementById('fase-'+n);});
   window.addEventListener('scroll', function() {
     var active = 0;
     phases.forEach(function(el,i){
