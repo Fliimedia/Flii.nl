@@ -40,7 +40,10 @@
     s.id = 'lang-css';
     s.textContent =
       '.nav-menu-footer .lang-wissel{white-space:nowrap}' +
-      '.nav-menu-footer .lang-wissel a[aria-current]{color:#0F0E0C;font-weight:700}';
+      '.nav-menu-footer .lang-wissel a[aria-current]{color:#0F0E0C;font-weight:700}' +
+      '.float-icon.lang-float .lang-vlag{width:20px;height:20px;border-radius:50%;overflow:hidden;display:block;' +
+        'box-shadow:inset 0 0 0 1px rgba(0,0,0,.1);pointer-events:none}' +
+      '.float-icon.lang-float .lang-vlag svg{width:100%;height:100%}';
     document.head.appendChild(s);
   }
 
@@ -63,9 +66,37 @@
     });
   }
 
+  /* In de zwevende contactbalk rechts: de vlag van de huidige taal.
+     Eén tik wisselt naar de andere taal. */
+  var VLAG_NL = '<svg viewBox="0 0 30 30" aria-hidden="true"><rect width="30" height="10" fill="#AE1C28"/>' +
+    '<rect y="10" width="30" height="10" fill="#fff"/><rect y="20" width="30" height="10" fill="#21468B"/></svg>';
+  var VLAG_EN = '<svg viewBox="0 0 60 30" preserveAspectRatio="xMidYMid slice" aria-hidden="true">' +
+    '<clipPath id="lang-uk-clip"><path d="M30,15h30v15zv15h-30zh-30v-15zv-15h30z"/></clipPath>' +
+    '<rect width="60" height="30" fill="#012169"/>' +
+    '<path d="M0,0L60,30M60,0L0,30" stroke="#fff" stroke-width="6"/>' +
+    '<path d="M0,0L60,30M60,0L0,30" clip-path="url(#lang-uk-clip)" stroke="#C8102E" stroke-width="4"/>' +
+    '<path d="M30,0v30M0,15h60" stroke="#fff" stroke-width="10"/>' +
+    '<path d="M30,0v30M0,15h60" stroke="#C8102E" stroke-width="6"/></svg>';
+
+  function bouwBalk() {
+    var balk = document.getElementById('float-sidebar');
+    if (!balk || balk.querySelector('.lang-float')) return;
+    var huidig = isEN || keuze === 'en' ? 'en' : 'nl';
+    var naar = huidig === 'en' ? 'nl' : 'en';
+    var a = document.createElement('a');
+    a.className = 'float-icon lang-float';
+    a.href = naar === 'en' ? naarEN : naarNL;
+    a.hreflang = naar;
+    a.title = naar === 'en' ? 'English' : 'Nederlands';
+    a.setAttribute('aria-label', naar === 'en' ? 'Switch to English' : 'Wissel naar Nederlands');
+    a.innerHTML = '<span class="lang-vlag">' + (huidig === 'en' ? VLAG_EN : VLAG_NL) + '</span>';
+    a.addEventListener('click', function () { bewaar(naar); });
+    balk.appendChild(a);
+  }
+
   css();
   /* nav.js bouwt de lade bij DOMContentLoaded; daarna pas toevoegen. */
-  function straks() { setTimeout(bouw, 0); }
+  function straks() { setTimeout(function () { bouw(); bouwBalk(); }, 0); }
   if (document.readyState === 'loading' || document.readyState === 'interactive') {
     document.addEventListener('DOMContentLoaded', straks);
   }
