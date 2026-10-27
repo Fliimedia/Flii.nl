@@ -422,7 +422,7 @@ section.loop-section,section.funnel-section,section.calc-section{
 section.loop-section{border-radius:18px;margin-top:28px;margin-bottom:28px;
   border:1px solid rgba(255,255,255,.14);box-shadow:0 8px 28px rgba(15,14,12,.10);
   /* de kaart springt in tot waar de tekst van de andere secties begint */
-  max-width:min(632px, calc(100% - 48px));margin-left:auto;margin-right:auto;}
+  max-width:min(680px, calc(100% - 32px));margin-left:auto;margin-right:auto;}
 
 /* Navigatiebalk overal gelijk. */
 nav.nav{background:#fff !important;color:#0F0E0C !important;max-width:none !important;margin:0 !important;}
@@ -431,6 +431,9 @@ nav.nav{background:#fff !important;color:#0F0E0C !important;max-width:none !impo
 :root{--paginabreedte:680px;}
 </style>
 <link rel="canonical" href="https://flii.nl/loop">
+<link rel="alternate" hreflang="nl" href="https://flii.nl/loop">
+<link rel="alternate" hreflang="en" href="https://flii.nl/en/loop">
+<link rel="alternate" hreflang="x-default" href="https://flii.nl/loop">
 <link rel="stylesheet" href="/assets/reduced-motion.css">
 <script defer src="/assets/reduced-motion.js"></script>
 <script type="application/ld+json">
@@ -460,8 +463,8 @@ nav.nav{background:#fff !important;color:#0F0E0C !important;max-width:none !impo
 <link rel="stylesheet" href="/assets/footer.css?v=20261017n">
 <script defer src="/assets/footer.js"></script>
 <link rel="stylesheet" href="/assets/nav.css?v=20261019c">
-<script defer src="/assets/nav.js?v=20261026a"></script>
-<script defer src="/assets/lang.js?v=20261027b"></script>
+<script defer src="/assets/nav.js?v=20261027c"></script>
+<script defer src="/assets/lang.js?v=20261027c"></script>
 </head>
 <body>
 
@@ -937,6 +940,7 @@ var L = {
   from:"v.a.",
   onRequest:"Op aanvraag",
   inclFree:"inbegrepen",
+  inPhase:"bij {f}",
   once:"Eenmalig",
   onceShort:"eenmalig",
   mo:"/mnd",
@@ -970,7 +974,7 @@ var S = {
 };
 var STEPS = ["type","details","pakketten","result"];
 
-function eur(n) { return "\u20AC\u00A0" + Math.round(n||0).toLocaleString("nl-NL"); }
+function eur(n) { return "\u20AC\u00A0" + Math.round(n||0).toLocaleString(document.documentElement.lang === "en" ? "en-GB" : "nl-NL"); }
 
 // ── COMPUTE ──────────────────────────────────────────────────
 function compute() {
@@ -1022,7 +1026,8 @@ function compute() {
     });
   }
 
-  var hasSelection = selected.length > 0 || selectedChannels().length > 0;
+  var anyPhase = S.phases.plan || S.phases.build || S.phases.run;
+  var hasSelection = (selected.length > 0 || selectedChannels().length > 0) && anyPhase;
 
   return {
     once: once, mo: mo, saving: saving, selected: selected,
@@ -1050,7 +1055,7 @@ function lineItems() {
         var o  = S.phases.build ? (pr.once || 0) : 0;
         var m  = S.phases.run   ? (pr.mo   || 0) : 0;
         onceItem += o; moItem += m;
-        sub.push({ label:L.typeOpts[k]||k, once:o, mo:m, free:(o===0 && m===0) });
+        sub.push({ label:L.typeOpts[k]||k, once:o, mo:m, free:(o===0 && m===0 && !pr.once && !pr.mo), elders:(o===0 && m===0 && (pr.once||pr.mo)) ? (pr.once ? L.phases.build : L.phases.run) : "" });
       });
     }
 
@@ -1080,7 +1085,7 @@ function lineItems() {
         var o = S.phases.build ? (dp.once || 0) : 0;
         var m = S.phases.run   ? (dp.mo   || 0) : 0;
         onceItem += o; moItem += m;
-        sub.push({ label: L.dels[d] || d, once: o, mo: m, free: (o === 0 && m === 0) });
+        sub.push({ label: L.dels[d] || d, once: o, mo: m, free: (o === 0 && m === 0 && !dp.once && !dp.mo), elders: (o === 0 && m === 0 && (dp.once || dp.mo)) ? (dp.once ? L.phases.build : L.phases.run) : "" });
       });
 
       if (f < 1) sub.push({ label: L.tierNote.replace("{p}", Math.round((1-f)*100)), note: true });
@@ -1331,7 +1336,7 @@ function renderCalc() {
               return;
             }
             html += '<div class="rcp-row rcp-srow"><span class="rcp-l">'+s.label+'</span>';
-            html += '<span class="rcp-v mono" data-kind="once">'+(s.free?'<em class="rcp-free">'+L.inclFree+'</em>':(s.once>0?eur(s.once):""))+'</span>';
+            html += '<span class="rcp-v mono" data-kind="once">'+(s.free?'<em class="rcp-free">'+L.inclFree+'</em>':(s.elders?'<em class="rcp-free">'+L.inPhase.replace("{f}", s.elders)+'</em>':(s.once>0?eur(s.once):"")))+'</span>';
             html += '<span class="rcp-v mono" data-kind="mo">'+(s.free?"":(s.mo>0?eur(s.mo)+L.mo:""))+'</span></div>';
           });
         }
