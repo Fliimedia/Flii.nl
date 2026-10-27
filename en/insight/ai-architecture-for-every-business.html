@@ -1,0 +1,465 @@
+<!DOCTYPE html>
+<html lang="en" data-pub="2026-05-10">
+<head>
+<meta charset="UTF-8">
+<script src="/assets/insight-datum.js?v=20261027c"></script>
+<meta http-equiv="Cache-Control" content="max-age=300, must-revalidate">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>AI architecture: a must for every business? — Flii Media</title>
+<meta property="og:type" content="article">
+<meta property="og:title" content="AI architecture: a must for every business? — Flii Media">
+<meta property="og:description" content="Why separate AI tools grow into chaos, and what an AI architecture solves. On data, processes and the difference between experimenting and integrating.">
+<meta property="og:url" content="https://flii.nl/en/insight/ai-architecture-for-every-business">
+<meta property="og:site_name" content="Flii Media">
+<meta name="twitter:card" content="summary_large_image">
+<meta property="og:image" content="https://flii.nl/assets/og/insight-ai-architectuur-voor-ieder-bedrijf-nodig.jpg">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:locale" content="en_GB">
+<meta name="twitter:image" content="https://flii.nl/assets/og/insight-ai-architectuur-voor-ieder-bedrijf-nodig.jpg">
+
+<meta name="description" content="Why separate AI tools grow into chaos, and what an AI architecture solves. On data, processes and the difference between experimenting and integrating.">
+<style>
+@font-face{font-family:'Bricolage Grotesque';src:url('/assets/fonts/BricolageGrotesque.woff2') format('woff2-variations');
+  font-weight:200 800;font-display:swap;}
+@font-face{font-family:'JetBrains Mono';src:url('/assets/fonts/JetBrainsMono.woff2') format('woff2-variations');
+  font-weight:100 800;font-display:swap;}
+@font-face{font-family:'DM Sans';src:url('/assets/fonts/DMSans.woff2') format('woff2-variations');
+  font-weight:100 1000;font-display:swap;}
+
+:root{
+  --mag:#E8294A;--ink:#0F0E0C;--mid:#4A4840;--subtle:#9B9790;
+  --rule:#E8E6E1;--bg:#F3F1EB;--white:#fff;
+  --ff-disp:'Bricolage Grotesque','Inter',system-ui,sans-serif;
+  --ff-body:'DM Sans',system-ui,sans-serif;
+  --ff-mono:'JetBrains Mono',monospace;
+  --r:14px;
+}
+*{box-sizing:border-box;margin:0;padding:0;-webkit-font-smoothing:antialiased;}
+html,body{font-family:var(--ff-body);background:#fff;color:var(--ink);overflow-x:hidden;}
+a{color:inherit;text-decoration:none;}
+img{max-width:100%;display:block;}
+.nav{display:flex;align-items:center;justify-content:space-between;
+  padding:0 20px;height:56px;border-bottom:1px solid var(--rule);
+  position:sticky;top:0;background:rgba(255,255,255,.95);
+  backdrop-filter:blur(12px);z-index:100;}
+.nav-brand{display:flex;align-items:center;gap:8px;}
+.nav-brand img{height:28px;width:auto;}
+.nav-back{font-size:13px;color:var(--subtle);font-weight:500;text-decoration:none;}
+.nav-back:hover{color:var(--ink);}
+.eyebrow{font-family:var(--ff-mono);font-size:10px;font-weight:700;
+  letter-spacing:.14em;text-transform:uppercase;color:var(--ink);}
+.page-hero{padding:48px 24px 0;}
+.page-hero h1{font-family:var(--ff-disp);font-size:clamp(26px,7vw,40px);
+  font-weight:800;letter-spacing:-1px;line-height:1.08;margin-top:10px;}
+.page-hero .lead{font-size:15px;color:var(--mid);line-height:1.65;margin-top:14px;max-width:580px;}
+.hero-img{width:100%;height:280px;object-fit:cover;margin-top:32px;}
+.section-body{padding:36px 24px;max-width:680px;}
+.section-body p{font-size:15px;line-height:1.75;color:var(--ink);margin-bottom:18px;}
+.section-body ul{margin:0 0 18px 20px;}
+.section-body li{font-size:15px;line-height:1.75;color:var(--ink);margin-bottom:8px;}
+.section-body strong{font-weight:700;}
+.section-body h2{font-family:var(--ff-disp);font-size:22px;font-weight:800;
+  letter-spacing:-.4px;margin:36px 0 14px;}
+.results-box{background:#0F0E0C;border-radius:16px;padding:28px 24px;margin:48px 24px 0;}
+.results-box h3{font-family:var(--ff-disp);font-size:18px;font-weight:800;
+  color:#fff;margin-bottom:20px;}
+.result-row{display:grid;grid-template-columns:24px 1fr auto;
+  align-items:start;gap:10px 12px;padding:12px 0;
+  border-top:1px solid rgba(255,255,255,.07);}
+.result-row:first-of-type{border-top:none;}
+.result-icon{color:var(--mag);flex-shrink:0;margin-top:2px;}
+.result-label{font-size:13px;color:rgba(255,255,255,.75);line-height:1.5;}
+.result-value{font-family:var(--ff-mono);font-size:14px;font-weight:700;color:#fff;white-space:nowrap;text-align:right;}
+/* Legacy list fallback */
+.results-box ul{list-style:none;display:flex;flex-direction:column;gap:0;}
+.results-box li{font-size:14px;color:rgba(255,255,255,.75);line-height:1.5;
+  padding:12px 0 12px 20px;position:relative;border-top:1px solid rgba(255,255,255,.07);}
+.results-box li:first-child{border-top:none;}
+.results-box li::before{content:'→';color:var(--mag);position:absolute;left:0;}
+.results-box li strong{color:#fff;}
+.img-grid{display:grid;grid-template-columns:1fr 1fr;gap:10px;padding:0 24px;margin-bottom:36px;}
+.img-grid img{border-radius:10px;aspect-ratio:4/3;object-fit:cover;width:100%;height:auto;}
+.img-full{padding:0 24px;margin-bottom:36px;}
+.img-full img{border-radius:12px;width:100%;height:auto;}
+
+
+
+
+.footer-mini{padding:24px;text-align:center;border-top:1px solid var(--rule);
+  font-size:12px;color:var(--subtle);}
+.footer-mini a{color:var(--ink);font-weight:600;}
+/* Article specific */
+.article-meta{display:flex;align-items:center;gap:12px;margin-top:12px;flex-wrap:wrap;}
+.article-tag{font-size:11px;font-weight:600;letter-spacing:.01em;white-space:nowrap;background:linear-gradient(135deg,rgba(0,0,0,.07) 0%,rgba(0,0,0,.02) 100%);color:#0F0E0C;border:1px solid rgba(0,0,0,.25);border-radius:100px;padding:3px 10px;text-transform:uppercase;font-family:var(--ff-mono);}
+.article-date-lbl{font-family:var(--ff-mono);font-size:10px;color:var(--subtle);letter-spacing:.06em;}
+.quote-block{border-left:3px solid var(--mag);padding:14px 18px;
+  margin:24px 0;background:#F9F8F6;border-radius:0 8px 8px 0;}
+.quote-block p{font-size:15px;font-style:italic;color:var(--mid);margin:0;}
+
+/* CTA section — home style */
+
+
+
+
+
+
+
+
+
+
+/* width-align v1 */
+/* CTA card and hero image were unconstrained and spanned the full viewport.
+   Constrain them to the same column as .section-body (632px inner, 24px gutter). */
+
+@media (min-width:760px){
+  .hero-img{max-width:632px;width:calc(100% - 48px);margin-left:24px;margin-right:24px;}
+}
+
+/* content-width-cap v2 */
+/* Keep every block within the text column (680px outer / 632px inner). */
+.page-hero{max-width:680px;box-sizing:border-box;}
+.section-body{max-width:680px;box-sizing:border-box;}
+
+.dienst-photo{max-width:632px;margin:24px 24px 0;width:calc(100% - 48px);}
+@media (min-width:760px){
+  .hero-img{max-width:632px;width:calc(100% - 48px);margin-left:24px;margin-right:24px;}
+}
+
+.article-chip{display:inline-flex;align-items:center;font-family:var(--ff-mono);
+  font-size:10px;font-weight:600;letter-spacing:.08em;line-height:1;white-space:nowrap;
+  border-radius:100px;padding:4px 10px;}
+.article-chip--unprompted{background:linear-gradient(135deg,rgba(0,0,0,.07) 0%,rgba(0,0,0,.02) 100%);
+  color:#0F0E0C;border:1px solid rgba(0,0,0,.25);}
+.article-chip--prompted{background:#0F0E0C;color:#fff;border:1px solid #0F0E0C;}
+.page-hero .article-chip{margin-top:14px;}
+.article-author{font-size:12px;color:var(--sub,#6B6866);}
+.article-author::before{content:'\00B7';margin:0 7px;opacity:.5;}
+
+.footer-mini-links{display:flex;flex-wrap:wrap;justify-content:center;gap:6px 14px;
+  margin:0 auto 12px;max-width:640px;padding:0 24px;}
+.footer-mini-links a{font-size:11px;color:#6B6866;text-decoration:none;transition:color .12s;}
+.footer-mini-links a:hover{color:#0F0E0C;}
+
+/* Navigatiebalk overal gelijk. */
+nav.nav{background:#fff !important;color:#0F0E0C !important;max-width:none !important;margin:0 !important;}
+
+/* Footer volgt deze breedte. */
+:root{--paginabreedte:680px;}
+
+/* Inhoud in een gecentreerde kolom, gelijk aan de footer. */
+.page-hero,.section-body,.cta-section,.kb-related,body > picture,
+.topic-body,.topic-head,section.section{
+  max-width:var(--paginabreedte,680px);margin-left:auto;margin-right:auto;}
+body > picture{box-sizing:border-box;}
+
+/* Header-foto gecentreerd in dezelfde kolom als de tekst.
+   Stond met een vaste marge van 24px links, terwijl de rest centreert. */
+@media (min-width:1140px){
+  .dienst-photo,.pt-shot,body > picture,img.hero-img{
+    margin-left:auto !important;margin-right:auto !important;}
+  body > picture{display:block;max-width:var(--paginabreedte,680px);
+    padding:0 24px;box-sizing:border-box;}
+}
+</style>
+<link rel="stylesheet" href="/assets/contact-bar.css?v=20261018a">
+<script defer src="/assets/contact-bar.js?v=20261026a"></script>
+<link rel="canonical" href="https://flii.nl/en/insight/ai-architecture-for-every-business">
+<link rel="alternate" hreflang="nl" href="https://flii.nl/insight/ai-architectuur-voor-ieder-bedrijf-nodig">
+<link rel="alternate" hreflang="en" href="https://flii.nl/en/insight/ai-architecture-for-every-business">
+<link rel="alternate" hreflang="x-default" href="https://flii.nl/insight/ai-architectuur-voor-ieder-bedrijf-nodig">
+<link rel="stylesheet" href="/assets/reduced-motion.css">
+<script defer src="/assets/reduced-motion.js"></script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Article",
+  "headline": "AI architecture: a must for every business?",
+  "description": "Business without AI has become unthinkable.",
+  "url": "https://flii.nl/en/insight/ai-architecture-for-every-business",
+  "publisher": {
+    "@type": "Organization",
+    "name": "Flii Media",
+    "@id": "https://flii.nl/en/#organization",
+    "logo": {
+      "@type": "ImageObject",
+      "url": "https://flii.nl/assets/img/d913cc3c069f.webp"
+    }
+  },
+  "datePublished": "May 10, 2026",
+  "image": "https://flii.nl/assets/insight/ai-architectuur-voor-ieder-bedrijf-nodig.webp",
+  "author": {
+    "@type": "Person",
+    "name": "Sten Bossong",
+    "jobTitle": "Project Lead",
+    "worksFor": {
+      "@id": "https://flii.nl/en/#organization"
+    },
+    "url": "https://flii.nl/over-ons"
+  },
+  "inLanguage": "en",
+  "dateModified": "May 10, 2026"
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    {
+      "@type": "ListItem",
+      "position": 1,
+      "name": "Home",
+      "item": "https://flii.nl/en/"
+    },
+    {
+      "@type": "ListItem",
+      "position": 2,
+      "name": "Insights",
+      "item": "https://flii.nl/en/#insights"
+    },
+    {
+      "@type": "ListItem",
+      "position": 3,
+      "name": "AI architecture: a must for every business?",
+      "item": "https://flii.nl/en/insight/ai-architecture-for-every-business"
+    }
+  ]
+}
+</script>
+<link rel="icon" href="/assets/img/d913cc3c069f.webp" type="image/png">
+<link rel="apple-touch-icon" href="/assets/img/d913cc3c069f.webp">
+<meta name="theme-color" content="#0F0E0C">
+<link rel="preload" href="/assets/fonts/BricolageGrotesque.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="stylesheet" href="/assets/footer.css?v=20261017n">
+<script defer src="/assets/footer.js"></script>
+<link rel="stylesheet" href="/assets/artikel-kop.css?v=20261019b">
+<script async preferred-sources-control="manual" src="https://news.google.com/swg/js/v1/publisher.js"></script>
+<script defer src="/assets/artikel-kop.js?v=20261017j"></script>
+<link rel="stylesheet" href="/assets/nav.css?v=20261019c">
+<script defer src="/assets/nav.js?v=20261027c"></script>
+<script defer src="/assets/lang.js?v=20261027c"></script>
+</head>
+<body>
+<nav class="nav">
+  <div class="nav-logo">
+    <a href="/en/" class="nav-mark" aria-label="Flii Media, go to the homepage"><img src="/assets/img/d913cc3c069f.webp" alt="Flii Media" fetchpriority="high" decoding="async"></a>
+  </div>
+  <button class="nav-burger" type="button" aria-label="Menu" aria-controls="nav-menu" aria-haspopup="dialog"><span></span><span></span></button>
+</nav>
+
+<div class="page-hero ak">
+  <nav class="ak-crumb" aria-label="Breadcrumb"><a href="/en/insight">Insight</a><span class="ak-crumb-sep" aria-hidden="true">/</span><span>AI</span></nav>
+  <h1>AI architecture: a must for every business?</h1>
+  <p class="lead">Business without AI has become unthinkable.</p>
+  <div class="ak-auteur">
+    <img class="ak-avatar" src="/assets/img/auteur-sten-bossong.webp" alt="Sten Bossong" width="52" height="52" decoding="async">
+    <div><div class="ak-naam">Sten Bossong</div><div class="ak-rol">Project Lead, Flii Media</div></div>
+  </div>
+  <div class="ak-meta">
+    <span class="ak-item"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3.5" y="5" width="17" height="15.5" rx="2.5"/><path d="M3.5 10h17M8 3v4M16 3v4"/><path d="M11 14h1.5v3.5"/></svg>Published 10 May 2026</span>
+    <span class="ak-item"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="8.5"/><path d="M12 7.5V12l3 2"/></svg>6 min read</span>
+    <span class="ak-chip">unprompted</span>
+  </div>
+  <div class="ak-sam">
+    <div class="ak-sam-groep">
+      <span class="ak-sam-label">Summarise</span>
+      <div class="ak-knoppen">
+        <a class="ak-btn" href="https://chatgpt.com/?q=Vat%20dit%20artikel%20van%20Flii%20Media%20samen%20en%20geef%20de%20belangrijkste%20inzichten%3A%20https%3A%2F%2Fflii.nl%2Finsight%2Fai-architectuur-voor-ieder-bedrijf-nodig" target="_blank" rel="noopener" aria-label="Summarise with ChatGPT" title="ChatGPT"><svg aria-hidden="true" focusable="false" fill="currentColor" fill-rule="evenodd" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M9.205 8.658v-2.26c0-.19.072-.333.238-.428l4.543-2.616c.619-.357 1.356-.523 2.117-.523 2.854 0 4.662 2.212 4.662 4.566 0 .167 0 .357-.024.547l-4.71-2.759a.797.797 0 00-.856 0l-5.97 3.473zm10.609 8.8V12.06c0-.333-.143-.57-.429-.737l-5.97-3.473 1.95-1.118a.433.433 0 01.476 0l4.543 2.617c1.309.76 2.189 2.378 2.189 3.948 0 1.808-1.07 3.473-2.76 4.163zM7.802 12.703l-1.95-1.142c-.167-.095-.239-.238-.239-.428V5.899c0-2.545 1.95-4.472 4.591-4.472 1 0 1.927.333 2.712.928L8.23 5.067c-.285.166-.428.404-.428.737v6.898zM12 15.128l-2.795-1.57v-3.33L12 8.658l2.795 1.57v3.33L12 15.128zm1.796 7.23c-1 0-1.927-.332-2.712-.927l4.686-2.712c.285-.166.428-.404.428-.737v-6.898l1.974 1.142c.167.095.238.238.238.428v5.233c0 2.545-1.974 4.472-4.614 4.472zm-5.637-5.303l-4.544-2.617c-1.308-.761-2.188-2.378-2.188-3.948A4.482 4.482 0 014.21 6.327v5.423c0 .333.143.571.428.738l5.947 3.449-1.95 1.118a.432.432 0 01-.476 0zm-.262 3.9c-2.688 0-4.662-2.021-4.662-4.519 0-.19.024-.38.047-.57l4.686 2.71c.286.167.571.167.856 0l5.97-3.448v2.26c0 .19-.07.333-.237.428l-4.543 2.616c-.619.357-1.356.523-2.117.523zm5.899 2.83a5.947 5.947 0 005.827-4.756C22.287 18.339 24 15.84 24 13.296c0-1.665-.713-3.282-1.998-4.448.119-.5.19-.999.19-1.498 0-3.401-2.759-5.947-5.946-5.947-.642 0-1.26.095-1.88.31A5.962 5.962 0 0010.205 0a5.947 5.947 0 00-5.827 4.757C1.713 5.447 0 7.945 0 10.49c0 1.666.713 3.283 1.998 4.448-.119.5-.19 1-.19 1.499 0 3.401 2.759 5.946 5.946 5.946.642 0 1.26-.095 1.88-.309a5.96 5.96 0 004.162 1.713z"></path></svg></a>
+        <a class="ak-btn" href="https://gemini.google.com/guided-learning?query=Vat%20dit%20artikel%20van%20Flii%20Media%20samen%20en%20geef%20de%20belangrijkste%20inzichten%3A%20https%3A%2F%2Fflii.nl%2Finsight%2Fai-architectuur-voor-ieder-bedrijf-nodig" target="_blank" rel="noopener" aria-label="Summarise with Gemini" title="Gemini"><svg aria-hidden="true" focusable="false" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M20.616 10.835a14.147 14.147 0 01-4.45-3.001 14.111 14.111 0 01-3.678-6.452.503.503 0 00-.975 0 14.134 14.134 0 01-3.679 6.452 14.155 14.155 0 01-4.45 3.001c-.65.28-1.318.505-2.002.678a.502.502 0 000 .975c.684.172 1.35.397 2.002.677a14.147 14.147 0 014.45 3.001 14.112 14.112 0 013.679 6.453.502.502 0 00.975 0c.172-.685.397-1.351.677-2.003a14.145 14.145 0 013.001-4.45 14.113 14.113 0 016.453-3.678.503.503 0 000-.975 13.245 13.245 0 01-2.003-.678z" fill="#3186FF"></path><path d="M20.616 10.835a14.147 14.147 0 01-4.45-3.001 14.111 14.111 0 01-3.678-6.452.503.503 0 00-.975 0 14.134 14.134 0 01-3.679 6.452 14.155 14.155 0 01-4.45 3.001c-.65.28-1.318.505-2.002.678a.502.502 0 000 .975c.684.172 1.35.397 2.002.677a14.147 14.147 0 014.45 3.001 14.112 14.112 0 013.679 6.453.502.502 0 00.975 0c.172-.685.397-1.351.677-2.003a14.145 14.145 0 013.001-4.45 14.113 14.113 0 016.453-3.678.503.503 0 000-.975 13.245 13.245 0 01-2.003-.678z" fill="url(#ak-gm-0)"></path><path d="M20.616 10.835a14.147 14.147 0 01-4.45-3.001 14.111 14.111 0 01-3.678-6.452.503.503 0 00-.975 0 14.134 14.134 0 01-3.679 6.452 14.155 14.155 0 01-4.45 3.001c-.65.28-1.318.505-2.002.678a.502.502 0 000 .975c.684.172 1.35.397 2.002.677a14.147 14.147 0 014.45 3.001 14.112 14.112 0 013.679 6.453.502.502 0 00.975 0c.172-.685.397-1.351.677-2.003a14.145 14.145 0 013.001-4.45 14.113 14.113 0 016.453-3.678.503.503 0 000-.975 13.245 13.245 0 01-2.003-.678z" fill="url(#ak-gm-1)"></path><path d="M20.616 10.835a14.147 14.147 0 01-4.45-3.001 14.111 14.111 0 01-3.678-6.452.503.503 0 00-.975 0 14.134 14.134 0 01-3.679 6.452 14.155 14.155 0 01-4.45 3.001c-.65.28-1.318.505-2.002.678a.502.502 0 000 .975c.684.172 1.35.397 2.002.677a14.147 14.147 0 014.45 3.001 14.112 14.112 0 013.679 6.453.502.502 0 00.975 0c.172-.685.397-1.351.677-2.003a14.145 14.145 0 013.001-4.45 14.113 14.113 0 016.453-3.678.503.503 0 000-.975 13.245 13.245 0 01-2.003-.678z" fill="url(#ak-gm-2)"></path><defs><linearGradient gradientUnits="userSpaceOnUse" id="ak-gm-0" x1="7" x2="11" y1="15.5" y2="12"><stop stop-color="#08B962"></stop><stop offset="1" stop-color="#08B962" stop-opacity="0"></stop></linearGradient><linearGradient gradientUnits="userSpaceOnUse" id="ak-gm-1" x1="8" x2="11.5" y1="5.5" y2="11"><stop stop-color="#F94543"></stop><stop offset="1" stop-color="#F94543" stop-opacity="0"></stop></linearGradient><linearGradient gradientUnits="userSpaceOnUse" id="ak-gm-2" x1="3.5" x2="17.5" y1="13.5" y2="12"><stop stop-color="#FABC12"></stop><stop offset=".46" stop-color="#FABC12" stop-opacity="0"></stop></linearGradient></defs></svg></a>
+        <a class="ak-btn" href="https://claude.ai/new?q=Vat%20dit%20artikel%20van%20Flii%20Media%20samen%20en%20geef%20de%20belangrijkste%20inzichten%3A%20https%3A%2F%2Fflii.nl%2Finsight%2Fai-architectuur-voor-ieder-bedrijf-nodig" target="_blank" rel="noopener" aria-label="Summarise with Claude" title="Claude"><svg aria-hidden="true" focusable="false" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M4.709 15.955l4.72-2.647.08-.23-.08-.128H9.2l-.79-.048-2.698-.073-2.339-.097-2.266-.122-.571-.121L0 11.784l.055-.352.48-.321.686.06 1.52.103 2.278.158 1.652.097 2.449.255h.389l.055-.157-.134-.098-.103-.097-2.358-1.596-2.552-1.688-1.336-.972-.724-.491-.364-.462-.158-1.008.656-.722.881.06.225.061.893.686 1.908 1.476 2.491 1.833.365.304.145-.103.019-.073-.164-.274-1.355-2.446-1.446-2.49-.644-1.032-.17-.619a2.97 2.97 0 01-.104-.729L6.283.134 6.696 0l.996.134.42.364.62 1.414 1.002 2.229 1.555 3.03.456.898.243.832.091.255h.158V9.01l.128-1.706.237-2.095.23-2.695.08-.76.376-.91.747-.492.584.28.48.685-.067.444-.286 1.851-.559 2.903-.364 1.942h.212l.243-.242.985-1.306 1.652-2.064.73-.82.85-.904.547-.431h1.033l.76 1.129-.34 1.166-1.064 1.347-.881 1.142-1.264 1.7-.79 1.36.073.11.188-.02 2.856-.606 1.543-.28 1.841-.315.833.388.091.395-.328.807-1.969.486-2.309.462-3.439.813-.042.03.049.061 1.549.146.662.036h1.622l3.02.225.79.522.474.638-.079.485-1.215.62-1.64-.389-3.829-.91-1.312-.329h-.182v.11l1.093 1.068 2.006 1.81 2.509 2.33.127.578-.322.455-.34-.049-2.205-1.657-.851-.747-1.926-1.62h-.128v.17l.444.649 2.345 3.521.122 1.08-.17.353-.608.213-.668-.122-1.374-1.925-1.415-2.167-1.143-1.943-.14.08-.674 7.254-.316.37-.729.28-.607-.461-.322-.747.322-1.476.389-1.924.315-1.53.286-1.9.17-.632-.012-.042-.14.018-1.434 1.967-2.18 2.945-1.726 1.845-.414.164-.717-.37.067-.662.401-.589 2.388-3.036 1.44-1.882.93-1.086-.006-.158h-.055L4.132 18.56l-1.13.146-.487-.456.061-.746.231-.243 1.908-1.312-.006.006z" fill="#D97757" fill-rule="nonzero"></path></svg></a>
+      </div>
+    </div>
+    <div class="ak-sam-groep">
+      <span class="ak-sam-label">Share</span>
+      <div class="ak-knoppen">
+        <button class="ak-btn" type="button" data-kopieer="https://flii.nl/en/insight/ai-architecture-for-every-business" title="Copy the link" aria-label="Copy the link to this page"><span class="ak-ic-link" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M10 13.5a4 4 0 0 0 5.7.4l3-3a4 4 0 0 0-5.7-5.7l-1.4 1.4"/><path d="M14 10.5a4 4 0 0 0-5.7-.4l-3 3a4 4 0 0 0 5.7 5.7l1.4-1.4"/></svg></span><span class="ak-ic-ok" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.1" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4.5 12.5l5 5 10-11"/></svg></span></button>
+        <a class="ak-btn" href="https://www.linkedin.com/sharing/share-offsite/?url=https%3A%2F%2Fflii.nl%2Finsight%2Fai-architectuur-voor-ieder-bedrijf-nodig" target="_blank" rel="noopener" title="LinkedIn" aria-label="Share on LinkedIn"><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M4.98 3.5a2.5 2.5 0 1 1 0 5 2.5 2.5 0 0 1 0-5zM3 9h4v12H3zM9.5 9h3.8v1.7h.05c.53-1 1.83-2.05 3.77-2.05 4.03 0 4.78 2.65 4.78 6.1V21h-4v-5.4c0-1.29-.02-2.95-1.8-2.95-1.8 0-2.08 1.4-2.08 2.86V21h-4z"/></svg></a>
+        <a class="ak-btn" href="https://www.instagram.com/" target="_blank" rel="noopener" data-kopieer="https://flii.nl/en/insight/ai-architecture-for-every-business" title="Copy the link and open Instagram" aria-label="Copy the link and open Instagram"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.4" cy="6.6" r="1.1" fill="currentColor" stroke="none"/></svg></a>
+        <a class="ak-btn" href="https://twitter.com/intent/tweet?url=https%3A%2F%2Fflii.nl%2Finsight%2Fai-architectuur-voor-ieder-bedrijf-nodig&amp;text=AI%20architectuur%3A%20voor%20ieder%20bedrijf%20een%20must%3F" target="_blank" rel="noopener" title="X" aria-label="Share on X"><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M17.53 3h3.07l-6.7 7.66L21.75 21h-5.98l-4.69-6.13L5.72 21H2.65l7.17-8.2L2.25 3h6.13l4.24 5.6zm-1.08 16.1h1.7L7.63 4.8H5.8z"/></svg></a>
+      </div>
+    </div>
+    <a class="ak-google" href="https://www.google.com/preferences/source?q=flii.nl" target="_blank" rel="noopener" data-voorkeursbron aria-label="Choose Flii Media as a preferred source on Google">Preferred on <svg aria-hidden="true" focusable="false" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M23 12.245c0-.905-.075-1.565-.236-2.25h-10.54v4.083h6.186c-.124 1.014-.797 2.542-2.294 3.569l-.021.136 3.332 2.53.23.022C21.779 18.417 23 15.593 23 12.245z" fill="#4285F4"></path><path d="M12.225 23c3.03 0 5.574-.978 7.433-2.665l-3.542-2.688c-.948.648-2.22 1.1-3.891 1.1a6.745 6.745 0 01-6.386-4.572l-.132.011-3.465 2.628-.045.124C4.043 20.531 7.835 23 12.225 23z" fill="#34A853"></path><path d="M5.84 14.175A6.65 6.65 0 015.463 12c0-.758.138-1.491.361-2.175l-.006-.147-3.508-2.67-.115.054A10.831 10.831 0 001 12c0 1.772.436 3.447 1.197 4.938l3.642-2.763z" fill="#FBBC05"></path><path d="M12.225 5.253c2.108 0 3.529.892 4.34 1.638l3.167-3.031C17.787 2.088 15.255 1 12.225 1 7.834 1 4.043 3.469 2.197 7.062l3.63 2.763a6.77 6.77 0 016.398-4.572z" fill="#EB4335"></path></svg></a>
+  </div>
+</div>
+<img decoding="async" fetchpriority="high" src="/assets/insight/ai-architectuur-voor-ieder-bedrijf-nodig.webp" alt="AI architecture: a must for every business?" class="hero-img" loading="eager">
+<div class="section-body">
+<p>Yet most organisations currently have no AI strategy. At most an AI policy.</p>
+<p>Meanwhile, employees are already using AI extensively. They discover new tools themselves, experiment with automations and look for ways to work faster. Often successfully. Marketing uses ChatGPT for content creation, sales has AI prepare proposals and customer service is exploring what chatbots can do.</p>
+<p>But while productivity rises, a new problem is growing in the background. Data comes from different sources. AI tools operate side by side. Processes are partly automated without clear agreements. And nobody has a full view of what exactly is going on.</p>
+<p>That is not surprising. We are in the middle of the first big AI wave. But it is the moment for organisations to ask themselves: how do we stop dozens of separate AI solutions from growing into a tangled whole?</p>
+<p>The answer is not yet another new tool, but AI architecture.</p>
+
+<h2>The AI chaos taking shape right now</h2>
+<p>Let's be honest: most companies are already working with AI extensively. And rightly so.</p>
+<p>The possibilities are huge and the barrier to getting started is lower than ever. Within minutes, an employee can use an AI tool to write copy, analyse data or automate repetitive tasks. That is exactly what creates a new reality. Departments choose their own solutions. Different teams work with different models. Knowledge is stored in multiple places. Data is used without it always being clear where it comes from or how it is processed.</p>
+<p>In the short term that often pays off, but in the longer term something else emerges: fragmentation. And that is rarely a good basis for growth.</p>
+
+<h2>We have seen this before</h2>
+<p>The situation feels new, but in fact we have been through this several times. Twenty years ago, organisations invested heavily in websites without a clear digital strategy.</p>
+<p>Later came CRM systems that were used as address books. Then came marketing automation platforms, data warehouses and customer portals. By now these systems are indispensable and they blend seamlessly into one another.</p>
+<p>But in implementation, the same pattern showed up every time. The technology itself is usually not the problem; success was determined by how processes, people and systems fitted together.</p>
+<p>AI is no exception. Many organisations are currently focused on the question of which tool to use. When the more important question is really:</p>
+<p><strong>How do we make AI a structural part of our organisation?</strong></p>
+
+<h2>What is AI architecture, actually?</h2>
+<p>AI architecture sounds technical, but it is surprisingly little about technology. At its core, it is about organising the preconditions needed to apply AI successfully.</p>
+<p>That means thinking about practical and legal questions, such as:</p>
+<ul>
+<li>What data may AI use?</li>
+<li>Which processes lend themselves to automation?</li>
+<li>How do outcomes stay verifiable?</li>
+<li>Which systems need to communicate with each other?</li>
+<li>Who is responsible for quality, security and governance?</li>
+</ul>
+<p>An architecture makes sure AI does not get stuck in separate experiments, but becomes part of a scalable approach. Think of it as the foundation under a house.</p>
+<p>Not the most visible part, but in the long run it is what holds the whole thing together.</p>
+
+<h2>Why this topic matters right now</h2>
+<p>The past two years were mostly about discovering everything AI can do. That phase has been important. After all, without experiments you do not learn where the opportunities lie. But for many organisations a new phase is now beginning.</p>
+<p>The question is shifting from <em>&ldquo;What can we do with AI?&rdquo;</em> to <em>&ldquo;How do we integrate AI into our organisation?&rdquo;</em></p>
+<p>That seems like a small difference, but it has big consequences.</p>
+<p>Because as soon as AI becomes part of daily processes, the need for structure grows too. Think of data quality, security, accountability and integration with existing systems. Without that foundation, you become increasingly dependent on separate solutions that are hard to scale.</p>
+
+<h2>The competitive advantage is not in AI</h2>
+<p>Perhaps the most important development of the coming years: virtually everyone gets access to the same technology. The models are getting better, the tools more accessible and the costs are falling.</p>
+<p>That means AI itself is becoming less and less of a differentiator. The real advantage shifts to the way organisations use AI. To the quality of their data and the processes they have set up, to the speed at which they can implement new applications. And to the coherence between systems, people and technology. In other words: to the architecture behind AI.</p>
+<p>Compare it to a Formula 1 team: everyone has a powerful engine. The difference is made by individual class, teamwork with teammates and the hardware infrastructure that supports it. Exactly the same applies to AI.</p>
+
+<h2>From separate tools to a smart ecosystem</h2>
+<p>Today, many organisations still mainly use AI as a stand-alone assistant. A tool that writes a piece of copy. A chatbot that answers questions. A model that runs analyses.</p>
+<p>Valuable? Definitely!</p>
+<p>But the real impact comes when AI becomes part of a bigger whole.</p>
+<p>Say a potential customer sends an enquiry through your website. A well-designed AI landscape can then automatically:</p>
+<ul>
+<li>analyse the enquiry;</li>
+<li>retrieve relevant customer information;</li>
+<li>prepare a first proposal;</li>
+<li>give an employee context and advice;</li>
+<li>process all the information in the CRM.</li>
+</ul>
+<p>That does not just save time; it also makes processes more effective, more consistent and more scalable.</p>
+
+<h2>Not every business needs the same architecture</h2>
+<p>That does not mean, by the way, that every organisation has to invest in a complex AI platform tomorrow. In fact, for many companies AI architecture starts small.</p>
+<p>With clear choices. Think of:</p>
+<ul>
+<li>guidelines for using AI;</li>
+<li>insight into which tools are used within the organisation;</li>
+<li>agreements on data and privacy;</li>
+<li>smart links with existing systems;</li>
+<li>clear responsibilities within teams.</li>
+</ul>
+<p>The biggest gain often lies not in new technology, but in creating an overview.</p>
+
+<h2>The next phase of AI is about integration</h2>
+<p>The past few years were all about experimenting. The coming years will be about integrating.</p>
+<p>Organisations that invest in a solid foundation today will be able to implement new AI applications faster, scale them more easily and manage them better. They do not have to start over every time the next innovation comes along, but build on a structure that is already in place. And that is exactly what becomes more and more valuable in a market that is moving at breakneck speed.</p>
+
+<h2>A must for every business?</h2>
+<p>Is AI architecture a must for every business? Perhaps not in the form of complex technical diagrams or extensive enterprise solutions. But it is in the form of a clear vision of how AI fits within the organisation, because in the end companies will not compete on access to AI. They will compete on how well they manage to organise that AI.</p>
+<p>Organisations that are already thinking about this today are laying the foundation for tomorrow. And that is exactly what AI architecture is about today: not a handy tool &ldquo;on the side&rdquo;, but setting up a fundamental architecture.</p>
+</div>
+
+<footer class="footer">
+  <div class="footer-bento">
+    <div class="footer-tile footer-tile-brand">
+      <div class="footer-social-row">
+        <a href="https://nl.linkedin.com/company/flii-media" class="social-icon" aria-label="LinkedIn"><svg viewBox="0 0 24 24" fill="none"><path d="M16 8a6 6 0 016 6v7h-4v-7a2 2 0 00-2-2 2 2 0 00-2 2v7h-4v-7a6 6 0 016-6zM2 9h4v12H2z" fill="#4A4840"/><circle cx="4" cy="4" r="2" fill="#4A4840"/></svg></a>
+        <a href="https://share.google/wEE1drPcTYlHW0Beo" target="_blank" class="social-icon" aria-label="Google"><svg viewBox="0 0 24 24"><path d="M21.8 12.2c0-.7-.1-1.4-.2-2H12v3.8h5.5c-.2 1.2-.9 2.2-2 2.9v2.4h3.2c1.9-1.7 3-4.3 3-7.1z" fill="#4285F4"/><path d="M12 22c2.7 0 5-.9 6.7-2.4l-3.2-2.4c-.9.6-2 1-3.5 1-2.7 0-4.9-1.8-5.7-4.2H3v2.5C4.7 19.9 8.1 22 12 22z" fill="#34A853"/><path d="M6.3 13.9c-.2-.6-.3-1.2-.3-1.9s.1-1.3.3-1.9V7.6H3C2.3 9 2 10.5 2 12s.3 3 1 4.4l3.3-2.5z" fill="#FBBC04"/><path d="M12 5.8c1.5 0 2.9.5 3.9 1.5l2.9-2.9C17 2.8 14.7 2 12 2 8.1 2 4.7 4.1 3 7.6l3.3 2.5C7.1 7.6 9.3 5.8 12 5.8z" fill="#EA4335"/></svg></a>
+        <a href="https://share.google/wEE1drPcTYlHW0Beo" target="_blank" rel="noopener" class="google-review-banner"><span class="grb-stars">&#9733;&#9733;&#9733;&#9733;&#9733;</span><span class="grb-text"><strong>5.0</strong> on Google &middot; 14 reviews</span></a>
+      </div>
+      <p class="footer-address">Handweg 159, Amstelveen &middot; info@flii.nl &middot; <a href="https://share.google/wEE1drPcTYlHW0Beo" target="_blank" rel="noopener" class="footer-hours-link">Opening hours</a></p>
+    </div>
+    <div class="footer-tile footer-tile-nav">
+      <span class="footer-nav-head">Knowledge base</span>
+      <a href="/en/knowledge-base#kb-marketing" class="footer-nav-link">Marketing</a>
+      <a href="/en/knowledge-base#kb-merk" class="footer-nav-link">Brand</a>
+      <a href="/en/knowledge-base#kb-content" class="footer-nav-link">Content</a>
+      <a href="/en/knowledge-base#kb-media" class="footer-nav-link">Media</a>
+      <a href="/en/knowledge-base#kb-data" class="footer-nav-link">Data</a>
+      <a href="/en/platforms" class="footer-nav-link">Platforms</a>
+
+    </div>
+    <div class="footer-tile footer-tile-nav">
+      <span class="footer-nav-head">Products</span>
+      <a href="/en/loop" class="footer-nav-link">Flii Loop</a>
+      <a href="/en/services/product-launch-plan" class="footer-nav-link">Product launch</a>
+    </div>
+    <div class="footer-tile footer-tile-nav">
+      <span class="footer-nav-head">Services</span>
+      <a href="/en/services/campaigns-media" class="footer-nav-link">Campaigns &amp; media</a>
+      <a href="/en/services/content-social" class="footer-nav-link">Content &amp; social</a>
+      <a href="/en/services/web-apps-ai" class="footer-nav-link">Web, apps &amp; AI</a>
+      <a href="/en/services/data-research" class="footer-nav-link">Data analysis &amp; research</a>
+    </div>
+    <div class="footer-tile footer-tile-nav footer-tile-zoek">
+      <span class="footer-nav-head">What people hire us for</span>
+      <a href="/en/google-ads-agency" class="footer-nav-link"><svg class="fn-ic" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M3.9998 22.9291C1.7908 22.9291 0 21.1383 0 18.9293s1.7908-3.9998 3.9998-3.9998 3.9998 1.7908 3.9998 3.9998-1.7908 3.9998-3.9998 3.9998zm19.4643-6.0004L15.4632 3.072C14.3586 1.1587 11.9121.5028 9.9988 1.6074S7.4295 5.1585 8.5341 7.0718l8.0009 13.8567c1.1046 1.9133 3.5511 2.5679 5.4644 1.4646 1.9134-1.1046 2.568-3.5511 1.4647-5.4644zM7.5137 4.8438L1.5645 15.1484A4.5 4.5 0 0 1 4 14.4297c2.5597-.0075 4.6248 2.1585 4.4941 4.7148l3.2168-5.5723-3.6094-6.25c-.4499-.7793-.6322-1.6394-.5878-2.4784z"/></svg><span>Google Ads agency</span></a>
+      <a href="/en/social-media-management" class="footer-nav-link"><svg class="fn-ic" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M7.0301.084c-1.2768.0602-2.1487.264-2.911.5634-.7888.3075-1.4575.72-2.1228 1.3877-.6652.6677-1.075 1.3368-1.3802 2.127-.2954.7638-.4956 1.6365-.552 2.914-.0564 1.2775-.0689 1.6882-.0626 4.947.0062 3.2586.0206 3.6671.0825 4.9473.061 1.2765.264 2.1482.5635 2.9107.308.7889.72 1.4573 1.388 2.1228.6679.6655 1.3365 1.0743 2.1285 1.38.7632.295 1.6361.4961 2.9134.552 1.2773.056 1.6884.069 4.9462.0627 3.2578-.0062 3.668-.0207 4.9478-.0814 1.28-.0607 2.147-.2652 2.9098-.5633.7889-.3086 1.4578-.72 2.1228-1.3881.665-.6682 1.0745-1.3378 1.3795-2.1284.2957-.7632.4966-1.636.552-2.9124.056-1.2809.0692-1.6898.063-4.948-.0063-3.2583-.021-3.6668-.0817-4.9465-.0607-1.2797-.264-2.1487-.5633-2.9117-.3084-.7889-.72-1.4568-1.3876-2.1228C21.2982 1.33 20.628.9208 19.8378.6165 19.074.321 18.2017.1197 16.9244.0645 15.6471.0093 15.236-.005 11.977.0014 8.718.0076 8.31.0215 7.0301.0839m.1402 21.6932c-1.17-.0509-1.8053-.2453-2.2287-.408-.5606-.216-.96-.4771-1.3819-.895-.422-.4178-.6811-.8186-.9-1.378-.1644-.4234-.3624-1.058-.4171-2.228-.0595-1.2645-.072-1.6442-.079-4.848-.007-3.2037.0053-3.583.0607-4.848.05-1.169.2456-1.805.408-2.2282.216-.5613.4762-.96.895-1.3816.4188-.4217.8184-.6814 1.3783-.9003.423-.1651 1.0575-.3614 2.227-.4171 1.2655-.06 1.6447-.072 4.848-.079 3.2033-.007 3.5835.005 4.8495.0608 1.169.0508 1.8053.2445 2.228.408.5608.216.96.4754 1.3816.895.4217.4194.6816.8176.9005 1.3787.1653.4217.3617 1.056.4169 2.2263.0602 1.2655.0739 1.645.0796 4.848.0058 3.203-.0055 3.5834-.061 4.848-.051 1.17-.245 1.8055-.408 2.2294-.216.5604-.4763.96-.8954 1.3814-.419.4215-.8181.6811-1.3783.9-.4224.1649-1.0577.3617-2.2262.4174-1.2656.0595-1.6448.072-4.8493.079-3.2045.007-3.5825-.006-4.848-.0608M16.953 5.5864A1.44 1.44 0 1 0 18.39 4.144a1.44 1.44 0 0 0-1.437 1.4424M5.8385 12.012c.0067 3.4032 2.7706 6.1557 6.173 6.1493 3.4026-.0065 6.157-2.7701 6.1506-6.1733-.0065-3.4032-2.771-6.1565-6.174-6.1498-3.403.0067-6.156 2.771-6.1496 6.1738M8 12.0077a4 4 0 1 1 4.008 3.9921A3.9996 3.9996 0 0 1 8 12.0077"/></svg><span>Outsourced social media</span></a>
+      <a href="/en/video-production" class="footer-nav-link"><svg class="fn-ic" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M23.498 6.186a3.016 3.016 0 0 0-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 0 0 .502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 0 0 2.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 0 0 2.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z"/></svg><span>Video production</span></a>
+      <a href="/en/website-development" class="footer-nav-link"><svg class="fn-ic" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="m24 4.515-7.658 14.97H9.149l3.205-6.204h-.144C9.566 16.713 5.621 18.973 0 19.485v-6.118s3.596-.213 5.71-2.435H0V4.515h6.417v5.278l.144-.001 2.622-5.277h4.854v5.244h.144l2.72-5.244H24Z"/></svg><span>Website development</span></a>
+      <a href="/en/platform-app-development" class="footer-nav-link"><svg class="fn-ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="9 6 3.5 12 9 18"/><polyline points="15 6 20.5 12 15 18"/></svg><span>Platform &amp; app development</span></a>
+    </div>
+    <div class="footer-tile footer-tile-loop">
+      <a href="/en/loop" class="ft-loop-card">
+    <span class="loopmark ft-loop-ring-mark" aria-hidden="true">
+        <svg class="loopmark-svg" viewBox="0 0 100 100">
+          <defs>
+            <linearGradient id="ftLmGrad" x1="0" y1="0" x2="1" y2="1">
+              <stop offset="0%" stop-color="#B14BFF"/>
+              <stop offset="28%" stop-color="#E7255A"/>
+              <stop offset="50%" stop-color="#FF5E9A"/>
+              <stop offset="64%" stop-color="#FFD2E4"/>
+              <stop offset="80%" stop-color="#FF3D8E"/>
+              <stop offset="100%" stop-color="#C04BFF"/>
+            </linearGradient>
+            <filter id="ftLmFire" x="-60%" y="-60%" width="220%" height="220%">
+              <feTurbulence type="fractalNoise" baseFrequency="0.022 0.04" numOctaves="2" seed="4" result="n">
+                <animate attributeName="baseFrequency" dur="6s" values="0.022 0.04;0.03 0.052;0.02 0.034;0.022 0.04" repeatCount="indefinite"/>
+              </feTurbulence>
+              <feDisplacementMap in="SourceGraphic" in2="n" scale="9" xChannelSelector="R" yChannelSelector="G">
+                <animate attributeName="scale" dur="5s" values="8;12.5;9;8" repeatCount="indefinite"/>
+              </feDisplacementMap>
+              <feGaussianBlur stdDeviation="0.5"/>
+            </filter>
+            <filter id="ftLmGlow" x="-60%" y="-60%" width="220%" height="220%"><feGaussianBlur stdDeviation="2.4"/></filter>
+          </defs>
+          <g class="lm-rot">
+            <circle cx="50" cy="50" r="35" fill="none" stroke="url(#ftLmGrad)" stroke-width="7" filter="url(#ftLmGlow)" opacity="0.5"/>
+            <circle cx="50" cy="50" r="35" fill="none" stroke="url(#ftLmGrad)" stroke-width="5" filter="url(#ftLmFire)"/>
+          </g>
+          <g class="lm-rot2">
+            <circle cx="50" cy="50" r="32" fill="none" stroke="url(#ftLmGrad)" stroke-width="3" filter="url(#ftLmFire)" opacity="0.85"/>
+          </g>
+        </svg>
+      </span>
+    <div class="ft-loop-text">
+      <div class="ft-loop-name">Flii Loop</div>
+      <div class="ft-loop-desc">One loop that keeps learning →</div>
+    </div>
+  </a>
+    </div>
+    <div class="footer-tile footer-tile-bottom">
+      <div class="footer-wordmark">FLII.<span>MEDIA</span></div>
+      <div class="footer-legal">
+        <a href="/en/cookie-preferences" class="footer-link">Preferences</a>
+        <a href="/en/cookies" class="footer-link">Cookies</a>
+        <a href="/en/terms" class="footer-link">Terms</a>
+        <a href="/en/privacy" class="footer-link">Privacy</a>
+        <button class="footer-contact-btn" id="footer-contact-btn" onclick="toggleContactPopup()">Contact</button>
+      </div>
+    </div>
+  </div>
+  <div class="contact-popup" id="contact-popup">
+    <div class="contact-popup-inner">
+      <p class="contact-popup-label">Direct contact</p>
+      <a href="tel:+31640881169" class="contact-popup-item">+31 6 40 88 11 69</a>
+      <a href="mailto:info@flii.nl" class="contact-popup-item">info@flii.nl</a>
+      <a href="https://calendar.google.com/calendar/appointments/schedules/AcZssZ1Dfb1ZunCYFgPNrvuYKMIgVBy9Qgv9xlcxkSOnEbvnaWWSUeKQ_fTzv4gSHQfmkJm3LmL93Tk7" target="_blank" class="contact-popup-item">Book a call</a>
+    </div>
+  </div>
+</footer>
+<script defer src="/assets/delen.js?v=20261017j"></script>
+</body>
+</html>

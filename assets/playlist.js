@@ -24,7 +24,7 @@
     side.innerHTML =
       '<div class="yt-pl-head"><span class="yt-pl-title"></span>' +
       '<span class="yt-pl-count"></span></div><div class="yt-pl-list"></div>' +
-      '<div class="yt-pl-foot"><a target="_blank" rel="noopener">Bekijk op YouTube &rarr;</a></div>';
+      '<div class="yt-pl-foot"><a target="_blank" rel="noopener">' + (/^\/en(\/|$)/.test(location.pathname) ? 'Watch on YouTube' : 'Bekijk op YouTube') + ' &rarr;</a></div>';
     side.querySelector('.yt-pl-title').textContent = data.title || '';
     side.querySelector('.yt-pl-count').textContent = vids.length + ' video\u2019s';
     var foot = side.querySelector('.yt-pl-foot a');

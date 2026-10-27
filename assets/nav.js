@@ -8,8 +8,8 @@
   var LINKS = EN ? [
     ['/en/#diensten', 'Services'],
     ['/en/#cases', 'Cases'],
-    ['/kennisbank', 'Knowledge base'],
-    ['/insight', 'Insight'],
+    ['/en/knowledge-base', 'Knowledge base'],
+    ['/en/insight', 'Insight'],
     ['/en/contact', 'Contact']
   ] : [
     ['/#diensten', 'Diensten'],
@@ -21,7 +21,7 @@
   var LOGO = '/assets/img/d913cc3c069f.webp';
 
   function loopKaart() {
-    return '<a href="/loop" class="nav-loop-card">' +
+    return '<a href="' + (EN ? '/en/loop' : '/loop') + '" class="nav-loop-card">' +
       '<span class="loopmark" aria-hidden="true">' +
         '<svg class="loopmark-svg" viewBox="0 0 100 100">' +
           '<defs><linearGradient id="navLmGrad" x1="0" y1="0" x2="1" y2="1">' +

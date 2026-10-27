@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta http-equiv="Cache-Control" content="max-age=300, must-revalidate">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Page not found | Flii Media</title>
+<meta name="description" content="This page does not exist (any more). Go back to the Flii Media homepage.">
+<meta name="robots" content="noindex">
+<script>
+(function(){
+  var loc = window.location;
+  var path = loc.pathname;
+
+  // Strip trailing slash
+  var cleanedPath = path.replace(/\/$/, '');
+
+  // Only redirect if path has no file extension
+  if (cleanedPath.indexOf('.') === -1 && cleanedPath !== '') {
+    var cleanPath = path + loc.search + loc.hash;
+    sessionStorage.setItem('cleanPath', cleanPath);
+    var target = cleanedPath + '.html' + loc.search + loc.hash;
+    window.location.replace(target);
+  } else {
+    document.addEventListener('DOMContentLoaded', function() {
+      document.getElementById('content').style.display = 'flex';
+    });
+  }
+})();
+</script>
+<style>
+@font-face{font-family:'Bricolage Grotesque';src:url('/assets/fonts/BricolageGrotesque.woff2') format('woff2-variations');
+  font-weight:200 800;font-display:swap;}
+@font-face{font-family:'JetBrains Mono';src:url('/assets/fonts/JetBrainsMono.woff2') format('woff2-variations');
+  font-weight:100 800;font-display:swap;}
+@font-face{font-family:'DM Sans';src:url('/assets/fonts/DMSans.woff2') format('woff2-variations');
+  font-weight:100 1000;font-display:swap;}
+
+  body { margin:0; background:#fff; }
+  #content { display:none; font-family:sans-serif; flex-direction:column; align-items:center; justify-content:center; min-height:100vh; color:#0F0E0C; }
+  h1 { font-size:80px; margin:0; font-weight:800; color:#E8294A; }
+  p { font-size:18px; color:#4A4840; }
+  a { color:#E8294A; font-weight:600; text-decoration:none; }
+
+/* Footer volgt deze breedte. */
+:root{--paginabreedte:680px;}
+</style>
+<link rel="canonical" href="https://flii.nl/en/404">
+<link rel="alternate" hreflang="nl" href="https://flii.nl/404">
+<link rel="alternate" hreflang="en" href="https://flii.nl/en/404">
+<link rel="alternate" hreflang="x-default" href="https://flii.nl/404">
+<link rel="stylesheet" href="/assets/reduced-motion.css">
+<script defer src="/assets/reduced-motion.js"></script>
+<link rel="icon" href="/assets/img/d913cc3c069f.webp" type="image/png">
+<link rel="apple-touch-icon" href="/assets/img/d913cc3c069f.webp">
+<meta name="theme-color" content="#0F0E0C">
+<link rel="preload" href="/assets/fonts/BricolageGrotesque.woff2" as="font" type="font/woff2" crossorigin>
+<script defer src="/assets/lang.js?v=20261027c"></script>
+</head>
+<body>
+<div id="content">
+  <h1>404</h1>
+  <p>This page does not exist.</p>
+  <a href="/Flii.nl/">← Back to Flii Media</a>
+</div>
+</body>
+</html>

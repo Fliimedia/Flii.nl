@@ -1,0 +1,741 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta http-equiv="Cache-Control" content="max-age=300, must-revalidate">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Product Launch Plan & Delivery — Flii Media</title>
+<meta property="og:type" content="website">
+<meta property="og:title" content="Product Launch Plan &amp; Delivery — Flii Media">
+<meta property="og:description" content="A product launch in five phases: positioning, branding, creative, web &amp; data, building a reputation, a proven campaign on Search &amp; Social, and retention. For SaaS and physical products.">
+<meta property="og:url" content="https://flii.nl/en/services/product-launch-plan">
+<meta property="og:site_name" content="Flii Media">
+<meta name="twitter:card" content="summary_large_image">
+<meta property="og:image" content="https://flii.nl/assets/og/diensten-ai-launchplan.jpg">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:locale" content="en_GB">
+<meta name="twitter:image" content="https://flii.nl/assets/og/diensten-ai-launchplan.jpg">
+
+<meta name="description" content="A product launch in five phases: positioning, branding, creative, web &amp; data, building a reputation, a proven campaign on Search &amp; Social, and retention. For SaaS and physical products.">
+<style>
+@font-face{font-family:'Bricolage Grotesque';src:url('/assets/fonts/BricolageGrotesque.woff2') format('woff2-variations');
+  font-weight:200 800;font-display:swap;}
+@font-face{font-family:'JetBrains Mono';src:url('/assets/fonts/JetBrainsMono.woff2') format('woff2-variations');
+  font-weight:100 800;font-display:swap;}
+@font-face{font-family:'DM Sans';src:url('/assets/fonts/DMSans.woff2') format('woff2-variations');
+  font-weight:100 1000;font-display:swap;}
+
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+:root{
+  --ff-disp:'Bricolage Grotesque','Inter',system-ui,sans-serif;
+  --ff-body:'DM Sans',system-ui,sans-serif;
+  --ff-mono:'JetBrains Mono',monospace;
+  --mag:#E8294A; --ink:#0F0E0C; --mid:#4A4840; --sub:#9B9790;
+  --rule:#E8E6E1; --bg:#fff; --bg-dark:#0C0C0A; --card:#F9F8F6;
+}
+body{font-family:var(--ff-body);background:var(--bg);color:var(--ink);-webkit-font-smoothing:antialiased}
+
+/* NAV */
+.nav{display:flex;align-items:center;justify-content:space-between;padding:14px 20px;background:var(--bg-dark);border-bottom:1px solid rgba(255,255,255,.07);position:sticky;top:0;z-index:100}
+.nav-brand img{height:40px;width:auto;display:block}
+.nav-back{font-size:13px;color:#0F0E0C!important;font-weight:600;text-decoration:none;opacity:.85;}
+.nav-back:hover{color:#fff}
+
+/* HERO */
+.hero{background:var(--bg-dark);padding:52px 24px 44px;position:relative;overflow:hidden}
+.hero::before{content:'';position:absolute;inset:0;background:radial-gradient(ellipse 90% 70% at 65% 40%,rgba(232,41,74,.16) 0%,transparent 70%);pointer-events:none}
+.eyebrow{
+  font-family:'Bricolage Grotesque',system-ui,sans-serif;
+  font-size:11px;font-weight:700;letter-spacing:.12em;
+  text-transform:uppercase;color:#E8294A;display:block;margin-bottom:10px;
+}
+.hero h1{font-family:var(--ff-disp);font-size:clamp(26px,7.5vw,42px);font-weight:900;letter-spacing:-1.5px;line-height:1.04;color:#fff;margin-bottom:14px}
+.hero h1 em{font-style:normal;background:linear-gradient(90deg,#E8294A,#FF6090,#E8294A);background-size:200% auto;-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;animation:gShift 3s linear infinite}
+@keyframes gShift{to{background-position:200% center}}
+.hero .lead{font-size:14px;color:rgba(255,255,255,.55);line-height:1.7;margin-bottom:28px}
+
+.btn-mag{display:inline-flex;align-items:center;gap:6px;background:var(--mag);color:#fff;border-radius:100px;padding:13px 22px;font-size:13px;font-weight:700;font-family:var(--ff-body);text-decoration:none;border:none;cursor:pointer;transition:opacity .15s}
+.btn-mag:hover{opacity:.88}
+.btn-ghost{display:inline-flex;align-items:center;color:rgba(255,255,255,.5);border:1px solid rgba(255,255,255,.18);border-radius:100px;padding:12px 18px;font-size:12px;font-weight:600;font-family:var(--ff-body);text-decoration:none;transition:border-color .15s,color .15s}
+.btn-ghost:hover{border-color:rgba(255,255,255,.45);color:#fff}
+
+/* USP STRIP */
+.usp-strip{background:#111110;padding:24px;display:flex;flex-direction:column;gap:16px}
+.usp-item{display:flex;align-items:flex-start;gap:14px}
+.usp-icon{width:36px;height:36px;border-radius:10px;background:rgba(232,41,74,.12);display:flex;align-items:center;justify-content:center;flex-shrink:0}
+.usp-body{display:flex;flex-direction:column;gap:2px}
+.usp-title{font-family:var(--ff-disp);font-size:13px;font-weight:800;color:#fff;letter-spacing:-.1px}
+.usp-desc{font-size:11px;color:rgba(255,255,255,.4);line-height:1.45}
+
+/* PHASE NAV */
+.phase-nav{display:flex;border-bottom:1px solid var(--rule);overflow-x:auto;scrollbar-width:none;background:var(--bg)}
+.phase-nav::-webkit-scrollbar{display:none}
+.phase-tab{flex:1;min-width:0;display:flex;flex-direction:column;align-items:center;gap:6px;padding:16px 8px 14px;border:none;background:none;cursor:pointer;border-bottom:2px solid transparent;transition:border-color .2s;font:inherit}
+.phase-tab.active{border-bottom-color:var(--mag)}
+.phase-tab-n{width:24px;height:24px;border-radius:50%;font-family:var(--ff-mono);font-size:9px;font-weight:800;display:flex;align-items:center;justify-content:center;border:1.5px solid var(--rule);color:var(--sub);transition:background .2s,border-color .2s,color .2s}
+.phase-tab.active .phase-tab-n{background:var(--mag);border-color:var(--mag);color:#fff}
+.phase-tab-label{font-size:10px;font-weight:700;color:var(--sub);letter-spacing:.04em;transition:color .2s;white-space:nowrap}
+.phase-tab.active .phase-tab-label{color:var(--ink)}
+
+/* SECTIONS */
+.section{padding:36px 24px}
+.section:last-of-type{border-bottom:none}
+.step-label{font-family:var(--ff-mono);font-size:9px;font-weight:700;letter-spacing:.14em;text-transform:uppercase;color:var(--mag);margin-bottom:8px;display:flex;align-items:center;gap:8px}
+.step-n{width:20px;height:20px;border-radius:50%;background:var(--mag);color:#fff;display:flex;align-items:center;justify-content:center;font-size:9px;font-weight:800;flex-shrink:0}
+.section h2{font-family:var(--ff-disp);font-size:21px;font-weight:900;letter-spacing:-.5px;color:var(--ink);margin-bottom:10px;line-height:1.1}
+.section p{font-size:13px;color:var(--mid);line-height:1.72;margin-bottom:14px}
+.section p:last-child{margin-bottom:0}
+
+/* DARK CARD (flow diagram) */
+.dark-card{background:var(--bg-dark);border-radius:14px;padding:20px;margin:18px 0;position:relative;overflow:hidden}
+.dark-card::after{content:'';position:absolute;bottom:-20px;right:-20px;width:100px;height:100px;border-radius:50%;background:radial-gradient(circle,rgba(232,41,74,.2) 0%,transparent 70%);pointer-events:none}
+.card-label{font-family:var(--ff-mono);font-size:8px;font-weight:700;letter-spacing:.12em;text-transform:uppercase;color:rgba(255,255,255,.3);margin-bottom:12px}
+.flow{display:flex;flex-direction:column;gap:0}
+.flow-step{display:flex;align-items:flex-start;gap:12px;padding:10px 0;border-bottom:1px solid rgba(255,255,255,.05)}
+.flow-step:last-child{border-bottom:none}
+.flow-dot{width:28px;height:28px;border-radius:50%;background:rgba(232,41,74,.14);border:1.5px solid rgba(232,41,74,.35);display:flex;align-items:center;justify-content:center;flex-shrink:0;margin-top:1px}
+.flow-body{display:flex;flex-direction:column;gap:2px}
+.flow-title{font-size:13px;font-weight:700;color:#fff}
+.flow-desc{font-size:11px;color:rgba(255,255,255,.4);line-height:1.4}
+
+/* CHIPS */
+.chips{display:flex;flex-wrap:wrap;gap:6px;margin:14px 0}
+.chip{font-size:11px;font-weight:600;color:rgba(255,255,255,.7);background:rgba(255,255,255,.07);border:1px solid rgba(255,255,255,.11);border-radius:100px;padding:5px 11px;white-space:nowrap}
+.chip.on{background:rgba(232,41,74,.18);border-color:rgba(232,41,74,.35);color:#fff}
+
+/* DELIVERABLES */
+.deliverables{display:flex;flex-direction:column;gap:0;margin:16px 0}
+.deliv{display:flex;align-items:flex-start;gap:12px;padding:12px 0;border-bottom:1px solid var(--rule)}
+.deliv:last-child{border-bottom:none}
+.deliv-mark{width:20px;height:20px;border-radius:50%;background:rgba(232,41,74,.1);display:flex;align-items:center;justify-content:center;flex-shrink:0;margin-top:1px}
+.deliv-text{font-size:13px;color:var(--ink);line-height:1.5}
+.deliv-text strong{font-weight:700}
+
+/* LP */
+.lp-week{margin-left:auto;color:var(--sub);font-weight:600;letter-spacing:.08em}
+.section p.lp-meet{font-size:12px;color:var(--sub);margin-top:-4px}
+.lp-meet strong{color:var(--ink);font-weight:700}
+.lp-cmp{border:1px solid var(--rule);border-radius:12px;overflow:hidden;margin:18px 0;background:var(--card)}
+.lp-cmp-head,.lp-cmp-row{display:grid;grid-template-columns:1fr 1fr;gap:6px 14px;padding:12px 14px;border-bottom:1px solid var(--rule)}
+.lp-cmp-row:last-child{border-bottom:none}
+.lp-cmp-head{font-family:var(--ff-mono);font-size:9px;font-weight:700;letter-spacing:.12em;text-transform:uppercase;color:var(--mag)}
+.lp-cmp-head span:first-child{display:none}
+.lp-cmp-row span{font-size:12px;color:var(--mid);line-height:1.45}
+.lp-cmp-row .lp-cmp-l{grid-column:1/-1;font-size:11px;font-weight:700;color:var(--ink)}
+@media (min-width:760px){
+  .lp-cmp-head,.lp-cmp-row{grid-template-columns:120px 1fr 1fr}
+  .lp-cmp-head span:first-child{display:block}
+  .lp-cmp-row .lp-cmp-l{grid-column:auto}
+}
+
+/* METRICS */
+.metrics{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin:18px 0}
+.metric{background:var(--card);border:1px solid var(--rule);border-radius:12px;padding:14px 14px 12px;display:flex;flex-direction:column;gap:6px}
+.metric-icon{width:28px;height:28px;border-radius:8px;background:rgba(232,41,74,.08);display:flex;align-items:center;justify-content:center}
+.metric-title{font-size:11px;font-weight:700;color:var(--ink)}
+.metric-desc{font-size:10px;color:var(--sub);line-height:1.4}
+
+/* DELIVERABLE OVERVIEW */
+.deliv-overview{background:var(--card);padding:36px 24px}
+.deliv-overview h2{font-family:var(--ff-disp);font-size:21px;font-weight:900;letter-spacing:-.5px;color:var(--ink);margin-bottom:20px}
+
+/* CALC */
+.calc-section{padding:36px 24px 44px;background:var(--card)}
+.calc-section .eyebrow{
+  font-family:'Bricolage Grotesque',system-ui,sans-serif;
+  font-size:11px;font-weight:700;letter-spacing:.12em;
+  text-transform:uppercase;color:#E8294A;display:block;margin-bottom:10px;
+}
+.calc-section h2{font-family:var(--ff-disp);font-size:20px;font-weight:900;letter-spacing:-.4px;color:var(--ink);margin-bottom:8px}
+.calc-section p{font-size:13px;color:var(--mid);line-height:1.6;margin-bottom:24px}
+
+.footer-mini{padding:20px 24px;text-align:center;border-top:1px solid var(--rule);font-size:11px;color:var(--sub)}
+.footer-mini a{color:var(--ink);font-weight:600;text-decoration:none}
+
+/* CTA section — home style */
+
+/* ══ SHARED CTA SECTION ══════════════════════════════════════════════ */
+
+.dienst-contact-link {
+  display: inline-flex; align-items: center; gap: 8px;
+  margin-top: 24px; margin-bottom: 4px;
+  font-family: var(--ff-body); font-size: 14px; font-weight: 600;
+  color: #E8294A; text-decoration: none; cursor: pointer;
+  background: none; border: none; padding: 0;
+  transition: gap .15s;
+}
+.dienst-contact-link:hover { gap: 12px; }
+.dienst-contact-link svg { flex-shrink: 0; }
+
+
+.svc-tags{display:flex;flex-wrap:wrap;gap:6px;margin-top:16px;margin-bottom:0;}
+.svc-tag{font-size:11px;font-weight:600;letter-spacing:.01em;white-space:nowrap;background:linear-gradient(135deg,rgba(0,0,0,.07) 0%,rgba(0,0,0,.02) 100%);color:#0F0E0C;border:1px solid rgba(0,0,0,.25);border-radius:100px;padding:3px 10px;}
+.dienst-photo{margin:24px 24px 0;max-width:632px;border-radius:14px;overflow:hidden;aspect-ratio:16/7;}
+.dienst-photo img{width:100%;height:100%;object-fit:cover;display:block;}
+
+/* content-width-cap v2 */
+/* Keep every block within the text column (680px outer / 632px inner). */
+.page-hero{max-width:680px;box-sizing:border-box;}
+.section-body{max-width:680px;box-sizing:border-box;}
+
+.dienst-photo{max-width:632px;margin:24px 24px 0;width:calc(100% - 48px);}
+@media (min-width:760px){
+  .hero-img{max-width:632px;width:calc(100% - 48px);margin-left:24px;margin-right:24px;}
+}
+
+.rel-cases{display:flex;flex-direction:column;gap:0;margin-top:6px;
+  border-top:1px solid var(--rule);}
+.rel-case{display:block;padding:16px 0;text-decoration:none;color:inherit;
+  border-bottom:1px solid var(--rule);transition:padding-left .18s ease;}
+.rel-case:hover{padding-left:6px;}
+.rel-name{display:flex;align-items:baseline;gap:7px;font-family:var(--ff-disp);
+  font-size:17px;font-weight:800;letter-spacing:-.3px;color:var(--ink);}
+.rel-arr{color:var(--mag);font-size:14px;}
+.rel-desc{display:block;font-size:13.5px;line-height:1.5;color:var(--mid);margin-top:5px;}
+.rel-tags{display:block;font-family:var(--ff-mono);font-size:10px;letter-spacing:.05em;
+  color:var(--subtle);margin-top:7px;}
+
+.footer-mini-links{display:flex;flex-wrap:wrap;justify-content:center;gap:6px 14px;
+  margin:0 auto 12px;max-width:640px;padding:0 24px;}
+.footer-mini-links a{font-size:11px;color:#6B6866;text-decoration:none;transition:color .12s;}
+.footer-mini-links a:hover{color:#0F0E0C;}
+
+/* Navigatiebalk overal gelijk. */
+nav.nav{background:#fff !important;color:#0F0E0C !important;max-width:none !important;margin:0 !important;}
+
+/* Footer volgt deze breedte. */
+:root{--paginabreedte:680px;}
+
+/* Inhoud in een gecentreerde kolom, gelijk aan de footer. */
+.page-hero,.section-body,.cta-section,.kb-related,body > picture,
+.topic-body,.topic-head,section.section{
+  max-width:var(--paginabreedte,680px);margin-left:auto;margin-right:auto;}
+body > picture{box-sizing:border-box;}
+
+/* De donkere banden lopen bewust van rand tot rand, maar hun inhoud
+   hoort in dezelfde kolom te staan als de rest van de pagina. */
+.hero > *,.usp-strip > *,.deliv-overview > *,.calc-section > *{
+  max-width:var(--paginabreedte,680px);
+  margin-left:auto;margin-right:auto;box-sizing:border-box;}
+.usp-strip{align-items:stretch;}
+.usp-strip > .usp-item{width:100%;}
+
+/* Header-foto gecentreerd in dezelfde kolom als de tekst.
+   Stond met een vaste marge van 24px links, terwijl de rest centreert. */
+@media (min-width:1140px){
+  .dienst-photo,.pt-shot,body > picture,img.hero-img{
+    margin-left:auto !important;margin-right:auto !important;}
+  body > picture{display:block;max-width:var(--paginabreedte,680px);
+    padding:0 24px;box-sizing:border-box;}
+}
+/* Ook onder 1140px staat de foto in dezelfde kolom als de tekst,
+   en houdt hij de breedte van die kolom (632px). */
+.dienst-photo{max-width:632px;margin-left:auto !important;margin-right:auto !important;}
+
+/* Het Cases-blok had geen marge en stond strak tegen de randen en het blok
+   erboven. Nu dezelfde ruimte als de andere secties: 36px boven en onder,
+   24px opzij. */
+.section-body{padding:36px 24px;}
+
+/* Lichte hero, alles in de kolombreedte */
+.hero{background:var(--bg)!important}
+.hero::before{display:none}
+.hero h1{color:var(--ink)}
+.hero .lead{color:var(--mid)}
+.btn-ghost{color:var(--ink);border-color:rgba(15,14,12,.2)}
+.btn-ghost:hover{color:var(--ink);border-color:rgba(15,14,12,.5)}
+.phase-nav{max-width:632px;width:calc(100% - 48px);margin:0 auto}
+.hero > *{max-width:632px}
+</style>
+<script>
+(function(){
+  var clean = sessionStorage.getItem('cleanPath');
+  if (clean) { sessionStorage.removeItem('cleanPath'); history.replaceState(null,'',clean); return; }
+  var loc = window.location;
+  if (loc.pathname.endsWith('.html') && loc.pathname !== '/index.html') {
+    history.replaceState(null,'',loc.pathname.slice(0,-5)+loc.search+loc.hash);
+  }
+})();
+</script>
+<!-- cache:c1 -->
+<link rel="stylesheet" href="/assets/contact-bar.css?v=20261018a">
+<script defer src="/assets/contact-bar.js?v=20261026a"></script>
+<link rel="canonical" href="https://flii.nl/en/services/product-launch-plan">
+<link rel="alternate" hreflang="nl" href="https://flii.nl/diensten/ai-launchplan">
+<link rel="alternate" hreflang="en" href="https://flii.nl/en/services/product-launch-plan">
+<link rel="alternate" hreflang="x-default" href="https://flii.nl/diensten/ai-launchplan">
+<link rel="stylesheet" href="/assets/reduced-motion.css">
+<script defer src="/assets/reduced-motion.js"></script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Service",
+  "name": "Product launch plan & delivery",
+  "description": "A product launch in five phases: positioning, branding, creative, web & data, building a reputation, a proven campaign on Search & Social, and retention. For SaaS and physical products.",
+  "url": "https://flii.nl/en/services/product-launch-plan",
+  "provider": {
+    "@type": "Organization",
+    "name": "Flii Media",
+    "url": "https://flii.nl/en/"
+  },
+  "areaServed": {
+    "@type": "Country",
+    "name": "Netherlands"
+  }
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    {
+      "@type": "ListItem",
+      "position": 1,
+      "name": "Home",
+      "item": "https://flii.nl/en/"
+    },
+    {
+      "@type": "ListItem",
+      "position": 2,
+      "name": "Services",
+      "item": "https://flii.nl/en/services/campaigns-media"
+    },
+    {
+      "@type": "ListItem",
+      "position": 3,
+      "name": "Product launch plan & delivery",
+      "item": "https://flii.nl/en/services/product-launch-plan"
+    }
+  ]
+}
+</script>
+<link rel="icon" href="/assets/img/d913cc3c069f.webp" type="image/png">
+<link rel="apple-touch-icon" href="/assets/img/d913cc3c069f.webp">
+<meta name="theme-color" content="#0F0E0C">
+<link rel="preload" href="/assets/fonts/BricolageGrotesque.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="stylesheet" href="/assets/footer.css?v=20261017n">
+<script defer src="/assets/footer.js"></script>
+<link rel="stylesheet" href="/assets/nav.css?v=20261019c">
+<script defer src="/assets/nav.js?v=20261027c"></script>
+<script defer src="/assets/lang.js?v=20261027c"></script>
+</head>
+<body>
+
+<nav class="nav">
+  <div class="nav-logo">
+    <a href="/en/" class="nav-mark" aria-label="Flii Media, go to the homepage"><img src="/assets/img/d913cc3c069f.webp" alt="Flii Media" fetchpriority="high" decoding="async"></a>
+  </div>
+  <button class="nav-burger" type="button" aria-label="Menu" aria-controls="nav-menu" aria-haspopup="dialog"><span></span><span></span></button>
+</nav>
+
+<!-- HERO -->
+<section class="hero">
+  <span class="eyebrow">Flii Media · Product launch</span>
+  <h1>Product launch plan<br>&amp; <em>delivery.</em></h1>
+  <p class="lead">A product launch in five phases: from positioning to repeat customer. Branding, creative, web &amp; data, building a reputation, a proven campaign on Search &amp; Social, and retention. For SaaS and physical products.</p>
+  <div class="cta-row">
+    <a href="#fase-1" class="btn-mag">See the plan →</a>
+    <a href="https://calendar.google.com/calendar/appointments/schedules/AcZssZ1Dfb1ZunCYFgPNrvuYKMIgVBy9Qgv9xlcxkSOnEbvnaWWSUeKQ_fTzv4gSHQfmkJm3LmL93Tk7" target="_blank" class="btn-ghost">Book a call</a>
+  </div>
+  <div class="svc-tags"><span class="svc-tag">Branding</span><span class="svc-tag">Creative</span><span class="svc-tag">Web</span><span class="svc-tag">Data</span></div>
+</section>
+
+<!-- PHASE NAV -->
+<nav class="phase-nav" id="phase-nav" aria-label="Phases">
+  <button class="phase-tab active" onclick="scrollToPhase(1)" aria-label="Phase 1">
+    <span class="phase-tab-n">1</span>
+    <span class="phase-tab-label">Foundation</span>
+  </button>
+  <button class="phase-tab" onclick="scrollToPhase(2)" aria-label="Phase 2">
+    <span class="phase-tab-n">2</span>
+    <span class="phase-tab-label">Build</span>
+  </button>
+  <button class="phase-tab" onclick="scrollToPhase(3)" aria-label="Phase 3">
+    <span class="phase-tab-n">3</span>
+    <span class="phase-tab-label">Pre-launch</span>
+  </button>
+  <button class="phase-tab" onclick="scrollToPhase(4)" aria-label="Phase 4">
+    <span class="phase-tab-n">4</span>
+    <span class="phase-tab-label">Launch</span>
+  </button>
+  <button class="phase-tab" onclick="scrollToPhase(5)" aria-label="Phase 5">
+    <span class="phase-tab-n">5</span>
+    <span class="phase-tab-label">Retention</span>
+  </button>
+</nav>
+
+<!-- FASE 1 -->
+<section class="section" id="fase-1">
+  <div class="step-label"><span class="step-n">1</span>Foundation<span class="lp-week">Weeks 1–3</span></div>
+  <h2>Who for, who against, and why.</h2>
+  <p>A launch rarely fails because of the media. It usually fails on positioning. That is why we start with research, not with ads.</p>
+  <div class="dark-card">
+    <p class="card-label">What we find out</p>
+    <div class="flow">
+      <div class="flow-step">
+        <div class="flow-dot"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="#E8294A" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M17 21v-2a4 4 0 00-4-4H5a4 4 0 00-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 00-3-3.87M16 3.13a4 4 0 010 7.75"/></svg></div>
+        <div class="flow-body">
+          <span class="flow-title">Audience</span>
+          <span class="flow-desc">Who buys first, what problem does it solve, and what holds them back?</span>
+        </div>
+      </div>
+      <div class="flow-step">
+        <div class="flow-dot"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="#E8294A" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><circle cx="12" cy="12" r="6"/><circle cx="12" cy="12" r="2"/></svg></div>
+        <div class="flow-body">
+          <span class="flow-title">Positioning research</span>
+          <span class="flow-desc">Competitors and alternatives mapped out. Where do you really stand apart?</span>
+        </div>
+      </div>
+      <div class="flow-step">
+        <div class="flow-dot"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="#E8294A" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"/><path d="M21 21l-4.35-4.35"/></svg></div>
+        <div class="flow-body">
+          <span class="flow-title">Search demand</span>
+          <span class="flow-desc">How, and how much, people search for your category, the problem and your competitors.</span>
+        </div>
+      </div>
+      <div class="flow-step">
+        <div class="flow-dot"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="#E8294A" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="18" height="18" rx="2"/><path d="M8 7h8M8 12h6M8 17h4"/></svg></div>
+        <div class="flow-body">
+          <span class="flow-title">Proposition, goals &amp; budget</span>
+          <span class="flow-desc">One core promise, backed by proof. KPIs and budget per phase.</span>
+        </div>
+      </div>
+    </div>
+  </div>
+  <p class="lp-meet"><strong>Deliverable:</strong> a positioning document and a launch plan with timeline and budget.</p>
+</section>
+
+<!-- FASE 2 -->
+<section class="section" id="fase-2">
+  <div class="step-label"><span class="step-n">2</span>Build<span class="lp-week">Weeks 3–8</span></div>
+  <h2>Branding, creative, web &amp; data.</h2>
+  <p>Everything that needs to go live, built on the choices from phase 1. By one team, so brand, campaign and measurement fit together.</p>
+  <div class="dark-card">
+    <p class="card-label">What we make</p>
+    <div class="flow">
+      <div class="flow-step">
+        <div class="flow-dot"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="#E8294A" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2L2 7l10 5 10-5-10-5z"/><path d="M2 17l10 5 10-5M2 12l10 5 10-5"/></svg></div>
+        <div class="flow-body">
+          <span class="flow-title">Branding</span>
+          <span class="flow-desc">Visual identity and tone of voice, derived from the positioning.</span>
+        </div>
+      </div>
+      <div class="flow-step">
+        <div class="flow-dot"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="#E8294A" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M12 20h9"/><path d="M16.5 3.5a2.121 2.121 0 013 3L7 19l-4 1 1-4L16.5 3.5z"/></svg></div>
+        <div class="flow-body">
+          <span class="flow-title">Creative</span>
+          <span class="flow-desc">Launch assets in several angles and formats: video, statics, product imagery.</span>
+        </div>
+      </div>
+      <div class="flow-step">
+        <div class="flow-dot"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="#E8294A" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><polyline points="16 18 22 12 16 6"/><polyline points="8 6 2 12 8 18"/></svg></div>
+        <div class="flow-body">
+          <span class="flow-title">Web</span>
+          <span class="flow-desc">Landing or product page with a waiting list or pre-order. For e-commerce, the product feed too.</span>
+        </div>
+      </div>
+      <div class="flow-step">
+        <div class="flow-dot"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="#E8294A" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><line x1="18" y1="20" x2="18" y2="10"/><line x1="12" y1="20" x2="12" y2="4"/><line x1="6" y1="20" x2="6" y2="14"/></svg></div>
+        <div class="flow-body">
+          <span class="flow-title">Data</span>
+          <span class="flow-desc">Tracking, conversions and dashboard. Working before the first euro goes into media.</span>
+        </div>
+      </div>
+    </div>
+  </div>
+  <p class="lp-meet"><strong>Deliverable:</strong> brand, site, assets and measurement ready to go live.</p>
+</section>
+
+<!-- FASE 3 -->
+<section class="section" id="fase-3">
+  <div class="step-label"><span class="step-n">3</span>Pre-launch<span class="lp-week">Weeks 6–10</span></div>
+  <h2>Demand and trust before the start.</h2>
+  <p>On launch day you already need an audience and your first reviews. A new product without reviews converts worse, so we build them up in advance.</p>
+  <div class="dark-card">
+    <p class="card-label">Building a reputation</p>
+    <div class="flow">
+      <div class="flow-step">
+        <div class="flow-dot"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="#E8294A" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="M22 6l-10 7L2 6"/></svg></div>
+        <div class="flow-body">
+          <span class="flow-title">Waiting list or pre-order</span>
+          <span class="flow-desc">Capture interest and keep it warm with updates until the launch.</span>
+        </div>
+      </div>
+      <div class="flow-step">
+        <div class="flow-dot"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="#E8294A" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M17 21v-2a4 4 0 00-4-4H5a4 4 0 00-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 00-3-3.87M16 3.13a4 4 0 010 7.75"/></svg></div>
+        <div class="flow-body">
+          <span class="flow-title">Beta &amp; seeding</span>
+          <span class="flow-desc">The product goes to early adopters, existing customers and creators, in return for feedback and honest reviews.</span>
+        </div>
+      </div>
+      <div class="flow-step">
+        <div class="flow-dot"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="#E8294A" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg></div>
+        <div class="flow-body">
+          <span class="flow-title">Review platform</span>
+          <span class="flow-desc">Trustpilot, Google or Kiyoh; for SaaS, G2 or Capterra. Review requests automated.</span>
+        </div>
+      </div>
+      <div class="flow-step">
+        <div class="flow-dot"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="#E8294A" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><polygon points="23 7 16 12 23 17 23 7"/><rect x="1" y="5" width="15" height="14" rx="2"/></svg></div>
+        <div class="flow-body">
+          <span class="flow-title">Teaser content</span>
+          <span class="flow-desc">Organic on social: the problem, the making-of, the countdown.</span>
+        </div>
+      </div>
+    </div>
+  </div>
+  <p class="lp-meet"><strong>Measure:</strong> sign-ups, landing page conversion and number of reviews.</p>
+</section>
+
+<!-- FASE 4 -->
+<section class="section" id="fase-4">
+  <div class="step-label"><span class="step-n">4</span>Launch<span class="lp-week">Weeks 10–14</span></div>
+  <h2>A proven campaign structure on Search &amp; Social.</h2>
+  <p>We launch in steps: test first, then scale what works. That way budget goes to proven messages instead of assumptions.</p>
+  <div class="dark-card">
+    <p class="card-label">Launch campaign</p>
+    <div class="flow">
+      <div class="flow-step">
+        <div class="flow-dot"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="#E8294A" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M13 2L3 14h9l-1 8 10-12h-9l1-8z"/></svg></div>
+        <div class="flow-body">
+          <span class="flow-title">Launch moment</span>
+          <span class="flow-desc">Email the waiting list, PR and creators on the same day. For SaaS, Product Hunt and communities too.</span>
+        </div>
+      </div>
+      <div class="flow-step">
+        <div class="flow-dot"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="#E8294A" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"/><path d="M21 21l-4.35-4.35"/></svg></div>
+        <div class="flow-body">
+          <span class="flow-title">Search</span>
+          <span class="flow-desc">Brand and category keywords from day one. For e-commerce, Shopping and Performance Max on the product feed.</span>
+        </div>
+      </div>
+      <div class="flow-step">
+        <div class="flow-dot"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="#E8294A" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><circle cx="12" cy="12" r="6"/><circle cx="12" cy="12" r="2"/></svg></div>
+        <div class="flow-body">
+          <span class="flow-title">Social</span>
+          <span class="flow-desc">Three to five creative concepts with equal budgets. After about a week, we choose based on the data.</span>
+        </div>
+      </div>
+      <div class="flow-step">
+        <div class="flow-dot"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="#E8294A" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><polyline points="23 6 13.5 15.5 8.5 10.5 1 18"/><polyline points="17 6 23 6 23 12"/></svg></div>
+        <div class="flow-body">
+          <span class="flow-title">Scaling &amp; retargeting</span>
+          <span class="flow-desc">Winners get more budget step by step. Retargeting with reviews as social proof.</span>
+        </div>
+      </div>
+    </div>
+  </div>
+  <p class="lp-meet"><strong>Measure:</strong> cost per sign-up, trial or purchase, and ROAS.</p>
+</section>
+
+<!-- FASE 5 -->
+<section class="section" id="fase-5">
+  <div class="step-label"><span class="step-n">5</span>Retention<span class="lp-week">From week 14</span></div>
+  <h2>From first customer to repeat customer.</h2>
+  <p>Keeping an existing customer costs less than winning a new one. So retention is part of the plan, not an afterthought.</p>
+  <div class="dark-card">
+    <p class="card-label">Retention strategy</p>
+    <div class="flow">
+      <div class="flow-step">
+        <div class="flow-dot"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="#E8294A" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M20.84 4.61a5.5 5.5 0 00-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 00-7.78 7.78L12 21.23l8.84-8.84a5.5 5.5 0 000-7.78z"/></svg></div>
+        <div class="flow-body">
+          <span class="flow-title">Onboarding</span>
+          <span class="flow-desc">Welcome and onboarding flows that get new customers to their first moment of success quickly.</span>
+        </div>
+      </div>
+      <div class="flow-step">
+        <div class="flow-dot"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="#E8294A" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg></div>
+        <div class="flow-body">
+          <span class="flow-title">After purchase</span>
+          <span class="flow-desc">A review request after delivery or use, so your reputation keeps growing.</span>
+        </div>
+      </div>
+      <div class="flow-step">
+        <div class="flow-dot"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="#E8294A" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M17 1l4 4-4 4"/><path d="M3 11V9a4 4 0 014-4h14"/><path d="M7 23l-4-4 4-4"/><path d="M21 13v2a4 4 0 01-4 4H3"/></svg></div>
+        <div class="flow-body">
+          <span class="flow-title">Repeat &amp; win-back</span>
+          <span class="flow-desc">Repeat purchases, upsells or reactivation based on behaviour.</span>
+        </div>
+      </div>
+      <div class="flow-step">
+        <div class="flow-dot"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="#E8294A" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg></div>
+        <div class="flow-body">
+          <span class="flow-title">Optimisation</span>
+          <span class="flow-desc">Monthly analysis and new creatives to counter ad fatigue.</span>
+        </div>
+      </div>
+    </div>
+  </div>
+  <p class="lp-meet"><strong>Measure:</strong> activation, repeat purchases or churn, and customer value.</p>
+</section>
+
+<!-- SAAS VS FYSIEK -->
+<section class="section" id="producttype">
+  <div class="step-label"><span class="step-n" style="background:var(--ink)">&#8596;</span>By product type</div>
+  <h2>The same phases, different emphasis.</h2>
+  <p>SaaS is often B2B and grows through search traffic, content and trust. Physical products revolve around online shopping ads and product reviews.</p>
+  <div class="lp-cmp">
+    <div class="lp-cmp-head"><span></span><span>SaaS</span><span>Physical (e-commerce)</span></div>
+    <div class="lp-cmp-row"><span class="lp-cmp-l">Conversion</span><span>Demo, trial or sign-up</span><span>Purchase or pre-order</span></div>
+    <div class="lp-cmp-row"><span class="lp-cmp-l">Search</span><span>Category, problem and competitor keywords</span><span>Shopping and Performance Max on a strong product feed</span></div>
+    <div class="lp-cmp-row"><span class="lp-cmp-l">Social</span><span>LinkedIn and organic content, often from the founder</span><span>Meta and TikTok with video and creators</span></div>
+    <div class="lp-cmp-row"><span class="lp-cmp-l">Reputation</span><span>G2, Capterra and customer cases</span><span>Product reviews, Trustpilot or Kiyoh. From 100 reviews a year, star ratings in Google Ads</span></div>
+    <div class="lp-cmp-row"><span class="lp-cmp-l">Retention</span><span>Onboarding, activation and preventing churn</span><span>After purchase, repeat purchases and win-back</span></div>
+  </div>
+</section>
+
+<div class="section-body">
+  <h2>Cases using this service</h2>
+  <div class="rel-cases">
+      <a href="/en/cases/plant-e" class="rel-case">
+        <span class="rel-name">Plant-E<span class="rel-arr">&rarr;</span></span>
+        <span class="rel-desc">Web design and development for Plant-E — the Dutch company that generates electrical energy from…</span>
+        <span class="rel-tags">Web development &middot; Development</span>
+      </a>
+      <a href="/en/cases/soest-machinery" class="rel-case">
+        <span class="rel-name">Soest Machinery<span class="rel-arr">&rarr;</span></span>
+        <span class="rel-desc">Soest Machinery is a Dutch manufacturer of industrial finishing equipment, including machines…</span>
+        <span class="rel-tags">Search engines &middot; Development &middot; Tracking</span>
+      </a>
+      <a href="/en/cases/royal-haskoning" class="rel-case">
+        <span class="rel-name">Royal HaskoningDHV<span class="rel-arr">&rarr;</span></span>
+        <span class="rel-desc">For one of the world&#x27;s largest engineering firms, we started with a targeted Google Ads campaign…</span>
+        <span class="rel-tags">Campaigns &middot; Search engines &middot; Tracking</span>
+      </a>
+  </div>
+</div>
+
+
+<footer class="footer">
+  <div class="footer-bento">
+    <div class="footer-tile footer-tile-brand">
+      <div class="footer-social-row">
+        <a href="https://nl.linkedin.com/company/flii-media" class="social-icon" aria-label="LinkedIn"><svg viewBox="0 0 24 24" fill="none"><path d="M16 8a6 6 0 016 6v7h-4v-7a2 2 0 00-2-2 2 2 0 00-2 2v7h-4v-7a6 6 0 016-6zM2 9h4v12H2z" fill="#4A4840"/><circle cx="4" cy="4" r="2" fill="#4A4840"/></svg></a>
+        <a href="https://share.google/wEE1drPcTYlHW0Beo" target="_blank" class="social-icon" aria-label="Google"><svg viewBox="0 0 24 24"><path d="M21.8 12.2c0-.7-.1-1.4-.2-2H12v3.8h5.5c-.2 1.2-.9 2.2-2 2.9v2.4h3.2c1.9-1.7 3-4.3 3-7.1z" fill="#4285F4"/><path d="M12 22c2.7 0 5-.9 6.7-2.4l-3.2-2.4c-.9.6-2 1-3.5 1-2.7 0-4.9-1.8-5.7-4.2H3v2.5C4.7 19.9 8.1 22 12 22z" fill="#34A853"/><path d="M6.3 13.9c-.2-.6-.3-1.2-.3-1.9s.1-1.3.3-1.9V7.6H3C2.3 9 2 10.5 2 12s.3 3 1 4.4l3.3-2.5z" fill="#FBBC04"/><path d="M12 5.8c1.5 0 2.9.5 3.9 1.5l2.9-2.9C17 2.8 14.7 2 12 2 8.1 2 4.7 4.1 3 7.6l3.3 2.5C7.1 7.6 9.3 5.8 12 5.8z" fill="#EA4335"/></svg></a>
+        <a href="https://share.google/wEE1drPcTYlHW0Beo" target="_blank" rel="noopener" class="google-review-banner"><span class="grb-stars">&#9733;&#9733;&#9733;&#9733;&#9733;</span><span class="grb-text"><strong>5.0</strong> on Google &middot; 14 reviews</span></a>
+      </div>
+      <p class="footer-address">Handweg 159, Amstelveen &middot; info@flii.nl &middot; <a href="https://share.google/wEE1drPcTYlHW0Beo" target="_blank" rel="noopener" class="footer-hours-link">Opening hours</a></p>
+    </div>
+    <div class="footer-tile footer-tile-nav">
+      <span class="footer-nav-head">Knowledge base</span>
+      <a href="/en/knowledge-base#kb-marketing" class="footer-nav-link">Marketing</a>
+      <a href="/en/knowledge-base#kb-merk" class="footer-nav-link">Brand</a>
+      <a href="/en/knowledge-base#kb-content" class="footer-nav-link">Content</a>
+      <a href="/en/knowledge-base#kb-media" class="footer-nav-link">Media</a>
+      <a href="/en/knowledge-base#kb-data" class="footer-nav-link">Data</a>
+      <a href="/en/platforms" class="footer-nav-link">Platforms</a>
+
+    </div>
+    <div class="footer-tile footer-tile-nav">
+      <span class="footer-nav-head">Products</span>
+      <a href="/en/loop" class="footer-nav-link">Flii Loop</a>
+      <a href="/en/services/product-launch-plan" class="footer-nav-link">Product launch</a>
+    </div>
+    <div class="footer-tile footer-tile-nav">
+      <span class="footer-nav-head">Services</span>
+      <a href="/en/services/campaigns-media" class="footer-nav-link">Campaigns &amp; media</a>
+      <a href="/en/services/content-social" class="footer-nav-link">Content &amp; social</a>
+      <a href="/en/services/web-apps-ai" class="footer-nav-link">Web, apps &amp; AI</a>
+      <a href="/en/services/data-research" class="footer-nav-link">Data analysis &amp; research</a>
+    </div>
+    <div class="footer-tile footer-tile-nav footer-tile-zoek">
+      <span class="footer-nav-head">What people hire us for</span>
+      <a href="/en/google-ads-agency" class="footer-nav-link"><svg class="fn-ic" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M3.9998 22.9291C1.7908 22.9291 0 21.1383 0 18.9293s1.7908-3.9998 3.9998-3.9998 3.9998 1.7908 3.9998 3.9998-1.7908 3.9998-3.9998 3.9998zm19.4643-6.0004L15.4632 3.072C14.3586 1.1587 11.9121.5028 9.9988 1.6074S7.4295 5.1585 8.5341 7.0718l8.0009 13.8567c1.1046 1.9133 3.5511 2.5679 5.4644 1.4646 1.9134-1.1046 2.568-3.5511 1.4647-5.4644zM7.5137 4.8438L1.5645 15.1484A4.5 4.5 0 0 1 4 14.4297c2.5597-.0075 4.6248 2.1585 4.4941 4.7148l3.2168-5.5723-3.6094-6.25c-.4499-.7793-.6322-1.6394-.5878-2.4784z"/></svg><span>Google Ads agency</span></a>
+      <a href="/en/social-media-management" class="footer-nav-link"><svg class="fn-ic" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M7.0301.084c-1.2768.0602-2.1487.264-2.911.5634-.7888.3075-1.4575.72-2.1228 1.3877-.6652.6677-1.075 1.3368-1.3802 2.127-.2954.7638-.4956 1.6365-.552 2.914-.0564 1.2775-.0689 1.6882-.0626 4.947.0062 3.2586.0206 3.6671.0825 4.9473.061 1.2765.264 2.1482.5635 2.9107.308.7889.72 1.4573 1.388 2.1228.6679.6655 1.3365 1.0743 2.1285 1.38.7632.295 1.6361.4961 2.9134.552 1.2773.056 1.6884.069 4.9462.0627 3.2578-.0062 3.668-.0207 4.9478-.0814 1.28-.0607 2.147-.2652 2.9098-.5633.7889-.3086 1.4578-.72 2.1228-1.3881.665-.6682 1.0745-1.3378 1.3795-2.1284.2957-.7632.4966-1.636.552-2.9124.056-1.2809.0692-1.6898.063-4.948-.0063-3.2583-.021-3.6668-.0817-4.9465-.0607-1.2797-.264-2.1487-.5633-2.9117-.3084-.7889-.72-1.4568-1.3876-2.1228C21.2982 1.33 20.628.9208 19.8378.6165 19.074.321 18.2017.1197 16.9244.0645 15.6471.0093 15.236-.005 11.977.0014 8.718.0076 8.31.0215 7.0301.0839m.1402 21.6932c-1.17-.0509-1.8053-.2453-2.2287-.408-.5606-.216-.96-.4771-1.3819-.895-.422-.4178-.6811-.8186-.9-1.378-.1644-.4234-.3624-1.058-.4171-2.228-.0595-1.2645-.072-1.6442-.079-4.848-.007-3.2037.0053-3.583.0607-4.848.05-1.169.2456-1.805.408-2.2282.216-.5613.4762-.96.895-1.3816.4188-.4217.8184-.6814 1.3783-.9003.423-.1651 1.0575-.3614 2.227-.4171 1.2655-.06 1.6447-.072 4.848-.079 3.2033-.007 3.5835.005 4.8495.0608 1.169.0508 1.8053.2445 2.228.408.5608.216.96.4754 1.3816.895.4217.4194.6816.8176.9005 1.3787.1653.4217.3617 1.056.4169 2.2263.0602 1.2655.0739 1.645.0796 4.848.0058 3.203-.0055 3.5834-.061 4.848-.051 1.17-.245 1.8055-.408 2.2294-.216.5604-.4763.96-.8954 1.3814-.419.4215-.8181.6811-1.3783.9-.4224.1649-1.0577.3617-2.2262.4174-1.2656.0595-1.6448.072-4.8493.079-3.2045.007-3.5825-.006-4.848-.0608M16.953 5.5864A1.44 1.44 0 1 0 18.39 4.144a1.44 1.44 0 0 0-1.437 1.4424M5.8385 12.012c.0067 3.4032 2.7706 6.1557 6.173 6.1493 3.4026-.0065 6.157-2.7701 6.1506-6.1733-.0065-3.4032-2.771-6.1565-6.174-6.1498-3.403.0067-6.156 2.771-6.1496 6.1738M8 12.0077a4 4 0 1 1 4.008 3.9921A3.9996 3.9996 0 0 1 8 12.0077"/></svg><span>Outsourced social media</span></a>
+      <a href="/en/video-production" class="footer-nav-link"><svg class="fn-ic" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M23.498 6.186a3.016 3.016 0 0 0-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 0 0 .502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 0 0 2.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 0 0 2.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z"/></svg><span>Video production</span></a>
+      <a href="/en/website-development" class="footer-nav-link"><svg class="fn-ic" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="m24 4.515-7.658 14.97H9.149l3.205-6.204h-.144C9.566 16.713 5.621 18.973 0 19.485v-6.118s3.596-.213 5.71-2.435H0V4.515h6.417v5.278l.144-.001 2.622-5.277h4.854v5.244h.144l2.72-5.244H24Z"/></svg><span>Website development</span></a>
+      <a href="/en/platform-app-development" class="footer-nav-link"><svg class="fn-ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="9 6 3.5 12 9 18"/><polyline points="15 6 20.5 12 15 18"/></svg><span>Platform &amp; app development</span></a>
+    </div>
+    <div class="footer-tile footer-tile-loop">
+      <a href="/en/loop" class="ft-loop-card">
+    <span class="loopmark ft-loop-ring-mark" aria-hidden="true">
+        <svg class="loopmark-svg" viewBox="0 0 100 100">
+          <defs>
+            <linearGradient id="ftLmGrad" x1="0" y1="0" x2="1" y2="1">
+              <stop offset="0%" stop-color="#B14BFF"/>
+              <stop offset="28%" stop-color="#E7255A"/>
+              <stop offset="50%" stop-color="#FF5E9A"/>
+              <stop offset="64%" stop-color="#FFD2E4"/>
+              <stop offset="80%" stop-color="#FF3D8E"/>
+              <stop offset="100%" stop-color="#C04BFF"/>
+            </linearGradient>
+            <filter id="ftLmFire" x="-60%" y="-60%" width="220%" height="220%">
+              <feTurbulence type="fractalNoise" baseFrequency="0.022 0.04" numOctaves="2" seed="4" result="n">
+                <animate attributeName="baseFrequency" dur="6s" values="0.022 0.04;0.03 0.052;0.02 0.034;0.022 0.04" repeatCount="indefinite"/>
+              </feTurbulence>
+              <feDisplacementMap in="SourceGraphic" in2="n" scale="9" xChannelSelector="R" yChannelSelector="G">
+                <animate attributeName="scale" dur="5s" values="8;12.5;9;8" repeatCount="indefinite"/>
+              </feDisplacementMap>
+              <feGaussianBlur stdDeviation="0.5"/>
+            </filter>
+            <filter id="ftLmGlow" x="-60%" y="-60%" width="220%" height="220%"><feGaussianBlur stdDeviation="2.4"/></filter>
+          </defs>
+          <g class="lm-rot">
+            <circle cx="50" cy="50" r="35" fill="none" stroke="url(#ftLmGrad)" stroke-width="7" filter="url(#ftLmGlow)" opacity="0.5"/>
+            <circle cx="50" cy="50" r="35" fill="none" stroke="url(#ftLmGrad)" stroke-width="5" filter="url(#ftLmFire)"/>
+          </g>
+          <g class="lm-rot2">
+            <circle cx="50" cy="50" r="32" fill="none" stroke="url(#ftLmGrad)" stroke-width="3" filter="url(#ftLmFire)" opacity="0.85"/>
+          </g>
+        </svg>
+      </span>
+    <div class="ft-loop-text">
+      <div class="ft-loop-name">Flii Loop</div>
+      <div class="ft-loop-desc">One loop that keeps learning →</div>
+    </div>
+  </a>
+    </div>
+    <div class="footer-tile footer-tile-bottom">
+      <div class="footer-wordmark">FLII.<span>MEDIA</span></div>
+      <div class="footer-legal">
+        <a href="/en/cookie-preferences" class="footer-link">Preferences</a>
+        <a href="/en/cookies" class="footer-link">Cookies</a>
+        <a href="/en/terms" class="footer-link">Terms</a>
+        <a href="/en/privacy" class="footer-link">Privacy</a>
+        <button class="footer-contact-btn" id="footer-contact-btn" onclick="toggleContactPopup()">Contact</button>
+      </div>
+    </div>
+  </div>
+  <div class="contact-popup" id="contact-popup">
+    <div class="contact-popup-inner">
+      <p class="contact-popup-label">Direct contact</p>
+      <a href="tel:+31640881169" class="contact-popup-item">+31 6 40 88 11 69</a>
+      <a href="mailto:info@flii.nl" class="contact-popup-item">info@flii.nl</a>
+      <a href="https://calendar.google.com/calendar/appointments/schedules/AcZssZ1Dfb1ZunCYFgPNrvuYKMIgVBy9Qgv9xlcxkSOnEbvnaWWSUeKQ_fTzv4gSHQfmkJm3LmL93Tk7" target="_blank" class="contact-popup-item">Book a call</a>
+    </div>
+  </div>
+</footer>
+
+<script>
+// Phase tab navigation
+function scrollToPhase(n) {
+  var el = document.getElementById('fase-' + n);
+  if (!el) return;
+  var y = el.getBoundingClientRect().top + window.scrollY - 100;
+  var s = window.scrollY, dur = 600, st = null;
+  (function step(ts) {
+    if (!st) st = ts;
+    var p = Math.min((ts-st)/dur, 1);
+    var e = p < .5 ? 2*p*p : 1-Math.pow(-2*p+2,2)/2;
+    window.scrollTo(0, s + (y-s)*e);
+    if (p < 1) requestAnimationFrame(step);
+  })(performance.now());
+  document.querySelectorAll('.phase-tab').forEach(function(t,i){t.classList.toggle('active',i===n-1);});
+}
+
+// Active tab on scroll
+(function() {
+  var phases = [1,2,3,4,5].map(function(n){return document.getElementById('fase-'+n);});
+  window.addEventListener('scroll', function() {
+    var active = 0;
+    phases.forEach(function(el,i){
+      if (el && el.getBoundingClientRect().top < 160) active = i;
+    });
+    document.querySelectorAll('.phase-tab').forEach(function(t,i){t.classList.toggle('active',i===active);});
+  }, {passive:true});
+})();
+
+
+</script>

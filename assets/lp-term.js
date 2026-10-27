@@ -7,7 +7,7 @@
     if (!adres) return;
     var frame = document.createElement('iframe');
     frame.src = 'https://maps.google.com/maps?q=' + encodeURIComponent(adres) + '&z=15&output=embed';
-    frame.title = 'Kaart met de locatie van Flii Media, ' + adres;
+    frame.title = (/^\/en(\/|$)/.test(location.pathname) ? 'Map showing the location of Flii Media, ' : 'Kaart met de locatie van Flii Media, ') + adres;
     frame.loading = 'lazy';
     frame.referrerPolicy = 'no-referrer-when-downgrade';
     frame.setAttribute('allowfullscreen', '');
@@ -16,7 +16,15 @@
 
   /* Korte berichtformulier: laadmoment vastleggen en de melding na
      terugkeer van de server tonen. */
-  var MELDINGEN = {
+  var EN = /^\/en(\/|$)/.test(location.pathname);
+  var MELDINGEN = EN ? {
+    ok: ['Thank you, your message has been sent. We usually reply within one working day.', 'ok'],
+    onvolledig: ['Please enter a phone number or e-mail address, and a message.', 'fout'],
+    teveel: ['You have just sent a message. Please try again in an hour.', 'fout'],
+    verlopen: ['The form was open for too long. Please fill it in again.', 'fout'],
+    mislukt: ['Sending failed. E-mail us directly at info@flii.nl.', 'fout'],
+    fout: ['Something went wrong. E-mail us directly at info@flii.nl.', 'fout']
+  } : {
     ok: ['Bedankt, je bericht is verstuurd. We reageren doorgaans binnen een werkdag.', 'ok'],
     onvolledig: ['Vul een telefoonnummer of e-mailadres in, en een bericht.', 'fout'],
     teveel: ['Je hebt net al een bericht gestuurd. Probeer het over een uur opnieuw.', 'fout'],

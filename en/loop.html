@@ -1,0 +1,1461 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta http-equiv="Cache-Control" content="max-age=300, must-revalidate">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Flii Loop: price indicator for marketing | Flii Media</title>
+<meta property="og:type" content="website">
+<meta property="og:title" content="Flii Loop: price indicator for marketing | Flii Media">
+<meta property="og:description" content="Put together your own package and see right away roughly what it costs. Campaigns, media channels and AI — transparent, without leaving your details.">
+<meta property="og:url" content="https://flii.nl/en/loop">
+<meta property="og:image" content="https://flii.nl/assets/og/loop.jpg">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:locale" content="en_GB">
+<meta name="twitter:image" content="https://flii.nl/assets/og/loop.jpg">
+<meta property="og:site_name" content="Flii Media">
+<meta name="twitter:card" content="summary_large_image">
+
+<meta name="description" content="Put together your own package and see right away roughly what it costs. Campaigns, media channels and AI — transparent, without leaving your details.">
+<style>
+@font-face{font-family:'Bricolage Grotesque';src:url('/assets/fonts/BricolageGrotesque.woff2') format('woff2-variations');
+  font-weight:200 800;font-display:swap;}
+@font-face{font-family:'JetBrains Mono';src:url('/assets/fonts/JetBrainsMono.woff2') format('woff2-variations');
+  font-weight:100 800;font-display:swap;}
+@font-face{font-family:'DM Sans';src:url('/assets/fonts/DMSans.woff2') format('woff2-variations');
+  font-weight:100 1000;font-display:swap;}
+
+/* ── VARS (matching flii.app) ── */
+:root {
+  --mag:#E7255A; --paper:#FFFFFF; --ink:#171717; --mid:#5C5C5C; --soft:#9E9E9E;
+  --card:#FFFFFF; --line:#E8E8E8; --mist:#F7F7F5; --dark:#0C0207;
+  --gloss: linear-gradient(135deg,#E7255A,#B14BFF,#FF5E9A);
+  --ff-disp:'Bricolage Grotesque','Inter',system-ui,sans-serif;
+  --ff-body:'DM Sans',system-ui,sans-serif;
+  --ff-mono:'JetBrains Mono','IBM Plex Mono',monospace;
+}
+*{box-sizing:border-box;margin:0;padding:0;-webkit-font-smoothing:antialiased;}
+body{font-family:var(--ff-body);background:#FFFFFF;color:var(--ink);}
+
+/* ── NAV ── */
+.nav{display:flex;align-items:center;justify-content:space-between;padding:0 20px;height:56px;
+  border-bottom:1px solid var(--line);position:sticky;top:0;
+  background:rgba(243,241,235,.92);backdrop-filter:blur(12px);z-index:100;}
+.nav-brand{display:flex;align-items:center;gap:10px;text-decoration:none;
+  font-family:var(--ff-disp);font-size:16px;font-weight:800;color:var(--ink);}
+.nav-brand img{height:28px;width:auto;}
+.nav-back{font-size:13px;color:#0F0E0C!important;font-weight:600;text-decoration:none;opacity:.85;}
+.nav-back:hover{color:var(--ink);}
+
+/* ── HERO ── */
+.hero{padding:64px 24px 56px;max-width:620px;margin:0 auto;}
+.eyebrow{font-family:var(--ff-mono);font-size:10px;font-weight:600;letter-spacing:.16em;
+  text-transform:uppercase;color:var(--mag);margin-bottom:14px;display:block;}
+.hero h1{font-family:var(--ff-disp);font-size:clamp(34px,9vw,56px);font-weight:800;
+  letter-spacing:-1.5px;line-height:1.04;margin-bottom:18px;}
+.hero-lede{font-size:16px;color:var(--mid);line-height:1.6;margin-bottom:32px;max-width:480px;}
+
+/* ── FLIILOOPMARK CTA (exact from flii.app) ── */
+.hero-actions{display:flex;align-items:center;gap:20px;flex-wrap:wrap;}
+.btn-primary{display:inline-flex;align-items:center;justify-content:center;
+  background:var(--mag);color:#fff;border:none;border-radius:100px;
+  padding:12px 24px;font-family:var(--ff-body);font-size:14px;font-weight:700;
+  cursor:pointer;text-decoration:none;transition:background .15s;}
+.btn-primary:hover{background:#C2173A;}
+.loop-cta{display:inline-flex;align-items:center;gap:10px;text-decoration:none;color:var(--ink);
+  transition:color .15s;}
+.loop-cta:hover{color:var(--mag);}
+.loop-cta-t{font-size:14px;font-weight:600;}
+.loop-cta-arrow{color:var(--mag);}
+/* LoopMark mini ring */
+.loopmark{display:inline-flex;align-items:center;flex:none;}
+.loopmark-svg{width:36px;height:36px;display:block;overflow:visible;}
+@keyframes lmSpin{to{transform-origin:50px 50px;transform:rotate(360deg);}}
+.lm-rot{transform-box:view-box;transform-origin:50px 50px;animation:lmSpin 18s linear infinite;}
+.lm-rot2{transform-box:view-box;transform-origin:50px 50px;animation:lmSpin 28s linear infinite reverse;}
+
+/* ── LOOP RING SECTION ── */
+.loop-section{background:var(--dark);padding:64px 24px 72px;}
+.loop-inner{max-width:580px;margin:0 auto;}
+.loop-eyebrow,.on-dark-eyebrow{font-family:var(--ff-mono);font-size:10px;font-weight:600;
+  letter-spacing:.16em;text-transform:uppercase;color:rgba(243,241,235,.4);margin-bottom:8px;display:block;}
+.loop-h2{font-family:var(--ff-disp);font-size:clamp(26px,7vw,40px);font-weight:800;
+  letter-spacing:-1px;color:var(--paper);margin-bottom:8px;}
+.loop-sub{font-size:14px;color:rgba(243,241,235,.45);line-height:1.6;margin-bottom:40px;}
+
+/* Ring */
+.loop-ring-stage{position:relative;width:min(440px,100%);margin:0 auto 8px;aspect-ratio:1;perspective:1200px;}
+.loop-ring-tilt{position:absolute;inset:70px;transform-origin:center;transform-style:preserve-3d;
+  transition:transform .7s cubic-bezier(.2,.7,.2,1),opacity .7s;}
+.loop-ring-stage.open .loop-ring-tilt.tilted{transform:rotateX(34deg) scale(.97);opacity:.9;}
+.loop-ring-svg{width:100%;height:100%;display:block;overflow:visible;transition:opacity .35s;}
+.loop-ring-spin{position:absolute;inset:0;width:100%;height:100%;transform-origin:50% 50%;
+  transform-style:preserve-3d;animation:lrBreathe 6.5s ease-in-out infinite;}
+@keyframes lrBreathe{0%,100%{transform:scale(1);}50%{transform:scale(1.03);}}
+.lr-orb-rot{transform-box:view-box;transform-origin:50px 50px;animation:lrOrbRot 26s linear infinite;}
+.lr-orb-rot2{transform-box:view-box;transform-origin:50px 50px;animation:lrOrbRot 34s linear infinite reverse;}
+@keyframes lrOrbRot{to{transform:rotate(360deg);}}
+.lr-flash{opacity:0;}
+.lr-flash.on{animation:lrFlash .6s ease-out forwards;}
+@keyframes lrFlash{0%{opacity:0;}25%{opacity:.85;}100%{opacity:0;}}
+.loop-ring-core{position:absolute;inset:70px;display:flex;align-items:center;justify-content:center;
+  text-align:center;padding:13%;pointer-events:none;z-index:3;}
+.loop-core-default,.loop-core-content{display:flex;flex-direction:column;gap:9px;align-items:center;}
+.loop-core-content{animation:coreIn .5s ease both;}
+@keyframes coreIn{from{opacity:0;transform:translateY(8px) scale(.96);}to{opacity:1;transform:none;}}
+.loop-core-k{font-size:9.5px;letter-spacing:.16em;text-transform:uppercase;color:var(--mag);font-weight:700;}
+.loop-core-b{font-size:13px;line-height:1.42;color:var(--paper);margin:0;max-width:22ch;font-weight:500;}
+.loop-core-mark{font-size:9.5px;letter-spacing:.18em;text-transform:uppercase;color:rgba(243,241,235,.5);}
+.loop-core-hint{font-family:var(--ff-disp);font-size:15px;font-weight:600;color:rgba(243,241,235,.9);}
+.loop-step-label{position:absolute;display:flex;align-items:center;gap:7px;background:none;border:none;
+  cursor:pointer;font-family:var(--ff-mono);font-size:10.5px;letter-spacing:.11em;text-transform:uppercase;
+  color:rgba(243,241,235,.6);white-space:nowrap;padding:6px;transition:color .15s;
+  text-shadow:0 1px 8px rgba(0,0,0,.45);z-index:4;}
+.loop-step-label:hover,.loop-step-label:focus-visible{color:var(--paper);outline:none;}
+.loop-step-label.on{color:#fff;}
+.loop-step-dot{width:7px;height:7px;border-radius:50%;background:rgba(243,241,235,.38);
+  transition:background .15s,box-shadow .15s;flex:none;}
+.loop-step-label.on .loop-step-dot{background:var(--mag);box-shadow:0 0 0 4px rgba(231,37,90,.25);}
+.lbl-top{top:-2px;left:50%;transform:translate(-50%,0);flex-direction:column;}
+.lbl-bottom{bottom:-2px;left:50%;transform:translate(-50%,0);flex-direction:column-reverse;}
+.lbl-left{left:-2px;top:50%;transform:translate(0,-50%);}
+.lbl-right{right:-2px;top:50%;transform:translate(0,-50%);flex-direction:row-reverse;}
+.loop-lens{display:flex;gap:32px;justify-content:center;flex-wrap:wrap;margin:38px auto 36px;}
+.loop-lens-btn{display:flex;flex-direction:column;align-items:center;gap:8px;background:none;border:none;
+  padding:6px 4px;color:rgba(255,255,255,.58);font:inherit;font-size:12px;font-weight:600;
+  cursor:pointer;transition:color .15s;}
+.loop-lens-btn:hover{color:rgba(255,255,255,.9);}
+.loop-lens-btn.on{color:#fff;}
+.loop-lens-ic{display:flex;color:inherit;}
+.loop-lens-ic svg{width:26px;height:26px;stroke:currentColor;fill:none;stroke-width:1.6;stroke-linecap:round;stroke-linejoin:round;}
+.loop-lens-btn.on .loop-lens-ic{color:var(--mag);}
+
+/* ── FUNNEL SECTION ── */
+.funnel-section{padding:64px 24px 72px;background:#FFFFFF;}
+.funnel-inner{max-width:720px;margin:0 auto;}
+.section-h{font-family:var(--ff-disp);font-size:clamp(26px,6vw,38px);font-weight:800;
+  letter-spacing:-1px;margin-bottom:8px;}
+.section-lede{font-size:15px;color:var(--mid);line-height:1.6;margin-bottom:40px;max-width:60ch;}
+
+/* FunnelViz CSS exact from flii.app */
+.fnl{max-width:860px;margin:44px auto 0;}
+.fnl-svg{width:100%;height:auto;display:block;overflow:visible;}
+.fnl-seg{cursor:pointer;outline:none;}
+.fnl-slice{fill:url(#fnlFill);stroke:rgba(255,255,255,.26);stroke-width:1;opacity:.82;transition:opacity .2s,filter .2s;}
+.fnl-seg:hover .fnl-slice{opacity:.92;}
+.fnl-seg.on .fnl-slice{opacity:1;filter:brightness(1.12);}
+.fnl-letter{font-family:var(--ff-disp);font-weight:600;font-size:38px;fill:#fff;opacity:.9;pointer-events:none;transition:opacity .2s;}
+.fnl-seg.on .fnl-letter{opacity:1;}
+.fnl-outline{fill:none;stroke:rgba(174,34,73,.42);stroke-width:1.4;stroke-linejoin:round;pointer-events:none;}
+.fnl-build{fill:none;stroke:#FF4D8D;stroke-width:3;stroke-linecap:round;stroke-linejoin:round;
+  filter:url(#fnlGlowF);stroke-dasharray:1;stroke-dashoffset:1;opacity:0;pointer-events:none;
+  animation:fnlBuild 5.6s ease-in-out infinite;}
+@keyframes fnlBuild{0%{stroke-dashoffset:1;opacity:0;}6%{opacity:1;}46%{stroke-dashoffset:0;opacity:1;}72%{opacity:1;}100%{stroke-dashoffset:0;opacity:0;}}
+.fnl-desc{margin:24px auto 0;max-width:680px;text-align:center;display:flex;flex-direction:column;gap:7px;animation:fnlFade .3s ease;}
+.fnl-desc-hint{font-size:12px;letter-spacing:.1em;text-transform:uppercase;color:var(--soft);}
+.fnl-desc-k{font-size:13px;letter-spacing:.08em;text-transform:uppercase;color:var(--mag);font-weight:600;}
+.fnl-desc-g{font-size:15px;color:var(--ink);line-height:1.5;}
+.fnl-desc-g strong{color:var(--mag);font-weight:600;}
+.fnl-desc-ex{font-size:13.5px;color:var(--soft);line-height:1.5;}
+.fnl-desc-ex strong{color:var(--mid);font-weight:600;}
+@keyframes fnlFade{from{opacity:0;transform:translateY(4px);}to{opacity:1;transform:none;}}
+@media (prefers-reduced-motion:reduce){.fnl-build{animation:none;opacity:0;}}
+
+/* ── CALCULATOR (exact flii.app CSS) ── */
+.calc-section{padding:64px 24px;background:transparent;}
+.calc-wrap{max-width:760px;margin:0 auto;padding:0;}
+.calc-card{background:transparent;border:none;border-radius:0;overflow:visible;box-shadow:none;}
+.calc-head{padding:24px 0 0;}
+.calc-head .eyebrow{margin-bottom:6px;}
+.calc-head h2{font-family:var(--ff-disp);font-size:clamp(20px,5vw,28px);font-weight:800;
+  letter-spacing:-.8px;margin-bottom:6px;}
+.calc-head p{font-size:13px;color:var(--mid);line-height:1.5;margin-bottom:20px;}
+.calc-steps{display:flex;gap:4px;padding:0;border-bottom:none;overflow-x:auto;scrollbar-width:none;-ms-overflow-style:none;}
+.calc-steps::-webkit-scrollbar{display:none;width:0;height:0;}
+.calc-dot{display:flex;align-items:center;gap:8px;background:none;border:none;cursor:pointer;
+  font:inherit;color:var(--soft);padding:12px 10px;border-radius:0;white-space:nowrap;
+  transition:color .15s;border-bottom:2px solid transparent;margin-bottom:-1px;}
+.calc-dot:hover{color:var(--ink);}
+.calc-dot-n{width:22px;height:22px;flex:none;border-radius:50%;border:1.5px solid var(--line);
+  display:flex;align-items:center;justify-content:center;font-family:var(--ff-mono);font-size:11px;
+  transition:background .15s,border-color .15s,color .15s;}
+.calc-dot-l{font-size:13px;font-weight:600;}
+.calc-dot.on{color:var(--ink);border-bottom-color:var(--mag);}
+.calc-dot.on .calc-dot-n{border-color:var(--mag);background:var(--mag);color:#fff;}
+.calc-dot.done .calc-dot-n{border-color:var(--ink);background:var(--ink);color:var(--paper);}
+.calc-slide{padding:24px 28px 32px;min-height:286px;animation:slideIn .34s ease both;}
+@keyframes slideIn{from{opacity:0;transform:translateX(12px);}to{opacity:1;transform:none;}}
+.calc-slide-head{margin-bottom:20px;padding-bottom:4px;}
+.calc-slide-title{font-family:var(--ff-disp);font-weight:600;font-size:19px;color:var(--ink);
+  letter-spacing:-.01em;margin-bottom:5px;}
+.calc-slide-help{font-size:12.5px;letter-spacing:.02em;color:var(--soft);line-height:1.5;}
+/* scope cards */
+.scope-cards,.type-cards{display:grid;grid-template-columns:repeat(2,1fr);gap:12px;}
+.scope-card{position:relative;border:1.5px solid var(--line);border-radius:14px;padding:16px;
+  cursor:pointer;background:var(--card);text-align:left;transition:border-color .15s,background .15s,box-shadow .15s;}
+.scope-card:hover{border-color:var(--soft);}
+.scope-card.on{border-color:var(--mag);background:rgba(231,37,90,.03);
+  box-shadow:0 0 0 3px rgba(231,37,90,.1);}
+.scope-check{position:absolute;top:12px;right:12px;width:20px;height:20px;border-radius:6px;
+  border:1.5px solid var(--line);display:flex;align-items:center;justify-content:center;
+  font-size:12px;font-weight:700;color:transparent;transition:all .15s;}
+.scope-card.on .scope-check{border-color:var(--mag);background:var(--mag);color:#fff;}
+.scope-badge{display:inline-block;font-family:var(--ff-mono);font-size:8px;letter-spacing:.08em;
+  text-transform:uppercase;color:var(--mag);background:rgba(231,37,90,.1);border-radius:4px;
+  padding:2px 6px;margin-bottom:8px;}
+.scope-card-t{font-family:var(--ff-disp);font-size:16px;font-weight:700;color:var(--ink);display:block;margin-bottom:4px;}
+.scope-card-d{font-size:12px;color:var(--mid);line-height:1.4;}
+/* details */
+.calc-details{display:flex;flex-direction:column;gap:24px;}
+.detail-block{display:flex;flex-direction:column;gap:12px;border-top:1px solid var(--line);padding-top:18px;}
+.calc-details .detail-block:first-child{border-top:none;padding-top:0;}
+.detail-block-q{font-size:15px;font-weight:600;color:var(--ink);}
+/* channels list */
+.svc-list{display:flex;flex-direction:column;}
+.svc-item{border-top:1px solid var(--line);}
+.svc-item:last-child{border-bottom:1px solid var(--line);}
+.svc-row{display:flex;align-items:center;gap:12px;width:100%;background:none;border:none;
+  padding:14px 4px;font:inherit;cursor:pointer;text-align:left;color:var(--ink);}
+.svc-row-x{display:inline-flex;width:20px;height:20px;flex:none;align-items:center;justify-content:center;
+  font-weight:700;font-size:15px;color:var(--soft);border:1px solid var(--line);border-radius:6px;
+  transition:background .14s,border-color .14s,color .14s;}
+.svc-row.on .svc-row-x{background:var(--mag);border-color:var(--mag);color:#fff;}
+.svc-row-n{flex:1;font-weight:600;font-size:15px;transition:color .14s;}
+.svc-row.on .svc-row-n{color:var(--mag);}
+.svc-row-p{font-size:12.5px;color:var(--mid);font-weight:500;white-space:nowrap;}
+.cat-refine{display:flex;flex-direction:column;gap:13px;padding:2px 0 18px;}
+.cat-explain{font-size:12.5px;color:var(--soft);line-height:1.5;margin:0;}
+.refine-group{display:flex;flex-direction:column;gap:8px;}
+.refine-h{font-size:10px;letter-spacing:.11em;text-transform:uppercase;color:var(--soft);}
+/* toggles */
+.toggle{display:flex;align-items:center;gap:12px;width:100%;padding:12px 14px;
+  border:1.5px solid var(--line);border-radius:10px;background:var(--card);cursor:pointer;
+  margin-bottom:6px;text-align:left;transition:border-color .15s,background .15s;}
+.toggle.on{border-color:var(--mag);background:rgba(231,37,90,.03);}
+.toggle-sm{padding:9px 12px;}
+.toggle-main{flex:1;}
+.toggle-t{font-size:14px;font-weight:600;color:var(--ink);display:block;}
+.toggle-d{font-size:12px;color:var(--soft);display:block;margin-top:2px;line-height:1.4;}
+.toggle-p{font-size:12px;color:var(--mid);white-space:nowrap;}
+.toggle-desc{display:block;font-size:11px;color:var(--soft);margin-top:2px;line-height:1.4;font-weight:400;}
+.tgt{width:30px;height:17px;border-radius:9px;background:var(--line);flex:none;
+  display:flex;align-items:center;padding:2px 3px;transition:background .15s;}
+.toggle.on .tgt{background:var(--mag);justify-content:flex-end;}
+.tgt-dot{width:13px;height:13px;border-radius:50%;background:#fff;}
+.waived{text-decoration:line-through;opacity:.45;}
+.cfg-toggles{display:flex;flex-direction:column;gap:8px;margin-bottom:4px;}
+.combo-note{font-size:12px;color:var(--mag);margin-top:4px;font-style:italic;}
+/* receipt */
+.cfg-out-card{background:var(--card);border:1px solid var(--line);border-radius:16px;padding:24px;
+  box-shadow:0 14px 34px -18px rgba(231,37,90,.25);}
+.cfg-out-h{font-size:11px;letter-spacing:.1em;text-transform:uppercase;color:var(--soft);
+  padding-bottom:14px;border-bottom:1px solid var(--line);margin-bottom:10px;}
+.rcp{display:flex;flex-direction:column;margin:2px 0 6px;text-align:left;}
+.rcp-head{display:grid;grid-template-columns:minmax(0,1fr) 80px 80px;gap:8px;
+  font-size:10px;letter-spacing:.07em;text-transform:uppercase;color:var(--soft);
+  padding-bottom:9px;border-bottom:1px solid var(--line);}
+.rcp-head span+span{text-align:right;}
+.rcp-line+.rcp-line{border-top:1px dashed var(--line);}
+.rcp-row{display:grid;grid-template-columns:minmax(0,1fr) 80px 80px;gap:8px;
+  align-items:baseline;padding:11px 0;width:100%;text-align:left;background:none;border:none;font:inherit;}
+.rcp-row-btn{cursor:pointer;}
+.rcp-row-btn:hover{background:rgba(0,0,0,.02);}
+.rcp-l{color:var(--ink);font-weight:500;font-size:14px;display:flex;align-items:baseline;gap:7px;}
+.rcp-v{font-size:13px;color:var(--mid);text-align:right;white-space:nowrap;}
+.rcp-caret{color:var(--mag);font-size:13px;transition:transform .18s;display:inline-block;}
+.rcp-caret.on{transform:rotate(90deg);}
+.rcp-srow{padding:5px 0;}
+.rcp-srow .rcp-l{font-weight:400;font-size:12.5px;color:var(--mid);padding-left:18px;}
+.rcp-srow .rcp-v{font-size:12px;color:var(--soft);}
+.rcp-free{font-style:italic;color:var(--soft);}
+.rcp-tot{border-top:1px solid var(--line);margin-top:3px;padding-top:12px;}
+.rcp-tot .rcp-l{font-size:11px;text-transform:uppercase;letter-spacing:.08em;color:var(--soft);font-weight:700;}
+.rcp-tot .rcp-v{color:var(--ink);font-weight:700;font-size:15px;}
+
+.cfg-amount{margin:16px 0 4px;}
+.cfg-amount-l{font-size:11px;color:var(--mid);margin-bottom:2px;}
+.cfg-amount-v{font-family:var(--ff-disp);font-size:30px;font-weight:800;letter-spacing:-.8px;}
+.cfg-mo{font-size:15px;font-weight:600;color:var(--soft);margin-left:2px;}
+.cfg-excl{font-size:11px;color:var(--soft);line-height:1.5;margin:12px 0 0;}
+.cfg-empty{padding:16px 0;color:var(--soft);font-size:14px;}
+.cfg-cta,@keyframes cta-neon-pulse{
+  0%,100%{border-color:rgba(232,41,74,.7);box-shadow:0 0 8px rgba(232,41,74,.18);}
+  50%    {border-color:rgba(232,41,74,1); box-shadow:0 0 18px rgba(232,41,74,.42);}
+}
+.btn-cta{width:100%;justify-content:center;margin-top:20px;display:flex;align-items:center;gap:8px;
+  background:#0F0E0C;color:#fff;border:1.5px solid rgba(232,41,74,.7);border-radius:100px;
+  padding:15px 24px;font-family:var(--ff-body);font-size:14px;font-weight:700;
+  cursor:pointer;text-decoration:none;
+  animation:cta-neon-pulse 3s ease-in-out infinite;
+  transition:background .15s ease,transform .15s ease;}
+.cfg-cta:hover,.btn-cta:hover{background:#1A1917;border-color:#E8294A;transform:translateY(-1px);}
+.cfg-cta,.calc-nav{display:flex;align-items:center;justify-content:space-between;gap:12px;
+  padding:20px 0 4px;border-top:none;background:transparent;}
+.calc-running{font-size:12.5px;color:var(--mid);text-align:center;flex:1;font-weight:600;}
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:6px;border:none;
+  border-radius:100px;padding:10px 20px;font-family:var(--ff-body);font-size:13px;font-weight:700;
+  cursor:pointer;transition:background .15s;}
+.btn-primary{background:var(--mag);color:#fff;}
+.btn-primary:hover{background:#C2173A;}
+.btn-ghost{background:none;border:1.5px solid var(--line);color:var(--mid);}
+.btn-ghost:hover{border-color:var(--ink);color:var(--ink);}
+.btn:disabled{opacity:.4;cursor:default;}
+.opt-group{display:flex;flex-direction:column;gap:6px;margin-top:6px;}
+
+.page-footer{padding:32px 24px;text-align:center;font-size:12px;color:var(--soft);
+  border-top:1px solid var(--line);}
+.page-footer a{color:var(--ink);font-weight:600;text-decoration:none;}
+
+@media(max-width:520px){
+  .scope-cards{grid-template-columns:1fr;}
+  .calc-dot-l{display:none;}
+  .calc-dot-n{width:26px;height:26px;}
+  .calc-slide{padding:20px;}
+  .calc-running{display:none;}
+  /* Beide bedragen blijven zichtbaar: eenmalig boven, per maand eronder. */
+  .rcp-head span+span{display:none;}
+  .rcp-head{grid-template-columns:1fr;}
+  .rcp-row,.rcp-tot{grid-template-columns:minmax(0,1fr) auto;}
+  .rcp-v{display:block;grid-column:2;font-size:12px;}
+  .rcp-v:empty{display:none;}
+  .rcp-v[data-kind="once"]{grid-row:1;}
+  .rcp-v[data-kind="mo"]{grid-row:2;color:var(--soft);}
+  .rcp-tot .rcp-v{font-size:13px;}
+}
+
+.fnl-desc-card {
+  margin: 20px auto 0; max-width: 340px; min-height: 90px;
+  background: #fff; border: 1px solid #E8E6E1; border-radius: 16px;
+  padding: 20px 22px; text-align: center;
+  display: flex; flex-direction: column; align-items: center; justify-content: center;
+  box-shadow: 0 2px 12px rgba(0,0,0,.06);
+}
+.fnl-desc-card .fnl-desc-hint { font-size: 12px; color: #9B9790; font-family: var(--ff-mono); }
+.fnl-phase-name { font-family: var(--ff-disp); font-size: 18px; font-weight: 900; color: #0F0E0C; margin-bottom: 6px; letter-spacing: -.3px; }
+.fnl-phase-body { font-size: 13px; color: #4A4840; line-height: 1.6; }
+
+/* ── Calc fixes ── */
+.calc-slide-head { padding-top: 10px; }
+.calc-card { overflow: visible; }
+.calc-slide { padding: 16px 10px; }
+.fnl-phase-example { font-size: 12px; color: #0F0E0C; margin-top: 8px; line-height: 1.5; }
+.fnl-phase-example em { font-style: normal; color: rgba(232,41,74,.8); font-weight: 600; }
+
+/* ── Calc fixes ── */
+.calc-slide-head { padding-top: 10px; }
+.calc-wrap { padding: 0; }
+.calc-card { overflow: visible; }
+.calc-slide { padding: 16px 10px; }
+.fnl-phase-example { font-size: 12px; color: #4A4840; margin-top: 8px; line-height: 1.5; }
+.fnl-phase-example em { font-style: normal; color: rgba(232,41,74,.8); font-weight: 600; }
+
+/* Campagnekanalen in stap 2 — kaart per kanaal in plaats van een platte lijst */
+.svc-list{display:flex;flex-direction:column;gap:8px;}
+.svc-item{border-top:none;border:1px solid var(--line);border-radius:12px;
+  background:var(--card);overflow:hidden;transition:border-color .15s,box-shadow .15s;}
+.svc-item:has(.svc-row.on){border-color:var(--mag);box-shadow:0 1px 0 rgba(232,41,74,.08);}
+.svc-row{display:flex;align-items:center;gap:12px;width:100%;background:none;border:none;
+  padding:13px 14px;font:inherit;cursor:pointer;text-align:left;color:var(--ink);}
+.svc-row-x{display:inline-flex;width:22px;height:22px;flex:none;align-items:center;
+  justify-content:center;font-weight:700;font-size:14px;color:var(--soft);
+  border:1px solid var(--line);border-radius:7px;transition:all .15s;}
+.svc-row.on .svc-row-x{background:var(--mag);border-color:var(--mag);color:#fff;}
+.svc-row-n{flex:1;font-weight:600;font-size:14.5px;}
+.svc-row-p{font-size:12px;color:var(--soft);font-weight:500;white-space:nowrap;}
+.svc-row.on .svc-row-p{color:var(--mag);}
+
+.cat-refine{display:flex;flex-direction:column;gap:16px;padding:0 14px 16px;
+  border-top:1px solid var(--line);margin-top:-1px;}
+.cat-explain{font-size:12.5px;color:var(--soft);line-height:1.5;margin:12px 0 0;}
+.refine-group{display:flex;flex-direction:column;gap:6px;}
+.refine-h{font-size:9.5px;letter-spacing:.12em;text-transform:uppercase;color:var(--soft);
+  font-weight:700;margin-bottom:2px;}
+
+/* keuzes als compacte chips in plaats van volle regels */
+.chip-grid{display:flex;flex-wrap:wrap;gap:6px;}
+.chip-opt{display:inline-flex;align-items:center;gap:6px;padding:7px 11px;border-radius:100px;
+  border:1px solid var(--line);background:var(--white);cursor:pointer;font:inherit;
+  font-size:12.5px;font-weight:500;color:var(--mid);transition:all .14s;line-height:1.2;}
+.chip-opt:hover{border-color:var(--soft);}
+.chip-opt.on{background:var(--ink);border-color:var(--ink);color:#fff;}
+.chip-opt-p{font-size:10.5px;opacity:.6;white-space:nowrap;}
+.chip-opt.on .chip-opt-p{opacity:.75;}
+
+/* diensten houden hun beschrijving, maar strakker */
+.del-list{display:flex;flex-direction:column;gap:5px;}
+.del-row{display:flex;align-items:flex-start;gap:10px;width:100%;padding:9px 11px;
+  border:1px solid var(--line);border-radius:10px;background:var(--white);
+  cursor:pointer;font:inherit;text-align:left;transition:all .14s;}
+.del-row:hover{border-color:var(--soft);}
+.del-row.on{border-color:var(--ink);background:#FBFAF8;}
+.del-check{width:16px;height:16px;flex:none;border-radius:5px;border:1.5px solid var(--line);
+  margin-top:1px;display:flex;align-items:center;justify-content:center;
+  font-size:10px;color:#fff;transition:all .14s;}
+.del-row.on .del-check{background:var(--ink);border-color:var(--ink);}
+.del-main{flex:1;min-width:0;}
+.del-t{font-size:13.5px;font-weight:600;color:var(--ink);display:block;}
+.del-d{display:block;font-size:11px;color:var(--soft);margin-top:2px;line-height:1.4;}
+.del-p{font-size:11.5px;color:var(--mid);white-space:nowrap;font-weight:500;padding-top:1px;}
+
+.btn.is-disabled{opacity:.4;cursor:not-allowed;pointer-events:none;}
+.calc-empty-step{display:flex;flex-direction:column;align-items:flex-start;gap:14px;
+  padding:28px 0 8px;}
+.calc-empty-step p{margin:0;font-size:14px;color:var(--soft);}
+.rcp-nrow .rcp-l{font-style:italic;color:var(--soft);font-size:11.5px;}
+
+.footer-mini-links{display:flex;flex-wrap:wrap;justify-content:center;gap:6px 14px;
+  margin:0 auto 12px;max-width:640px;padding:0 24px;}
+.footer-mini-links a{font-size:11px;color:#6B6866;text-decoration:none;transition:color .12s;}
+.footer-mini-links a:hover{color:#0F0E0C;}
+
+/* Alle secties op dezelfde inhoudsbreedte: 632px, gelijk aan de footer en CTA. */
+section.hero{max-width:680px;margin-left:auto;margin-right:auto;}
+.loop-inner,.funnel-inner,.calc-wrap{max-width:632px;margin-left:auto;margin-right:auto;
+  width:100%;box-sizing:border-box;}
+body nav.nav{max-width:680px;margin-left:auto;margin-right:auto;box-sizing:border-box;}
+body footer.footer{max-width:680px;margin-left:auto;margin-right:auto;box-sizing:border-box;}
+
+/* Alle secties op dezelfde breedte als nav, hero en footer. */
+section.loop-section,section.funnel-section,section.calc-section{
+  max-width:680px;margin-left:auto;margin-right:auto;box-sizing:border-box;}
+section.loop-section{border-radius:18px;margin-top:28px;margin-bottom:28px;
+  border:1px solid rgba(255,255,255,.14);box-shadow:0 8px 28px rgba(15,14,12,.10);
+  /* de kaart springt in tot waar de tekst van de andere secties begint */
+  max-width:min(680px, calc(100% - 32px));margin-left:auto;margin-right:auto;}
+
+/* Navigatiebalk overal gelijk. */
+nav.nav{background:#fff !important;color:#0F0E0C !important;max-width:none !important;margin:0 !important;}
+
+/* Footer volgt deze breedte. */
+:root{--paginabreedte:680px;}
+</style>
+<link rel="canonical" href="https://flii.nl/en/loop">
+<link rel="alternate" hreflang="nl" href="https://flii.nl/loop">
+<link rel="alternate" hreflang="en" href="https://flii.nl/en/loop">
+<link rel="alternate" hreflang="x-default" href="https://flii.nl/loop">
+<link rel="stylesheet" href="/assets/reduced-motion.css">
+<script defer src="/assets/reduced-motion.js"></script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    {
+      "@type": "ListItem",
+      "position": 1,
+      "name": "Home",
+      "item": "https://flii.nl/en/"
+    },
+    {
+      "@type": "ListItem",
+      "position": 2,
+      "name": "Improve based on market demand.",
+      "item": "https://flii.nl/en/loop"
+    }
+  ]
+}
+</script>
+<link rel="icon" href="/assets/img/d913cc3c069f.webp" type="image/png">
+<link rel="apple-touch-icon" href="/assets/img/d913cc3c069f.webp">
+<meta name="theme-color" content="#0F0E0C">
+<link rel="preload" href="/assets/fonts/BricolageGrotesque.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="stylesheet" href="/assets/footer.css?v=20261017n">
+<script defer src="/assets/footer.js"></script>
+<link rel="stylesheet" href="/assets/nav.css?v=20261019c">
+<script defer src="/assets/nav.js?v=20261027c"></script>
+<script defer src="/assets/lang.js?v=20261027c"></script>
+</head>
+<body>
+
+<!-- NAV -->
+<nav class="nav">
+  <div class="nav-logo">
+    <a href="/en/" class="nav-mark" aria-label="Flii Media, go to the homepage"><img src="/assets/img/d913cc3c069f.webp" alt="Flii Media" fetchpriority="high" decoding="async"></a>
+  </div>
+  <button class="nav-burger" type="button" aria-label="Menu" aria-controls="nav-menu" aria-haspopup="dialog"><span></span><span></span></button>
+</nav>
+<script>
+(function(){
+  var clean = sessionStorage.getItem('cleanPath');
+  if (clean) { sessionStorage.removeItem('cleanPath'); history.replaceState(null,'',clean); return; }
+  var loc = window.location;
+  if (loc.pathname.endsWith('.html') && loc.pathname !== '/index.html') {
+    history.replaceState(null,'',loc.pathname.slice(0,-5)+loc.search+loc.hash);
+  }
+})();
+</script>
+
+<!-- HERO -->
+<section class="hero">
+  <span class="eyebrow">Flii Loop</span>
+  <h1>Improve based on market demand.</h1>
+  <p class="hero-lede">A plan for launching and continuously improving your apps, platforms or media. In step with what your audience wants, better every month.</p>
+  <div class="hero-actions">
+    <a href="#calculator" class="btn-primary">Calculate Loop →</a>
+    <a href="#loop" class="loop-cta">
+      <!-- FliiLoopMark exact SVG from flii.app -->
+      <span class="loopmark" aria-hidden="true">
+        <svg class="loopmark-svg" viewBox="0 0 100 100">
+          <defs>
+            <linearGradient id="lmGrad" x1="0" y1="0" x2="1" y2="1">
+              <stop offset="0%" stop-color="#B14BFF"/>
+              <stop offset="28%" stop-color="#E7255A"/>
+              <stop offset="50%" stop-color="#FF5E9A"/>
+              <stop offset="64%" stop-color="#FFD2E4"/>
+              <stop offset="80%" stop-color="#FF3D8E"/>
+              <stop offset="100%" stop-color="#C04BFF"/>
+            </linearGradient>
+            <filter id="lmFire" x="-60%" y="-60%" width="220%" height="220%">
+              <feTurbulence type="fractalNoise" baseFrequency="0.022 0.04" numOctaves="2" seed="4" result="n">
+                <animate attributeName="baseFrequency" dur="6s" values="0.022 0.04;0.03 0.052;0.02 0.034;0.022 0.04" repeatCount="indefinite"/>
+              </feTurbulence>
+              <feDisplacementMap in="SourceGraphic" in2="n" scale="9" xChannelSelector="R" yChannelSelector="G">
+                <animate attributeName="scale" dur="5s" values="8;12.5;9;8" repeatCount="indefinite"/>
+              </feDisplacementMap>
+              <feGaussianBlur stdDeviation="0.5"/>
+            </filter>
+            <filter id="lmGlow" x="-60%" y="-60%" width="220%" height="220%"><feGaussianBlur stdDeviation="2.4"/></filter>
+          </defs>
+          <g class="lm-rot">
+            <circle cx="50" cy="50" r="35" fill="none" stroke="url(#lmGrad)" stroke-width="7" filter="url(#lmGlow)" opacity="0.5"/>
+            <circle cx="50" cy="50" r="35" fill="none" stroke="url(#lmGrad)" stroke-width="5" filter="url(#lmFire)"/>
+          </g>
+          <g class="lm-rot2">
+            <circle cx="50" cy="50" r="32" fill="none" stroke="url(#lmGrad)" stroke-width="3" filter="url(#lmFire)" opacity="0.85"/>
+          </g>
+        </svg>
+      </span>
+      <span class="loop-cta-t">See Flii Loop <span class="loop-cta-arrow" aria-hidden="true">↘</span></span>
+    </a>
+  </div>
+</section>
+
+<section class="loop-section" id="loop">
+  <div class="loop-inner">
+    <div class="loop-eyebrow">Flii Loop</div>
+    <h2 class="loop-h2">Always learning.</h2>
+    <p class="loop-sub">Four steps. Repeated continuously. Every iteration better than the last.</p>
+    <!-- Ring -->
+    <div class="loop-ring-stage" id="loop-ring-stage">
+      <div class="loop-ring-tilt" id="loop-ring-tilt">
+        <div class="loop-ring-spin">
+          <svg class="loop-ring-svg" viewBox="0 0 100 100" aria-hidden="true">
+            <defs>
+              <linearGradient id="lrGrad" x1="0" y1="0" x2="1" y2="1">
+                <stop offset="0%" stop-color="#B14BFF"/>
+                <stop offset="28%" stop-color="#E7255A"/>
+                <stop offset="50%" stop-color="#FF5E9A"/>
+                <stop offset="64%" stop-color="#FFD2E4"/>
+                <stop offset="80%" stop-color="#FF3D8E"/>
+                <stop offset="100%" stop-color="#C04BFF"/>
+              </linearGradient>
+              <filter id="lrFire" x="-60%" y="-60%" width="220%" height="220%">
+                <feTurbulence type="fractalNoise" baseFrequency="0.018 0.034" numOctaves="2" seed="4" result="n">
+                  <animate attributeName="baseFrequency" dur="7s" values="0.018 0.034;0.026 0.046;0.016 0.03;0.018 0.034" repeatCount="indefinite"/>
+                </feTurbulence>
+                <feDisplacementMap in="SourceGraphic" in2="n" scale="8" xChannelSelector="R" yChannelSelector="G">
+                  <animate attributeName="scale" dur="5.5s" values="8;11;9;8" repeatCount="indefinite"/>
+                </feDisplacementMap>
+                <feGaussianBlur stdDeviation="0.5"/>
+              </filter>
+              <filter id="lrGlow" x="-60%" y="-60%" width="220%" height="220%"><feGaussianBlur stdDeviation="2.6"/></filter>
+              <radialGradient id="lrBody" cx="50%" cy="48%" r="52%">
+                <stop offset="0%" stop-color="#0C0207"/>
+                <stop offset="58%" stop-color="#160410"/>
+                <stop offset="84%" stop-color="#360A22"/>
+                <stop offset="96%" stop-color="#8A1A48"/>
+                <stop offset="100%" stop-color="#0C0207"/>
+              </radialGradient>
+              <filter id="lrRimSoft" x="-70%" y="-70%" width="240%" height="240%"><feGaussianBlur stdDeviation="3.4"/></filter>
+              <filter id="lrWisp" x="-10%" y="-10%" width="120%" height="120%">
+                <feTurbulence type="fractalNoise" baseFrequency="0.85 0.02" numOctaves="2" seed="7" result="n">
+                  <animate attributeName="baseFrequency" dur="16s" values="0.85 0.02;0.8 0.03;0.85 0.02" repeatCount="indefinite"/>
+                </feTurbulence>
+                <feColorMatrix in="n" type="matrix" values="0 0 0 0 1  0 0 0 0 0.36  0 0 0 0 0.62  0 0 0 0.7 0"/>
+              </filter>
+              <radialGradient id="lrWispFade" cx="50%" cy="50%" r="50%">
+                <stop offset="0%" stop-color="#fff" stop-opacity="0"/>
+                <stop offset="58%" stop-color="#fff" stop-opacity="0"/>
+                <stop offset="90%" stop-color="#fff" stop-opacity="0.55"/>
+                <stop offset="100%" stop-color="#fff" stop-opacity="0"/>
+              </radialGradient>
+              <mask id="lrWispMask"><circle cx="50" cy="50" r="39" fill="url(#lrWispFade)"/></mask>
+              <filter id="lrBubble" x="-30%" y="-30%" width="160%" height="160%">
+                <feTurbulence type="fractalNoise" baseFrequency="0.008 0.011" numOctaves="2" seed="3" result="n">
+                  <animate attributeName="baseFrequency" dur="13s" values="0.008 0.011;0.012 0.008;0.007 0.013;0.008 0.011" repeatCount="indefinite"/>
+                </feTurbulence>
+                <feDisplacementMap in="SourceGraphic" in2="n" scale="7" xChannelSelector="R" yChannelSelector="G">
+                  <animate attributeName="scale" dur="9s" values="5;10;6;5" repeatCount="indefinite"/>
+                </feDisplacementMap>
+              </filter>
+            </defs>
+            <g filter="url(#lrBubble)">
+              <circle cx="50" cy="50" r="39" fill="url(#lrBody)"/>
+              <g class="lr-orb-rot2">
+                <circle cx="48.7" cy="50" r="38.3" fill="none" stroke="#B14BFF" stroke-width="1.1" filter="url(#lrRimSoft)" opacity="0.6"/>
+                <circle cx="51.3" cy="50" r="38.3" fill="none" stroke="#FF5E9A" stroke-width="1.1" filter="url(#lrRimSoft)" opacity="0.6"/>
+                <circle cx="50" cy="50" r="38.6" fill="none" stroke="url(#lrGrad)" stroke-width="2.6" filter="url(#lrRimSoft)" opacity="0.85"/>
+                <circle cx="50" cy="50" r="38.7" fill="none" stroke="url(#lrGrad)" stroke-width="0.9" filter="url(#lrGlow)"/>
+                <circle cx="50" cy="50" r="38.8" fill="none" stroke="#FFEAF3" stroke-width="0.4" opacity="0.8"/>
+              </g>
+            </g>
+            <g class="lr-orb-rot">
+              <g mask="url(#lrWispMask)"><rect x="8" y="8" width="84" height="84" filter="url(#lrWisp)" opacity="0.55"/></g>
+            </g>
+            <circle id="lr-flash-el" class="lr-flash" cx="50" cy="50" r="38.6" fill="none" stroke="url(#lrGrad)" stroke-width="3" filter="url(#lrRimSoft)"/>
+          </svg>
+        </div>
+      </div>
+
+      <!-- Core text -->
+      <div class="loop-ring-core" id="loop-core">
+        <div class="loop-core-default">
+          <div class="loop-core-mark">Flii Loop</div>
+          <div class="loop-core-hint">Always learning</div>
+        </div>
+      </div>
+
+      <!-- Step labels — 4 positions -->
+      <button class="loop-step-label lbl-top" data-idx="0" onclick="selectStep(0)">
+        <span class="loop-step-dot"></span><span class="loop-step-k">Launch</span>
+      </button>
+      <button class="loop-step-label lbl-right" data-idx="1" onclick="selectStep(1)">
+        <span class="loop-step-dot"></span><span class="loop-step-k">Measure</span>
+      </button>
+      <button class="loop-step-label lbl-bottom" data-idx="2" onclick="selectStep(2)">
+        <span class="loop-step-dot"></span><span class="loop-step-k">Analyse</span>
+      </button>
+      <button class="loop-step-label lbl-left" data-idx="3" onclick="selectStep(3)">
+        <span class="loop-step-dot"></span><span class="loop-step-k">Improve</span>
+      </button>
+    </div>
+  </div>
+</section>
+
+<!-- FUNNEL SECTION -->
+<section class="funnel-section">
+  <div class="funnel-inner">
+    <span class="eyebrow">Campaigns</span>
+    <h2 class="section-h">From stranger to ambassador.</h2>
+    <p class="section-lede">Every campaign guides your audience through the funnel step by step, from first introduction to repeat purchases and recommendations.</p>
+    <div class="fnl" id="fnl-wrap">
+      <svg class="fnl-svg" viewBox="0 0 1000 360" role="img" aria-label="Marketing funnel">
+        <defs>
+          <linearGradient id="fnlFill" x1="0" y1="0" x2="1" y2="1">
+            <stop offset="0" stop-color="#DA3E68"/>
+            <stop offset="1" stop-color="#AE2249"/>
+          </linearGradient>
+          <filter id="fnlGlowF" x="-10%" y="-70%" width="120%" height="240%">
+            <feGaussianBlur stdDeviation="4" result="b"/>
+            <feMerge><feMergeNode in="b"/><feMergeNode in="SourceGraphic"/></feMerge>
+          </filter>
+        </defs>
+        <!-- segments built by JS -->
+        <g id="fnl-segs"></g>
+        <path class="fnl-outline" id="fnl-outline" d=""/>
+        <path class="fnl-build" id="fnl-top" pathLength="1" d=""/>
+        <path class="fnl-build" id="fnl-bot" pathLength="1" d=""/>
+      </svg>
+      <div class="fnl-desc-card" id="fnl-desc">
+        <span class="fnl-desc-hint">Tap a stage</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CALCULATOR -->
+<section class="calc-section" id="calculator">
+  <div class="calc-wrap">
+    <div class="calc-card">
+      <div class="calc-head">
+        <span class="eyebrow">Price indicator</span>
+        <h2>Calculate Loop.</h2>
+        <p>Click through the steps and see an estimate straight away. Excluding VAT and media budget.</p>
+      </div>
+      <div class="calc-steps" id="calc-nav"></div>
+      <div id="calc-body"></div>
+
+    </div>
+  </div>
+</section>
+
+<footer class="footer">
+  <div class="footer-bento">
+    <div class="footer-tile footer-tile-brand">
+      <div class="footer-social-row">
+        <a href="https://nl.linkedin.com/company/flii-media" class="social-icon" aria-label="LinkedIn"><svg viewBox="0 0 24 24" fill="none"><path d="M16 8a6 6 0 016 6v7h-4v-7a2 2 0 00-2-2 2 2 0 00-2 2v7h-4v-7a6 6 0 016-6zM2 9h4v12H2z" fill="#4A4840"/><circle cx="4" cy="4" r="2" fill="#4A4840"/></svg></a>
+        <a href="https://share.google/wEE1drPcTYlHW0Beo" target="_blank" class="social-icon" aria-label="Google"><svg viewBox="0 0 24 24"><path d="M21.8 12.2c0-.7-.1-1.4-.2-2H12v3.8h5.5c-.2 1.2-.9 2.2-2 2.9v2.4h3.2c1.9-1.7 3-4.3 3-7.1z" fill="#4285F4"/><path d="M12 22c2.7 0 5-.9 6.7-2.4l-3.2-2.4c-.9.6-2 1-3.5 1-2.7 0-4.9-1.8-5.7-4.2H3v2.5C4.7 19.9 8.1 22 12 22z" fill="#34A853"/><path d="M6.3 13.9c-.2-.6-.3-1.2-.3-1.9s.1-1.3.3-1.9V7.6H3C2.3 9 2 10.5 2 12s.3 3 1 4.4l3.3-2.5z" fill="#FBBC04"/><path d="M12 5.8c1.5 0 2.9.5 3.9 1.5l2.9-2.9C17 2.8 14.7 2 12 2 8.1 2 4.7 4.1 3 7.6l3.3 2.5C7.1 7.6 9.3 5.8 12 5.8z" fill="#EA4335"/></svg></a>
+        <a href="https://share.google/wEE1drPcTYlHW0Beo" target="_blank" rel="noopener" class="google-review-banner"><span class="grb-stars">&#9733;&#9733;&#9733;&#9733;&#9733;</span><span class="grb-text"><strong>5.0</strong> on Google &middot; 14 reviews</span></a>
+      </div>
+      <p class="footer-address">Handweg 159, Amstelveen &middot; info@flii.nl &middot; <a href="https://share.google/wEE1drPcTYlHW0Beo" target="_blank" rel="noopener" class="footer-hours-link">Opening hours</a></p>
+    </div>
+    <div class="footer-tile footer-tile-nav">
+      <span class="footer-nav-head">Knowledge base</span>
+      <a href="/en/knowledge-base#kb-marketing" class="footer-nav-link">Marketing</a>
+      <a href="/en/knowledge-base#kb-merk" class="footer-nav-link">Brand</a>
+      <a href="/en/knowledge-base#kb-content" class="footer-nav-link">Content</a>
+      <a href="/en/knowledge-base#kb-media" class="footer-nav-link">Media</a>
+      <a href="/en/knowledge-base#kb-data" class="footer-nav-link">Data</a>
+      <a href="/en/platforms" class="footer-nav-link">Platforms</a>
+
+    </div>
+    <div class="footer-tile footer-tile-nav">
+      <span class="footer-nav-head">Products</span>
+      <a href="/en/loop" class="footer-nav-link">Flii Loop</a>
+      <a href="/en/services/product-launch-plan" class="footer-nav-link">Product launch</a>
+    </div>
+    <div class="footer-tile footer-tile-nav">
+      <span class="footer-nav-head">Services</span>
+      <a href="/en/services/campaigns-media" class="footer-nav-link">Campaigns &amp; media</a>
+      <a href="/en/services/content-social" class="footer-nav-link">Content &amp; social</a>
+      <a href="/en/services/web-apps-ai" class="footer-nav-link">Web, apps &amp; AI</a>
+      <a href="/en/services/data-research" class="footer-nav-link">Data analysis &amp; research</a>
+    </div>
+    <div class="footer-tile footer-tile-nav footer-tile-zoek">
+      <span class="footer-nav-head">What people hire us for</span>
+      <a href="/en/google-ads-agency" class="footer-nav-link"><svg class="fn-ic" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M3.9998 22.9291C1.7908 22.9291 0 21.1383 0 18.9293s1.7908-3.9998 3.9998-3.9998 3.9998 1.7908 3.9998 3.9998-1.7908 3.9998-3.9998 3.9998zm19.4643-6.0004L15.4632 3.072C14.3586 1.1587 11.9121.5028 9.9988 1.6074S7.4295 5.1585 8.5341 7.0718l8.0009 13.8567c1.1046 1.9133 3.5511 2.5679 5.4644 1.4646 1.9134-1.1046 2.568-3.5511 1.4647-5.4644zM7.5137 4.8438L1.5645 15.1484A4.5 4.5 0 0 1 4 14.4297c2.5597-.0075 4.6248 2.1585 4.4941 4.7148l3.2168-5.5723-3.6094-6.25c-.4499-.7793-.6322-1.6394-.5878-2.4784z"/></svg><span>Google Ads agency</span></a>
+      <a href="/en/social-media-management" class="footer-nav-link"><svg class="fn-ic" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M7.0301.084c-1.2768.0602-2.1487.264-2.911.5634-.7888.3075-1.4575.72-2.1228 1.3877-.6652.6677-1.075 1.3368-1.3802 2.127-.2954.7638-.4956 1.6365-.552 2.914-.0564 1.2775-.0689 1.6882-.0626 4.947.0062 3.2586.0206 3.6671.0825 4.9473.061 1.2765.264 2.1482.5635 2.9107.308.7889.72 1.4573 1.388 2.1228.6679.6655 1.3365 1.0743 2.1285 1.38.7632.295 1.6361.4961 2.9134.552 1.2773.056 1.6884.069 4.9462.0627 3.2578-.0062 3.668-.0207 4.9478-.0814 1.28-.0607 2.147-.2652 2.9098-.5633.7889-.3086 1.4578-.72 2.1228-1.3881.665-.6682 1.0745-1.3378 1.3795-2.1284.2957-.7632.4966-1.636.552-2.9124.056-1.2809.0692-1.6898.063-4.948-.0063-3.2583-.021-3.6668-.0817-4.9465-.0607-1.2797-.264-2.1487-.5633-2.9117-.3084-.7889-.72-1.4568-1.3876-2.1228C21.2982 1.33 20.628.9208 19.8378.6165 19.074.321 18.2017.1197 16.9244.0645 15.6471.0093 15.236-.005 11.977.0014 8.718.0076 8.31.0215 7.0301.0839m.1402 21.6932c-1.17-.0509-1.8053-.2453-2.2287-.408-.5606-.216-.96-.4771-1.3819-.895-.422-.4178-.6811-.8186-.9-1.378-.1644-.4234-.3624-1.058-.4171-2.228-.0595-1.2645-.072-1.6442-.079-4.848-.007-3.2037.0053-3.583.0607-4.848.05-1.169.2456-1.805.408-2.2282.216-.5613.4762-.96.895-1.3816.4188-.4217.8184-.6814 1.3783-.9003.423-.1651 1.0575-.3614 2.227-.4171 1.2655-.06 1.6447-.072 4.848-.079 3.2033-.007 3.5835.005 4.8495.0608 1.169.0508 1.8053.2445 2.228.408.5608.216.96.4754 1.3816.895.4217.4194.6816.8176.9005 1.3787.1653.4217.3617 1.056.4169 2.2263.0602 1.2655.0739 1.645.0796 4.848.0058 3.203-.0055 3.5834-.061 4.848-.051 1.17-.245 1.8055-.408 2.2294-.216.5604-.4763.96-.8954 1.3814-.419.4215-.8181.6811-1.3783.9-.4224.1649-1.0577.3617-2.2262.4174-1.2656.0595-1.6448.072-4.8493.079-3.2045.007-3.5825-.006-4.848-.0608M16.953 5.5864A1.44 1.44 0 1 0 18.39 4.144a1.44 1.44 0 0 0-1.437 1.4424M5.8385 12.012c.0067 3.4032 2.7706 6.1557 6.173 6.1493 3.4026-.0065 6.157-2.7701 6.1506-6.1733-.0065-3.4032-2.771-6.1565-6.174-6.1498-3.403.0067-6.156 2.771-6.1496 6.1738M8 12.0077a4 4 0 1 1 4.008 3.9921A3.9996 3.9996 0 0 1 8 12.0077"/></svg><span>Outsourced social media</span></a>
+      <a href="/en/video-production" class="footer-nav-link"><svg class="fn-ic" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M23.498 6.186a3.016 3.016 0 0 0-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 0 0 .502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 0 0 2.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 0 0 2.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z"/></svg><span>Video production</span></a>
+      <a href="/en/website-development" class="footer-nav-link"><svg class="fn-ic" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="m24 4.515-7.658 14.97H9.149l3.205-6.204h-.144C9.566 16.713 5.621 18.973 0 19.485v-6.118s3.596-.213 5.71-2.435H0V4.515h6.417v5.278l.144-.001 2.622-5.277h4.854v5.244h.144l2.72-5.244H24Z"/></svg><span>Website development</span></a>
+      <a href="/en/platform-app-development" class="footer-nav-link"><svg class="fn-ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="9 6 3.5 12 9 18"/><polyline points="15 6 20.5 12 15 18"/></svg><span>Platform &amp; app development</span></a>
+    </div>
+    <div class="footer-tile footer-tile-loop">
+      <a href="/en/loop" class="ft-loop-card">
+    <span class="loopmark ft-loop-ring-mark" aria-hidden="true">
+        <svg class="loopmark-svg" viewBox="0 0 100 100">
+          <defs>
+            <linearGradient id="ftLmGrad" x1="0" y1="0" x2="1" y2="1">
+              <stop offset="0%" stop-color="#B14BFF"/>
+              <stop offset="28%" stop-color="#E7255A"/>
+              <stop offset="50%" stop-color="#FF5E9A"/>
+              <stop offset="64%" stop-color="#FFD2E4"/>
+              <stop offset="80%" stop-color="#FF3D8E"/>
+              <stop offset="100%" stop-color="#C04BFF"/>
+            </linearGradient>
+            <filter id="ftLmFire" x="-60%" y="-60%" width="220%" height="220%">
+              <feTurbulence type="fractalNoise" baseFrequency="0.022 0.04" numOctaves="2" seed="4" result="n">
+                <animate attributeName="baseFrequency" dur="6s" values="0.022 0.04;0.03 0.052;0.02 0.034;0.022 0.04" repeatCount="indefinite"/>
+              </feTurbulence>
+              <feDisplacementMap in="SourceGraphic" in2="n" scale="9" xChannelSelector="R" yChannelSelector="G">
+                <animate attributeName="scale" dur="5s" values="8;12.5;9;8" repeatCount="indefinite"/>
+              </feDisplacementMap>
+              <feGaussianBlur stdDeviation="0.5"/>
+            </filter>
+            <filter id="ftLmGlow" x="-60%" y="-60%" width="220%" height="220%"><feGaussianBlur stdDeviation="2.4"/></filter>
+          </defs>
+          <g class="lm-rot">
+            <circle cx="50" cy="50" r="35" fill="none" stroke="url(#ftLmGrad)" stroke-width="7" filter="url(#ftLmGlow)" opacity="0.5"/>
+            <circle cx="50" cy="50" r="35" fill="none" stroke="url(#ftLmGrad)" stroke-width="5" filter="url(#ftLmFire)"/>
+          </g>
+          <g class="lm-rot2">
+            <circle cx="50" cy="50" r="32" fill="none" stroke="url(#ftLmGrad)" stroke-width="3" filter="url(#ftLmFire)" opacity="0.85"/>
+          </g>
+        </svg>
+      </span>
+    <div class="ft-loop-text">
+      <div class="ft-loop-name">Flii Loop</div>
+      <div class="ft-loop-desc">One loop that keeps learning →</div>
+    </div>
+  </a>
+    </div>
+    <div class="footer-tile footer-tile-bottom">
+      <div class="footer-wordmark">FLII.<span>MEDIA</span></div>
+      <div class="footer-legal">
+        <a href="/en/cookie-preferences" class="footer-link">Preferences</a>
+        <a href="/en/cookies" class="footer-link">Cookies</a>
+        <a href="/en/terms" class="footer-link">Terms</a>
+        <a href="/en/privacy" class="footer-link">Privacy</a>
+        <button class="footer-contact-btn" id="footer-contact-btn" onclick="toggleContactPopup()">Contact</button>
+      </div>
+    </div>
+  </div>
+  <div class="contact-popup" id="contact-popup">
+    <div class="contact-popup-inner">
+      <p class="contact-popup-label">Direct contact</p>
+      <a href="tel:+31640881169" class="contact-popup-item">+31 6 40 88 11 69</a>
+      <a href="mailto:info@flii.nl" class="contact-popup-item">info@flii.nl</a>
+      <a href="https://calendar.google.com/calendar/appointments/schedules/AcZssZ1Dfb1ZunCYFgPNrvuYKMIgVBy9Qgv9xlcxkSOnEbvnaWWSUeKQ_fTzv4gSHQfmkJm3LmL93Tk7" target="_blank" class="contact-popup-item">Book a call</a>
+    </div>
+  </div>
+</footer>
+
+<script>
+// ── LOOP RING ─────────────────────────────────────────────────────────
+var LOOP_ITEMS = [
+  { k: "Launch", body: "The new app, campaign or platform reaches the market." },
+  { k: "Measure",  body: "User response is mapped." },
+  { k: "Analyse",  body: "Data is turned into insights, opportunities and problems." },
+  { k: "Improve",  body: "We improve, fix or set up a test." }
+];
+var LOOP_VARIANTS = {
+  platform: ["We build your platform, including the backend, and take it live.","We measure usage, funnels and where the process stalls.","We see which steps work and where people drop off.","We automate more and scale up the platform."],
+  app: ["We build your app and launch it to its first users.","We measure how people really use the app.","We see which flows work and what’s missing.","We improve flows and make the app faster."],
+  media: ["We launch your campaign across the chosen channels.","We measure reach, clicks and conversions per channel.","We see which creatives and messages work.","We scale the winners and sharpen the targeting."]
+};
+var activeStep = null;
+var activeLens = "media";
+var spinning = false;
+
+function setLens(k) { activeLens = k; renderCore(); }
+
+function selectStep(i) {
+  var wasActive = activeStep === i;
+  activeStep = wasActive ? null : i;
+  document.querySelectorAll(".loop-step-label").forEach(function(b) {
+    b.classList.toggle("on", parseInt(b.dataset.idx) === activeStep);
+  });
+  var stage = document.getElementById("loop-ring-stage");
+  var tilt = document.getElementById("loop-ring-tilt");
+  stage.classList.toggle("open", activeStep !== null);
+  tilt.classList.toggle("tilted", activeStep !== null);
+  if (activeStep !== null && !wasActive) triggerFlash();
+  renderCore();
+}
+
+function triggerFlash() {
+  var el = document.getElementById("lr-flash-el");
+  if (!el) return;
+  el.classList.remove("on");
+  void el.offsetWidth;
+  el.classList.add("on");
+  setTimeout(function() { el.classList.remove("on"); }, 650);
+}
+
+function renderCore() {
+  var core = document.getElementById("loop-core");
+  if (activeStep === null) {
+    core.innerHTML = '<div class="loop-core-default"><div class="loop-core-mark">Flii Loop</div><div class="loop-core-hint">Always learning</div></div>';
+  } else {
+    var item = LOOP_ITEMS[activeStep];
+    var body = (LOOP_VARIANTS[activeLens] && LOOP_VARIANTS[activeLens][activeStep]) ? LOOP_VARIANTS[activeLens][activeStep] : item.body;
+    core.innerHTML = '<div class="loop-core-content"><div class="loop-core-k">' + item.k + '</div><p class="loop-core-b">' + body + '</p></div>';
+  }
+}
+
+// ============================================================
+// PRICE CALCULATOR — faithful port of Fliimedia/Flii.app
+// ============================================================
+
+// ── DATA ────────────────────────────────────────────────────
+var PRICING = {
+  // The base covers work that does not scale with the number of channels:
+  // strategy, creative concept, measurement framework, coordination and
+  // reporting. Channel work is priced separately per channel.
+  scopes: {
+    campagne: { plan: 1200, build:  900, run: 250 },
+    ai:       { plan: 1800, build: 2500, run: 350 }
+  },
+  // Research per channel during Loop Start (Build charges the full setup).
+  channelResearch: 150,
+  // Shared research, creative and one reporting cycle mean each extra
+  // channel costs less to run than the first.
+  tiers: [
+    { upTo: 1,        factor: 1.00 },
+    { upTo: 3,        factor: 0.85 },
+    { upTo: Infinity, factor: 0.70 }
+  ]
+};
+
+function tierFactor(rank) {           // rank is 0-based, priciest channel first
+  var n = rank + 1, t;
+  for (var i = 0; i < PRICING.tiers.length; i++) {
+    t = PRICING.tiers[i];
+    if (n <= t.upTo) return t.factor;
+  }
+  return 1;
+}
+
+// Channels sorted by setup price, so the biggest one is always at full rate.
+function selectedChannels() {
+  var out = [];
+  CHANNEL_TREE.forEach(function(c) { if (S.cats[c.key]) out.push(c); });
+  return out.sort(function(a, b) { return b.once - a.once; });
+}
+
+var CHANNEL_TREE = [
+  { key:"search",    once:850,  mo:650, subs:["searchEngines","aiSearch","socialSearch","appStore"],         dels:["seoContent","seoTech","sea","linkbuilding"] },
+  { key:"social",    once:750,  mo:600, subs:["meta","tiktok","linkedin","pinterest","otherSocial"],          dels:["socialContent","community","paidSocial","socialInfluencer"] },
+  { key:"display",   once:700,  mo:450, subs:["programmatic","gdn","native","retargeting"],                  dels:["bannerCreatie","programmaticBuy","retargetingSetup"] },
+  { key:"videotv",   once:950,  mo:550, subs:["onlineVideo","ctv","linearTv"],                               dels:["videoProductie","videoMontage","videoBuy"] },
+  { key:"audio",     once:650,  mo:400, subs:["radio","streamingAudio","podcasts"],                          dels:["spotProductie","podcastProductie","audioBuy"] },
+  { key:"email",     once:850,  mo:500, subs:["newsletters","automation","loyalty"],                         dels:["templateDesign","emailFlows","crmSetup"] },
+  { key:"messaging", once:750,  mo:350, subs:["whatsapp","sms","push"],                                     dels:["flowSetup","msgCopy","msgIntegratie"] },
+  { key:"ooh",       once:850,  mo:400, subs:["billboards","dooh","transit","retail"],                      dels:["oohOntwerp","oohBuy","oohProductie"] },
+  { key:"print",     once:650,  mo:300, subs:["stationery","flyers","directMail","merch"],                  dels:["printOntwerp","drukwerk","printDistributie"] },
+  { key:"pr",        once:900,  mo:550, subs:["earned","influencer","affiliate","sponsoring"],               dels:["persstrategie","influencerMgmt","affiliateSetup"] }
+];
+
+var DEL_PRICE = {
+  seoContent:{mo:450},seoTech:{mo:400},sea:{mo:500},linkbuilding:{mo:350},
+  socialContent:{mo:550},community:{mo:450},paidSocial:{mo:500},socialInfluencer:{mo:400},
+  bannerCreatie:{once:750},programmaticBuy:{mo:500},retargetingSetup:{once:500},
+  videoProductie:{once:4500},videoMontage:{once:900},videoBuy:{mo:450},
+  spotProductie:{once:1500},podcastProductie:{once:1500},audioBuy:{mo:400},
+  templateDesign:{once:650},emailFlows:{once:1200},crmSetup:{once:1500},
+  flowSetup:{once:850},msgCopy:{mo:250},msgIntegratie:{once:1200},
+  oohOntwerp:{once:750},oohBuy:{once:500},oohProductie:{once:1500},
+  printOntwerp:{once:650},drukwerk:{once:750},printDistributie:{once:600},
+  persstrategie:{mo:500},influencerMgmt:{mo:450},affiliateSetup:{once:1200}
+};
+
+var APP_KINDS = ["webapp","pwa","nativeApp"];
+var APP_OPTS  = ["uxDesign","backendApi","appIntegraties","appStorePub"];
+var PLATFORM_OPTS = ["website","ecommerce","portaal","platformAi","platformIntegraties","cms"];
+var AI_OPTS   = ["chatbot","contentgen","automatisering","dataAnalyse","aiIntegratie","customModel"];
+var APP_KIND_PRICE = { webapp:0, pwa:1500, nativeApp:4500 };
+var APP_OPT_PRICE  = { uxDesign:2500, backendApi:3500, appIntegraties:1800, appStorePub:750 };
+var PLATFORM_OPT_PRICE = {
+  website:{once:0}, ecommerce:{once:4500,mo:150}, portaal:{once:6500,mo:250},
+  platformAi:{once:3500,mo:200}, platformIntegraties:{once:1800}, cms:{once:1200}
+};
+var AI_OPT_PRICE = {
+  chatbot:{once:3500,mo:250}, contentgen:{once:2500,mo:200},
+  automatisering:{once:3000,mo:150}, dataAnalyse:{once:2800,mo:250},
+  aiIntegratie:{once:2200,mo:150}, customModel:{once:9500,mo:650}
+};
+var APP_CAP = 32000;
+
+// Labels
+var L = {
+  scopes:    { campagne:"Campaign", ai:"AI" },
+  scopeDesc: { campagne:"An advertising campaign, set up and managed for results.", ai:"An AI solution or automation, from integration to a custom model." },
+  phases:    { plan:"Loop Start", build:"Loop Build", run:"Loop Run" },
+  phaseDesc: { plan:"Research and a plan of approach.", build:"Creation: the app, platform or campaign is built.", run:"Manage & improve: hosting, optimisation and further development." },
+  phaseByType: {
+    campagne:{ plan:"Research and strategy for your campaigns.", build:"Creation of the content and campaigns.", run:"Management and improvement of your campaigns." },
+    app:     { plan:"Research and a plan for your app.", build:"Design and build of the app.", run:"Management and further development of the app." },
+    platform:{ plan:"Research and a plan for your platform.", build:"Design and build of the platform.", run:"Hosting, management and further development." },
+    ai:      { plan:"Research and a plan for the AI integration.", build:"Build and integration of the AI solution.", run:"Management and optimisation of the AI." }
+  },
+  cats: { search:"Search",social:"Social",display:"Display",videotv:"Video & TV",audio:"Audio",email:"Email & CRM",messaging:"Messaging",ooh:"Out-of-home",print:"Print",pr:"PR & partnerships" },
+  catDesc: { search:"Being found at the moment of search intent, in search engines and AI.",social:"Organic and paid, on the platforms where your audience is.",display:"Banners and native ads across the web.",videotv:"Video ads on YouTube, streaming and TV.",audio:"Radio, Spotify and podcasts.",email:"Email, automation and CRM.",messaging:"WhatsApp, SMS and push notifications.",ooh:"Outdoor advertising, digital and classic.",print:"Print, flyers and direct mail.",pr:"PR, influencers and affiliates." },
+  subs: { searchEngines:"Search engines (Google, Bing)",aiSearch:"AI search / LLMs",socialSearch:"Social search",appStore:"App store (ASO)",meta:"Meta (Facebook, Instagram)",tiktok:"TikTok",linkedin:"LinkedIn",pinterest:"Pinterest",otherSocial:"X, Snapchat, Reddit",programmatic:"Programmatic display",gdn:"Google Display Network",native:"Native advertising",retargeting:"Retargeting",onlineVideo:"Online video (YouTube Ads)",ctv:"Connected TV / streaming",linearTv:"Linear TV",radio:"Radio",streamingAudio:"Streaming audio (Spotify)",podcasts:"Podcasts",newsletters:"Newsletters",automation:"Marketing automation",loyalty:"Loyalty emails",whatsapp:"WhatsApp Business",sms:"SMS",push:"Push notifications",billboards:"Billboards",dooh:"Digital OOH (DOOH)",transit:"Transit / bus shelters",retail:"Retail / shops",stationery:"Stationery & house style",flyers:"Flyers & brochures",directMail:"Direct mail",merch:"Merchandise",earned:"Earned media / PR",influencer:"Influencer",affiliate:"Affiliate",sponsoring:"Sponsoring" },
+  dels: { seoContent:"SEO (content)",seoTech:"SEO (technical)",sea:"SEA / Google Ads",linkbuilding:"Link building",socialContent:"Content creation",community:"Community management",paidSocial:"Paid social",socialInfluencer:"Influencer",bannerCreatie:"Banner design",programmaticBuy:"Programmatic buying",retargetingSetup:"Retargeting set-up",videoProductie:"Video production",videoMontage:"Editing",videoBuy:"Media buying",spotProductie:"Spot production",podcastProductie:"Podcast production",audioBuy:"Media buying",templateDesign:"Template design",emailFlows:"Flows / automation",crmSetup:"CRM set-up",flowSetup:"Flow set-up",msgCopy:"Copy",msgIntegratie:"Integration",oohOntwerp:"Design",oohBuy:"Buying & planning",oohProductie:"Production",printOntwerp:"Design",drukwerk:"Printing",printDistributie:"Distribution",persstrategie:"PR strategy",influencerMgmt:"Influencer management",affiliateSetup:"Affiliate set-up" },
+  typeOpts: { webapp:"Webapp",pwa:"PWA",nativeApp:"Native app",uxDesign:"UX design",backendApi:"Backend & API",appIntegraties:"Integrations",appStorePub:"App store publication",website:"Website",ecommerce:"Online shop / e-commerce",portaal:"Portal / dashboard",platformAi:"AI functionality",platformIntegraties:"Integrations",cms:"CMS",chatbot:"Chatbot / assistant",contentgen:"Content generation",automatisering:"Automation",dataAnalyse:"Data analysis",aiIntegratie:"AI integration",customModel:"Custom model" },
+  steps:   { type:"Type", details:"Details", pakketten:"Packages", result:"Result" },
+  stepTitle:{ type:"What do you want to build?", details:"Put together your scope.", pakketten:"Choose your Loop phases.", result:"Your estimate." },
+  stepHelp: { type:"Choose one type or combine several.", details:"Refine your choice per service.", pakketten:"Which phases of the loop do you want?", result:"Your indicative investment." },
+  badge:"Most popular",
+  from:"from",
+  onRequest:"On request",
+  inclFree:"included",
+  inPhase:"in {f}",
+  once:"One-off",
+  onceShort:"one-off",
+  mo:"/mo",
+  monthCol:"Month",
+  svcCol:"Service",
+  totalWord:"Total",
+  totalFrom:"Total from",
+  back:"← Back",
+  next:"Next →",
+  startOver:"Start over",
+  cta:"Book a call",
+  empty:"Choose at least one type and one phase.",
+  tierNote:"volume discount \u2212{p}%",
+  baseNote:"strategy, concept & coordination",
+  pickTypeFirst:"First choose what you want to make.",
+  backToType:"\u2190 Back to step 1",
+  comboNote:"The Loop Start fee is waived with Loop Build.",
+  save:"You save"
+};
+
+// ── STATE ────────────────────────────────────────────────────
+var S = {
+  step: 0,
+  types:  { campagne:true, ai:false },
+  phases: { plan:true, build:true, run:true },
+  cats:   {}, subs: {}, dels: {},
+  opts:   {},
+  appKind:"webapp",
+  advice: false,
+  openRows: {}
+};
+var STEPS = ["type","details","pakketten","result"];
+
+function eur(n) { return "\u20AC\u00A0" + Math.round(n||0).toLocaleString(document.documentElement.lang === "en" ? "en-GB" : "nl-NL"); }
+
+// ── COMPUTE ──────────────────────────────────────────────────
+function compute() {
+  var selected = ["campagne","ai"].filter(function(k){ return S.types[k]; });
+  var once = 0, mo = 0, saving = 0, discOnce = 0, discMo = 0;
+
+  selected.forEach(function(sk) {
+    var sc = PRICING.scopes[sk];
+    if (!sc) return;
+    // Loop Start is included in Loop Build, so it is only charged on its own.
+    if (S.phases.plan && !S.phases.build) once += sc.plan;
+    if (S.phases.build) once += sc.build;
+    if (S.phases.run)   mo   += sc.run;
+    if (S.phases.plan && S.phases.build) saving += sc.plan;
+  });
+
+  if (S.types.campagne) {
+    selectedChannels().forEach(function(c, i) {
+      var f = tierFactor(i);
+      // Start only pays for research; the actual setup happens in Build.
+      if (S.phases.plan && !S.phases.build) {
+        once += Math.round(PRICING.channelResearch * f);
+        discOnce += Math.round(PRICING.channelResearch * (1 - f));
+      }
+      if (S.phases.build) {
+        once += Math.round(c.once * f);
+        discOnce += Math.round(c.once * (1 - f));
+      }
+      if (S.phases.run) {
+        mo += Math.round(c.mo * f);
+        discMo += Math.round(c.mo * (1 - f));
+      }
+      // Deliverables are discrete pieces of work: no volume discount.
+      c.dels.forEach(function(d) {
+        if (!S.dels[d]) return;
+        var dp = DEL_PRICE[d] || {};
+        if (S.phases.build) once += dp.once || 0;
+        if (S.phases.run)   mo   += dp.mo   || 0;
+      });
+    });
+  }
+
+  if (S.types.ai) {
+    AI_OPTS.forEach(function(k) {
+      if (!S.opts[k]) return;
+      var pr = AI_OPT_PRICE[k] || {};
+      if (S.phases.build) once += pr.once || 0;
+      if (S.phases.run)   mo   += pr.mo   || 0;
+    });
+  }
+
+  var anyPhase = S.phases.plan || S.phases.build || S.phases.run;
+  var hasSelection = (selected.length > 0 || selectedChannels().length > 0) && anyPhase;
+
+  return {
+    once: once, mo: mo, saving: saving, selected: selected,
+    discOnce: discOnce, discMo: discMo,
+    hasSelection: hasSelection,
+    onRequest: hasSelection && once === 0 && mo === 0,
+    nothing: !hasSelection
+  };
+}
+
+function lineItems() {
+  var items = [];
+  var selected = ["campagne","ai"].filter(function(k){ return S.types[k]; });
+
+  selected.forEach(function(sk) {
+    var sc = PRICING.scopes[sk];
+    var onceItem = (S.phases.plan && !S.phases.build ? sc.plan : 0) + (S.phases.build ? sc.build : 0);
+    var moItem   = S.phases.run ? sc.run : 0;
+    var sub = [];
+
+    if (sk === "ai") {
+      AI_OPTS.forEach(function(k) {
+        if (!S.opts[k]) return;
+        var pr = AI_OPT_PRICE[k] || {};
+        var o  = S.phases.build ? (pr.once || 0) : 0;
+        var m  = S.phases.run   ? (pr.mo   || 0) : 0;
+        onceItem += o; moItem += m;
+        sub.push({ label:L.typeOpts[k]||k, once:o, mo:m, free:(o===0 && m===0 && !pr.once && !pr.mo), elders:(o===0 && m===0 && (pr.once||pr.mo)) ? (pr.once ? L.phases.build : L.phases.run) : "" });
+      });
+    }
+
+    // Always list the chosen type, so the result card names what was picked
+    // even when its own price is zero or still on request.
+    if (sk === "campagne" && (onceItem > 0 || moItem > 0)) {
+      sub.unshift({ label: L.baseNote, note: true });
+    }
+    items.push({
+      label: L.scopes[sk], once: onceItem, mo: moItem,
+      req: onceItem === 0 && moItem === 0,
+      sub: sub
+    });
+  });
+
+  if (S.types.campagne) {
+    selectedChannels().forEach(function(c, i) {
+      var f = tierFactor(i);
+      var onceItem = 0, moItem = 0, sub = [];
+
+      if (S.phases.plan && !S.phases.build) onceItem += Math.round(PRICING.channelResearch * f);
+      if (S.phases.build) onceItem += Math.round(c.once * f);
+      if (S.phases.run)   moItem   += Math.round(c.mo * f);
+
+      c.dels.filter(function(d){ return S.dels[d]; }).forEach(function(d) {
+        var dp = DEL_PRICE[d] || {};
+        var o = S.phases.build ? (dp.once || 0) : 0;
+        var m = S.phases.run   ? (dp.mo   || 0) : 0;
+        onceItem += o; moItem += m;
+        sub.push({ label: L.dels[d] || d, once: o, mo: m, free: (o === 0 && m === 0 && !dp.once && !dp.mo), elders: (o === 0 && m === 0 && (dp.once || dp.mo)) ? (dp.once ? L.phases.build : L.phases.run) : "" });
+      });
+
+      if (f < 1) sub.push({ label: L.tierNote.replace("{p}", Math.round((1-f)*100)), note: true });
+
+      items.push({ label: L.cats[c.key] || c.key, once: onceItem, mo: moItem,
+                   req: onceItem === 0 && moItem === 0, sub: sub });
+    });
+  }
+  return items;
+}
+
+function phaseDescFor(k) {
+  var selected = ["campagne","ai"].filter(function(s){ return S.types[s]; });
+  if (selected.length === 1) {
+    var pd = L.phaseByType[selected[0]];
+    return pd ? pd[k] : L.phaseDesc[k];
+  }
+  return L.phaseDesc[k];
+}
+
+function packagePrice(k) {
+  var selected = ["campagne","ai"].filter(function(s){ return S.types[s]; });
+  if (selected.length === 0) return "";
+  var total = 0;
+  selected.forEach(function(sk) { total += PRICING.scopes[sk][k] || 0; });
+  return total > 0 ? L.from + " " + eur(total) : (k === "build" ? "" : L.onRequest);
+}
+
+var DEL_DESC = {
+  seoContent:"Articles and pages that rank for relevant search terms.",
+  seoTech:"Optimising your website’s speed, structure and crawlability.",
+  sea:"Paid ads in Google search results.",
+  linkbuilding:"Building quality external links for more authority.",
+  socialContent:"Posts, reels and stories that drive engagement.",
+  community:"Managing comments and keeping your community active.",
+  paidSocial:"Paid campaigns on social platforms.",
+  socialInfluencer:"Collaboration with creators and influencers.",
+  bannerCreatie:"Designing display banners in every format.",
+  programmaticBuy:"Automated media buying via DSP platforms.",
+  retargetingSetup:"Winning back visitors with targeted ads.",
+  videoProductie:"Professional video production for campaigns.",
+  videoMontage:"Editing raw footage into a strong final product.",
+  videoBuy:"Media buying for video ads on YouTube and elsewhere.",
+  spotProductie:"Writing and producing a radio or audio spot.",
+  podcastProductie:"Recording, editing and publishing a podcast.",
+  audioBuy:"Media buying for audio ads on Spotify and elsewhere.",
+  templateDesign:"Designing email templates that fit your brand.",
+  emailFlows:"Automated email sequences based on behaviour.",
+  crmSetup:"Setting up a CRM system and connecting it to your channels.",
+  flowSetup:"Setting up a message flow in WhatsApp, SMS or push.",
+  msgCopy:"Writing messages that drive conversion.",
+  msgIntegratie:"Connecting a messaging platform to your website or CRM.",
+  oohOntwerp:"Visual design for billboards and bus shelters.",
+  oohBuy:"Selecting, buying and planning locations.",
+  oohProductie:"Printing and installation for outdoor advertising.",
+  printOntwerp:"Design for flyers, brochures and print.",
+  drukwerk:"Printing and finishing your printed materials.",
+  printDistributie:"Sending or distributing your printed materials.",
+  persstrategie:"A PR plan, and building and managing press relations.",
+  influencerMgmt:"Scouting and briefing influencers and guiding the campaign.",
+  affiliateSetup:"Setting up an affiliate network and recruiting partners.",
+};
+
+var SUB_DESC = {
+  searchEngines:"Advertising in Google and Bing search results.",
+  aiSearch:"Being visible in AI-driven search results (ChatGPT, Perplexity).",
+  socialSearch:"Being found through search on TikTok, Instagram and Pinterest.",
+  appStore:"App store optimisation for more organic downloads.",
+  meta:"Facebook and Instagram ads and organic reach.",
+  tiktok:"Short-form video content and ads on TikTok.",
+  linkedin:"B2B campaigns and thought leadership on LinkedIn.",
+  pinterest:"Visual content for inspiration and product discovery.",
+  otherSocial:"A presence on X, Snapchat and Reddit.",
+  programmatic:"Real-time bidding on display ad space.",
+  gdn:"Banners on the Google Display Network.",
+  native:"Ads that blend in with editorial content.",
+  retargeting:"Reaching previous visitors again with targeted ads.",
+  onlineVideo:"Pre-roll and skippable video ads on YouTube.",
+  ctv:"Ads on streaming TV such as Netflix and Videoland.",
+  linearTv:"Spots on traditional TV channels.",
+  radio:"Spots on national and regional radio stations.",
+  streamingAudio:"Audio spots on Spotify and other streaming services.",
+  podcasts:"Host-read and dynamically inserted podcast ads.",
+  newsletters:"Targeted email campaigns to your own list.",
+  automation:"Automated email sequences based on behaviour.",
+  loyalty:"Loyalty emails that keep customers active and engaged.",
+  whatsapp:"Messages and campaigns via WhatsApp Business.",
+  sms:"Short, direct messages for high open rates.",
+  push:"Browser and app push notifications for direct reach.",
+  billboards:"Large formats along busy roads and squares.",
+  dooh:"Digital screens in cities and shopping centres.",
+  transit:"Bus shelter, bus and metro advertising.",
+  retail:"In-store displays and point-of-sale advertising.",
+  stationery:"Business cards, stationery and house-style print.",
+  flyers:"Flyers and brochures for offline distribution.",
+  directMail:"Personalised mail to selected addresses.",
+  merch:"Branded merchandise and corporate gifts.",
+  earned:"PR and editorial coverage through journalists and media.",
+  influencer:"Collaborations with content creators and KOLs.",
+  affiliate:"A commission model in which partners bring in customers.",
+  sponsoring:"Brand visibility through events and content sponsorship.",
+};
+
+// ── RENDER ───────────────────────────────────────────────────
+function renderCalc() {
+  var nav  = document.getElementById("calc-nav");
+  var body = document.getElementById("calc-body");
+  var cur  = STEPS[S.step];
+  var r    = compute();
+
+  // Step dots
+  nav.innerHTML = STEPS.map(function(s, i) {
+    var cls = "calc-dot" + (i===S.step?" on":"") + (i<S.step?" done":"");
+    return '<button class="'+cls+'" onclick="goStep('+i+')"><span class="calc-dot-n">'+(i+1)+'</span><span class="calc-dot-l">'+L.steps[s]+'</span></button>';
+  }).join("");
+
+  var html = '<div class="calc-slide-head"><div class="calc-slide-title">'+L.stepTitle[cur]+'</div><div class="calc-slide-help">'+L.stepHelp[cur]+'</div></div>';
+
+  // ── STEP 1: TYPE ──────────────────────────────────────────
+  if (cur === "type") {
+    html += '<div class="type-cards">';
+    ["campagne","ai"].forEach(function(k) {
+      var on = S.types[k];
+      html += '<button class="scope-card'+(on?" on":"") +'" onclick="toggleType(\''+k+'\')">';
+      html += '<span class="scope-check">'+(on?"&#10003;":"")+'</span>';
+      html += '<span class="scope-card-t">'+L.scopes[k]+'</span>';
+      html += '<div class="scope-card-d">'+L.scopeDesc[k]+'</div></button>';
+    });
+    html += '</div>';
+    html += navBtns(false, true);
+  }
+
+  // ── STEP 2: DETAILS ────────────────────────────────────────
+  else if (cur === "details") {
+    var selected = ["campagne","ai"].filter(function(k){ return S.types[k]; });
+    if (!selected.length) {
+      html += '<div class="calc-empty-step"><p>'+L.pickTypeFirst+'</p>'
+           +  '<button class="btn btn-secondary" onclick="goStep(0)">'+L.backToType+'</button></div>';
+    }
+
+    // Campagne channels
+    if (S.types.campagne) {
+      html += '<div class="detail-block"><div class="detail-block-q">Which media channels do you want to use?</div>';
+      html += '<div class="svc-list">';
+      CHANNEL_TREE.forEach(function(c) {
+        var on = !!S.cats[c.key];
+        html += '<div class="svc-item"><button class="svc-row'+(on?" on":"") +'" onclick="toggleCat(\''+c.key+'\')">';
+        html += '<span class="svc-row-x">'+(on?"&minus;":"+")+'</span>';
+        html += '<span class="svc-row-n">'+L.cats[c.key]+'</span>';
+        html += '<span class="svc-row-p mono">'+(c.once>0?L.from+" "+eur(c.once):L.onRequest)+'</span></button>';
+        if (on) {
+          html += '<div class="cat-refine"><p class="cat-explain">'+(L.catDesc[c.key]||"")+'</p>';
+          // Channels (subs)
+          html += '<div class="refine-group"><span class="refine-h">Channels</span><div class="chip-grid">';
+          c.subs.forEach(function(sub) {
+            var son = !!S.subs[sub];
+            html += '<button class="chip-opt'+(son?" on":"") +'" onclick="toggleSub(\''+sub+'\')" '
+                 +  'title="'+(SUB_DESC[sub]||"").replace(/"/g,"&quot;")+'">';
+            html += (L.subs[sub]||sub)+'</button>';
+          });
+          html += '</div></div>';
+          // Services (dels)
+          html += '<div class="refine-group"><span class="refine-h">Services</span><div class="del-list">';
+          c.dels.forEach(function(d) {
+            var don = !!S.dels[d];
+            var dp = DEL_PRICE[d]||{};
+            var plabel = dp.once?L.from+" "+eur(dp.once)+(dp.mo?" +":""):"";
+            if (dp.mo) plabel += (dp.once?" ":L.from+" ")+eur(dp.mo)+L.mo;
+            html += '<button class="del-row'+(don?" on":"") +'" onclick="toggleDel(\''+d+'\')">';
+            html += '<span class="del-check">'+(don?"&#10003;":"")+'</span>';
+            html += '<span class="del-main"><span class="del-t">'+(L.dels[d]||d)+'</span>'
+                 +  (DEL_DESC[d]?'<span class="del-d">'+DEL_DESC[d]+'</span>':'')+'</span>';
+            if (plabel) html += '<span class="del-p mono">'+plabel+'</span>';
+            html += '</button>';
+          });
+          html += '</div></div>';
+          html += '</div>';
+        }
+        html += '</div>';
+      });
+      html += '</div></div>';
+    }
+
+    // App details
+
+
+
+    // AI details
+    if (S.types.ai) {
+      html += '<div class="detail-block"><div class="detail-block-q">Which AI functionality?</div><div class="refine-group opt-group">';
+      AI_OPTS.forEach(function(k) {
+        var on = !!S.opts[k];
+        html += '<button class="toggle toggle-sm'+(on?" on":"") +'" onclick="toggleOpt(\''+k+'\')">';
+        html += '<span class="toggle-main"><span class="toggle-t">'+(L.typeOpts[k]||k)+'</span></span>';
+        html += '<span class="tgt"><span class="tgt-dot"></span></span></button>';
+      });
+      html += '</div></div>';
+    }
+
+    html += navBtns(true, true);
+  }
+
+  // ── STEP 3: PAKKETTEN ─────────────────────────────────────
+  else if (cur === "pakketten") {
+    html += '<div class="cfg-toggles">';
+    ["plan","build","run"].forEach(function(k) {
+      var on = S.phases[k];
+      var waived = k==="plan" && S.phases.build;
+      var price = packagePrice(k);
+      html += '<button class="toggle'+(on?" on":"") +'" onclick="togglePhase(\''+k+'\')">';
+      html += '<span class="toggle-main"><span class="toggle-t">'+L.phases[k]+'</span>';
+      html += '<span class="toggle-d">'+phaseDescFor(k)+'</span></span>';
+      html += '<span class="toggle-p mono">';
+      if (waived && price) html += '<span class="waived">'+price+'</span>';
+      else html += price;
+      html += '</span><span class="tgt"><span class="tgt-dot"></span></span></button>';
+    });
+    if (S.phases.plan && S.phases.build) {
+      html += '<p class="calc-note combo-note">'+L.comboNote+'</p>';
+    }
+    html += '</div>';
+    html += navBtns(true, true);
+  }
+
+  // ── STEP 4: RESULT ────────────────────────────────────────
+  else {
+    html += '<div class="cfg-out-card">';
+    if (r.nothing) {
+      html += '<p class="cfg-empty">'+L.empty+'</p>';
+    } else {
+      // Line items table
+      var items = lineItems();
+      html += '<div class="rcp"><div class="rcp-head mono"><span>'+L.svcCol+'</span><span>'+L.once+'</span><span>'+L.monthCol+'</span></div>';
+      items.forEach(function(it) {
+        var hasSub = it.sub && it.sub.length;
+        var isOpen = !!S.openRows[it.label];
+        html += '<div class="rcp-line"><div class="rcp-row'+(hasSub?" rcp-row-btn":"")+'"'+(hasSub?' onclick="toggleRow(\''+it.label+'\')"':"")+' role="'+(hasSub?"button":"")+'"> ';
+        html += '<span class="rcp-l">';
+        if (hasSub) html += '<span class="rcp-caret'+(isOpen?" on":"")+'">&#x203A;</span>';
+        html += it.label+'</span>';
+        html += '<span class="rcp-v mono" data-kind="once">'+(it.req?L.onRequest:(it.once>0?eur(it.once):""))+'</span>';
+        html += '<span class="rcp-v mono" data-kind="mo">'+(it.req?"":(it.mo>0?eur(it.mo)+L.mo:""))+'</span></div>';
+        if (hasSub && isOpen) {
+          it.sub.forEach(function(s) {
+            if (s.note) {
+              html += '<div class="rcp-row rcp-srow rcp-nrow"><span class="rcp-l">'+s.label+'</span>'
+                   +  '<span class="rcp-v"></span><span class="rcp-v"></span></div>';
+              return;
+            }
+            html += '<div class="rcp-row rcp-srow"><span class="rcp-l">'+s.label+'</span>';
+            html += '<span class="rcp-v mono" data-kind="once">'+(s.free?'<em class="rcp-free">'+L.inclFree+'</em>':(s.elders?'<em class="rcp-free">'+L.inPhase.replace("{f}", s.elders)+'</em>':(s.once>0?eur(s.once):"")))+'</span>';
+            html += '<span class="rcp-v mono" data-kind="mo">'+(s.free?"":(s.mo>0?eur(s.mo)+L.mo:""))+'</span></div>';
+          });
+        }
+        html += '</div>';
+      });
+      html += '<div class="rcp-row rcp-tot"><span class="rcp-l">'+L.totalWord+'</span>'+'<span class="rcp-v mono" data-kind="once">'+(r.onRequest?L.onRequest:(r.once>0?eur(r.once)+' '+L.onceShort:''))+'</span>'+'<span class="rcp-v mono" data-kind="mo">'+(r.mo>0?eur(r.mo)+L.mo:'')+'</span></div>';
+      html += '</div>';
+    }
+    if (!r.nothing) {
+      html += '<button class="btn-cta" onclick="window.open(\'https://calendar.google.com/calendar/appointments/schedules/AcZssZ1Dfb1ZunCYFgPNrvuYKMIgVBy9Qgv9xlcxkSOnEbvnaWWSUeKQ_fTzv4gSHQfmkJm3LmL93Tk7\',\'_blank\')">'+L.cta+' \u2192</button>';
+    }
+    html += navBtns(true, false);
+    html += '</div>';
+  }
+
+  // Running total bar
+  var running = "";
+  if (r.onRequest) {
+    running = L.onRequest;
+  } else if (!r.nothing) {
+    var parts = [];
+    if (r.once > 0) parts.push(eur(r.once) + " " + L.onceShort);
+    if (r.mo   > 0) parts.push(eur(r.mo) + L.mo);
+    if (parts.length) running = L.totalFrom + " " + parts.join(" \u00B7 ");
+  }
+  html += '<div class="calc-running-bar"><div class="calc-running mono">'+running+'</div></div>';
+
+  body.innerHTML = html;
+}
+
+function navBtns(back, next) {
+  var h = '<div class="calc-nav">';
+  if (back) h += '<button class="btn btn-secondary" onclick="goStep('+(S.step-1)+')">'+L.back+'</button>';
+  if (next) {
+    // Without a type there is nothing to configure on the next step.
+    var ready = S.types.campagne || S.types.ai;
+    h += '<button class="btn btn-primary'+(ready?"":" is-disabled")+'"'
+      +  (ready ? ' onclick="goStep('+(S.step+1)+')"' : ' disabled aria-disabled="true"')
+      +  '>'+L.next+'</button>';
+  }
+  if (!next && S.step > 0) h += '<button class="btn btn-ghost" onclick="goStep(0)">'+L.startOver+'</button>';
+  h += '</div>';
+  return h;
+}
+
+function goStep(i) {
+  S.step = Math.max(0, Math.min(STEPS.length-1, i));
+  renderCalc();
+  document.getElementById("calculator").scrollIntoView({behavior:"smooth",block:"start"});
+}
+function toggleType(k)  { S.types[k]  = !S.types[k];  renderCalc(); }
+function togglePhase(k) { S.phases[k] = !S.phases[k]; renderCalc(); }
+function toggleCat(k)   { S.cats[k]   = !S.cats[k];   renderCalc(); }
+function toggleSub(k)   { S.subs[k]   = !S.subs[k];   renderCalc(); }
+function toggleDel(k)   { S.dels[k]   = !S.dels[k];   renderCalc(); }
+function toggleOpt(k)   { S.opts[k]   = !S.opts[k];   renderCalc(); }
+function setAppKind(k)  { S.appKind   = k;             renderCalc(); }
+function toggleRow(label){ S.openRows[label] = !S.openRows[label]; renderCalc(); }
+
+renderCalc();
+
+
+// ── FUNNEL VIZ ────────────────────────────────────────────────────────
+(function() {
+  var stages = [
+    { k:"Aware",      goal:"From unknown to aware, among general and in-market audiences.",   example:"A punchy video hook on YouTube and TikTok that hits the problem within three seconds." },
+    { k:"Engaged",    goal:"From aware to engaged.",                                           example:"Retarget viewers with a free checklist or tool that delivers value straight away." },
+    { k:"Nudged",     goal:"From engaged to convinced.",                                       example:"Show reviews and a concrete case on your landing page, with a sharp comparison." },
+    { k:"Signed",     goal:"From convinced to conversion.",                                       example:"Remove friction with a short checkout and a temporary bonus for paying straight away." },
+    { k:"Loyal",      goal:"From conversion to loyal.",                                          example:"An automated email onboarding flow that gets the product paying off in the first week." },
+    { k:"Ambassador", goal:"From loyal to ambassador.",                                        example:"A referral campaign in which customers get a discount for every new customer they bring in." }
+  ];
+  var W=1000, N=stages.length, segW=W/N, CY=180;
+  var HALF=[175,140,102,66,39,80,118];
+  function topY(i){return CY-HALF[i];}
+  function botY(i){return CY+HALF[i];}
+  var bnd=HALF.map(function(_,i){return i;});
+  function makePath(pts){return "M"+pts.map(function(p){return p[0]+","+p[1];}).join(" L");}
+
+  var topPts=bnd.map(function(i){return [i*segW,topY(i)];});
+  var botPts=bnd.map(function(i){return [i*segW,botY(i)];});
+  var perim=makePath(topPts)+" L"+[...bnd].reverse().map(function(i){return i*segW+","+botY(i);}).join(" L")+" Z";
+
+  document.getElementById("fnl-outline").setAttribute("d", perim);
+  document.getElementById("fnl-top").setAttribute("d", makePath(topPts));
+  document.getElementById("fnl-bot").setAttribute("d", makePath(botPts));
+
+  var active = null;
+  var segsEl = document.getElementById("fnl-segs");
+  stages.forEach(function(st, i) {
+    var x0=i*segW, x1=(i+1)*segW, cx=(x0+x1)/2;
+    var d="M"+x0+","+topY(i)+" L"+x1+","+topY(i+1)+" L"+x1+","+botY(i+1)+" L"+x0+","+botY(i)+" Z";
+    var g=document.createElementNS("http://www.w3.org/2000/svg","g");
+    g.setAttribute("class","fnl-seg");
+    g.setAttribute("tabindex","0");
+    g.setAttribute("role","button");
+    g.setAttribute("aria-label",st.k);
+    g.innerHTML='<path class="fnl-slice" d="'+d+'"/><text class="fnl-letter" x="'+cx+'" y="'+CY+'" text-anchor="middle" dominant-baseline="central">'+st.k.charAt(0)+'</text>';
+    g.addEventListener("click", function() {
+      active = (active===i)?null:i;
+      document.querySelectorAll(".fnl-seg").forEach(function(s,j){s.classList.toggle("on",j===active);});
+      renderDesc();
+    });
+    segsEl.appendChild(g);
+  });
+
+  function renderDesc() {
+    var el=document.getElementById("fnl-desc");
+    if (active===null) {
+      el.innerHTML='<span class="fnl-desc-hint">Tap a stage</span>';
+    } else {
+      var s=stages[active];
+      el.innerHTML='<div class="fnl-phase-name">'+s.k+'</div><p class="fnl-phase-body">'+s.goal+'</p><p class="fnl-phase-example"><em>Example:</em> '+s.example+'</p>';
+    }
+  }
+
+})();
+
+
+</script>
+</body>
+</html>

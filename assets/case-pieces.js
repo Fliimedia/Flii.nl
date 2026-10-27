@@ -112,7 +112,7 @@
       huidig = pos;
       item.classList.add('is-actief');
       link.setAttribute('href', item.dataset.url);
-      link.setAttribute('aria-label', 'Bekijk de case ' + item.dataset.titel);
+      link.setAttribute('aria-label', (/^\/en(\/|$)/.test(location.pathname) ? 'View the case ' : 'Bekijk de case ') + item.dataset.titel);
       wortel.style.setProperty('--cp-kleur', item.dataset.kleur || '#E8294A');
 
       if (rustig) { obj.zetBeeld(item.dataset.beeld); bezig = false; return; }
@@ -162,7 +162,7 @@
 
     eerste.classList.add('is-actief');
     link.setAttribute('href', eerste.dataset.url);
-    link.setAttribute('aria-label', 'Bekijk de case ' + eerste.dataset.titel);
+    link.setAttribute('aria-label', (/^\/en(\/|$)/.test(location.pathname) ? 'View the case ' : 'Bekijk de case ') + eerste.dataset.titel);
     wortel.style.setProperty('--cp-kleur', eerste.dataset.kleur || '#E8294A');
   }
 
