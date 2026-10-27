@@ -1259,7 +1259,10 @@ img { display: block; max-width: 100%; }
   pointer-events: none;
   z-index: 990;
   border-top: 1px solid rgba(255,255,255,0.25);
+  transition: opacity .25s;
 }
+/* Onderaan de pagina geen waas over de footer. */
+.sticky-bar.uit { opacity: 0; }
 
 
 /* ── CASE CARDS ── */
@@ -1941,7 +1944,7 @@ details.faq-item[open] .faq-answer {
 }
 
 /* Bento grid: two tiles side by side on mobile */
-.footer-bento{display:grid;grid-template-columns:1fr 1fr 1fr;gap:10px;margin-bottom:10px;padding-bottom:80px;}
+.footer-bento{display:grid;grid-template-columns:1fr 1fr 1fr;gap:10px;margin-bottom:10px;}
 
 /* Tile: brand info */
 .footer-tile{background:#F9F8F6;border-radius:12px;padding:14px 14px 12px;display:flex;flex-direction:column;align-items:center;text-align:center;}
@@ -2056,7 +2059,7 @@ details.faq-item[open] .faq-answer {
 .footer-tile-bottom{grid-column:1/-1;display:flex;flex-direction:column;align-items:center;gap:8px;padding:10px 14px;}
 .footer-legal{display:flex;gap:10px;flex-wrap:wrap;align-items:center;justify-content:center;}
 /* Add bottom padding to clear sticky bar */
-.footer-bento{display:grid;grid-template-columns:1fr 1fr 1fr;gap:10px;margin-bottom:10px;padding-bottom:80px;}
+.footer-bento{display:grid;grid-template-columns:1fr 1fr 1fr;gap:10px;margin-bottom:10px;}
 
 .service-tag-link.active 
 
@@ -2745,7 +2748,7 @@ nav.nav{background:#fff !important;color:#0F0E0C !important;max-width:none !impo
 <link rel="stylesheet" href="/assets/case-pieces.css?v=3">
 <script defer src="/assets/case-pieces.js?v=4"></script>
 
-<link rel="stylesheet" href="/assets/footer.css?v=20261017n">
+<link rel="stylesheet" href="/assets/footer.css?v=20261027d">
 
 <!-- Default consent vóór GTM -->
 
@@ -3711,6 +3714,14 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 
 <!-- STICKY BAR — transparent brand fade -->
 <div class="sticky-bar" id="sticky-bar"></div>
+<script>
+(function () {
+  var bar = document.getElementById('sticky-bar');
+  var eind = document.querySelector('.footer-tile-bottom');
+  if (!bar || !eind || !('IntersectionObserver' in window)) return;
+  new IntersectionObserver(function (e) { bar.classList.toggle('uit', e[0].isIntersecting); }).observe(eind);
+})();
+</script>
 
 <script>
 // Signature: nav wordmark reveal on load
