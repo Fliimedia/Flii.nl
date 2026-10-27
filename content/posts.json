@@ -272,7 +272,9 @@
       "status": "inplannen",
       "linkedinFirstComment": "Verder lezen → https://flii.nl/platform-app-development",
       "socialImage": "/assets/social/platform-app-development-v3.jpg",
-      "socialImage4x5": "/assets/social/platform-app-development-v3.jpg"
+      "socialImage4x5": "/assets/social/platform-app-development-v3.jpg",
+      "storyImage": "/assets/social/story-platform-app-development.jpg",
+      "storyTime": "10:30"
     },
     {
       "id": 13,
@@ -297,7 +299,9 @@
       "status": "ingepland",
       "linkedinFirstComment": "Verder lezen → https://flii.app/demo",
       "socialImage": "/assets/social/demo-dashboard-v2.jpg",
-      "socialImage4x5": "/assets/social/demo-dashboard-v2.jpg"
+      "socialImage4x5": "/assets/social/demo-dashboard-v2.jpg",
+      "storyImage": "/assets/social/story-demo-dashboard.jpg",
+      "storyTime": "10:30"
     },
     {
       "id": 14,
@@ -322,7 +326,9 @@
       "status": "live, inplannen",
       "linkedinFirstComment": "Verder lezen → https://flii.nl/insight/black-friday-checklist-campagnes",
       "socialImage": "/assets/social/black-friday-checklist-campagnes.jpg",
-      "socialImage4x5": "/assets/social/black-friday-checklist-campagnes.jpg"
+      "socialImage4x5": "/assets/social/black-friday-checklist-campagnes.jpg",
+      "storyImage": "/assets/social/story-black-friday-checklist-campagnes.jpg",
+      "storyTime": "10:30"
     },
     {
       "id": 15,
@@ -347,7 +353,9 @@
       "status": "ingepland",
       "linkedinFirstComment": "Verder lezen → https://flii.nl/cases/de-buurt/week-tegen-eenzaamheid",
       "socialImage": "/assets/social/week-tegen-eenzaamheid-v2.jpg",
-      "socialImage4x5": "/assets/social/week-tegen-eenzaamheid-v2.jpg"
+      "socialImage4x5": "/assets/social/week-tegen-eenzaamheid-v2.jpg",
+      "storyImage": "/assets/social/story-week-tegen-eenzaamheid.jpg",
+      "storyTime": "10:30"
     },
     {
       "id": 16,
@@ -372,7 +380,9 @@
       "status": "live, inplannen",
       "linkedinFirstComment": "Verder lezen → https://flii.nl/insight/mediabudget-optimaal-verdelen",
       "socialImage": "/assets/social/mediabudget-optimaal-verdelen.jpg",
-      "socialImage4x5": "/assets/social/mediabudget-optimaal-verdelen.jpg"
+      "socialImage4x5": "/assets/social/mediabudget-optimaal-verdelen.jpg",
+      "storyImage": "/assets/social/story-mediabudget-optimaal-verdelen.jpg",
+      "storyTime": "10:30"
     },
     {
       "id": 17,
@@ -423,7 +433,9 @@
       "status": "ingepland",
       "linkedinFirstComment": "Verder lezen → https://flii.nl/kennisbank",
       "socialImage": "/assets/social/kennisbank-v2.jpg",
-      "socialImage4x5": "/assets/social/kennisbank-v2.jpg"
+      "socialImage4x5": "/assets/social/kennisbank-v2.jpg",
+      "storyImage": "/assets/social/story-kennisbank.jpg",
+      "storyTime": "10:30"
     },
     {
       "id": 19,
@@ -448,7 +460,9 @@
       "status": "live, inplannen",
       "linkedinFirstComment": "Verder lezen → https://flii.nl/insight/founder-as-a-brand",
       "socialImage": "/assets/social/founder-as-a-brand.jpg",
-      "socialImage4x5": "/assets/social/founder-as-a-brand.jpg"
+      "socialImage4x5": "/assets/social/founder-as-a-brand.jpg",
+      "storyImage": "/assets/social/story-founder-as-a-brand.jpg",
+      "storyTime": "10:30"
     },
     {
       "id": 20,
@@ -509,7 +523,9 @@
       "status": "ingepland",
       "linkedinFirstComment": "Verder lezen → https://flii.nl/cases/bikefair",
       "socialImage": "/assets/social/bikefair.jpg",
-      "socialImage4x5": "/assets/social/bikefair.jpg"
+      "socialImage4x5": "/assets/social/bikefair.jpg",
+      "storyImage": "/assets/social/story-bikefair.jpg",
+      "storyTime": "10:30"
     },
     {
       "id": 22,
@@ -585,7 +601,9 @@
       "status": "live, inplannen",
       "linkedinFirstComment": "Verder lezen → https://flii.nl/insight/server-side-tracking",
       "socialImage": "/assets/social/server-side-tracking.jpg",
-      "socialImage4x5": "/assets/social/server-side-tracking.jpg"
+      "socialImage4x5": "/assets/social/server-side-tracking.jpg",
+      "storyImage": "/assets/social/story-server-side-tracking.jpg",
+      "storyTime": "10:30"
     },
     {
       "id": 25,
